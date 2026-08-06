@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>指标库 · 岗位中心</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .indicator-category-tree { width:208px; flex:0 0 208px; padding:14px 12px; position:sticky; top:72px; align-self:stretch; background:var(--list-rail-surface); border:0; border-radius:10px; box-shadow:inset -1px 0 var(--hairline) !important; }
+  .indicator-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
+  .indicator-category-tree .ctp-head .ctp-title { font-size:12px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
+  .ctp-head .icon-btn { width:28px; height:28px; }
+  .indicator-category-tree .cat-tree-item { display:flex; width:100%; min-height:40px; align-items:center; justify-content:space-between; margin:1px 0; padding:8px 10px; border:0; border-radius:6px; font-size:13px; color:var(--neutral-600); cursor:pointer; transition:color .15s ease-out,background-color .15s ease-out; position:relative; }
+  .indicator-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
+  .indicator-category-tree .cat-tree-item.active { background:transparent; color:var(--primary-700); font-weight:500; }
+  .indicator-category-tree .cat-tree-item.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:2px; background:var(--primary-600); border-radius:2px; }
+  .indicator-category-tree .cat-tree-item .cti-count { margin-left:12px; font-size:12px; color:var(--neutral-500); }
+  .indicator-category-tree .cat-tree-item.active .cti-count { color:var(--primary-600); }
+  .cat-layout { display:flex; gap:var(--space-md); align-items:flex-start; }
+  .cat-main { flex:1; min-width:0; }
+  .catmgr-row { display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--neutral-100); }
+  .catmgr-row:last-child { border:none; }
+  .catmgr-row .cmr-name { flex:1; font-size:14px; font-weight:500; }
+  .catmgr-row .cmr-edit-input { flex:1; }
+</style>
+</head>
+<body data-module="standard" data-page="vocabulary">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item active" data-page="vocabulary" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库 <span style="font-size:10px;color:var(--neutral-400);margin-left:auto">暂缓</span></a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb">岗位中心<span class="sep">/</span>定标 · 标准建模<span class="sep">/</span><span class="cur">指标库</span></div>
+
+      <div class="card" data-tabs>
+        <div class="tab-btns">
+          <button class="tab-btn active" data-tab="cap">能力</button>
+          <button class="tab-btn" data-tab="mot">动力</button>
+          <button class="tab-btn" data-tab="pot">潜力</button>
+        </div>
+
+        <!-- ========== 能力 ========== -->
+        <div class="tab-panel show" data-tab="cap">
+          <div class="card-body">
+            <div class="cat-layout">
+              <div class="cat-tree-panel indicator-category-tree" id="cap-tree">
+                <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" data-open="drawer-catmgr-cap" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
+                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">5</span></button>
+                <button class="cat-tree-item" type="button" data-cat="通用能力"><span>通用能力</span><span class="cti-count">2</span></button>
+                <button class="cat-tree-item" type="button" data-cat="专业能力"><span>专业能力</span><span class="cti-count">2</span></button>
+                <button class="cat-tree-item" type="button" data-cat="领导力"><span>领导力</span><span class="cti-count">1</span></button>
+              </div>
+              <div class="cat-main">
+                <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-cap-search></div><div class="actions"><button class="btn btn-primary" data-cap-query>查询</button><button class="btn btn-secondary" data-cap-reset>重置</button></div></div>
+                <div class="flex between center mb-md"><button class="btn btn-primary" data-open="drawer-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建能力</button></div>
+                <div class="table-wrap"><table class="t" id="cap-table">
+                  <thead><tr><th>名称</th><th>类别</th><th>描述</th><th>分级</th><th>等级数</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody>
+                    <tr data-cat="通用能力"><td><b>沟通</b></td><td>通用能力</td><td class="muted">清晰传达、倾听与达成共识</td><td><span class="tag tag-success">分级</span></td><td>5</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+                    <tr data-cat="通用能力"><td><b>问题分析</b></td><td>通用能力</td><td class="muted">识别、拆解并厘清问题</td><td><span class="tag tag-success">分级</span></td><td>5</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+                    <tr data-cat="专业能力"><td><b>系统架构</b></td><td>专业能力</td><td class="muted">系统设计与技术决策</td><td><span class="tag tag-success">分级</span></td><td>5</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+                    <tr data-cat="领导力"><td><b>团队管理</b></td><td>领导力</td><td class="muted">带领团队达成目标</td><td><span class="tag tag-success">分级</span></td><td>4</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+                    <tr data-cat="专业能力"><td><b>技术选型</b></td><td>专业能力</td><td class="muted">技术方案比较与决策</td><td><span class="tag tag-draft">关键行为</span></td><td>—</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+                  </tbody>
+                </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 5 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== 动力 ========== -->
+        <div class="tab-panel" data-tab="mot">
+          <div class="card-body">
+            <div class="cat-layout">
+              <div class="cat-tree-panel indicator-category-tree" id="mot-tree">
+                <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" data-open="drawer-catmgr-mot" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
+                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">28</span></button>
+                <button class="cat-tree-item" type="button" data-cat="成就与发展"><span>成就与发展</span><span class="cti-count">8</span></button>
+                <button class="cat-tree-item" type="button" data-cat="关系与利他"><span>关系与利他</span><span class="cti-count">6</span></button>
+                <button class="cat-tree-item" type="button" data-cat="价值与意义"><span>价值与意义</span><span class="cti-count">6</span></button>
+                <button class="cat-tree-item" type="button" data-cat="安全与平衡"><span>安全与平衡</span><span class="cti-count">8</span></button>
+              </div>
+              <div class="cat-main">
+                <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-mot-search></div><div class="actions"><button class="btn btn-primary" data-mot-query>查询</button><button class="btn btn-secondary" data-mot-reset>重置</button></div></div>
+                <div class="flex between center mb-md"><span class="text-sm muted">内置 28 条 · 不分级（特质，高低由测评体现）</span></div>
+                <div class="table-wrap"><table class="t" id="mot-table">
+                  <thead><tr><th>名称</th><th>类别</th><th>描述</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody>
+                    <tr data-cat="成就与发展"><td><b>成就结果</b></td><td>成就与发展</td><td class="muted">追求把事情做成、达成可衡量成就</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>挑战难度</b></td><td>成就与发展</td><td class="muted">追求有难度的目标与挑战</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>学习成长</b></td><td>成就与发展</td><td class="muted">追求新知识与新技能的获取</td><td class="ops" style="justify:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>职位发展</b></td><td>成就与发展</td><td class="muted">追求职级晋升与职业发展</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>专业理论</b></td><td>成就与发展</td><td class="muted">追求专业领域的理论深度</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>探索发现</b></td><td>成就与发展</td><td class="muted">追求探索未知与发现新事物</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>创新变化</b></td><td>成就与发展</td><td class="muted">追求变革创新与推陈出新</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="成就与发展"><td><b>身份地位</b></td><td>成就与发展</td><td class="muted">追求社会身份与地位认可</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>回报关系</b></td><td>关系与利他</td><td class="muted">追求互惠互利的人际关系</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>社交关系</b></td><td>关系与利他</td><td class="muted">追求广泛社交与人脉拓展</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>亲密关系</b></td><td>关系与利他</td><td class="muted">追求深度的亲密人际连接</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>利他为善</b></td><td>关系与利他</td><td class="muted">追求帮助他人与利他行为</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>认可肯定</b></td><td>关系与利他</td><td class="muted">追求他人认可与正向反馈</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="关系与利他"><td><b>影响说服</b></td><td>关系与利他</td><td class="muted">追求影响他人与说服能力</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>商业价值</b></td><td>价值与意义</td><td class="muted">追求创造商业价值与回报</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>情怀意义</b></td><td>价值与意义</td><td class="muted">追求事业情怀与深层意义</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>责任担当</b></td><td>价值与意义</td><td class="muted">追求承担责任的使命感</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>原则秩序</b></td><td>价值与意义</td><td class="muted">追求原则性与秩序感</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>传统规矩</b></td><td>价值与意义</td><td class="muted">尊重传统与既有规矩</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="价值与意义"><td><b>美感浪漫</b></td><td>价值与意义</td><td class="muted">追求审美与浪漫体验</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>安全稳定</b></td><td>安全与平衡</td><td class="muted">追求安全与稳定的环境</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>生存保障</b></td><td>安全与平衡</td><td class="muted">追求基本生存与经济保障</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>生活平衡</b></td><td>安全与平衡</td><td class="muted">追求工作与生活的平衡</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>身体健康</b></td><td>安全与平衡</td><td class="muted">追求身体健康与活力</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>权力控制</b></td><td>安全与平衡</td><td class="muted">追求对资源与人的控制力</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>自主自由</b></td><td>安全与平衡</td><td class="muted">追求自主决策与行动自由</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>竞争比较</b></td><td>安全与平衡</td><td class="muted">追求在竞争中胜出与比较优势</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="安全与平衡"><td><b>开放程度</b></td><td>安全与平衡</td><td class="muted">追求开放包容与新体验</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                  </tbody>
+                </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 28 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== 潜力 ========== -->
+        <div class="tab-panel" data-tab="pot">
+          <div class="card-body">
+            <div class="cat-layout">
+              <div class="cat-tree-panel indicator-category-tree" id="pot-tree">
+                <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" data-open="drawer-catmgr-pot" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
+                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">60</span></button>
+                <button class="cat-tree-item" type="button" data-cat="思维方式"><span>思维方式</span><span class="cti-count">22</span></button>
+                <button class="cat-tree-item" type="button" data-cat="人际互动"><span>人际互动</span><span class="cti-count">19</span></button>
+                <button class="cat-tree-item" type="button" data-cat="自我情绪"><span>自我情绪</span><span class="cti-count">19</span></button>
+              </div>
+              <div class="cat-main">
+                <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-pot-search></div><div class="actions"><button class="btn btn-primary" data-pot-query>查询</button><button class="btn btn-secondary" data-pot-reset>重置</button></div></div>
+                <div class="flex between center mb-md"><span class="text-sm muted">内置 20 条 · 不分级（特质，高低由测评体现）</span></div>
+                <div class="table-wrap"><table class="t" id="pot-table">
+                  <thead><tr><th>名称</th><th>类别</th><th>描述</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody>
+                    <tr data-cat="思维方式"><td><b>计划性</b></td><td>思维方式</td><td class="muted">做事有计划、有条理</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>分析性</b></td><td>思维方式</td><td class="muted">善于分析问题、逻辑推理</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>结构性</b></td><td>思维方式</td><td class="muted">思维有结构、有层次</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>创新性</b></td><td>思维方式</td><td class="muted">思维灵活、有创造力</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>前瞻性</b></td><td>思维方式</td><td class="muted">有长远眼光与前瞻思考</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>好奇心</b></td><td>思维方式</td><td class="muted">对新事物有强烈好奇心</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>批判性</b></td><td>思维方式</td><td class="muted">善于批判性思考与质疑</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="思维方式"><td><b>严谨性</b></td><td>思维方式</td><td class="muted">思维严密、注重细节</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>同理性</b></td><td>人际互动</td><td class="muted">善于理解他人感受</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>影响性</b></td><td>人际互动</td><td class="muted">善于影响和带动他人</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>亲和性</b></td><td>人际互动</td><td class="muted">待人亲切、容易亲近</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>信任性</b></td><td>人际互动</td><td class="muted">容易信任他人</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>支配性</b></td><td>人际互动</td><td class="muted">在群体中倾向于主导</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="人际互动"><td><b>乐群性</b></td><td>人际互动</td><td class="muted">喜欢群体活动与社交</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>自信性</b></td><td>自我情绪</td><td class="muted">对自己有信心</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>适应性</b></td><td>自我情绪</td><td class="muted">适应环境变化</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>坚韧性</b></td><td>自我情绪</td><td class="muted">在困难中坚持不懈</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>自律性</b></td><td>自我情绪</td><td class="muted">自我约束与管理</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>乐观性</b></td><td>自我情绪</td><td class="muted">心态积极乐观</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                    <tr data-cat="自我情绪"><td><b>进取性</b></td><td>自我情绪</td><td class="muted">有进取心与上进动力</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-trait">查看</button></td></tr>
+                  </tbody>
+                </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 60 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 类别管理：能力、动力、潜力共用同一套结构和交互 -->
+<div class="drawer category-manager" id="drawer-catmgr-cap">
+  <div class="m-head"><h3>类别管理 · 能力</h3><button class="icon-close" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="catmgr-create"><input class="input" data-catmgr-new maxlength="20" placeholder="输入类别名称" aria-label="新增能力类别名称"><button class="btn btn-primary" type="button" data-catmgr-add>新增类别</button></div>
+    <div class="catmgr-table-head"><span>类别名称</span><span>内容数</span><span>操作</span></div>
+    <div data-catmgr-list>
+      <div class="catmgr-row"><span class="cmr-name">通用能力</span><span class="cmr-count">2 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">专业能力</span><span class="cmr-count">2 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">领导力</span><span class="cmr-count">1 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<div class="drawer category-manager" id="drawer-catmgr-mot">
+  <div class="m-head"><h3>类别管理 · 动力</h3><button class="icon-close" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="catmgr-create"><input class="input" data-catmgr-new maxlength="20" placeholder="输入类别名称" aria-label="新增动力类别名称"><button class="btn btn-primary" type="button" data-catmgr-add>新增类别</button></div>
+    <div class="catmgr-table-head"><span>类别名称</span><span>内容数</span><span>操作</span></div>
+    <div data-catmgr-list>
+      <div class="catmgr-row"><span class="cmr-name">成就与发展</span><span class="cmr-count">8 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">关系与利他</span><span class="cmr-count">6 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">价值与意义</span><span class="cmr-count">6 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">安全与平衡</span><span class="cmr-count">8 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<div class="drawer category-manager" id="drawer-catmgr-pot">
+  <div class="m-head"><h3>类别管理 · 潜力</h3><button class="icon-close" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="catmgr-create"><input class="input" data-catmgr-new maxlength="20" placeholder="输入类别名称" aria-label="新增潜力类别名称"><button class="btn btn-primary" type="button" data-catmgr-add>新增类别</button></div>
+    <div class="catmgr-table-head"><span>类别名称</span><span>内容数</span><span>操作</span></div>
+    <div data-catmgr-list>
+      <div class="catmgr-row"><span class="cmr-name">思维方式</span><span class="cmr-count">22 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">人际互动</span><span class="cmr-count">19 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">自我情绪</span><span class="cmr-count">19 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<!-- 能力词条编辑 -->
+<div class="drawer wide ability-editor" id="drawer-cap">
+  <div class="m-head"><h3>编辑能力</h3><button class="icon-close" type="button" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <form id="ability-editor-form">
+      <section class="ability-form-section">
+        <h4>基本信息</h4>
+        <div class="ability-basic-form">
+          <div class="ability-form-row"><label for="ability-name">名称</label><input class="input" id="ability-name" value="系统架构" autocomplete="off" spellcheck="false"></div>
+          <div class="ability-form-row"><label for="ability-category"><span class="req">*</span>类别</label><select class="select" id="ability-category" required><option>通用能力</option><option selected>专业能力</option><option>领导力</option></select></div>
+          <div class="ability-form-row"><label for="ability-dimension"><span class="req">*</span>维度</label><select class="select" id="ability-dimension" required><option selected>知识</option><option>技能</option><option>行为</option></select></div>
+          <div class="ability-form-row ability-form-row-top"><label for="ability-definition">定义</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-definition" rows="4" maxlength="1000">能够从业务目标与技术约束出发，完成系统结构设计与关键技术决策。</textarea><span class="ability-char-count" data-count-for="ability-definition">36/1000</span></div></div>
+        </div>
+      </section>
+      <section class="ability-form-section">
+        <h4>等级描述</h4>
+        <div class="ability-level-editor">
+          <div class="ability-level-tabs" role="tablist" aria-label="能力等级">
+            <button class="ability-level-tab active" type="button" role="tab" aria-selected="true" data-level="1" data-description="了解系统架构的基础概念与常用模式。" data-behavior="在指导下完成单一模块的结构设计，并按既定规范输出文档。">等级一</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="2" data-description="掌握常见架构模式及其适用场景。" data-behavior="能够独立完成中小型模块设计，识别主要性能与稳定性风险。">等级二</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="3" data-description="能够结合业务需求完成子系统架构设计。" data-behavior="主导子系统方案评审，平衡交付效率、成本与可维护性。">等级三</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="4" data-description="能够负责复杂系统的总体架构与演进规划。" data-behavior="制定关键技术路线，解决跨系统的性能、稳定性与扩展性问题。">等级四</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="5" data-description="能够引领企业级架构能力建设。" data-behavior="形成组织级架构规范，推动关键平台建设并培养架构人才。">等级五</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="6" data-description="" data-behavior="">等级六</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="7" data-description="" data-behavior="">等级七</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="8" data-description="" data-behavior="">等级八</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="9" data-description="" data-behavior="">等级九</button>
+            <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="10" data-description="" data-behavior="">等级十</button>
+          </div>
+          <div class="ability-level-fields" role="tabpanel">
+            <div class="ability-form-row ability-form-row-top"><label for="ability-level-description">分级描述</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-description" rows="5" maxlength="1000">了解系统架构的基础概念与常用模式。</textarea><span class="ability-char-count" data-count-for="ability-level-description">18/1000</span></div></div>
+            <div class="ability-form-row ability-form-row-top"><label for="ability-level-behavior">行为表现</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-behavior" rows="5" maxlength="1000">在指导下完成单一模块的结构设计，并按既定规范输出文档。</textarea><span class="ability-char-count" data-count-for="ability-level-behavior">27/1000</span></div></div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="submit" form="ability-editor-form" data-close>保存</button></div>
+</div>
+
+<!-- 动力/潜力词条编辑 -->
+<div class="drawer" id="drawer-trait"><div class="m-head"><h3>查看词条</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>名称</label><input class="input" value="成就结果" disabled></div><div class="field"><label>类别</label><select class="select" disabled><option>成就与发展</option><option>关系与利他</option><option>价值与意义</option><option>安全与平衡</option></select></div><div class="field"><label>描述</label><textarea class="input" rows="3" disabled>追求把事情做成、达成结果与可衡量成就的倾向。</textarea></div><div class="hint-box mt-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg><span>动力 / 潜力为稳定特质，不分级；高低由评鉴中心测评体现。</span></div></div><div class="m-foot"><button class="btn btn-primary" data-close>关闭</button></div></div>
+
+<script src="app.js"></script>
+<script>
+  // 通用：类别树点击筛选 + 搜索 + 重置 + 分页（pageSize>0 时启用）
+  function initCatTree(treeId, tableId, searchAttr, queryAttr, resetAttr, pageSize) {
+    var tree = document.getElementById(treeId);
+    var tbl = document.getElementById(tableId);
+    if (!tree || !tbl) return;
+    var rows = tbl.querySelectorAll('tbody tr');
+    var search = document.querySelector('[' + searchAttr + ']');
+    var size = pageSize || 0, page = 0;
+    var wrap = tbl.closest('.table-wrap');
+    var pag = wrap && wrap.nextElementSibling;
+    if (pag && !pag.classList.contains('pagination')) pag = null;
+
+    function matchedRows() {
+      var active = tree.querySelector('.cat-tree-item.active');
+      var cat = active ? active.dataset.cat : '全部';
+      var q = (search && search.value || '').trim().toLowerCase();
+      var out = [];
+      rows.forEach(function (r) {
+        if (!r.dataset.cat) return;
+        var catOk = cat === '全部' || r.dataset.cat === cat;
+        var qOk = !q || r.textContent.toLowerCase().indexOf(q) >= 0;
+        if (catOk && qOk) out.push(r);
+      });
+      return out;
+    }
+    function pagesOf(m) { return size ? Math.max(1, Math.ceil(m.length / size)) : 1; }
+    function render() {
+      var matched = matchedRows();
+      if (!size) { rows.forEach(function (r) { if (r.dataset.cat) r.style.display = 'none'; }); matched.forEach(function (r) { r.style.display = ''; }); return; }
+      var tp = pagesOf(matched);
+      if (page >= tp) page = tp - 1;
+      if (page < 0) page = 0;
+      var slice = matched.slice(page * size, page * size + size);
+      rows.forEach(function (r) { r.style.display = 'none'; });
+      slice.forEach(function (r) { r.style.display = ''; });
+      if (pag) {
+        var h = '<div class="pg-info">共 ' + matched.length + ' 条 · 每页 ' + size + ' 条</div><div class="pg-controls">';
+        h += '<button class="pg-btn ' + (page === 0 ? 'disabled' : '') + '" data-pg="prev">上一页</button>';
+        for (var i = 0; i < tp; i++) h += '<button class="pg-btn ' + (i === page ? 'active' : '') + '" data-pg="' + i + '">' + (i + 1) + '</button>';
+        h += '<button class="pg-btn ' + (page >= tp - 1 ? 'disabled' : '') + '" data-pg="next">下一页</button>';
+        h += '<span class="pg-jumper">前往 <input type="number" min="1" value="' + (page + 1) + '" data-pg-jump> 页</span></div>';
+        pag.innerHTML = h;
+      }
+    }
+    function go(p) { page = Math.max(0, Math.min(pagesOf(matchedRows()) - 1, p)); render(); }
+
+    tree.addEventListener('click', function (event) {
+      var item = event.target.closest('.cat-tree-item');
+      if (!item || !tree.contains(item)) return;
+      tree.querySelectorAll('.cat-tree-item').forEach(function (node) { node.classList.remove('active'); });
+      item.classList.add('active'); page = 0; render();
+    });
+    tree.addEventListener('categorytreechange', function () { page = 0; render(); });
+    var q = document.querySelector('[' + queryAttr + ']');
+    var rs = document.querySelector('[' + resetAttr + ']');
+    if (q) q.addEventListener('click', function () { page = 0; render(); });
+    if (rs) rs.addEventListener('click', function () {
+      if (search) search.value = '';
+      var items = tree.querySelectorAll('.cat-tree-item');
+      items.forEach(function (node) { node.classList.remove('active'); });
+      if (items[0]) items[0].classList.add('active');
+      page = 0; render();
+    });
+    if (search) search.addEventListener('input', function () { page = 0; render(); });
+    if (size && pag) {
+      pag.addEventListener('click', function (e) { var b = e.target.closest('[data-pg]'); if (!b) return; var v = b.dataset.pg; if (v === 'prev') go(page - 1); else if (v === 'next') go(page + 1); else go(parseInt(v, 10) || 0); });
+      pag.addEventListener('change', function (e) { var inp = e.target.closest('[data-pg-jump]'); if (!inp) return; go((parseInt(inp.value, 10) || 1) - 1); });
+    }
+    render();
+  }
+  initCatTree('cap-tree', 'cap-table', 'data-cap-search', 'data-cap-query', 'data-cap-reset');
+  initCatTree('mot-tree', 'mot-table', 'data-mot-search', 'data-mot-query', 'data-mot-reset', 10);
+  initCatTree('pot-tree', 'pot-table', 'data-pot-search', 'data-pot-query', 'data-pot-reset', 10);
+
+  // 通用：类别管理（增删改）
+  function initCatMgr(drawerId, treeId, tableId) {
+    var drawer = document.getElementById(drawerId);
+    if (!drawer) return;
+    var list = drawer.querySelector('[data-catmgr-list]');
+    var addBtn = drawer.querySelector('[data-catmgr-add]');
+    var newInput = drawer.querySelector('[data-catmgr-new]');
+    var tree = document.getElementById(treeId);
+    var tbl = document.getElementById(tableId);
+    if (!list || !tree || !tbl) return;
+
+    function refreshTree(preferredCat) {
+      var rows = list.querySelectorAll('.catmgr-row');
+      var active = tree.querySelector('.cat-tree-item.active');
+      var activeCat = preferredCat || (active && active.dataset.cat) || '全部';
+      var head = tree.querySelector('.ctp-head').outerHTML;
+      var total = 0, html = head;
+      var cats = [];
+      rows.forEach(function (r) {
+        var nameEl = r.querySelector('.cmr-name');
+        if (!nameEl) return;
+        var name = nameEl.textContent;
+        cats.push(name);
+        var count = tbl.querySelectorAll('tbody tr[data-cat="' + name + '"]').length;
+        total += count;
+      });
+      if (activeCat !== '全部' && cats.indexOf(activeCat) < 0) activeCat = '全部';
+      html += '<button class="cat-tree-item' + (activeCat === '全部' ? ' active' : '') + '" type="button" data-cat="全部"><span>全部</span><span class="cti-count">' + total + '</span></button>';
+      cats.forEach(function (c) {
+        var count = tbl.querySelectorAll('tbody tr[data-cat="' + c + '"]').length;
+        html += '<button class="cat-tree-item' + (activeCat === c ? ' active' : '') + '" type="button" data-cat="' + c + '"><span>' + c + '</span><span class="cti-count">' + count + '</span></button>';
+      });
+      tree.innerHTML = html;
+      tree.dispatchEvent(new CustomEvent('categorytreechange'));
+    }
+
+    function addCategory() {
+      var name = newInput.value.trim();
+      if (!name) return;
+      var exists = false;
+      list.querySelectorAll('.cmr-name').forEach(function (el) { if (el.textContent === name) exists = true; });
+      if (exists) { alert('类别已存在'); return; }
+      var row = document.createElement('div');
+      row.className = 'catmgr-row';
+      row.innerHTML = '<span class="cmr-name"></span><span class="cmr-count">0 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span>';
+      row.querySelector('.cmr-name').textContent = name;
+      list.appendChild(row);
+      newInput.value = '';
+      refreshTree(name);
+    }
+
+    if (addBtn) addBtn.addEventListener('click', addCategory);
+    if (newInput) newInput.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') { event.preventDefault(); addCategory(); }
+    });
+
+    list.addEventListener('click', function (e) {
+      var del = e.target.closest('[data-catmgr-del]');
+      var edit = e.target.closest('[data-catmgr-edit]');
+      if (del) {
+        var row = del.closest('.catmgr-row');
+        var name = row.querySelector('.cmr-name').textContent;
+        var count = tbl.querySelectorAll('tbody tr[data-cat="' + name + '"]').length;
+        if (count > 0) { alert('该类别下有 ' + count + ' 个词条，请先移除或转移后再删除'); return; }
+        row.remove(); refreshTree();
+      }
+      if (edit) {
+        var row = edit.closest('.catmgr-row');
+        var editingInput = row.querySelector('.cmr-edit-input');
+        if (editingInput) {
+          var oldName = editingInput.dataset.oldName;
+          var newName = editingInput.value.trim();
+          var duplicate = false;
+          list.querySelectorAll('.cmr-name').forEach(function (nameNode) { if (nameNode.textContent === newName) duplicate = true; });
+          if (!newName || duplicate) { if (duplicate) alert('类别已存在'); return; }
+          tbl.querySelectorAll('tbody tr[data-cat="' + oldName + '"]').forEach(function (tr) { tr.dataset.cat = newName; tr.children[1].textContent = newName; });
+          var savedName = document.createElement('span'); savedName.className = 'cmr-name'; savedName.textContent = newName;
+          editingInput.replaceWith(savedName); edit.textContent = '编辑'; refreshTree(newName); return;
+        }
+        var nameEl = row.querySelector('.cmr-name');
+        if (nameEl) {
+          var currentName = nameEl.textContent;
+          var inp = document.createElement('input');
+          inp.className = 'input cmr-edit-input'; inp.value = currentName; inp.dataset.oldName = currentName;
+          nameEl.replaceWith(inp); edit.textContent = '保存'; inp.focus(); inp.select();
+        }
+      }
+    });
+  }
+  initCatMgr('drawer-catmgr-cap', 'cap-tree', 'cap-table');
+  initCatMgr('drawer-catmgr-mot', 'mot-tree', 'mot-table');
+  initCatMgr('drawer-catmgr-pot', 'pot-tree', 'pot-table');
+
+  // 能力等级切换
+  (function () {
+    var form = document.getElementById('ability-editor-form'), tabs = Array.from(document.querySelectorAll('.ability-level-tab')), description = document.getElementById('ability-level-description'), behavior = document.getElementById('ability-level-behavior');
+    if (!form || !tabs.length) return;
+    function updateCount(input){var count=document.querySelector('[data-count-for="'+input.id+'"]');if(count)count.textContent=input.value.length+'/1000'}
+    function storeActive(){var active=document.querySelector('.ability-level-tab.active');if(active){active.dataset.description=description.value;active.dataset.behavior=behavior.value}}
+    tabs.forEach(function(tab){tab.addEventListener('click',function(){storeActive();tabs.forEach(function(item){item.classList.remove('active');item.setAttribute('aria-selected','false')});tab.classList.add('active');tab.setAttribute('aria-selected','true');description.value=tab.dataset.description||'';behavior.value=tab.dataset.behavior||'';updateCount(description);updateCount(behavior)})});
+    form.querySelectorAll('textarea[maxlength]').forEach(function(input){updateCount(input);input.addEventListener('input',function(){updateCount(input)})});
+    form.addEventListener('submit',function(event){event.preventDefault();storeActive();showToast('能力已保存')});
+  })();
+</script>
+</body>
+</html>

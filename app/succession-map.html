@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>继任地图 · 人才中心</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .suc-card { background:var(--white); border:1px solid var(--neutral-200); border-radius:var(--radius-md); padding:var(--space-lg); cursor:pointer; transition:background-color .15s ease-out,border-color .15s ease-out,box-shadow .15s ease-out; }
+  .suc-card:hover { border-color:var(--primary-400); box-shadow:var(--shadow-md); }
+  .suc-card.sc-risk { border-color:var(--warning); }
+  .suc-graph { display:flex; align-items:center; gap:var(--space-lg); margin-top:var(--space-md); }
+  .suc-incumbent { width:120px; text-align:center; }
+  .suc-incumbent .si-box { background:var(--primary-600); color:#fff; border-radius:var(--radius-md); padding:10px; }
+  .suc-incumbent .si-name { font-weight:600; font-size:14px; }
+  .suc-incumbent .si-pos { font-size:11px; opacity:.85; }
+  .suc-arrow { color:var(--neutral-300); font-size:20px; }
+  .suc-cands { display:flex; gap:var(--space-sm); flex-wrap:wrap; }
+  .suc-cand { width:96px; text-align:center; }
+  .suc-cand .scd-box { border:1.5px solid; border-radius:var(--radius-md); padding:8px; }
+  .suc-cand.ready .scd-box { border-color:var(--success); background:var(--success-bg); }
+  .suc-cand.soon .scd-box { border-color:var(--warning); background:var(--warning-bg); }
+  .suc-cand.later .scd-box { border-color:var(--neutral-300); background:var(--neutral-50); }
+  .suc-cand .scd-name { font-size:13px; font-weight:500; }
+  .suc-cand .scd-prep { font-size:11px; color:var(--neutral-500); margin-top:2px; }
+</style>
+</head>
+<body data-module="talent" data-page="succession-map">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">人才档案</div>
+      <a class="nav-item" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才列表</a>
+      <a class="nav-item" data-page="talent-pool" href="talent-pool.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h6l2 3h4l2-3h6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/></svg>人才池</a>
+      <div class="group-label">继任</div>
+      <a class="nav-item active" data-page="succession-map" href="succession-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 7h4a3 3 0 0 1 3 3v4"/></svg>继任地图</a>
+      <div class="group-label">看板</div>
+      <a class="nav-item" data-page="org-dashboard" href="org-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg>组织看板</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb">人才中心<span class="sep">/</span><span class="cur">继任地图</span></div>
+
+      <div class="card" data-tabs>
+        <div class="tab-btns"><button class="tab-btn active" data-tab="pos">关键岗位继任</button><button class="tab-btn" data-tab="dept">部门继任</button></div>
+        <div class="tab-panel show card-body" data-tab="pos">
+          <div class="flex between center mb-md">
+            <button class="btn btn-primary" data-open="drawer-addpos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>添加关键岗位</button>
+            <span class="text-sm muted">准备度：就绪 / 1 年内 / 2 年内</span>
+          </div>
+          <div class="responsive-split" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:var(--space-md)">
+            <div class="suc-card" data-open="drawer-suc">
+              <div class="flex between center"><b>架构师</b><span class="tag tag-success">充足</span></div>
+              <div class="suc-graph">
+                <div class="suc-incumbent"><div class="si-box"><div class="si-name">张明</div><div class="si-pos">在职</div></div></div>
+                <span class="suc-arrow">→</span>
+                <div class="suc-cands">
+                  <div class="suc-cand ready"><div class="scd-box"><div class="scd-name">李华</div><div class="scd-prep">就绪</div></div></div>
+                  <div class="suc-cand soon"><div class="scd-box"><div class="scd-name">孙伟</div><div class="scd-prep">1 年内</div></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="suc-card sc-risk" data-open="drawer-suc">
+              <div class="flex between center"><b>区域销售总监</b><span class="tag tag-danger">风险</span></div>
+              <div class="suc-graph">
+                <div class="suc-incumbent"><div class="si-box"><div class="si-name">王芳</div><div class="si-pos">在职</div></div></div>
+                <span class="suc-arrow">→</span>
+                <div class="suc-cands"><div class="suc-cand soon"><div class="scd-box"><div class="scd-name">周强</div><div class="scd-prep">1 年内</div></div></div></div>
+              </div>
+              <div class="hint-box warn mt-md" style="padding:6px 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>继任者仅 1 名，存在风险。</span></div>
+            </div>
+            <div class="suc-card" data-open="drawer-suc">
+              <div class="flex between center"><b>后端开发工程师</b><span class="tag tag-warning">偏少</span></div>
+              <div class="suc-graph">
+                <div class="suc-incumbent"><div class="si-box"><div class="si-name">—</div><div class="si-pos">空缺</div></div></div>
+                <span class="suc-arrow">→</span>
+                <div class="suc-cands"><div class="suc-cand later"><div class="scd-box"><div class="scd-name">陈强</div><div class="scd-prep">2 年内</div></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-panel card-body" data-tab="dept">
+          <div class="text-sm muted mb-md">按部门查看关键岗位继任储备</div>
+          <div class="kpi-row">
+            <div class="kpi"><div class="label">研发中心</div><div class="value">3 / 5</div><div class="delta">关键岗位有继任</div></div>
+            <div class="kpi"><div class="label">销售中心</div><div class="value" style="color:var(--danger)">1 / 3</div><div class="delta">2 个岗位无继任</div></div>
+            <div class="kpi"><div class="label">职能中台</div><div class="value">2 / 2</div><div class="delta">全部覆盖</div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 继任者列表 -->
+<div class="drawer wide" id="drawer-suc">
+  <div class="m-head"><div><h3>架构师 · 继任者</h3><div class="text-sm muted">在职：张明</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="flex between center mb-md"><button class="btn btn-primary btn-sm" data-open="modal-addsucc">+ 添加继任者</button></div>
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th>继任者</th><th>现岗位</th><th>准备度</th><th>继任状态</th><th style="text-align:right">操作</th></tr></thead>
+      <tbody>
+        <tr><td>李华</td><td>算法工程师</td><td><select class="select btn-sm" style="height:28px;padding:2px 24px 2px 8px;font-size:12px"><option selected>就绪</option><option>1 年内</option><option>2 年内</option></select></td><td><select class="select btn-sm" style="height:28px;padding:2px 24px 2px 8px;font-size:12px"><option selected>第一继任</option><option>候选</option><option>备选</option></select></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger">移除</button></td></tr>
+        <tr><td>孙伟</td><td>高级开发工程师</td><td><select class="select btn-sm" style="height:28px;padding:2px 24px 2px 8px;font-size:12px"><option>就绪</option><option selected>1 年内</option><option>2 年内</option></select></td><td><select class="select btn-sm" style="height:28px;padding:2px 24px 2px 8px;font-size:12px"><option>第一继任</option><option selected>候选</option><option>备选</option></select></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger">移除</button></td></tr>
+      </tbody>
+    </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 5 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+  </div>
+</div>
+<!-- 添加继任者弹窗 -->
+<div class="modal" id="modal-addsucc"><div class="box"><div class="m-head"><h3>添加继任者</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>选择员工 <span class="req">*</span></label><select class="select"><option>孙伟 · 高级开发工程师</option><option>陈强 · 测试工程师</option><option>赵琳 · 财务分析经理</option></select></div><div class="flex gap-md" style="gap:var(--space-md)"><div class="field" style="flex:1"><label>准备度</label><select class="select"><option>就绪</option><option selected>1 年内</option><option>2 年内</option></select></div><div class="field" style="flex:1;margin-bottom:0"><label>继任状态</label><select class="select"><option>第一继任</option><option selected>候选</option><option>备选</option></select></div></div></div><div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>添加</button></div></div></div>
+<div class="drawer" id="drawer-addpos"><div class="m-head"><h3>添加关键岗位</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field" style="margin-bottom:0"><label>选择关键岗位</label><select class="select"><option>架构师</option><option>区域销售总监</option><option>大客户销售经理</option></select></div></div><div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>添加</button></div></div>
+
+<script src="app.js"></script>
+</body>
+</html>

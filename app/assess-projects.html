@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>360 评估 · 评鉴中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="assess" data-page="assess-projects">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn" title="通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <a class="nav-item active" data-page="assess-projects" href="assess-projects.html">360 评估</a>
+      <a class="nav-item" data-page="review-projects" href="review-projects.html">人才盘点</a>
+    </aside>
+
+    <main class="content">
+      <div class="list-workbench assess-project-workbench">
+        <section class="list-main">
+          <form class="filter-bar assess-project-filter" id="s360-filter" data-filter-bar>
+            <div class="field"><label for="s360-search">项目编号/名称</label><input class="input" id="s360-search" type="search" placeholder="请输入"></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" id="s360-reset" type="button">重置</button></div>
+          </form>
+
+          <div class="assess-project-actions" aria-label="项目操作">
+            <button class="btn btn-secondary assess-action-settings" type="button" aria-label="列表设置" data-toast="列表设置"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+            <a class="btn btn-secondary" href="assess-new.html">新建</a>
+            <button class="btn btn-secondary" type="button" data-selection-action disabled data-toast="已添加授权">添加授权</button>
+            <button class="btn btn-secondary" type="button" data-selection-action disabled data-toast="已移除授权">移除授权</button>
+            <button class="btn btn-secondary" type="button" data-selection-action disabled data-toast="已导出所选项目">导出已选项</button>
+            <button class="btn btn-secondary" type="button" data-toast="已导出当前查询结果">导出当前结果</button>
+          </div>
+
+          <div class="card">
+            <div class="table-wrap"><table class="t" id="s360-table">
+              <thead><tr><th class="check-cell"><input id="s360-check-all" type="checkbox" aria-label="全选当前页"></th><th>项目编号</th><th>项目名称</th><th>创建人</th><th>完成率</th><th>状态</th><th style="text-align:right">操作</th></tr></thead>
+              <tbody>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 202607105322223"></td><td>202607105322223</td><td><a class="table-link" href="assess-new.html?mode=edit">项目标题</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 202607104822363"></td><td>202607104822363</td><td><a class="table-link" href="assess-new.html?mode=edit">项目标题</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20260514561516709"></td><td>20260514561516709</td><td><a class="table-link" href="assess-new.html?mode=edit">项目标题</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 2025101312170349"></td><td>2025101312170349</td><td><a class="table-link" href="assess-new.html?mode=edit">销售序列领导力评估 S2</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20240906222251313"></td><td>20240906222251313</td><td><a class="table-link" href="assess-detail.html">销售序列领导力评估 S2</a></td><td>测评管理</td><td>0%</td><td>开启</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已关闭">关闭</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><a class="btn-text btn-sm" href="assess-detail.html">统计</a></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20241108201544301"></td><td>20241108201544301</td><td><a class="table-link" href="assess-detail.html">研发中心绩效评估</a></td><td>测评管理</td><td>100%</td><td>开启</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已关闭">关闭</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><a class="btn-text btn-sm" href="assess-detail.html">统计</a></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20241108281548459"></td><td>20241108281548459</td><td><a class="table-link" href="assess-detail.html">产品经理胜任力评估</a></td><td>测评管理</td><td>100%</td><td>开启</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已关闭">关闭</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><a class="btn-text btn-sm" href="assess-detail.html">统计</a></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20250716511559159"></td><td>20250716511559159</td><td><a class="table-link" href="assess-new.html?mode=edit">销售序列领导力评估 S2</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20251024262135510"></td><td>20251024262135510</td><td><a class="table-link" href="assess-new.html?mode=edit">销售序列领导力评估 S1</a></td><td>测评管理</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+                <tr><td class="check-cell"><input type="checkbox" data-row-check aria-label="选择项目 20251217561613366"></td><td>20251217561613366</td><td><a class="table-link" href="assess-new.html?mode=edit">销售序列领导力评估 S1</a></td><td>李文静</td><td class="muted">—</td><td>草稿</td><td class="ops"><button class="btn-text btn-sm" data-toast="项目已发布">发布</button><a class="btn-text btn-sm" href="assess-new.html?mode=edit">项目设置</a><button class="btn-text btn-sm" data-toast="打开宣传设置">宣传设置</button><button class="btn-text btn-sm" data-toast="项目已复制">复制</button><button class="btn-text btn-sm danger" data-toast="已记录删除操作">删除</button></td></tr>
+              </tbody>
+            </table></div>
+            <div class="pagination"><div class="pg-controls"><button class="pg-btn disabled" aria-label="上一页">‹</button><button class="pg-btn active">1</button><button class="pg-btn">2</button><button class="pg-btn">3</button><button class="pg-btn" aria-label="下一页">›</button><select class="select assess-page-size" aria-label="每页条数"><option selected>10条/页</option><option>20条/页</option><option>50条/页</option></select><span class="pg-jumper">跳至 <input type="number" min="1" value="1"> 页</span><span class="assess-page-total">共 27 条</span></div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+(function () {
+  var table = document.getElementById('s360-table');
+  var search = document.getElementById('s360-search');
+  var form = document.getElementById('s360-filter');
+  var checkAll = document.getElementById('s360-check-all');
+  var rowChecks = Array.from(table.querySelectorAll('[data-row-check]'));
+  var selectionActions = Array.from(document.querySelectorAll('[data-selection-action]'));
+  function filter() {
+    var query = (search.value || '').trim().toLowerCase();
+    table.querySelectorAll('tbody tr').forEach(function (row) {
+      var matchQuery = !query || row.textContent.toLowerCase().indexOf(query) >= 0;
+      row.style.display = matchQuery ? '' : 'none';
+    });
+    checkAll.checked = false;
+    checkAll.indeterminate = false;
+  }
+  function syncSelection() {
+    var selected = rowChecks.filter(function (checkbox) { return checkbox.checked; }).length;
+    selectionActions.forEach(function (button) { button.disabled = selected === 0; });
+    checkAll.checked = selected > 0 && selected === rowChecks.length;
+    checkAll.indeterminate = selected > 0 && selected < rowChecks.length;
+  }
+  form.addEventListener('submit', function (event) {
+    event.preventDefault(); filter();
+  });
+  document.getElementById('s360-reset').addEventListener('click', function () {
+    search.value = ''; filter();
+  });
+  checkAll.addEventListener('change', function () {
+    rowChecks.forEach(function (checkbox) {
+      if (checkbox.closest('tr').style.display !== 'none') checkbox.checked = checkAll.checked;
+    });
+    syncSelection();
+  });
+  rowChecks.forEach(function (checkbox) { checkbox.addEventListener('change', syncSelection); });
+  syncSelection();
+})();
+</script>
+</body>
+</html>

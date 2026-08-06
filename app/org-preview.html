@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分析结果预览 · 组织结构</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* 待校准徽标 */
+  .badge-calib { position:absolute; top:-9px; right:10px; font-size:11px; color:#b45309; background:var(--warning-bg); border:1px solid #fcd34d; padding:1px 7px; border-radius:var(--radius-full); display:inline-flex; align-items:center; gap:3px; }
+  .basket { border:1px dashed var(--warning); background:var(--warning-bg); border-radius:var(--radius-md); padding:var(--space-md); }
+</style>
+</head>
+<body data-module="standard" data-page="org-structure">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb"><a href="org-structure.html" style="color:var(--neutral-400)">组织结构</a><span class="sep">/</span><span class="cur">结果预览（新版本草稿 V3）</span></div>
+
+      <div class="page-head">
+        <div><h1>分析结果预览</h1></div>
+        <div class="actions">
+          <select class="select" style="width:auto"><option>综合视图</option><option>岗位评价法视图</option><option>结构分析法视图</option></select>
+          <a class="btn btn-secondary" href="org-structure.html">保存草稿</a>
+          <button class="btn btn-primary" data-open="modal-effective"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>确认生效</button>
+        </div>
+      </div>
+
+      <!-- 矩阵（草稿） -->
+      <div class="card card-pad fade-in">
+        <div class="section-title">岗位族矩阵（V3 草稿）<span class="muted text-sm" style="font-weight:400">「已调整」= 人工改过；「建议校准」= 多方法结论有差异</span></div>
+        <div class="matrix" data-heat style="grid-template-columns:120px repeat(3,1fr)">
+          <!-- 高级（顶） -->
+          <div class="row-head"><div class="rh">高级</div><div class="rh-sub">专家</div></div>
+          <button class="group" data-open="drawer-cell" style="position:relative"><span class="badge-calib">建议校准</span><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗</span><span><b>9</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-3</span></div></button>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗</span><span><b>6</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-3</span></div></button>
+          <div class="group empty-cell"><div class="g-name">暂无岗位</div><div class="text-sm" style="color:var(--neutral-400)">待人工归类</div></div>
+
+          <!-- 中级 -->
+          <div class="row-head"><div class="rh">中级</div><div class="rh-sub">带组</div></div>
+          <button class="group adjusted" data-open="drawer-cell"><span class="badge-adjust">已调整</span><div><div class="g-name">研发·中级</div><div class="g-stats"><span><b>7</b> 岗</span><span><b>36</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-2</span></div></button>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·中级</div><div class="g-stats"><span><b>6</b> 岗</span><span><b>28</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-2</span></div></button>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">职能·中级</div><div class="g-stats"><span><b>4</b> 岗</span><span><b>14</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-FN-2</span></div></button>
+
+          <!-- 初级 -->
+          <div class="row-head"><div class="rh">初级</div><div class="rh-sub">独立</div></div>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>4</b> 岗</span><span><b>18</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-1</span></div></button>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>5</b> 岗</span><span><b>42</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-1</span></div></button>
+          <button class="group" data-open="drawer-cell"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>3</b> 岗</span><span><b>12</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-FN-1</span></div></button>
+
+          <!-- 底部：序列轴 -->
+          <div class="corner-cell"><div class="ax">层级 ↑<br>序列 →</div></div>
+          <div class="col-head">研发<div class="ch-sub">技术序列</div></div><div class="col-head">销售<div class="ch-sub">市场序列</div></div><div class="col-head">职能<div class="ch-sub">支持序列</div></div>
+        </div>
+
+        <!-- 待人工归类篮 -->
+        <div class="basket mt-lg">
+          <div class="flex between center">
+            <div class="section-title basket-title" style="margin:0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18l-2 12H5z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>待人工归类（2）</div>
+            <span class="text-sm basket-copy">数据不足，AI 未归出，请手动拖入格</span>
+          </div>
+          <div class="flex gap-sm mt-md" style="flex-wrap:wrap">
+            <span class="chip basket-chip">实习数据标注员 <span class="x">拖拽</span></span>
+            <span class="chip basket-chip">行政前台 <span class="x">拖拽</span></span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 格内岗位 -->
+<div class="drawer wide" id="drawer-cell"><div class="box wide">
+  <div class="m-head"><div><h3>研发·中级</h3><div class="text-sm muted">组 G-RD-2 · 7 岗位 · 36 人 · <span style="color:var(--primary-600)">已人工调整</span></div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th>岗位</th><th>AI 序列</th><th>AI 层级</th><th>岗评总分</th><th>结构法</th><th>操作</th></tr></thead>
+      <tbody>
+        <tr><td>后端开发工程师</td><td>研发</td><td>中级</td><td class="num">3.6</td><td class="num">核心</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence">查看依据</button></td></tr>
+        <tr><td>测试工程师</td><td>研发</td><td>中级</td><td class="num">3.2</td><td class="num">职能</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence">查看依据</button> <button class="btn-text btn-sm" data-open="drawer-calib">建议校准</button></td></tr>
+        <tr><td>数据分析师</td><td>研发</td><td>中级</td><td class="num">3.4</td><td class="num">核心</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence">查看依据</button></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div></div>
+
+<!-- 归类依据 -->
+<div class="drawer" id="drawer-evidence"><div class="box">
+  <div class="m-head"><h3>归类依据 · 后端开发工程师</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="text-sm muted mb-sm">岗位评价法总分拆解（5 级锚定）</div>
+    <div class="weight-row"><div class="w-label">任务 <span class="sub">复杂性 4 / 重要性 4</span></div><div class="w-val">3.8</div></div>
+    <div class="weight-row"><div class="w-label">权力 <span class="sub">资源配置权 3</span></div><div class="w-val">3.4</div></div>
+    <div class="weight-row"><div class="w-label">专业 <span class="sub">技能 4 / 知识 4</span></div><div class="w-val">4.0</div></div>
+    <div class="weight-row"><div class="w-label">思维 <span class="sub">逻辑分析 4</span></div><div class="w-val">3.6</div></div>
+    <div class="divider"></div>
+    <div class="flex between"><b>岗评总分</b><b style="color:var(--primary-600)">3.6 / 5 → 中级</b></div>
+    <div class="hint-box mt-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg><span>AI 依据：总分 3.6 落入中级阈值（3.0–4.0），职责以技术交付为主 → 序列研发。</span></div>
+  </div>
+</div></div>
+
+<!-- 建议校准 -->
+<div class="drawer wide" id="drawer-calib"><div class="box">
+  <div class="m-head"><h3>建议校准 · 测试工程师</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="hint-box warn mb-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>所选分析法从不同视角循证，该岗位存在不同结论，请确认最终归属。</span></div>
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th>方法</th><th>序列</th><th>层级</th><th>依据</th></tr></thead>
+      <tbody>
+        <tr><td>岗位评价法</td><td>研发</td><td>中级</td><td class="muted">总分 3.2</td></tr>
+        <tr><td>结构分析法</td><td>职能</td><td>中级</td><td class="muted">归为支持职能</td></tr>
+      </tbody>
+    </table></div>
+    <div class="field mt-md"><label>最终归属</label>
+      <div class="flex gap-sm"><select class="select" style="flex:1"><option>研发</option><option selected>研发</option><option>职能</option></select><select class="select" style="flex:1"><option selected>中级</option><option>初级</option></select></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>保留当前归类</button><button class="btn btn-primary" data-close>采纳</button></div>
+</div></div>
+
+<!-- 确认生效 -->
+<div class="modal" id="modal-effective"><div class="box">
+  <div class="m-head"><h3>确认生效</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="flex gap-md" style="align-items:flex-start"><span style="font-size:22px;color:var(--warning)">⚠</span><div><div style="font-size:15px;font-weight:500">组织结构将更新为 V3，是否继续？</div></div></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><a class="btn btn-primary" href="org-structure.html?effective=1">确认生效</a></div>
+</div></div>
+
+<script src="app.js"></script>
+</body>
+</html>

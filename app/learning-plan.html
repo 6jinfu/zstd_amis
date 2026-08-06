@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习方案 · 架构师 · 发展中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="develop" data-page="position-map">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">发展通道</div>
+      <a class="nav-item active" data-page="position-map" href="position-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 12h12"/></svg>岗位地图</a>
+      <a class="nav-item" data-page="level-map" href="level-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 8l4-4 4 4M21 16l-4 4-4-4"/></svg>职级地图</a>
+      <a class="nav-item" data-page="idp-list" href="idp-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>个人发展计划</a>
+      <a class="nav-item" data-toast="即将跳转至「培训中心」"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>培养项目</a>
+    </aside>
+
+    <main class="content content-medium">
+      <div class="breadcrumb"><a href="position-map.html" style="color:var(--neutral-400)">岗位地图</a><span class="sep">/</span><span class="cur">学习方案 · 架构师</span></div>
+
+      <div class="detail-bar">
+        <div class="db-left">
+          <a class="back" href="position-map.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>返回</a>
+          <h1>学习方案</h1>
+          <span class="text-sm muted">架构师 · 技术序列 P · P4</span>
+        </div>
+      </div>
+
+      <div class="card card-pad">
+        <div class="flex between center mb-md">
+          <div>
+            <div class="section-title" style="margin:0">关联培训内容</div>
+          </div>
+          <button class="btn btn-primary" id="ai-course-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><path d="M19 14l.7 2L22 17l-2.3.7L19 20l-.7-2L16 17l2.3-.7z"/></svg>AI 配课</button>
+        </div>
+        <div class="flex gap-sm mb-md">
+          <button class="btn btn-secondary" data-picker="课程">+ 关联课程</button>
+          <button class="btn btn-secondary" data-picker="项目">+ 关联项目</button>
+          <button class="btn btn-secondary" data-picker="前测">+ 关联前测</button>
+          <button class="btn btn-secondary" data-picker="后测">+ 关联后测</button>
+        </div>
+        <div class="table-wrap"><table class="t" id="plan-table">
+          <thead><tr><th style="width:90px">类型</th><th>名称</th><th>来源 / 周期</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tag tag-primary">课程</span></td><td>分布式系统设计</td><td class="muted">培训平台 · 24 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+            <tr><td><span class="tag tag-primary">课程</span></td><td>高并发架构实战</td><td class="muted">培训平台 · 16 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+            <tr><td><span class="tag tag-success">项目</span></td><td>架构师加速营（第 3 期）</td><td class="muted">培训项目 · 3 个月</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+            <tr><td><span class="tag tag-warning">前测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养开始前</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+            <tr><td><span class="tag tag-warning">后测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养结束后</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="detail-foot">
+        <div class="flex gap-sm">
+          <a class="btn btn-secondary" href="position-map.html">取消</a>
+          <button class="btn btn-primary" id="save-lp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>保存</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 选择器抽屉（复用 position-detail 的 picker 模式）-->
+<div class="drawer" id="drawer-picker">
+  <div class="m-head"><h3 id="picker-title">选择</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <input class="input mb-md" id="picker-search" placeholder="搜索">
+    <div id="picker-list"></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" id="picker-ok">添加</button></div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  // 选择器（课程/项目/前测/后测）
+  (function () {
+    var PICK = {
+      '课程': { kind:'课程', tag:'tag-primary', items:['分布式系统设计','高并发架构实战','领导力基础','数据治理入门','技术合伙人','架构演进实战'] },
+      '项目': { kind:'项目', tag:'tag-success', items:['架构师加速营','技术管理训练营','跨部门攻坚项目'] },
+      '前测': { kind:'前测', tag:'tag-warning', items:['系统架构认证','PMP 项目管理','数据工程师认证'] },
+      '后测': { kind:'后测', tag:'tag-warning', items:['系统架构认证','PMP 项目管理','数据工程师认证'] }
+    };
+    var title = document.getElementById('picker-title'), list = document.getElementById('picker-list');
+    var search = document.getElementById('picker-search'), ok = document.getElementById('picker-ok');
+    if (!list) return;
+    var cur = null;
+    function render() {
+      var cfg = PICK[cur], q = (search.value || '').trim().toLowerCase();
+      list.innerHTML = '';
+      cfg.items.forEach(function (name) {
+        if (q && name.toLowerCase().indexOf(q) < 0) return;
+        var row = document.createElement('label');
+        row.className = 'picker-row';
+        row.innerHTML = '<input type="checkbox"><span class="pr-name">' + name + '</span>';
+        list.appendChild(row);
+      });
+      if (!list.children.length) list.innerHTML = '<div class="text-sm muted" style="padding:12px 4px">无匹配项</div>';
+    }
+    document.querySelectorAll('[data-picker]').forEach(function (b) {
+      b.addEventListener('click', function () { cur = b.dataset.picker; title.textContent = '选择' + cur; search.value = ''; render(); openOverlay('drawer-picker'); });
+    });
+    search.addEventListener('input', render);
+    ok.addEventListener('click', function () {
+      var cfg = PICK[cur];
+      var tb = document.querySelector('#plan-table tbody');
+      list.querySelectorAll('.picker-row').forEach(function (r) {
+        var inp = r.querySelector('input'); if (!inp || !inp.checked) return;
+        var name = r.querySelector('.pr-name').textContent;
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td><span class="tag ' + cfg.tag + '">' + cfg.kind + '</span></td><td>' + name + '</td><td class="muted">培训平台</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td>';
+        tb.appendChild(tr);
+      });
+      closeAllOverlays();
+    });
+    // 移除行
+    var pt = document.getElementById('plan-table');
+    if (pt) pt.addEventListener('click', function (e) { var del = e.target.closest('[data-del-row]'); if (del) del.closest('tr').remove(); });
+    // 保存反馈
+    var sb = document.getElementById('save-lp');
+    if (sb) sb.addEventListener('click', function () { var h = this.innerHTML; this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>已保存'; this.classList.add('disabled'); var b = this; setTimeout(function () { b.innerHTML = h; b.classList.remove('disabled'); }, 1200); });
+  })();
+</script>
+<script>
+  // AI 配课（复用 showAiGen，推荐课程资源）
+  (function () {
+    var btn = document.getElementById('ai-course-btn'); if (!btn) return;
+    var ICON = {
+      req: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+      course: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+      proj: '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/>',
+      exam: '<circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/>',
+      path: '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 0-8H10a4 4 0 0 1 0-8h6"/>'
+    };
+    var RES = [
+      ['课程', 'tag-primary', '分布式系统设计', '培训平台 · 24 课时'],
+      ['课程', 'tag-primary', '高并发架构实战', '培训平台 · 16 课时'],
+      ['课程', 'tag-primary', '架构演进实战', '培训平台 · 20 课时'],
+      ['项目', 'tag-success', '架构师加速营（第 4 期）', '培训项目 · 3 个月'],
+      ['项目', 'tag-success', '技术管理训练营', '培训项目 · 2 个月'],
+      ['前测', 'tag-warning', '系统架构认证', '认证考试 · 培养开始前'],
+      ['后测', 'tag-warning', '系统架构认证', '认证考试 · 培养结束后']
+    ];
+    function chips(arr) { return arr.map(function (n) { return '<span class="mini-chip">' + n + '</span>'; }).join(''); }
+    function fillPlan() {
+      var tb = document.querySelector('#plan-table tbody'); if (!tb) return;
+      tb.innerHTML = RES.map(function (r) {
+        return '<tr><td><span class="tag ' + r[1] + '">' + r[0] + '</span></td><td>' + r[2] + '</td><td class="muted">' + r[3] + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>';
+      }).join('');
+    }
+    var courses = RES.filter(function (r) { return r[0] === '课程'; }).map(function (r) { return r[2]; });
+    var projects = RES.filter(function (r) { return r[0] === '项目'; }).map(function (r) { return r[2]; });
+    var exams = RES.filter(function (r) { return r[0] === '考试'; }).map(function (r) { return r[2]; });
+    btn.addEventListener('click', function () {
+      showAiGen({
+        trigger: btn,
+        title: 'AI 正在配课',
+        subtitle: '架构师 · 学习方案',
+        footOn: '按能力差距匹配资源 · 完成后可调整',
+        footDone: '学习方案已生成，可继续编辑',
+        toast: '学习方案已生成',
+        steps: [
+          { node: '读取岗位标准与能力差距', label: '能力要求', icon: ICON.req, content: '<span class="ai-type-target"></span><span class="r-muted">等 3 项能力差距</span>', typed: '系统架构 L4' },
+          { node: '匹配课程资源', label: '推荐课程', icon: ICON.course, content: chips(courses) },
+          { node: '匹配培养项目', label: '推荐项目', icon: ICON.proj, content: chips(projects) },
+          { node: '匹配认证考试', label: '推荐考试', icon: ICON.exam, content: chips(exams) },
+          { node: '整合学习路径', label: '学习路径', icon: ICON.path, content: RES.length + ' 项学习资源<span class="r-muted"> · 建议周期 3 个月</span>' }
+        ],
+        onDone: fillPlan
+      });
+    });
+  })();
+</script>
+</body>
+</html>

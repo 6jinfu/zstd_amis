@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人才列表 · 人才中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="talent" data-page="talent-list">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav"><a class="nav-item active" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才列表</a></aside>
+
+    <main class="content" data-list-mode="filters" data-list-label="人才筛选">
+      <div class="filter-bar" data-filter-bar>
+        <div class="field"><label>姓名</label><input class="input" placeholder="搜索"></div>
+        <div class="field"><label>部门</label><select class="select"><option>全部</option><option>研发中心</option><option>销售中心</option><option>职能中台</option></select></div>
+        <div class="field"><label>人才分类</label><select class="select"><option>全部</option><option>高潜</option><option>核心</option><option>中坚</option><option>待发展</option></select></div>
+        <div class="field"><label>标签</label><select class="select"><option>全部</option><option>技术骨干</option><option>管理梯队</option></select></div>
+        <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
+      </div>
+      <div class="flex between center mb-md"><div class="flex gap-sm"><button class="btn btn-primary" data-open="drawer-compare">对比人才（2 / 5）</button><button class="btn btn-secondary">导出</button></div></div>
+
+      <div class="card">
+        <div class="table-wrap"><table class="t">
+          <thead><tr><th style="width:32px"></th><th>姓名</th><th>性别</th><th>学历</th><th>司龄</th><th>现岗位</th><th>关键岗位</th><th>人才分类</th><th>绩效</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr><td><input type="checkbox"></td><td><b>张明</b></td><td class="muted">男</td><td class="muted">硕士</td><td class="muted">6 年</td><td>架构师</td><td><span class="tag tag-warning">关键</span></td><td><span class="tag tag-primary">高潜</span></td><td><b>A</b></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看</a></td></tr>
+            <tr><td><input type="checkbox"></td><td>李华</td><td class="muted">女</td><td class="muted">博士</td><td class="muted">4 年</td><td>算法工程师</td><td><span class="tag tag-warning">关键</span></td><td><span class="tag tag-success">核心</span></td><td><b>A</b></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看</a></td></tr>
+            <tr><td><input type="checkbox"></td><td>王芳</td><td class="muted">女</td><td class="muted">本科</td><td class="muted">8 年</td><td>区域销售总监</td><td><span class="tag tag-warning">关键</span></td><td><span class="tag tag-success">核心</span></td><td><b>A+</b></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看</a></td></tr>
+            <tr><td><input type="checkbox"></td><td>赵琳</td><td class="muted">女</td><td class="muted">硕士</td><td class="muted">5 年</td><td>财务分析经理</td><td><span class="muted">—</span></td><td><span class="tag">中坚</span></td><td><b>B+</b></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看</a></td></tr>
+            <tr><td><input type="checkbox"></td><td>陈强</td><td class="muted">男</td><td class="muted">本科</td><td class="muted">3 年</td><td>测试工程师</td><td><span class="muted">—</span></td><td><span class="tag tag-danger">待发展</span></td><td><b>B</b></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看</a></td></tr>
+          </tbody>
+        </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 35 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 人才对比 -->
+<div class="drawer wide" id="drawer-compare">
+  <div class="m-head"><div><h3>人才对比</h3><div class="text-sm muted">最多 5 人 · 能力按最新有效结果汇总，同一能力取最高等级</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="talent-compare-grid">
+      <article class="talent-compare-card">
+        <header><span class="compare-avatar">张</span><div><b>张明</b><small>架构师 · 研发中心</small></div><span class="tag tag-primary">高潜</span></header>
+        <svg class="compare-radar" viewBox="0 0 200 180" aria-label="张明能力雷达图"><polygon class="radar-grid" points="100,24 169,74 143,155 57,155 31,74"/><line x1="100" y1="90" x2="100" y2="24"/><line x1="100" y1="90" x2="169" y2="74"/><line x1="100" y1="90" x2="143" y2="155"/><line x1="100" y1="90" x2="57" y2="155"/><line x1="100" y1="90" x2="31" y2="74"/><polygon class="radar-value" points="100,35 157,77 128,136 71,134 47,78"/></svg>
+        <div class="compare-placement"><span>最新盘点</span><b>高潜</b><small>能力高 × 绩效高</small></div>
+      </article>
+      <article class="talent-compare-card">
+        <header><span class="compare-avatar">李</span><div><b>李华</b><small>高级算法工程师 · 研发中心</small></div><span class="tag tag-success">核心</span></header>
+        <svg class="compare-radar" viewBox="0 0 200 180" aria-label="李华能力雷达图"><polygon class="radar-grid" points="100,24 169,74 143,155 57,155 31,74"/><line x1="100" y1="90" x2="100" y2="24"/><line x1="100" y1="90" x2="169" y2="74"/><line x1="100" y1="90" x2="143" y2="155"/><line x1="100" y1="90" x2="57" y2="155"/><line x1="100" y1="90" x2="31" y2="74"/><polygon class="radar-value alt" points="100,30 164,76 135,144 78,123 54,80"/></svg>
+        <div class="compare-placement"><span>最新盘点</span><b>核心</b><small>能力中高 × 绩效高</small></div>
+      </article>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

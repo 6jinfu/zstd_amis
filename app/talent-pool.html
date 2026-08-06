@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人才池 · 人才中心</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .pool-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:var(--space-md); }
+  .pool-card { background:var(--white); border:1px solid var(--neutral-200); border-radius:var(--radius-md); padding:var(--space-lg); cursor:pointer; transition:background-color .15s ease-out,border-color .15s ease-out,box-shadow .15s ease-out; }
+  .pool-card:hover { border-color:var(--primary-400); box-shadow:var(--shadow-md); transform:translateY(-2px); }
+  .pool-card .pc-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--space-md); }
+  .pool-card .pc-name { font-size:15px; font-weight:600; }
+  .pool-ring { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; margin-bottom:var(--space-sm); }
+  .pool-card .pc-stat { display:flex; align-items:baseline; gap:6px; }
+  .pool-card .pc-n { font-size:28px; font-weight:600; color:var(--primary-600); }
+  .pool-card .pc-unit { font-size:13px; color:var(--neutral-400); }
+  .pool-flow { display:flex; align-items:center; gap:0; margin-top:var(--space-lg); }
+  .pool-flow .pf-step { flex:1; text-align:center; font-size:12px; color:var(--neutral-400); padding:8px 4px; border-top:2px solid var(--neutral-200); }
+  .pool-flow .pf-step.on { color:var(--primary-600); border-top-color:var(--primary-600); font-weight:500; }
+</style>
+</head>
+<body data-module="talent" data-page="talent-pool">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">人才档案</div>
+      <a class="nav-item" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才列表</a>
+      <a class="nav-item active" data-page="talent-pool" href="talent-pool.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12h6l2 3h4l2-3h6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/></svg>人才池</a>
+      <div class="group-label">继任</div>
+      <a class="nav-item" data-page="succession-map" href="succession-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 7h4a3 3 0 0 1 3 3v4"/></svg>继任地图</a>
+      <div class="group-label">看板</div>
+      <a class="nav-item" data-page="org-dashboard" href="org-dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg>组织看板</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb">人才中心<span class="sep">/</span><span class="cur">人才池</span></div>
+
+      <div class="flex between center mb-md">
+        <button class="btn btn-primary" data-open="drawer-newpool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建人才池</button>
+        <span class="text-sm muted">入池 → 培养 → 评估 → 出池</span>
+      </div>
+
+      <div class="pool-grid">
+        <div class="pool-card" data-open="drawer-pool">
+          <div class="pc-head"><span class="pc-name">关键人才池</span><span class="tag tag-primary">关键</span></div>
+          <div class="pool-ring" style="background:conic-gradient(var(--primary-600) 80%, var(--neutral-100) 0)"><div style="width:50px;height:50px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--primary-600)">80%</div></div>
+          <div class="pc-stat"><span class="pc-n">11</span><span class="pc-unit">人 · 目标 14</span></div>
+          <div class="pool-flow"><div class="pf-step on">入池</div><div class="pf-step on">培养</div><div class="pf-step">评估</div><div class="pf-step">出池</div></div>
+        </div>
+        <div class="pool-card" data-open="drawer-pool">
+          <div class="pc-head"><span class="pc-name">研发高潜池</span><span class="tag tag-success">高潜</span></div>
+          <div class="pool-ring" style="background:conic-gradient(var(--primary-600) 60%, var(--neutral-100) 0)"><div style="width:50px;height:50px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--primary-600)">60%</div></div>
+          <div class="pc-stat"><span class="pc-n">4</span><span class="pc-unit">人 · 目标 7</span></div>
+          <div class="pool-flow"><div class="pf-step on">入池</div><div class="pf-step on">培养</div><div class="pf-step on">评估</div><div class="pf-step">出池</div></div>
+        </div>
+        <div class="pool-card" data-open="drawer-pool">
+          <div class="pc-head"><span class="pc-name">销售继任池</span><span class="tag tag-warning">继任</span></div>
+          <div class="pool-ring" style="background:conic-gradient(var(--primary-600) 40%, var(--neutral-100) 0)"><div style="width:50px;height:50px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--primary-600)">40%</div></div>
+          <div class="pc-stat"><span class="pc-n">3</span><span class="pc-unit">人 · 目标 5</span></div>
+          <div class="pool-flow"><div class="pf-step on">入池</div><div class="pf-step">培养</div><div class="pf-step">评估</div><div class="pf-step">出池</div></div>
+        </div>
+        <div class="pool-card" data-open="drawer-pool">
+          <div class="pc-head"><span class="pc-name">管理梯队池</span><span class="tag">梯队</span></div>
+          <div class="pool-ring" style="background:conic-gradient(var(--primary-600) 50%, var(--neutral-100) 0)"><div style="width:50px;height:50px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--primary-600)">50%</div></div>
+          <div class="pc-stat"><span class="pc-n">6</span><span class="pc-unit">人 · 目标 12</span></div>
+          <div class="pool-flow"><div class="pf-step on">入池</div><div class="pf-step on">培养</div><div class="pf-step">评估</div><div class="pf-step">出池</div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 人才池详情（4 Tab）-->
+<div class="drawer wide" id="drawer-pool">
+  <div class="m-head"><div><h3>关键人才池</h3><div class="text-sm muted">11 人 · 饱和度 80%</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="tab-btns" style="margin-bottom:var(--space-md)"><button class="tab-btn active" data-tab="p-people">人员管理</button><button class="tab-btn" data-tab="p-dev">培养发展</button><button class="tab-btn" data-tab="p-eval">评估考核</button><button class="tab-btn" data-tab="p-out">出池记录</button></div>
+    <div data-tab-panel="p-people">
+      <button class="btn btn-secondary btn-sm mb-md">+ 添加成员</button>
+      <div class="table-wrap"><table class="t"><thead><tr><th>姓名</th><th>现岗位</th><th>准备度</th><th>入池时间</th><th style="text-align:right">操作</th></tr></thead><tbody>
+        <tr><td>张明</td><td>架构师</td><td><span class="tag tag-success">就绪</span></td><td class="muted">2026-06</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">移除</button></td></tr>
+        <tr><td>李华</td><td>算法工程师</td><td><span class="tag tag-warning">1 年内</span></td><td class="muted">2026-06</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">移除</button></td></tr>
+        <tr><td>王芳</td><td>区域销售总监</td><td><span class="tag tag-success">就绪</span></td><td class="muted">2026-06</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">移除</button></td></tr>
+        <tr><td>孙伟</td><td>高级开发工程师</td><td><span class="tag tag-warning">1 年内</span></td><td class="muted">2026-07</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">移除</button></td></tr>
+      </tbody></table></div>
+    </div>
+    <div data-tab-panel="p-dev" style="display:none">
+      <div class="table-wrap"><table class="t"><thead><tr><th>姓名</th><th>培养项目</th><th>进度</th></tr></thead><tbody><tr><td>张明</td><td>架构师加速营</td><td><span class="tag tag-running">进行中</span></td></tr><tr><td>李华</td><td>技术管理训练营</td><td><span class="tag tag-running">进行中</span></td></tr><tr><td>王芳</td><td>销售领导力项目</td><td><span class="tag tag-done">已完成</span></td></tr><tr><td>孙伟</td><td>—</td><td class="muted">未指派</td></tr></tbody></table></div>
+    </div>
+    <div data-tab-panel="p-eval" style="display:none">
+      <div class="table-wrap"><table class="t"><thead><tr><th>姓名</th><th>最近评估</th><th>结果</th></tr></thead><tbody><tr><td>张明</td><td class="muted">2026-07 盘点</td><td><span class="tag tag-primary">高潜</span></td></tr></tbody></table></div>
+    </div>
+    <div data-tab-panel="p-out" style="display:none">
+      <div class="empty" style="padding:var(--space-lg)"><div class="text-sm muted">暂无出池记录</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer" id="drawer-newpool"><div class="m-head"><h3>新建人才池</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>池名 <span class="req">*</span></label><input class="input" placeholder="如：2026 关键人才池"></div><div class="flex gap-md" style="gap:var(--space-md)"><div class="field" style="flex:1"><label>类型 <span class="req">*</span></label><select class="select"><option>关键人才池</option><option>继任池</option><option>高潜池</option><option>管理梯队池</option></select></div><div class="field" style="flex:1"><label>目标人数</label><input class="input" type="number" value="10" placeholder="饱和度目标"></div></div><div class="field"><label>适用范围</label><select class="select"><option>全组织</option><option>研发中心</option><option>销售中心</option><option>职能中台</option></select></div><div class="divider"></div><div class="section-title">入池条件</div><div class="field"><label>盘点落位</label><div class="chip-list"><span class="chip" style="background:var(--primary-50);color:var(--primary-600)">高潜</span><span class="chip" style="background:var(--success-bg);color:var(--success)">核心</span><span class="chip" style="border:1px dashed var(--neutral-300);color:var(--neutral-400)">+ 添加</span></div></div><div class="field"><label>其他条件</label><input class="input" placeholder="如：连续 2 年绩效 A 以上"></div><div class="divider"></div><div class="field" style="margin-bottom:0"><label>培养目标</label><textarea class="input" rows="2" placeholder="如：12 个月内达到继任就绪标准"></textarea></div></div><div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>创建</button></div></div>
+
+<script src="app.js"></script>
+<script>
+  (function(){
+    var box = document.querySelector('#drawer-pool'); if(!box) return;
+    var btns = box.querySelectorAll('.tab-btn'), panels = box.querySelectorAll('[data-tab-panel]');
+    btns.forEach(function(b){ b.addEventListener('click', function(){ btns.forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); panels.forEach(function(p){ p.style.display = p.dataset.tabPanel===b.dataset.tab ? '' : 'none'; }); }); });
+  })();
+</script>
+</body>
+</html>

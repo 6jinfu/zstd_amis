@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>关键岗位分析 · 岗位中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="standard" data-page="key-position">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+    <main class="content" data-list-mode="filters" data-list-label="分析筛选">
+      <div class="breadcrumb">岗位中心<span class="sep">/</span>定对象 · 组织分析<span class="sep">/</span><span class="cur">关键岗位分析</span></div>
+
+      <div class="filter-bar">
+        <div class="field"><label>项目名</label><input class="input" placeholder="搜索项目名"></div>
+        <div class="field"><label>状态</label><select class="select"><option>全部</option><option>草稿</option><option>分析中</option><option>已完成</option></select></div>
+        <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
+      </div>
+
+      <div class="flex between center mb-md">
+        <a class="btn btn-primary" href="key-position-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建分析</a>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap"><table class="t">
+          <thead><tr><th>项目名</th><th>引用组织结构</th><th>分析范围</th><th>所用视角</th><th>关键岗位数</th><th>状态</th><th>负责人</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><a href="key-position-result.html" style="color:var(--primary-600);font-weight:500">2026 年度关键岗位分析</a></td>
+              <td class="muted">V2 · 2026 年组织调整</td>
+              <td>岗位族</td>
+              <td>经济 + 能力</td>
+              <td><b style="color:var(--danger)">11</b></td>
+              <td><span class="tag tag-done">已完成</span></td>
+              <td>李文静</td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm">编辑</button><button class="btn-text btn-sm danger">删除</button></td>
+            </tr>
+            <tr>
+              <td>研发序列关键岗位试点</td>
+              <td class="muted">V2 · 2026 年组织调整</td>
+              <td>具体岗位</td>
+              <td>经济</td>
+              <td class="muted">—</td>
+              <td><span class="tag tag-running">分析中</span></td>
+              <td>王志强</td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm muted">终止</button></td>
+            </tr>
+            <tr>
+              <td>销售铁军关键岗位</td>
+              <td class="muted">V2 · 2026 年组织调整</td>
+              <td>具体岗位</td>
+              <td>能力</td>
+              <td class="muted">0</td>
+              <td><span class="tag tag-draft">草稿</span></td>
+              <td>张敏</td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-new.html">编辑</a><button class="btn-text btn-sm">提交</button><button class="btn-text btn-sm danger">删除</button></td>
+            </tr>
+          </tbody>
+<tr class="row-empty" style="display:none"><td colspan="8" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
+        </table></div>
+        <div class="pagination">
+          <div class="pg-info">共 3 条 · 每页 10 条</div>
+          <div class="pg-controls">
+            <button class="pg-btn disabled">上一页</button>
+            <button class="pg-btn active">1</button>
+            <button class="pg-btn">下一页</button>
+            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="app.js"></script>
+<script>
+  // 列表查询 / 搜索 / 重置
+  document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.querySelector('.filter-bar'); if (!bar) return;
+    var tbl = document.querySelector('table.t');
+    var inp = bar.querySelector('input'), sel = bar.querySelector('select');
+    var btns = bar.querySelectorAll('.actions button');
+    function run() {
+      var t = (inp.value || '').trim().toLowerCase(), s = sel.value;
+      var any = false;
+      tbl.querySelectorAll('tbody tr:not(.row-empty)').forEach(function (tr) {
+        var name = tr.children[0].textContent.toLowerCase();
+        var tag = tr.querySelector('.tag'); var st = tag ? tag.textContent : '';
+        var okT = !t || name.indexOf(t) >= 0;
+        var okS = !s || s === '全部' || st === s;
+        var show = okT && okS; if (show) any = true;
+        tr.style.display = show ? '' : 'none';
+      });
+      var e = tbl.querySelector('tr.row-empty'); if (e) e.style.display = any ? 'none' : '';
+    }
+    if (btns[0]) btns[0].addEventListener('click', run);
+    if (btns[1]) btns[1].addEventListener('click', function () { inp.value = ''; sel.value = '全部'; run(); });
+    run();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分析结果 · 关键岗位分析</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="standard" data-page="key-position">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb"><a href="key-position.html" style="color:var(--neutral-400)">关键岗位分析</a><span class="sep">/</span><span class="cur">2026 年度关键岗位分析 · 结果</span></div>
+      <div class="page-head">
+        <div><h1>分析结果</h1><div class="sub">基于 V2 组织结构 · 经济 + 能力双视角</div></div>
+        <div class="actions"><a class="btn btn-secondary" href="key-position.html">返回列表</a><button class="btn btn-secondary">导出</button><a class="btn btn-primary" href="positions.html">去岗位管理配置 →</a></div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi"><div class="label">分析岗位族</div><div class="value">8</div><div class="delta">覆盖 34 岗位 / 165 人</div></div>
+        <div class="kpi"><div class="label">关键（建议培养）</div><div class="value" style="color:var(--danger)">3</div><div class="delta">研发·中级 / 研发·高级 / 销售·高级</div></div>
+        <div class="kpi"><div class="label">已标记关键岗位</div><div class="value">11</div><div class="delta">分析结果累计 + 手动补充</div></div>
+        <div class="kpi"><div class="label">待校准</div><div class="value" style="color:var(--warning)">2</div><div class="delta">多视角结论有差异</div></div>
+      </div>
+
+      <!-- 图表卡 + 视角切换 -->
+      <div class="card" data-tabs>
+        <div class="card-head">
+          <div class="tab-btns" style="border:none;margin:0">
+            <button class="tab-btn active" data-tab="e">经济视角 E（需求 × 供给）</button>
+            <button class="tab-btn" data-tab="a">能力视角 A（ART × 时间成本）</button>
+            <button class="tab-btn" data-tab="m">综合（供需比 × ART）</button>
+          </div>
+          <div class="bubble-legend">
+            <span class="lg"><span class="dot legend-red"></span>关键（培养）</span>
+            <span class="lg"><span class="dot legend-gray"></span>非关键（招聘 / 一般）</span>
+            <span class="lg text-sm muted">气泡大小 = 人数 · 点气泡看岗位族下岗位</span>
+          </div>
+        </div>
+
+        <!-- 经济 E -->
+        <div class="tab-panel show" data-tab="e">
+          <div class="card-body">
+            <div class="conclusion">
+              <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+              <div><div class="ct">右下角 3 个岗位族需求高、供给少，建议优先培养</div><div class="cd">研发·中级、研发·高级、销售·高级落入「需求高 · 供给少」象限，是培养投入的首选。</div></div>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 660 440" role="img" aria-label="经济视角象限气泡图">
+              <rect x="350" y="210" width="280" height="170" fill="rgba(220,38,38,.07)"/>
+              <rect x="70" y="40" width="280" height="170" fill="rgba(156,163,175,.04)"/>
+              <rect x="350" y="40" width="280" height="170" fill="rgba(156,163,175,.04)"/>
+              <rect x="70" y="210" width="280" height="170" fill="rgba(156,163,175,.03)"/>
+              <line class="grid" x1="70" y1="125" x2="630" y2="125"/><line class="grid" x1="70" y1="295" x2="630" y2="295"/>
+              <line class="grid" x1="210" y1="40" x2="210" y2="380"/><line class="grid" x1="490" y1="40" x2="490" y2="380"/>
+              <line class="mid" x1="350" y1="40" x2="350" y2="380"/><line class="mid" x1="70" y1="210" x2="630" y2="210"/>
+              <line class="axis" x1="70" y1="380" x2="630" y2="380"/><line class="axis" x1="70" y1="40" x2="70" y2="380"/>
+              <text class="axlabel" x="350" y="424" text-anchor="middle">需求 N（本公司对该岗位的需求）</text>
+              <text class="axlabel" x="26" y="210" text-anchor="middle" transform="rotate(-90 26 210)">供给 S（市场人才供给）</text>
+              <text class="axtick" x="64" y="54" text-anchor="end">多</text><text class="axtick" x="64" y="376" text-anchor="end">少</text>
+              <text class="axtick" x="78" y="397">低</text><text class="axtick" x="622" y="397" text-anchor="end">高</text>
+              <text class="qlabel muted" x="80" y="58">需求低 · 供给多 · 非关键</text>
+              <text class="qlabel muted" x="620" y="58" text-anchor="end">需求高 · 供给多 · 可招聘</text>
+              <text class="qlabel muted" x="80" y="372">需求低 · 供给少 · 一般</text>
+              <text class="qlabel key" x="620" y="372" text-anchor="end">★ 需求高 · 供给少 = 关键（培养）</text>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="470" cy="345" r="26"/><text class="lbl" x="470" y="312" text-anchor="middle">研发·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="555" cy="300" r="18"/><text class="lbl" x="555" y="275" text-anchor="middle">研发·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="420" cy="330" r="15"/><text class="lbl" x="420" y="308" text-anchor="middle">销售·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="510" cy="135" r="22"/><text class="lbl" x="510" y="106" text-anchor="middle">销售·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="410" cy="175" r="18"/><text class="lbl" x="410" y="150" text-anchor="middle">研发·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="180" cy="120" r="28"/><text class="lbl" x="180" y="85" text-anchor="middle">销售·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="250" cy="195" r="18"/><text class="lbl" x="250" y="170" text-anchor="middle">职能·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="210" cy="325" r="16"/><text class="lbl" x="210" y="302" text-anchor="middle">职能·初级</text></g>
+            </svg>
+            <div class="axis-note"><span><b>判定依据：</b>需求高 × 供给少 = 关键岗位</span><span>红泡建议培养，灰泡可外部招聘或一般</span></div>
+          </div>
+        </div>
+
+        <!-- 能力 A -->
+        <div class="tab-panel" data-tab="a">
+          <div class="card-body">
+            <div class="conclusion">
+              <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+              <div><div class="ct">右上角 3 个岗位族能力要求高、培养周期长，建议优先培养</div><div class="cd">研发·高级、研发·中级、销售·高级落入「能力高 · 时间成本高」象限。</div></div>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 660 440" role="img" aria-label="能力视角象限气泡图">
+              <rect x="350" y="40" width="280" height="170" fill="rgba(220,38,38,.07)"/>
+              <rect x="70" y="40" width="280" height="170" fill="rgba(156,163,175,.04)"/>
+              <rect x="350" y="210" width="280" height="170" fill="rgba(156,163,175,.03)"/>
+              <rect x="70" y="210" width="280" height="170" fill="rgba(156,163,175,.03)"/>
+              <line class="grid" x1="70" y1="125" x2="630" y2="125"/><line class="grid" x1="70" y1="295" x2="630" y2="295"/>
+              <line class="grid" x1="210" y1="40" x2="210" y2="380"/><line class="grid" x1="490" y1="40" x2="490" y2="380"/>
+              <line class="mid" x1="350" y1="40" x2="350" y2="380"/><line class="mid" x1="70" y1="210" x2="630" y2="210"/>
+              <line class="axis" x1="70" y1="380" x2="630" y2="380"/><line class="axis" x1="70" y1="40" x2="70" y2="380"/>
+              <text class="axlabel" x="350" y="424" text-anchor="middle">时间成本（培养到胜任所需时间）</text>
+              <text class="axlabel" x="26" y="210" text-anchor="middle" transform="rotate(-90 26 210)">能力（ART：思考 / 关系 / 行动）</text>
+              <text class="axtick" x="64" y="54" text-anchor="end">高</text><text class="axtick" x="64" y="376" text-anchor="end">低</text>
+              <text class="axtick" x="78" y="397">低</text><text class="axtick" x="622" y="397" text-anchor="end">高</text>
+              <text class="qlabel muted" x="80" y="58">能力高 · 时间成本低 · 非关键</text>
+              <text class="qlabel key" x="620" y="58" text-anchor="end">★ 能力高 · 时间成本高 = 关键</text>
+              <text class="qlabel muted" x="80" y="372">能力低 · 时间成本低 · 一般</text>
+              <text class="qlabel muted" x="620" y="372" text-anchor="end">能力低 · 时间成本高 · 一般</text>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="545" cy="95" r="18"/><text class="lbl" x="545" y="70" text-anchor="middle">研发·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="475" cy="135" r="26"/><text class="lbl" x="475" y="102" text-anchor="middle">研发·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="455" cy="170" r="15"/><text class="lbl" x="455" y="148" text-anchor="middle">销售·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="205" cy="105" r="22"/><text class="lbl" x="205" y="76" text-anchor="middle">销售·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="185" cy="310" r="18"/><text class="lbl" x="185" y="285" text-anchor="middle">研发·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="250" cy="345" r="28"/><text class="lbl" x="250" y="310" text-anchor="middle">销售·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="305" cy="295" r="18"/><text class="lbl" x="305" y="270" text-anchor="middle">职能·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="160" cy="340" r="16"/><text class="lbl" x="160" y="317" text-anchor="middle">职能·初级</text></g>
+            </svg>
+            <div class="axis-note"><span><b>判定依据：</b>能力高 × 时间成本高 = 关键岗位</span><span>ART = 思考 + 关系 + 行动，9 变量 1~3 分锚定</span></div>
+          </div>
+        </div>
+
+        <!-- 综合 -->
+        <div class="tab-panel" data-tab="m">
+          <div class="card-body">
+            <div class="conclusion">
+              <span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+              <div><div class="ct">综合供需与能力，右上角为最需培养的关键岗位族</div><div class="cd">供需比高 × 能力高 = 最关键，是经济与能力两个视角的共同结论。</div></div>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 660 440" role="img" aria-label="综合视角象限气泡图">
+              <rect x="350" y="40" width="280" height="170" fill="rgba(220,38,38,.07)"/>
+              <rect x="70" y="40" width="280" height="170" fill="rgba(156,163,175,.04)"/>
+              <rect x="350" y="210" width="280" height="170" fill="rgba(156,163,175,.03)"/>
+              <rect x="70" y="210" width="280" height="170" fill="rgba(156,163,175,.03)"/>
+              <line class="grid" x1="70" y1="125" x2="630" y2="125"/><line class="grid" x1="70" y1="295" x2="630" y2="295"/>
+              <line class="grid" x1="210" y1="40" x2="210" y2="380"/><line class="grid" x1="490" y1="40" x2="490" y2="380"/>
+              <line class="mid" x1="350" y1="40" x2="350" y2="380"/><line class="mid" x1="70" y1="210" x2="630" y2="210"/>
+              <line class="axis" x1="70" y1="380" x2="630" y2="380"/><line class="axis" x1="70" y1="40" x2="70" y2="380"/>
+              <text class="axlabel" x="350" y="424" text-anchor="middle">能力（ART）</text>
+              <text class="axlabel" x="26" y="210" text-anchor="middle" transform="rotate(-90 26 210)">供需比（需求 / 市场供给）</text>
+              <text class="axtick" x="64" y="54" text-anchor="end">高</text><text class="axtick" x="64" y="376" text-anchor="end">低</text>
+              <text class="axtick" x="78" y="397">低</text><text class="axtick" x="622" y="397" text-anchor="end">高</text>
+              <text class="qlabel muted" x="80" y="58">供需比低 · 能力低 · 一般</text>
+              <text class="qlabel key" x="620" y="58" text-anchor="end">★ 供需比高 · 能力高 = 最关键</text>
+              <text class="qlabel muted" x="80" y="372">供需比低 · 能力高 · 非关键</text>
+              <text class="qlabel muted" x="620" y="372" text-anchor="end">供需比高 · 能力低 · 可招聘</text>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="545" cy="95" r="18"/><text class="lbl" x="545" y="70" text-anchor="middle">研发·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="475" cy="135" r="26"/><text class="lbl" x="475" y="102" text-anchor="middle">研发·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="key" cx="455" cy="170" r="15"/><text class="lbl" x="455" y="148" text-anchor="middle">销售·高级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="205" cy="105" r="22"/><text class="lbl" x="205" y="76" text-anchor="middle">销售·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="185" cy="310" r="18"/><text class="lbl" x="185" y="285" text-anchor="middle">研发·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="250" cy="345" r="28"/><text class="lbl" x="250" y="310" text-anchor="middle">销售·初级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="305" cy="295" r="18"/><text class="lbl" x="305" y="270" text-anchor="middle">职能·中级</text></g>
+              <g class="bub" data-open="drawer-bubble"><circle class="gray" cx="160" cy="340" r="16"/><text class="lbl" x="160" y="317" text-anchor="middle">职能·初级</text></g>
+            </svg>
+            <div class="axis-note"><span><b>判定依据：</b>供需比高 × 能力高 = 最关键</span><span>综合 E + A 两视角，右上角为共同关键</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 关键岗位清单 -->
+      <div class="card mt-md">
+        <div class="card-head"><h2>关键岗位清单</h2><span class="sub">分析给依据 · 是否关键由你标记</span></div>
+        <div class="table-wrap"><table class="t">
+          <thead><tr><th>岗位</th><th>所在组</th><th>关键系数</th><th>象限（经济）</th><th>关键建议</th><th style="text-align:right">操作</th></tr></thead>
+          <tbody>
+            <tr data-key="true"><td>架构师</td><td>研发·高级</td><td><b style="color:var(--danger)">0.95</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>高级算法工程师</td><td>研发·高级</td><td><b style="color:var(--danger)">0.92</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>后端开发工程师</td><td>研发·中级</td><td><b style="color:var(--danger)">0.81</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>区域销售总监</td><td>销售·高级</td><td><b style="color:var(--danger)">0.88</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>大客户销售经理</td><td>销售·中级</td><td>0.78</td><td>需求高 · 供给多</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="false"><td>测试工程师</td><td>研发·中级</td><td>0.72</td><td>多视角差异</td><td><span class="tag tag-info">待校准</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-calib">建议校准</button></td></tr>
+            <tr data-key="false"><td>前端开发工程师</td><td>研发·初级</td><td>0.54</td><td>需求中 · 供给多</td><td><span class="tag tag-draft">未达阈值</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm muted">未达阈值</button></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 气泡 → 岗位族下岗位抽屉 -->
+<div class="drawer" id="drawer-bubble">
+  <div class="d-head"><div><h3>研发·中级</h3><div class="text-sm muted">岗位族 G-RD-2 · 7 岗位 · 36 人 · 经济象限：需求高 · 供给少</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="d-body">
+    <div class="flex between center mb-sm"><div class="text-sm muted">族内岗位</div><button class="btn btn-ghost btn-sm">全选</button></div>
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th style="width:40px"></th><th>岗位</th><th>关键系数</th><th>象限</th></tr></thead>
+      <tbody>
+        <tr data-key="true"><td><input type="checkbox" checked data-key-toggle></td><td>后端开发工程师</td><td>0.81</td><td>需求高·供给少</td></tr>
+        <tr data-key="true"><td><input type="checkbox" checked data-key-toggle></td><td>数据分析师</td><td>0.76</td><td>需求高·供给少</td></tr>
+        <tr data-key="false"><td><input type="checkbox" data-key-toggle></td><td>测试工程师</td><td>0.72</td><td>多视角差异</td></tr>
+        <tr data-key="false"><td><input type="checkbox" data-key-toggle></td><td>DevOps 工程师</td><td>0.69</td><td>需求中·供给多</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="d-foot"><button class="btn btn-secondary" data-close>取消</button><a class="btn btn-primary" href="positions.html">保存标记</a></div>
+</div>
+
+<!-- 岗位详情（系数 + 各视角得分） -->
+<div class="drawer" id="drawer-detail"><div class="box">
+  <div class="m-head"><div><h3>架构师</h3><div class="text-sm muted">研发·高级 · 关键系数 0.95</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="section-title">各视角得分（AI 计算 · 仅供参考）</div>
+    <div class="weight-row"><div class="w-label">需求 N</div><div class="w-val">0.92</div></div>
+    <div class="weight-row"><div class="w-label">供给 S（少）</div><div class="w-val">0.20</div></div>
+    <div class="weight-row"><div class="w-label">ART 能力</div><div class="w-val">2.8 / 3</div></div>
+    <div class="weight-row"><div class="w-label">时间成本</div><div class="w-val">高</div></div>
+    <div class="divider"></div>
+    <div class="flex between"><b>关键系数（加权）</b><b style="color:var(--danger)">0.95 · 关键</b></div>
+    <div class="hint-box mt-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg><span>判定依据：需求高（核心稀缺）、市场供给极少、ART 能力要求高且培养周期长 → 综合关键系数 0.95，建议优先培养。</span></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button><a class="btn btn-primary" href="positions.html">去配置岗位标准</a></div>
+</div></div>
+
+<!-- 建议校准（多视角差异） -->
+<div class="drawer wide" id="drawer-calib"><div class="box">
+  <div class="m-head"><h3>建议校准 · 测试工程师</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="hint-box warn mb-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>多视角对该岗位结论不同，请确认是否关键。</span></div>
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th>视角</th><th>结论</th><th>系数</th></tr></thead>
+      <tbody>
+        <tr><td>经济 E</td><td>需求中 · 供给多 → 非关键</td><td>0.62</td></tr>
+        <tr><td>能力 A</td><td>能力高 · 时间成本高 → 关键</td><td>0.85</td></tr>
+      </tbody>
+    </table></div>
+    <div class="field mt-md" style="margin-bottom:0"><label>最终判定</label>
+      <div class="radio-row"><label class="radio"><input type="radio" name="calib" checked><div><div class="r-title">标记为关键</div><div class="r-desc">采纳能力视角，纳入培养</div></div></label><label class="radio"><input type="radio" name="calib"><div><div class="r-title">不标记</div><div class="r-desc">采纳经济视角，外部招聘</div></div></label></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>确认</button></div>
+</div></div>
+
+<script src="app.js"></script>
+<script>
+  // 点气泡 → 抽屉显示对应岗位族（标题 + 该族下岗位）
+  document.addEventListener('DOMContentLoaded', function () {
+    var drawer = document.getElementById('drawer-bubble'); if (!drawer) return;
+    var titleEl = drawer.querySelector('h3');
+    var subEl = drawer.querySelector('.text-sm.muted');
+    var tbody = drawer.querySelector('tbody');
+    var FAM = {
+      '研发·高级': [['架构师', '0.95', '需求高·供给少'], ['高级算法工程师', '0.92', '需求高·供给少']],
+      '研发·中级': [['后端开发工程师', '0.81', '需求高·供给少'], ['数据分析师', '0.76', '需求高·供给少'], ['测试工程师', '0.72', '多视角差异'], ['DevOps 工程师', '0.69', '需求中·供给多']],
+      '销售·高级': [['区域销售总监', '0.88', '需求高·供给少']],
+      '销售·中级': [['大客户销售经理', '0.78', '需求高·供给多'], ['销售运营', '0.55', '需求中·供给多']],
+      '研发·初级': [['前端开发工程师', '0.54', '需求中·供给多'], ['初级开发工程师', '0.41', '需求低·供给多']],
+      '销售·初级': [['销售专员', '0.45', '需求低·供给多'], ['客户成功专员', '0.40', '需求低·供给多']],
+      '职能·中级': [['财务分析经理', '0.46', '需求低·供给多'], ['HRBP', '0.50', '需求中·供给多']],
+      '职能·初级': [['招聘专员', '0.31', '需求低·供给多'], ['行政专员', '0.28', '需求低·供给多']]
+    };
+    document.querySelectorAll('.chart-svg .bub').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var fam = (b.querySelector('.lbl') || {}).textContent || '岗位族';
+        var list = FAM[fam] || [['（暂无示例岗位）', '—', '—']];
+        if (titleEl) titleEl.textContent = fam;
+        if (subEl) subEl.textContent = fam + ' · ' + list.length + ' 岗位（按当前视角）';
+        if (tbody) tbody.innerHTML = list.map(function (p) {
+          var checked = parseFloat(p[1]) >= 0.75 ? 'checked' : '';
+          return '<tr><td><input type="checkbox" ' + checked + ' data-key-toggle></td><td>' + p[0] + '</td><td>' + p[1] + '</td><td>' + p[2] + '</td></tr>';
+        }).join('');
+      });
+    });
+  });
+</script>
+</body>
+</html>

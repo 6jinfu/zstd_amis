@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新建 360 评估</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="assess-builder-page">
+  <div class="assess-builder-shell">
+    <div class="assess-builder-closebar"><a href="assess-projects.html" aria-label="关闭新建页面"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></a></div>
+    <header class="assess-builder-toolbar">
+      <h1>新建 360 评估</h1>
+      <div class="assess-builder-actions"><a class="btn btn-secondary" href="assess-projects.html">返回</a><button class="btn btn-secondary" type="button" data-assess-preview>预览</button><button class="btn btn-primary" type="submit" form="assess-builder-form">保存</button></div>
+    </header>
+    <div class="assess-builder-workspace">
+      <aside class="assess-builder-rail">
+        <h2>能力指标</h2>
+        <button class="assess-select-metric" type="button" data-select-metric>选择能力指标</button>
+        <nav class="assess-metric-nav" aria-label="已选择能力指标">
+          <div class="assess-metric-group">协同影响力</div>
+          <button class="assess-metric-item active" type="button" data-metric="跨部门沟通" data-questionnaire="架构师协同能力问卷">跨部门沟通</button>
+          <button class="assess-metric-item" type="button" data-metric="系统思考" data-questionnaire="系统思考能力问卷">系统思考</button>
+          <button class="assess-metric-item" type="button" data-metric="冲突管理" data-questionnaire="冲突管理能力问卷">冲突管理</button>
+          <button class="assess-metric-item" type="button" data-metric="影响他人" data-questionnaire="影响力能力问卷">影响他人</button>
+        </nav>
+      </aside>
+      <main class="assess-builder-main">
+        <form id="assess-builder-form">
+          <div class="assess-title-field"><label for="assess-project-title">项目标题</label><input id="assess-project-title" value="架构师协同能力 360" autocomplete="off" spellcheck="false"></div>
+          <div class="assess-builder-content" hidden>
+            <section class="assess-builder-section">
+              <h2>基本信息</h2>
+              <div class="assess-form-grid">
+                <div class="field"><label for="assess-position">关联岗位 <span class="req">*</span></label><select class="select" id="assess-position" required><option selected>架构师</option><option>高级算法工程师</option><option>区域销售总监</option></select></div>
+                <div class="field"><label for="assess-owner">负责人 <span class="req">*</span></label><select class="select" id="assess-owner" required><option selected>李文静</option><option>王志强</option></select></div>
+                <div class="field"><label for="assess-people">被评人员</label><input class="input" id="assess-people" value="架构师岗位在岗人员（6 人）" readonly></div>
+                <div class="field"><label for="assess-questionnaire">匹配问卷</label><input class="input" id="assess-questionnaire" value="架构师协同能力问卷" readonly></div>
+              </div>
+            </section>
+            <section class="assess-builder-section">
+              <div class="assess-section-heading"><h2 id="assess-current-metric">跨部门沟通</h2><button class="btn-text btn-sm" type="button" data-view-questionnaire>查看问卷</button></div>
+              <div class="assess-form-grid assess-form-grid-bottom">
+                <fieldset class="field assess-relation-field"><legend>评价关系 <span class="req">*</span></legend><div class="check-grid"><label class="checkbox"><input type="checkbox" checked> 上级</label><label class="checkbox"><input type="checkbox" checked> 同级</label><label class="checkbox"><input type="checkbox" checked> 下级</label><label class="checkbox"><input type="checkbox" checked> 自评</label></div></fieldset>
+                <div class="assess-date-grid"><div class="field"><label for="assess-start">开始时间</label><input class="input" id="assess-start" type="date" value="2026-08-03"></div><div class="field"><label for="assess-end">结束时间</label><input class="input" id="assess-end" type="date" value="2026-08-10"></div></div>
+              </div>
+            </section>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+  <div class="assess-builder-toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var form=document.getElementById('assess-builder-form'),toast=document.querySelector('.assess-builder-toast'),metricTitle=document.getElementById('assess-current-metric'),questionnaire=document.getElementById('assess-questionnaire');
+  function showMessage(message){toast.textContent=message;toast.classList.add('show');window.clearTimeout(showMessage.timer);showMessage.timer=window.setTimeout(function(){toast.classList.remove('show')},2400)}
+  document.querySelectorAll('.assess-metric-item').forEach(function(item){item.addEventListener('click',function(){document.querySelectorAll('.assess-metric-item').forEach(function(node){node.classList.remove('active')});item.classList.add('active');metricTitle.textContent=item.dataset.metric;questionnaire.value=item.dataset.questionnaire})});
+  document.querySelector('[data-select-metric]').addEventListener('click',function(){showMessage('选择能力指标后，将在左侧生成对应指标项')});
+  document.querySelector('[data-view-questionnaire]').addEventListener('click',function(){showMessage('查看当前能力指标匹配的问卷')});
+  document.querySelector('[data-assess-preview]').addEventListener('click',function(){showMessage('预览 360 评估内容')});
+  form.addEventListener('submit',function(event){event.preventDefault();showMessage('360 评估已保存')});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>岗位详情 · 高级算法工程师</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="standard" data-page="positions">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb"><a href="positions.html" style="color:var(--neutral-400)">岗位管理</a><span class="sep">/</span><span class="cur">岗位详情</span></div>
+
+      <!-- 顶部工具条 -->
+      <div class="detail-bar">
+        <div class="db-left">
+          <a class="back" href="positions.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>返回</a>
+          <h1>高级算法工程师</h1>
+          <span class="tag tag-warning">关键岗位</span>
+          <span class="text-sm muted">RD-301 · 研发·高级</span>
+        </div>
+      </div>
+
+      <div class="detail-layout">
+        <!-- 左：固定切换菜单 -->
+        <nav class="anchor-nav" data-default="standard">
+          <a class="a-item" data-tab="info" href="#info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>岗位信息</a>
+          <a class="a-item active" data-tab="standard" href="#standard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1H9z"/><path d="M9 11h6M9 15h4" stroke-linecap="round"/></svg>岗位标准</a>
+          <a class="a-item" data-tab="plan" href="#plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 19H6a2 2 0 0 0-2 2"/><path d="M9 7h6" stroke-linecap="round"/></svg>学习方案</a>
+        </nav>
+
+        <!-- 右：分区内容（切换） -->
+        <div class="detail-main">
+
+          <!-- ① 岗位信息（只读） -->
+          <section data-section="info" class="card card-pad d-section">
+            <div class="flex between center">
+              <div class="sect-title" style="margin:0"><span class="idx">1</span>岗位信息</div>
+            </div>
+            <div class="divider"></div>
+            <div class="flex gap-md" style="gap:var(--space-md)">
+              <div class="field" style="flex:1;margin-bottom:var(--space-md)"><label>岗位编号</label><input class="input" value="RD-301" disabled></div>
+              <div class="field" style="flex:1;margin-bottom:var(--space-md)"><label>岗位名称</label><input class="input" value="高级算法工程师" disabled></div>
+              <div class="field" style="flex:1;margin-bottom:var(--space-md)"><label>岗位类别</label><input class="input" value="研发" disabled></div>
+            </div>
+            <div class="sel-card" style="background:var(--neutral-50);border-color:var(--neutral-200);margin-top:var(--space-md)">
+              <label class="checkbox" style="font-size:14px;font-weight:500;color:var(--neutral-600)"><input type="checkbox" checked disabled> 关键岗位</label>
+            </div>
+          </section>
+
+          <!-- ② 岗位标准 -->
+          <section data-section="standard" class="card card-pad d-section active">
+            <div class="flex between center">
+              <div class="sect-title" style="margin:0"><span class="idx">2</span>岗位标准</div>
+              <button class="btn btn-primary" id="ai-gen-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><path d="M19 14l.7 2L22 17l-2.3.7L19 20l-.7-2L16 17l2.3-.7z"/></svg>AI 创建</button>
+            </div>
+
+            <div class="flex between center"><div class="section-title" style="margin:0">任职</div></div>
+            <div data-duty-list class="mt-sm mb-sm">
+              <div class="empty-state">尚无职责 · 点右上「AI 创建」快速生成，或「新增职责」手动配置</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-add-duty><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新增职责</button>
+
+            <div class="divider mt-md"></div>
+            <div class="section-title">资格（4D）</div>
+
+            <div class="text-sm" style="font-weight:600;margin-bottom:6px">经历</div>
+            <div data-exp-list style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px">
+              <div class="empty-state">尚无经历要求 · 点「添加经历」或用 AI 创建</div>
+            </div>
+            <button class="btn btn-ghost btn-sm mb-md" data-add-exp><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>添加经历</button>
+
+            <div class="divider"></div>
+            <div class="flex between center"><div class="section-title" style="margin:0">能力分组（雷达图）</div><button class="btn btn-secondary btn-sm" data-toast="已新增能力组">+ 新增能力组</button></div>
+            <div class="ability-group-list">
+              <div class="ability-group">
+                <div class="ability-group-head"><div><b>专业能力</b><span class="ability-count">0 / 20 项</span></div><button class="btn btn-secondary btn-sm" data-picker="能力">选择能力</button></div>
+                <div class="chip-list mt-sm" id="cap-list"><span class="chip-empty">暂未选择能力项</span></div>
+              </div>
+            </div>
+            <div class="form-note mb-md">每个能力组对应一张雷达图；单个岗位最多 50 个能力组，每组最多 20 项，同一岗位内能力项不可重复。</div>
+
+            <div class="divider"></div>
+            <div class="flex between center"><div class="section-title" style="margin:0">动力 <span class="tag">固定指标</span></div><button class="btn btn-secondary btn-sm" data-picker="动力">从固定库选择</button></div>
+            <div class="chip-list mt-sm mb-md" id="pow-list">
+              <span class="chip-empty">暂未选择动力项</span>
+            </div>
+
+            <div class="divider"></div>
+            <div class="flex between center"><div class="section-title" style="margin:0">潜力 <span class="tag">固定指标</span></div><button class="btn btn-secondary btn-sm" data-picker="潜力">从固定库选择</button></div>
+            <div class="chip-list mt-sm" id="pot-list">
+              <span class="chip-empty">暂未选择潜力项</span>
+            </div>
+          </section>
+
+          <!-- ③ 学习方案 -->
+          <section data-section="plan" class="card card-pad d-section">
+            <div class="flex between center mb-md">
+              <div>
+                <div class="sect-title" style="margin:0"><span class="idx">3</span>学习方案</div>
+              </div>
+              <button class="btn btn-primary" id="ai-course-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><path d="M19 14l.7 2L22 17l-2.3.7L19 20l-.7-2L16 17l2.3-.7z"/></svg>AI 配课</button>
+            </div>
+            <div class="flex gap-sm mb-md">
+              <button class="btn btn-secondary" data-picker="课程">+ 关联课程</button>
+              <button class="btn btn-secondary" data-picker="项目">+ 关联项目</button>
+              <button class="btn btn-secondary" data-picker="前测">+ 关联前测</button>
+              <button class="btn btn-secondary" data-picker="后测">+ 关联后测</button>
+            </div>
+            <div class="table-wrap"><table class="t" id="plan-table">
+              <thead><tr><th style="width:90px">类型</th><th>名称</th><th>来源 / 周期</th><th style="text-align:right">操作</th></tr></thead>
+              <tbody>
+                <tr><td><span class="tag tag-primary">课程</span></td><td>分布式系统设计</td><td class="muted">培训平台 · 24 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+                <tr><td><span class="tag tag-primary">课程</span></td><td>高并发架构实战</td><td class="muted">培训平台 · 16 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+                <tr><td><span class="tag tag-success">项目</span></td><td>架构师加速营（第 3 期）</td><td class="muted">培训项目 · 3 个月</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+                <tr><td><span class="tag tag-warning">前测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养开始前</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+                <tr><td><span class="tag tag-warning">后测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养结束后</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
+              </tbody>
+            </table></div>
+          </section>
+
+        </div>
+      </div>
+
+      <div class="detail-foot">
+        <div class="flex gap-sm">
+          <a class="btn btn-secondary" href="positions.html">取消</a>
+          <button class="btn btn-primary" id="save-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>保存</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 选择器抽屉（能力/动力/潜力/课程/项目/前后测 复用）-->
+<div class="drawer" id="drawer-picker">
+  <div class="m-head"><h3 id="picker-title">选择</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <input class="input mb-md" id="picker-search" placeholder="搜索">
+    <div id="picker-list"></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" id="picker-ok">添加</button></div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  // 保存：轻反馈后回列表页（完整操作路径）
+  var sb = document.getElementById('save-btn');
+  if (sb) sb.addEventListener('click', function () {
+    this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>已保存';
+    this.classList.add('disabled');
+    setTimeout(function () { location.href = 'positions.html'; }, 850);
+  });
+
+  // 任职：职责 / 任务 增删
+  (function () {
+    var list = document.querySelector('[data-duty-list]');
+    if (!list) return;
+    function renumber() { list.querySelectorAll('.duty-block').forEach(function (d, i) { var t = d.querySelector('.d-tag'); if (t) t.textContent = '职责 ' + (i + 1); }); }
+    function newTaskInput() {
+      var line = document.createElement('div');
+      line.className = 'task-line';
+      line.innerHTML = '<span class="t-tag">任务</span><input class="input t-input" placeholder="输入任务"><button class="btn-text btn-sm muted" data-del-task>删除</button>';
+      return line;
+    }
+    function newDutyBlock() {
+      var d = document.createElement('div'); d.className = 'duty-block'; d.setAttribute('data-duty', '');
+      d.innerHTML = '<div class="d-head"><span class="d-tag">职责</span><input class="input d-input" placeholder="输入职责"><button class="btn-text btn-sm danger" data-del-duty>删除</button></div><div class="tasks"></div><button class="btn btn-ghost btn-sm" data-add-task><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新增任务</button>';
+      d.querySelector('.tasks').appendChild(newTaskInput());
+      return d;
+    }
+    document.querySelector('[data-add-duty]').addEventListener('click', function () {
+      var es = list.querySelector('.empty-state'); if (es) es.remove();
+      var lastDuty = list.querySelector('.duty-block');
+      var block;
+      if (lastDuty) {
+        block = lastDuty.cloneNode(true);
+        block.querySelectorAll('input').forEach(function (i) { i.value = ''; });
+        block.querySelector('.tasks').innerHTML = '';
+        block.querySelector('.tasks').appendChild(newTaskInput());
+      } else {
+        block = newDutyBlock();
+      }
+      list.appendChild(block);
+      renumber();
+      block.querySelector('.d-input').focus();
+    });
+    list.addEventListener('click', function (e) {
+      var addTask = e.target.closest('[data-add-task]');
+      var delTask = e.target.closest('[data-del-task]');
+      var delDuty = e.target.closest('[data-del-duty]');
+      if (addTask) { var w = addTask.closest('.duty-block').querySelector('.tasks'); var l = newTaskInput(); w.appendChild(l); l.querySelector('input').focus(); }
+      else if (delTask) { var w = delTask.closest('.tasks'); if (w.children.length > 1) delTask.closest('.task-line').remove(); }
+      else if (delDuty) { if (list.children.length > 1) { delDuty.closest('.duty-block').remove(); renumber(); } }
+    });
+    renumber();
+  })();
+
+  // 经历增 / 课程移除
+  (function () {
+    var exp = document.querySelector('[data-add-exp]');
+    if (exp) exp.addEventListener('click', function () {
+      var box = document.querySelector('[data-exp-list]');
+      var es = box.querySelector('.empty-state'); if (es) es.remove();
+      var inp = document.createElement('input');
+      inp.className = 'input'; inp.placeholder = '输入经历要求'; inp.style.maxWidth = '520px';
+      box.appendChild(inp); inp.focus();
+    });
+    var pt = document.getElementById('plan-table');
+    if (pt) pt.addEventListener('click', function (e) {
+      var del = e.target.closest('[data-del-row]');
+      if (del) { var tb = pt.querySelector('tbody'); if (tb.children.length > 1) del.closest('tr').remove(); }
+    });
+  })();
+</script>
+<script>
+  // 选择器（能力 / 动力 / 潜力 / 课程 / 项目 / 前测 / 后测，复用一个抽屉）
+  (function () {
+    var PICK = {
+      '能力': { chips: '#cap-list', lvl: true, items: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3'], ['数据分析', 'L3'], ['系统工程', 'L3'], ['论文复现', 'L3']] },
+      '动力': { chips: '#pow-list', items: ['成就导向', '技术钻研', '影响他人', '稳定归属', '自主独立', '掌控权力', '协作共赢'] },
+      '潜力': { chips: '#pot-list', items: ['战略思维', '变革推动', '学习敏锐', '复杂决策', '跨界整合', '坚韧抗压'] },
+      '课程': { kind: '课程', tag: 'tag-primary', items: ['分布式系统设计', '高并发架构实战', '领导力基础', '数据治理入门', '技术合伙人', '架构演进实战'] },
+      '项目': { kind: '项目', tag: 'tag-success', items: ['架构师加速营', '技术管理训练营', '跨部门攻坚项目'] },
+      '前测': { kind: '前测', tag: 'tag-warning', items: ['系统架构认证', 'PMP 项目管理', '数据工程师认证'] },
+      '后测': { kind: '后测', tag: 'tag-warning', items: ['系统架构认证', 'PMP 项目管理', '数据工程师认证'] }
+    };
+    var title = document.getElementById('picker-title'), list = document.getElementById('picker-list');
+    var search = document.getElementById('picker-search'), ok = document.getElementById('picker-ok');
+    if (!list) return;
+    var cur = null;
+    function render() {
+      var cfg = PICK[cur], q = (search.value || '').trim().toLowerCase();
+      list.innerHTML = '';
+      cfg.items.forEach(function (it) {
+        var name = Array.isArray(it) ? it[0] : it;
+        if (q && name.toLowerCase().indexOf(q) < 0) return;
+        var row = document.createElement('label');
+        row.className = 'picker-row';
+        row.innerHTML = '<input type="checkbox"><span class="pr-name">' + name + '</span>' + (cfg.lvl ? '<select class="select pr-lvl"><option>L1</option><option>L2</option><option selected>L3</option><option>L4</option><option>L5</option></select>' : '');
+        list.appendChild(row);
+      });
+      if (!list.children.length) list.innerHTML = '<div class="text-sm muted" style="padding:12px 4px">无匹配项</div>';
+    }
+    document.querySelectorAll('[data-picker]').forEach(function (b) {
+      b.addEventListener('click', function () { cur = b.dataset.picker; title.textContent = '选择' + cur; search.value = ''; render(); openOverlay('drawer-picker'); });
+    });
+    search.addEventListener('input', render);
+    ok.addEventListener('click', function () {
+      var cfg = PICK[cur];
+      list.querySelectorAll('.picker-row').forEach(function (r) {
+        var inp = r.querySelector('input'); if (!inp || !inp.checked) return;
+        var name = r.querySelector('.pr-name').textContent;
+        if (cfg.chips) {
+          var cl = document.querySelector(cfg.chips); var ce = cl.querySelector('.chip-empty'); if (ce) ce.remove();
+          if (cur === '能力' && cl.querySelectorAll('.chip').length >= 20) { showToast('每个能力组最多选择 20 项'); return; }
+          if (cur === '能力' && [].some.call(cl.querySelectorAll('.chip'), function (item) { return item.dataset.name === name; })) { showToast('同一岗位内不能重复选择能力项'); return; }
+          var sel = r.querySelector('.pr-lvl');
+          var chip = document.createElement('span'); chip.className = 'chip'; chip.dataset.name = name;
+          chip.innerHTML = name + (cfg.lvl ? ' <span class="lvl">' + (sel ? sel.value : '') + '</span>' : '') + ' <span class="x">×</span>';
+          cl.appendChild(chip);
+          if (cur === '能力') document.querySelector('.ability-count').textContent = cl.querySelectorAll('.chip').length + ' / 20 项';
+        } else {
+          var tb = document.querySelector('#plan-table tbody');
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td><span class="tag ' + cfg.tag + '">' + cfg.kind + '</span></td><td>' + name + '</td><td class="muted">培训平台</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td>';
+          tb.appendChild(tr);
+        }
+      });
+      closeAllOverlays();
+    });
+    // chip 删除（委托）
+    document.querySelectorAll('[data-section="standard"] .chip-list').forEach(function (cl) {
+      cl.addEventListener('click', function (e) { var x = e.target.closest('.x'); if (x) { x.closest('.chip').remove(); if (cl.id === 'cap-list') document.querySelector('.ability-count').textContent = cl.querySelectorAll('.chip').length + ' / 20 项'; } });
+    });
+  })();
+</script>
+
+<!-- AI 创建岗位标准：生成进度反馈 -->
+<style>
+.ai-gen-overlay{position:fixed;inset:0;z-index:var(--z-ai);background:rgba(17,24,39,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.ai-gen-overlay.show{opacity:1;pointer-events:auto;}
+.ai-gen-card{width:100%;max-width:600px;max-height:86vh;overflow-y:auto;background:var(--white);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.28);padding:28px;animation:ai-gen-in .5s cubic-bezier(.16,1,.3,1) both;}
+@keyframes ai-gen-in{from{opacity:0;transform:translateY(20px) scale(.97);filter:blur(4px);}to{opacity:1;transform:none;filter:none;}}
+.ai-gen-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.ai-gen-orb{width:46px;height:46px;flex:0 0 46px;border-radius:50%;position:relative;overflow:hidden;isolation:isolate;}
+.ai-gen-orb::before,.ai-gen-orb::after{content:'';position:absolute;border-radius:50%;filter:blur(6px);mix-blend-mode:screen;}
+.ai-gen-orb::before{inset:-5%;background:radial-gradient(circle at 30% 35%,#93c5fd,transparent 55%),radial-gradient(circle at 70% 65%,#c4b5fd,transparent 50%);animation:ai-orb-a 4.8s ease-in-out infinite alternate;}
+.ai-gen-orb::after{inset:8%;background:radial-gradient(circle at 60% 40%,#67e8f9,transparent 55%),radial-gradient(circle at 35% 70%,#6ee7b7,transparent 50%);animation:ai-orb-b 6s ease-in-out infinite alternate;}
+@keyframes ai-orb-a{0%{transform:translate(0,0) scale(1);}100%{transform:translate(8px,-6px) scale(1.12);}}
+@keyframes ai-orb-b{0%{transform:translate(0,0) scale(.92);}100%{transform:translate(-6px,5px) scale(1.08);}}
+.ai-gen-title{font-size:17px;font-weight:700;color:var(--neutral-900);}
+.ai-gen-sub{font-size:13px;color:var(--neutral-400);margin-top:2px;}
+.ai-gen-chain{background:var(--neutral-50);border:1px solid var(--neutral-200);border-radius:var(--radius-md);padding:6px 14px 8px;margin-bottom:16px;}
+.ai-node{display:flex;gap:12px;align-items:flex-start;padding:5px 0;}
+.ai-node.in{animation:ai-node-in .3s ease-out both;}
+@keyframes ai-node-in{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:none;}}
+.ai-node .nd-col{position:relative;width:14px;flex:0 0 14px;align-self:stretch;display:flex;justify-content:center;padding-top:5px;}
+.ai-node .nd{width:14px;height:14px;border-radius:50%;border:2px solid var(--neutral-400);background:var(--white);z-index:1;position:relative;transition:border-color .3s,background .3s,box-shadow .3s;}
+.ai-node .ln{position:absolute;left:50%;top:18px;bottom:-5px;width:2px;transform:translateX(-50%);background:var(--neutral-200);transition:background .3s;}
+.ai-node:last-child .ln{display:none;}
+.ai-node .nd-t{font-size:13px;line-height:24px;color:var(--neutral-400);transition:color .25s;}
+.ai-node.active .nd{border-color:var(--primary-600);box-shadow:0 0 0 4px var(--primary-50);}
+.ai-node.active .nd-t{color:var(--neutral-900);font-weight:500;}
+.ai-node.active .ln{background:linear-gradient(var(--primary-600),var(--neutral-200));background-size:100% 200%;animation:ai-ln-flow 1.2s linear infinite;}
+@keyframes ai-ln-flow{from{background-position:0 0;}to{background-position:0 200%;}}
+.ai-node.done .nd{border-color:var(--primary-600);background:var(--primary-600);}
+.ai-node.done .nd::after{content:'✓';position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:700;line-height:1;}
+.ai-node.done .nd-t{color:var(--neutral-600);}
+.ai-node.done .ln{background:linear-gradient(var(--primary-600),var(--neutral-200));}
+.ai-gen-results{display:flex;flex-direction:column;gap:10px;}
+.ai-res{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--neutral-50);border:1px solid var(--neutral-200);border-radius:var(--radius-md);}
+.ai-res .r-ic{width:24px;height:24px;flex:0 0 24px;border-radius:7px;background:var(--primary-50);color:var(--primary-600);display:grid;place-items:center;}
+.ai-res .r-ic svg{width:14px;height:14px;}
+.ai-res .r-body{flex:1;min-width:0;}
+.ai-res .r-label{font-size:12px;color:var(--neutral-400);margin-bottom:7px;}
+.ai-res .r-content{font-size:13px;color:var(--neutral-900);line-height:1.7;}
+.ai-skel{display:flex;flex-direction:column;gap:7px;padding-top:2px;}
+.ai-skel .sk{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--neutral-100) 25%,var(--neutral-200) 37%,var(--neutral-100) 63%);background-size:400% 100%;animation:ai-skel 1.4s ease-in-out infinite;}
+.ai-skel .sk.w80{width:80%;}.ai-skel .sk.w55{width:55%;}
+@keyframes ai-skel{0%{background-position:100% 50%;}100%{background-position:0 50%;}}
+.ai-res .r-content{display:none;}
+.ai-res.done .ai-skel{display:none;}
+.ai-res.done .r-content{display:block;animation:ai-fade .45s ease-out both;}
+@keyframes ai-fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.ai-res .mini-chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:3px 9px;border-radius:99px;background:var(--primary-50);color:var(--primary-600);margin:2px 4px 2px 0;}
+.ai-res .mini-chip .lvl{font-size:10px;font-weight:700;background:var(--white);padding:1px 5px;border-radius:99px;}
+.ai-res .r-muted{color:var(--neutral-400);font-size:12px;margin-left:6px;}
+.ai-caret{display:inline-block;width:7px;height:1.05em;vertical-align:-2px;margin-left:2px;background:var(--primary-600);border-radius:1px;animation:ai-caret 1s steps(2) infinite;}
+@keyframes ai-caret{50%{opacity:0;}}
+.ai-gen-foot{margin-top:18px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--neutral-400);}
+.ai-gen-foot.done{color:#10b981;}
+.ai-gen-spin{width:14px;height:14px;border-radius:50%;border:2px solid var(--neutral-200);border-top-color:var(--primary-600);animation:ai-spin .8s linear infinite;}
+@keyframes ai-spin{to{transform:rotate(360deg);}}
+.empty-state{padding:18px;border:1px dashed var(--neutral-200);border-radius:var(--radius-md);text-align:center;font-size:13px;color:var(--neutral-400);background:var(--neutral-50);}
+.chip-empty{font-size:13px;color:var(--neutral-400);}
+</style>
+<script>
+(function () {
+  var btn = document.getElementById('ai-gen-btn'); if (!btn) return;
+  var AI = {
+    duty: [{ n: '负责算法模型的设计、训练与上线', t: ['主导推荐 / 搜索 / 预测等核心模型迭代', '把控模型效果与线上业务指标'] }, { n: '推进算法工程化与高性能交付', t: ['模型服务化与推理性能优化', '搭建特征工程与数据管道'] }, { n: '跟踪前沿并赋能团队', t: ['评估前沿论文与方法的落地价值', '指导初中级算法工程师成长'] }],
+    exp: ['硕士及以上，计算机 / 统计 / 数学相关', '3 年以上算法或机器学习经验', '有推荐 / 搜索 / NLP 等领域落地经验'],
+    cap: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3']],
+    pow: ['成就导向', '技术钻研', '创新探索'],
+    pot: ['学习敏锐', '战略思维', '跨界整合']
+  };
+  var ICON = {
+    duty: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+    exp: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    cap: '<path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>',
+    pow: '<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>',
+    pot: '<path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.8 5.7 21l2.3-7.2-6-4.4h7.6z"/>'
+  };
+  function chips(arr, lvl) { return arr.map(function (it) { var n = Array.isArray(it) ? it[0] : it, l = Array.isArray(it) ? it[1] : ''; return '<span class="mini-chip">' + n + (lvl ? '<span class="lvl">' + l + '</span>' : '') + '</span>'; }).join(''); }
+  function fillForm() {
+    var list = document.querySelector('[data-duty-list]');
+    if (list) list.innerHTML = AI.duty.map(function (d, i) {
+      return '<div class="duty-block" data-duty><div class="d-head"><span class="d-tag">职责 ' + (i + 1) + '</span><input class="input d-input" value="' + d.n + '"><button class="btn-text btn-sm danger" data-del-duty>删除</button></div><div class="tasks">' + d.t.map(function (t) { return '<div class="task-line"><span class="t-tag">任务</span><input class="input t-input" value="' + t + '"><button class="btn-text btn-sm muted" data-del-task>删除</button></div>'; }).join('') + '</div><button class="btn btn-ghost btn-sm" data-add-task><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新增任务</button></div>';
+    }).join('');
+    var exp = document.querySelector('[data-exp-list]');
+    if (exp) exp.innerHTML = AI.exp.map(function (e) { return '<input class="input" value="' + e + '" style="max-width:520px">'; }).join('');
+    function setChips(sel, arr, lvl) { var el = document.querySelector(sel); if (el) el.innerHTML = arr.map(function (it) { var n = Array.isArray(it) ? it[0] : it, l = Array.isArray(it) ? it[1] : ''; return '<span class="chip" data-name="' + n + '">' + n + (lvl ? ' <span class="lvl">' + l + '</span>' : '') + ' <span class="x">×</span></span>'; }).join(''); }
+    setChips('#cap-list', AI.cap, true); setChips('#pow-list', AI.pow, false); setChips('#pot-list', AI.pot, false);
+    document.querySelector('.ability-count').textContent = AI.cap.length + ' / 20 项';
+  }
+  var taskCount = AI.duty.reduce(function (s, d) { return s + d.t.length; }, 0);
+  btn.addEventListener('click', function () {
+    showAiGen({
+      trigger: btn,
+      title: 'AI 正在生成岗位标准',
+      subtitle: '高级算法工程师 · RD-301 · 研发·高级',
+      footOn: '岗位标准生成中',
+      footDone: '生成完成，可继续编辑',
+      toast: '岗位标准已生成',
+      steps: [
+        { node: '读取岗位上下文（架构师 · 研发·高级）', label: '岗位职责', icon: ICON.duty, content: '<span class="ai-type-target"></span><span class="r-muted">共 ' + AI.duty.length + ' 项职责 · ' + taskCount + ' 条任务</span>', typed: AI.duty[0].n },
+        { node: '梳理任职经历要求', label: '任职经历', icon: ICON.exp, content: AI.exp[0] + '<span class="r-muted"> 等 ' + AI.exp.length + ' 条</span>' },
+        { node: '匹配能力项与等级', label: '能力（带等级）', icon: ICON.cap, content: chips(AI.cap, true) },
+        { node: '推导动力倾向', label: '动力', icon: ICON.pow, content: chips(AI.pow, false) },
+        { node: '评估潜力维度', label: '潜力', icon: ICON.pot, content: chips(AI.pot, false) }
+      ],
+      onDone: fillForm
+    });
+  });
+})();
+</script>
+<script>
+  // AI 配课（学习方案 tab，复用 showAiGen）
+  (function () {
+    var btn = document.getElementById('ai-course-btn'); if (!btn) return;
+    var ICON = {
+      req: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+      course: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+      proj: '<path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/>',
+      exam: '<circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/>',
+      path: '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 0-8H10a4 4 0 0 1 0-8h6"/>'
+    };
+    var RES = [
+      ['课程', 'tag-primary', '机器学习基础', '培训平台 · 20 课时'],
+      ['课程', 'tag-primary', '深度学习实战', '培训平台 · 24 课时'],
+      ['课程', 'tag-primary', '推荐系统算法', '培训平台 · 16 课时'],
+      ['项目', 'tag-success', '算法工程师训练营（第 2 期）', '培训项目 · 3 个月'],
+      ['项目', 'tag-success', '模型上线攻坚项目', '培训项目 · 2 个月'],
+      ['考试', 'tag-warning', '机器学习工程师认证', '认证考试 · 年度'],
+      ['考试', 'tag-warning', '数据工程师认证', '认证考试 · 年度']
+    ];
+    function chips(arr) { return arr.map(function (n) { return '<span class="mini-chip">' + n + '</span>'; }).join(''); }
+    function fillPlan() {
+      var tb = document.querySelector('#plan-table tbody'); if (!tb) return;
+      tb.innerHTML = RES.map(function (r) {
+        return '<tr><td><span class="tag ' + r[1] + '">' + r[0] + '</span></td><td>' + r[2] + '</td><td class="muted">' + r[3] + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>';
+      }).join('');
+    }
+    var courses = RES.filter(function (r) { return r[0] === '课程'; }).map(function (r) { return r[2]; });
+    var projects = RES.filter(function (r) { return r[0] === '项目'; }).map(function (r) { return r[2]; });
+    var exams = RES.filter(function (r) { return r[0] === '考试'; }).map(function (r) { return r[2]; });
+    btn.addEventListener('click', function () {
+      showAiGen({
+        trigger: btn,
+        title: 'AI 正在配课',
+        subtitle: '高级算法工程师 · 学习方案',
+        footOn: '按能力差距匹配资源 · 完成后可调整',
+        footDone: '学习方案已生成，可继续编辑',
+        toast: '学习方案已生成',
+        steps: [
+          { node: '读取岗位标准与能力差距', label: '能力要求', icon: ICON.req, content: '<span class="ai-type-target"></span><span class="r-muted">等 3 项能力差距</span>', typed: '算法设计 L4' },
+          { node: '匹配课程资源', label: '推荐课程', icon: ICON.course, content: chips(courses) },
+          { node: '匹配培养项目', label: '推荐项目', icon: ICON.proj, content: chips(projects) },
+          { node: '匹配认证考试', label: '推荐考试', icon: ICON.exam, content: chips(exams) },
+          { node: '整合学习路径', label: '学习路径', icon: ICON.path, content: RES.length + ' 项学习资源<span class="r-muted"> · 建议周期 3 个月</span>' }
+        ],
+        onDone: fillPlan
+      });
+    });
+  })();
+</script>
+</body>
+</html>

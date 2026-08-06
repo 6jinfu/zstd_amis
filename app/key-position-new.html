@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新建关键岗位分析 · 岗位中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="standard" data-page="key-position">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="positions" href="positions.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>岗位管理</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+    <main class="content content-wide">
+      <div class="breadcrumb"><a href="key-position.html" style="color:var(--neutral-400)">关键岗位分析</a><span class="sep">/</span><span class="cur">新建分析</span></div>
+      <div class="page-head"><div><h1>新建关键岗位分析</h1></div></div>
+
+      <div data-wizard>
+        <div class="steps">
+          <div class="step"><span class="idx">1</span><span class="lbl">创建</span></div><span class="line"></span>
+          <div class="step"><span class="idx">2</span><span class="lbl">选范围</span></div><span class="line"></span>
+          <div class="step"><span class="idx">3</span><span class="lbl">选视角</span></div><span class="line"></span>
+          <div class="step"><span class="idx">4</span><span class="lbl">视角配置</span></div><span class="line"></span>
+          <div class="step"><span class="idx">5</span><span class="lbl">生成</span></div>
+        </div>
+
+        <!-- ① 创建 -->
+        <div class="step-panel show" data-panel="1">
+          <div class="card card-pad">
+            <div class="field"><label>项目名 <span class="req">*</span></label><input class="input" value="2026 年度关键岗位分析（研发 + 销售）"></div>
+            <div class="field"><label>分析目标</label><textarea class="input" rows="2">识别研发与销售序列中需要优先培养的关键岗位，作为本年度标准建模与培养投入的依据。</textarea></div>
+            <div class="field" style="margin-bottom:0"><label>引用组织结构版本 <span class="req">*</span></label>
+              <div class="sel-card"><div><div style="font-weight:500">V2 · 2026 年组织调整</div><div class="text-sm muted">生效于 2026-06-18 · 3 序列 × 3 层级 · 8 岗位族</div></div><span class="tag tag-effective">当前生效</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ② 颗粒度 -->
+        <div class="step-panel" data-panel="2">
+          <div class="card card-pad">
+            <div class="section-title">分析范围</div>
+            <div style="display:flex;align-items:center;gap:var(--space-md);margin:var(--space-md) 0">
+              <span class="text-sm">岗位族</span>
+              <input type="range" class="range-slider" min="0" max="2" value="1" style="flex:1;max-width:420px">
+              <span class="text-sm">具体岗位</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ③ 选视角 -->
+        <div class="step-panel" data-panel="3">
+          <div class="card card-pad">
+            <div class="section-title">选择视角<span class="muted text-sm" style="font-weight:400">按你有的数据自由勾选 · 至少 1 个</span></div>
+            <div class="method-cards">
+              <label class="method-card"><input type="checkbox" checked><div class="mc-name">经济 E</div><div class="mc-desc">需求 × 供给：需求高且供给少 = 关键岗位。</div><div class="mc-meta">供需模型 · 默认</div></label>
+              <label class="method-card"><input type="checkbox" checked><div class="mc-name">能力 A</div><div class="mc-desc">能力（ART）× 时间成本：能力高且培养周期长 = 关键。</div><div class="mc-meta">ART · 9 变量</div></label>
+              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">业务 B</div><div class="mc-desc">价值链 × DID。</div><div class="mc-meta">即将上线</div></label>
+              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">变革 R</div><div class="mc-desc">3Cha 变革视角。</div><div class="mc-meta">即将上线</div></label>
+              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">战略 S</div><div class="mc-desc">战略解码视角。</div><div class="mc-meta">即将上线</div></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ④ 视角配置 -->
+        <div class="step-panel" data-panel="4">
+          <div class="card card-pad" data-tabs>
+            <div class="tab-btns"><button class="tab-btn active" data-tab="e">经济 E</button><button class="tab-btn" data-tab="a">能力 A</button></div>
+            <div class="tab-panel show" data-tab="e">
+              <div class="section-title">数据来源</div>
+              <div style="display:grid;grid-template-columns:80px 1fr;gap:8px 12px;font-size:13px">
+                <span style="color:var(--neutral-600)">需求 N</span><span style="color:var(--neutral-900)">平台岗位数据 + 编制 / 缺口 + 业务权重</span>
+                <span style="color:var(--neutral-600)">供给 S</span><span style="color:var(--neutral-900)">人才供给与市场供给</span>
+              </div>
+            </div>
+            <div class="tab-panel" data-tab="a">
+              <div class="responsive-split" style="display:grid;grid-template-columns:1fr 280px;gap:var(--space-lg);align-items:start">
+                <div>
+                  <div class="section-title">ART 变量（1~3 分锚定）</div>
+                  <div class="tree">
+                    <div class="t-node t-l1">思考 Think</div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>创新</label><span class="anchor">不做 / 微小 / 较大</span></div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>决策</label><span class="anchor">不做 / 微小 / 较大</span></div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>问题</label><span class="anchor">简单 / 较复杂 / 非常复杂</span></div>
+                    <div class="t-node t-l1">关系 Relationship</div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>协同</label><span class="anchor">参与 / 跨部门 / 发起</span></div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>团队</label><span class="anchor">不带 / 小组 / 大团队</span></div>
+                    <div class="t-node t-l2"><label><input type="checkbox">谈判</label><span class="anchor">无 / 供应商 / 合作方</span></div>
+                    <div class="t-node t-l1">行动 Action</div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>技术</label><span class="anchor">不需 / 基础 / 高水平</span></div>
+                    <div class="t-node t-l2"><label><input type="checkbox" checked>专业</label><span class="anchor">不需 / 一定 / 大量</span></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex between center mb-sm"><div class="text-sm" style="font-weight:600">分组权重</div><span class="ai-suggest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2 5 5 .5-4 3.5 1.5 5L12 14l-4.5 3 1.5-5-4-3.5 5-.5z"/></svg>采用</span></div>
+                  <div class="slider-row"><span class="sr-label">思考</span><input type="range" min="0" max="100" value="40"><span class="sr-val">40%</span></div>
+                  <div class="slider-row"><span class="sr-label">关系</span><input type="range" min="0" max="100" value="35"><span class="sr-val">35%</span></div>
+                  <div class="slider-row"><span class="sr-label">行动</span><input type="range" min="0" max="100" value="25"><span class="sr-val">25%</span></div>
+                  <div class="weight-sum">权重和 <b>100%</b></div>
+                  <div class="field mt-md" style="margin-bottom:0"><label>关键阈值（关键系数 ≥）</label><input class="input" type="number" value="0.75" step="0.05" style="max-width:140px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-pad mt-md">
+            <div class="flex between center mb-md">
+              <div class="section-title" style="margin:0">多视角权重</div>
+              <span class="text-sm muted">经济 + 能力 · 默认各 50%</span>
+            </div>
+            <div class="slider-row"><span class="sr-label">经济 E</span><input type="range" min="0" max="100" value="50"><span class="sr-val">50%</span></div>
+            <div class="slider-row"><span class="sr-label">能力 A</span><input type="range" min="0" max="100" value="50"><span class="sr-val">50%</span></div>
+          </div>
+        </div>
+
+        <!-- ⑤ 生成 -->
+        <div class="step-panel" data-panel="5">
+          <div class="card card-pad">
+            <div class="section-title">配置汇总</div>
+            <div class="table-wrap"><table class="t"><tbody>
+              <tr><td class="muted" style="width:180px">项目</td><td>2026 年度关键岗位分析（研发 + 销售）</td></tr>
+              <tr><td class="muted">引用组织结构</td><td>V2 · 2026 年组织调整（当前生效）</td></tr>
+              <tr><td class="muted">分析范围</td><td>岗位族（标记到具体岗位）</td></tr>
+              <tr><td class="muted">视角</td><td>经济 E（50%）+ 能力 A（50%）</td></tr>
+              <tr><td class="muted">关键阈值</td><td>关键系数 ≥ 0.75</td></tr>
+            </tbody></table></div>
+          </div>
+        </div>
+
+        <div class="wiz-foot">
+          <div class="flex gap-sm center">
+            <button class="btn btn-secondary" data-step-prev><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>上一步</button>
+            <a class="btn btn-ghost" href="key-position.html">取消</a>
+          </div>
+          <button class="btn btn-primary" data-step-next>下一步<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          <a class="btn btn-primary" data-step-submit href="key-position-result.html" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>开始分析</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

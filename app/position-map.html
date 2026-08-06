@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>岗位地图 · 发展中心</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-module="develop" data-page="position-map">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">发展通道</div>
+      <a class="nav-item active" data-page="position-map" href="position-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 12h12"/></svg>岗位地图</a>
+      <a class="nav-item" data-page="level-map" href="level-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 8l4-4 4 4M21 16l-4 4-4-4"/></svg>职级地图</a>
+      <a class="nav-item" data-page="idp-list" href="idp-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>个人发展计划</a>
+      <a class="nav-item" data-toast="即将跳转至「培训中心」"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>培养项目</a>
+    </aside>
+
+    <main class="content">
+      <div class="breadcrumb">发展中心<span class="sep">/</span><span class="cur">岗位地图</span></div>
+
+      <!-- 序列 tab -->
+      <div class="flex between center mb-md">
+        <div class="pm-tabs">
+          <span class="pm-tab active">技术序列 P</span>
+          <span class="pm-tab">管理序列 M</span>
+          <span class="pm-tab">销售条线</span>
+          <span class="pm-tab">专业 - 人力</span>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="settings.html#sequence">序列框架设置</a>
+      </div>
+
+      <!-- 岗位梯子 -->
+      <div class="card">
+        <div class="card-body" style="padding:var(--space-sm) var(--space-lg)">
+          <div class="pm-ladder">
+            <div class="pm-step">
+              <span class="pm-badge">P4 · 专家</span>
+              <button class="pm-node set" data-open="drawer-node">架构师<span class="pm-plan">方案</span></button>
+            </div>
+            <div class="pm-step">
+              <span class="pm-badge">P3 · 高级</span>
+              <button class="pm-node set" data-open="drawer-node">高级开发工程师</button>
+            </div>
+            <div class="pm-step">
+              <span class="pm-badge">P2 · 中级</span>
+              <button class="pm-node set" data-open="drawer-node">后端开发工程师<span class="pm-plan">方案</span></button>
+            </div>
+            <div class="pm-step">
+              <span class="pm-badge">P1 · 初级</span>
+              <button class="pm-node empty" data-open="drawer-selpos">+ 配置岗位</button>
+            </div>
+          </div>
+          <div class="pm-axis-label">岗位等级（自下而上递增）</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 已配节点操作菜单 -->
+<div class="drawer" id="drawer-node">
+  <div class="m-head"><div><h3>架构师</h3><div class="text-sm muted">技术序列 P · P4 专家</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body" style="padding:8px 0 0">
+    <div class="action-list">
+      <button class="action-item" data-open="drawer-channel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 17l4-8 4 8M5 21h14"/></svg>
+        <span>查看岗位发展通道</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <a class="action-item" href="learning-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>配置学习方案</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+      <button class="action-item" data-open="drawer-selpos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        <span>添加岗位</span>
+      </button>
+      <div class="action-divider"></div>
+      <button class="action-item danger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        <span>移除岗位</span>
+      </button>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<!-- 选择岗位 -->
+<div class="drawer" id="drawer-selpos">
+  <div class="m-head"><h3>选择岗位</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <input class="input mb-md" placeholder="搜索岗位">
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th style="width:40px"></th><th>岗位</th><th>所在组</th></tr></thead>
+      <tbody>
+        <tr><td><input type="radio" name="pos"></td><td>前端开发工程师</td><td class="muted">研发·初级</td></tr>
+        <tr><td><input type="radio" name="pos" checked></td><td>初级开发工程师</td><td class="muted">研发·初级</td></tr>
+        <tr><td><input type="radio" name="pos"></td><td>测试工程师</td><td class="muted">研发·中级</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>挂载</button></div>
+</div>
+
+<!-- 发展通道 -->
+<div class="drawer" id="drawer-channel">
+  <div class="m-head"><div><h3>岗位发展通道</h3><div class="text-sm muted">技术序列 P · 架构师</div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div style="display:flex;flex-direction:column;gap:0;align-items:flex-start">
+      <div class="flex gap-sm center" style="padding:10px 0"><span class="tag tag-primary">P5</span><b>首席架构师</b><span class="tag tag-draft">未配方案</span></div>
+      <div style="margin-left:10px;border-left:2px solid var(--primary-200);height:24px"></div>
+      <div class="flex gap-sm center" style="padding:10px 0"><span class="tag tag-primary">P4</span><b>架构师（当前）</b><span class="tag tag-success">已配方案</span></div>
+      <div style="margin-left:10px;border-left:2px solid var(--primary-200);height:24px"></div>
+      <div class="flex gap-sm center" style="padding:10px 0"><span class="tag">P3</span><span class="muted">高级开发工程师</span></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<!-- 职级管理 -->
+<div class="drawer" id="drawer-level">
+  <div class="m-head"><div><h3>职级管理 · 技术序列 P</h3></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="flex between center mb-md"><span class="text-sm muted">自下而上递增</span><button class="btn btn-primary btn-sm">+ 新增职级</button></div>
+    <div class="table-wrap"><table class="t">
+      <thead><tr><th>职级</th><th>名称</th><th>等级序</th><th style="text-align:right">操作</th></tr></thead>
+      <tbody>
+        <tr><td><b>P5</b></td><td>首席</td><td>5</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>
+        <tr><td><b>P4</b></td><td>专家</td><td>4</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">编辑</button></td></tr>
+        <tr><td><b>P3</b></td><td>高级</td><td>3</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">编辑</button></td></tr>
+        <tr><td><b>P2</b></td><td>中级</td><td>2</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">编辑</button></td></tr>
+        <tr><td><b>P1</b></td><td>初级</td><td>1</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">编辑</button></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

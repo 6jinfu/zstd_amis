@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 年度人才盘点 · 评鉴中心</title>
+<link rel="stylesheet" href="styles.css?v=20260806-review-detail-3">
+<style>
+  .rd-matrix{display:grid;grid-template-columns:14px 20px repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,82px) 20px auto;gap:6px;max-width:680px}
+  .rd-matrix .cell{border:0;border-radius:7px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
+  .rd-matrix .cell:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+  .rd-matrix .c-layer{font-size:11px}.rd-matrix .c-n{font-size:20px;font-weight:600}
+  .rd-matrix .l-hi{background:rgba(37,99,235,.14)}.rd-matrix .l-hi .c-n{color:var(--primary-600)}
+  .rd-matrix .l-core{background:rgba(22,163,74,.14)}.rd-matrix .l-core .c-n{color:var(--success)}
+  .rd-matrix .l-mid{background:var(--neutral-100)}.rd-matrix .l-mid .c-n{color:var(--neutral-600)}
+  .rd-matrix .l-risk{background:rgba(220,38,38,.11)}.rd-matrix .l-risk .c-n{color:var(--danger)}
+  .rd-y-title{grid-column:1;grid-row:1/4;writing-mode:vertical-rl;text-orientation:upright;font-size:12px;font-weight:600;color:var(--neutral-600);display:flex;align-items:center;justify-content:center}
+  .rd-y-ticks{grid-column:2;grid-row:1/4;display:grid;grid-template-rows:repeat(3,1fr);align-items:center;justify-items:center;font-size:11px;color:var(--neutral-400)}
+  .rd-x-ticks{grid-column:3/6;grid-row:4;display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;font-size:11px;color:var(--neutral-400)}
+  .rd-x-title{grid-column:3/6;grid-row:5;text-align:center;font-size:12px;font-weight:600;color:var(--neutral-600)}
+</style>
+</head>
+<body data-module="assess" data-page="review-projects">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn" title="通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav"><a class="nav-item" data-page="assess-projects" href="assess-projects.html">360 评估</a><a class="nav-item active" data-page="review-projects" href="review-projects.html">人才盘点</a></aside>
+    <main class="content">
+      <div class="detail-bar">
+        <div class="db-left"><a class="back" href="review-projects.html">← 返回</a><h1 id="review-title">2026 年度人才盘点</h1><span class="tag tag-done" id="review-status">已结束</span><span class="text-sm muted" id="review-meta">35 人</span></div>
+        <div class="actions" id="review-actions"><button class="btn btn-secondary" type="button" data-toast="盘点结果已导出">导出结果</button></div>
+      </div>
+
+      <div class="detail-layout">
+        <nav class="anchor-nav review-detail-nav" data-default="overview" aria-label="盘点项目详情"><a class="a-item active" data-tab="overview" href="#overview">基本信息</a><a class="a-item" data-tab="activity" href="#activity">盘点活动</a><a class="a-item" data-tab="result" href="#result">盘点结果</a><a class="a-item" data-tab="calibration" href="#calibration">盘点校准</a><a class="a-item" data-tab="pool" href="#pool">人才池</a></nav>
+        <div class="detail-main">
+          <section class="card card-pad d-section active" data-section="overview">
+            <div class="kpi-row"><div class="kpi"><div class="label">盘点人员</div><div class="value">35</div></div><div class="kpi"><div class="label">项目数据</div><div class="value">3</div></div><div class="kpi"><div class="label">绩效数据</div><div class="value">35</div></div><div class="kpi"><div class="label">校准任务</div><div class="value" id="calibration-kpi">3</div></div></div>
+            <div class="review-stage-strip mt-md" aria-label="盘点项目进度"><span class="done">活动数据已锁定</span><span class="done">盘点结果已生成</span><span class="done" id="review-stage-calibration">校准完成</span><span class="done" id="review-stage-current">项目已结束</span></div>
+            <div class="section-title mt-lg">项目基本信息</div>
+            <div class="review-info-grid"><div><span>盘点分类</span><b>年度盘点</b></div><div><span>盘点模型</span><b>九宫格人才盘点</b></div><div><span>项目负责人</span><b>李文静</b></div><div><span>计划时间</span><b>2026-08-01 至 2026-08-31</b></div><div><span>盘点场景</span><b>年度人才识别</b></div><div><span>自动结束</span><b>已开启</b></div><div class="wide"><span>盘点目标</span><b>识别核心人才与重点发展人员，为年度人才发展计划提供依据。</b></div></div>
+          </section>
+
+          <section class="card card-pad d-section" data-section="activity" data-tabs>
+            <div class="flex between center mb-md"><div><div class="section-title" style="margin:0">已锁定盘点活动</div><div class="text-sm muted mt-xs">创建项目时使用的数据快照</div></div><span class="tag">只读</span></div>
+            <div class="tab-btns"><button class="tab-btn active" type="button" data-tab="project-data">项目数据</button><button class="tab-btn" type="button" data-tab="performance-data">绩效数据</button></div>
+            <div class="tab-panel show" data-tab="project-data"><div class="table-wrap"><table class="t"><thead><tr><th>项目编号</th><th>项目名称</th><th>类型</th><th>完成人数</th><th>结束时间</th><th>状态</th></tr></thead><tbody><tr><td>AS-202607-018</td><td><b>管理者通用能力 360</b></td><td>360 评估</td><td>42</td><td>2026-07-26</td><td><span class="tag tag-done">已结束</span></td></tr><tr><td>EX-202607-006</td><td><b>研发专业能力认证</b></td><td>考试</td><td>36</td><td>2026-07-20</td><td><span class="tag tag-done">已结束</span></td></tr><tr><td>AS-202607-011</td><td><b>协同能力 360</b></td><td>360 评估</td><td>58</td><td>2026-07-18</td><td><span class="tag tag-done">已结束</span></td></tr></tbody></table></div></div>
+            <div class="tab-panel" data-tab="performance-data"><div class="locked-file mb-md"><span><b>2026_H1_绩效数据.xlsx</b><small>35 条数据 · 绩效等级：低 / 中 / 高</small></span><button class="btn-text btn-sm" type="button" data-toast="绩效文件已下载">下载</button></div><div class="table-wrap"><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>部门</th><th>岗位</th><th>绩效等级</th></tr></thead><tbody><tr><td>EMP-1026</td><td><b>张明</b></td><td>研发中心</td><td>架构师</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-1088</td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td><td><span class="tag tag-primary">中</span></td></tr><tr><td>EMP-2031</td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-3072</td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td><td><span class="tag">低</span></td></tr></tbody></table></div></div>
+          </section>
+
+          <section class="card card-pad d-section" data-section="result">
+            <div class="flex between center mb-md"><div><div class="section-title" style="margin:0">人才九宫格</div><div class="text-sm muted mt-xs">能力默认区间：0%–60% 低，60%–80% 中，80%–100% 高</div></div><span class="text-sm muted" id="grid-filter-label">全部人员</span></div>
+            <div class="rd-matrix">
+              <div class="rd-y-title">绩效</div><div class="rd-y-ticks"><span>高</span><span>中</span><span>低</span></div>
+              <button class="cell l-mid" data-cell="high-low" aria-label="高绩效、低能力，重点提升 3 人"><span class="c-layer">重点提升</span><span class="c-n">3</span></button><button class="cell l-core" data-cell="high-mid" aria-label="高绩效、中能力，关键人才 6 人"><span class="c-layer">关键人才</span><span class="c-n">6</span></button><button class="cell l-hi" data-cell="high-high" aria-label="高绩效、高能力，核心人才 4 人"><span class="c-layer">核心人才</span><span class="c-n">4</span></button>
+              <button class="cell l-mid" data-cell="mid-low" aria-label="中绩效、低能力，关注发展 4 人"><span class="c-layer">关注发展</span><span class="c-n">4</span></button><button class="cell l-mid" data-cell="mid-mid" aria-label="中绩效、中能力，稳定贡献 6 人"><span class="c-layer">稳定贡献</span><span class="c-n">6</span></button><button class="cell l-core" data-cell="mid-high" aria-label="中绩效、高能力，骨干人才 3 人"><span class="c-layer">骨干人才</span><span class="c-n">3</span></button>
+              <button class="cell l-risk" data-cell="low-low" aria-label="低绩效、低能力，重点关注 2 人"><span class="c-layer">重点关注</span><span class="c-n">2</span></button><button class="cell l-mid" data-cell="low-mid" aria-label="低绩效、中能力，待观察 4 人"><span class="c-layer">待观察</span><span class="c-n">4</span></button><button class="cell l-mid" data-cell="low-high" aria-label="低绩效、高能力，能力错配 3 人"><span class="c-layer">能力错配</span><span class="c-n">3</span></button>
+              <div class="rd-x-ticks"><span>低</span><span>中</span><span>高</span></div><div class="rd-x-title">能力 →</div>
+            </div>
+            <div class="flex between center mt-lg mb-sm"><div class="section-title" style="margin:0">人员清单</div><button class="btn btn-ghost btn-sm" id="clear-grid-filter" type="button">查看全部</button></div>
+            <form class="review-detail-query" data-review-people-query>
+              <label for="review-person-name">姓名<input class="input" id="review-person-name" type="search" placeholder="请输入姓名" autocomplete="off" spellcheck="false"></label>
+              <label for="review-person-department">部门<select class="select" id="review-person-department"><option value="">全部</option><option>研发中心</option><option>销售中心</option></select></label>
+              <label for="review-person-placement">落位<select class="select" id="review-person-placement"><option value="">全部</option><option>核心人才</option><option>关键人才</option><option>骨干人才</option><option>稳定贡献</option><option>重点提升</option><option>关注发展</option><option>重点关注</option><option>待观察</option><option>能力错配</option></select></label>
+              <button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button>
+            </form>
+            <div class="table-wrap review-result-table"><table class="t" id="review-people"><thead><tr><th>姓名</th><th>部门</th><th>岗位</th><th>能力得分</th><th>绩效</th><th>落位</th><th style="text-align:right">操作</th></tr></thead><tbody><tr data-cell="high-high"><td>张明</td><td>研发中心</td><td>架构师</td><td>88%</td><td>高</td><td><span class="tag tag-primary">核心人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-mid"><td>李华</td><td>研发中心</td><td>高级算法工程师</td><td>76%</td><td>高</td><td><span class="tag tag-success">关键人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-mid"><td>王芳</td><td>销售中心</td><td>区域销售总监</td><td>78%</td><td>高</td><td><span class="tag tag-success">关键人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="low-low"><td>陈强</td><td>研发中心</td><td>测试工程师</td><td>48%</td><td>低</td><td><span class="tag tag-danger">重点关注</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr></tbody></table><div class="review-people-empty" id="review-people-empty">暂无匹配人员，可调整查询条件或查看全部。</div></div>
+          </section>
+
+          <section class="card card-pad d-section" data-section="calibration">
+            <div class="flex between center mb-md"><div><div class="section-title" style="margin:0">盘点校准任务</div><div class="text-sm muted mt-xs">校准只调整人员落位，不修改能力与绩效原始数据</div></div><button class="btn btn-primary" type="button" id="create-calibration" data-open="drawer-calibration-task" hidden>创建</button></div>
+            <form class="review-detail-query review-detail-query-two" data-table-query="#calibration-table">
+              <label for="calibration-query-name">任务名称<input class="input" id="calibration-query-name" type="search" placeholder="请输入任务名称" autocomplete="off" spellcheck="false"></label>
+              <label for="calibration-query-person">校准人员<input class="input" id="calibration-query-person" type="search" placeholder="请输入姓名" autocomplete="off" spellcheck="false"></label>
+              <button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button>
+            </form>
+            <div class="table-wrap"><table class="t" id="calibration-table"><thead><tr><th>校准任务名称</th><th>校准人员</th><th>操作人</th><th>校准前落位</th><th>校准后落位</th></tr></thead><tbody><tr><td><b>研发骨干人才复核</b></td><td>张明</td><td>李文静</td><td>关键人才</td><td><span class="tag tag-primary">核心人才</span></td></tr><tr><td><b>重点关注人员复核</b></td><td>陈强</td><td>王志强</td><td>关注发展</td><td><span class="tag tag-danger">重点关注</span></td></tr><tr><td><b>专业能力结果复核</b></td><td>李华</td><td>李文静</td><td>稳定贡献</td><td><span class="tag tag-success">关键人才</span></td></tr></tbody></table></div>
+          </section>
+
+          <section class="card card-pad d-section" data-section="pool">
+            <div class="flex between center mb-md"><div><div class="section-title" style="margin:0">项目人才池</div><div class="text-sm muted mt-xs">从本次盘点人员中按维度与分层组建人才池</div></div><button class="btn btn-primary" type="button" data-open="drawer-talent-pool-new">新建人才池</button></div>
+            <form class="review-detail-query review-detail-query-one" data-table-query="#talent-pool-table">
+              <label for="pool-query-name">人才池名称<input class="input" id="pool-query-name" type="search" placeholder="请输入人才池名称" autocomplete="off" spellcheck="false"></label>
+              <button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button>
+            </form>
+            <div class="table-wrap"><table class="t" id="talent-pool-table"><thead><tr><th>人才池名称</th><th>期望人数</th><th>实际人数</th><th>操作</th></tr></thead><tbody><tr data-pool-name="核心人才池"><td><b>核心人才池</b></td><td>10</td><td data-pool-actual>8</td><td class="ops"><button class="btn-text btn-sm" type="button" data-build-pool="核心人才池">组建</button><button class="btn-text btn-sm" type="button" data-toast="正在查看核心人才池">查看</button></td></tr><tr data-pool-name="重点发展人才池"><td><b>重点发展人才池</b></td><td>12</td><td data-pool-actual>6</td><td class="ops"><button class="btn-text btn-sm" type="button" data-build-pool="重点发展人才池">组建</button><button class="btn-text btn-sm" type="button" data-toast="正在查看重点发展人才池">查看</button></td></tr></tbody></table></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="drawer" id="drawer-calibration-task">
+  <form data-calibration-form>
+    <div class="m-head"><div><h3>创建校准任务</h3><div class="text-sm muted">记录本次人员落位调整</div></div><button class="icon-close" type="button" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="m-body"><div class="field"><label for="calibration-name">校准任务名称 <span class="req">*</span></label><input class="input" id="calibration-name" required autocomplete="off" spellcheck="false" placeholder="请输入任务名称"></div><div class="field"><label for="calibration-person">校准人员 <span class="req">*</span></label><select class="select" id="calibration-person" required><option value="">请选择</option><option data-before="核心人才">张明</option><option data-before="关键人才">李华</option><option data-before="关键人才">王芳</option><option data-before="重点关注">陈强</option></select></div><div class="field"><label for="calibration-operator">操作人</label><input class="input" id="calibration-operator" value="李文静" readonly></div><div class="review-two-column"><div class="field"><label for="calibration-before">校准前落位</label><input class="input" id="calibration-before" value="—" readonly></div><div class="field"><label for="calibration-after">校准后落位 <span class="req">*</span></label><select class="select" id="calibration-after" required><option value="">请选择</option><option>重点提升</option><option>关键人才</option><option>核心人才</option><option>关注发展</option><option>稳定贡献</option><option>骨干人才</option><option>重点关注</option><option>待观察</option><option>能力错配</option></select></div></div></div>
+    <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="submit">创建</button></div>
+  </form>
+</div>
+
+<div class="drawer" id="drawer-talent-pool-new">
+  <form data-pool-new-form>
+    <div class="m-head"><div><h3>新建人才池</h3><div class="text-sm muted">先定义人才池，再按盘点条件组建人员</div></div><button class="icon-close" type="button" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="m-body"><div class="field"><label for="pool-name">人才池名称 <span class="req">*</span></label><input class="input" id="pool-name" required maxlength="100" autocomplete="off" spellcheck="false" placeholder="请输入人才池名称"></div><div class="field"><label for="pool-expected">期望人数 <span class="req">*</span></label><input class="input" id="pool-expected" type="number" required min="1" value="10"></div><div class="field"><label for="pool-note">备注</label><textarea class="input" id="pool-note" rows="5" maxlength="500" placeholder="说明人才池用途或培养目标"></textarea></div></div>
+    <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="submit">创建</button></div>
+  </form>
+</div>
+
+<div class="drawer wide" id="drawer-talent-pool-build">
+  <form data-pool-build-form>
+    <div class="m-head"><div><h3>组建人才池</h3><div class="text-sm muted">根据本次盘点结果选择入池人员</div></div><button class="icon-close" type="button" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="m-body"><div class="review-two-column"><div class="field"><label for="pool-build-target">人才池 <span class="req">*</span></label><select class="select" id="pool-build-target" required><option value="">请选择</option><option>核心人才池</option><option>重点发展人才池</option></select></div><div class="field pool-new-shortcut"><span>没有合适的人才池？</span><button class="btn-text btn-sm" type="button" data-pool-new-shortcut>新建人才池</button></div></div><div class="review-two-column"><div class="field"><label for="pool-dimension">盘点维度 <span class="req">*</span></label><select class="select" id="pool-dimension" required><option value="">请选择</option><option>能力</option><option>绩效</option><option>九宫格落位</option></select></div><div class="field"><label for="pool-layer">维度分层 <span class="req">*</span></label><select class="select" id="pool-layer" required><option value="">请选择</option><option>高</option><option>中</option><option>低</option></select></div></div><div class="section-title mt-md">选择盘点人员 <span class="req">*</span></div><div class="table-wrap"><table class="t"><thead><tr><th style="width:46px"><input type="checkbox" data-pool-person-all aria-label="选择全部盘点人员"></th><th>姓名</th><th>部门</th><th>岗位</th><th>当前落位</th></tr></thead><tbody><tr><td><input type="checkbox" data-pool-person aria-label="选择张明"></td><td><b>张明</b></td><td>研发中心</td><td>架构师</td><td>核心人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择李华"></td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td><td>关键人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择王芳"></td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td><td>关键人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择陈强"></td><td><b>陈强</b></td><td>研发中心</td><td>测试工程师</td><td>重点关注</td></tr></tbody></table></div></div>
+    <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="submit">确认组建</button></div>
+  </form>
+</div>
+
+<script src="app.js"></script>
+<script>
+(function(){
+  var table=document.getElementById('review-people'),label=document.getElementById('grid-filter-label'),empty=document.getElementById('review-people-empty'),cells=document.querySelectorAll('.rd-matrix .cell'),peopleQuery=document.querySelector('[data-review-people-query]'),personName=document.getElementById('review-person-name'),personDepartment=document.getElementById('review-person-department'),personPlacement=document.getElementById('review-person-placement'),activeGridCell='';
+  function applyPeopleFilters(){var keyword=personName.value.trim().toLowerCase(),department=personDepartment.value,placement=personPlacement.value,visible=0;table.querySelectorAll('tbody tr').forEach(function(row){var matchGrid=!activeGridCell||row.dataset.cell===activeGridCell,matchName=!keyword||row.cells[0].textContent.toLowerCase().includes(keyword),matchDepartment=!department||row.cells[1].textContent.trim()===department,matchPlacement=!placement||row.cells[5].textContent.trim()===placement,match=matchGrid&&matchName&&matchDepartment&&matchPlacement;row.style.display=match?'':'none';if(match)visible++});empty.style.display=visible?'none':'block'}
+  cells.forEach(function(cell){cell.setAttribute('aria-pressed','false');cell.addEventListener('click',function(){activeGridCell=cell.dataset.cell;cells.forEach(function(item){var active=item===cell;item.classList.toggle('active',active);item.setAttribute('aria-pressed',active?'true':'false')});label.textContent=cell.getAttribute('aria-label').replace(/，/g,' · ');applyPeopleFilters()})});
+  document.getElementById('clear-grid-filter').addEventListener('click',function(){activeGridCell='';cells.forEach(function(item){item.classList.remove('active');item.setAttribute('aria-pressed','false')});label.textContent='全部人员';applyPeopleFilters()});
+  peopleQuery.addEventListener('submit',function(event){event.preventDefault();applyPeopleFilters()});peopleQuery.addEventListener('reset',function(){setTimeout(applyPeopleFilters)});
+  document.querySelectorAll('[data-table-query]').forEach(function(form){var target=document.querySelector(form.dataset.tableQuery);function run(){var values=Array.from(form.querySelectorAll('input,select')).map(function(control){return control.value.trim().toLowerCase()}).filter(Boolean);target.querySelectorAll('tbody tr').forEach(function(row){var text=row.textContent.toLowerCase();row.style.display=values.every(function(value){return text.includes(value)})?'':'none'})}form.addEventListener('submit',function(event){event.preventDefault();run()});form.addEventListener('reset',function(){setTimeout(run)})});
+
+  var calibrationForm=document.querySelector('[data-calibration-form]'),calibrationPerson=document.getElementById('calibration-person'),calibrationBefore=document.getElementById('calibration-before'),calibrationBody=document.querySelector('#calibration-table tbody'),calibrationKpi=document.getElementById('calibration-kpi');
+  calibrationPerson.addEventListener('change',function(){var option=calibrationPerson.selectedOptions[0];calibrationBefore.value=option&&option.dataset.before||'—'});
+  calibrationForm.addEventListener('submit',function(event){event.preventDefault();if(!calibrationForm.reportValidity())return;var row=document.createElement('tr'),after=document.getElementById('calibration-after').value;row.innerHTML='<td><b></b></td><td></td><td>李文静</td><td></td><td><span class="tag tag-primary"></span></td>';row.cells[0].querySelector('b').textContent=document.getElementById('calibration-name').value.trim();row.cells[1].textContent=calibrationPerson.value;row.cells[3].textContent=calibrationBefore.value;row.cells[4].querySelector('span').textContent=after;calibrationBody.prepend(row);calibrationKpi.textContent=String(Number(calibrationKpi.textContent)+1);closeAllOverlays();calibrationForm.reset();calibrationBefore.value='—';showToast('校准任务已创建')});
+
+  var poolTable=document.getElementById('talent-pool-table'),poolTarget=document.getElementById('pool-build-target'),poolNewForm=document.querySelector('[data-pool-new-form]');
+  function bindPoolBuild(button){button.addEventListener('click',function(){poolTarget.value=button.dataset.buildPool;openOverlay('drawer-talent-pool-build')})}
+  document.querySelectorAll('[data-build-pool]').forEach(bindPoolBuild);
+  poolNewForm.addEventListener('submit',function(event){event.preventDefault();if(!poolNewForm.reportValidity())return;var name=document.getElementById('pool-name').value.trim(),expected=document.getElementById('pool-expected').value,row=document.createElement('tr'),option=document.createElement('option');row.dataset.poolName=name;row.innerHTML='<td><b></b></td><td></td><td data-pool-actual>0</td><td class="ops"><button class="btn-text btn-sm" type="button" data-build-pool>组建</button><button class="btn-text btn-sm" type="button">查看</button></td>';row.cells[0].querySelector('b').textContent=name;row.cells[1].textContent=expected;row.querySelector('[data-build-pool]').dataset.buildPool=name;row.querySelectorAll('button')[1].setAttribute('data-toast','正在查看'+name);poolTable.querySelector('tbody').prepend(row);bindPoolBuild(row.querySelector('[data-build-pool]'));option.value=name;option.textContent=name;poolTarget.appendChild(option);closeAllOverlays();poolNewForm.reset();document.getElementById('pool-expected').value='10';showToast('人才池已创建，可继续组建人员')});
+  document.querySelector('[data-pool-new-shortcut]').addEventListener('click',function(){closeAllOverlays();setTimeout(function(){openOverlay('drawer-talent-pool-new')},0)});
+  var poolAll=document.querySelector('[data-pool-person-all]'),poolPeople=Array.from(document.querySelectorAll('[data-pool-person]'));poolAll.addEventListener('change',function(){poolPeople.forEach(function(item){item.checked=poolAll.checked})});poolPeople.forEach(function(item){item.addEventListener('change',function(){var selected=poolPeople.filter(function(person){return person.checked}).length;poolAll.checked=selected===poolPeople.length;poolAll.indeterminate=selected>0&&selected<poolPeople.length})});
+  document.querySelector('[data-pool-build-form]').addEventListener('submit',function(event){event.preventDefault();var form=event.currentTarget,selected=poolPeople.filter(function(person){return person.checked}).length;if(!form.reportValidity())return;if(!selected){showToast('请选择至少一名盘点人员');return}var row=poolTable.querySelector('tr[data-pool-name="'+poolTarget.value+'"]');if(row)row.querySelector('[data-pool-actual]').textContent=String(selected);closeAllOverlays();showToast('已按盘点维度组建 '+selected+' 人')});
+
+  if(new URLSearchParams(location.search).get('mode')==='calibration'){
+    document.querySelector('.anchor-nav').dataset.default='result';if(!location.hash&&history.replaceState)history.replaceState(null,'',location.pathname+location.search+'#result');document.getElementById('review-title').textContent='2026 年度人才盘点';var status=document.getElementById('review-status');status.textContent='进行中';status.className='tag tag-running';document.getElementById('review-meta').textContent='35 人 · 校准中';var calibrationStage=document.getElementById('review-stage-calibration'),endStage=document.getElementById('review-stage-current');calibrationStage.textContent='校准中';calibrationStage.className='current';endStage.textContent='等待结束';endStage.className='';document.getElementById('create-calibration').hidden=false;var end=document.createElement('button');end.className='btn btn-primary';end.type='button';end.textContent='结束项目';document.getElementById('review-actions').appendChild(end);end.addEventListener('click',function(){status.textContent='已结束';status.className='tag tag-done';document.getElementById('review-meta').textContent='35 人';calibrationStage.textContent='校准完成';calibrationStage.className='done';endStage.textContent='项目已结束';endStage.className='done';document.getElementById('create-calibration').hidden=true;end.remove();showToast('项目已结束，盘点结果与校准任务已锁定')})
+  }
+})();
+</script>
+</body>
+</html>
