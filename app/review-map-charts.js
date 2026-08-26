@@ -73,11 +73,14 @@
     };
   }
 
+  var chartRegistry = {};
   function makeChart(id, option) {
     var element = document.getElementById(id);
     if (!element) return null;
     var chart = echarts.init(element, null, { renderer: 'canvas' });
-    chart.setOption(Object.assign({ animationDuration: 450, textStyle: { fontFamily: fontFamily } }, option));
+    var merged = Object.assign({ animationDuration: 450, textStyle: { fontFamily: fontFamily } }, option);
+    chart.setOption(merged);
+    chartRegistry[id] = { chart: chart, option: merged };
     charts.push(chart);
     return chart;
   }
@@ -329,6 +332,145 @@
     });
     var main = document.querySelector('.detail-main');
     if (main) observer.observe(main);
+  }
+
+  /* ---------- 规律分析条件联动：维度对 / 部门岗位范围 → 重生成图表数据 ---------- */
+  function seedHash(str) { var h = 2166136261; for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = (h * 16777619) >>> 0; } return h; }
+  function makeRng(seedStr) { var s = seedHash(String(seedStr)); return function () { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; }; }
+
+  function scopeCount(dept, pos) {
+    var base = 35;
+    if (dept === '研发中心') base = 18; else if (dept === '销售中心') base = 10; else if (dept === '职能中台') base = 7;
+    if (pos === '管理岗位') base = Math.min(base, 8); else if (pos === '专业岗位') base = Math.min(base, 19); else if (pos === '销售岗位') base = Math.min(base, 8);
+    return base;
+  }
+
+  function jitter(v, rng) {
+    if (typeof v !== 'number') return v;
+    var out = v * (0.76 + rng() * 0.48);
+    return v % 1 === 0 ? Math.round(out) : Math.round(out * 10) / 10;
+  }
+
+  function regenData(data, rng, n, type) {
+    if (typeof data === 'number') return jitter(data, rng);
+    if (Array.isArray(data) && data.length) {
+      if (typeof data[0] === 'number') return data.map(function (v) { return jitter(v, rng); });
+      if (Array.isArray(data[0])) {
+        // 热力图 [xIdx, yIdx, value]：坐标索引保持整数不动，只扰动数值
+        if (type === 'heatmap' && data[0].length === 3) {
+          return data.map(function (pt) { return [pt[0], pt[1], jitter(pt[2], rng)]; });
+        }
+        var out = [];
+        var count = Math.max(3, Math.round(data.length * n / 35));
+        for (var i = 0; i < count; i++) {
+          var pt = data[i % data.length].map(function (v, j) {
+            // 折线/趋势线保持 x 不变只扰动 y，避免拟合线变锯齿
+            if (type === 'line' && j === 0) return v;
+            return jitter(v, rng);
+          });
+          // 箱线五元组扰动后重排，保证 min ≤ q1 ≤ med ≤ q3 ≤ max
+          if (pt.length === 5) pt = pt.slice().sort(function (a, b) { return a - b; });
+          out.push(pt);
+        }
+        return out;
+      }
+    }
+    return data;
+  }
+
+  function normStack(series) {
+    var total = {};
+    series.forEach(function (s) {
+      if (s.data && typeof s.data[0] === 'number') total[s.stack] = (total[s.stack] || 0) + s.data.reduce(function (a, b) { return a + b; }, 0);
+    });
+    Object.keys(total).forEach(function (key) {
+      if (Math.abs(total[key] - 100) < 40) {
+        series.forEach(function (s) {
+          if (s.stack === key && s.data && typeof s.data[0] === 'number') {
+            var sum = s.data.reduce(function (a, b) { return a + b; }, 0) || 1;
+            s.data = s.data.map(function (v) { return Math.round(v * 100 / sum); });
+          }
+        });
+      }
+    });
+  }
+
+  function regenStat(el, rng) {
+    var text = el.textContent;
+    if (/Spearman/.test(text)) el.textContent = 'Spearman ρ = ' + (rng() * 1.3 - 0.65).toFixed(2);
+    else if (/p\s*=/.test(text)) el.textContent = text.replace(/0?\.\d+/, (0.001 + rng() * 0.11).toFixed(3));
+    else if (/覆盖率/.test(text)) el.textContent = text.replace(/\d+%/, Math.round(86 + rng() * 12) + '%');
+  }
+
+  function rebuildChapter(rootEl, extraSeed) {
+    var dept = document.getElementById('report-department');
+    var pos = document.getElementById('report-position');
+    var scope = (dept ? dept.value : '') + '|' + (pos ? pos.value : '') + '|' + (extraSeed || '');
+    var n = scopeCount(dept && dept.value, pos && pos.value);
+    var xSel = rootEl.querySelector('[data-pair-x]');
+    var ySel = rootEl.querySelector('[data-pair-y]');
+    rootEl.querySelectorAll('.chart-svg[id]').forEach(function (el) {
+      var reg = chartRegistry[el.id];
+      if (!reg) return;
+      var rng = makeRng(scope + '|' + el.id);
+      var series = reg.option.series.map(function (s) {
+        var ns = Object.assign({}, s);
+        ns.data = regenData(s.data, rng, n, s.type);
+        return ns;
+      });
+      normStack(series);
+      var patch = { series: series };
+      if (xSel && reg.option.xAxis && reg.option.xAxis.name !== undefined) patch.xAxis = { name: xSel.value };
+      if (ySel && reg.option.yAxis && reg.option.yAxis.name !== undefined) patch.yAxis = { name: ySel.value };
+      reg.chart.setOption(patch);
+    });
+    rootEl.querySelectorAll('.chart-stat').forEach(function (el) { regenStat(el, makeRng(scope + '|stat')); });
+    rootEl.querySelectorAll('.chart-head p').forEach(function (el) {
+      var m = el.textContent.match(/n=(\d+)/);
+      if (!m) return;
+      if (!el.dataset.origN) el.dataset.origN = m[1];
+      var nn = Math.max(3, Math.round(parseInt(el.dataset.origN, 10) * n / 35));
+      el.textContent = el.textContent.replace(/n=\d+/, 'n=' + nn);
+    });
+  }
+
+  function bindAnalysisLive() {
+    document.querySelectorAll('[data-analysis-pair]').forEach(function (chapter) {
+      var x = chapter.querySelector('[data-pair-x]');
+      var y = chapter.querySelector('[data-pair-y]');
+      if (!x || !y) return;
+      var onChange = function () { rebuildChapter(chapter, x.value + '|' + y.value); };
+      x.addEventListener('change', onChange);
+      y.addEventListener('change', onChange);
+    });
+    var queryBtn = document.querySelector('.report-filters .btn-primary');
+    var resetBtn = document.querySelector('.report-filters .btn-secondary');
+    if (queryBtn) queryBtn.addEventListener('click', function () {
+      document.querySelectorAll('[data-analysis-pair]').forEach(function (chapter) {
+        var x = chapter.querySelector('[data-pair-x]'), y = chapter.querySelector('[data-pair-y]');
+        rebuildChapter(chapter, (x ? x.value : '') + '|' + (y ? y.value : ''));
+      });
+    });
+    if (resetBtn) resetBtn.addEventListener('click', function () {
+      var dept = document.getElementById('report-department');
+      var pos = document.getElementById('report-position');
+      if (dept) dept.selectedIndex = 0;
+      if (pos) pos.selectedIndex = 0;
+      document.querySelectorAll('[data-analysis-pair]').forEach(function (chapter) {
+        var x = chapter.querySelector('[data-pair-x]'), y = chapter.querySelector('[data-pair-y]');
+        if (x) x.selectedIndex = 0;
+        if (y) y.selectedIndex = 0;
+        var title = chapter.querySelector('[data-chart-title]');
+        if (title && x && y) title.textContent = x.value + ' × ' + y.value;
+        rebuildChapter(chapter, (x ? x.value : '') + '|' + (y ? y.value : ''));
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindAnalysisLive);
+  } else {
+    bindAnalysisLive();
   }
 
   window.setTimeout(initializeVisibleCharts, 50);

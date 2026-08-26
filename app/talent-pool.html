@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>人才池 · 人才中心</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 <style>
   .pool-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:var(--space-md); }
   .pool-card { background:var(--white); border:1px solid var(--neutral-200); border-radius:var(--radius-md); padding:var(--space-lg); cursor:pointer; transition:background-color .15s ease-out,border-color .15s ease-out,box-shadow .15s ease-out; }
@@ -104,7 +104,7 @@
 
 <div class="drawer" id="drawer-newpool"><div class="m-head"><h3>新建人才池</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>池名 <span class="req">*</span></label><input class="input" placeholder="如：2026 关键人才池"></div><div class="flex gap-md" style="gap:var(--space-md)"><div class="field" style="flex:1"><label>类型 <span class="req">*</span></label><select class="select"><option>关键人才池</option><option>继任池</option><option>高潜池</option><option>管理梯队池</option></select></div><div class="field" style="flex:1"><label>目标人数</label><input class="input" type="number" value="10" placeholder="饱和度目标"></div></div><div class="field"><label>适用范围</label><select class="select"><option>全组织</option><option>研发中心</option><option>销售中心</option><option>职能中台</option></select></div><div class="divider"></div><div class="section-title">入池条件</div><div class="field"><label>盘点落位</label><div class="chip-list"><span class="chip" style="background:var(--primary-50);color:var(--primary-600)">高潜</span><span class="chip" style="background:var(--success-bg);color:var(--success)">核心</span><span class="chip" style="border:1px dashed var(--neutral-300);color:var(--neutral-400)">+ 添加</span></div></div><div class="field"><label>其他条件</label><input class="input" placeholder="如：连续 2 年绩效 A 以上"></div><div class="divider"></div><div class="field" style="margin-bottom:0"><label>培养目标</label><textarea class="input" rows="2" placeholder="如：12 个月内达到继任就绪标准"></textarea></div></div><div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>创建</button></div></div>
 
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
   (function(){
     var box = document.querySelector('#drawer-pool'); if(!box) return;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>分析结果 · 关键岗位分析</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -28,7 +28,7 @@
       <div class="breadcrumb"><a href="key-position.html" style="color:var(--neutral-400)">关键岗位分析</a><span class="sep">/</span><span class="cur">2026 年度关键岗位分析 · 结果</span></div>
       <div class="page-head">
         <div><h1>分析结果</h1><div class="sub">基于 V2 组织结构 · 经济 + 能力双视角</div></div>
-        <div class="actions"><a class="btn btn-secondary" href="key-position.html">返回列表</a><button class="btn btn-secondary">导出</button><a class="btn btn-primary" href="positions.html">去岗位管理配置 →</a></div>
+        <div class="actions"><a class="btn btn-secondary" href="key-position.html">返回列表</a><a class="btn btn-primary" href="positions.html">去岗位管理配置 →</a></div>
       </div>
 
       <div class="kpi-row">
@@ -39,7 +39,7 @@
       </div>
 
       <!-- 图表卡 + 视角切换 -->
-      <div class="card" data-tabs>
+      <div class="card card-tabs-solid" data-tabs>
         <div class="card-head">
           <div class="tab-btns" style="border:none;margin:0">
             <button class="tab-btn active" data-tab="e">经济视角 E（需求 × 供给）</button>
@@ -169,15 +169,15 @@
       <div class="card mt-md">
         <div class="card-head"><h2>关键岗位清单</h2><span class="sub">分析给依据 · 是否关键由你标记</span></div>
         <div class="table-wrap"><table class="t">
-          <thead><tr><th>岗位</th><th>所在组</th><th>关键系数</th><th>象限（经济）</th><th>关键建议</th><th style="text-align:right">操作</th></tr></thead>
+          <thead><tr><th>岗位</th><th>关键系数</th><th>象限（经济）</th><th>关键建议</th><th style="text-align:right">操作</th></tr></thead>
           <tbody>
-            <tr data-key="true"><td>架构师</td><td>研发·高级</td><td><b style="color:var(--danger)">0.95</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
-            <tr data-key="true"><td>高级算法工程师</td><td>研发·高级</td><td><b style="color:var(--danger)">0.92</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
-            <tr data-key="true"><td>后端开发工程师</td><td>研发·中级</td><td><b style="color:var(--danger)">0.81</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
-            <tr data-key="true"><td>区域销售总监</td><td>销售·高级</td><td><b style="color:var(--danger)">0.88</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
-            <tr data-key="true"><td>大客户销售经理</td><td>销售·中级</td><td>0.78</td><td>需求高 · 供给多</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
-            <tr data-key="false"><td>测试工程师</td><td>研发·中级</td><td>0.72</td><td>多视角差异</td><td><span class="tag tag-info">待校准</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-calib">建议校准</button></td></tr>
-            <tr data-key="false"><td>前端开发工程师</td><td>研发·初级</td><td>0.54</td><td>需求中 · 供给多</td><td><span class="tag tag-draft">未达阈值</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm muted">未达阈值</button></td></tr>
+            <tr data-key="true"><td>架构师</td><td><b style="color:var(--danger)">0.95</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>高级算法工程师</td><td><b style="color:var(--danger)">0.92</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>后端开发工程师</td><td><b style="color:var(--danger)">0.81</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>区域销售总监</td><td><b style="color:var(--danger)">0.88</b></td><td>需求高 · 供给少</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="true"><td>大客户销售经理</td><td>0.78</td><td>需求高 · 供给多</td><td><span class="tag tag-primary">建议关键</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-detail">查看依据</button></td></tr>
+            <tr data-key="false"><td>测试工程师</td><td>0.72</td><td>多视角差异</td><td><span class="tag tag-info">待校准</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-calib">建议校准</button></td></tr>
+            <tr data-key="false"><td>前端开发工程师</td><td>0.54</td><td>需求中 · 供给多</td><td><span class="tag tag-draft">未达阈值</span></td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm muted">未达阈值</button></td></tr>
           </tbody>
         </table></div>
       </div>
@@ -238,7 +238,7 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>确认</button></div>
 </div></div>
 
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
   // 点气泡 → 抽屉显示对应岗位族（标题 + 该族下岗位）
   document.addEventListener('DOMContentLoaded', function () {

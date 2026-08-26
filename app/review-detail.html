@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026 年度人才盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css?v=20260806-review-detail-3">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 <style>
   .rd-matrix{display:grid;grid-template-columns:14px 20px repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,82px) 20px auto;gap:6px;max-width:680px}
   .rd-matrix .cell{border:0;border-radius:7px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
@@ -32,7 +32,7 @@
     <main class="content">
       <div class="detail-bar">
         <div class="db-left"><a class="back" href="review-projects.html">← 返回</a><h1 id="review-title">2026 年度人才盘点</h1><span class="tag tag-done" id="review-status">已结束</span><span class="text-sm muted" id="review-meta">35 人</span></div>
-        <div class="actions" id="review-actions"><button class="btn btn-secondary" type="button" data-toast="盘点结果已导出">导出结果</button></div>
+        <div class="actions" id="review-actions"></div>
       </div>
 
       <div class="detail-layout">
@@ -119,7 +119,7 @@
   </form>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
 (function(){
   var table=document.getElementById('review-people'),label=document.getElementById('grid-filter-label'),empty=document.getElementById('review-people-empty'),cells=document.querySelectorAll('.rd-matrix .cell'),peopleQuery=document.querySelector('[data-review-people-query]'),personName=document.getElementById('review-person-name'),personDepartment=document.getElementById('review-person-department'),personPlacement=document.getElementById('review-person-placement'),activeGridCell='';

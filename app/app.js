@@ -620,14 +620,15 @@ function initKeyToggle() {
 // 容器加 data-wizard；步骤项 .step；面板 .step-panel[data-panel]；底部 [data-step-prev]/[data-step-next]/[data-step-submit]
 function initSteps() {
   document.querySelectorAll('[data-wizard]').forEach(wiz => {
-    const steps = wiz.querySelectorAll('.steps .step');
-    const panels = wiz.querySelectorAll('.step-panel');
+    // 步骤/面板/连线带 hidden 属性时视为"暂不开放"，自动跳过并重新编号
+    const steps = [...wiz.querySelectorAll('.steps .step')].filter(s => !s.hidden);
+    const panels = [...wiz.querySelectorAll('.step-panel')].filter(p => !p.hidden);
     const total = steps.length;
     let cur = Number(wiz.dataset.start || 1);
     const btnPrev = wiz.querySelector('[data-step-prev]');
     const btnNext = wiz.querySelector('[data-step-next]');
     const btnSubmit = wiz.querySelector('[data-step-submit]');
-    const lines = wiz.querySelectorAll('.steps .line');
+    const lines = [...wiz.querySelectorAll('.steps .line')].filter(ln => !ln.hidden);
     steps.forEach((step, index) => {
       step.setAttribute('role', 'button');
       step.tabIndex = 0;
@@ -642,14 +643,16 @@ function initSteps() {
     function render() {
       steps.forEach((s, i) => {
         const n = i + 1;
+        const idxEl = s.querySelector('.idx');
+        if (idxEl) idxEl.textContent = n;
         s.classList.toggle('active', n === cur);
         s.classList.toggle('done', n < cur);
         if (n === cur) s.setAttribute('aria-current', 'step');
         else s.removeAttribute('aria-current');
       });
       lines.forEach((ln, i) => ln.classList.toggle('done', (i + 1) < cur));
-      panels.forEach(p => {
-        const visible = Number(p.dataset.panel) === cur;
+      panels.forEach((p, i) => {
+        const visible = (i + 1) === cur;
         p.classList.toggle('show', visible);
         p.hidden = !visible;
         p.inert = !visible;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位管理 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app">
@@ -37,7 +37,6 @@
       <div class="filter-bar">
         <div class="field"><label>岗位名 / 编号</label><input class="input" placeholder="搜索"></div>
         <div class="field"><label>岗位类别</label><select class="select"><option>全部</option><option>研发</option><option>销售</option><option>职能</option></select></div>
-        <div class="field"><label>所在组</label><select class="select"><option>全部</option><option>研发·高级</option><option>研发·中级</option><option>销售·高级</option></select></div>
         <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
       </div>
 
@@ -50,18 +49,18 @@
 
       <div class="card">
         <div class="table-wrap"><table class="t" id="pos-table">
-          <thead><tr><th>编号</th><th>岗位名称</th><th>类别</th><th>所在组</th><th>关键岗位</th><th style="text-align:right">操作</th></tr></thead>
+          <thead><tr><th>编号</th><th>岗位名称</th><th>类别</th><th>关键岗位</th><th style="text-align:right">操作</th></tr></thead>
           <tbody>
-            <tr data-key="true"><td class="num">RD-302</td><td>架构师</td><td>研发</td><td>研发·高级</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="true"><td class="num">RD-301</td><td>高级算法工程师</td><td>研发</td><td>研发·高级</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="true"><td class="num">RD-205</td><td>后端开发工程师</td><td>研发</td><td>研发·中级</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="true"><td class="num">SA-301</td><td>区域销售总监</td><td>销售</td><td>销售·高级</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="true"><td class="num">SA-110</td><td>大客户销售经理</td><td>销售</td><td>销售·中级</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="false"><td class="num">RD-102</td><td>前端开发工程师</td><td>研发</td><td>研发·初级</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="false"><td class="num">FN-203</td><td>财务分析经理</td><td>职能</td><td>职能·中级</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
-            <tr data-key="false"><td class="num">HR-101</td><td>招聘专员</td><td>职能</td><td>职能·初级</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">RD-302</td><td>架构师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">RD-301</td><td>高级算法工程师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">RD-205</td><td>后端开发工程师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">SA-301</td><td>区域销售总监</td><td>销售</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">SA-110</td><td>大客户销售经理</td><td>销售</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="false"><td class="num">RD-102</td><td>前端开发工程师</td><td>研发</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="false"><td class="num">FN-203</td><td>财务分析经理</td><td>职能</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="false"><td class="num">HR-101</td><td>招聘专员</td><td>职能</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
           </tbody>
-<tr class="row-empty" style="display:none"><td colspan="6" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
+<tr class="row-empty" style="display:none"><td colspan="5" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
         </table></div>
         <div class="pagination">
           <div class="pg-info">共 8 条 · 每页 10 条</div>
@@ -84,18 +83,18 @@
   <div class="m-body">
     <input class="input mb-md" placeholder="搜索岗位">
     <div class="table-wrap"><table class="t">
-      <thead><tr><th style="width:40px"></th><th>岗位</th><th>所在组</th><th>类别</th></tr></thead>
+      <thead><tr><th style="width:40px"></th><th>岗位</th><th>类别</th></tr></thead>
       <tbody>
-        <tr><td><input type="checkbox"></td><td>前端开发工程师</td><td>研发·初级</td><td class="muted">研发</td></tr>
-        <tr><td><input type="checkbox"></td><td>财务分析经理</td><td>职能·中级</td><td class="muted">职能</td></tr>
-        <tr><td><input type="checkbox"></td><td>招聘专员</td><td>职能·初级</td><td class="muted">职能</td></tr>
+        <tr><td><input type="checkbox"></td><td>前端开发工程师</td><td class="muted">研发</td></tr>
+        <tr><td><input type="checkbox"></td><td>财务分析经理</td><td class="muted">职能</td></tr>
+        <tr><td><input type="checkbox"></td><td>招聘专员</td><td class="muted">职能</td></tr>
       </tbody>
     </table></div>
   </div>
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>标记为关键</button></div>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
   // 主操作随双视图切换：全部=新增岗位，关键=添加关键岗位（须在 initSegments 之后，读到最新 active）
   document.addEventListener('DOMContentLoaded', function () {
@@ -113,11 +112,11 @@
     var bar = document.querySelector('.filter-bar');
     var seg = document.querySelector('.segment[data-target="pos-table"]');
     var inp = bar.querySelector('input'), sels = bar.querySelectorAll('select');
-    var cat = sels[0], grp = sels[1];
+    var cat = sels[0];
     var btns = bar.querySelectorAll('.actions button');
     function viewKey() { var a = seg && seg.querySelector('button.active'); return a ? a.dataset.filter : 'key'; }
     function run() {
-      var q = (inp.value || '').trim().toLowerCase(), c = cat.value, g = grp.value, k = viewKey();
+      var q = (inp.value || '').trim().toLowerCase(), c = cat.value, k = viewKey();
       var any = false;
       tbl.querySelectorAll('tbody tr:not(.row-empty)').forEach(function (r) {
         var c0 = r.children;
@@ -125,14 +124,13 @@
         var okView = (k === 'all') || r.dataset.key === 'true';
         var okQ = !q || name.indexOf(q) >= 0;
         var okC = !c || c === '全部' || c0[2].textContent === c;
-        var okG = !g || g === '全部' || c0[3].textContent === g;
-        var show = okView && okQ && okC && okG; if (show) any = true;
+        var show = okView && okQ && okC; if (show) any = true;
         r.style.display = show ? '' : 'none';
       });
       var e = tbl.querySelector('tr.row-empty'); if (e) e.style.display = any ? 'none' : '';
     }
     if (btns[0]) btns[0].addEventListener('click', run);
-    if (btns[1]) btns[1].addEventListener('click', function () { inp.value = ''; cat.value = '全部'; grp.value = '全部'; run(); });
+    if (btns[1]) btns[1].addEventListener('click', function () { inp.value = ''; cat.value = '全部'; run(); });
     if (seg) seg.addEventListener('click', run);
     run();
   });

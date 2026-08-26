@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 <style>
   .key-position-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
-  .key-position-category-tree .ctp-head .ctp-title { font-size:12px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
-  .key-position-category-tree .ctp-head .icon-btn { width:28px !important; height:28px !important; }
+  .key-position-category-tree .ctp-head .ctp-title { font-size:13px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
   .key-position-category-tree .cat-tree-item { position:relative; display:flex; width:100%; min-height:40px; align-items:center; justify-content:space-between; margin:1px 0; padding:8px 10px; border:0; border-radius:6px; color:var(--neutral-600); font-size:13px; transition:color .15s ease-out,background-color .15s ease-out; }
   .key-position-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
   .key-position-category-tree .cat-tree-item.active { color:var(--primary-700); background:transparent; font-weight:500; }
@@ -126,7 +125,7 @@
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
 (function(){
   var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]'),catInput=document.querySelector('[data-kp-catmgr-new]');

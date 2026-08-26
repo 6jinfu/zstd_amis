@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>人才列表 · 人才中心</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 </head>
 <body data-module="talent" data-page="talent-list">
 <div class="app">
@@ -19,9 +19,7 @@
     <main class="content" data-list-mode="filters" data-list-label="人才筛选">
       <div class="filter-bar" data-filter-bar>
         <div class="field"><label>姓名</label><input class="input" placeholder="搜索"></div>
-        <div class="field"><label>部门</label><select class="select"><option>全部</option><option>研发中心</option><option>销售中心</option><option>职能中台</option></select></div>
         <div class="field"><label>人才分类</label><select class="select"><option>全部</option><option>高潜</option><option>核心</option><option>中坚</option><option>待发展</option></select></div>
-        <div class="field"><label>标签</label><select class="select"><option>全部</option><option>技术骨干</option><option>管理梯队</option></select></div>
         <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
       </div>
       <div class="flex between center mb-md"><div class="flex gap-sm"><button class="btn btn-primary" data-open="drawer-compare">对比人才（2 / 5）</button><button class="btn btn-secondary">导出</button></div></div>
@@ -71,6 +69,32 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="app.js"></script>
+<script>
+  // 列表查询 / 搜索 / 重置：姓名 + 人才分类
+  document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.querySelector('.filter-bar'); if (!bar) return;
+    var tbl = document.querySelector('.content table.t'); if (!tbl) return;
+    var inp = bar.querySelector('input'), sel = bar.querySelector('select');
+    var btns = bar.querySelectorAll('.actions button');
+    function run() {
+      var q = (inp.value || '').trim().toLowerCase(), c = sel ? sel.value : '全部', any = false;
+      tbl.querySelectorAll('tbody tr').forEach(function (r) {
+        if (r.classList.contains('row-empty')) return;
+        var name = r.children[1].textContent.trim().toLowerCase();
+        var catTag = r.querySelector('.tag:not(.tag-warning)');
+        var cat = catTag ? catTag.textContent.trim() : '';
+        var okQ = !q || name.indexOf(q) >= 0;
+        var okC = !c || c === '全部' || cat === c;
+        var show = okQ && okC; if (show) any = true;
+        r.style.display = show ? '' : 'none';
+      });
+      var e = tbl.querySelector('tr.row-empty'); if (e) e.style.display = any ? 'none' : '';
+    }
+    if (btns[0]) btns[0].addEventListener('click', run);
+    if (btns[1]) btns[1].addEventListener('click', function () { inp.value = ''; if (sel) sel.value = '全部'; run(); });
+    run();
+  });
+</script>
+<script src="app.js?v=20260826c"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>创建宫格盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css?v=20260826-wizard-foot-2">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app">
@@ -114,7 +114,7 @@
   <div class="m-body"><div class="review-person-picker"><aside class="review-person-org"><div class="section-title">组织范围</div><div class="tree"><div class="t-node t-l1"><label><input type="checkbox" checked> 总部</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 研发中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 销售中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 职能中台</label></div></div></aside><section class="review-person-candidates"><div class="review-person-search"><input class="input" type="search" data-review-person-search placeholder="搜索姓名、工号或岗位" aria-label="搜索盘点人员" autocomplete="off" spellcheck="false"><span class="tag tag-primary">已选 35 人</span></div><div class="table-wrap"><table class="t"><thead><tr><th style="width:42px"><input type="checkbox" checked aria-label="选择全部候选人员"></th><th>姓名</th><th>部门</th><th>岗位</th></tr></thead><tbody><tr><td><input type="checkbox" checked aria-label="选择张明"></td><td><b>张明</b></td><td>研发中心</td><td>架构师</td></tr><tr><td><input type="checkbox" checked aria-label="选择李华"></td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td></tr><tr><td><input type="checkbox" checked aria-label="选择王芳"></td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td></tr><tr><td><input type="checkbox" checked aria-label="选择赵琳"></td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td></tr><tr><td><input type="checkbox" aria-label="选择周宁"></td><td><b>周宁</b></td><td>销售中心</td><td>销售经理</td></tr></tbody></table></div></section></div></div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="button" data-close data-toast="盘点人员已添加">确认添加</button></div>
 </div>
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
 <script>
 (function(){
   var wizard=document.querySelector('[data-review-wizard]'),sources=Array.from(document.querySelectorAll('[data-review-source]')),sourceCount=document.getElementById('review-source-count'),sourceAll=document.querySelector('[data-review-source-all]'),confirmProject=document.querySelector('[data-review-confirm-project]'),performanceFile=document.getElementById('review-performance-file'),performanceFileName=document.getElementById('review-performance-file-name');

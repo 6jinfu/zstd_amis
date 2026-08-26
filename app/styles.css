@@ -63,7 +63,6 @@ body {
   font-size: 14px;
   line-height: 22px;
   color: var(--neutral-900);
-  background: var(--neutral-50);
   -webkit-font-smoothing: antialiased;
   font-variant-numeric: tabular-nums;
 }
@@ -688,7 +687,8 @@ table.t thead tr th:last-child { border-top-right-radius: var(--radius-md); }
 .pm-node { padding:10px 20px; border-radius:var(--radius-md); font-size:14px; font-weight:500; transition:color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out,box-shadow .15s ease-out; position:relative; min-width:180px; text-align:center; }
 .pm-node.set { background:linear-gradient(135deg,var(--primary-600),var(--primary-700)); color:#fff; box-shadow:0 4px 12px rgba(37,99,235,.25); }
 .pm-node.set:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,99,235,.35); }
-.pm-node.empty { background:var(--neutral-50); border:2px dashed var(--neutral-300); color:var(--neutral-400); }
+.pm-node.empty { background:var(--neutral-50); border:1.5px dashed var(--neutral-300); color:var(--neutral-400); }
+.pm-node.empty { padding:5px 12px; min-width:0; min-height:0; display:block; font-size:12px; font-weight:400; }
 .pm-node.empty:hover { border-color:var(--primary-400); color:var(--primary-600); background:var(--primary-50); }
 .pm-node .pm-plan { position:absolute; top:-8px; right:14px; font-size:10px; background:var(--success); color:#fff; padding:2px 8px; border-radius:var(--radius-full); }
 .pm-axis-label { text-align:center; font-size:12px; color:var(--neutral-400); margin-top:var(--space-md); }
@@ -1199,18 +1199,17 @@ body[data-page="talent-profile"] .detail-main > .d-section:not([data-section="ab
   --shadow-sm: 0 1px 2px rgba(28, 60, 110, .035);
   --shadow-md: 0 8px 24px rgba(40, 88, 160, .06);
   --shadow-lg: 0 20px 56px rgba(25, 55, 105, .16);
-  --shell-bg: #dcecff;
   --surface-border: #dfe6ef;
 }
 
-html { background: var(--shell-bg); }
-body {
-  min-width: 0;
-  color: var(--neutral-900);
-  background:
-    radial-gradient(circle at 88% 10%, rgba(185, 204, 255, .58), transparent 34%),
-    linear-gradient(125deg, #edf8ff 0%, #dbeaff 48%, #d4e0ff 100%);
-}
+/* 页面画布统一中性浅灰底；白色工作区由卡片容器提供。
+   2026-08-26 修复：原 html 浅蓝底 + body 蓝渐变在滚动超出一屏后露出，
+   导致人才图谱盘点等长页面滚动后白底消失、背景变蓝。
+   2026-08-26 二次修复：body 实际生效的是第 36 节 body{background:var(--canvas)}，
+   html 若用 --neutral-50 会与之相差一档，长页滚过一屏后形成色差带；
+   html 必须与 body 同用 --canvas。 */
+html { background: var(--canvas); }
+body { min-width: 0; }
 
 button,
 a,
@@ -2421,7 +2420,7 @@ textarea.input:disabled {
 .btn-sm { min-height: 40px; height: 40px; }
 .segment button { min-height: 40px; }
 .pagination .pg-btn { min-width: 40px; height: 40px; }
-.cat-tree-panel .icon-btn { width: 40px !important; height: 40px !important; }
+.cat-tree-panel .icon-btn { width: 32px !important; height: 32px !important; }
 
 @media (hover: hover) and (pointer: fine) {
   .card.interactive:hover,
@@ -3033,10 +3032,25 @@ body[data-page="assess-projects"] .cat-main table.t { min-width: 1080px; }
 
 .shell-v2 .content > .card[data-tabs] > .tab-btns .tab-btn {
   min-height: 44px;
-  padding: 0 2px;
-  margin-right: 28px;
+  padding: 0 14px;
+  margin-right: 16px;
   border-bottom-width: 2px;
 }
+
+/* 整卡白底变体：tab 嵌在 card-head 内、图表直铺 card-body 的页面（如关键岗位分析结果），
+   不走"透明壳 + 子白卡"的默认 tabs 模式，恢复独立白卡视觉 */
+.shell-v2 .content > .card[data-tabs].card-tabs-solid {
+  background: var(--white);
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+.shell-v2 .content > .card[data-tabs].card-tabs-solid > .tab-panel > .card-body { padding: 20px; }
+
+/* tab 嵌 card-head 内时高度由内容撑起，tab-btn 的 margin-bottom:-1px 溢出 1px
+   会被 .tab-btns 的 overflow-x:auto 裁掉，active 2px 下划线只剩 1px（视觉变细）；
+   补 1px 底 padding 让下划线完整落回可视区（2026-08-26 修复 key-position-result）。 */
+.shell-v2 .content > .card[data-tabs].card-tabs-solid .card-head .tab-btns { padding-bottom: 1px; }
 
 /* 系统设置：内容与外边缘、工具栏与表格之间保持独立间距。 */
 body[data-page="settings"] .detail-main {
@@ -4446,7 +4460,6 @@ body[data-page="review-projects"] .detail-main .kpi {
   border-bottom: var(--border-hairline) solid var(--border-subtle);
 }
 .assess-category-tree .ctp-title { color: var(--neutral-800); font-size: 13px; font-weight: 600; }
-.assess-category-tree .icon-btn { width: 32px !important; height: 32px !important; }
 
 .assess-project-workbench .list-main > .filter-bar {
   min-height: 66px;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>新建关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260826c">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -28,127 +28,134 @@
       <div class="breadcrumb"><a href="key-position.html" style="color:var(--neutral-400)">关键岗位分析</a><span class="sep">/</span><span class="cur">新建分析</span></div>
       <div class="page-head"><div><h1>新建关键岗位分析</h1></div></div>
 
-      <div data-wizard>
-        <div class="steps">
-          <div class="step"><span class="idx">1</span><span class="lbl">创建</span></div><span class="line"></span>
-          <div class="step"><span class="idx">2</span><span class="lbl">选范围</span></div><span class="line"></span>
-          <div class="step"><span class="idx">3</span><span class="lbl">选视角</span></div><span class="line"></span>
-          <div class="step"><span class="idx">4</span><span class="lbl">视角配置</span></div><span class="line"></span>
-          <div class="step"><span class="idx">5</span><span class="lbl">生成</span></div>
-        </div>
-
-        <!-- ① 创建 -->
-        <div class="step-panel show" data-panel="1">
+      <!-- 2026-08-26 简化操作流程：选范围/选视角/视角配置/生成确认由 Dify 工作流内置默认参数执行；完整向导见 git 历史 -->
+      <div>
+        <!-- 创建 -->
+        <div>
           <div class="card card-pad">
+            <div class="section-title">基本信息</div>
             <div class="field"><label>项目名 <span class="req">*</span></label><input class="input" value="2026 年度关键岗位分析（研发 + 销售）"></div>
             <div class="field"><label>类别 <span class="req">*</span></label><select class="select"><option selected>年度分析</option><option>序列分析</option><option>专项分析</option></select></div>
-            <div class="field"><label>分析目标</label><textarea class="input" rows="2">识别研发与销售序列中需要优先培养的关键岗位，作为本年度标准建模与培养投入的依据。</textarea></div>
-            <div class="field" style="margin-bottom:0"><label>引用组织结构版本 <span class="req">*</span></label>
-              <div class="sel-card"><div><div style="font-weight:500">V2 · 2026 年组织调整</div><div class="text-sm muted">生效于 2026-06-18 · 3 序列 × 3 层级 · 8 岗位族</div></div><span class="tag tag-effective">当前生效</span></div>
-            </div>
+            <div class="field" style="margin-bottom:0"><label>分析目标</label><textarea class="input" rows="2">识别研发与销售序列中需要优先培养的关键岗位，作为本年度标准建模与培养投入的依据。</textarea></div>
           </div>
         </div>
 
-        <!-- ② 颗粒度 -->
-        <div class="step-panel" data-panel="2">
-          <div class="card card-pad">
-            <div class="section-title">分析范围</div>
-            <div style="display:flex;align-items:center;gap:var(--space-md);margin:var(--space-md) 0">
-              <span class="text-sm">岗位族</span>
-              <input type="range" class="range-slider" min="0" max="2" value="1" style="flex:1;max-width:420px">
-              <span class="text-sm">具体岗位</span>
+        <!-- 引用组织结构版本：独立分节，含版本选择与对应可视化 -->
+        <div class="card card-pad mt-md" id="org-version-view">
+          <div class="flex between center mb-md">
+            <div class="section-title" style="margin:0">引用组织结构版本</div>
+            <div class="flex gap-sm center">
+              <span style="font-weight:500" id="org-view-name">V2 · 2026 年组织调整</span>
+              <span class="tag tag-effective" id="org-view-tag">当前生效</span>
             </div>
           </div>
-        </div>
+          <select class="select" id="sel-org-version" style="max-width:360px">
+            <option value="v2" selected>V2 · 2026 年组织调整（生效中）</option>
+            <option value="v1">V1 · 初始组织结构（已存档）</option>
+          </select>
+          <div class="text-sm muted mt-sm" id="org-version-hint">生效于 2026-06-18 · 岗位评价法 / 结构分析法 · 宫格 3×3 · 8 岗位族 / 34 岗位 / 165 人</div>
 
-        <!-- ③ 选视角 -->
-        <div class="step-panel" data-panel="3">
-          <div class="card card-pad">
-            <div class="section-title">选择视角<span class="muted text-sm" style="font-weight:400">按你有的数据自由勾选 · 至少 1 个</span></div>
-            <div class="method-cards">
-              <label class="method-card"><input type="checkbox" checked><div class="mc-name">经济 E</div><div class="mc-desc">需求 × 供给：需求高且供给少 = 关键岗位。</div><div class="mc-meta">供需模型 · 默认</div></label>
-              <label class="method-card"><input type="checkbox" checked><div class="mc-name">能力 A</div><div class="mc-desc">能力（ART）× 时间成本：能力高且培养周期长 = 关键。</div><div class="mc-meta">ART · 9 变量</div></label>
-            </div>
-          </div>
-        </div>
+          <div class="text-sm muted mt-lg mb-sm">岗位族矩阵</div>
 
-        <!-- ④ 视角配置 -->
-        <div class="step-panel" data-panel="4">
-          <div class="card card-pad" data-tabs>
-            <div class="tab-btns"><button class="tab-btn active" data-tab="e">经济 E</button><button class="tab-btn" data-tab="a">能力 A</button></div>
-            <div class="tab-panel show" data-tab="e">
-              <div class="section-title">数据来源</div>
-              <div style="display:grid;grid-template-columns:80px 1fr;gap:8px 12px;font-size:13px">
-                <span style="color:var(--neutral-600)">需求 N</span><span style="color:var(--neutral-900)">平台岗位数据 + 编制 / 缺口 + 业务权重</span>
-                <span style="color:var(--neutral-600)">供给 S</span><span style="color:var(--neutral-900)">人才供给与市场供给</span>
-              </div>
-            </div>
-            <div class="tab-panel" data-tab="a">
-              <div class="responsive-split" style="display:grid;grid-template-columns:1fr 280px;gap:var(--space-lg);align-items:start">
-                <div>
-                  <div class="section-title">ART 变量（1~3 分锚定）</div>
-                  <div class="tree">
-                    <div class="t-node t-l1">思考 Think</div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>创新</label><span class="anchor">不做 / 微小 / 较大</span></div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>决策</label><span class="anchor">不做 / 微小 / 较大</span></div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>问题</label><span class="anchor">简单 / 较复杂 / 非常复杂</span></div>
-                    <div class="t-node t-l1">关系 Relationship</div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>协同</label><span class="anchor">参与 / 跨部门 / 发起</span></div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>团队</label><span class="anchor">不带 / 小组 / 大团队</span></div>
-                    <div class="t-node t-l2"><label><input type="checkbox">谈判</label><span class="anchor">无 / 供应商 / 合作方</span></div>
-                    <div class="t-node t-l1">行动 Action</div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>技术</label><span class="anchor">不需 / 基础 / 高水平</span></div>
-                    <div class="t-node t-l2"><label><input type="checkbox" checked>专业</label><span class="anchor">不需 / 一定 / 大量</span></div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex between center mb-sm"><div class="text-sm" style="font-weight:600">分组权重</div><span class="ai-suggest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2 5 5 .5-4 3.5 1.5 5L12 14l-4.5 3 1.5-5-4-3.5 5-.5z"/></svg>采用</span></div>
-                  <div class="slider-row"><span class="sr-label">思考</span><input type="range" min="0" max="100" value="40"><span class="sr-val">40%</span></div>
-                  <div class="slider-row"><span class="sr-label">关系</span><input type="range" min="0" max="100" value="35"><span class="sr-val">35%</span></div>
-                  <div class="slider-row"><span class="sr-label">行动</span><input type="range" min="0" max="100" value="25"><span class="sr-val">25%</span></div>
-                  <div class="weight-sum">权重和 <b>100%</b></div>
-                  <div class="field mt-md" style="margin-bottom:0"><label>关键阈值（关键系数 ≥）</label><input class="input" type="number" value="0.75" step="0.05" style="max-width:140px"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card card-pad mt-md">
-            <div class="flex between center mb-md">
-              <div class="section-title" style="margin:0">多视角权重</div>
-              <span class="text-sm muted">经济 + 能力 · 默认各 50%</span>
-            </div>
-            <div class="slider-row"><span class="sr-label">经济 E</span><input type="range" min="0" max="100" value="50"><span class="sr-val">50%</span></div>
-            <div class="slider-row"><span class="sr-label">能力 A</span><input type="range" min="0" max="100" value="50"><span class="sr-val">50%</span></div>
-          </div>
-        </div>
+          <div data-org-version="v2">
+            <div class="matrix" data-heat style="grid-template-columns:120px repeat(3,1fr);">
+              <div class="row-head"><div class="rh">高级</div><div class="rh-sub">专家 / 决策</div></div>
+              <div class="group"><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗位</span><span><b>9</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-3</span></div></div>
+              <div class="group"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>6</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-3</span></div></div>
+              <div class="group empty-cell"><div class="g-name">暂无岗位</div><div class="text-sm" style="color:var(--neutral-400)">待人工归类</div></div>
 
-        <!-- ⑤ 生成 -->
-        <div class="step-panel" data-panel="5">
-          <div class="card card-pad">
-            <div class="section-title">配置汇总</div>
-            <div class="table-wrap"><table class="t"><tbody>
-              <tr><td class="muted" style="width:180px">项目</td><td>2026 年度关键岗位分析（研发 + 销售）</td></tr>
-              <tr><td class="muted">类别</td><td>年度分析</td></tr>
-              <tr><td class="muted">引用组织结构</td><td>V2 · 2026 年组织调整（当前生效）</td></tr>
-              <tr><td class="muted">分析范围</td><td>岗位族（标记到具体岗位）</td></tr>
-              <tr><td class="muted">视角</td><td>经济 E（50%）+ 能力 A（50%）</td></tr>
-              <tr><td class="muted">关键阈值</td><td>关键系数 ≥ 0.75</td></tr>
-            </tbody></table></div>
+              <div class="row-head"><div class="rh">中级</div><div class="rh-sub">带组 / 资深</div></div>
+              <div class="group"><div><div class="g-name">研发·中级</div><div class="g-stats"><span><b>7</b> 岗位</span><span><b>36</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-2</span></div></div>
+              <div class="group"><div><div class="g-name">销售·中级</div><div class="g-stats"><span><b>6</b> 岗位</span><span><b>28</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-2</span></div></div>
+              <div class="group"><div><div class="g-name">职能·中级</div><div class="g-stats"><span><b>4</b> 岗位</span><span><b>14</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-2</span></div></div>
+
+              <div class="row-head"><div class="rh">初级</div><div class="rh-sub">独立执行</div></div>
+              <div class="group"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>4</b> 岗位</span><span><b>18</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-1</span></div></div>
+              <div class="group"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>5</b> 岗位</span><span><b>42</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-1</span></div></div>
+              <div class="group"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>3</b> 岗位</span><span><b>12</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-1</span></div></div>
+
+              <div class="corner-cell"><div class="ax">层级 ↑<br>序列 →</div></div>
+              <div class="col-head">研发<div class="ch-sub">技术序列</div></div>
+              <div class="col-head">销售<div class="ch-sub">市场序列</div></div>
+              <div class="col-head">职能<div class="ch-sub">支持序列</div></div>
+            </div>
+            <div class="divider"></div>
+            <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
+              <div class="kpi"><div class="label">序列数</div><div class="value">3</div><div class="delta">研发 · 销售 · 职能</div></div>
+              <div class="kpi"><div class="label">层级数</div><div class="value">3</div><div class="delta">初级 · 中级 · 高级</div></div>
+              <div class="kpi"><div class="label">岗位族（组）</div><div class="value">8</div><div class="delta">含 1 个空组待归类</div></div>
+              <div class="kpi"><div class="label">覆盖岗位 / 人数</div><div class="value">34 / 165</div></div>
+            </div>
+          </div>
+
+          <div data-org-version="v1" hidden>
+            <div class="matrix" data-heat style="grid-template-columns:120px repeat(3,1fr);">
+              <div class="row-head"><div class="rh">高级</div><div class="rh-sub">管理 / 资深</div></div>
+              <div class="group"><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗位</span><span><b>8</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-2</span></div></div>
+              <div class="group"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>5</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-2</span></div></div>
+              <div class="group"><div><div class="g-name">职能·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>6</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-2</span></div></div>
+
+              <div class="row-head"><div class="rh">初级</div><div class="rh-sub">独立执行</div></div>
+              <div class="group"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>9</b> 岗位</span><span><b>45</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-1</span></div></div>
+              <div class="group"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>8</b> 岗位</span><span><b>51</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-1</span></div></div>
+              <div class="group"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>6</b> 岗位</span><span><b>26</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-1</span></div></div>
+
+              <div class="corner-cell"><div class="ax">层级 ↑<br>序列 →</div></div>
+              <div class="col-head">研发<div class="ch-sub">技术序列</div></div>
+              <div class="col-head">销售<div class="ch-sub">市场序列</div></div>
+              <div class="col-head">职能<div class="ch-sub">支持序列</div></div>
+            </div>
+            <div class="divider"></div>
+            <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
+              <div class="kpi"><div class="label">序列数</div><div class="value">3</div><div class="delta">研发 · 销售 · 职能</div></div>
+              <div class="kpi"><div class="label">层级数</div><div class="value">2</div><div class="delta">初级 · 高级</div></div>
+              <div class="kpi"><div class="label">岗位族（组）</div><div class="value">6</div></div>
+              <div class="kpi"><div class="label">覆盖岗位 / 人数</div><div class="value">30 / 141</div></div>
+            </div>
           </div>
         </div>
 
         <div class="wiz-foot">
           <div class="flex gap-sm center">
-            <button class="btn btn-secondary" data-step-prev><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>上一步</button>
             <a class="btn btn-ghost" href="key-position.html">取消</a>
           </div>
-          <button class="btn btn-primary" data-step-next>下一步<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
-          <a class="btn btn-primary" data-step-submit href="key-position-result.html" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>开始分析</a>
+          <a class="btn btn-primary" data-loading-btn href="key-position-analyzing.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>开始分析</a>
         </div>
       </div>
     </main>
   </div>
 </div>
-<script src="app.js"></script>
+<script src="app.js?v=20260826c"></script>
+<script>
+  // 引用组织结构版本切换：摘要 + 下方可视化（矩阵 / KPI）联动
+  document.addEventListener('DOMContentLoaded', function () {
+    var sel = document.getElementById('sel-org-version');
+    if (!sel) return;
+    var meta = {
+      v2: { name: 'V2 · 2026 年组织调整', tag: '当前生效', tagCls: 'tag tag-effective', hint: '生效于 2026-06-18 · 岗位评价法 / 结构分析法 · 宫格 3×3 · 8 岗位族 / 34 岗位 / 165 人' },
+      v1: { name: 'V1 · 初始组织结构', tag: '已存档', tagCls: 'tag tag-archived', hint: '生效于 2025-12-01 · 结构分析法 · 宫格 3×2 · 6 岗位族 / 30 岗位 / 141 人' }
+    };
+    sel.addEventListener('change', function () {
+      var m = meta[sel.value]; if (!m) return;
+      document.querySelectorAll('#org-version-view [data-org-version]').forEach(function (b) {
+        b.hidden = b.dataset.orgVersion !== sel.value;
+      });
+      document.getElementById('org-view-name').textContent = m.name;
+      var tag = document.getElementById('org-view-tag');
+      tag.className = m.tagCls; tag.textContent = m.tag;
+      document.getElementById('org-version-hint').textContent = m.hint;
+    });
+  });
+</script>
+<script>
+  var lb = document.querySelector('[data-loading-btn]');
+  if (lb) lb.addEventListener('click', function (e) {
+    if (this.dataset.loading) return;
+    e.preventDefault();
+    this.dataset.loading = '1'; this.style.pointerEvents = 'none';
+    this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>分析中…';
+    var href = this.href; setTimeout(function () { location.href = href; }, 950);
+  });
+</script>
 </body>
 </html>
