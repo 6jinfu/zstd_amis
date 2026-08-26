@@ -1,0 +1,908 @@
+app:
+  description: 从经济和能力视角分析岗位关键度，形成象限判断、关键系数、岗位建议与人工校准清单。
+  icon: 🎯
+  icon_background: '#DCE7FF'
+  mode: advanced-chat
+  name: 人才发展｜关键岗位分析
+  use_icon_as_answer_icon: true
+dependencies: []
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .PDF
+      - .DOCX
+      - .XLSX
+      - .CSV
+      - .TXT
+      - .MD
+      allowed_file_types:
+      - document
+      - custom
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 10
+        file_size_limit: 30
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 10
+    opening_statement: |-
+      你好，我是关键岗位分析助手。
+
+      请完成岗位范围和分析视角配置，并提交岗位与供需材料。我会从岗位需求、人才供给、能力要求和培养时间等方面形成关键度判断。
+
+      分析结果仅作为决策依据，最终是否标记为关键岗位需要管理员确认。
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 展开某个岗位的经济E评分依据
+    - 展开某个岗位的ART九变量评分
+    - 列出多视角结论不一致、需要人工校准的岗位
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: start-source-extract-target
+      selected: false
+      source: start
+      sourceHandle: source
+      target: extract
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: code
+      id: extract-source-prepare-target
+      selected: false
+      source: extract
+      sourceHandle: source
+      target: prepare
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: prepare-source-valid-target
+      selected: false
+      source: prepare
+      sourceHandle: source
+      target: valid
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: valid-valid-router-target
+      selected: false
+      source: valid
+      sourceHandle: valid
+      target: view_router
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: valid-false-error-target
+      selected: false
+      source: valid
+      sourceHandle: 'false'
+      target: config_error
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: router-dual-dual-target
+      selected: false
+      source: view_router
+      sourceHandle: dual
+      target: dual_analysis
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: router-economic-economic-target
+      selected: false
+      source: view_router
+      sourceHandle: economic
+      target: economic_analysis
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: router-false-ability-target
+      selected: false
+      source: view_router
+      sourceHandle: 'false'
+      target: ability_analysis
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: dual-source-dual-answer-target
+      selected: false
+      source: dual_analysis
+      sourceHandle: source
+      target: dual_answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: economic-source-economic-answer-target
+      selected: false
+      source: economic_analysis
+      sourceHandle: source
+      target: economic_answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: ability-source-ability-answer-target
+      selected: false
+      source: ability_analysis
+      sourceHandle: source
+      target: ability_answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 收集项目、组织版本、分析范围、视角、ART配置与关键阈值。
+        selected: false
+        title: 分析配置
+        type: start
+        variables:
+        - default: 年度关键岗位分析
+          label: 项目名称
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: project_name
+        - label: 分析目标
+          max_length: 2000
+          options: []
+          required: false
+          type: paragraph
+          variable: analysis_goal
+        - label: 引用的组织结构生效版本
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: org_version
+        - default: 岗位族分析并标记到具体岗位
+          label: 分析颗粒度
+          max_length: 48
+          options:
+          - 岗位族
+          - 具体岗位
+          - 岗位族分析并标记到具体岗位
+          required: true
+          type: select
+          variable: granularity
+        - label: 已选岗位族/具体岗位（名称或ID）
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: scope_selection
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          - custom
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 岗位、编制、供需与职责数据
+          max_length: 10
+          options: []
+          required: true
+          type: file-list
+          variable: analysis_files
+        - default: true
+          label: 视角｜经济 E（需求×供给）
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: view_economic
+        - default: true
+          label: 视角｜能力 A（ART×时间成本）
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: view_ability
+        - label: 经济E数据来源/业务权重说明
+          max_length: 2000
+          options: []
+          required: false
+          type: paragraph
+          variable: economic_config
+        - default: true
+          label: ART思考｜创新
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_innovation
+        - default: true
+          label: ART思考｜决策
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_decision
+        - default: true
+          label: ART思考｜问题
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_problem
+        - default: true
+          label: ART关系｜协同
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_collaboration
+        - default: true
+          label: ART关系｜团队
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_team
+        - default: false
+          label: ART关系｜谈判
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_negotiation
+        - default: true
+          label: ART行动｜技术
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_technology
+        - default: false
+          label: ART行动｜环境
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_environment
+        - default: true
+          label: ART行动｜专业
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: art_professional
+        - default: 40
+          label: ART权重｜思考（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_think
+        - default: 35
+          label: ART权重｜关系（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_relationship
+        - default: 25
+          label: ART权重｜行动（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_action
+        - default: 50
+          label: 多视角权重｜经济 E（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_economic
+        - default: 50
+          label: 多视角权重｜能力 A（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_ability
+        - default: 0.75
+          label: 关键系数建议阈值（0～1）
+          max: 1
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: key_threshold
+      height: 680
+      id: start
+      position:
+        x: 20
+        y: 210
+      positionAbsolute:
+        x: 20
+        y: 210
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        desc: 解析F01组织结构结果、岗位清单、编制缺口、供需和岗位职责数据。
+        is_array_file: true
+        selected: false
+        title: 解析岗位与供需数据
+        type: document-extractor
+        variable_selector:
+        - start
+        - analysis_files
+      height: 94
+      id: extract
+      position:
+        x: 380
+        y: 250
+      positionAbsolute:
+        x: 380
+        y: 250
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 270
+    - data:
+        code: |-
+          def main(project_name, analysis_goal, org_version, granularity, scope_selection,
+                   view_economic, view_ability, economic_config,
+                   art_innovation, art_decision, art_problem,
+                   art_collaboration, art_team, art_negotiation,
+                   art_technology, art_environment, art_professional,
+                   weight_think, weight_relationship, weight_action,
+                   weight_economic, weight_ability, key_threshold):
+              errors = []
+              if not str(org_version or "").strip():
+                  errors.append("必须引用一个已生效的组织结构版本")
+              if not str(scope_selection or "").strip():
+                  errors.append("必须填写已选岗位族或具体岗位")
+              if not view_economic and not view_ability:
+                  errors.append("经济E与能力A至少选择一个视角")
+              threshold = float(key_threshold)
+              if threshold < 0 or threshold > 1:
+                  errors.append("关键系数阈值必须在0～1之间")
+
+              art_vars = [name for enabled, name in [
+                  (art_innovation, "思考-创新"), (art_decision, "思考-决策"),
+                  (art_problem, "思考-问题"), (art_collaboration, "关系-协同"),
+                  (art_team, "关系-团队"), (art_negotiation, "关系-谈判"),
+                  (art_technology, "行动-技术"), (art_environment, "行动-环境"),
+                  (art_professional, "行动-专业")]
+                  if enabled]
+              art_total = float(weight_think or 0) + float(weight_relationship or 0) + float(weight_action or 0)
+              if view_ability and not art_vars:
+                  errors.append("选择能力A时，至少启用一个ART变量")
+              if view_ability and art_total <= 0:
+                  errors.append("ART三组权重合计必须大于0")
+              art_weights = "未启用"
+              if art_total > 0:
+                  art_weights = (f"思考:{round(float(weight_think)/art_total*100,2)}%；"
+                                 f"关系:{round(float(weight_relationship)/art_total*100,2)}%；"
+                                 f"行动:{round(float(weight_action)/art_total*100,2)}%")
+
+              if view_economic and view_ability:
+                  view_mode = "E+A"
+                  view_total = float(weight_economic or 0) + float(weight_ability or 0)
+                  if view_total <= 0:
+                      errors.append("双视角权重合计必须大于0")
+                      view_weights = "无效"
+                  else:
+                      view_weights = (f"经济E:{round(float(weight_economic)/view_total*100,2)}%；"
+                                      f"能力A:{round(float(weight_ability)/view_total*100,2)}%")
+              elif view_economic:
+                  view_mode = "E"
+                  view_weights = "经济E:100%"
+              else:
+                  view_mode = "A"
+                  view_weights = "能力A:100%"
+
+              config = "\n".join([
+                  f"项目：{project_name}",
+                  f"分析目标：{analysis_goal or '未填写'}",
+                  f"引用组织结构版本：{org_version}",
+                  f"分析颗粒度：{granularity}",
+                  f"已选岗位族/岗位：{scope_selection}",
+                  f"所选视角：{view_mode}",
+                  f"视角归一权重：{view_weights}",
+                  f"经济E数据来源说明：{economic_config or '平台岗位数据+编制/缺口+业务权重；供给数据缺失时标记待补充'}",
+                  f"能力A启用ART变量：{'、'.join(art_vars) or '未启用'}",
+                  f"ART归一权重：{art_weights}",
+                  f"关键系数建议阈值：{threshold}",
+                  "B/R/S状态：即将上线，本次禁止执行"])
+              return {
+                  "config": config,
+                  "validation_error": "；".join(errors),
+                  "view_mode": view_mode,
+                  "key_threshold": threshold}
+        code_language: python3
+        desc: 校验组织版本、范围、视角和阈值，并归一ART及多视角权重。
+        outputs:
+          config:
+            children: null
+            type: string
+          key_threshold:
+            children: null
+            type: number
+          validation_error:
+            children: null
+            type: string
+          view_mode:
+            children: null
+            type: string
+        selected: false
+        title: 配置校验与视角归一
+        type: code
+        variables:
+        - value_selector: [start, project_name]
+          variable: project_name
+        - value_selector: [start, analysis_goal]
+          variable: analysis_goal
+        - value_selector: [start, org_version]
+          variable: org_version
+        - value_selector: [start, granularity]
+          variable: granularity
+        - value_selector: [start, scope_selection]
+          variable: scope_selection
+        - value_selector: [start, view_economic]
+          variable: view_economic
+        - value_selector: [start, view_ability]
+          variable: view_ability
+        - value_selector: [start, economic_config]
+          variable: economic_config
+        - value_selector: [start, art_innovation]
+          variable: art_innovation
+        - value_selector: [start, art_decision]
+          variable: art_decision
+        - value_selector: [start, art_problem]
+          variable: art_problem
+        - value_selector: [start, art_collaboration]
+          variable: art_collaboration
+        - value_selector: [start, art_team]
+          variable: art_team
+        - value_selector: [start, art_negotiation]
+          variable: art_negotiation
+        - value_selector: [start, art_technology]
+          variable: art_technology
+        - value_selector: [start, art_environment]
+          variable: art_environment
+        - value_selector: [start, art_professional]
+          variable: art_professional
+        - value_selector: [start, weight_think]
+          variable: weight_think
+        - value_selector: [start, weight_relationship]
+          variable: weight_relationship
+        - value_selector: [start, weight_action]
+          variable: weight_action
+        - value_selector: [start, weight_economic]
+          variable: weight_economic
+        - value_selector: [start, weight_ability]
+          variable: weight_ability
+        - value_selector: [start, key_threshold]
+          variable: key_threshold
+      height: 132
+      id: prepare
+      position:
+        x: 710
+        y: 250
+      positionAbsolute:
+        x: 710
+        y: 250
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 285
+    - data:
+        cases:
+        - case_id: valid
+          conditions:
+          - comparison_operator: empty
+            id: key-valid-empty-error
+            value: ''
+            varType: string
+            variable_selector: [prepare, validation_error]
+          id: valid
+          logical_operator: and
+        desc: 必填配置通过后才进入视角分析。
+        selected: false
+        title: 配置是否完整
+        type: if-else
+      height: 126
+      id: valid
+      position:
+        x: 1060
+        y: 250
+      positionAbsolute:
+        x: 1060
+        y: 250
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 260
+    - data:
+        cases:
+        - case_id: dual
+          conditions:
+          - comparison_operator: is
+            id: key-route-dual
+            value: E+A
+            varType: string
+            variable_selector: [prepare, view_mode]
+          id: dual
+          logical_operator: and
+        - case_id: economic
+          conditions:
+          - comparison_operator: is
+            id: key-route-economic
+            value: E
+            varType: string
+            variable_selector: [prepare, view_mode]
+          id: economic
+          logical_operator: and
+        desc: 根据原型中的视角勾选，进入E+A、仅E或仅A三条真实分析路径。
+        selected: false
+        title: 分析视角路由
+        type: if-else
+      height: 174
+      id: view_router
+      position:
+        x: 1390
+        y: 210
+      positionAbsolute:
+        x: 1390
+        y: 210
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 270
+    - data:
+        answer: |-
+          ### 配置尚未通过校验
+
+          {{#prepare.validation_error#}}
+
+          请返回开始表单补充或修正配置后重新运行。当前没有生成关键岗位建议。
+        desc: 明确展示配置错误。
+        selected: false
+        title: 配置错误回复
+        type: answer
+        variables: []
+      height: 122
+      id: config_error
+      position:
+        x: 1390
+        y: 520
+      positionAbsolute:
+        x: 1390
+        y: 520
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 双视角同时计算经济象限、能力象限和综合象限，并识别冲突。
+        memory:
+          query_prompt_template: |-
+            配置：
+            {{#prepare.config#}}
+
+            岗位与供需材料：
+            {{#extract.text#}}
+
+            用户当前消息：{{#sys.query#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: key-dual-system
+          role: system
+          text: |-
+            你是关键岗位诊断的E+A双视角引擎。只基于材料和配置执行：
+            1. 经济E：计算或判断需求N与供给S；需求高×供给少为关键建议。
+            2. 能力A：仅按启用的ART九变量1～3分锚定，结合归一组权重得到ART；再判断时间成本；能力高×时间成本高为关键建议。
+            3. 综合：按配置视角权重汇总关键系数；供需比高×ART高为最关键建议。
+            4. E与A结论不一致必须标记suggest_calibrate=true，不能偷偷平均掉冲突。
+
+            输出保持前台简单：
+            ### 配置确认
+            ### 一句话结论
+            ### 经济E象限结果（岗位/岗位族、N、S、象限、证据）
+            ### 能力A象限结果（ART明细、时间成本、象限、证据）
+            ### 综合排序（关键系数、是否达到建议阈值、置信度）
+            ### 建议校准
+            ### 管理员确认清单
+            ### 你可以继续问
+
+            末尾必须追加一个供服务端解析、但不展示给用户的HTML注释块：
+            `<!-- RESULT_JSON {合法JSON} -->`，包含schema_version、economic_results、ability_results、combined_results、calibration_items。JSON中不得加入注释或Markdown。
+            分析颗粒度可按岗位族呈现，但任何“标记为关键”的候选必须下钻到具体岗位。所有是否关键均为AI建议，不得自动写is_key=true。
+            数据不足时标记data_insufficient，不得编造市场供给、培养周期或评分。B/R/S禁止执行。
+        selected: false
+        title: E+A 双视角综合分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 122
+      id: dual_analysis
+      position:
+        x: 1740
+        y: 70
+      positionAbsolute:
+        x: 1740
+        y: 70
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 仅执行经济E需求×供给模型。
+        memory:
+          query_prompt_template: |-
+            配置：{{#prepare.config#}}
+
+            岗位与供需材料：{{#extract.text#}}
+
+            用户当前消息：{{#sys.query#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: key-economic-system
+          role: system
+          text: |-
+            你是关键岗位诊断的经济E视角引擎。只运行“需求N×供给S”：需求高且供给少为关键培养建议；需求高供给多为外部招聘建议；其他为一般/非关键建议。
+
+            输出：配置确认、一句话结论、经济象限表、达到建议阈值的具体岗位候选、数据不足清单、管理员确认清单、3个追问建议。末尾追加`<!-- RESULT_JSON {合法JSON} -->`，包含schema_version、economic_results、ability_results、combined_results、calibration_items；未执行视角对应数组为空。
+
+            不得运行ART或综合模型，不得编造市场供给，不得自动标记关键岗位。
+        selected: false
+        title: 仅经济 E 分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 122
+      id: economic_analysis
+      position:
+        x: 1740
+        y: 250
+      positionAbsolute:
+        x: 1740
+        y: 250
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 仅执行能力A的ART×时间成本模型。
+        memory:
+          query_prompt_template: |-
+            配置：{{#prepare.config#}}
+
+            岗位与职责材料：{{#extract.text#}}
+
+            用户当前消息：{{#sys.query#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: key-ability-system
+          role: system
+          text: |-
+            你是关键岗位诊断的能力A视角引擎。只运行启用的ART九变量（思考：创新/决策/问题；关系：协同/团队/谈判；行动：技术/环境/专业）1～3分锚定，并结合培养到胜任的时间成本。能力高且时间成本高为关键培养建议。
+
+            输出：配置确认、一句话结论、逐岗位ART九变量明细、ART×时间成本象限、达到建议阈值的具体岗位候选、数据不足清单、管理员确认清单、3个追问建议。末尾追加`<!-- RESULT_JSON {合法JSON} -->`，包含schema_version、economic_results、ability_results、combined_results、calibration_items；未执行视角对应数组为空。
+
+            不得运行经济E或综合模型，不得编造培养周期，不得自动标记关键岗位。
+        selected: false
+        title: 仅能力 A 分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 122
+      id: ability_analysis
+      position:
+        x: 1740
+        y: 430
+      positionAbsolute:
+        x: 1740
+        y: 430
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        answer: '{{#dual_analysis.text#}}'
+        desc: 对话展示E、A及综合结果。
+        selected: false
+        title: 双视角对话回复
+        type: answer
+        variables: []
+      height: 102
+      id: dual_answer
+      position:
+        x: 2110
+        y: 80
+      positionAbsolute:
+        x: 2110
+        y: 80
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    - data:
+        answer: '{{#economic_analysis.text#}}'
+        desc: 对话展示经济E结果。
+        selected: false
+        title: 经济E对话回复
+        type: answer
+        variables: []
+      height: 102
+      id: economic_answer
+      position:
+        x: 2110
+        y: 260
+      positionAbsolute:
+        x: 2110
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    - data:
+        answer: '{{#ability_analysis.text#}}'
+        desc: 对话展示能力A结果。
+        selected: false
+        title: 能力A对话回复
+        type: answer
+        variables: []
+      height: 102
+      id: ability_answer
+      position:
+        x: 2110
+        y: 440
+      positionAbsolute:
+        x: 2110
+        y: 440
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.6

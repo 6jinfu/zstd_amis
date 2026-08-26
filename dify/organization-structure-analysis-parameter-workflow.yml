@@ -1,0 +1,565 @@
+app:
+  description: 接收业务页面传入的已选岗位与方法配置，只对输入岗位进行序列、层级和岗位族分组，返回可校准的组织结构草稿。
+  icon: 🧩
+  icon_background: '#DCE7FF'
+  mode: workflow
+  name: 人才发展｜组织结构分析（参数直传版）
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: start-normalize
+      selected: false
+      source: start
+      sourceHandle: source
+      target: normalize
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: normalize-classify
+      selected: false
+      source: normalize
+      sourceHandle: source
+      target: classify
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: classify-validate
+      selected: false
+      source: classify
+      sourceHandle: source
+      target: validate
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: validate-end
+      selected: false
+      source: validate
+      sourceHandle: source
+      target: end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 接收页面固化的已选岗位快照和管理员配置。positions_json 中的岗位是本次分析的唯一范围。
+        selected: false
+        title: 页面分析参数
+        type: start
+        variables:
+        - default: OAR_DEMO_001
+          label: 运行ID
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: run_id
+        - default: 组织结构分析新版本
+          label: 项目/版本名称
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: project_name
+        - label: 已选岗位快照JSON
+          max_length: 200000
+          options: []
+          required: true
+          type: paragraph
+          variable: positions_json
+        - default: '["position_evaluation","structure_analysis"]'
+          label: 已选分析方法JSON
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: methods_json
+        - default: '{"enabled":["task","power","environment","professional","interpersonal","thinking"],"weights":{"task":18,"power":22,"environment":10,"professional":20,"interpersonal":12,"thinking":18}}'
+          label: 岗位评价维度配置JSON
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: dimension_config_json
+        - default: '{"position":true,"people":true,"form":false}'
+          label: 结构分析配置JSON
+          max_length: 10000
+          options: []
+          required: false
+          type: paragraph
+          variable: structure_config_json
+        - default: '{"sequence_count":3,"level_count":3,"sequence_names":["研发","销售","职能"],"level_names":["基层","骨干","负责人"]}'
+          label: 岗位族宫格配置JSON
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: grid_config_json
+        - default: equal_evidence
+          label: 多方法整合优先级
+          max_length: 48
+          options:
+          - equal_evidence
+          - position_evaluation_first
+          - structure_analysis_first
+          - organization_form_first
+          required: true
+          type: select
+          variable: method_priority
+      height: 352
+      id: start
+      position:
+        x: 80
+        y: 180
+      positionAbsolute:
+        x: 80
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        code: |-
+          import json
+
+          ALLOWED_METHODS = {
+              "position_evaluation", "structure_analysis", "structure_design",
+              "position_definition", "efficiency_analysis"
+          }
+          DIMENSIONS = {"task", "power", "environment", "professional", "interpersonal", "thinking"}
+
+          def parse_json(value, name, expected):
+              try:
+                  parsed = json.loads(value) if isinstance(value, str) else value
+              except Exception as exc:
+                  raise ValueError(f"{name}不是合法JSON: {exc}")
+              if not isinstance(parsed, expected):
+                  raise ValueError(f"{name}类型不正确")
+              return parsed
+
+          def clean_text(value, limit=4000):
+              if isinstance(value, list):
+                  value = "；".join(str(item) for item in value)
+              return str(value or "").strip()[:limit]
+
+          def main(run_id, project_name, positions_json, methods_json,
+                   dimension_config_json, structure_config_json,
+                   grid_config_json, method_priority):
+              positions = parse_json(positions_json, "positions_json", list)
+              methods = parse_json(methods_json, "methods_json", list)
+              dimensions = parse_json(dimension_config_json, "dimension_config_json", dict)
+              structure = parse_json(structure_config_json or "{}", "structure_config_json", dict)
+              grid = parse_json(grid_config_json, "grid_config_json", dict)
+
+              if not positions:
+                  raise ValueError("至少需要传入一个已选岗位")
+              methods = [str(item) for item in methods if str(item) in ALLOWED_METHODS]
+              if not methods:
+                  raise ValueError("至少需要一种有效分析方法")
+
+              normalized_positions = []
+              seen = set()
+              for index, item in enumerate(positions):
+                  if not isinstance(item, dict):
+                      raise ValueError(f"第{index + 1}个岗位不是对象")
+                  position_id = clean_text(item.get("position_id") or item.get("id"), 128)
+                  name = clean_text(item.get("position_name") or item.get("name"), 256)
+                  if not position_id or not name:
+                      raise ValueError(f"第{index + 1}个岗位缺少position_id或position_name")
+                  if position_id in seen:
+                      raise ValueError(f"岗位ID重复: {position_id}")
+                  seen.add(position_id)
+                  dimension_scores = item.get("dimension_scores") if isinstance(item.get("dimension_scores"), dict) else {}
+                  normalized_positions.append({
+                      "position_id": position_id,
+                      "position_code": clean_text(item.get("position_code") or item.get("code"), 128),
+                      "position_name": name,
+                      "department_id": clean_text(item.get("department_id"), 128),
+                      "department_name": clean_text(item.get("department_name"), 256),
+                      "category": clean_text(item.get("category"), 128),
+                      "headcount": max(0, int(item.get("headcount") or 0)),
+                      "responsibilities": clean_text(item.get("responsibilities")),
+                      "qualification": clean_text(item.get("qualification") or item.get("competency_requirements")),
+                      "organization_context": clean_text(item.get("organization_context")),
+                      "dimension_scores": {
+                          key: max(0.0, min(100.0, float(value)))
+                          for key, value in dimension_scores.items()
+                          if key in DIMENSIONS and isinstance(value, (int, float))
+                      }
+                  })
+
+              sequence_count = int(grid.get("sequence_count") or 0)
+              level_count = int(grid.get("level_count") or 0)
+              if not 2 <= sequence_count <= 6 or not 2 <= level_count <= 6:
+                  raise ValueError("sequence_count和level_count必须在2到6之间")
+              sequence_names = [clean_text(x, 64) for x in grid.get("sequence_names", []) if clean_text(x, 64)]
+              level_names = [clean_text(x, 64) for x in grid.get("level_names", []) if clean_text(x, 64)]
+              if sequence_names and len(sequence_names) != sequence_count:
+                  raise ValueError("sequence_names数量必须等于sequence_count，或传空数组")
+              if level_names and len(level_names) != level_count:
+                  raise ValueError("level_names数量必须等于level_count，或传空数组")
+
+              enabled = [x for x in dimensions.get("enabled", []) if x in DIMENSIONS]
+              weights = dimensions.get("weights", {}) if isinstance(dimensions.get("weights"), dict) else {}
+              normalized_weights = {key: float(weights.get(key, 0)) for key in enabled}
+              if "position_evaluation" in methods:
+                  if not enabled:
+                      raise ValueError("岗位评价法至少启用一个维度")
+                  if abs(sum(normalized_weights.values()) - 100) > 0.01:
+                      raise ValueError("岗位评价维度权重合计必须为100")
+
+              payload = {
+                  "schema_version": "1.0",
+                  "run_id": clean_text(run_id, 128),
+                  "project_name": clean_text(project_name, 128),
+                  "positions": normalized_positions,
+                  "methods": methods,
+                  "method_priority": method_priority,
+                  "dimension_config": {"enabled": enabled, "weights": normalized_weights},
+                  "structure_config": structure,
+                  "grid_config": {
+                      "sequence_count": sequence_count,
+                      "level_count": level_count,
+                      "sequence_names": sequence_names,
+                      "level_names": level_names
+                  }
+              }
+              return {
+                  "normalized_json": json.dumps(payload, ensure_ascii=False),
+                  "position_count": len(normalized_positions)
+              }
+        code_language: python3
+        desc: 严格校验岗位范围、方法、权重和宫格。任何重复或越界参数直接失败，不交给模型猜测。
+        outputs:
+          normalized_json:
+            children: null
+            type: string
+          position_count:
+            children: null
+            type: number
+        selected: false
+        title: 校验并规范化参数
+        type: code
+        variables:
+        - value_selector: [start, run_id]
+          variable: run_id
+        - value_selector: [start, project_name]
+          variable: project_name
+        - value_selector: [start, positions_json]
+          variable: positions_json
+        - value_selector: [start, methods_json]
+          variable: methods_json
+        - value_selector: [start, dimension_config_json]
+          variable: dimension_config_json
+        - value_selector: [start, structure_config_json]
+          variable: structure_config_json
+        - value_selector: [start, grid_config_json]
+          variable: grid_config_json
+        - value_selector: [start, method_priority]
+          variable: method_priority
+      height: 176
+      id: normalize
+      position:
+        x: 460
+        y: 180
+      positionAbsolute:
+        x: 460
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 310
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 只对输入岗位执行管理员选择的方法，给出序列和层级建议；不得扩大分析范围。
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: org-param-system
+          role: system
+          text: |-
+            你是组织结构岗位分组引擎。输入已经过代码校验，positions是唯一允许分析的岗位集合。你的任务是依据methods与配置，把每个岗位映射到“序列索引×层级索引”，不得新增、删除、合并或改写岗位ID。
+
+            方法规则：
+            - position_evaluation：职责维度task/power/environment和能力维度professional/interpersonal/thinking；已有dimension_scores时优先使用，文本只补充证据，不得伪造分数。
+            - structure_analysis：综合岗位配置、人员特征和组织形态，判断岗位在组织中的横向职能位置与纵向责任等级。
+            - structure_design：按纵向分权与横向分工判断组织形态，只作为分组证据。
+            - position_definition：按“责（结果）→任（过程）”识别岗位核心产出和职责边界。
+            - efficiency_analysis：只有输入含人效事实时使用；没有数据必须标记data_insufficient。
+
+            多方法结论冲突时遵循method_priority给出默认映射，同时保留冲突并设置suggest_calibrate=true。序列用于区分专业/职能方向，层级用于区分责任、影响和能力要求高低。层级索引1为最低，索引N为最高。
+
+            如果grid_config中提供sequence_names或level_names，必须原样使用；为空时分别给出恰好sequence_count和level_count个简洁名称。
+
+            只输出合法JSON对象，不要Markdown：
+            {
+              "sequence_labels":["..."],
+              "level_labels":["..."],
+              "assignments":[{
+                "position_id":"P001",
+                "sequence_index":1,
+                "level_index":1,
+                "method_scores":{"position_evaluation":0},
+                "method_conclusions":{"position_evaluation":"..."},
+                "evidence":["..."],
+                "data_gaps":["..."],
+                "confidence":0.0,
+                "suggest_calibrate":false
+              }]
+            }
+        - id: org-param-user
+          role: user
+          text: |-
+            以下是页面传入并经校验的分析参数：
+            {{#normalize.normalized_json#}}
+        selected: false
+        title: 按方法形成分组建议
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 154
+      id: classify
+      position:
+        x: 850
+        y: 180
+      positionAbsolute:
+        x: 850
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 320
+    - data:
+        code: |-
+          import json
+          import re
+
+          def parse_model_json(text):
+              raw = str(text or "").strip()
+              raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.I)
+              raw = re.sub(r"\s*```$", "", raw)
+              return json.loads(raw)
+
+          def main(normalized_json, model_text):
+              source = json.loads(normalized_json)
+              model = parse_model_json(model_text)
+              positions = source["positions"]
+              position_map = {item["position_id"]: item for item in positions}
+              grid = source["grid_config"]
+              sequence_count = grid["sequence_count"]
+              level_count = grid["level_count"]
+
+              sequence_labels = grid.get("sequence_names") or model.get("sequence_labels") or []
+              level_labels = grid.get("level_names") or model.get("level_labels") or []
+              if len(sequence_labels) != sequence_count:
+                  sequence_labels = [f"序列{i}" for i in range(1, sequence_count + 1)]
+              if len(level_labels) != level_count:
+                  level_labels = [f"层级{i}" for i in range(1, level_count + 1)]
+
+              sequences = [{"code": f"S{i}", "name": str(name)} for i, name in enumerate(sequence_labels, 1)]
+              levels = [{"code": f"L{i}", "name": str(name), "order": i} for i, name in enumerate(level_labels, 1)]
+              assignments = []
+              unassigned = []
+              calibration_items = []
+              seen = set()
+
+              for item in model.get("assignments", []):
+                  if not isinstance(item, dict):
+                      continue
+                  position_id = str(item.get("position_id") or "")
+                  if position_id not in position_map or position_id in seen:
+                      continue
+                  seen.add(position_id)
+                  try:
+                      sequence_index = int(item.get("sequence_index"))
+                      level_index = int(item.get("level_index"))
+                  except Exception:
+                      sequence_index = level_index = 0
+                  if not 1 <= sequence_index <= sequence_count or not 1 <= level_index <= level_count:
+                      unassigned.append({"position_id": position_id, "reason": "模型返回的宫格索引越界"})
+                      continue
+
+                  confidence = max(0.0, min(1.0, float(item.get("confidence") or 0)))
+                  assignment = {
+                      "position_id": position_id,
+                      "position_name": position_map[position_id]["position_name"],
+                      "sequence_code": f"S{sequence_index}",
+                      "sequence_name": sequence_labels[sequence_index - 1],
+                      "level_code": f"L{level_index}",
+                      "level_name": level_labels[level_index - 1],
+                      "group_code": f"G-S{sequence_index}-L{level_index}",
+                      "method_scores": item.get("method_scores", {}),
+                      "method_conclusions": item.get("method_conclusions", {}),
+                      "evidence": item.get("evidence", []),
+                      "data_gaps": item.get("data_gaps", []),
+                      "confidence": confidence,
+                      "suggest_calibrate": bool(item.get("suggest_calibrate")) or confidence < 0.6
+                  }
+                  assignments.append(assignment)
+                  if assignment["suggest_calibrate"]:
+                      calibration_items.append({
+                          "position_id": position_id,
+                          "position_name": assignment["position_name"],
+                          "reason": "多方法结论不一致或置信度不足",
+                          "current_suggestion": assignment["group_code"]
+                      })
+
+              for position in positions:
+                  if position["position_id"] not in seen:
+                      unassigned.append({
+                          "position_id": position["position_id"],
+                          "position_name": position["position_name"],
+                          "reason": "模型未返回该岗位，需人工归类"
+                      })
+
+              grouped = {}
+              for item in assignments:
+                  key = item["group_code"]
+                  grouped.setdefault(key, {
+                      "group_code": key,
+                      "group_name": f"{item['sequence_name']}·{item['level_name']}",
+                      "sequence_code": item["sequence_code"],
+                      "sequence_name": item["sequence_name"],
+                      "level_code": item["level_code"],
+                      "level_name": item["level_name"],
+                      "position_ids": [],
+                      "position_count": 0,
+                      "headcount": 0
+                  })
+                  group = grouped[key]
+                  group["position_ids"].append(item["position_id"])
+                  group["position_count"] += 1
+                  group["headcount"] += position_map[item["position_id"]].get("headcount", 0)
+
+              result = {
+                  "schema_version": "1.0",
+                  "run_id": source["run_id"],
+                  "project_name": source["project_name"],
+                  "status": "draft",
+                  "input_position_count": len(positions),
+                  "assigned_position_count": len(assignments),
+                  "methods": source["methods"],
+                  "sequences": sequences,
+                  "levels": levels,
+                  "position_groups": list(grouped.values()),
+                  "position_assignments": assignments,
+                  "unassigned_positions": unassigned,
+                  "calibration_items": calibration_items
+              }
+              return {
+                  "result_json": json.dumps(result, ensure_ascii=False),
+                  "assigned_count": len(assignments),
+                  "unassigned_count": len(unassigned),
+                  "calibration_count": len(calibration_items)
+              }
+        code_language: python3
+        desc: 校验模型未扩大岗位范围、岗位不重复且宫格索引合法，并按序列×层级形成岗位族。
+        outputs:
+          assigned_count:
+            children: null
+            type: number
+          calibration_count:
+            children: null
+            type: number
+          result_json:
+            children: null
+            type: string
+          unassigned_count:
+            children: null
+            type: number
+        selected: false
+        title: 校验覆盖并生成岗位族
+        type: code
+        variables:
+        - value_selector: [normalize, normalized_json]
+          variable: normalized_json
+        - value_selector: [classify, text]
+          variable: model_text
+      height: 176
+      id: validate
+      position:
+        x: 1250
+        y: 180
+      positionAbsolute:
+        x: 1250
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 320
+    - data:
+        desc: 返回业务服务可直接进行Schema校验和持久化的草稿结果。
+        outputs:
+        - value_selector: [validate, result_json]
+          variable: result_json
+        - value_selector: [normalize, position_count]
+          variable: input_position_count
+        - value_selector: [validate, assigned_count]
+          variable: assigned_position_count
+        - value_selector: [validate, unassigned_count]
+          variable: unassigned_position_count
+        - value_selector: [validate, calibration_count]
+          variable: calibration_count
+        selected: false
+        title: 输出组织结构草稿
+        type: end
+      height: 170
+      id: end
+      position:
+        x: 1650
+        y: 180
+      positionAbsolute:
+        x: 1650
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.72

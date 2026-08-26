@@ -1,0 +1,588 @@
+app:
+  description: 接收业务页面传入的已选岗位、经济E与能力A参数，使用确定性公式计算关键系数并筛选关键岗位候选。
+  icon: 🎯
+  icon_background: '#DCE7FF'
+  mode: workflow
+  name: 人才发展｜关键岗位分析（参数直传版）
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      enabled: false
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: start-score
+      selected: false
+      source: start
+      sourceHandle: source
+      target: score
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: score-reason
+      selected: false
+      source: score
+      sourceHandle: source
+      target: reason
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: reason-validate
+      selected: false
+      source: reason
+      sourceHandle: source
+      target: validate
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: validate-end
+      selected: false
+      source: validate
+      sourceHandle: source
+      target: end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 接收管理员在页面中选定的岗位范围、分析视角、权重和阈值。只在positions_json范围内筛选。
+        selected: false
+        title: 页面分析参数
+        type: start
+        variables:
+        - default: KPAR_DEMO_001
+          label: 运行ID
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: run_id
+        - default: 年度关键岗位分析
+          label: 项目名称
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: project_name
+        - default: ORGV2
+          label: 引用组织结构版本ID
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: org_version_id
+        - label: 已选岗位及评分基础JSON
+          max_length: 200000
+          options: []
+          required: true
+          type: paragraph
+          variable: positions_json
+        - default: '["economic","ability"]'
+          label: 已选分析视角JSON
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: views_json
+        - default: '{"economic":50,"ability":50}'
+          label: 多视角权重JSON
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: view_weights_json
+        - default: '{"enabled":["innovation","decision","problem","collaboration","team","technology","professional"],"group_weights":{"think":40,"relationship":35,"action":25}}'
+          label: ART变量与分组权重JSON
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: art_config_json
+        - default: 0.75
+          label: 关键系数建议阈值
+          max: 1
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: key_threshold
+      height: 352
+      id: start
+      position:
+        x: 80
+        y: 180
+      positionAbsolute:
+        x: 80
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 310
+    - data:
+        code: |-
+          import json
+
+          ART_GROUPS = {
+              "think": ["innovation", "decision", "problem"],
+              "relationship": ["collaboration", "team", "negotiation"],
+              "action": ["technology", "environment", "professional"]
+          }
+
+          def parse_json(value, name, expected):
+              try:
+                  parsed = json.loads(value) if isinstance(value, str) else value
+              except Exception as exc:
+                  raise ValueError(f"{name}不是合法JSON: {exc}")
+              if not isinstance(parsed, expected):
+                  raise ValueError(f"{name}类型不正确")
+              return parsed
+
+          def clamp(value, low=0.0, high=1.0):
+              return max(low, min(high, float(value)))
+
+          def score01(value):
+              value = float(value)
+              return clamp(value / 100 if value > 1 else value)
+
+          def clean(value, limit=1000):
+              if isinstance(value, list):
+                  value = "；".join(str(x) for x in value)
+              return str(value or "").strip()[:limit]
+
+          def economic_result(position):
+              data = position.get("economic") if isinstance(position.get("economic"), dict) else {}
+              if "demand_score" not in data or "supply_score" not in data:
+                  return None, ["缺少economic.demand_score或economic.supply_score"]
+              demand = score01(data["demand_score"])
+              supply = score01(data["supply_score"])
+              score = demand * (1 - supply)
+              if demand >= 0.6 and supply < 0.6:
+                  quadrant = "高需求·低供给"
+              elif demand >= 0.6 and supply >= 0.6:
+                  quadrant = "高需求·高供给"
+              elif demand < 0.6 and supply < 0.6:
+                  quadrant = "低需求·低供给"
+              else:
+                  quadrant = "低需求·高供给"
+              return {
+                  "demand_score": round(demand, 4),
+                  "supply_score": round(supply, 4),
+                  "economic_score": round(score, 4),
+                  "quadrant": quadrant
+              }, []
+
+          def ability_result(position, enabled, group_weights):
+              data = position.get("ability") if isinstance(position.get("ability"), dict) else {}
+              art = data.get("art") if isinstance(data.get("art"), dict) else {}
+              gaps = []
+              group_scores = {}
+              for group, variables in ART_GROUPS.items():
+                  selected = [name for name in variables if name in enabled]
+                  values = []
+                  for name in selected:
+                      if name not in art:
+                          gaps.append(f"缺少ability.art.{name}")
+                          continue
+                      raw = float(art[name])
+                      if not 1 <= raw <= 3:
+                          gaps.append(f"ability.art.{name}必须为1到3")
+                          continue
+                      values.append((raw - 1) / 2)
+                  if selected and values:
+                      group_scores[group] = sum(values) / len(values)
+              active_groups = [group for group in ART_GROUPS if any(v in enabled for v in ART_GROUPS[group])]
+              if any(group not in group_scores for group in active_groups):
+                  return None, gaps
+              if "time_cost_score" not in data:
+                  gaps.append("缺少ability.time_cost_score")
+                  return None, gaps
+              weight_sum = sum(group_weights.get(group, 0) for group in active_groups)
+              if weight_sum <= 0:
+                  return None, ["ART有效分组权重为0"]
+              art_score = sum(group_scores[group] * group_weights.get(group, 0) for group in active_groups) / weight_sum
+              time_cost = score01(data["time_cost_score"])
+              ability_score = art_score * time_cost
+              if art_score >= 0.6 and time_cost >= 0.6:
+                  quadrant = "高能力·高时间成本"
+              elif art_score >= 0.6:
+                  quadrant = "高能力·低时间成本"
+              elif time_cost >= 0.6:
+                  quadrant = "低能力·高时间成本"
+              else:
+                  quadrant = "低能力·低时间成本"
+              return {
+                  "art_score": round(art_score, 4),
+                  "art_group_scores": {k: round(v, 4) for k, v in group_scores.items()},
+                  "time_cost_score": round(time_cost, 4),
+                  "ability_score": round(ability_score, 4),
+                  "quadrant": quadrant
+              }, gaps
+
+          def main(run_id, project_name, org_version_id, positions_json,
+                   views_json, view_weights_json, art_config_json, key_threshold):
+              positions = parse_json(positions_json, "positions_json", list)
+              views = [str(x) for x in parse_json(views_json, "views_json", list) if str(x) in {"economic", "ability"}]
+              view_weights = parse_json(view_weights_json, "view_weights_json", dict)
+              art_config = parse_json(art_config_json, "art_config_json", dict)
+              threshold = clamp(key_threshold)
+              if not positions:
+                  raise ValueError("至少需要传入一个已选岗位")
+              if not views:
+                  raise ValueError("至少选择economic或ability中的一个视角")
+
+              weights = {view: float(view_weights.get(view, 0)) for view in views}
+              if len(views) == 1:
+                  weights[views[0]] = 100.0
+              elif abs(sum(weights.values()) - 100) > 0.01:
+                  raise ValueError("多视角权重合计必须为100")
+
+              enabled = [str(x) for x in art_config.get("enabled", [])]
+              valid_art = {item for values in ART_GROUPS.values() for item in values}
+              enabled = [x for x in enabled if x in valid_art]
+              group_weights_raw = art_config.get("group_weights", {}) if isinstance(art_config.get("group_weights"), dict) else {}
+              group_weights = {group: float(group_weights_raw.get(group, 0)) for group in ART_GROUPS}
+              if "ability" in views:
+                  if not enabled:
+                      raise ValueError("能力A至少启用一个ART变量")
+                  active = [group for group, variables in ART_GROUPS.items() if any(v in enabled for v in variables)]
+                  if abs(sum(group_weights[group] for group in active) - 100) > 0.01:
+                      raise ValueError("已启用ART分组的权重合计必须为100")
+
+              scored = []
+              seen = set()
+              for index, item in enumerate(positions):
+                  if not isinstance(item, dict):
+                      raise ValueError(f"第{index + 1}个岗位不是对象")
+                  position_id = clean(item.get("position_id") or item.get("id"), 128)
+                  position_name = clean(item.get("position_name") or item.get("name"), 256)
+                  if not position_id or not position_name:
+                      raise ValueError(f"第{index + 1}个岗位缺少position_id或position_name")
+                  if position_id in seen:
+                      raise ValueError(f"岗位ID重复: {position_id}")
+                  seen.add(position_id)
+
+                  economic, economic_gaps = economic_result(item) if "economic" in views else (None, [])
+                  ability, ability_gaps = ability_result(item, enabled, group_weights) if "ability" in views else (None, [])
+                  available = {}
+                  if economic:
+                      available["economic"] = economic["economic_score"]
+                  if ability:
+                      available["ability"] = ability["ability_score"]
+                  missing_selected_view = any(view not in available for view in views)
+                  available_weight = sum(weights[view] for view in available)
+                  coefficient = None
+                  if available_weight > 0:
+                      coefficient = sum(available[view] * weights[view] for view in available) / available_weight
+                  conflict = False
+                  if economic and ability:
+                      conflict = (economic["economic_score"] >= threshold) != (ability["ability_score"] >= threshold)
+                  is_key = coefficient is not None and coefficient >= threshold and not missing_selected_view
+                  scored.append({
+                      "position_id": position_id,
+                      "position_name": position_name,
+                      "position_code": clean(item.get("position_code") or item.get("code"), 128),
+                      "group_code": clean(item.get("group_code"), 128),
+                      "group_name": clean(item.get("group_name"), 256),
+                      "economic": economic,
+                      "ability": ability,
+                      "key_coefficient": round(coefficient, 4) if coefficient is not None else None,
+                      "key_threshold": threshold,
+                      "is_key_suggested": bool(is_key),
+                      "data_insufficient": missing_selected_view,
+                      "data_gaps": economic_gaps + ability_gaps,
+                      "suggest_calibrate": conflict or missing_selected_view,
+                      "confidence": round(1.0 - min(0.6, 0.15 * len(economic_gaps + ability_gaps)), 4),
+                      "facts": clean(item.get("facts") or item.get("responsibilities"), 2000)
+                  })
+
+              payload = {
+                  "schema_version": "1.0",
+                  "run_id": clean(run_id, 128),
+                  "project_name": clean(project_name, 128),
+                  "org_version_id": clean(org_version_id, 128),
+                  "views": views,
+                  "view_weights": weights,
+                  "key_threshold": threshold,
+                  "positions": scored
+              }
+              return {
+                  "scored_json": json.dumps(payload, ensure_ascii=False),
+                  "position_count": len(scored),
+                  "suggested_count": sum(1 for item in scored if item["is_key_suggested"]),
+                  "insufficient_count": sum(1 for item in scored if item["data_insufficient"])
+              }
+        code_language: python3
+        desc: 根据页面传入的E/A评分基础确定性计算象限、关键系数与阈值命中；模型不参与数学计算。
+        outputs:
+          insufficient_count:
+            children: null
+            type: number
+          position_count:
+            children: null
+            type: number
+          scored_json:
+            children: null
+            type: string
+          suggested_count:
+            children: null
+            type: number
+        selected: false
+        title: 校验参数并计算关键系数
+        type: code
+        variables:
+        - value_selector: [start, run_id]
+          variable: run_id
+        - value_selector: [start, project_name]
+          variable: project_name
+        - value_selector: [start, org_version_id]
+          variable: org_version_id
+        - value_selector: [start, positions_json]
+          variable: positions_json
+        - value_selector: [start, views_json]
+          variable: views_json
+        - value_selector: [start, view_weights_json]
+          variable: view_weights_json
+        - value_selector: [start, art_config_json]
+          variable: art_config_json
+        - value_selector: [start, key_threshold]
+          variable: key_threshold
+      height: 176
+      id: score
+      position:
+        x: 470
+        y: 180
+      positionAbsolute:
+        x: 470
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 330
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 模型只将确定性得分转成可读业务理由，不得修改关键系数、阈值和候选判断。
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: key-param-system
+          role: system
+          text: |-
+            你是关键岗位分析的解释层。输入中的经济E、能力A、关键系数、阈值命中和数据缺口已经由代码确定性计算。你只能为每个输入岗位生成简洁、可追溯的业务理由，不得重新计算或修改任何分数，不得新增岗位，不得把is_key_suggested=false解释成已确认关键岗位。
+
+            理由规则：
+            - 经济E：解释需求、供给与象限，不补造市场供给。
+            - 能力A：解释ART、培养时间成本与象限，不补造培养周期。
+            - suggest_calibrate=true时说明需要管理员核对的冲突或数据缺口。
+            - 所有结论均为建议，最终标记由管理员确认。
+
+            只输出合法JSON对象，不要Markdown：
+            {"reasons":[{
+              "position_id":"P001",
+              "summary":"一句话结论",
+              "reasons":["依据1","依据2"],
+              "calibration_question":"需要管理员确认的问题，没有则为空字符串"
+            }]}
+        - id: key-param-user
+          role: user
+          text: |-
+            以下是确定性评分结果：
+            {{#score.scored_json#}}
+        selected: false
+        title: 生成关键岗位业务理由
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 154
+      id: reason
+      position:
+        x: 890
+        y: 180
+      positionAbsolute:
+        x: 890
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 320
+    - data:
+        code: |-
+          import json
+          import re
+
+          def parse_model_json(text):
+              raw = str(text or "").strip()
+              raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.I)
+              raw = re.sub(r"\s*```$", "", raw)
+              try:
+                  return json.loads(raw)
+              except Exception:
+                  return {"reasons": []}
+
+          def main(scored_json, reason_text):
+              source = json.loads(scored_json)
+              model = parse_model_json(reason_text)
+              positions = source["positions"]
+              valid_ids = {item["position_id"] for item in positions}
+              reasons = {}
+              for item in model.get("reasons", []):
+                  if not isinstance(item, dict):
+                      continue
+                  position_id = str(item.get("position_id") or "")
+                  if position_id not in valid_ids or position_id in reasons:
+                      continue
+                  reasons[position_id] = {
+                      "summary": str(item.get("summary") or "")[:500],
+                      "reasons": [str(x)[:500] for x in item.get("reasons", []) if str(x).strip()][:5],
+                      "calibration_question": str(item.get("calibration_question") or "")[:500]
+                  }
+
+              calibration_items = []
+              final_positions = []
+              for position in positions:
+                  position_id = position["position_id"]
+                  explanation = reasons.get(position_id, {
+                      "summary": "请依据结构化得分进行人工确认",
+                      "reasons": [],
+                      "calibration_question": "模型未返回解释，请管理员直接核对评分基础"
+                  })
+                  item = dict(position)
+                  item.update(explanation)
+                  final_positions.append(item)
+                  if item["suggest_calibrate"]:
+                      calibration_items.append({
+                          "position_id": position_id,
+                          "position_name": item["position_name"],
+                          "reason": explanation["calibration_question"] or "多视角结论不一致或数据不足",
+                          "data_gaps": item["data_gaps"]
+                      })
+
+              final_positions.sort(key=lambda x: (
+                  x["key_coefficient"] is not None,
+                  x["key_coefficient"] if x["key_coefficient"] is not None else -1
+              ), reverse=True)
+              result = {
+                  "schema_version": "1.0",
+                  "run_id": source["run_id"],
+                  "project_name": source["project_name"],
+                  "org_version_id": source["org_version_id"],
+                  "status": "draft",
+                  "views": source["views"],
+                  "view_weights": source["view_weights"],
+                  "key_threshold": source["key_threshold"],
+                  "positions": final_positions,
+                  "key_position_candidates": [
+                      item["position_id"] for item in final_positions if item["is_key_suggested"]
+                  ],
+                  "calibration_items": calibration_items,
+                  "confirmation_required": True
+              }
+              return {
+                  "result_json": json.dumps(result, ensure_ascii=False),
+                  "candidate_count": len(result["key_position_candidates"]),
+                  "calibration_count": len(calibration_items)
+              }
+        code_language: python3
+        desc: 只合并合法岗位理由，保留代码节点的分数与阈值判断，并输出具体岗位候选和校准项。
+        outputs:
+          calibration_count:
+            children: null
+            type: number
+          candidate_count:
+            children: null
+            type: number
+          result_json:
+            children: null
+            type: string
+        selected: false
+        title: 合并理由并输出候选岗位
+        type: code
+        variables:
+        - value_selector: [score, scored_json]
+          variable: scored_json
+        - value_selector: [reason, text]
+          variable: reason_text
+      height: 176
+      id: validate
+      position:
+        x: 1300
+        y: 180
+      positionAbsolute:
+        x: 1300
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 330
+    - data:
+        desc: 返回业务服务可直接校验和持久化的关键岗位建议结果，不自动修改关键标记。
+        outputs:
+        - value_selector: [validate, result_json]
+          variable: result_json
+        - value_selector: [score, position_count]
+          variable: input_position_count
+        - value_selector: [validate, candidate_count]
+          variable: key_position_candidate_count
+        - value_selector: [score, insufficient_count]
+          variable: data_insufficient_count
+        - value_selector: [validate, calibration_count]
+          variable: calibration_count
+        selected: false
+        title: 输出关键岗位建议
+        type: end
+      height: 170
+      id: end
+      position:
+        x: 1720
+        y: 180
+      positionAbsolute:
+        x: 1720
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 310
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.72

@@ -1,0 +1,30 @@
+{
+  "name": "talent-analysis-mcp-apps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:org": "cross-env INPUT=org-analysis.html vite build",
+    "build:key": "cross-env INPUT=key-position-analysis.html vite build",
+    "build": "npm run build:org && npm run build:key && tsc --noEmit",
+    "start": "node --import tsx main.ts",
+    "start:stdio": "node --import tsx main.ts --stdio"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.1.2",
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.1",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}

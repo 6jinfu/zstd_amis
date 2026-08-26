@@ -84,7 +84,7 @@ const RELEASE_BUSINESS_NAV = {
     { page: 'vocabulary', href: 'vocabulary.html', label: '指标库' }
   ],
   assess: [
-    { page: 'assess-projects', href: 'assess-projects.html', label: '360 评估' },
+    { page: 'assess-projects', href: 'assess-projects.html', label: '评鉴工具' },
     { page: 'review-projects', href: 'review-projects.html', label: '人才盘点' }
   ],
   develop: [
@@ -204,14 +204,6 @@ function initListWorkbenches() {
   });
 
   var scopeConfigs = {
-    'key-position.html': {
-      title: '分析类型',
-      items: [
-        { label: '全部分析', count: 3 },
-        { label: '年度分析', count: 1, keywords: ['年度'] },
-        { label: '专项分析', count: 2, excludeKeywords: ['年度'] }
-      ]
-    },
     'positions.html': {
       title: '岗位类别',
       selectIndex: 0,

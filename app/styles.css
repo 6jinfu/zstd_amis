@@ -3802,14 +3802,16 @@ body[data-page="settings"] .detail-main { padding-top: 14px; }
 
 /* 人才盘点：恢复“选人 → 数据 → 规则 → 初始落位 → 校准”的完整链路。 */
 [data-review-wizard] {
+  min-height: calc(100dvh - 126px);
   grid-template-columns: 204px minmax(0, 1fr);
-  grid-template-rows: minmax(0, auto) auto;
-  align-items: start;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
 }
 
 .layout-wizard [data-review-wizard] .steps {
   grid-column: 1;
   grid-row: 1 / span 2;
+  align-self: start;
   position: sticky;
   top: 76px;
   display: flex;
@@ -3867,11 +3869,20 @@ body[data-page="settings"] .detail-main { padding-top: 14px; }
 .layout-wizard [data-review-wizard] .step-panel {
   grid-column: 2;
   grid-row: 1;
+  align-self: stretch;
+}
+
+.layout-wizard [data-review-wizard] .step-panel.show { display: flex; }
+.layout-wizard [data-review-wizard] .step-panel > .card {
+  width: 100%;
+  min-height: 100%;
 }
 
 .layout-wizard [data-review-wizard] .wiz-foot {
   grid-column: 2;
   grid-row: 2;
+  align-self: end;
+  isolation: isolate;
 }
 
 .review-person-management { min-width: 0; }
@@ -4321,7 +4332,7 @@ body[data-page="review-projects"] .detail-main .kpi {
 }
 
 @media (max-width: 700px) {
-  .layout-wizard [data-review-wizard] { grid-template-columns: 1fr; }
+  .layout-wizard [data-review-wizard] { min-height: auto; grid-template-columns: 1fr; }
   .layout-wizard [data-review-wizard] .steps,
   .layout-wizard [data-review-wizard] .step-panel,
   .layout-wizard [data-review-wizard] .wiz-foot { grid-column: 1; grid-row: auto; }
@@ -4384,11 +4395,58 @@ body[data-page="review-projects"] .detail-main .kpi {
 .assess-builder-toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 /* ============================================================
-   360 评估：项目列表
+   评鉴工具：二级标签与项目列表
    ============================================================ */
-.assess-project-workbench {
-  grid-template-columns: minmax(0, 1fr) !important;
+.assessment-tool-tabs {
+  display: flex;
+  min-height: 46px;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+  border-bottom: var(--border-hairline) solid var(--border-subtle);
 }
+
+.assessment-tool-tabs a {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--neutral-600);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color .15s ease-out;
+}
+
+.assessment-tool-tabs a:hover { color: var(--neutral-900); }
+.assessment-tool-tabs a.active { color: var(--primary-700); }
+.assessment-tool-tabs a.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--primary-600);
+}
+
+.assess-project-workbench {
+  grid-template-columns: 220px minmax(0, 1fr) !important;
+}
+
+.assess-category-tree { padding: 12px !important; }
+.assess-category-tree .ctp-head {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 0 4px 8px 10px;
+  border-bottom: var(--border-hairline) solid var(--border-subtle);
+}
+.assess-category-tree .ctp-title { color: var(--neutral-800); font-size: 13px; font-weight: 600; }
+.assess-category-tree .icon-btn { width: 32px !important; height: 32px !important; }
 
 .assess-project-workbench .list-main > .filter-bar {
   min-height: 66px;
@@ -4404,6 +4462,19 @@ body[data-page="review-projects"] .detail-main .kpi {
 
 .assess-project-workbench .filter-bar .field > .input { width: 230px; }
 .assess-project-workbench .filter-bar .actions { margin-left: 4px; }
+
+.assessment-filter-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 12px 16px !important;
+  align-items: end;
+}
+.assessment-filter-grid .field { min-width: 0; }
+.assessment-filter-grid .field > .input,
+.assessment-filter-grid .field > .select { width: 100% !important; min-width: 0; }
+.assessment-filter-grid .actions { justify-content: flex-start; margin: 0 !important; }
+.assessment-range-inputs { display: grid; grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr); align-items: center; gap: 6px; }
+.assessment-range-inputs > span { color: var(--neutral-400); text-align: center; }
 
 .assess-project-actions {
   display: flex;
@@ -4439,6 +4510,18 @@ body[data-page="review-projects"] .detail-main .kpi {
 .assess-project-workbench .pagination .pg-controls { margin-left: auto; }
 .assess-page-size { width: 104px; height: 36px; margin-left: 2px; padding-inline: 10px 28px; }
 .assess-page-total { margin-left: 4px; color: var(--neutral-600); white-space: nowrap; }
+.assessment-status { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.assessment-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--neutral-300); }
+.assessment-status.draft::before { background: var(--warning); }
+.assessment-status.running::before { background: var(--primary-500); }
+.assessment-status.disabled::before { background: var(--neutral-400); }
+.talent-assessment-list table.t { min-width: 1420px; }
+.exam-project-list table.t { min-width: 1060px; }
+.exam-project-list td.ops { min-width: 240px; }
+
+@media (max-width: 1080px) {
+  .assessment-filter-grid { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+}
 
 /* ============================================================
    指标库：类别树与类别管理

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>创建人才盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css">
+<title>创建宫格盘点 · 评鉴中心</title>
+<link rel="stylesheet" href="styles.css?v=20260826-wizard-foot-2">
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app">
@@ -14,11 +14,11 @@
     <div class="right"><button class="icon-btn" title="通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
   </header>
   <div class="body">
-    <aside class="sidenav"><a class="nav-item" data-page="assess-projects" href="assess-projects.html">360 评估</a><a class="nav-item active" data-page="review-projects" href="review-projects.html">人才盘点</a></aside>
+    <aside class="sidenav"><a class="nav-item" data-page="assess-projects" href="assess-projects.html">评鉴工具</a><a class="nav-item active" data-page="review-projects" href="review-projects.html">人才盘点</a></aside>
     <main class="content content-medium">
       <div data-wizard data-review-wizard data-free-navigation>
-        <nav class="steps" aria-label="创建人才盘点步骤">
-          <div class="review-wizard-heading"><strong>创建人才盘点</strong><span>配置范围、活动与九宫格规则</span></div>
+        <nav class="steps" aria-label="创建宫格盘点步骤">
+          <div class="review-wizard-heading"><strong>创建宫格盘点</strong><span>配置范围、活动与宫格规则</span></div>
           <div class="step active"><span class="idx">1</span><span class="lbl">基本信息</span></div>
           <div class="step"><span class="idx">2</span><span class="lbl">盘点人员</span></div>
           <div class="step"><span class="idx">3</span><span class="lbl">盘点活动</span></div>
@@ -27,13 +27,12 @@
 
         <div class="step-panel show" data-panel="1">
           <form class="card card-pad review-basic-form" data-review-basic-form>
-            <div class="section-toolbar compact"><h2>人才盘点基本信息</h2><span class="text-sm muted">带 * 为必填项</span></div>
+            <div class="section-toolbar compact"><h2>宫格盘点基本信息</h2></div>
             <div class="field review-counted-field"><label for="review-project-name">项目名称 <span class="req">*</span></label><input class="input" id="review-project-name" maxlength="200" value="2026 年度人才盘点" required autocomplete="off" spellcheck="false"><span class="review-char-count" data-count-for="review-project-name">11/200</span></div>
             <div class="review-basic-grid">
               <div class="field"><label for="review-category">盘点分类 <span class="req">*</span></label><select class="select" id="review-category" required><option value="">请选择</option><option selected>年度盘点</option><option>季度盘点</option><option>管理者盘点</option></select></div>
-              <div class="field"><label for="review-model">盘点模型 <span class="req">*</span></label><select class="select" id="review-model" required><option selected>九宫格人才盘点</option></select></div>
+              <div class="field"><label for="review-model">盘点方法 <span class="req">*</span></label><select class="select" id="review-model" required><option selected>宫格盘点</option></select></div>
               <div class="field"><label for="review-owner">项目负责人 <span class="req">*</span></label><select class="select" id="review-owner" required><option selected>李文静</option><option>王志强</option><option>张敏</option></select></div>
-              <div class="field"><label for="review-scene">盘点场景</label><select class="select" id="review-scene"><option value="">请选择</option><option selected>年度人才识别</option><option>干部梯队建设</option><option>关键岗位继任</option><option>专项人才发展</option></select></div>
               <div class="field"><label for="review-start">计划开始时间 <span class="req">*</span></label><input class="input" id="review-start" type="date" value="2026-08-01" required></div>
               <div class="field"><label for="review-end">计划结束时间 <span class="req">*</span></label><input class="input" id="review-end" type="date" value="2026-08-31" required></div>
             </div>
@@ -51,7 +50,7 @@
                 <button class="btn btn-primary" type="submit" data-review-query>查询</button>
                 <button class="btn btn-secondary" type="reset" data-review-reset>重置</button>
               </div>
-              <div class="review-person-actions"><button class="btn btn-secondary" type="button" data-open="drawer-review-people">添加人员</button><button class="btn btn-secondary" type="button" data-toast="人员导入模板已下载">导入人员</button><button class="btn btn-secondary" type="button" data-review-batch-remove disabled>批量移除</button></div>
+              <div class="review-person-actions"><button class="btn btn-secondary" type="button" data-open="drawer-review-people">添加人员</button><button class="btn btn-secondary" type="button" data-review-batch-remove disabled>批量移除</button></div>
               <div class="table-wrap review-person-table"><table class="t"><thead><tr><th><input type="checkbox" data-review-person-select-all aria-label="选择全部盘点人员"></th><th>工号</th><th>姓名</th><th>部门</th><th>岗位</th><th>操作</th></tr></thead><tbody><tr data-review-person-row data-department="研发中心"><td><input type="checkbox" data-review-person-select aria-label="选择张明"></td><td>EMP-1026</td><td><b>张明</b></td><td>研发中心</td><td>架构师</td><td class="ops"><button class="btn-text btn-sm danger" type="button" data-review-person-remove>移除</button></td></tr><tr data-review-person-row data-department="研发中心"><td><input type="checkbox" data-review-person-select aria-label="选择李华"></td><td>EMP-1088</td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td><td class="ops"><button class="btn-text btn-sm danger" type="button" data-review-person-remove>移除</button></td></tr><tr data-review-person-row data-department="销售中心"><td><input type="checkbox" data-review-person-select aria-label="选择王芳"></td><td>EMP-2031</td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td><td class="ops"><button class="btn-text btn-sm danger" type="button" data-review-person-remove>移除</button></td></tr><tr data-review-person-row data-department="职能中台"><td><input type="checkbox" data-review-person-select aria-label="选择赵琳"></td><td>EMP-3072</td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td><td class="ops"><button class="btn-text btn-sm danger" type="button" data-review-person-remove>移除</button></td></tr></tbody></table></div>
               <div class="review-person-pagination" aria-label="盘点人员分页"><button class="btn btn-secondary" type="button" aria-label="上一页">‹</button><button class="btn btn-primary" type="button" aria-current="page">1</button><button class="btn btn-secondary" type="button" aria-label="下一页">›</button><select class="select" aria-label="每页条数"><option>10条/页</option><option>20条/页</option><option>50条/页</option></select></div>
             </div>
@@ -86,7 +85,7 @@
 
         <div class="step-panel" data-panel="4">
           <form class="card card-pad review-rule-panel" data-review-rule-form>
-            <div class="section-toolbar compact"><h2>盘点规则设置</h2><span class="tag tag-primary">九宫格</span></div>
+            <div class="section-toolbar compact"><h2>盘点规则设置</h2><span class="tag tag-primary">宫格</span></div>
             <div class="review-rule-layout">
               <section class="rule-block rule-axis-block">
                 <div class="rule-section-title">横纵轴</div>
@@ -98,7 +97,7 @@
                   <div class="rule-scale-group"><div class="rule-scale-name">能力</div><div class="review-range-list"><span><b>低</b>0%–60%</span><span><b>中</b>60%–80%</span><span><b>高</b>80%–100%</span></div></div>
                   <div class="rule-scale-group"><div class="rule-scale-name">绩效</div><div class="performance-map"><span><b>低</b></span><span><b>中</b></span><span><b>高</b></span></div></div>
                 </section>
-                <section class="review-grid-editor-wrap"><div class="rule-section-title">宫格名称</div><div class="review-grid-preview review-grid-editor" aria-label="九宫格名称预览"><div class="preview-y"><span id="review-preview-y">绩效</span></div><div class="preview-grid" id="review-grid-copy"></div><div class="preview-x"><span id="review-preview-x">能力</span>：低 · 中 · 高 →</div></div></section>
+                <section class="review-grid-editor-wrap"><div class="rule-section-title">宫格名称</div><div class="review-grid-preview review-grid-editor" aria-label="宫格名称预览"><div class="preview-y"><span id="review-preview-y">绩效</span></div><div class="preview-grid" id="review-grid-copy"></div><div class="preview-x"><span id="review-preview-x">能力</span>：低 · 中 · 高 →</div></div></section>
               </div>
             </div>
           </form>
@@ -147,7 +146,7 @@
   function renderGrid(){saveGrid();grid.replaceChildren();['high','mid','low'].forEach(function(yLevel){levels.forEach(function(xLevel){var key=keyFor(xLevel,yLevel),input=document.createElement('input');input.className='grid-copy-input';input.dataset.key=key;input.value=labels[key]||'';input.maxLength=12;input.required=true;input.setAttribute('aria-label',axisNames[yAxis.value]+levelNames[yLevel]+'、'+axisNames[xAxis.value]+levelNames[xLevel]+'的宫格文案');grid.appendChild(input)})});document.getElementById('review-preview-x').textContent=axisNames[xAxis.value];document.getElementById('review-preview-y').textContent=axisNames[yAxis.value]}
   function setAxis(changed){var other=changed===xAxis?yAxis:xAxis;other.value=changed.value==='ability'?'performance':'ability';renderGrid()}
   xAxis.addEventListener('change',function(){setAxis(xAxis)});yAxis.addEventListener('change',function(){setAxis(yAxis)});document.querySelector('[data-axis-swap]').addEventListener('click',function(){var current=xAxis.value;xAxis.value=yAxis.value;yAxis.value=current;renderGrid()});renderGrid();
-  wizard.addEventListener('click',function(event){var next=event.target.closest('[data-step-next]'),targetStep=event.target.closest('.steps .step'),submit=event.target.closest('[data-step-submit]'),active=wizard.querySelector('.steps .step.active'),steps=Array.from(wizard.querySelectorAll('.steps .step')),step=steps.indexOf(active)+1,destination=next?step+1:(targetStep?steps.indexOf(targetStep)+1:step);if(!next&&!targetStep&&!submit)return;if(destination>step&&step===1&&!document.querySelector('[data-review-basic-form]').reportValidity()){event.preventDefault();event.stopImmediatePropagation();return}if(destination>step&&step===3&&!sources.some(function(source){return source.checked})){event.preventDefault();event.stopImmediatePropagation();showToast('至少选择一个已结束的评估项目');return}if(submit){saveGrid();var empty=Array.from(grid.querySelectorAll('input')).find(function(input){return !input.value.trim()});if(empty){event.preventDefault();event.stopImmediatePropagation();empty.focus();showToast('九个宫格的文案均不能为空')}}},true);
+  wizard.addEventListener('click',function(event){var next=event.target.closest('[data-step-next]'),targetStep=event.target.closest('.steps .step'),submit=event.target.closest('[data-step-submit]'),active=wizard.querySelector('.steps .step.active'),steps=Array.from(wizard.querySelectorAll('.steps .step')),step=steps.indexOf(active)+1,destination=next?step+1:(targetStep?steps.indexOf(targetStep)+1:step);if(!next&&!targetStep&&!submit)return;if(destination>step&&step===1&&!document.querySelector('[data-review-basic-form]').reportValidity()){event.preventDefault();event.stopImmediatePropagation();return}if(destination>step&&step===3&&!sources.some(function(source){return source.checked})){event.preventDefault();event.stopImmediatePropagation();showToast('至少选择一个已结束的评估项目');return}if(submit){saveGrid();var empty=Array.from(grid.querySelectorAll('input')).find(function(input){return !input.value.trim()});if(empty){event.preventDefault();event.stopImmediatePropagation();empty.focus();showToast('各宫格文案均不能为空')}}},true);
 })();
 </script>
 </body>

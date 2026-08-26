@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关键岗位分析 · 岗位中心</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  .key-position-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
+  .key-position-category-tree .ctp-head .ctp-title { font-size:12px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
+  .key-position-category-tree .ctp-head .icon-btn { width:28px !important; height:28px !important; }
+  .key-position-category-tree .cat-tree-item { position:relative; display:flex; width:100%; min-height:40px; align-items:center; justify-content:space-between; margin:1px 0; padding:8px 10px; border:0; border-radius:6px; color:var(--neutral-600); font-size:13px; transition:color .15s ease-out,background-color .15s ease-out; }
+  .key-position-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
+  .key-position-category-tree .cat-tree-item.active { color:var(--primary-700); background:transparent; font-weight:500; }
+  .key-position-category-tree .cat-tree-item.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:2px; border-radius:2px; background:var(--primary-600); }
+  .key-position-category-tree .cat-tree-item .cti-count { margin-left:12px; color:var(--neutral-500); font-size:12px; }
+  .key-position-category-tree .cat-tree-item.active .cti-count { color:var(--primary-600); }
+  .key-position-category-tree .cat-tree-item:focus:not(:focus-visible) { outline:none; }
+  body[data-page="key-position"] .review-main table.t { min-width:1160px; }
+</style>
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -24,25 +37,34 @@
       <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
     </aside>
 
-    <main class="content" data-list-mode="filters" data-list-label="分析筛选">
+    <main class="content">
       <div class="breadcrumb">岗位中心<span class="sep">/</span>定对象 · 组织分析<span class="sep">/</span><span class="cur">关键岗位分析</span></div>
+      <div class="review-layout list-workbench list-workbench-tree">
+        <aside class="cat-tree-panel key-position-category-tree" id="kp-tree">
+          <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" type="button" data-open="drawer-kp-catmgr" title="管理类别" aria-label="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg></button></div>
+          <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">3</span></button>
+          <button class="cat-tree-item" type="button" data-cat="年度分析"><span>年度分析</span><span class="cti-count">1</span></button>
+          <button class="cat-tree-item" type="button" data-cat="序列分析"><span>序列分析</span><span class="cti-count">1</span></button>
+          <button class="cat-tree-item" type="button" data-cat="专项分析"><span>专项分析</span><span class="cti-count">1</span></button>
+        </aside>
+        <section class="review-main cat-main">
+          <div class="filter-bar" data-filter-bar>
+            <div class="field"><label>项目名</label><input class="input" type="search" placeholder="搜索项目名" id="kp-search"></div>
+            <div class="field"><label>状态</label><select class="select" id="kp-status"><option>全部</option><option>草稿</option><option>分析中</option><option>已完成</option></select></div>
+            <div class="actions"><button class="btn btn-primary" id="kp-query">查询</button><button class="btn btn-secondary" id="kp-reset">重置</button></div>
+          </div>
 
-      <div class="filter-bar">
-        <div class="field"><label>项目名</label><input class="input" placeholder="搜索项目名"></div>
-        <div class="field"><label>状态</label><select class="select"><option>全部</option><option>草稿</option><option>分析中</option><option>已完成</option></select></div>
-        <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
-      </div>
+          <div class="flex between center mb-md">
+            <a class="btn btn-primary" href="key-position-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建分析</a>
+          </div>
 
-      <div class="flex between center mb-md">
-        <a class="btn btn-primary" href="key-position-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建分析</a>
-      </div>
-
-      <div class="card">
-        <div class="table-wrap"><table class="t">
-          <thead><tr><th>项目名</th><th>引用组织结构</th><th>分析范围</th><th>所用视角</th><th>关键岗位数</th><th>状态</th><th>负责人</th><th style="text-align:right">操作</th></tr></thead>
+          <div class="card">
+            <div class="table-wrap"><table class="t" id="kp-table">
+          <thead><tr><th>项目名</th><th>类别</th><th>引用组织结构</th><th>分析范围</th><th>所用视角</th><th>关键岗位数</th><th>状态</th><th>负责人</th><th style="text-align:right">操作</th></tr></thead>
           <tbody>
-            <tr>
+            <tr data-cat="年度分析">
               <td><a href="key-position-result.html" style="color:var(--primary-600);font-weight:500">2026 年度关键岗位分析</a></td>
+              <td>年度分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>岗位族</td>
               <td>经济 + 能力</td>
@@ -51,8 +73,9 @@
               <td>李文静</td>
               <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm">编辑</button><button class="btn-text btn-sm danger">删除</button></td>
             </tr>
-            <tr>
+            <tr data-cat="序列分析">
               <td>研发序列关键岗位试点</td>
+              <td>序列分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>具体岗位</td>
               <td>经济</td>
@@ -61,8 +84,9 @@
               <td>王志强</td>
               <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm muted">终止</button></td>
             </tr>
-            <tr>
+            <tr data-cat="专项分析">
               <td>销售铁军关键岗位</td>
+              <td>专项分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>具体岗位</td>
               <td>能力</td>
@@ -72,7 +96,7 @@
               <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-new.html">编辑</a><button class="btn-text btn-sm">提交</button><button class="btn-text btn-sm danger">删除</button></td>
             </tr>
           </tbody>
-<tr class="row-empty" style="display:none"><td colspan="8" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
+<tr class="row-empty" style="display:none"><td colspan="9" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
         </table></div>
         <div class="pagination">
           <div class="pg-info">共 3 条 · 每页 10 条</div>
@@ -83,35 +107,40 @@
             <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
           </div>
         </div>
+          </div>
+        </section>
       </div>
     </main>
   </div>
 </div>
+<div class="drawer category-manager" id="drawer-kp-catmgr">
+  <div class="m-head"><h3>类别管理</h3><button class="icon-close" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-body">
+    <div class="catmgr-create"><input class="input" data-kp-catmgr-new maxlength="20" placeholder="输入类别名称" aria-label="新增关键岗位分析类别名称"><button class="btn btn-primary" type="button" data-kp-catmgr-add>新增类别</button></div>
+    <div class="catmgr-table-head"><span>类别名称</span><span>项目数</span><span>操作</span></div>
+    <div data-kp-catmgr-list>
+      <div class="catmgr-row"><span class="cmr-name">年度分析</span><span class="cmr-count">1 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-kp-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-kp-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">序列分析</span><span class="cmr-count">1 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-kp-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-kp-catmgr-del>删除</button></span></div>
+      <div class="catmgr-row"><span class="cmr-name">专项分析</span><span class="cmr-count">1 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-kp-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-kp-catmgr-del>删除</button></span></div>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
+</div>
 <script src="app.js"></script>
 <script>
-  // 列表查询 / 搜索 / 重置
-  document.addEventListener('DOMContentLoaded', function () {
-    var bar = document.querySelector('.filter-bar'); if (!bar) return;
-    var tbl = document.querySelector('table.t');
-    var inp = bar.querySelector('input'), sel = bar.querySelector('select');
-    var btns = bar.querySelectorAll('.actions button');
-    function run() {
-      var t = (inp.value || '').trim().toLowerCase(), s = sel.value;
-      var any = false;
-      tbl.querySelectorAll('tbody tr:not(.row-empty)').forEach(function (tr) {
-        var name = tr.children[0].textContent.toLowerCase();
-        var tag = tr.querySelector('.tag'); var st = tag ? tag.textContent : '';
-        var okT = !t || name.indexOf(t) >= 0;
-        var okS = !s || s === '全部' || st === s;
-        var show = okT && okS; if (show) any = true;
-        tr.style.display = show ? '' : 'none';
-      });
-      var e = tbl.querySelector('tr.row-empty'); if (e) e.style.display = any ? 'none' : '';
-    }
-    if (btns[0]) btns[0].addEventListener('click', run);
-    if (btns[1]) btns[1].addEventListener('click', function () { inp.value = ''; sel.value = '全部'; run(); });
-    run();
-  });
+(function(){
+  var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]'),catInput=document.querySelector('[data-kp-catmgr-new]');
+  function filter(){var active=tree.querySelector('.cat-tree-item.active'),cat=active?active.dataset.cat:'全部',query=(search.value||'').trim().toLowerCase(),any=false;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){var matchCat=cat==='全部'||row.dataset.cat===cat,matchQuery=!query||row.children[0].textContent.toLowerCase().indexOf(query)>=0,tag=row.querySelector('.tag'),matchStatus=status.value==='全部'||(tag&&tag.textContent.trim()===status.value),show=matchCat&&matchQuery&&matchStatus;row.style.display=show?'':'none';if(show)any=true});var empty=table.querySelector('.row-empty');if(empty)empty.style.display=any?'none':''}
+  function categoryCount(name){var count=0;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){if(row.dataset.cat===name)count++});return count}
+  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,total=0,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name);total+=categoryCount(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span><span class="cti-count">'+total+'</span></button>';names.forEach(function(name){var count=categoryCount(name);html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+name+'"><span>'+name+'</span><span class="cti-count">'+count+'</span></button>'});tree.innerHTML=html;filter()}
+  tree.addEventListener('click',function(event){var item=event.target.closest('.cat-tree-item');if(!item)return;tree.querySelectorAll('.cat-tree-item').forEach(function(node){node.classList.remove('active')});item.classList.add('active');filter()});
+  tree.addEventListener('pointerdown',function(event){var item=event.target.closest('.cat-tree-item');if(item)window.setTimeout(function(){item.blur()},0)});
+  document.getElementById('kp-query').addEventListener('click',filter);document.getElementById('kp-reset').addEventListener('click',function(){search.value='';status.selectedIndex=0;tree.querySelector('.cat-tree-item').click()});
+  document.querySelector('[data-kp-catmgr-add]').addEventListener('click',function(){var name=catInput.value.trim(),exists=false;if(!name)return;catList.querySelectorAll('.cmr-name').forEach(function(node){if(node.textContent.trim()===name)exists=true});if(exists){alert('类别已存在');return}var row=document.createElement('div');row.className='catmgr-row';row.innerHTML='<span class="cmr-name"></span><span class="cmr-count">0 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-kp-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-kp-catmgr-del>删除</button></span>';row.querySelector('.cmr-name').textContent=name;catList.appendChild(row);catInput.value='';renderTree(name)});
+  catInput.addEventListener('keydown',function(event){if(event.key==='Enter'){event.preventDefault();document.querySelector('[data-kp-catmgr-add]').click()}});
+  catList.addEventListener('click',function(event){var del=event.target.closest('[data-kp-catmgr-del]'),edit=event.target.closest('[data-kp-catmgr-edit]');if(del){var row=del.closest('.catmgr-row'),name=row.querySelector('.cmr-name').textContent.trim();if(categoryCount(name)>0){alert('该类别下有项目，请先移除或转移后再删除');return}row.remove();renderTree()}if(edit){var row=edit.closest('.catmgr-row'),input=row.querySelector('.cmr-edit-input');if(input){var oldName=input.dataset.oldName,newName=input.value.trim(),duplicate=false;if(!newName)return;catList.querySelectorAll('.cmr-name').forEach(function(node){if(node!==input&&node.textContent.trim()===newName)duplicate=true});if(duplicate){alert('类别已存在');return}table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(tr){if(tr.dataset.cat===oldName){tr.dataset.cat=newName;tr.children[1].textContent=newName}});var nameNode=document.createElement('span');nameNode.className='cmr-name';nameNode.textContent=newName;input.replaceWith(nameNode);edit.textContent='编辑';renderTree(newName);return}var nameNode=row.querySelector('.cmr-name');if(nameNode){var editingInput=document.createElement('input');editingInput.className='input cmr-edit-input';editingInput.value=nameNode.textContent.trim();editingInput.dataset.oldName=nameNode.textContent.trim();nameNode.replaceWith(editingInput);edit.textContent='保存';editingInput.focus();editingInput.select()}}});
+  filter();
+})();
 </script>
 </body>
 </html>

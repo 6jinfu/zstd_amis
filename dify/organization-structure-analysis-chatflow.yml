@@ -1,0 +1,973 @@
+app:
+  description: 选择组织范围和分析方法，由 AI 生成序列×层级岗位族矩阵、归类依据与校准建议。
+  icon: 🏢
+  icon_background: '#DCE7FF'
+  mode: advanced-chat
+  name: 人才发展｜组织结构分析
+  use_icon_as_answer_icon: true
+dependencies: []
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .PDF
+      - .DOCX
+      - .XLSX
+      - .CSV
+      - .TXT
+      - .MD
+      allowed_file_types:
+      - document
+      - custom
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 10
+        file_size_limit: 30
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 10
+    opening_statement: |-
+      你好，我是组织结构分析助手。
+
+      请完成本次分析配置并提交组织岗位材料。我会生成组织结构草稿、岗位归类依据和需要重点校准的事项。
+
+      分析结果不会自动生效，你可以先检查和调整，再决定是否应用。
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 说明每个岗位为什么被归入当前岗位族
+    - 找出多种分析方法结论冲突、需要校准的岗位
+    - 按当前矩阵生成一份人工校准清单
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: document-extractor
+      id: start-source-extract-target
+      selected: false
+      source: start
+      sourceHandle: source
+      target: extract
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: code
+      id: extract-source-prepare-target
+      selected: false
+      source: extract
+      sourceHandle: source
+      target: prepare
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: prepare-source-valid-target
+      selected: false
+      source: prepare
+      sourceHandle: source
+      target: valid
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: valid-valid-mode-target
+      selected: false
+      source: valid
+      sourceHandle: valid
+      target: mode
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: valid-false-error-target
+      selected: false
+      source: valid
+      sourceHandle: 'false'
+      target: config_error
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: mode-ai-method-target
+      selected: false
+      source: mode
+      sourceHandle: ai
+      target: method_analysis
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: mode-false-manual-target
+      selected: false
+      source: mode
+      sourceHandle: 'false'
+      target: manual_setup
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: method-source-synthesis-target
+      selected: false
+      source: method_analysis
+      sourceHandle: source
+      target: synthesis
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: synthesis-source-answer-target
+      selected: false
+      source: synthesis
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: manual-source-manual-answer-target
+      selected: false
+      source: manual_setup
+      sourceHandle: source
+      target: manual_answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 收集组织范围、分析方法、维度权重、宫格规格和归类模式。
+        selected: false
+        title: 分析配置
+        type: start
+        variables:
+        - default: 组织结构分析新版本
+          label: 项目/版本名称
+          max_length: 128
+          options: []
+          required: true
+          type: text-input
+          variable: project_name
+        - default: 指定部门与岗位
+          label: 组织范围模式
+          max_length: 48
+          options:
+          - 全公司
+          - 指定部门
+          - 指定岗位或岗位族
+          - 指定部门与岗位
+          required: true
+          type: select
+          variable: scope_mode
+        - label: 已选部门/岗位（名称或ID）
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: scope_selection
+        - label: 分析目标/版本说明
+          max_length: 2000
+          options: []
+          required: false
+          type: paragraph
+          variable: analysis_goal
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          - custom
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 组织岗位主数据及说明材料
+          max_length: 10
+          options: []
+          required: true
+          type: file-list
+          variable: analysis_files
+        - default: true
+          label: 方法｜岗位评价法
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: method_job_evaluation
+        - default: true
+          label: 方法｜结构分析法
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: method_structure_analysis
+        - default: false
+          label: 方法｜结构设计法
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: method_structure_design
+        - default: false
+          label: 方法｜岗位定义法
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: method_job_definition
+        - default: false
+          label: 方法｜人效分析法
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: method_efficiency
+        - default: 平等循证整合
+          label: 多方法整合优先级
+          max_length: 48
+          options:
+          - 平等循证整合
+          - 岗位评价法优先
+          - 结构分析法优先
+          - 组织形态优先
+          required: true
+          type: select
+          variable: method_priority
+        - default: true
+          label: 岗评维度｜任务
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_task
+        - default: true
+          label: 岗评维度｜权力
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_power
+        - default: true
+          label: 岗评维度｜环境
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_environment
+        - default: true
+          label: 岗评维度｜专业
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_professional
+        - default: true
+          label: 岗评维度｜人际
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_interpersonal
+        - default: true
+          label: 岗评维度｜思维
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: dim_thinking
+        - default: 18
+          label: 岗评权重｜任务（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_task
+        - default: 22
+          label: 岗评权重｜权力（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_power
+        - default: 10
+          label: 岗评权重｜环境（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_environment
+        - default: 20
+          label: 岗评权重｜专业（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_professional
+        - default: 12
+          label: 岗评权重｜人际（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_interpersonal
+        - default: 18
+          label: 岗评权重｜思维（%）
+          max: 100
+          min: 0
+          options: []
+          required: true
+          type: number
+          variable: weight_thinking
+        - default: true
+          label: 结构分析｜岗位配置
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: structure_position
+        - default: true
+          label: 结构分析｜人力资源
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: structure_people
+        - default: false
+          label: 结构分析｜组织形态
+          max_length: 48
+          options: []
+          required: false
+          type: checkbox
+          variable: structure_form
+        - label: 其他方法的维度/指标补充
+          max_length: 2000
+          options: []
+          required: false
+          type: paragraph
+          variable: other_method_config
+        - default: 3
+          label: 序列数（横向，2～6）
+          max: 6
+          min: 2
+          options: []
+          required: true
+          type: number
+          variable: sequence_count
+        - default: 3
+          label: 层级数（纵向，2～6）
+          max: 6
+          min: 2
+          options: []
+          required: true
+          type: number
+          variable: level_count
+        - label: 序列名称（可留空让AI建议）
+          max_length: 1000
+          options: []
+          required: false
+          type: paragraph
+          variable: sequence_names
+        - label: 层级名称（可留空让AI建议）
+          max_length: 1000
+          options: []
+          required: false
+          type: paragraph
+          variable: level_names
+        - default: AI 自动归类
+          label: 归类模式
+          max_length: 48
+          options:
+          - AI 自动归类
+          - 纯手动
+          required: true
+          type: select
+          variable: classify_mode
+      height: 760
+      id: start
+      position:
+        x: 20
+        y: 240
+      positionAbsolute:
+        x: 20
+        y: 240
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        desc: 解析平台导出的部门/岗位/人数主数据及职责说明书、组织文件等材料。
+        is_array_file: true
+        selected: false
+        title: ② 解析组织与岗位材料
+        type: document-extractor
+        variable_selector:
+        - start
+        - analysis_files
+      height: 94
+      id: extract
+      position:
+        x: 380
+        y: 270
+      positionAbsolute:
+        x: 380
+        y: 270
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 270
+    - data:
+        code: |-
+          def main(project_name, scope_mode, scope_selection, analysis_goal,
+                   method_job_evaluation, method_structure_analysis,
+                   method_structure_design, method_job_definition, method_efficiency,
+                   method_priority, dim_task, dim_power, dim_environment,
+                   dim_professional, dim_interpersonal, dim_thinking,
+                   weight_task, weight_power, weight_environment,
+                   weight_professional, weight_interpersonal, weight_thinking,
+                   structure_position, structure_people, structure_form,
+                   other_method_config, sequence_count, level_count,
+                   sequence_names, level_names, classify_mode):
+              methods = []
+              for selected, name in [
+                  (method_job_evaluation, "岗位评价法"),
+                  (method_structure_analysis, "结构分析法"),
+                  (method_structure_design, "结构设计法"),
+                  (method_job_definition, "岗位定义法"),
+                  (method_efficiency, "人效分析法")]:
+                  if selected:
+                      methods.append(name)
+
+              errors = []
+              if not str(scope_selection or "").strip():
+                  errors.append("必须填写已选部门/岗位的名称或ID")
+              if not methods:
+                  errors.append("至少选择一种分析方法")
+              if not (2 <= int(sequence_count) <= 6 and 2 <= int(level_count) <= 6):
+                  errors.append("序列数和层级数必须在2～6之间")
+
+              dim_pairs = [
+                  (dim_task, "任务", weight_task),
+                  (dim_power, "权力", weight_power),
+                  (dim_environment, "环境", weight_environment),
+                  (dim_professional, "专业", weight_professional),
+                  (dim_interpersonal, "人际", weight_interpersonal),
+                  (dim_thinking, "思维", weight_thinking)]
+              active_dims = [(name, float(weight or 0)) for enabled, name, weight in dim_pairs if enabled]
+              if method_job_evaluation and not active_dims:
+                  errors.append("选择岗位评价法时，至少启用一个岗评维度")
+              total = sum(weight for _, weight in active_dims)
+              normalized = []
+              if active_dims and total > 0:
+                  normalized = [f"{name}:{round(weight / total * 100, 2)}%" for name, weight in active_dims]
+              elif method_job_evaluation:
+                  errors.append("岗位评价法启用维度的权重合计必须大于0")
+
+              structure_dims = [name for enabled, name in [
+                  (structure_position, "岗位配置（人数/岗位数/人岗比/空岗率）"),
+                  (structure_people, "人力资源（年限/学历/绩效/薪酬）"),
+                  (structure_form, "组织形态（分工/分权/分配/发展）")]
+                  if enabled]
+              if method_structure_analysis and not structure_dims:
+                  errors.append("选择结构分析法时，至少启用一个结构分析指标组")
+
+              config = "\n".join([
+                  f"项目/版本：{project_name}",
+                  f"组织范围模式：{scope_mode}",
+                  f"已选部门/岗位：{scope_selection}",
+                  f"分析目标：{analysis_goal or '未填写'}",
+                  f"所选分析方法：{'、'.join(methods) or '无'}",
+                  f"多方法整合优先级：{method_priority}",
+                  f"岗位评价法启用维度及归一权重：{'、'.join(normalized) or '未启用'}",
+                  f"结构分析法启用指标组：{'、'.join(structure_dims) or '未启用'}",
+                  f"其他方法配置：{other_method_config or '采用项目PRD默认模型'}",
+                  f"宫格规格：{int(sequence_count)}序列 × {int(level_count)}层级",
+                  f"序列名称：{sequence_names or '由AI建议'}",
+                  f"层级名称：{level_names or '由AI建议'}",
+                  f"归类模式：{classify_mode}"])
+              return {
+                  "config": config,
+                  "validation_error": "；".join(errors),
+                  "selected_methods": "、".join(methods),
+                  "grid_spec": f"{int(sequence_count)}×{int(level_count)}",
+                  "mode": str(classify_mode)}
+        code_language: python3
+        desc: 校验原型必填规则，并将多选方法、维度和权重转换为模型可执行配置。
+        outputs:
+          config:
+            children: null
+            type: string
+          grid_spec:
+            children: null
+            type: string
+          mode:
+            children: null
+            type: string
+          selected_methods:
+            children: null
+            type: string
+          validation_error:
+            children: null
+            type: string
+        selected: false
+        title: 配置校验与权重归一
+        type: code
+        variables:
+        - value_selector: [start, project_name]
+          variable: project_name
+        - value_selector: [start, scope_mode]
+          variable: scope_mode
+        - value_selector: [start, scope_selection]
+          variable: scope_selection
+        - value_selector: [start, analysis_goal]
+          variable: analysis_goal
+        - value_selector: [start, method_job_evaluation]
+          variable: method_job_evaluation
+        - value_selector: [start, method_structure_analysis]
+          variable: method_structure_analysis
+        - value_selector: [start, method_structure_design]
+          variable: method_structure_design
+        - value_selector: [start, method_job_definition]
+          variable: method_job_definition
+        - value_selector: [start, method_efficiency]
+          variable: method_efficiency
+        - value_selector: [start, method_priority]
+          variable: method_priority
+        - value_selector: [start, dim_task]
+          variable: dim_task
+        - value_selector: [start, dim_power]
+          variable: dim_power
+        - value_selector: [start, dim_environment]
+          variable: dim_environment
+        - value_selector: [start, dim_professional]
+          variable: dim_professional
+        - value_selector: [start, dim_interpersonal]
+          variable: dim_interpersonal
+        - value_selector: [start, dim_thinking]
+          variable: dim_thinking
+        - value_selector: [start, weight_task]
+          variable: weight_task
+        - value_selector: [start, weight_power]
+          variable: weight_power
+        - value_selector: [start, weight_environment]
+          variable: weight_environment
+        - value_selector: [start, weight_professional]
+          variable: weight_professional
+        - value_selector: [start, weight_interpersonal]
+          variable: weight_interpersonal
+        - value_selector: [start, weight_thinking]
+          variable: weight_thinking
+        - value_selector: [start, structure_position]
+          variable: structure_position
+        - value_selector: [start, structure_people]
+          variable: structure_people
+        - value_selector: [start, structure_form]
+          variable: structure_form
+        - value_selector: [start, other_method_config]
+          variable: other_method_config
+        - value_selector: [start, sequence_count]
+          variable: sequence_count
+        - value_selector: [start, level_count]
+          variable: level_count
+        - value_selector: [start, sequence_names]
+          variable: sequence_names
+        - value_selector: [start, level_names]
+          variable: level_names
+        - value_selector: [start, classify_mode]
+          variable: classify_mode
+      height: 132
+      id: prepare
+      position:
+        x: 710
+        y: 270
+      positionAbsolute:
+        x: 710
+        y: 270
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 285
+    - data:
+        cases:
+        - case_id: valid
+          conditions:
+          - comparison_operator: empty
+            id: org-valid-empty-error
+            value: ''
+            varType: string
+            variable_selector: [prepare, validation_error]
+          id: valid
+          logical_operator: and
+        desc: 范围、方法、维度和宫格校验通过后才进入分析。
+        selected: false
+        title: 配置是否完整
+        type: if-else
+      height: 126
+      id: valid
+      position:
+        x: 1060
+        y: 270
+      positionAbsolute:
+        x: 1060
+        y: 270
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 260
+    - data:
+        cases:
+        - case_id: ai
+          conditions:
+          - comparison_operator: is
+            id: org-mode-ai
+            value: AI 自动归类
+            varType: string
+            variable_selector: [prepare, mode]
+          id: ai
+          logical_operator: and
+        desc: 原型中的“AI自动归类 / 纯手动”真实路由。
+        selected: false
+        title: 归类模式路由
+        type: if-else
+      height: 126
+      id: mode
+      position:
+        x: 1390
+        y: 250
+      positionAbsolute:
+        x: 1390
+        y: 250
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 260
+    - data:
+        answer: |-
+          ### 配置尚未通过校验
+
+          {{#prepare.validation_error#}}
+
+          请返回开始表单补充或修正配置后重新运行。当前没有执行岗位归类。
+        desc: 展示明确的配置错误，不让模型带着缺失配置继续推断。
+        selected: false
+        title: 配置错误回复
+        type: answer
+        variables: []
+      height: 122
+      id: config_error
+      position:
+        x: 1390
+        y: 520
+      positionAbsolute:
+        x: 1390
+        y: 520
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 只执行用户勾选的方法，对岗位逐项打分并保留证据与冲突。
+        memory:
+          query_prompt_template: |-
+            配置：
+            {{#prepare.config#}}
+
+            组织、岗位、人数及说明材料：
+            {{#extract.text#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 5
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: org-method-system
+          role: system
+          text: |-
+            你是组织结构分析的“方法执行引擎”。严格按配置中的所选方法运行，未选择的方法不得参与结论。
+
+            方法模型：
+            1. 岗位评价法：职责（任务/权力/环境）+能力（专业/人际/思维），每维度下按项目PRD的4个指标1～5级锚定；仅使用已启用维度和归一权重。
+            2. 结构分析法：仅使用已启用的岗位配置、人力资源、组织形态指标组。
+            3. 结构设计法：环境、管理、分工、业务4维度8变量，判断职能型→事业型→矩阵型→项目型→网络型连续带。
+            4. 岗位定义法：按“责（结果）→权重→任（过程）”识别职责性质与序列归属。
+            5. 人效分析法：宏观经济、中观岗位、微观劳动三层，只在数据支持时判断配置合理性。
+
+            对每个岗位输出：事实摘要、各所选方法的评分/判别、建议序列、建议层级、证据、数据缺口、置信度。多方法结论不一致时标记 suggest_calibrate=true 并并列保留各方法结论。
+
+            不得编造岗位、人数或分数。无法量化时使用“数据不足”，不要用行业常识补数。只输出方法执行结果，不生成最终矩阵和管理建议。
+        selected: false
+        title: ③④ 按所选方法打分
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 122
+      id: method_analysis
+      position:
+        x: 1730
+        y: 160
+      positionAbsolute:
+        x: 1730
+        y: 160
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 290
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 按用户指定宫格形成序列×层级矩阵草稿，并输出可继续追问的对话结果。
+        memory:
+          query_prompt_template: |-
+            分析配置：
+            {{#prepare.config#}}
+
+            方法执行结果：
+            {{#method_analysis.text#}}
+
+            原始材料：
+            {{#extract.text#}}
+
+            用户当前消息：
+            {{#sys.query#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.25
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: org-synthesis-system
+          role: system
+          text: |-
+            你是组织结构分析助手的“矩阵综合与对话层”。基于方法执行结果，将岗位归入用户指定的“序列×层级”宫格，生成新版本草稿；不得改变宫格数量。
+
+            规则：
+            - 序列名称或层级名称未填写时，给出恰好符合配置数量的AI建议名称。
+            - 每个岗位必须输出 ai_sequence、ai_level、group_name、method_scores、evidence、confidence、suggest_calibrate。
+            - 数据不足无法归类的岗位放入“待人工归类”清单，不强塞进宫格。
+            - 多方法冲突时按配置优先级给默认建议，但必须并列展示差异并提示人工校准。
+            - 所有结果均为建议态，不得声称已生效，也不得自动替换当前版本。
+
+            首次完整回复格式：
+            ### 配置确认
+            范围、所选方法、有效权重、宫格规格。
+
+            ### 一句话结论
+            用业务语言概括矩阵结构和最需要校准的地方。
+
+            ### 岗位族矩阵草稿
+            用Markdown表格展示序列×层级；每格列出岗位族名、岗位数、人数（有数据才写人数）。
+
+            ### 岗位归类明细
+            逐岗位展示归属、主要依据、置信度和是否建议校准。
+
+            ### 建议校准
+            并列展示冲突岗位的各方法结论，并给出人工确认问题。
+
+            ### 下一步
+            明确“保存草稿→人工拖拽/校准→确认生效”，并给3个可继续追问的问题。
+
+            回复末尾必须追加一个供服务端解析、但不展示给用户的HTML注释块：
+            `<!-- RESULT_JSON {合法JSON} -->`，包含 schema_version、sequences、levels、groups、position_groupings、unassigned_positions、calibration_items。JSON中不得加入注释或Markdown。
+        selected: false
+        title: ⑤⑥ 生成岗位族矩阵草稿
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 122
+      id: synthesis
+      position:
+        x: 2080
+        y: 160
+      positionAbsolute:
+        x: 2080
+        y: 160
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 300
+    - data:
+        answer: '{{#synthesis.text#}}'
+        desc: 输出AI自动归类结果，并保留多轮追问能力。
+        selected: false
+        title: AI归类对话回复
+        type: answer
+        variables: []
+      height: 102
+      id: answer
+      position:
+        x: 2440
+        y: 170
+      positionAbsolute:
+        x: 2440
+        y: 170
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 270
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 纯手动模式只生成空矩阵和待拖拽岗位清单，不执行AI岗位归类。
+        memory:
+          query_prompt_template: |-
+            配置：
+            {{#prepare.config#}}
+
+            材料：
+            {{#extract.text#}}
+
+            用户当前消息：{{#sys.query#}}
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: qwen3.6-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: org-manual-system
+          role: system
+          text: |-
+            当前配置为“纯手动”。你只能：核对范围、列出岗位清单、按指定数量生成空的序列×层级矩阵、指出数据缺口、提供人工拖拽步骤。禁止替用户判断岗位的序列或层级，禁止自动归类。
+
+            输出：配置确认、空矩阵、待人工拖拽岗位清单和操作步骤。回复末尾追加`<!-- RESULT_JSON {合法JSON} -->`，其中包含schema_version、sequences、levels、groups、position_groupings、unassigned_positions、calibration_items；groups中的岗位数组和position_groupings必须为空。
+        selected: false
+        title: 纯手动矩阵准备
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 120
+      id: manual_setup
+      position:
+        x: 1730
+        y: 390
+      positionAbsolute:
+        x: 1730
+        y: 390
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 290
+    - data:
+        answer: '{{#manual_setup.text#}}'
+        desc: 对话展示空矩阵及人工归类操作清单。
+        selected: false
+        title: 纯手动模式回复
+        type: answer
+        variables: []
+      height: 102
+      id: manual_answer
+      position:
+        x: 2080
+        y: 400
+      positionAbsolute:
+        x: 2080
+        y: 400
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 280
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.55

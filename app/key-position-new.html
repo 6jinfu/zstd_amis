@@ -41,6 +41,7 @@
         <div class="step-panel show" data-panel="1">
           <div class="card card-pad">
             <div class="field"><label>项目名 <span class="req">*</span></label><input class="input" value="2026 年度关键岗位分析（研发 + 销售）"></div>
+            <div class="field"><label>类别 <span class="req">*</span></label><select class="select"><option selected>年度分析</option><option>序列分析</option><option>专项分析</option></select></div>
             <div class="field"><label>分析目标</label><textarea class="input" rows="2">识别研发与销售序列中需要优先培养的关键岗位，作为本年度标准建模与培养投入的依据。</textarea></div>
             <div class="field" style="margin-bottom:0"><label>引用组织结构版本 <span class="req">*</span></label>
               <div class="sel-card"><div><div style="font-weight:500">V2 · 2026 年组织调整</div><div class="text-sm muted">生效于 2026-06-18 · 3 序列 × 3 层级 · 8 岗位族</div></div><span class="tag tag-effective">当前生效</span></div>
@@ -67,9 +68,6 @@
             <div class="method-cards">
               <label class="method-card"><input type="checkbox" checked><div class="mc-name">经济 E</div><div class="mc-desc">需求 × 供给：需求高且供给少 = 关键岗位。</div><div class="mc-meta">供需模型 · 默认</div></label>
               <label class="method-card"><input type="checkbox" checked><div class="mc-name">能力 A</div><div class="mc-desc">能力（ART）× 时间成本：能力高且培养周期长 = 关键。</div><div class="mc-meta">ART · 9 变量</div></label>
-              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">业务 B</div><div class="mc-desc">价值链 × DID。</div><div class="mc-meta">即将上线</div></label>
-              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">变革 R</div><div class="mc-desc">3Cha 变革视角。</div><div class="mc-meta">即将上线</div></label>
-              <label class="method-card is-disabled"><input type="checkbox" disabled><div class="mc-name">战略 S</div><div class="mc-desc">战略解码视角。</div><div class="mc-meta">即将上线</div></label>
             </div>
           </div>
         </div>
@@ -130,6 +128,7 @@
             <div class="section-title">配置汇总</div>
             <div class="table-wrap"><table class="t"><tbody>
               <tr><td class="muted" style="width:180px">项目</td><td>2026 年度关键岗位分析（研发 + 销售）</td></tr>
+              <tr><td class="muted">类别</td><td>年度分析</td></tr>
               <tr><td class="muted">引用组织结构</td><td>V2 · 2026 年组织调整（当前生效）</td></tr>
               <tr><td class="muted">分析范围</td><td>岗位族（标记到具体岗位）</td></tr>
               <tr><td class="muted">视角</td><td>经济 E（50%）+ 能力 A（50%）</td></tr>
