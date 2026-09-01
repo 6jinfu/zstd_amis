@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>组织看板 · 人才中心</title>
-<link rel="stylesheet" href="styles.css?v=20260826c">
+<link rel="stylesheet" href="styles.css?v=20260901o">
 <style>
   .dash-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-md); }
   .dash-card { background:var(--white); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); padding:var(--space-lg); }
@@ -18,7 +18,7 @@
   .dash-mini { display:grid; grid-template-columns:40px repeat(3,1fr); gap:3px; font-size:10px; }
   .dash-mini .dm { min-height:30px; border-radius:3px; display:grid; place-items:center; }
   .dash-mini .dm.hd { background:var(--primary-50); color:var(--primary-600); font-weight:600; }
-  .dash-mini .dm.cell { background:rgba(37,99,235,.18); color:var(--primary-700); }
+  .dash-mini .dm.cell { background:color-mix(in oklch,var(--primary-600) 18%,transparent); color:var(--primary-700); }
 </style>
 </head>
 <body data-module="talent" data-page="org-dashboard">
@@ -59,9 +59,9 @@
           <h3><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</h3>
           <div class="dash-mini">
             <div class="dm hd"></div><div class="dm hd">研发</div><div class="dm hd">销售</div><div class="dm hd">职能</div>
-            <div class="dm hd">高</div><div class="dm cell" style="background:rgba(37,99,235,.34)">9</div><div class="dm cell" style="background:rgba(37,99,235,.13)">6</div><div class="dm" style="background:var(--neutral-50);color:var(--neutral-400)">—</div>
-            <div class="dm hd">中</div><div class="dm cell" style="background:rgba(37,99,235,.34)">36</div><div class="dm cell" style="background:rgba(37,99,235,.27)">28</div><div class="dm cell">14</div>
-            <div class="dm hd">初</div><div class="dm cell" style="background:rgba(37,99,235,.36)">18</div><div class="dm cell" style="background:rgba(37,99,235,.36)">42</div><div class="dm cell">12</div>
+            <div class="dm hd">高</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 34%,transparent)">9</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 13%,transparent)">6</div><div class="dm" style="background:var(--neutral-50);color:var(--neutral-400)">—</div>
+            <div class="dm hd">中</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 34%,transparent)">36</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 27%,transparent)">28</div><div class="dm cell">14</div>
+            <div class="dm hd">初</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 36%,transparent)">18</div><div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 36%,transparent)">42</div><div class="dm cell">12</div>
           </div>
           <div class="text-sm muted mt-sm">序列 × 层级（色深 = 人数）</div>
         </div>
@@ -106,7 +106,7 @@
           <div class="dash-mini" style="grid-template-columns:repeat(3,1fr)">
             <div class="dm cell" style="background:rgba(22,163,74,.16);color:var(--success);min-height:40px">核心<b>6</b></div>
             <div class="dm cell" style="background:rgba(22,163,74,.10);color:var(--success);min-height:40px">骨干<b>3</b></div>
-            <div class="dm cell" style="background:rgba(37,99,235,.14);color:var(--primary-600);min-height:40px">高潜<b>4</b></div>
+            <div class="dm cell" style="background:color-mix(in oklch,var(--primary-600) 14%,transparent);color:var(--primary-600);min-height:40px">高潜<b>4</b></div>
             <div class="dm" style="background:var(--neutral-100);color:var(--neutral-600);min-height:40px">胜任<b>5</b></div>
             <div class="dm" style="background:var(--neutral-100);color:var(--neutral-600);min-height:40px">中坚<b>5</b></div>
             <div class="dm" style="background:var(--neutral-100);color:var(--neutral-600);min-height:40px">中坚<b>8</b></div>
@@ -120,6 +120,6 @@
     </main>
   </div>
 </div>
-<script src="app.js?v=20260826c"></script>
+<script src="app.js?v=20260901c"></script>
 </body>
 </html>

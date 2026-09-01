@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026 年度人才盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css?v=20260826c">
+<link rel="stylesheet" href="styles.css?v=20260901o">
 <style>
   .rd-matrix{display:grid;grid-template-columns:14px 20px repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,82px) 20px auto;gap:6px;max-width:680px}
   .rd-matrix .cell{border:0;border-radius:7px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
   .rd-matrix .cell:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
   .rd-matrix .c-layer{font-size:11px}.rd-matrix .c-n{font-size:20px;font-weight:600}
-  .rd-matrix .l-hi{background:rgba(37,99,235,.14)}.rd-matrix .l-hi .c-n{color:var(--primary-600)}
+  .rd-matrix .l-hi{background:color-mix(in oklch,var(--primary-600) 14%,transparent)}.rd-matrix .l-hi .c-n{color:var(--primary-600)}
   .rd-matrix .l-core{background:rgba(22,163,74,.14)}.rd-matrix .l-core .c-n{color:var(--success)}
   .rd-matrix .l-mid{background:var(--neutral-100)}.rd-matrix .l-mid .c-n{color:var(--neutral-600)}
   .rd-matrix .l-risk{background:rgba(220,38,38,.11)}.rd-matrix .l-risk .c-n{color:var(--danger)}
@@ -31,7 +31,7 @@
     <aside class="sidenav"><a class="nav-item" data-page="assess-projects" href="assess-projects.html">评鉴工具</a><a class="nav-item active" data-page="review-projects" href="review-projects.html">人才盘点</a></aside>
     <main class="content">
       <div class="detail-bar">
-        <div class="db-left"><a class="back" href="review-projects.html">← 返回</a><h1 id="review-title">2026 年度人才盘点</h1><span class="tag tag-done" id="review-status">已结束</span><span class="text-sm muted" id="review-meta">35 人</span></div>
+        <div class="db-left"><a class="back" href="review-projects.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>返回</a><h1 id="review-title">2026 年度人才盘点</h1><span class="tag tag-done" id="review-status">已结束</span><span class="text-sm muted" id="review-meta">35 人</span></div>
         <div class="actions" id="review-actions"></div>
       </div>
 
@@ -119,9 +119,31 @@
   </form>
 </div>
 
-<script src="app.js?v=20260826c"></script>
+<script src="app.js?v=20260901c"></script>
 <script>
 (function(){
+  var params=new URLSearchParams(location.search);
+  if(params.get('case')==='sales'){
+    document.title='销售铁军盘点 · 评鉴中心';
+    document.getElementById('review-title').textContent='销售铁军盘点';
+    document.getElementById('review-meta').textContent='42 人';
+    var kpis=document.querySelectorAll('[data-section="overview"] .kpi .value');
+    kpis[0].textContent='42';kpis[1].textContent='3';kpis[2].textContent='42';kpis[3].textContent='3';
+    document.querySelector('.review-info-grid').innerHTML='<div><span>盘点分类</span><b>季度盘点</b></div><div><span>盘点方法</span><b>宫格盘点</b></div><div><span>项目负责人</span><b>张敏</b></div><div><span>计划时间</span><b>2026-07-15 至 2026-08-15</b></div><div><span>自动结束</span><b>已开启</b></div><div class="wide"><span>盘点目标</span><b>识别销售序列核心骨干、业绩突破者与重点辅导人员，为区域负责人选拔和大客户团队建设提供依据。</b></div>';
+    document.querySelector('.tab-panel[data-tab="project-data"] tbody').innerHTML='<tr><td>AS-202607-021</td><td><b>销售领导力 360 评估</b></td><td>360 评估</td><td>42</td><td>2026-07-12</td><td><span class="tag tag-done">已结束</span></td></tr><tr><td>EX-202607-009</td><td><b>大客户销售方案认证</b></td><td>考试</td><td>42</td><td>2026-07-08</td><td><span class="tag tag-done">已结束</span></td></tr><tr><td>AS-202607-015</td><td><b>顾问式销售能力 360 评估</b></td><td>360 评估</td><td>42</td><td>2026-07-05</td><td><span class="tag tag-done">已结束</span></td></tr>';
+    var performancePanel=document.querySelector('.tab-panel[data-tab="performance-data"]');
+    performancePanel.querySelector('.locked-file span').innerHTML='<b>2026_H1_销售序列绩效数据.xlsx</b><small>42 条数据 · 绩效等级：低 / 中 / 高</small>';
+    performancePanel.querySelector('tbody').innerHTML='<tr><td>EMP-2031</td><td><b>周凯</b></td><td>销售中心</td><td>大区销售总监</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-2058</td><td><b>林雪</b></td><td>销售中心</td><td>战略客户总监</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-2142</td><td><b>王磊</b></td><td>销售中心</td><td>区域销售经理</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-2217</td><td><b>孙杰</b></td><td>销售中心</td><td>大客户销售经理</td><td><span class="tag tag-primary">中</span></td></tr><tr><td>EMP-2296</td><td><b>蒋峰</b></td><td>销售中心</td><td>渠道经理</td><td><span class="tag">低</span></td></tr>';
+    var salesGrid={'high-low':3,'high-mid':7,'high-high':6,'mid-low':4,'mid-mid':8,'mid-high':5,'low-low':2,'low-mid':4,'low-high':3};
+    document.querySelectorAll('.rd-matrix .cell').forEach(function(cell){var count=salesGrid[cell.dataset.cell];cell.querySelector('.c-n').textContent=String(count);cell.setAttribute('aria-label',cell.getAttribute('aria-label').replace(/\d+ 人$/,count+' 人'))});
+    document.getElementById('review-person-department').innerHTML='<option value="">全部</option><option>销售中心</option>';
+    document.querySelector('#review-people tbody').innerHTML='<tr data-cell="high-high"><td>周凯</td><td>销售中心</td><td>大区销售总监</td><td>91%</td><td>高</td><td><span class="tag tag-primary">核心人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-high"><td>林雪</td><td>销售中心</td><td>战略客户总监</td><td>86%</td><td>高</td><td><span class="tag tag-primary">核心人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-mid"><td>王磊</td><td>销售中心</td><td>区域销售经理</td><td>78%</td><td>高</td><td><span class="tag tag-success">关键人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-mid"><td>赵颖</td><td>销售中心</td><td>高级渠道经理</td><td>74%</td><td>高</td><td><span class="tag tag-success">关键人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="mid-high"><td>陈晨</td><td>销售中心</td><td>高级销售经理</td><td>83%</td><td>中</td><td><span class="tag tag-success">骨干人才</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="mid-mid"><td>孙杰</td><td>销售中心</td><td>大客户销售经理</td><td>69%</td><td>中</td><td><span class="tag">稳定贡献</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="high-low"><td>刘洋</td><td>销售中心</td><td>销售顾问</td><td>57%</td><td>高</td><td><span class="tag">重点提升</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="low-mid"><td>何静</td><td>销售中心</td><td>区域销售经理</td><td>64%</td><td>低</td><td><span class="tag">待观察</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="low-low"><td>蒋峰</td><td>销售中心</td><td>渠道经理</td><td>52%</td><td>低</td><td><span class="tag tag-danger">重点关注</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr><tr data-cell="low-high"><td>顾婷</td><td>销售中心</td><td>高级销售顾问</td><td>82%</td><td>低</td><td><span class="tag">能力错配</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="talent-profile.html">查看人才</a></td></tr>';
+    document.querySelector('#calibration-table tbody').innerHTML='<tr><td><b>大区负责人梯队复核</b></td><td>周凯</td><td>张敏</td><td>关键人才</td><td><span class="tag tag-primary">核心人才</span></td></tr><tr><td><b>高潜销售骨干复核</b></td><td>陈晨</td><td>张敏</td><td>稳定贡献</td><td><span class="tag tag-success">骨干人才</span></td></tr><tr><td><b>低绩效人员落位复核</b></td><td>蒋峰</td><td>王志强</td><td>关注发展</td><td><span class="tag tag-danger">重点关注</span></td></tr>';
+    document.querySelector('#talent-pool-table tbody').innerHTML='<tr data-pool-name="销售核心人才池"><td><b>销售核心人才池</b></td><td>8</td><td data-pool-actual>6</td><td class="ops"><button class="btn-text btn-sm" type="button" data-build-pool="销售核心人才池">组建</button><button class="btn-text btn-sm" type="button" data-toast="正在查看销售核心人才池">查看</button></td></tr><tr data-pool-name="区域负责人后备池"><td><b>区域负责人后备池</b></td><td>10</td><td data-pool-actual>7</td><td class="ops"><button class="btn-text btn-sm" type="button" data-build-pool="区域负责人后备池">组建</button><button class="btn-text btn-sm" type="button" data-toast="正在查看区域负责人后备池">查看</button></td></tr>';
+    document.getElementById('pool-build-target').innerHTML='<option value="">请选择</option><option>销售核心人才池</option><option>区域负责人后备池</option>';
+    document.getElementById('calibration-person').innerHTML='<option value="">请选择</option><option data-before="核心人才">周凯</option><option data-before="核心人才">林雪</option><option data-before="关键人才">王磊</option><option data-before="骨干人才">陈晨</option><option data-before="重点关注">蒋峰</option>';
+    document.querySelector('#drawer-talent-pool-build tbody').innerHTML='<tr><td><input type="checkbox" data-pool-person aria-label="选择周凯"></td><td><b>周凯</b></td><td>销售中心</td><td>大区销售总监</td><td>核心人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择林雪"></td><td><b>林雪</b></td><td>销售中心</td><td>战略客户总监</td><td>核心人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择王磊"></td><td><b>王磊</b></td><td>销售中心</td><td>区域销售经理</td><td>关键人才</td></tr><tr><td><input type="checkbox" data-pool-person aria-label="选择陈晨"></td><td><b>陈晨</b></td><td>销售中心</td><td>高级销售经理</td><td>骨干人才</td></tr>';
+  }
   var table=document.getElementById('review-people'),label=document.getElementById('grid-filter-label'),empty=document.getElementById('review-people-empty'),cells=document.querySelectorAll('.rd-matrix .cell'),peopleQuery=document.querySelector('[data-review-people-query]'),personName=document.getElementById('review-person-name'),personDepartment=document.getElementById('review-person-department'),personPlacement=document.getElementById('review-person-placement'),activeGridCell='';
   function applyPeopleFilters(){var keyword=personName.value.trim().toLowerCase(),department=personDepartment.value,placement=personPlacement.value,visible=0;table.querySelectorAll('tbody tr').forEach(function(row){var matchGrid=!activeGridCell||row.dataset.cell===activeGridCell,matchName=!keyword||row.cells[0].textContent.toLowerCase().includes(keyword),matchDepartment=!department||row.cells[1].textContent.trim()===department,matchPlacement=!placement||row.cells[5].textContent.trim()===placement,match=matchGrid&&matchName&&matchDepartment&&matchPlacement;row.style.display=match?'':'none';if(match)visible++});empty.style.display=visible?'none':'block'}
   cells.forEach(function(cell){cell.setAttribute('aria-pressed','false');cell.addEventListener('click',function(){activeGridCell=cell.dataset.cell;cells.forEach(function(item){var active=item===cell;item.classList.toggle('active',active);item.setAttribute('aria-pressed',active?'true':'false')});label.textContent=cell.getAttribute('aria-label').replace(/，/g,' · ');applyPeopleFilters()})});

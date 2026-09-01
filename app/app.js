@@ -74,6 +74,7 @@ const PRIMARY_NAV_ICONS = {
   talent: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2"/><path d="M16 15a5 5 0 0 1 5 5"/></svg>',
   settings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>'
 };
+const NAV_COLLAPSED_KEY = 'talent-development-nav-collapsed';
 
 /* ---------- 本期开发范围：按研发评审结论统一业务菜单 ---------- */
 const RELEASE_BUSINESS_NAV = {
@@ -150,13 +151,23 @@ function initShellNavigation() {
   const right = topbar?.querySelector('.right');
   if (!app || !topbar || !sidenav || !sourcePrimary || !brand || !right) return;
 
+  // 共享脚本位于页面底部，此处先切入新版 Shell，避免 Chrome 首次绘制旧版骨架。
+  app.classList.add('shell-v2');
+  let isNavCollapsed = false;
+  try { isNavCollapsed = localStorage.getItem(NAV_COLLAPSED_KEY) === 'true'; } catch (_error) {}
+  app.classList.toggle('nav-collapsed', isNavCollapsed);
+
   const primaryNav = document.createElement('nav');
   primaryNav.className = 'primary-nav';
+  primaryNav.id = 'primary-navigation';
   primaryNav.setAttribute('aria-label', '一级导航');
   sourcePrimary.querySelectorAll('a').forEach(source => {
     const item = source.cloneNode(false);
+    const label = source.textContent.trim();
     item.className = `primary-item${source.classList.contains('active') ? ' active' : ''}`;
-    item.innerHTML = `${PRIMARY_NAV_ICONS[source.dataset.module] || ''}<span>${source.textContent.trim()}</span>`;
+    item.setAttribute('aria-label', label);
+    item.title = label;
+    item.innerHTML = `${PRIMARY_NAV_ICONS[source.dataset.module] || ''}<span>${label}</span>`;
     primaryNav.appendChild(item);
   });
 
@@ -176,15 +187,34 @@ function initShellNavigation() {
   const mobileBrand = brand.cloneNode(true);
   mobileBrand.classList.add('mobile-brand');
   const mobilePrimary = primaryNav.cloneNode(true);
+  mobilePrimary.removeAttribute('id');
   mobilePrimary.className = 'mobile-primary-nav';
   mobilePrimary.setAttribute('aria-label', '一级导航');
 
-  sidenav.replaceChildren(brand, primaryNav);
+  const navToggle = document.createElement('button');
+  navToggle.type = 'button';
+  navToggle.className = 'nav-collapse-toggle';
+  navToggle.setAttribute('aria-controls', primaryNav.id);
+  navToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>收起导航</span>';
+  function syncNavToggle() {
+    const collapsed = app.classList.contains('nav-collapsed');
+    navToggle.setAttribute('aria-expanded', String(!collapsed));
+    navToggle.setAttribute('aria-label', collapsed ? '展开导航' : '收起导航');
+    navToggle.title = collapsed ? '展开导航' : '收起导航';
+    navToggle.querySelector('span').textContent = collapsed ? '展开导航' : '收起导航';
+  }
+  navToggle.addEventListener('click', function () {
+    app.classList.toggle('nav-collapsed');
+    try { localStorage.setItem(NAV_COLLAPSED_KEY, String(app.classList.contains('nav-collapsed'))); } catch (_error) {}
+    syncNavToggle();
+  });
+  syncNavToggle();
+
+  sidenav.replaceChildren(brand, primaryNav, navToggle);
   sourcePrimary.remove();
   topbar.insertBefore(mobileBrand, right);
   topbar.insertBefore(mobilePrimary, right);
   topbar.insertBefore(businessNav, right);
-  app.classList.add('shell-v2');
 }
 
 function initPageLayout() {
@@ -785,6 +815,13 @@ function initHeatmap() {
   document.querySelectorAll('[data-heat]').forEach(function (m) {
     var cells = m.querySelectorAll('.group:not(.empty-cell)');
     var vals = [];
+    var heatColors = [
+      'var(--primary-50)',
+      'var(--primary-100)',
+      'var(--primary-200)',
+      'var(--primary-300)',
+      'var(--primary-400)'
+    ];
     cells.forEach(function (c) {
       var n = 0;
       c.querySelectorAll('.g-stats span').forEach(function (s) { if (s.textContent.indexOf('人') >= 0) { var b = s.querySelector('b'); if (b) n = +b.textContent || 0; } });
@@ -792,7 +829,11 @@ function initHeatmap() {
     });
     var max = Math.max.apply(null, vals);
     if (!max) return;
-    cells.forEach(function (c) { var a = 0.10 + (c._hc / max) * 0.30; c.style.background = 'rgba(37,99,235,' + a.toFixed(3) + ')'; });
+    cells.forEach(function (c) {
+      var level = Math.min(heatColors.length - 1, Math.max(0, Math.ceil((c._hc / max) * heatColors.length) - 1));
+      c.style.background = heatColors[level];
+      c.dataset.heatLevel = level + 1;
+    });
   });
 }
 
@@ -894,7 +935,7 @@ function showAiGen(opts) {
 }
 
 /* ---------- 启动 ---------- */
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   if (!applyReleaseScope()) return;
   initNav();
   initShellNavigation();
@@ -922,4 +963,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'Enter') location.href = 'org-structure.html';
     });
   });
-});
+}
+
+// app.js 在完整页面骨架之后同步执行；不要再等 DOMContentLoaded，避免旧骨架先被绘制。
+if (document.body?.querySelector('.app')) {
+  initApp();
+} else {
+  document.addEventListener('DOMContentLoaded', initApp, { once: true });
+}

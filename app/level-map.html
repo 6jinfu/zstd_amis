@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>职级地图 · 发展中心</title>
-<link rel="stylesheet" href="styles.css?v=20260826c">
+<link rel="stylesheet" href="styles.css?v=20260901o">
 <style>
   .lm-ladder { display:flex; flex-direction:column; align-items:center; gap:0; }
   .lm-step { display:flex; align-items:center; gap:14px; position:relative; }
@@ -19,10 +19,7 @@
   .lm-node.empty:hover { border-color:var(--primary-300); color:var(--primary-700); background:var(--primary-50); }
   .lm-node .lm-plan { position:absolute; top:-8px; right:14px; font-size:10px; background:var(--success); color:#fff; padding:2px 8px; border-radius:var(--radius-full); }
   .lm-axis-label { text-align:center; font-size:12px; color:var(--neutral-400); margin-top:var(--space-md); }
-  .lm-tab { padding:8px 18px; border-radius:var(--radius-sm); font-size:14px; color:var(--neutral-600); cursor:pointer; border:1px solid var(--neutral-200); background:var(--white); transition:color .16s ease, background-color .16s ease, border-color .16s ease; }
-  .lm-tab:hover { border-color:var(--primary-300); color:var(--primary-700); }
-  .lm-tab.active { background:var(--primary-600); color:#fff; border-color:var(--primary-600); font-weight:500; }
-  .lm-tab.add { border-style:dashed; color:var(--neutral-400); }
+  /* lm-tab 样式已统一到 styles.css 全站二级 tab（2026-08-26），移除内嵌覆盖 */
 </style>
 </head>
 <body data-module="develop" data-page="level-map">
@@ -44,8 +41,8 @@
     <main class="content">
       <div class="breadcrumb">发展中心<span class="sep">/</span><span class="cur">职级地图</span></div>
 
-      <div class="flex between center mb-md">
-        <div class="flex gap-xs" style="gap:6px;flex-wrap:wrap">
+      <div class="secondary-tab-row">
+        <div class="lm-tabs">
           <span class="lm-tab active">管理序列 M</span>
           <span class="lm-tab">技术序列 P</span>
           <span class="lm-tab">销售条线</span>
@@ -161,6 +158,6 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="app.js?v=20260826c"></script>
+<script src="app.js?v=20260901c"></script>
 </body>
 </html>
