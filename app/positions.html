@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位管理 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260901o">
+<link rel="stylesheet" href="styles.css?v=20260902a">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app">
@@ -29,8 +29,8 @@
 
       <div class="flex between center mb-md">
         <div class="segment" data-target="pos-table">
-          <button data-filter="key" class="active">关键岗位<span class="count">5</span></button>
-          <button data-filter="all">全部岗位<span class="count">8</span></button>
+          <button data-filter="key" class="active">关键岗位<span class="count">6</span></button>
+          <button data-filter="all">全部岗位<span class="count">9</span></button>
         </div>
       </div>
 
@@ -54,6 +54,7 @@
             <tr data-key="true"><td class="num">RD-302</td><td>架构师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
             <tr data-key="true"><td class="num">RD-301</td><td>高级算法工程师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
             <tr data-key="true"><td class="num">RD-205</td><td>后端开发工程师</td><td>研发</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
+            <tr data-key="true"><td class="num">SA-201</td><td>销售经理</td><td>销售</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html?case=sales#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html?case=sales#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html?case=sales#plan">学习方案</a></td></tr>
             <tr data-key="true"><td class="num">SA-301</td><td>区域销售总监</td><td>销售</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
             <tr data-key="true"><td class="num">SA-110</td><td>大客户销售经理</td><td>销售</td><td><span class="tag tag-warning">关键</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm muted" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm muted" href="position-detail.html#plan">学习方案</a></td></tr>
             <tr data-key="false"><td class="num">RD-102</td><td>前端开发工程师</td><td>研发</td><td><span class="muted">—</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="position-detail.html#info">编辑</a><a class="btn-text btn-sm" href="position-detail.html#standard">岗位标准</a><a class="btn-text btn-sm" href="position-detail.html#plan">学习方案</a></td></tr>
@@ -63,7 +64,7 @@
 <tr class="row-empty" style="display:none"><td colspan="5" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
         </table></div>
         <div class="pagination">
-          <div class="pg-info">共 8 条 · 每页 10 条</div>
+          <div class="pg-info">共 9 条 · 每页 10 条</div>
           <div class="pg-controls">
             <button class="pg-btn disabled">上一页</button>
             <button class="pg-btn active">1</button>
@@ -94,7 +95,7 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>标记为关键</button></div>
 </div>
 
-<script src="app.js?v=20260901c"></script>
+<script src="app.js?v=20260902b"></script>
 <script>
   // 主操作随双视图切换：全部=新增岗位，关键=添加关键岗位（须在 initSegments 之后，读到最新 active）
   document.addEventListener('DOMContentLoaded', function () {

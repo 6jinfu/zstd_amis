@@ -1,76 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>个人发展计划 · 发展中心</title>
-<link rel="stylesheet" href="styles.css?v=20260901o">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=position-map.html">
+  <title>正在进入岗位地图</title>
 </head>
-<body data-module="develop" data-page="idp-list">
-<div class="app">
-  <header class="topbar">
-    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
-    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
-    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
-  </header>
-  <div class="body">
-    <aside class="sidenav">
-      <div class="group-label">发展通道</div>
-      <a class="nav-item" data-page="position-map" href="position-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 12h12"/></svg>岗位地图</a>
-      <a class="nav-item" data-page="level-map" href="level-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 8l4-4 4 4M21 16l-4 4-4-4"/></svg>职级地图</a>
-      <a class="nav-item active" data-page="idp-list" href="idp-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>个人发展计划</a>
-      <a class="nav-item" data-toast="即将跳转至「培训中心」"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>培养项目</a>
-    </aside>
-
-    <main class="content" data-list-mode="filters" data-list-label="计划筛选">
-      <div class="breadcrumb">发展中心<span class="sep">/</span><span class="cur">个人发展计划</span></div>
-
-      <div class="filter-bar" data-filter-bar>
-        <div class="field"><label>计划名称</label><input class="input" placeholder="请输入"></div>
-        <div class="field"><label>学员</label><input class="input" placeholder="请输入"></div>
-        <div class="field"><label>计划期限</label><div class="flex gap-sm center"><input type="date" class="input" style="width:150px"><span class="muted">—</span><input type="date" class="input" style="width:150px"></div></div>
-        <div class="field"><label>状态</label><select class="select"><option>全部</option><option>草稿</option><option>进行中</option><option>已完成</option></select></div>
-        <div class="actions"><button class="btn btn-primary">查询</button><button class="btn btn-secondary">重置</button></div>
-      </div>
-
-      <div class="flex between center mb-md">
-        <div class="flex gap-sm"><button class="btn btn-primary" data-toast="已下发 8 份发展计划">下发计划</button><button class="btn btn-secondary" data-toast="正在导出报告，请稍候…">导出报告</button></div>
-      </div>
-
-      <div class="card">
-        <div class="table-wrap"><table class="t">
-          <thead><tr><th>计划名称</th><th>学员</th><th>学员工号</th><th>部门</th><th>岗位</th><th>导师</th><th>计划期限</th><th style="text-align:right">操作</th></tr></thead>
-          <tbody>
-            <tr><td><b>架构师能力跃迁计划</b></td><td>张明</td><td class="muted">10032</td><td class="muted">研发中心</td><td>架构师</td><td>王志强</td><td class="muted">2026-01-06 ~ 2026-06-30</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>算法工程师进阶 IDP</b></td><td>李华</td><td class="muted">10058</td><td class="muted">研发中心</td><td>算法工程师</td><td>王志强</td><td class="muted">2026-02-10 ~ 2026-08-10</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>区域销售总监继任培养</b></td><td>王芳</td><td class="muted">20021</td><td class="muted">销售中心</td><td>区域销售总监</td><td>陈志远</td><td class="muted">2026-01-15 ~ 2026-07-15</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>财务分析经理发展计划</b></td><td>赵琳</td><td class="muted">30044</td><td class="muted">职能中台</td><td>财务分析经理</td><td class="muted">—</td><td class="muted">2026-03-01 ~ 2026-09-01</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>测试工程师技能提升</b></td><td>陈强</td><td class="muted">10077</td><td class="muted">研发中心</td><td>测试工程师</td><td>李文静</td><td class="muted">2026-04-01 ~ 2026-10-01</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>大客户销售经理 IDP</b></td><td>周磊</td><td class="muted">20033</td><td class="muted">销售中心</td><td>大客户销售经理</td><td>陈志远</td><td class="muted">2026-02-20 ~ 2026-08-20</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>前端开发工程师成长计划</b></td><td>孙宇</td><td class="muted">10091</td><td class="muted">研发中心</td><td>前端开发工程师</td><td class="muted">—</td><td class="muted">2026-05-06 ~ 2026-11-06</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-            <tr><td><b>招聘专员基本功培养</b></td><td>吴婷</td><td class="muted">30012</td><td class="muted">职能中台</td><td>招聘专员</td><td>李文静</td><td class="muted">2026-03-15 ~ 2026-09-15</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-toast="打开计划监控看板…">监控计划</button><button class="btn-text btn-sm danger" data-toast="已删除该计划">删除计划</button></td></tr>
-          </tbody>
-        </table></div>
-        <div class="pagination">
-          <div class="pg-info">共 86 条 · 每页 10 条</div>
-          <div class="pg-controls">
-            <button class="pg-btn disabled">上一页</button>
-            <button class="pg-btn active">1</button>
-            <button class="pg-btn">2</button>
-            <button class="pg-btn">3</button>
-            <button class="pg-btn">4</button>
-            <button class="pg-btn">5</button>
-            <span class="muted">…</span>
-            <button class="pg-btn">9</button>
-            <button class="pg-btn">下一页</button>
-            <span class="pg-jumper">前往 <input type="number" value="1"> 页</span>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-</div>
-
-<script src="app.js?v=20260901c"></script>
+<body>
+  <script>window.location.replace('position-map.html');</script>
+  <a href="position-map.html">进入岗位地图</a>
 </body>
 </html>

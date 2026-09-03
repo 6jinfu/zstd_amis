@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>人才详情 · 张明 · 人才中心</title>
-<link rel="stylesheet" href="styles.css?v=20260901o">
+<link rel="stylesheet" href="styles.css?v=20260902a">
 <style>
   .persona-header { display:flex; align-items:center; gap:var(--space-lg); background:linear-gradient(135deg,var(--primary-600),var(--primary-700)); color:#fff; border-radius:var(--radius-md); padding:var(--space-lg) var(--space-xl); margin-bottom:var(--space-md); }
   .persona-header .ph-avatar { width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,.2); display:grid; place-items:center; font-size:24px; font-weight:600; flex:0 0 64px; border:2px solid rgba(255,255,255,.3); }
@@ -104,22 +104,6 @@
             </div>
           </section>
 
-          <!-- 人才测评 -->
-          <section data-section="assess" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">能力测评记录</div><a class="btn-text btn-sm" href="assess-detail.html">查看来源项目 →</a></div>
-            <div class="table-wrap"><table class="t">
-              <thead><tr><th>维度</th><th>标准</th><th>自评</th><th>综合</th><th>达标</th></tr></thead>
-              <tbody>
-                <tr><td>系统架构</td><td>4.0</td><td>4.6</td><td><b>4.4</b></td><td><span class="tag tag-success">达标</span></td></tr>
-                <tr><td>技术选型</td><td>4.0</td><td>4.8</td><td><b>4.6</b></td><td><span class="tag tag-success">达标</span></td></tr>
-                <tr><td>团队管理</td><td>3.5</td><td>4.2</td><td><b>3.2</b></td><td><span class="tag tag-danger">差距</span></td></tr>
-                <tr><td>跨部门沟通</td><td>3.5</td><td>3.8</td><td><b>2.8</b></td><td><span class="tag tag-danger">差距</span></td></tr>
-                <tr><td>创新思维</td><td>3.5</td><td>4.4</td><td><b>4.2</b></td><td><span class="tag tag-success">达标</span></td></tr>
-              </tbody>
-            </table></div>
-            <div class="hint-box mt-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg><span>360 测评信度提示：自评与他评偏差较大（团队管理），建议人工复核。</span></div>
-          </section>
-
           <!-- 盘点结果 -->
           <section data-section="review" class="card card-pad d-section">
             <div class="flex between center mb-md"><div class="sect-title" style="margin:0">盘点落位</div><span class="tag">最新盘点结果</span></div>
@@ -137,87 +121,11 @@
             <div class="text-sm muted mt-md">2026 年度人才盘点 · 2026-07-30 结束 · 落位：高潜（绩效高 × 能力高）</div>
           </section>
 
-          <!-- 继任信息 -->
-          <section data-section="succ" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">继任准备</div><a class="btn-text btn-sm" href="succession-map.html">查看继任地图 →</a></div>
-            <div class="flex gap-md" style="gap:var(--space-md);flex-wrap:wrap">
-              <div class="sel-card" style="flex:1;min-width:200px">
-                <div class="text-sm muted">继任目标岗位</div>
-                <div style="font-size:16px;font-weight:600;margin-top:4px">首席架构师（P5）</div>
-                <div class="text-sm muted mt-sm">准备度</div>
-                <span class="tag tag-warning" style="margin-top:2px">1 年内可继任</span>
-              </div>
-              <div class="sel-card" style="flex:1;min-width:200px">
-                <div class="text-sm muted">当前继任角色</div>
-                <div style="font-size:16px;font-weight:600;margin-top:4px">架构师 · 第一继任</div>
-                <div class="text-sm muted mt-sm">风险评级</div>
-                <span class="tag tag-success" style="margin-top:2px">低风险</span>
-              </div>
-            </div>
-          </section>
-
-          <!-- 人才池 -->
-          <section data-section="pool" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">人才池轨迹</div><a class="btn-text btn-sm" href="talent-pool.html">查看人才池 →</a></div>
-            <div class="timeline-item">
-              <div class="timeline-dot" style="border-color:var(--success)"></div>
-              <div class="timeline-content"><div class="tc-title">入池 · 关键人才池</div><div class="tc-time">2026-06-01 · 由 2026 年度盘点沉淀</div></div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot" style="border-color:var(--primary-500)"></div>
-              <div class="timeline-content"><div class="tc-title">入池 · 研发高潜池</div><div class="tc-time">2026-06-05 · 盘点落位高潜自动入池</div></div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot" style="border-color:var(--warning)"></div>
-              <div class="timeline-content"><div class="tc-title">培养项目 · 架构师加速营（第 3 期）</div><div class="tc-time">2026-07-01 · 进行中</div></div>
-            </div>
-          </section>
-
-          <!-- 培训学习 -->
-          <section data-section="train" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">培训统计</div><a class="btn-text btn-sm" href="learning-plan.html">查看学习方案 →</a></div>
-            <div class="kpi-row">
-              <div class="kpi"><div class="label">学时</div><div class="value">48h</div></div>
-              <div class="kpi"><div class="label">学分</div><div class="value">12</div></div>
-              <div class="kpi"><div class="label">证书</div><div class="value">3</div></div>
-              <div class="kpi"><div class="label">项目</div><div class="value">1</div></div>
-            </div>
-            <div class="table-wrap mt-md"><table class="t">
-              <thead><tr><th>类型</th><th>名称</th><th>状态</th></tr></thead>
-              <tbody>
-                <tr><td><span class="tag tag-primary">课程</span></td><td>分布式系统设计</td><td><span class="tag tag-done">已完成</span></td></tr>
-                <tr><td><span class="tag tag-primary">课程</span></td><td>高并发架构实战</td><td><span class="tag tag-done">已完成</span></td></tr>
-                <tr><td><span class="tag tag-success">项目</span></td><td>架构师加速营（第 3 期）</td><td><span class="tag tag-running">进行中</span></td></tr>
-                <tr><td><span class="tag tag-warning">考试</span></td><td>系统架构认证</td><td><span class="tag tag-draft">未开始</span></td></tr>
-              </tbody>
-            </table></div>
-          </section>
-
-          <!-- 个人发展计划 -->
-          <section data-section="idp" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">当前 IDP</div><a class="btn-text btn-sm" href="position-map.html">查看发展通道 →</a></div>
-            <div class="sel-card mb-md">
-              <div class="flex between center"><span class="text-sm muted">目标</span><span style="font-weight:600">12 个月内晋升首席架构师</span></div>
-              <div class="divider" style="margin:10px 0"></div>
-              <div class="flex between center"><span class="text-sm muted">达标率</span><span style="font-weight:600;color:var(--primary-600)">65%</span></div>
-              <div class="idp-progress"><i style="width:65%"></i></div>
-              <div class="flex between center"><span class="text-sm muted">辅导人</span><span>现任首席架构师 · 赵总</span></div>
-              <div class="divider" style="margin:10px 0"></div>
-              <div class="text-sm muted mb-sm">关键行动</div>
-              <div class="chip-list">
-                <span class="chip">课程 · 分布式系统设计 <span class="lvl" style="color:var(--success)">✓</span></span>
-                <span class="chip">项目 · 架构师加速营</span>
-                <span class="chip">实践 · 主导核心模块重构</span>
-                <span class="chip" style="opacity:.5">考试 · 系统架构认证</span>
-              </div>
-            </div>
-          </section>
-
         </div>
       </div>
     </main>
   </div>
 </div>
-<script src="app.js?v=20260901c"></script>
+<script src="app.js?v=20260902b"></script>
 </body>
 </html>

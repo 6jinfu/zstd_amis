@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位详情 · 高级算法工程师</title>
-<link rel="stylesheet" href="styles.css?v=20260901o">
+<link rel="stylesheet" href="styles.css?v=20260902a">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app">
@@ -158,7 +158,51 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" id="picker-ok">添加</button></div>
 </div>
 
-<script src="app.js?v=20260901c"></script>
+<script src="app.js?v=20260902b"></script>
+<script>
+  // 同一详情骨架按案例切换业务数据；销售岗位通过 ?case=sales 进入。
+  (function () {
+    var algorithm = {
+      name: '高级算法工程师', code: 'RD-301', category: '研发', level: '研发·高级', context: '高级算法工程师 · 研发·高级',
+      standard: {
+        duty: [{ n: '负责算法模型的设计、训练与上线', t: ['主导推荐 / 搜索 / 预测等核心模型迭代', '把控模型效果与线上业务指标'] }, { n: '推进算法工程化与高性能交付', t: ['模型服务化与推理性能优化', '搭建特征工程与数据管道'] }, { n: '跟踪前沿并赋能团队', t: ['评估前沿论文与方法的落地价值', '指导初中级算法工程师成长'] }],
+        exp: ['硕士及以上，计算机 / 统计 / 数学相关', '3 年以上算法或机器学习经验', '有推荐 / 搜索 / NLP 等领域落地经验'],
+        cap: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3']],
+        pow: ['成就导向', '技术钻研', '创新探索'], pot: ['学习敏锐', '战略思维', '跨界整合']
+      },
+      abilityOptions: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3'], ['数据分析', 'L3'], ['系统工程', 'L3'], ['论文复现', 'L3']],
+      courseOptions: ['分布式系统设计', '高并发架构实战', '领导力基础', '数据治理入门', '技术合伙人', '架构演进实战'],
+      projectOptions: ['架构师加速营', '技术管理训练营', '跨部门攻坚项目'],
+      examOptions: ['系统架构认证', 'PMP 项目管理', '数据工程师认证'],
+      plan: [['课程', 'tag-primary', '机器学习基础', '培训平台 · 20 课时'], ['课程', 'tag-primary', '深度学习实战', '培训平台 · 24 课时'], ['课程', 'tag-primary', '推荐系统算法', '培训平台 · 16 课时'], ['项目', 'tag-success', '算法工程师训练营（第 2 期）', '培训项目 · 3 个月'], ['项目', 'tag-success', '模型上线攻坚项目', '培训项目 · 2 个月'], ['考试', 'tag-warning', '机器学习工程师认证', '认证考试 · 年度'], ['考试', 'tag-warning', '数据工程师认证', '认证考试 · 年度']],
+      gap: '算法设计 L4'
+    };
+    var sales = {
+      name: '销售经理', code: 'SA-201', category: '销售', level: '销售·中级', context: '销售经理 · 销售·中级',
+      standard: {
+        duty: [{ n: '负责区域销售目标达成与客户经营', t: ['制定区域销售计划并推进商机转化', '维护重点客户关系并提升复购与续约'] }, { n: '推进解决方案销售与商务谈判', t: ['识别客户业务需求并组织方案呈现', '统筹报价、谈判、合同及回款关键节点'] }, { n: '沉淀市场洞察并协同业务增长', t: ['收集竞品与行业动态并反馈销售策略', '协同售前、交付和客户成功推动项目落地'] }],
+        exp: ['本科及以上，市场营销或相关专业优先', '3 年以上企业客户销售经验', '具备复杂项目销售、商务谈判或重点客户经营经验'],
+        cap: [['客户洞察', 'L4'], ['顾问式销售', 'L4'], ['商务谈判', 'L4'], ['商机管理', 'L3'], ['协同推进', 'L3']],
+        pow: ['成就导向', '影响他人', '协作共赢'], pot: ['学习敏锐', '坚韧抗压', '复杂决策']
+      },
+      abilityOptions: [['客户洞察', 'L4'], ['顾问式销售', 'L4'], ['商务谈判', 'L4'], ['商机管理', 'L3'], ['关系经营', 'L4'], ['方案呈现', 'L3'], ['目标管理', 'L3'], ['协同推进', 'L3']],
+      courseOptions: ['顾问式销售实战', '关键客户经营', '商务谈判与成交', '销售漏斗管理', '解决方案呈现技巧', '回款风险管理'],
+      projectOptions: ['销售铁军训练营', '重点客户突破行动', '区域增长攻坚项目'],
+      examOptions: ['销售能力认证', '大客户经理认证', '商务谈判认证'],
+      plan: [['课程', 'tag-primary', '顾问式销售实战', '培训平台 · 12 课时'], ['课程', 'tag-primary', '关键客户经营', '培训平台 · 16 课时'], ['课程', 'tag-primary', '商务谈判与成交', '培训平台 · 10 课时'], ['项目', 'tag-success', '销售铁军训练营（第 3 期）', '培训项目 · 2 个月'], ['项目', 'tag-success', '重点客户突破行动', '行动学习 · 6 周'], ['前测', 'tag-warning', '销售能力认证', '认证考试 · 培养开始前'], ['后测', 'tag-warning', '销售能力认证', '认证考试 · 培养结束后']],
+      gap: '顾问式销售 L4'
+    };
+    var demo = new URLSearchParams(location.search).get('case') === 'sales' ? sales : algorithm;
+    window.POSITION_DEMO = demo;
+    document.title = '岗位详情 · ' + demo.name;
+    document.querySelector('.detail-bar h1').textContent = demo.name;
+    document.querySelector('.detail-bar .text-sm').textContent = demo.code + ' · ' + demo.level;
+    var fields = document.querySelectorAll('[data-section="info"] input.input');
+    if (fields.length >= 3) { fields[0].value = demo.code; fields[1].value = demo.name; fields[2].value = demo.category; }
+    var tbody = document.querySelector('#plan-table tbody');
+    if (tbody) tbody.innerHTML = demo.plan.map(function (r) { return '<tr><td><span class="tag ' + r[1] + '">' + r[0] + '</span></td><td>' + r[2] + '</td><td class="muted">' + r[3] + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>'; }).join('');
+  })();
+</script>
 <script>
   // 保存：轻反馈后回列表页（完整操作路径）
   var sb = document.getElementById('save-btn');
@@ -232,14 +276,15 @@
 <script>
   // 选择器（能力 / 动力 / 潜力 / 课程 / 项目 / 前测 / 后测，复用一个抽屉）
   (function () {
+    var demo = window.POSITION_DEMO;
     var PICK = {
-      '能力': { chips: '#cap-list', lvl: true, items: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3'], ['数据分析', 'L3'], ['系统工程', 'L3'], ['论文复现', 'L3']] },
+      '能力': { chips: '#cap-list', lvl: true, items: demo.abilityOptions },
       '动力': { chips: '#pow-list', items: ['成就导向', '技术钻研', '影响他人', '稳定归属', '自主独立', '掌控权力', '协作共赢'] },
       '潜力': { chips: '#pot-list', items: ['战略思维', '变革推动', '学习敏锐', '复杂决策', '跨界整合', '坚韧抗压'] },
-      '课程': { kind: '课程', tag: 'tag-primary', items: ['分布式系统设计', '高并发架构实战', '领导力基础', '数据治理入门', '技术合伙人', '架构演进实战'] },
-      '项目': { kind: '项目', tag: 'tag-success', items: ['架构师加速营', '技术管理训练营', '跨部门攻坚项目'] },
-      '前测': { kind: '前测', tag: 'tag-warning', items: ['系统架构认证', 'PMP 项目管理', '数据工程师认证'] },
-      '后测': { kind: '后测', tag: 'tag-warning', items: ['系统架构认证', 'PMP 项目管理', '数据工程师认证'] }
+      '课程': { kind: '课程', tag: 'tag-primary', items: demo.courseOptions },
+      '项目': { kind: '项目', tag: 'tag-success', items: demo.projectOptions },
+      '前测': { kind: '前测', tag: 'tag-warning', items: demo.examOptions },
+      '后测': { kind: '后测', tag: 'tag-warning', items: demo.examOptions }
     };
     var title = document.getElementById('picker-title'), list = document.getElementById('picker-list');
     var search = document.getElementById('picker-search'), ok = document.getElementById('picker-ok');
@@ -354,13 +399,8 @@
 <script>
 (function () {
   var btn = document.getElementById('ai-gen-btn'); if (!btn) return;
-  var AI = {
-    duty: [{ n: '负责算法模型的设计、训练与上线', t: ['主导推荐 / 搜索 / 预测等核心模型迭代', '把控模型效果与线上业务指标'] }, { n: '推进算法工程化与高性能交付', t: ['模型服务化与推理性能优化', '搭建特征工程与数据管道'] }, { n: '跟踪前沿并赋能团队', t: ['评估前沿论文与方法的落地价值', '指导初中级算法工程师成长'] }],
-    exp: ['硕士及以上，计算机 / 统计 / 数学相关', '3 年以上算法或机器学习经验', '有推荐 / 搜索 / NLP 等领域落地经验'],
-    cap: [['算法设计', 'L4'], ['模型工程', 'L4'], ['特征工程', 'L3'], ['编程能力', 'L4'], ['业务理解', 'L3']],
-    pow: ['成就导向', '技术钻研', '创新探索'],
-    pot: ['学习敏锐', '战略思维', '跨界整合']
-  };
+  var demo = window.POSITION_DEMO;
+  var AI = demo.standard;
   var ICON = {
     duty: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
     exp: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
@@ -385,12 +425,12 @@
     showAiGen({
       trigger: btn,
       title: 'AI 正在生成岗位标准',
-      subtitle: '高级算法工程师 · RD-301 · 研发·高级',
+      subtitle: demo.name + ' · ' + demo.code + ' · ' + demo.level,
       footOn: '岗位标准生成中',
       footDone: '生成完成，可继续编辑',
       toast: '岗位标准已生成',
       steps: [
-        { node: '读取岗位上下文（架构师 · 研发·高级）', label: '岗位职责', icon: ICON.duty, content: '<span class="ai-type-target"></span><span class="r-muted">共 ' + AI.duty.length + ' 项职责 · ' + taskCount + ' 条任务</span>', typed: AI.duty[0].n },
+        { node: '读取岗位上下文（' + demo.context + '）', label: '岗位职责', icon: ICON.duty, content: '<span class="ai-type-target"></span><span class="r-muted">共 ' + AI.duty.length + ' 项职责 · ' + taskCount + ' 条任务</span>', typed: AI.duty[0].n },
         { node: '梳理任职经历要求', label: '任职经历', icon: ICON.exp, content: AI.exp[0] + '<span class="r-muted"> 等 ' + AI.exp.length + ' 条</span>' },
         { node: '匹配能力项与等级', label: '能力（带等级）', icon: ICON.cap, content: chips(AI.cap, true) },
         { node: '推导动力倾向', label: '动力', icon: ICON.pow, content: chips(AI.pow, false) },
@@ -405,6 +445,7 @@
   // AI 配课（学习方案 tab，复用 showAiGen）
   (function () {
     var btn = document.getElementById('ai-course-btn'); if (!btn) return;
+    var demo = window.POSITION_DEMO;
     var ICON = {
       req: '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
       course: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
@@ -412,15 +453,7 @@
       exam: '<circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/>',
       path: '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 0-8H10a4 4 0 0 1 0-8h6"/>'
     };
-    var RES = [
-      ['课程', 'tag-primary', '机器学习基础', '培训平台 · 20 课时'],
-      ['课程', 'tag-primary', '深度学习实战', '培训平台 · 24 课时'],
-      ['课程', 'tag-primary', '推荐系统算法', '培训平台 · 16 课时'],
-      ['项目', 'tag-success', '算法工程师训练营（第 2 期）', '培训项目 · 3 个月'],
-      ['项目', 'tag-success', '模型上线攻坚项目', '培训项目 · 2 个月'],
-      ['考试', 'tag-warning', '机器学习工程师认证', '认证考试 · 年度'],
-      ['考试', 'tag-warning', '数据工程师认证', '认证考试 · 年度']
-    ];
+    var RES = demo.plan;
     function chips(arr) { return arr.map(function (n) { return '<span class="mini-chip">' + n + '</span>'; }).join(''); }
     function fillPlan() {
       var tb = document.querySelector('#plan-table tbody'); if (!tb) return;
@@ -430,17 +463,17 @@
     }
     var courses = RES.filter(function (r) { return r[0] === '课程'; }).map(function (r) { return r[2]; });
     var projects = RES.filter(function (r) { return r[0] === '项目'; }).map(function (r) { return r[2]; });
-    var exams = RES.filter(function (r) { return r[0] === '考试'; }).map(function (r) { return r[2]; });
+    var exams = RES.filter(function (r) { return r[0] === '考试' || r[0] === '前测' || r[0] === '后测'; }).map(function (r) { return r[2]; }).filter(function (name, index, arr) { return arr.indexOf(name) === index; });
     btn.addEventListener('click', function () {
       showAiGen({
         trigger: btn,
         title: 'AI 正在配课',
-        subtitle: '高级算法工程师 · 学习方案',
+        subtitle: demo.name + ' · 学习方案',
         footOn: '按能力差距匹配资源 · 完成后可调整',
         footDone: '学习方案已生成，可继续编辑',
         toast: '学习方案已生成',
         steps: [
-          { node: '读取岗位标准与能力差距', label: '能力要求', icon: ICON.req, content: '<span class="ai-type-target"></span><span class="r-muted">等 3 项能力差距</span>', typed: '算法设计 L4' },
+          { node: '读取岗位标准与能力差距', label: '能力要求', icon: ICON.req, content: '<span class="ai-type-target"></span><span class="r-muted">等 3 项能力差距</span>', typed: demo.gap },
           { node: '匹配课程资源', label: '推荐课程', icon: ICON.course, content: chips(courses) },
           { node: '匹配培养项目', label: '推荐项目', icon: ICON.proj, content: chips(projects) },
           { node: '匹配认证考试', label: '推荐考试', icon: ICON.exam, content: chips(exams) },

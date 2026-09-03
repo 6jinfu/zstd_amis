@@ -4,56 +4,6 @@
    调交互 → 只改本文件
    ============================================================ */
 
-/* ---------- mock 数据（平台数据=既存；序列/层级/归类=AI 产出）---------- */
-const MOCK = {
-  // F01 当前生效版组织结构（3 序列 × 3 层级）
-  org: {
-    versionNo: 'V2',
-    versionName: '2026 年组织调整',
-    effectiveAt: '2026-06-18',
-    operator: '李文静',
-    methods: ['岗位评价法', '结构分析法'],
-    gridSpec: '3 序列 × 3 层级',
-    sequences: ['研发', '销售', '职能'],
-    levels: ['初级', '中级', '高级'],
-    // 矩阵展示约定：列=序列，行=层级（顶高底低）；页面矩阵已硬编码，此处备用
-    groups: [
-      [{ name: '研发·初级', positions: 4, headcount: 18 },
-       { name: '研发·中级', positions: 7, headcount: 36 },
-       { name: '研发·高级', positions: 3, headcount: 9 }],
-      [{ name: '销售·初级', positions: 5, headcount: 42 },
-       { name: '销售·中级', positions: 6, headcount: 28 },
-       { name: '销售·高级', positions: 2, headcount: 6 }],
-      [{ name: '职能·初级', positions: 3, headcount: 12 },
-       { name: '职能·中级', positions: 4, headcount: 14 },
-       { name: '职能·高级', positions: 0, headcount: 0 }],
-    ],
-  },
-  orgHistory: [
-    { no: 'V2', name: '2026 年组织调整', operator: '李文静', time: '2026-06-18', methods: '岗位评价法 / 结构分析法', grid: '3×3', status: 'effective' },
-    { no: 'V1', name: '初始组织结构', operator: '王志强', time: '2025-12-01', methods: '结构分析法', grid: '3×2', status: 'archived' },
-  ],
-
-  // F02 分析项目
-  diagnoses: [
-    { id: 'keydiag_001', name: '2026 年度关键岗位分析', version: 'V2 · 2026 年组织调整', gran: '岗位族', views: '经济 + 能力', keyCount: 11, status: 'done', owner: '李文静' },
-    { id: 'keydiag_002', name: '研发序列关键岗位试点', version: 'V2 · 2026 年组织调整', gran: '具体岗位', views: '经济', keyCount: 4, status: 'running', owner: '王志强' },
-    { id: 'keydiag_003', name: '销售铁军关键岗位', version: 'V2 · 2026 年组织调整', gran: '具体岗位', views: '能力', keyCount: 0, status: 'draft', owner: '张敏' },
-  ],
-
-  // F04 岗位（is_key 统一口径）
-  positions: [
-    { code: 'RD-301', name: '高级算法工程师', cat: '研发', group: '研发·高级', isKey: true, coef: '0.92', hasStd: true, hasPlan: true, diagnosed: true },
-    { code: 'RD-205', name: '后端开发工程师', cat: '研发', group: '研发·中级', isKey: true, coef: '0.81', hasStd: true, hasPlan: false, diagnosed: true },
-    { code: 'SA-110', name: '大客户销售经理', cat: '销售', group: '销售·中级', isKey: true, coef: '0.78', hasStd: false, hasPlan: false, diagnosed: true },
-    { code: 'RD-102', name: '前端开发工程师', cat: '研发', group: '研发·初级', isKey: false, coef: '0.54', hasStd: false, hasPlan: false, diagnosed: true },
-    { code: 'SA-301', name: '区域销售总监', cat: '销售', group: '销售·高级', isKey: true, coef: '0.88', hasStd: true, hasPlan: true, diagnosed: true },
-    { code: 'FN-203', name: '财务分析经理', cat: '职能', group: '职能·中级', isKey: false, coef: '0.46', hasStd: false, hasPlan: false, diagnosed: false },
-    { code: 'RD-302', name: '架构师', cat: '研发', group: '研发·高级', isKey: true, coef: '0.95', hasStd: true, hasPlan: true, diagnosed: true },
-    { code: 'HR-101', name: '招聘专员', cat: '职能', group: '职能·初级', isKey: false, coef: '0.31', hasStd: false, hasPlan: false, diagnosed: false },
-  ],
-};
-
 /* ---------- ① 导航：按 body[data-page] 高亮 ---------- */
 function initNav() {
   const page = document.body.dataset.page;
@@ -97,22 +47,6 @@ const RELEASE_BUSINESS_NAV = {
 };
 
 function applyReleaseScope() {
-  const pageFile = location.pathname.split('/').pop() || 'index.html';
-  const redirects = {
-    'assess-results.html': 'assess-projects.html',
-    'assess-tools.html': 'assess-projects.html',
-    'review-compare.html': 'review-projects.html',
-    'level-map.html': 'position-map.html',
-    'idp-list.html': 'position-map.html',
-    'talent-pool.html': 'talent-list.html',
-    'succession-map.html': 'talent-list.html',
-    'org-dashboard.html': 'talent-list.html'
-  };
-  if (redirects[pageFile]) {
-    location.replace(redirects[pageFile]);
-    return false;
-  }
-
   const module = document.body.dataset.module;
   const sidenav = document.querySelector('.sidenav');
   const config = RELEASE_BUSINESS_NAV[module];
@@ -131,14 +65,6 @@ function applyReleaseScope() {
     });
   }
 
-  if (pageFile === 'talent-profile.html') {
-    document.querySelectorAll('.anchor-nav .a-item').forEach(item => {
-      if (!['ability', 'review'].includes(item.dataset.tab)) item.remove();
-    });
-    document.querySelectorAll('.detail-main > .d-section').forEach(section => {
-      if (!['ability', 'review'].includes(section.dataset.section)) section.remove();
-    });
-  }
   return true;
 }
 
@@ -238,19 +164,10 @@ function initListWorkbenches() {
       title: '岗位类别',
       selectIndex: 0,
       items: [
-        { label: '全部', value: '全部', count: 8 },
+        { label: '全部', value: '全部', count: 9 },
         { label: '研发', value: '研发', count: 4 },
-        { label: '销售', value: '销售', count: 2 },
+        { label: '销售', value: '销售', count: 3 },
         { label: '职能', value: '职能', count: 2 }
-      ]
-    },
-    'idp-list.html': {
-      title: '所属部门',
-      items: [
-        { label: '全部计划', count: 8 },
-        { label: '研发中心', count: 4, keywords: ['研发中心'] },
-        { label: '销售中心', count: 2, keywords: ['销售中心'] },
-        { label: '职能中台', count: 2, keywords: ['职能中台'] }
       ]
     },
     'talent-list.html': {
