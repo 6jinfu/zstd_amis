@@ -851,6 +851,153 @@ function showAiGen(opts) {
   })();
 }
 
+/* ---------- 异步分析任务：关闭弹窗后继续后台运行 ---------- */
+const ANALYSIS_TASK_KEY = 'talent-development-active-analysis-v3';
+let analysisTaskTimer = null;
+
+function readAnalysisTask() {
+  try {
+    var task = JSON.parse(localStorage.getItem(ANALYSIS_TASK_KEY) || 'null');
+    if (!task || !task.startedAt || !task.resultHref) return null;
+    return task;
+  } catch (_error) { return null; }
+}
+
+function writeAnalysisTask(task) {
+  try { localStorage.setItem(ANALYSIS_TASK_KEY, JSON.stringify(task)); } catch (_error) {}
+}
+
+function analysisTaskProgress(task) {
+  var elapsed = Math.max(0, Date.now() - Number(task.startedAt));
+  var duration = Math.max(5000, Number(task.duration) || 12000);
+  return Math.min(100, Math.round(elapsed / duration * 100));
+}
+
+function analysisTaskStages(task) {
+  return task.type === 'key'
+    ? ['读取组织版本', '计算岗位得分', '合成关键系数', '校验分析结果']
+    : ['读取组织数据', '执行分析方法', '归类岗位族', '校验分析结果'];
+}
+
+function closeAnalysisTaskModal() {
+  var modal = document.querySelector('.async-task-modal');
+  if (!modal) return;
+  if (analysisTaskTimer) clearInterval(analysisTaskTimer);
+  analysisTaskTimer = null;
+  modal.classList.remove('show');
+  document.body.classList.remove('overlay-open');
+  setTimeout(function () { modal.remove(); }, 220);
+}
+
+function saveAnalysisTaskInBackground(task) {
+  closeAnalysisTaskModal();
+  if (task.returnHref) setTimeout(function () { location.href = task.returnHref; }, 260);
+}
+
+function openAnalysisResult(task, box) {
+  if (analysisTaskProgress(task) < 100) return;
+  if (analysisTaskTimer) clearInterval(analysisTaskTimer);
+  box.innerHTML = '<div class="async-task-result-loading" role="status" aria-live="polite"><span class="async-task-result-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 13h8M8 17h6"/></svg></span><h2>正在装载分析结果</h2><p>读取结果、生成视图并准备校准项…</p></div>';
+  try { localStorage.removeItem(ANALYSIS_TASK_KEY); } catch (_error) {}
+  setTimeout(function () { location.href = task.resultHref; }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 250 : 1300);
+}
+
+function openAnalysisTaskModal(task) {
+  document.querySelector('.async-task-modal')?.remove();
+  var modal = document.createElement('div');
+  modal.className = 'async-task-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-label', task.title + '进度');
+  modal.innerHTML = '<div class="async-task-box"><div class="async-task-head"><div><div class="async-task-kicker">Background task</div><h2></h2><p class="text-sm muted"></p></div><button class="async-task-close" type="button" data-async-close aria-label="关闭进度弹窗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="async-task-body"><div class="async-task-status"><span class="tag tag-running">分析中</span><span data-task-stage>任务已提交，等待执行</span><strong data-task-progress>0%</strong></div><div class="async-task-progress"><i></i></div><div class="async-task-stage-list"></div><div class="async-task-note"><span>你可以继续等待，也可以暂时关闭弹窗返回分析页；关闭后任务仍会在后台运行。</span></div></div><div class="async-task-foot"><span class="async-task-foot-note">稍后可从分析页重新查看进度</span><div class="async-task-actions"><button class="btn btn-secondary" type="button" data-task-background>暂时关闭，返回分析页</button><button class="btn btn-primary" type="button" data-task-result data-async-result disabled>完成后查看结果</button></div></div></div>';
+  document.body.appendChild(modal);
+  modal.querySelector('h2').textContent = task.title;
+  modal.querySelector('.async-task-head p').textContent = task.subtitle || '已创建后台分析任务';
+  var stageList = modal.querySelector('.async-task-stage-list');
+  analysisTaskStages(task).forEach(function (label) {
+    var row = document.createElement('div'); row.className = 'async-task-stage'; row.innerHTML = '<span></span>'; row.lastChild.textContent = label; stageList.appendChild(row);
+  });
+  function refresh() {
+    var progress = analysisTaskProgress(task);
+    var stages = modal.querySelectorAll('.async-task-stage');
+    var activeIndex = Math.min(stages.length - 1, Math.floor(progress / 25));
+    modal.querySelector('[data-task-progress]').textContent = progress + '%';
+    modal.querySelector('.async-task-progress > i').style.width = progress + '%';
+    stages.forEach(function (stage, index) { stage.classList.toggle('done', progress >= 100 || index < activeIndex); stage.classList.toggle('active', progress < 100 && index === activeIndex); });
+    var stageText = modal.querySelector('[data-task-stage]');
+    var tag = modal.querySelector('.async-task-status .tag');
+    var result = modal.querySelector('[data-task-result]');
+    if (progress >= 100) {
+      stageText.textContent = '分析结果已校验完成';
+      tag.className = 'tag tag-effective'; tag.textContent = '已完成';
+      result.disabled = false;
+    } else {
+      stageText.textContent = analysisTaskStages(task)[activeIndex] + '…';
+    }
+  }
+  modal.addEventListener('click', function (event) { if (event.target === modal) closeAnalysisTaskModal(); });
+  document.body.classList.add('overlay-open');
+  requestAnimationFrame(function () { modal.classList.add('show'); modal.querySelector('.async-task-close').focus(); });
+  refresh();
+  if (analysisTaskTimer) clearInterval(analysisTaskTimer);
+  analysisTaskTimer = setInterval(refresh, 500);
+}
+
+function startAnalysisTask(options) {
+  var task = {
+    type: options.type === 'key' ? 'key' : 'org',
+    title: options.title,
+    subtitle: options.subtitle || '',
+    resultHref: options.resultHref,
+    returnHref: options.returnHref || '',
+    startedAt: Date.now(),
+    duration: options.duration || 12000
+  };
+  if (task.type === 'org') {
+    try { localStorage.removeItem('talent-org-analysis-ready-v5'); } catch (_error) {}
+  }
+  writeAnalysisTask(task);
+  openAnalysisTaskModal(task);
+  return task;
+}
+window.startAnalysisTask = startAnalysisTask;
+
+function initAnalysisTasks() {
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('[data-async-close]')) {
+      event.preventDefault(); closeAnalysisTaskModal(); return;
+    }
+    if (event.target.closest('[data-async-result]')) {
+      var resultTask = readAnalysisTask();
+      var resultBox = document.querySelector('.async-task-box');
+      if (resultTask && resultBox) openAnalysisResult(resultTask, resultBox);
+      return;
+    }
+    if (event.target.closest('[data-task-background]')) {
+      var backgroundTask = readAnalysisTask();
+      if (backgroundTask) saveAnalysisTaskInBackground(backgroundTask);
+      return;
+    }
+    var trigger = event.target.closest('[data-open-analysis-task]');
+    if (!trigger) return;
+    event.preventDefault();
+    var current = readAnalysisTask();
+    if (!current || current.type !== trigger.dataset.taskType) {
+      current = {
+        type: trigger.dataset.taskType === 'key' ? 'key' : 'org',
+        title: trigger.dataset.taskTitle || '后台分析任务',
+        subtitle: trigger.dataset.taskSubtitle || '',
+        resultHref: trigger.dataset.resultHref,
+        returnHref: trigger.dataset.returnHref || '',
+        startedAt: Date.now() - 6500,
+        duration: 12000
+      };
+      writeAnalysisTask(current);
+    }
+    openAnalysisTaskModal(current);
+  });
+}
+
 /* ---------- 启动 ---------- */
 function initApp() {
   if (!applyReleaseScope()) return;
@@ -870,6 +1017,7 @@ function initApp() {
   initHeatmap();
   initListFilter();
   initToasts();
+  initAnalysisTasks();
   // 品牌标识点击 → 岗位中心
   document.querySelectorAll('.brand').forEach(function (_brand) {
     _brand.setAttribute('role', 'link');

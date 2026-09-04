@@ -23,6 +23,8 @@ let step = 0;
 let state: JsonRecord = {};
 let uploadedFiles: JsonRecord[] = [];
 let uploadMessage = "";
+let activeRunId = "";
+let pollTimer: number | undefined;
 
 function shell(content: string, footer = ""): string {
   return `<div class="shell">
@@ -54,7 +56,7 @@ function card(name: string, title: string, desc: string, meta: string): string {
 }
 
 function footer(final = false): string {
-  return `<footer class="footer"><div class="footer-group"><button class="btn secondary" type="button" id="prev" ${step === 0 ? "disabled" : ""}>上一步</button><button class="btn ghost" type="button" id="save">保存当前配置</button></div><button class="btn primary" type="submit" id="next">${final ? "开始 AI 分析" : "下一步"}</button></footer>`;
+  return `<footer class="footer"><div class="footer-group"><button class="btn secondary" type="button" id="prev" ${step === 0 ? "disabled" : ""}>上一步</button><button class="btn ghost" type="button" id="save">保存当前配置</button></div><button class="btn primary" type="submit" id="next">${final ? "提交分析" : "下一步"}</button></footer>`;
 }
 
 function renderScope(): string {
@@ -150,6 +152,7 @@ function renderSummary(): string {
 }
 
 function render(): void {
+  clearPollTimer();
   const views = [renderScope, renderMaterials, renderMethods, renderDimensions, renderGrid, renderSummary];
   root.innerHTML = shell(views[step](), footer(step === stepNames.length - 1));
   bind();
@@ -224,14 +227,92 @@ function buildDifyConfig(): JsonRecord {
 }
 
 async function analyze(button: HTMLButtonElement): Promise<void> {
-  setButtonLoading(button, true, "开始 AI 分析");
-  root.innerHTML = `<div class="shell"><section class="panel loading"><div><div class="spinner" aria-hidden="true"></div><h2>正在生成岗位族矩阵</h2><p class="sub">AI 正在执行所选方法并核对岗位归类依据。</p></div></section></div>`;
+  setButtonLoading(button, true, "正在提交");
   try {
     const result = await app.callServerTool({ name: toolName, arguments: { action: "analyze", config: buildDifyConfig() } });
-    renderResult(readStructuredContent(result));
+    renderProgress(readStructuredContent(result));
   } catch (error) {
     renderError(error instanceof Error ? error.message : "分析执行失败");
   }
+}
+
+function clearPollTimer(): void {
+  if (pollTimer !== undefined) window.clearTimeout(pollTimer);
+  pollTimer = undefined;
+}
+
+function rememberRun(runId: string): void {
+  activeRunId = runId;
+  try { window.localStorage.setItem("talent-org-analysis-active-run", runId); } catch { /* sandbox may disable storage */ }
+}
+
+function clearRun(): void {
+  clearPollTimer();
+  activeRunId = "";
+  try { window.localStorage.removeItem("talent-org-analysis-active-run"); } catch { /* sandbox may disable storage */ }
+}
+
+function schedulePoll(): void {
+  clearPollTimer();
+  pollTimer = window.setTimeout(() => void refreshRun(), document.hidden ? 8000 : 2000);
+}
+
+function renderProgress(payload: JsonRecord): void {
+  const runId = String(payload.run_id || activeRunId);
+  if (!runId) { renderError("未获得分析任务 ID"); return; }
+  rememberRun(runId);
+  const progress = Math.min(100, Math.max(0, numberValue(payload.progress)));
+  const queued = payload.status === "queued";
+  root.innerHTML = `<div class="shell"><section class="panel"><div class="panel-body run-panel">
+    <div class="eyebrow">Background analysis</div><h2>${queued ? "分析任务已提交" : "组织结构分析正在后台运行"}</h2>
+    <p class="sub">耗时分析已转为后台任务。你可以离开或刷新页面，稍后仍可继续查看进度。</p>
+    <div class="run-meta"><span class="badge">${escapeHtml(queued ? "排队中" : "分析中")}</span><span>${escapeHtml(payload.stage || "等待执行")}</span><strong>${progress}%</strong></div>
+    <div class="run-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}"><i style="width:${progress}%"></i></div>
+    <div class="run-actions"><button class="btn secondary" id="refresh-run">刷新进度</button><button class="btn ghost" id="cancel-run">取消任务</button></div>
+  </div></section></div>`;
+  document.querySelector<HTMLButtonElement>("#refresh-run")?.addEventListener("click", () => void refreshRun());
+  document.querySelector<HTMLButtonElement>("#cancel-run")?.addEventListener("click", () => void cancelRun());
+  schedulePoll();
+}
+
+async function refreshRun(): Promise<void> {
+  if (!activeRunId) return;
+  clearPollTimer();
+  try {
+    const response = await app.callServerTool({ name: toolName, arguments: { action: "status", run_id: activeRunId } });
+    const payload = readStructuredContent(response);
+    if (payload.status === "succeeded") {
+      const result = await app.callServerTool({ name: toolName, arguments: { action: "result", run_id: activeRunId } });
+      renderResult(readStructuredContent(result));
+    } else if (payload.status === "failed" || payload.status === "cancelled") {
+      clearRun();
+      renderError(String(payload.message || (payload.status === "cancelled" ? "分析任务已取消" : "分析执行失败")));
+    } else {
+      renderProgress(payload);
+    }
+  } catch (error) {
+    renderRunError(error instanceof Error ? error.message : "进度查询失败");
+  }
+}
+
+async function cancelRun(): Promise<void> {
+  if (!activeRunId) return;
+  clearPollTimer();
+  try {
+    const response = await app.callServerTool({ name: toolName, arguments: { action: "cancel", run_id: activeRunId } });
+    const payload = readStructuredContent(response);
+    clearRun();
+    renderError(String(payload.message || "分析任务已取消"));
+  } catch (error) {
+    renderRunError(error instanceof Error ? error.message : "取消任务失败");
+  }
+}
+
+function renderRunError(message: string): void {
+  clearPollTimer();
+  root.innerHTML = `<div class="shell"><section class="panel"><div class="panel-body"><div class="notice error">${escapeHtml(message)}</div><p class="sub" style="margin-top:10px">任务仍在后台运行，可以重试查询。</p><div class="run-actions"><button class="btn primary" id="retry-run">重试查询</button><button class="btn secondary" id="back">返回配置</button></div></div></section></div>`;
+  document.querySelector<HTMLButtonElement>("#retry-run")?.addEventListener("click", () => void refreshRun());
+  document.querySelector<HTMLButtonElement>("#back")?.addEventListener("click", render);
 }
 
 function bind(): void {
@@ -257,6 +338,7 @@ function bind(): void {
 }
 
 function renderResult(payload: JsonRecord): void {
+  clearRun();
   if (payload.status === "error") { renderError(String(payload.message || "分析执行失败")); return; }
   const result = asRecord(payload.result);
   const groups = asArray(result.groups);
@@ -283,7 +365,13 @@ app.ontoolresult = (result) => {
     let stored: JsonRecord = {};
     try { stored = asRecord(JSON.parse(window.localStorage.getItem("talent-org-analysis-draft") || "{}")); } catch { /* sandbox may disable storage */ }
     state = { ...asRecord(payload.defaults), ...stored };
-    render();
+    try { activeRunId = window.localStorage.getItem("talent-org-analysis-active-run") || ""; } catch { /* sandbox may disable storage */ }
+    if (activeRunId) void refreshRun(); else render();
+  } else if (payload.status === "queued" || payload.status === "running") {
+    renderProgress(payload);
+  } else if (payload.status === "succeeded" && payload.run_id) {
+    rememberRun(String(payload.run_id));
+    void refreshRun();
   } else if (payload.status === "completed") {
     renderResult(payload);
   } else if (payload.status === "error") {

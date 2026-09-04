@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>新建关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260902a">
+<link rel="stylesheet" href="styles.css?v=20260903k">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -119,13 +119,13 @@
           <div class="flex gap-sm center">
             <a class="btn btn-ghost" href="key-position.html">取消</a>
           </div>
-          <a class="btn btn-primary" data-loading-btn href="key-position-analyzing.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>开始分析</a>
+          <a class="btn btn-primary" data-loading-btn href="key-position-analyzing.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>提交分析</a>
         </div>
       </div>
     </main>
   </div>
 </div>
-<script src="app.js?v=20260902b"></script>
+<script src="app.js?v=20260903k"></script>
 <script>
   // 引用组织结构版本切换：摘要 + 下方可视化（矩阵 / KPI）联动
   document.addEventListener('DOMContentLoaded', function () {
@@ -153,8 +153,19 @@
     if (this.dataset.loading) return;
     e.preventDefault();
     this.dataset.loading = '1'; this.style.pointerEvents = 'none';
-    this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>分析中…';
-    var href = this.href; setTimeout(function () { location.href = href; }, 950);
+    this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>正在提交…';
+    var button = this;
+    setTimeout(function () {
+      button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M5 12l4 4L19 6"/></svg>任务已提交';
+      if (window.startAnalysisTask) window.startAnalysisTask({
+        type: 'key',
+        title: '关键岗位分析',
+        subtitle: '年度关键岗位分析 · 引用组织结构 V2',
+        resultHref: 'key-position-result.html',
+        returnHref: 'key-position.html',
+        duration: 12000
+      });
+    }, 350);
   });
 </script>
 </body>

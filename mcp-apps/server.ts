@@ -4,6 +4,7 @@ import {
   registerAppTool,
 } from "@modelcontextprotocol/ext-apps/server";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,10 +12,25 @@ import { z } from "zod";
 
 type Scene = "organization_structure_analysis" | "key_position_analysis";
 type JsonRecord = Record<string, unknown>;
+type RunStatus = "queued" | "running" | "succeeded" | "failed" | "cancelled";
+
+type AnalysisRun = {
+  runId: string;
+  scene: Scene;
+  status: RunStatus;
+  progress: number;
+  stage: string;
+  createdAt: string;
+  updatedAt: string;
+  controller: AbortController;
+  output?: JsonRecord;
+  message?: string;
+};
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const ORG_RESOURCE_URI = "ui://talent-analysis/organization-structure.html";
 const KEY_RESOURCE_URI = "ui://talent-analysis/key-position.html";
+const analysisRuns = new Map<string, AnalysisRun>();
 
 const sceneConfig: Record<
   Scene,
@@ -122,7 +138,7 @@ function apiBase(): string {
   return (process.env.DIFY_BASE_URL || "https://api.dify.ai").replace(/\/$/, "");
 }
 
-async function runDify(scene: Scene, config: JsonRecord): Promise<JsonRecord> {
+function requireAppKey(scene: Scene): string {
   const appKey = sceneConfig[scene].appKey();
   if (!appKey) {
     throw new Error(
@@ -131,6 +147,15 @@ async function runDify(scene: Scene, config: JsonRecord): Promise<JsonRecord> {
         : "服务端尚未配置 DIFY_KEY_POSITION_APP_KEY",
     );
   }
+  return appKey;
+}
+
+async function runDify(
+  scene: Scene,
+  config: JsonRecord,
+  signal?: AbortSignal,
+): Promise<JsonRecord> {
+  const appKey = requireAppKey(scene);
 
   const response = await fetch(`${apiBase()}/v1/chat-messages`, {
     method: "POST",
@@ -144,6 +169,7 @@ async function runDify(scene: Scene, config: JsonRecord): Promise<JsonRecord> {
       response_mode: "blocking",
       user: `mcp-app:${scene}`,
     }),
+    signal,
   });
 
   const payload = (await response.json()) as JsonRecord;
@@ -154,13 +180,77 @@ async function runDify(scene: Scene, config: JsonRecord): Promise<JsonRecord> {
 
   const answer = typeof payload.answer === "string" ? payload.answer : "";
   return {
-    status: "completed",
-    scene,
     answer: visibleAnswer(answer),
     result: extractResult(answer),
     conversation_id: payload.conversation_id,
     message_id: payload.message_id,
   };
+}
+
+function runPayload(run: AnalysisRun): JsonRecord {
+  return {
+    status: run.status,
+    scene: run.scene,
+    run_id: run.runId,
+    progress: run.progress,
+    stage: run.stage,
+    result_available: run.status === "succeeded",
+    created_at: run.createdAt,
+    updated_at: run.updatedAt,
+    ...(run.message ? { message: run.message } : {}),
+  };
+}
+
+function getRun(scene: Scene, runId: string | undefined): AnalysisRun {
+  if (!runId) throw new Error("缺少 run_id");
+  const run = analysisRuns.get(runId);
+  if (!run || run.scene !== scene) throw new Error("分析任务不存在或已失效");
+  return run;
+}
+
+async function executeAnalysis(run: AnalysisRun, config: JsonRecord): Promise<void> {
+  if (run.controller.signal.aborted) return;
+  run.status = "running";
+  run.progress = 15;
+  run.stage = "AI 分析中";
+  run.updatedAt = new Date().toISOString();
+  try {
+    run.output = await runDify(run.scene, config, run.controller.signal);
+    if (run.controller.signal.aborted) return;
+    run.status = "succeeded";
+    run.progress = 100;
+    run.stage = "分析完成";
+  } catch (error) {
+    if (run.controller.signal.aborted) {
+      run.status = "cancelled";
+      run.stage = "已取消";
+      run.message = "分析任务已取消";
+    } else {
+      run.status = "failed";
+      run.stage = "分析失败";
+      run.message = error instanceof Error ? error.message : "分析执行失败";
+    }
+  } finally {
+    run.updatedAt = new Date().toISOString();
+  }
+}
+
+function startAnalysis(scene: Scene, config: JsonRecord): AnalysisRun {
+  requireAppKey(scene);
+  const now = new Date().toISOString();
+  const run: AnalysisRun = {
+    runId: randomUUID(),
+    scene,
+    status: "queued",
+    progress: 0,
+    stage: "等待执行",
+    createdAt: now,
+    updatedAt: now,
+    controller: new AbortController(),
+  };
+  analysisRuns.set(run.runId, run);
+  setTimeout(() => void executeAnalysis(run, config), 0);
+  return run;
 }
 
 async function uploadToDify(
@@ -202,10 +292,15 @@ async function uploadToDify(
 
 function toolResult(scene: Scene, data: JsonRecord) {
   const title = sceneConfig[scene].title;
-  const text =
-    data.status === "completed"
-      ? `${title}已完成。请在交互界面中查看结果并进行人工校准。`
-      : `请在交互界面中完成${title}配置。`;
+  const messages: Record<string, string> = {
+    queued: `${title}任务已提交，将在后台执行。`,
+    running: `${title}正在后台执行。`,
+    succeeded: `${title}已完成，可以查看结果。`,
+    completed: `${title}已完成。请在交互界面中查看结果并进行人工校准。`,
+    failed: `${title}执行失败。`,
+    cancelled: `${title}任务已取消。`,
+  };
+  const text = messages[String(data.status)] || `请在交互界面中完成${title}配置。`;
   return { content: [{ type: "text" as const, text }], structuredContent: data };
 }
 
@@ -216,17 +311,44 @@ function registerAnalysisTool(server: McpServer, scene: Scene): void {
     spec.toolName,
     {
       title: spec.title,
-      description: `打开${spec.title}交互配置，并在提交后调用 Dify 完成分析。`,
+      description: `打开${spec.title}交互配置；提交后创建后台任务，并支持查询进度、获取结果和取消任务。`,
       inputSchema: {
-        action: z.enum(["open", "analyze"]).optional(),
+        action: z.enum(["open", "analyze", "status", "result", "cancel"]).optional(),
         config: z.record(z.string(), z.unknown()).optional(),
+        run_id: z.string().optional(),
       },
       _meta: { ui: { resourceUri: spec.resourceUri } },
     },
-    async ({ action = "open", config = {} }) => {
+    async ({ action = "open", config = {}, run_id }) => {
       try {
         if (action === "analyze") {
-          return toolResult(scene, await runDify(scene, config));
+          return toolResult(scene, runPayload(startAnalysis(scene, config)));
+        }
+        if (action === "status") {
+          return toolResult(scene, runPayload(getRun(scene, run_id)));
+        }
+        if (action === "result") {
+          const run = getRun(scene, run_id);
+          if (run.status !== "succeeded" || !run.output) {
+            return toolResult(scene, runPayload(run));
+          }
+          return toolResult(scene, {
+            status: "completed",
+            scene,
+            run_id: run.runId,
+            ...run.output,
+          });
+        }
+        if (action === "cancel") {
+          const run = getRun(scene, run_id);
+          if (run.status === "queued" || run.status === "running") {
+            run.controller.abort();
+            run.status = "cancelled";
+            run.stage = "已取消";
+            run.message = "分析任务已取消";
+            run.updatedAt = new Date().toISOString();
+          }
+          return toolResult(scene, runPayload(run));
         }
         return toolResult(scene, {
           status: "configure",

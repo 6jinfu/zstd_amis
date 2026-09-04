@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260902a">
+<link rel="stylesheet" href="styles.css?v=20260903k">
 <style>
   .key-position-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
   .key-position-category-tree .ctp-head .ctp-title { font-size:13px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
@@ -49,7 +49,7 @@
         <section class="review-main cat-main">
           <div class="filter-bar" data-filter-bar>
             <div class="field"><label>项目名</label><input class="input" type="search" placeholder="搜索项目名" id="kp-search"></div>
-            <div class="field"><label>状态</label><select class="select" id="kp-status"><option>全部</option><option>草稿</option><option>分析中</option><option>已完成</option></select></div>
+            <div class="field"><label>状态</label><select class="select" id="kp-status"><option>全部</option><option>草稿</option><option>排队中</option><option>分析中</option><option>校验中</option><option>已完成</option><option>分析失败</option><option>已取消</option></select></div>
             <div class="actions"><button class="btn btn-primary" id="kp-query">查询</button><button class="btn btn-secondary" id="kp-reset">重置</button></div>
           </div>
 
@@ -73,7 +73,7 @@
               <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm danger">删除</button></td>
             </tr>
             <tr data-cat="序列分析">
-              <td>研发序列关键岗位试点</td>
+              <td><a href="key-position-analyzing.html" data-open-analysis-task data-task-type="key" data-task-title="关键岗位分析" data-task-subtitle="研发序列关键岗位试点 · 引用组织结构 V2" data-result-href="key-position-result.html" style="color:var(--primary-600);font-weight:500">研发序列关键岗位试点</a></td>
               <td>序列分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>具体岗位</td>
@@ -81,7 +81,7 @@
               <td class="muted">—</td>
               <td><span class="tag tag-running">分析中</span></td>
               <td>王志强</td>
-              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm muted">终止</button></td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-analyzing.html" data-open-analysis-task data-task-type="key" data-task-title="关键岗位分析" data-task-subtitle="研发序列关键岗位试点 · 引用组织结构 V2" data-result-href="key-position-result.html">查看进度</a><button class="btn-text btn-sm muted" data-toast="已提交终止请求">终止</button></td>
             </tr>
             <tr data-cat="专项分析">
               <td>销售铁军关键岗位</td>
@@ -125,7 +125,7 @@
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
-<script src="app.js?v=20260902b"></script>
+<script src="app.js?v=20260903k"></script>
 <script>
 (function(){
   var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]'),catInput=document.querySelector('[data-kp-catmgr-new]');

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>组织结构分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260902a">
+<link rel="stylesheet" href="styles.css?v=20260903k">
 </head>
 <body data-module="standard" data-page="org-structure">
 <div class="app">
@@ -123,27 +123,37 @@
         <div class="wiz-foot">
           <div class="flex gap-sm center">
             <button class="btn btn-secondary" data-step-prev><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>上一步</button>
-            <span class="draft-note">草稿自动保存</span>
           </div>
           <div class="flex gap-sm">
             <a class="btn btn-ghost" href="org-structure.html">保存草稿</a>
             <button class="btn btn-primary" data-step-next>下一步<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
-            <a class="btn btn-primary" data-step-submit href="org-analyzing.html" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>开始 AI 分析</a>
+            <a class="btn btn-primary" data-step-submit href="org-analyzing.html" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 3l14 9-14 9z"/></svg>提交分析</a>
           </div>
         </div>
       </div>
     </main>
   </div>
 </div>
-<script src="app.js?v=20260902b"></script>
+<script src="app.js?v=20260903k"></script>
 <script>
   var lb = document.querySelector('[data-step-submit]');
   if (lb) lb.addEventListener('click', function (e) {
     if (this.dataset.loading) return;
     e.preventDefault();
     this.dataset.loading = '1'; this.style.pointerEvents = 'none';
-    this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>分析中…';
-    var href = this.href; setTimeout(function () { location.href = href; }, 950);
+    this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>正在提交…';
+    var button = this;
+    setTimeout(function () {
+      button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M5 12l4 4L19 6"/></svg>任务已提交';
+      if (window.startAnalysisTask) window.startAnalysisTask({
+        type: 'org',
+        title: '组织结构分析',
+        subtitle: '新版本草稿 V3 · 岗位评价法 / 结构分析法',
+        resultHref: 'org-preview.html',
+        returnHref: 'org-structure.html',
+        duration: 12000
+      });
+    }, 350);
   });
 </script>
 </body>

@@ -15,8 +15,8 @@ Dify 官方文档同样要求 API Key 保存在服务端，避免密钥暴露在
 flowchart LR
     A[前端创建分析] --> B[人才发展服务端校验]
     B --> C[固化部门、岗位、人员数据快照]
-    C --> D[保存业务运行记录]
-    D --> E[调用 Dify Workflow]
+    C --> D[保存业务运行记录并入队]
+    D --> E[后台 Worker 调用 Dify Workflow]
     E --> F[接收流式事件或查询运行状态]
     F --> G[校验并保存结构化结果]
     G --> H[生成新的分析版本]
@@ -30,6 +30,8 @@ flowchart LR
 - 重新分析创建新快照、新 `run_id` 和新版本，不覆盖旧结果。
 - 快照同时保存来源 ID 与当时展示值，便于追溯。
 - Dify 输出必须经过服务端 JSON Schema 校验后才能入库。
+- 创建分析接口只负责校验、创建运行记录并入队，须返回 `202 Accepted`，不得同步等待 Dify 完成。
+- 前端页面关闭或用户离开不影响后台任务；运行状态和结果必须能够通过 `run_id` 恢复。
 
 ## 3. 数据快照
 
@@ -128,6 +130,8 @@ analysis_run 1 ── 1 analysis_result_version
 }
 ```
 
+创建接口应在运行记录成功持久化并入队后立即返回。数据快照可由后台任务继续固化；尚未生成时 `snapshot_id` 可为 `null`，不得为了等待快照或 Dify 结果占用前端请求。
+
 ### 5.2 创建关键岗位分析
 
 `POST /api/talent/v1/key-position-analysis/runs`
@@ -143,6 +147,8 @@ analysis_run 1 ── 1 analysis_result_version
 }
 ```
 
+返回同样使用 `202 Accepted`，包含 `run_id`、`status: "queued"` 和 `created_at`；不得同步等待 Dify 完成。
+
 ### 5.3 查询运行状态
 
 `GET /api/talent/v1/analysis-runs/{run_id}`
@@ -153,6 +159,8 @@ analysis_run 1 ── 1 analysis_result_version
   "status": "running",
   "stage": "calculating",
   "progress": 68,
+  "result_available": false,
+  "updated_at": "2026-07-31T10:06:42+08:00",
   "snapshot": {
     "snapshot_id": "SNP_20260731_002",
     "captured_at": "2026-07-31T10:00:00+08:00",
@@ -165,11 +173,15 @@ analysis_run 1 ── 1 analysis_result_version
 
 状态统一为：`queued`、`snapshotting`、`running`、`validating`、`succeeded`、`failed`、`cancelled`。
 
+前端进入进度页后立即查询一次，前 1 分钟每 2 秒轮询，之后降为每 5 至 10 秒；页面不可见时暂停高频轮询，重新可见后立即刷新。到达任一终态后停止轮询。轮询失败不改变业务运行状态，保留当前进度并允许用户手动刷新。
+
 ### 5.4 结果与取消
 
 - `GET /api/talent/v1/org-analysis/runs/{run_id}/result`
 - `GET /api/talent/v1/key-position-analysis/runs/{run_id}/result`
 - `POST /api/talent/v1/analysis-runs/{run_id}/cancel`
+
+结果接口仅在 `succeeded` 时返回结果；其余状态返回业务错误 `ANALYSIS_NOT_READY`，前端继续展示进度或失败信息，不得用半成品渲染结果页。
 
 创建接口要求请求头 `Idempotency-Key`。同一租户、同一幂等键重复提交时返回原 `run_id`，避免用户多次点击产生重复分析。
 
@@ -274,3 +286,5 @@ Dify 状态映射：
 - Dify 运行失败时前端能看到业务化失败状态并可重试，不能看到密钥或内部堆栈。
 - Dify 返回非约定岗位或非法分数时，不生成分析版本。
 - 结果页能展示组织版本、快照时间、范围数量和运行版本，具备可追溯性。
+- 创建分析请求在任务入队后立即返回 `202`，Dify 长时间运行不会占用浏览器请求，也不会因用户离开页面而中断。
+- 用户可从组织结构“分析记录”或关键岗位分析列表恢复运行中任务；完成前结果入口不可用，终态后停止轮询。

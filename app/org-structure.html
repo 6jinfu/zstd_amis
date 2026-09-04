@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>组织结构 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260902a">
+<link rel="stylesheet" href="styles.css?v=20260903k">
 <style>
 /* ===== 分析方法抽屉：微动效（进场 stagger / hover 反馈 / 图标定制动画）===== */
 #drawer-methods .m-item { position: relative; border-radius: 8px; transition: background-color .18s ease, transform .2s ease; }
@@ -112,7 +112,7 @@
       <div class="flex between center mb-md">
         <div class="flex gap-sm">
           <a class="btn btn-primary" href="org-analyze.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建分析</a>
-          <button class="btn btn-secondary" data-open="drawer-history"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>历史分析</button>
+          <button class="btn btn-secondary" data-open="drawer-history"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>分析记录</button>
           <button class="btn btn-ghost" data-open="drawer-methods"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>了解分析方法</button>
         </div>
       </div>
@@ -190,7 +190,7 @@
         </div>
       </div>
       </div>
-      <!-- 空态：从未分析过（访问 org-structure.html?empty=1 预览） -->
+      <!-- 空态：首次进入且从未完成组织分析 -->
       <div id="state-empty" style="display:none">
         <div class="card empty empty-card">
           <svg class="ill empty-ill" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2">
@@ -208,7 +208,37 @@
           <div class="desc">完成组织分析后，可在这里查看岗位族、层级和人员覆盖情况。</div>
           <div class="flex gap-sm" style="justify-content:center">
             <a class="btn btn-primary btn-lg" href="org-analyze.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>开始分析</a>
-            <button class="btn btn-secondary btn-lg" onclick="orgShowData()">查看示例数据</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 异步分析保存后：刷新页面时展示后台运行状态 -->
+      <div id="state-loading" style="display:none">
+        <div class="card org-analysis-loading">
+          <div class="org-analysis-loading-inner">
+            <span class="org-analysis-loading-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></span>
+            <h2>组织结构正在后台生成</h2>
+            <p>任务正在后台运行，无需停留等待。分析完成后刷新本页，即可呈现岗位族矩阵。</p>
+            <div class="org-loading-workbench" aria-hidden="true">
+              <div class="org-loading-matrix">
+                <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+                <span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
+                <span style="--i:6"></span><span style="--i:7"></span><span style="--i:8"></span>
+              </div>
+              <div class="org-loading-activity">
+                <div data-org-activity><i></i><span><b>组织数据</b><small>4 部门 · 34 岗位 · 165 人</small></span></div>
+                <div data-org-activity><i></i><span><b>分析与聚类</b><small>识别序列、层级与岗位族</small></span></div>
+                <div data-org-activity><i></i><span><b>结果校验</b><small>检查冲突项和待归类岗位</small></span></div>
+              </div>
+            </div>
+            <div class="org-analysis-loading-progress">
+              <div class="meta"><span data-org-loading-stage>正在读取组织数据…</span><strong data-org-loading-progress>0%</strong></div>
+              <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i style="width:0%"></i></div>
+            </div>
+            <div class="org-analysis-loading-actions">
+              <button class="btn btn-primary" type="button" onclick="location.reload()">刷新查看结果</button>
+              <button class="btn btn-secondary" type="button" data-open-analysis-task data-task-type="org" data-task-title="组织结构分析" data-task-subtitle="新版本草稿 V3 · 岗位评价法 / 结构分析法" data-result-href="org-preview.html" data-return-href="org-structure.html">查看任务进度</button>
+            </div>
           </div>
         </div>
       </div>
@@ -216,12 +246,25 @@
   </div>
 </div>
 
-<!-- ========== 历史分析抽屉 ========== -->
+<!-- ========== 分析记录抽屉 ========== -->
 <div class="drawer" id="drawer-history">
-  <div class="d-head"><h3>历史分析</h3><button class="icon-close" data-close>
+  <div class="d-head"><h3>分析记录</h3><button class="icon-close" data-close>
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button></div>
   <div class="d-body">
+
+    <div class="card card-pad mb-md">
+      <div class="flex between center mb-sm">
+        <div><b>V3 · 新版本草稿</b> &nbsp;<span class="tag tag-running">分析中</span></div>
+        <span class="text-sm muted">62%</span>
+      </div>
+      <div class="text-sm muted">操作人 李文静 · 提交于 2026-09-03 10:18</div>
+      <div class="text-sm muted mt-sm">当前阶段：推断序列 / 层级</div>
+      <div class="flex gap-sm mt-md">
+        <a class="btn btn-ghost btn-sm" href="org-analyzing.html" data-open-analysis-task data-task-type="org" data-task-title="组织结构分析" data-task-subtitle="新版本草稿 V3 · 岗位评价法 / 结构分析法" data-result-href="org-preview.html">查看进度</a>
+        <button class="btn btn-text btn-sm muted" type="button" data-toast="已提交终止请求">终止</button>
+      </div>
+    </div>
 
     <div class="card card-pad mb-md">
       <div class="flex between center mb-sm">
@@ -319,11 +362,39 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="app.js?v=20260902b"></script>
+<script src="app.js?v=20260903k"></script>
 <script>
-  function orgShowData(){ var d=document.getElementById('state-data'),e=document.getElementById('state-empty'); d.style.display=''; e.style.display='none'; window.scrollTo(0,0); }
-  function orgShowEmpty(){ var d=document.getElementById('state-data'),e=document.getElementById('state-empty'); d.style.display='none'; e.style.display=''; window.scrollTo(0,0); }
-  if (new URLSearchParams(location.search).get('empty') === '1') orgShowEmpty();
+  function orgHideStates(){ ['state-data','state-empty','state-loading'].forEach(function(id){ document.getElementById(id).style.display='none'; }); }
+  function orgShowData(){ orgHideStates(); document.getElementById('state-data').style.display=''; window.scrollTo(0,0); }
+  function orgShowEmpty(){ orgHideStates(); document.getElementById('state-empty').style.display=''; window.scrollTo(0,0); }
+  function orgShowLoading(task){
+    orgHideStates(); document.getElementById('state-loading').style.display=''; window.scrollTo(0,0);
+    var progress = window.analysisTaskProgress ? window.analysisTaskProgress(task) : 20;
+    var stages = ['正在读取组织数据…','正在执行分析方法…','正在归类岗位族…','正在校验分析结果…'];
+    document.querySelector('[data-org-loading-progress]').textContent = progress + '%';
+    document.querySelector('[data-org-loading-stage]').textContent = stages[Math.min(3, Math.floor(progress / 25))];
+    var bar = document.querySelector('.org-analysis-loading-progress .bar');
+    bar.setAttribute('aria-valuenow', progress); bar.querySelector('i').style.width = progress + '%';
+    var activities = document.querySelectorAll('[data-org-activity]');
+    var activityIndex = progress < 34 ? 0 : progress < 78 ? 1 : 2;
+    activities.forEach(function(item,index){ item.classList.toggle('done', index < activityIndex); item.classList.toggle('active', index === activityIndex); });
+  }
+  var orgTask = window.readAnalysisTask ? window.readAnalysisTask() : null;
+  var orgReady = false;
+  try { orgReady = localStorage.getItem('talent-org-analysis-ready-v5') === 'true'; } catch (_error) {}
+  if (orgTask && orgTask.type === 'org') {
+    if (window.analysisTaskProgress(orgTask) >= 100) {
+      try {
+        localStorage.setItem('talent-org-analysis-ready-v5', 'true');
+        localStorage.removeItem('talent-development-active-analysis-v3');
+      } catch (_error) {}
+      orgShowData();
+    } else orgShowLoading(orgTask);
+  } else if (orgReady) {
+    orgShowData();
+  } else {
+    orgShowEmpty();
+  }
 </script>
 </body>
 </html>

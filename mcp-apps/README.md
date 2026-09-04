@@ -53,7 +53,10 @@ npm run start:stdio
 2. 工具通过 `_meta.ui.resourceUri` 关联对应 `ui://` HTML 资源。
 3. 宿主加载并在沙箱 iframe 中渲染配置向导。
 4. 用户在卡片、表单和权重控件中完成配置。
-5. UI 通过 `tools/call` 调用同一分析工具，服务端调用对应 Dify Chatflow。
-6. 服务端从 Dify 回复中提取 `RESULT_JSON`，作为 `structuredContent` 交给 UI 渲染结果卡片。
+5. UI 通过 `tools/call` 提交配置，服务端立即返回 `run_id`，并在后台调用对应 Dify Chatflow。
+6. UI 使用 `status` 动作轮询进度；用户可以离开或刷新页面，界面会通过本地保存的 `run_id` 恢复查询。
+7. 任务成功后，UI 使用 `result` 动作获取 `RESULT_JSON` 并渲染结果卡片；运行中可使用 `cancel` 动作取消任务。
+
+当前 MCP 演示服务的任务状态保存在 Node.js 进程内存中，服务重启后会失效。正式业务服务应按 `../newprd/10_组织与关键岗位分析_Dify工作流接口.md` 将任务、快照和结果持久化，并由独立 worker 执行长任务。
 
 不支持 MCP Apps 的 MCP 客户端仍会看到工具返回的文本摘要，但不会显示交互界面。
