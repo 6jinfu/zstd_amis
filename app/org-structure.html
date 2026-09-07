@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>组织结构 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260903k">
+<link rel="stylesheet" href="styles.css?v=20260904i">
 <style>
 /* ===== 分析方法抽屉：微动效（进场 stagger / hover 反馈 / 图标定制动画）===== */
 #drawer-methods .m-item { position: relative; border-radius: 8px; transition: background-color .18s ease, transform .2s ease; }
@@ -306,10 +306,10 @@
         <table class="t">
           <thead><tr><th>岗位</th><th>类别</th><th>AI 序列</th><th>AI 层级</th><th>岗评总分</th><th>操作</th></tr></thead>
           <tbody>
-            <tr><td>后端开发工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.6 / 5</td><td class="ops"><button class="btn-text btn-sm">查看依据</button></td></tr>
-            <tr><td>测试工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.2 / 5</td><td class="ops"><button class="btn-text btn-sm">查看依据</button></td></tr>
-            <tr><td>数据分析师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.4 / 5</td><td class="ops"><button class="btn-text btn-sm">查看依据</button></td></tr>
-            <tr><td>DevOps 工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.5 / 5</td><td class="ops"><button class="btn-text btn-sm">查看依据</button></td></tr>
+            <tr><td>后端开发工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.6 / 5</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence" data-evidence-name="后端开发工程师" data-evidence-score="3.6" data-evidence-structure="核心岗位" data-evidence-copy="职责以系统设计、技术交付和复杂问题解决为主，岗位评价得分落入中级区间，建议归入研发序列中级岗位族。">查看依据</button></td></tr>
+            <tr><td>测试工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.2 / 5</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence" data-evidence-name="测试工程师" data-evidence-score="3.2" data-evidence-structure="质量保障岗位" data-evidence-copy="职责集中在质量保障、自动化测试和发布风险控制，岗位评价得分落入中级区间，最终归入研发序列中级岗位族。">查看依据</button></td></tr>
+            <tr><td>数据分析师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.4 / 5</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence" data-evidence-name="数据分析师" data-evidence-score="3.4" data-evidence-structure="专业支持岗位" data-evidence-copy="职责以数据建模、业务分析和决策支持为主，专业要求与影响范围符合研发序列中级岗位族。">查看依据</button></td></tr>
+            <tr><td>DevOps 工程师</td><td>研发</td><td>研发</td><td>中级</td><td class="num">3.5 / 5</td><td class="ops"><button class="btn-text btn-sm" data-open="drawer-evidence" data-evidence-name="DevOps 工程师" data-evidence-score="3.5" data-evidence-structure="平台工程岗位" data-evidence-copy="职责覆盖持续交付、基础设施自动化和平台稳定性，技术复杂度与责任范围符合研发序列中级岗位族。">查看依据</button></td></tr>
           </tbody>
         </table>
       </div>
@@ -317,6 +317,25 @@
     <div class="m-foot">
       <button class="btn btn-secondary" data-close>关闭</button>
       <a class="btn btn-primary" href="org-preview.html">在结果预览中校准</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 岗位归类依据 ========== -->
+<div class="drawer" id="drawer-evidence">
+  <div class="box">
+    <div class="m-head"><h3 data-evidence-title>归类依据 · 后端开发工程师</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="m-body">
+      <div class="text-sm muted mb-sm">本次分析采用岗位评价法与结构分析法综合判断</div>
+      <div class="table-wrap"><table class="t">
+        <thead><tr><th>方法</th><th>分析结果</th><th>主要依据</th></tr></thead>
+        <tbody>
+          <tr><td>岗位评价法</td><td><b data-evidence-score>3.6 / 5</b></td><td class="muted">任务复杂性、专业要求、影响范围与责任程度</td></tr>
+          <tr><td>结构分析法</td><td><b data-evidence-structure>核心岗位</b></td><td class="muted">岗位职责、组织位置及与上下游岗位的协作关系</td></tr>
+        </tbody>
+      </table></div>
+      <div class="flex between mt-md"><b>建议归属</b><b style="color:var(--primary-600)">研发序列 · 中级</b></div>
+      <div class="hint-box mt-md"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1" stroke-linecap="round"/></svg><span data-evidence-copy>职责以系统设计、技术交付和复杂问题解决为主，岗位评价得分落入中级区间，建议归入研发序列中级岗位族。</span></div>
     </div>
   </div>
 </div>
@@ -362,8 +381,17 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="app.js?v=20260903k"></script>
+<script src="app.js?v=20260904i"></script>
 <script>
+  document.addEventListener('click', function (event) {
+    var trigger = event.target.closest('[data-evidence-name]');
+    if (!trigger) return;
+    var drawer = document.getElementById('drawer-evidence');
+    drawer.querySelector('[data-evidence-title]').textContent = '归类依据 · ' + trigger.dataset.evidenceName;
+    drawer.querySelector('[data-evidence-score]').textContent = trigger.dataset.evidenceScore + ' / 5';
+    drawer.querySelector('[data-evidence-structure]').textContent = trigger.dataset.evidenceStructure;
+    drawer.querySelector('[data-evidence-copy]').textContent = trigger.dataset.evidenceCopy;
+  });
   function orgHideStates(){ ['state-data','state-empty','state-loading'].forEach(function(id){ document.getElementById(id).style.display='none'; }); }
   function orgShowData(){ orgHideStates(); document.getElementById('state-data').style.display=''; window.scrollTo(0,0); }
   function orgShowEmpty(){ orgHideStates(); document.getElementById('state-empty').style.display=''; window.scrollTo(0,0); }

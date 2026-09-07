@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>系统设置 · 人才发展</title>
-<link rel="stylesheet" href="styles.css?v=20260903k">
+<link rel="stylesheet" href="styles.css?v=20260904i">
 </head>
 <body data-module="settings" data-page="settings">
 <div class="app">
@@ -23,8 +23,8 @@
     <main class="content settings-scope-page">
       <div class="detail-main">
         <section class="d-section active" data-section="level">
-          <div class="section-toolbar">
-            <div><h2>职级管理</h2><p>维护岗位地图使用的职级编码和显示顺序，不在此定义任职标准。</p></div>
+          <div class="section-toolbar compact">
+            <p>维护岗位地图使用的职级编码和显示顺序，不在此定义任职标准。</p>
             <button class="btn btn-primary" data-open="drawer-level"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>新增职级</button>
           </div>
           <div class="table-wrap"><table class="t">
@@ -40,7 +40,7 @@
         </section>
 
         <section class="d-section" data-section="learner">
-          <div class="section-toolbar"><div><h2>学员端设置</h2><p>控制本期已建设功能是否显示在学员端。</p></div><span class="setting-save-state" id="learner-save-state">修改后自动保存</span></div>
+          <div class="section-toolbar compact"><p>控制本期已建设功能是否显示在学员端。</p><span class="setting-save-state" id="learner-save-state">修改后自动保存</span></div>
           <div class="learner-feature-grid" aria-label="学员端功能">
             <label class="learner-feature-option"><input type="checkbox" checked><span>人才画像</span></label>
             <label class="learner-feature-option"><input type="checkbox" checked><span>岗位发展通道</span></label>
@@ -62,7 +62,7 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close data-toast="职级已保存">保存</button></div>
 </div>
 
-<script src="app.js?v=20260903k"></script>
+<script src="app.js?v=20260904i"></script>
 <script>
 (function () {
   var state = document.getElementById('learner-save-state');

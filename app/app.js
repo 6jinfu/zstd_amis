@@ -546,7 +546,10 @@ function initSegments() {
 }
 // F04 双视图：全部 / 关键（按按钮 data-filter 过滤行）
 function applyViewFilter(tableId, filter) {
-  const rows = document.querySelectorAll('#' + tableId + ' tbody tr');
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  table.dataset.view = filter;
+  const rows = table.querySelectorAll('tbody tr');
   rows.forEach(r => {
     if (filter === 'all') { r.style.display = ''; return; }
     r.style.display = r.dataset.key === 'true' ? '' : 'none';
@@ -909,7 +912,7 @@ function openAnalysisTaskModal(task) {
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
   modal.setAttribute('aria-label', task.title + '进度');
-  modal.innerHTML = '<div class="async-task-box"><div class="async-task-head"><div><div class="async-task-kicker">Background task</div><h2></h2><p class="text-sm muted"></p></div><button class="async-task-close" type="button" data-async-close aria-label="关闭进度弹窗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="async-task-body"><div class="async-task-status"><span class="tag tag-running">分析中</span><span data-task-stage>任务已提交，等待执行</span><strong data-task-progress>0%</strong></div><div class="async-task-progress"><i></i></div><div class="async-task-stage-list"></div><div class="async-task-note"><span>你可以继续等待，也可以暂时关闭弹窗返回分析页；关闭后任务仍会在后台运行。</span></div></div><div class="async-task-foot"><span class="async-task-foot-note">稍后可从分析页重新查看进度</span><div class="async-task-actions"><button class="btn btn-secondary" type="button" data-task-background>暂时关闭，返回分析页</button><button class="btn btn-primary" type="button" data-task-result data-async-result disabled>完成后查看结果</button></div></div></div>';
+  modal.innerHTML = '<div class="async-task-box"><div class="async-task-head"><div><h2></h2><p class="text-sm muted"></p></div><button class="async-task-close" type="button" data-async-close aria-label="关闭进度弹窗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="async-task-body"><div class="async-task-status"><span class="tag tag-running">分析中</span><span data-task-stage>任务已提交，等待执行</span><strong data-task-progress>0%</strong></div><div class="async-task-progress"><i></i></div><div class="async-task-stage-list"></div><div class="async-task-note"><span>你可以继续等待，也可以暂时关闭弹窗返回分析页；关闭后任务仍会在后台运行。</span></div></div><div class="async-task-foot"><span class="async-task-foot-note">稍后可从分析页重新查看进度</span><div class="async-task-actions"><button class="btn btn-secondary" type="button" data-task-background>暂时关闭，返回分析页</button><button class="btn btn-primary" type="button" data-task-result data-async-result disabled>完成后查看结果</button></div></div></div>';
   document.body.appendChild(modal);
   modal.querySelector('h2').textContent = task.title;
   modal.querySelector('.async-task-head p').textContent = task.subtitle || '已创建后台分析任务';

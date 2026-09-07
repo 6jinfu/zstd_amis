@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>后台分析中 · 关键岗位分析</title>
-<link rel="stylesheet" href="styles.css?v=20260903k">
+<link rel="stylesheet" href="styles.css?v=20260904i">
 <style>
   .result-loading-overlay { position:fixed; inset:0; z-index:220; display:grid; place-items:center; padding:24px; background:rgba(17,24,39,.46); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); opacity:0; transition:opacity .22s ease-out; isolation:isolate; }
   .result-loading-overlay.show { opacity:1; }
@@ -14,7 +14,6 @@
   .result-loading-ring:nth-child(2) { inset:12px; animation-delay:.35s; }
   .result-loading-icon { position:relative; z-index:1; display:grid; width:54px; height:54px; place-items:center; border-radius:15px; color:#fff; background:var(--primary-600); box-shadow:0 10px 24px rgba(43,91,215,.28); }
   .result-loading-icon svg { width:26px; height:26px; }
-  .result-loading-kicker { margin-bottom:7px; color:var(--primary-600); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
   .result-loading-card h2 { margin:0; color:var(--neutral-900); font-size:22px; line-height:1.35; text-wrap:balance; }
   .result-loading-card > p { margin:9px auto 24px; color:var(--neutral-500); font-size:13px; line-height:1.7; }
   .result-loading-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
@@ -89,7 +88,7 @@
     </main>
   </div>
 </div>
-<script src="app.js?v=20260903k"></script>
+<script src="app.js?v=20260904i"></script>
 <script>
   (function () {
     var stages = document.querySelectorAll('.pstage');
@@ -127,7 +126,7 @@
       overlay.className = 'result-loading-overlay';
       overlay.setAttribute('role', 'status');
       overlay.setAttribute('aria-live', 'polite');
-      overlay.innerHTML = '<div class="result-loading-card"><div class="result-loading-visual"><span class="result-loading-ring"></span><span class="result-loading-ring"></span><span class="result-loading-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 13h8M8 17h6"/></svg></span></div><div class="result-loading-kicker">Result ready</div><h2>正在整理关键岗位分析结果</h2><p>正在装载岗位评分、判定依据和待校准项，请稍候…</p><div class="result-loading-steps"><div class="result-loading-step active">读取结果</div><div class="result-loading-step">生成岗位卡</div><div class="result-loading-step">准备校准</div></div></div>';
+      overlay.innerHTML = '<div class="result-loading-card"><div class="result-loading-visual"><span class="result-loading-ring"></span><span class="result-loading-ring"></span><span class="result-loading-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 13h8M8 17h6"/></svg></span></div><h2>正在整理关键岗位分析结果</h2><p>正在装载岗位评分、判定依据和待校准项，请稍候…</p><div class="result-loading-steps"><div class="result-loading-step active">读取结果</div><div class="result-loading-step">生成岗位卡</div><div class="result-loading-step">准备校准</div></div></div>';
       document.body.appendChild(overlay);
       requestAnimationFrame(function () { overlay.classList.add('show'); });
       var loadingSteps = overlay.querySelectorAll('.result-loading-step');
