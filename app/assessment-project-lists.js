@@ -9,7 +9,6 @@
     var categoryList = tree.querySelector('[data-category-items]');
     var drawer = document.getElementById(root.dataset.categoryDrawer);
     var managerList = drawer.querySelector('[data-category-list]');
-    var managerInput = drawer.querySelector('[data-category-new]');
     var checkAll = table.querySelector('[data-check-all]');
     var rowChecks = rows.map(function (row) { return row.querySelector('[data-row-check]'); }).filter(Boolean);
     var selectionActions = Array.from(root.querySelectorAll('[data-selection-action]'));
@@ -34,7 +33,8 @@
 
     function applyFilters() {
       rows.forEach(function (row) { row.style.display = matchesFilters(row) ? '' : 'none'; });
-      if (checkAll) { checkAll.checked = false; checkAll.indeterminate = false; }
+      rowChecks.forEach(function (checkbox) { checkbox.checked = false; });
+      syncSelection();
     }
 
     function categoryCount(name) {
@@ -94,61 +94,27 @@
     }
     rowChecks.forEach(function (checkbox) { checkbox.addEventListener('change', syncSelection); });
 
-    drawer.querySelector('[data-category-add]').addEventListener('click', function () {
-      var name = managerInput.value.trim();
-      var exists = Array.from(managerList.querySelectorAll('.cmr-name')).some(function (node) { return text(node) === name; });
-      if (!name) return;
-      if (exists) { alert('类别已存在'); return; }
-      var row = document.createElement('div');
-      row.className = 'catmgr-row';
-      row.innerHTML = '<span class="cmr-name"></span><span class="cmr-count">0 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-category-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-category-delete>删除</button></span>';
-      row.querySelector('.cmr-name').textContent = name;
-      managerList.appendChild(row);
-      managerInput.value = '';
-      renderCategories(name);
-    });
-    managerInput.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') { event.preventDefault(); drawer.querySelector('[data-category-add]').click(); }
-    });
-
-    managerList.addEventListener('click', function (event) {
-      var remove = event.target.closest('[data-category-delete]');
-      var edit = event.target.closest('[data-category-edit]');
-      if (remove) {
-        var removeRow = remove.closest('.catmgr-row');
-        var removeName = text(removeRow.querySelector('.cmr-name'));
-        if (categoryCount(removeName)) { alert('该类别下有项目，请先移除或转移后再删除'); return; }
-        removeRow.remove();
-        renderCategories(activeCategory === removeName ? '' : activeCategory);
-        return;
-      }
-      if (!edit) return;
-      var row = edit.closest('.catmgr-row');
-      var field = row.querySelector('.cmr-edit-input');
-      if (field) {
-        var oldName = field.dataset.oldName;
-        var newName = field.value.trim();
-        var duplicate = Array.from(managerList.querySelectorAll('.cmr-name')).some(function (node) { return text(node) === newName; });
-        if (!newName) return;
-        if (duplicate) { alert('类别已存在'); return; }
-        rows.forEach(function (item) { if (item.dataset.cat === oldName) item.dataset.cat = newName; });
-        var nameNode = document.createElement('span');
-        nameNode.className = 'cmr-name';
-        nameNode.textContent = newName;
-        field.replaceWith(nameNode);
-        edit.textContent = '编辑';
-        renderCategories(activeCategory === oldName ? newName : activeCategory);
-        return;
-      }
-      var nameNode = row.querySelector('.cmr-name');
-      var input = document.createElement('input');
-      input.className = 'input cmr-edit-input';
-      input.value = text(nameNode);
-      input.dataset.oldName = input.value;
-      nameNode.replaceWith(input);
-      edit.textContent = '保存';
-      input.focus();
-      input.select();
+    root.querySelectorAll('[data-open]').forEach(function (trigger) {
+      if (trigger.dataset.open !== drawer.id) return;
+      trigger.removeAttribute('data-open');
+      trigger.addEventListener('click', function () {
+        UI.openCategoryManager({
+          items: Array.from(managerList.querySelectorAll('.catmgr-row')).map(function (row) {
+            var name = text(row.querySelector('.cmr-name'));
+            return {id:name, name:name, count:categoryCount(name)};
+          }),
+          onConfirm: function (items) {
+            var renamed = new Map(items.map(function (item) { return [item.id, item.name]; }));
+            rows.forEach(function (row) {
+              if (renamed.has(row.dataset.cat)) row.dataset.cat = renamed.get(row.dataset.cat);
+            });
+            managerList.innerHTML = items.map(function (item) {
+              return '<div class="catmgr-row"><span class="cmr-name">' + UI.escape(item.name) + '</span><span class="cmr-count">' + item.count + ' 条</span></div>';
+            }).join('');
+            renderCategories(renamed.get(activeCategory) || '');
+          }
+        });
+      });
     });
 
     renderCategories();

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>后台分析中 · 关键岗位分析</title>
-<link rel="stylesheet" href="styles.css?v=20260904i">
+<link rel="stylesheet" href="styles.css?v=20260908e">
 <style>
   .result-loading-overlay { position:fixed; inset:0; z-index:220; display:grid; place-items:center; padding:24px; background:rgba(17,24,39,.46); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); opacity:0; transition:opacity .22s ease-out; isolation:isolate; }
   .result-loading-overlay.show { opacity:1; }
@@ -27,6 +27,7 @@
   @media (max-width:560px) { .result-loading-card { padding:28px 20px 24px; } .result-loading-steps { grid-template-columns:1fr; } .result-loading-step { min-height:44px; } }
   @media (prefers-reduced-motion:reduce) { .result-loading-overlay { transition:none; } .result-loading-ring { animation:none; opacity:.45; } }
 </style>
+<link rel="stylesheet" href="ui/components.css?v=20260908e">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -88,7 +89,8 @@
     </main>
   </div>
 </div>
-<script src="app.js?v=20260904i"></script>
+<script src="ui/components.js?v=20260908e"></script>
+<script src="app.js?v=20260910b"></script>
 <script>
   (function () {
     var stages = document.querySelectorAll('.pstage');

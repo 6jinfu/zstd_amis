@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位地图 · 发展中心</title>
-<link rel="stylesheet" href="styles.css?v=20260904i">
+<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="ui/components.css?v=20260908e">
 </head>
 <body data-module="develop" data-page="position-map">
 <div class="app">
@@ -39,15 +40,15 @@
           <div class="pm-ladder">
             <div class="pm-step">
               <span class="pm-badge">P4 · 专家</span>
-              <button class="pm-node set" data-open="drawer-node">架构师<span class="pm-plan">方案</span></button>
+              <button class="pm-node set" data-open="drawer-node" data-position="RD-302">架构师<span class="pm-plan">方案</span></button>
             </div>
             <div class="pm-step">
               <span class="pm-badge">P3 · 高级</span>
-              <button class="pm-node set" data-open="drawer-node">高级开发工程师</button>
+              <button class="pm-node set" data-open="drawer-node" data-position="">高级开发工程师</button>
             </div>
             <div class="pm-step">
               <span class="pm-badge">P2 · 中级</span>
-              <button class="pm-node set" data-open="drawer-node">后端开发工程师<span class="pm-plan">方案</span></button>
+              <button class="pm-node set" data-open="drawer-node" data-position="RD-205">后端开发工程师<span class="pm-plan">方案</span></button>
             </div>
             <div class="pm-step">
               <span class="pm-badge">P1 · 初级</span>
@@ -141,6 +142,21 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="app.js?v=20260904i"></script>
+<script src="ui/components.js?v=20260908e"></script>
+<script src="app.js?v=20260910b"></script>
+<script>
+(function () {
+  document.querySelectorAll('.pm-node[data-open="drawer-node"]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var drawer = document.getElementById('drawer-node');
+      drawer.querySelector('h3').textContent = button.firstChild.textContent.trim();
+      drawer.querySelector('.m-head .text-sm').textContent = button.closest('.pm-step').querySelector('.pm-badge').textContent;
+      var link = drawer.querySelector('a.action-item');
+      link.hidden = !button.dataset.position;
+      if (button.dataset.position) link.href = 'learning-plan.html?position=' + encodeURIComponent(button.dataset.position);
+    });
+  });
+})();
+</script>
 </body>
 </html>

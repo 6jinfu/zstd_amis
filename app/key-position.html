@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260904i">
+<link rel="stylesheet" href="styles.css?v=20260908e">
 <style>
   .key-position-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
   .key-position-category-tree .ctp-head .ctp-title { font-size:13px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
@@ -17,6 +17,7 @@
   .key-position-category-tree .cat-tree-item:focus:not(:focus-visible) { outline:none; }
   body[data-page="key-position"] .review-main table.t { min-width:1160px; }
 </style>
+<link rel="stylesheet" href="ui/components.css?v=20260908e">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -125,19 +126,18 @@
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
-<script src="app.js?v=20260904i"></script>
+<script src="ui/components.js?v=20260908e"></script>
+<script src="app.js?v=20260910b"></script>
 <script>
 (function(){
-  var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]'),catInput=document.querySelector('[data-kp-catmgr-new]');
+  var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]');
   function filter(){var active=tree.querySelector('.cat-tree-item.active'),cat=active?active.dataset.cat:'全部',query=(search.value||'').trim().toLowerCase(),any=false;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){var matchCat=cat==='全部'||row.dataset.cat===cat,matchQuery=!query||row.children[0].textContent.toLowerCase().indexOf(query)>=0,tag=row.querySelector('.tag'),matchStatus=status.value==='全部'||(tag&&tag.textContent.trim()===status.value),show=matchCat&&matchQuery&&matchStatus;row.style.display=show?'':'none';if(show)any=true});var empty=table.querySelector('.row-empty');if(empty)empty.style.display=any?'none':''}
   function categoryCount(name){var count=0;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){if(row.dataset.cat===name)count++});return count}
-  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,total=0,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name);total+=categoryCount(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span><span class="cti-count">'+total+'</span></button>';names.forEach(function(name){var count=categoryCount(name);html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+name+'"><span>'+name+'</span><span class="cti-count">'+count+'</span></button>'});tree.innerHTML=html;filter()}
+  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,total=0,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name);total+=categoryCount(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span><span class="cti-count">'+total+'</span></button>';names.forEach(function(name){var count=categoryCount(name);html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+UI.escape(name)+'"><span>'+UI.escape(name)+'</span><span class="cti-count">'+count+'</span></button>'});tree.innerHTML=html;filter()}
   tree.addEventListener('click',function(event){var item=event.target.closest('.cat-tree-item');if(!item)return;tree.querySelectorAll('.cat-tree-item').forEach(function(node){node.classList.remove('active')});item.classList.add('active');filter()});
   tree.addEventListener('pointerdown',function(event){var item=event.target.closest('.cat-tree-item');if(item)window.setTimeout(function(){item.blur()},0)});
   document.getElementById('kp-query').addEventListener('click',filter);document.getElementById('kp-reset').addEventListener('click',function(){search.value='';status.selectedIndex=0;tree.querySelector('.cat-tree-item').click()});
-  document.querySelector('[data-kp-catmgr-add]').addEventListener('click',function(){var name=catInput.value.trim(),exists=false;if(!name)return;catList.querySelectorAll('.cmr-name').forEach(function(node){if(node.textContent.trim()===name)exists=true});if(exists){alert('类别已存在');return}var row=document.createElement('div');row.className='catmgr-row';row.innerHTML='<span class="cmr-name"></span><span class="cmr-count">0 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" type="button" data-kp-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" type="button" data-kp-catmgr-del>删除</button></span>';row.querySelector('.cmr-name').textContent=name;catList.appendChild(row);catInput.value='';renderTree(name)});
-  catInput.addEventListener('keydown',function(event){if(event.key==='Enter'){event.preventDefault();document.querySelector('[data-kp-catmgr-add]').click()}});
-  catList.addEventListener('click',function(event){var del=event.target.closest('[data-kp-catmgr-del]'),edit=event.target.closest('[data-kp-catmgr-edit]');if(del){var row=del.closest('.catmgr-row'),name=row.querySelector('.cmr-name').textContent.trim();if(categoryCount(name)>0){alert('该类别下有项目，请先移除或转移后再删除');return}row.remove();renderTree()}if(edit){var row=edit.closest('.catmgr-row'),input=row.querySelector('.cmr-edit-input');if(input){var oldName=input.dataset.oldName,newName=input.value.trim(),duplicate=false;if(!newName)return;catList.querySelectorAll('.cmr-name').forEach(function(node){if(node!==input&&node.textContent.trim()===newName)duplicate=true});if(duplicate){alert('类别已存在');return}table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(tr){if(tr.dataset.cat===oldName){tr.dataset.cat=newName;tr.children[1].textContent=newName}});var nameNode=document.createElement('span');nameNode.className='cmr-name';nameNode.textContent=newName;input.replaceWith(nameNode);edit.textContent='编辑';renderTree(newName);return}var nameNode=row.querySelector('.cmr-name');if(nameNode){var editingInput=document.createElement('input');editingInput.className='input cmr-edit-input';editingInput.value=nameNode.textContent.trim();editingInput.dataset.oldName=nameNode.textContent.trim();nameNode.replaceWith(editingInput);edit.textContent='保存';editingInput.focus();editingInput.select()}}});
+  UI.bindCategoryManager({root:tree,triggerId:'drawer-kp-catmgr',list:catList,table:table,onChange:renderTree});
   filter();
 })();
 </script>

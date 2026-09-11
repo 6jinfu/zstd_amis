@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人才标准详情 · 人才发展</title>
+<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="standards.css?v=20260910l">
+<link rel="stylesheet" href="ui/components.css?v=20260910g">
+</head>
+<body data-module="standard" data-page="standards">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav">
+      <div class="group-label">定对象 · 组织分析</div>
+      <a class="nav-item" data-page="org-structure" href="org-structure.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>组织结构</a>
+      <a class="nav-item" data-page="key-position" href="key-position.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>关键岗位分析</a>
+      <a class="nav-item" data-page="standards" href="standards.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg>人才标准</a>
+      <div class="group-label">定标 · 标准建模</div>
+      <a class="nav-item" href="vocabulary.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 4h7v16H4zM13 4h7v16h-7z"/><path d="M4 8h7M13 8h7"/></svg>指标库</a>
+      <a class="nav-item" style="opacity:.5;cursor:not-allowed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>模型库</a>
+    </aside>
+
+<main class="content std-detail" data-standard-detail>
+<div class="detail-bar"><div class="db-left"><a class="back" data-std-cancel href="standards.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>返回</a><h1 id="std-title">新建人才标准</h1></div><span class="text-sm muted" id="std-save-state" aria-live="polite"></span></div>
+<form id="std-form" novalidate>
+<div class="detail-layout">
+ <nav class="anchor-nav" aria-label="人才标准详情">
+ <a href="#basic" class="a-item active" data-std-tab="basic">基本信息</a>
+ <a href="#scope" class="a-item" data-std-tab="scope">应用范围</a>
+  <a href="#content-duty" class="a-item" data-std-tab="content-duty">职责任务</a>
+  <a href="#content-exp" class="a-item" data-std-tab="content-exp">经历经验</a>
+  <a href="#content-cap" class="a-item" data-std-tab="content-cap">能力要求</a>
+  <a href="#content-pow" class="a-item" data-std-tab="content-pow">动力要求</a>
+  <a href="#content-pot" class="a-item" data-std-tab="content-pot">潜力要求</a>
+ </nav>
+ <div class="detail-main">
+  <section class="card card-pad" data-std-section="basic">
+   <div class="std-heading"><h2>基本信息</h2></div>
+   <div class="std-fields">
+    <div class="field"><label for="std-name">标准名称 <span class="danger">*</span></label><input id="std-name" class="input" maxlength="80" required placeholder="例如：芯片前端设计标准"><div class="std-error" id="std-name-error"></div></div>
+    <div class="field"><label for="std-category">类别 <span class="danger">*</span></label><select id="std-category" class="select" required></select></div>
+    <div class="field full"><label for="std-description">标准说明</label><textarea id="std-description" class="input" maxlength="2000" placeholder="填写用途或参考依据"></textarea></div>
+   </div>
+  </section>
+  <section class="card card-pad" data-std-section="scope" hidden>
+   <div class="std-heading"><h2>应用范围</h2></div>
+   <div class="std-block"><h3 class="text-sm">关联方式</h3><div class="std-choice"><label><input type="radio" name="mode" value="positions">指定岗位</label><label><input type="radio" name="mode" value="rules">按条件匹配</label><label><input type="radio" name="mode" value="none">暂不关联</label></div><div id="std-scope"></div><div class="std-error" id="std-scope-error"></div></div>
+  </section>
+  <section class="card card-pad" data-std-section="content" hidden>
+   <div class="std-heading"><h2>标准内容</h2></div>
+   <div id="std-content-editor"></div>
+  </section>
+ </div>
+</div>
+<div class="detail-foot"><div class="flex gap-sm"><a class="btn btn-secondary" data-std-cancel href="standards.html">取消</a><button class="btn btn-primary" type="submit">保存</button></div></div>
+</form></main></div></div>
+<script src="ui/components.js?v=20260910g"></script>
+<script src="app.js?v=20260910b"></script>
+<script src="standard-seeds.js?v=20260910a"></script>
+<script src="standards-data.js?v=20260910d"></script>
+<script src="indicator-data.js?v=20260910a"></script>
+<script src="standard-ui.js?v=20260910a"></script>
+<script src="standard-editor.js?v=20260910k"></script>
+</body></html>

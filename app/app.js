@@ -31,7 +31,7 @@ const RELEASE_BUSINESS_NAV = {
   standard: [
     { page: 'org-structure', href: 'org-structure.html', label: '组织结构' },
     { page: 'key-position', href: 'key-position.html', label: '关键岗位分析' },
-    { page: 'positions', href: 'positions.html', label: '岗位管理' },
+    { page: 'standards', href: 'standards.html', label: '人才标准' },
     { page: 'vocabulary', href: 'vocabulary.html', label: '指标库' }
   ],
   assess: [
@@ -50,14 +50,16 @@ function applyReleaseScope() {
   const module = document.body.dataset.module;
   const sidenav = document.querySelector('.sidenav');
   const config = RELEASE_BUSINESS_NAV[module];
+  const activePage = document.body.dataset.page === 'positions' ? 'standards' : document.body.dataset.page;
   if (sidenav && config) {
     const sources = Array.from(sidenav.querySelectorAll('.nav-item'));
     sidenav.replaceChildren();
     config.forEach(item => {
-      const source = sources.find(node => node.getAttribute('href') === item.href);
+      const source = sources.find(node => node.getAttribute('href') === item.href)
+        || sources.find(node => node.getAttribute('href') === 'positions.html');
       const link = source ? source.cloneNode(true) : document.createElement('a');
       const icon = link.querySelector('svg')?.outerHTML || '';
-      link.className = `nav-item${document.body.dataset.page === item.page ? ' active' : ''}`;
+      link.className = `nav-item${activePage === item.page ? ' active' : ''}`;
       link.dataset.page = item.page;
       link.href = item.href;
       link.innerHTML = `${icon}${item.label}`;
@@ -77,6 +79,10 @@ function initShellNavigation() {
   const right = topbar?.querySelector('.right');
   if (!app || !topbar || !sidenav || !sourcePrimary || !brand || !right) return;
 
+  // Every page uses the same brand mark, including minimal page shells.
+  const logo = brand.querySelector('.logo');
+  if (logo) logo.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18l5-11 4 7 7-4"/></svg>';
+
   // 共享脚本位于页面底部，此处先切入新版 Shell，避免 Chrome 首次绘制旧版骨架。
   app.classList.add('shell-v2');
   let isNavCollapsed = false;
@@ -89,8 +95,9 @@ function initShellNavigation() {
   primaryNav.setAttribute('aria-label', '一级导航');
   sourcePrimary.querySelectorAll('a').forEach(source => {
     const item = source.cloneNode(false);
-    const label = source.textContent.trim();
+    const label = source.dataset.module === 'standard' ? '人才标准' : source.textContent.trim();
     item.className = `primary-item${source.classList.contains('active') ? ' active' : ''}`;
+    item.href = source.dataset.module === 'standard' ? 'standards.html' : source.getAttribute('href');
     item.setAttribute('aria-label', label);
     item.title = label;
     item.innerHTML = `${PRIMARY_NAV_ICONS[source.dataset.module] || ''}<span>${label}</span>`;
@@ -293,66 +300,7 @@ function syncListWorkbenchHeights() {
 /* ---------- 列表宽表：数据区横向滚动 + 右侧冻结操作列 ---------- */
 function initFrozenListTables() {
   document.querySelectorAll('.list-workbench .table-wrap > table.t').forEach(function (table) {
-    var wrap = table.parentElement;
-    if (!wrap || wrap.classList.contains('frozen-table-shell')) return;
-
-    var scroll = document.createElement('div');
-    scroll.className = 'frozen-table-scroll';
-    wrap.insertBefore(scroll, table);
-    scroll.appendChild(table);
-
-    var frozen = document.createElement('table');
-    frozen.className = 'frozen-action-table';
-    frozen.setAttribute('aria-label', '冻结操作列');
-    var frozenHead = document.createElement('thead');
-    var frozenBody = document.createElement('tbody');
-    var rowPairs = [];
-
-    function cloneActionCell(source, fallbackTag) {
-      var cell = source ? source.cloneNode(true) : document.createElement(fallbackTag || 'td');
-      cell.removeAttribute('id');
-      cell.querySelectorAll('[id]').forEach(function (node) { node.removeAttribute('id'); });
-      cell.removeAttribute('colspan');
-      return cell;
-    }
-
-    table.querySelectorAll('thead tr').forEach(function (row) {
-      var frozenRow = document.createElement('tr');
-      frozenRow.appendChild(cloneActionCell(row.lastElementChild, 'th'));
-      frozenHead.appendChild(frozenRow);
-      if (row.children.length > 1) row.lastElementChild.classList.add('frozen-source-action');
-    });
-
-    table.querySelectorAll('tbody tr').forEach(function (row) {
-      var frozenRow = document.createElement('tr');
-      frozenRow.className = row.className;
-      var sourceCell = row.children.length > 1 ? row.lastElementChild : null;
-      frozenRow.appendChild(cloneActionCell(sourceCell, 'td'));
-      frozenBody.appendChild(frozenRow);
-      if (sourceCell) sourceCell.classList.add('frozen-source-action');
-      rowPairs.push([row, frozenRow]);
-      row.addEventListener('mouseenter', function () { frozenRow.classList.add('is-hover'); });
-      row.addEventListener('mouseleave', function () { frozenRow.classList.remove('is-hover'); });
-      frozenRow.addEventListener('mouseenter', function () { row.classList.add('is-hover'); });
-      frozenRow.addEventListener('mouseleave', function () { row.classList.remove('is-hover'); });
-    });
-
-    frozen.appendChild(frozenHead);
-    frozen.appendChild(frozenBody);
-    wrap.appendChild(frozen);
-    wrap.classList.add('frozen-table-shell');
-
-    function syncRows() {
-      rowPairs.forEach(function (pair) {
-        pair[1].style.display = pair[0].style.display === 'none' ? 'none' : '';
-      });
-    }
-    syncRows();
-    new MutationObserver(syncRows).observe(table.tBodies[0], {
-      attributes: true,
-      subtree: true,
-      attributeFilter: ['style', 'class']
-    });
+    table.classList.add('native-sticky-table');
   });
 }
 
@@ -682,6 +630,7 @@ function initTabs() {
 /* ---------- ⑦ 页面内分区切换 ---------- */
 function initAnchorTabs() {
   document.querySelectorAll('.anchor-nav, .sidenav[data-anchor-tabs], .business-nav[data-anchor-tabs]').forEach(nav => {
+    if (nav.querySelector('[data-std-tab]')) return;
     const items = Array.from(nav.querySelectorAll('.a-item, .nav-item[data-tab]'));
     if (!items.length) return;
     const main = document.querySelector('.detail-main');
@@ -790,6 +739,8 @@ function initListFilter() {
 /* ---------- Toast 轻提示 ---------- */
 // 用法：元素加 data-toast="文案" 点击即弹；代码可直接调 showToast(msg)
 function showToast(msg) {
+  const dialog = document.querySelector('dialog.ui-dialog[open]');
+  if (dialog) { dialog.showError(msg); return; }
   let wrap = document.querySelector('.toast-wrap');
   if (!wrap) { wrap = document.createElement('div'); wrap.className = 'toast-wrap'; document.body.appendChild(wrap); }
   const el = document.createElement('div');
@@ -1001,8 +952,18 @@ function initAnalysisTasks() {
   });
 }
 
+function normalizeTalentStandardNaming() {
+  if (document.title) document.title = document.title.replace(/岗位中心|标准管理/g, '人才标准');
+  document.querySelectorAll('.breadcrumb').forEach(function (breadcrumb) {
+    breadcrumb.childNodes.forEach(function (node) {
+      if (node.nodeType === Node.TEXT_NODE) node.nodeValue = node.nodeValue.replace(/岗位中心|标准管理/g, '人才标准');
+    });
+  });
+}
+
 /* ---------- 启动 ---------- */
 function initApp() {
+  normalizeTalentStandardNaming();
   if (!applyReleaseScope()) return;
   initNav();
   initShellNavigation();
@@ -1021,14 +982,14 @@ function initApp() {
   initListFilter();
   initToasts();
   initAnalysisTasks();
-  // 品牌标识点击 → 岗位中心
+  // 品牌标识点击 → 人才标准
   document.querySelectorAll('.brand').forEach(function (_brand) {
     _brand.setAttribute('role', 'link');
-    _brand.setAttribute('aria-label', '进入岗位中心');
+    _brand.setAttribute('aria-label', '进入人才标准');
     _brand.tabIndex = 0;
-    _brand.addEventListener('click', function () { location.href = 'org-structure.html'; });
+    _brand.addEventListener('click', function () { location.href = 'standards.html'; });
     _brand.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter') location.href = 'org-structure.html';
+      if (event.key === 'Enter') location.href = 'standards.html';
     });
   });
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026 年度人才盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css?v=20260904i">
+<link rel="stylesheet" href="styles.css?v=20260908e">
 <style>
   .rd-matrix{display:grid;grid-template-columns:14px 20px repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,82px) 20px auto;gap:6px;max-width:680px}
   .rd-matrix .cell{border:0;border-radius:7px;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
@@ -19,6 +19,7 @@
   .rd-x-ticks{grid-column:3/6;grid-row:4;display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;font-size:11px;color:var(--neutral-400)}
   .rd-x-title{grid-column:3/6;grid-row:5;text-align:center;font-size:12px;font-weight:600;color:var(--neutral-600)}
 </style>
+<link rel="stylesheet" href="ui/components.css?v=20260908e">
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app">
@@ -119,7 +120,8 @@
   </form>
 </div>
 
-<script src="app.js?v=20260904i"></script>
+<script src="ui/components.js?v=20260908e"></script>
+<script src="app.js?v=20260910b"></script>
 <script>
 (function(){
   var params=new URLSearchParams(location.search);
