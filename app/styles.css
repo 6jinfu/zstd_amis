@@ -470,6 +470,38 @@ textarea.input { height: auto; padding: 8px 10px; line-height: 22px; resize: ver
 .mini-grid .mc.head { background: var(--primary-50); color: var(--primary-600); font-weight: 500; }
 .mini-grid .mc.corner { background: transparent; border: none; }
 
+/* 组织结构分析：可配置矩阵规格 */
+.org-grid-config-card { margin-bottom: var(--space-md); }
+.org-grid-config-intro { margin-top: -2px; }
+.org-grid-config-layout { display: grid; grid-template-columns: minmax(420px, 1fr) 320px; gap: 48px; align-items: center; margin-top: 24px; }
+.org-grid-config-fields { display: grid; gap: 22px; }
+.org-grid-field { min-width: 0; margin: 0; padding: 0; border: 0; }
+.org-grid-field legend { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding: 0; color: var(--neutral-900); font-size: 14px; font-weight: 600; }
+.org-grid-field legend span { display: inline-flex; align-items: center; min-height: 22px; padding: 0 7px; border-radius: var(--radius-sm); background: var(--neutral-100); color: var(--neutral-600); font-size: 11px; font-weight: 500; }
+.org-grid-segments { display: inline-flex; overflow: hidden; border: 1px solid var(--neutral-200); border-radius: 7px; background: var(--white); }
+.org-grid-segments label { position: relative; cursor: pointer; }
+.org-grid-segments input { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.org-grid-segments span { display: grid; width: 48px; height: 38px; place-items: center; border-left: 1px solid var(--neutral-200); color: var(--neutral-700); font-size: 14px; font-weight: 500; transition: background-color .15s ease, color .15s ease, box-shadow .15s ease; }
+.org-grid-segments label:first-child span { border-left: 0; }
+.org-grid-segments label:hover span { background: var(--neutral-50); color: var(--primary-700); }
+.org-grid-segments input:checked + span { position: relative; z-index: 1; margin: -1px 0; height: 40px; background: var(--primary-600); color: var(--white); box-shadow: 0 0 0 1px var(--primary-600); }
+.org-grid-segments input:focus-visible + span { position: relative; z-index: 2; outline: 2px solid var(--primary-400); outline-offset: -3px; }
+.org-grid-preview { padding: 16px 18px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--white); }
+.org-grid-preview-head { display: grid; gap: 4px; margin-bottom: 14px; }
+.org-grid-preview-head span { color: var(--neutral-600); font-size: 12px; }
+.org-grid-preview-head b { color: var(--primary-700); font-size: 12px; font-weight: 600; line-height: 18px; }
+.org-grid-mini { display: grid; width: 100%; height: 130px; gap: 4px; align-content: stretch; }
+.org-grid-mini span { min-width: 0; min-height: 0; border: 1px solid var(--primary-200); border-radius: 3px; background: var(--primary-50); }
+.org-grid-axis { display: flex; justify-content: space-between; margin-top: 8px; color: var(--neutral-400); font-size: 11px; }
+.org-matrix-scroll { overflow-x: auto; padding-bottom: 4px; }
+.org-matrix-scroll .matrix { width: 100%; }
+.org-matrix-scroll .matrix .row-head,
+.org-matrix-scroll .matrix .corner-cell { position: sticky; left: 0; z-index: 2; }
+@media (max-width: 1080px) {
+  .org-grid-config-layout { grid-template-columns: 1fr; gap: 24px; }
+  .org-grid-preview { max-width: 420px; }
+}
+
 /* ---------- 15. 进度（分析中页）---------- */
 .progress-stages { display: flex; flex-direction: column; gap: var(--space-md); max-width: 520px; }
 .pstage { display: flex; align-items: center; gap: var(--space-md); }
@@ -1192,8 +1224,6 @@ body[data-page="talent-profile"] .detail-main > .d-section:not([data-section="ab
 .cat-tree-item:hover { background:var(--neutral-50); color:var(--neutral-900); }
 .cat-tree-item.active { background:var(--primary-50); color:var(--primary-600); font-weight:500; }
 .cat-tree-item.active::before { content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px; background:var(--primary-600); border-radius:0 2px 2px 0; }
-.cat-tree-item .cti-count { font-size:12px; color:var(--neutral-400); }
-.cat-tree-item.active .cti-count { color:var(--primary-400); }
 .catmgr-row { display:flex; align-items:center; gap:6px; padding:10px 0; border-bottom:1px solid var(--neutral-100); }
 .catmgr-row:last-child { border:none; }
 .catmgr-row .cmr-name { flex:1; font-size:14px; font-weight:500; }
@@ -2648,12 +2678,6 @@ textarea.input:disabled {
     padding: 10px 12px;
     border-radius: 8px;
   }
-  body[data-page="assess-projects"] .cat-tree-item .cti-count {
-    min-width: 28px;
-    margin-left: 12px;
-    text-align: right;
-    font-variant-numeric: tabular-nums;
-  }
 }
 
 /* 桌面端一级导航收起态：72px 图标栏；移动端继续使用顶部横向导航。 */
@@ -2852,7 +2876,6 @@ body[data-page="assess-projects"] .tab-btn:focus-visible {
   background: var(--primary-50);
   box-shadow: none;
 }
-.list-scope-tree .cti-count { margin-left: 12px; color: var(--neutral-500); font-size: 12px; }
 
 .list-rail-label {
   margin: 15px 4px 7px;
@@ -3143,12 +3166,6 @@ body[data-page="assess-projects"] .cat-main table.t { min-width: 1080px; }
   box-shadow: none;
 }
 
-.list-workbench-tree .cti-count {
-  margin-left: auto;
-  color: var(--neutral-500);
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-}
 
 .shell-v2 .content > .card[data-tabs] > .tab-btns .tab-btn {
   min-height: 44px;
@@ -4295,6 +4312,7 @@ body[data-page="review-projects"] .rd-matrix .cell:focus-visible {
 .review-project-query .select { min-width: 0; width: 100%; }
 .review-project-table { min-height: 276px; }
 .review-project-table .t { min-width: 860px !important; }
+.review-project-toolbar { justify-content: flex-end; }
 .review-performance-actions {
   display: flex;
   align-items: center;
@@ -4314,6 +4332,14 @@ body[data-page="review-projects"] .rd-matrix .cell:focus-visible {
 }
 .axis-select-row label { display: grid; gap: 7px; color: var(--neutral-600); font-size: 12px; }
 .axis-select-row .btn { margin-bottom: 1px; }
+.review-grid-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) auto; gap: 8px; align-items: end; margin-top: 14px; }
+.review-grid-counts label { display: grid; gap: 7px; color: var(--neutral-600); font-size: 12px; }
+.review-fixed-count { display: grid; min-height: 40px; align-content: center; gap: 2px; padding: 0 8px; border-radius: 8px; color: var(--neutral-500); background: var(--surface-subtle); font-size: 12px; }
+.review-fixed-count strong { color: var(--neutral-800); font-size: 13px; font-weight: 600; }
+.review-fixed-count small { color: var(--neutral-500); font-size: 11px; }
+.review-grid-count-summary { display: flex; min-height: 40px; align-items: center; gap: 8px; padding: 0 8px; color: var(--neutral-500); font-size: 12px; white-space: nowrap; }
+.review-grid-count-summary b { color: var(--primary-700); font-size: 14px; font-variant-numeric: tabular-nums; }
+.review-grid-count-summary span { font-variant-numeric: tabular-nums; }
 .rule-block-head > .tag { margin-left: auto; }
 .review-range-list {
   display: grid;
@@ -4335,6 +4361,7 @@ body[data-page="review-projects"] .rd-matrix .cell:focus-visible {
 .review-range-list b { color: var(--neutral-800); font-size: 13px; }
 .rule-scale-block .performance-map { gap: 6px; margin-top: 0; }
 .rule-scale-block .performance-map span { justify-content: center; min-height: 42px; padding: 7px; background: var(--surface-subtle); }
+.rule-fixed-note { margin-left: 6px; color: var(--neutral-500); font-size: 11px; font-weight: 400; }
 .distribution-rule { gap: 14px; }
 .distribution-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .distribution-head p,
@@ -4430,6 +4457,8 @@ body[data-page="review-projects"] .rd-matrix .cell:focus-visible {
 @media (max-width: 720px) {
   .review-basic-grid,
   .review-project-query { grid-template-columns: 1fr; }
+  .review-grid-counts { grid-template-columns: 1fr 1fr; }
+  .review-grid-count-summary { grid-column: 1 / -1; min-height: 28px; padding: 0; }
   .review-performance-actions { align-items: flex-start; flex-direction: column; }
   .review-range-list,
   .performance-map { grid-template-columns: 1fr; }

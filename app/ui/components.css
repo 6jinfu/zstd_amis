@@ -99,7 +99,6 @@
   .list-workbench .cat-tree-item,.list-workbench .std-category { width:auto; display:inline-flex; gap:8px; white-space:nowrap; margin:0; }
   .list-workbench .std-categories { width:100%; display:flex; flex-direction:row; overflow:auto; gap:8px; }
   .list-workbench .std-category { flex:0 0 auto; }
-  .list-workbench .cat-tree-item .cti-count { margin-left:4px; }
   .std-reference > .flex { flex-wrap:wrap; }
   .std-reference > .flex .select { flex:1; min-width:180px; }
   .std-reference > .flex .btn-text { white-space:nowrap; flex-shrink:0; }

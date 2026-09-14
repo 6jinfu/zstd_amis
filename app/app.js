@@ -223,7 +223,7 @@ function initListWorkbenches() {
       var scopeItem = document.createElement('button');
       scopeItem.type = 'button';
       scopeItem.className = `cat-tree-item list-scope-item${index === 0 ? ' active' : ''}`;
-      scopeItem.innerHTML = `<span>${item.label}</span>${item.count == null ? '' : `<span class="cti-count">${item.count}</span>`}`;
+      scopeItem.innerHTML = `<span>${item.label}</span>`;
       scopeList.appendChild(scopeItem);
       scopeItem.addEventListener('click', function () {
         scopeList.querySelectorAll('.list-scope-item').forEach(function (node) { node.classList.remove('active'); });
@@ -680,6 +680,162 @@ function initBubbles() {
 }
 
 /* ---------- ⑨ 组织结构矩阵：按人数热力 ---------- */
+const ORG_GRID_DRAFT_KEY = 'talent-org-grid-draft-v1';
+const ORG_GRID_ACTIVE_KEY = 'talent-org-grid-active-v1';
+
+function normalizeOrgGridConfig(config) {
+  config = config || {};
+  return {
+    sequenceCount: Math.min(5, Math.max(1, Number(config.sequenceCount || config.sequence_count) || 3)),
+    levelCount: Math.min(5, Math.max(1, Number(config.levelCount || config.level_count) || 3))
+  };
+}
+
+function readOrgGridConfig(scope) {
+  var key = scope === 'active' ? ORG_GRID_ACTIVE_KEY : ORG_GRID_DRAFT_KEY;
+  try { return normalizeOrgGridConfig(JSON.parse(localStorage.getItem(key) || 'null')); }
+  catch (_error) { return normalizeOrgGridConfig(); }
+}
+
+function writeOrgGridConfig(scope, config) {
+  var value = normalizeOrgGridConfig(config);
+  var key = scope === 'active' ? ORG_GRID_ACTIVE_KEY : ORG_GRID_DRAFT_KEY;
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (_error) {}
+  return value;
+}
+
+window.readOrgGridConfig = readOrgGridConfig;
+window.writeOrgGridConfig = writeOrgGridConfig;
+
+function orgGridLabels(type, count) {
+  if (type === 'sequence') return [
+    { name: '研发', sub: '技术序列', code: 'RD' },
+    { name: '销售', sub: '市场序列', code: 'SA' },
+    { name: '职能', sub: '支持序列', code: 'FN' },
+    { name: '产品', sub: '产品序列', code: 'PD' },
+    { name: '运营', sub: '运营序列', code: 'OP' }
+  ].slice(0, count);
+  var sets = {
+    1: [['统一层级', '统一归类']],
+    2: [['初级', '独立执行'], ['高级', '专家 / 决策']],
+    3: [['初级', '独立执行'], ['中级', '带组 / 资深'], ['高级', '专家 / 决策']],
+    4: [['初级', '独立执行'], ['中级', '熟练贡献'], ['高级', '带组 / 资深'], ['专家', '专业决策']],
+    5: [['基础', '支持执行'], ['初级', '独立执行'], ['中级', '熟练贡献'], ['高级', '带组 / 资深'], ['专家', '专业决策']]
+  };
+  return sets[count].map(function (item, index) { return { name: item[0], sub: item[1], order: index + 1 }; });
+}
+
+function orgGridCells(config) {
+  var total = config.sequenceCount * config.levelCount;
+  var seeds = [
+    { jobs: 3, people: 9 }, { jobs: 2, people: 6 }, { jobs: 7, people: 36 }, { jobs: 6, people: 28 },
+    { jobs: 4, people: 14 }, { jobs: 4, people: 18 }, { jobs: 5, people: 42 }, { jobs: 3, people: 12 }
+  ];
+  if (total === 1) return [{ jobs: 34, people: 165 }];
+  var result = new Array(total).fill(null);
+  if (config.sequenceCount === 3 && config.levelCount === 3) {
+    [seeds[0], seeds[1], null, seeds[2], seeds[3], seeds[4], seeds[5], seeds[6], seeds[7]].forEach(function (item, index) { result[index] = item; });
+    return result;
+  }
+  if (total < seeds.length) {
+    seeds.forEach(function (seed, index) {
+      var target = Math.round(index * (total - 1) / Math.max(1, seeds.length - 1));
+      if (!result[target]) result[target] = { jobs: 0, people: 0 };
+      result[target].jobs += seed.jobs; result[target].people += seed.people;
+    });
+    return result;
+  }
+  var occupied = Math.min(seeds.length, total);
+  for (var i = 0; i < occupied; i++) {
+    var index = Math.round(i * (total - 1) / Math.max(1, occupied - 1));
+    result[index] = seeds[i];
+  }
+  return result;
+}
+
+function renderOrgMatrix(matrix) {
+  var scope = matrix.dataset.orgMatrix === 'active' ? 'active' : 'draft';
+  var config = readOrgGridConfig(scope);
+  var sequences = orgGridLabels('sequence', config.sequenceCount);
+  var levels = orgGridLabels('level', config.levelCount);
+  var cells = orgGridCells(config);
+  var cellIndex = 0;
+  matrix.innerHTML = '';
+  matrix.style.gridTemplateColumns = '120px repeat(' + config.sequenceCount + ', minmax(148px, 1fr))';
+  matrix.style.minWidth = (120 + config.sequenceCount * 148 + config.sequenceCount * 4) + 'px';
+  levels.slice().reverse().forEach(function (level) {
+    var rowHead = document.createElement('div');
+    rowHead.className = 'row-head';
+    rowHead.innerHTML = '<div class="rh"></div><div class="rh-sub"></div>';
+    rowHead.querySelector('.rh').textContent = level.name;
+    rowHead.querySelector('.rh-sub').textContent = level.sub;
+    matrix.appendChild(rowHead);
+    sequences.forEach(function (sequence) {
+      var seed = cells[cellIndex++];
+      if (!seed) {
+        var empty = document.createElement('div'); empty.className = 'group empty-cell';
+        empty.innerHTML = '<div class="g-name">暂无岗位</div>';
+        matrix.appendChild(empty); return;
+      }
+      var group = document.createElement(matrix.dataset.orgMatrixInteractive === 'false' ? 'div' : 'button');
+      group.className = 'group';
+      if (group.tagName === 'BUTTON') { group.type = 'button'; group.dataset.open = 'drawer-cell'; }
+      group.innerHTML = '<div><div class="g-name"></div><div class="g-stats"><span><b></b> 岗位</span><span><b></b> 人</span></div></div><div class="g-foot"><span class="lvl"></span></div>';
+      group.querySelector('.g-name').textContent = sequence.name + '·' + level.name;
+      group.querySelectorAll('.g-stats b')[0].textContent = seed.jobs;
+      group.querySelectorAll('.g-stats b')[1].textContent = seed.people;
+      group.querySelector('.lvl').textContent = '组 G-' + sequence.code + '-' + level.order;
+      matrix.appendChild(group);
+    });
+  });
+  var corner = document.createElement('div'); corner.className = 'corner-cell'; corner.innerHTML = '<div class="ax">业务分权 ↑<br>业务分工 →</div>'; matrix.appendChild(corner);
+  sequences.forEach(function (sequence) {
+    var head = document.createElement('div'); head.className = 'col-head';
+    head.innerHTML = '<span></span><div class="ch-sub"></div>';
+    head.querySelector('span').textContent = sequence.name; head.querySelector('.ch-sub').textContent = sequence.sub;
+    matrix.appendChild(head);
+  });
+  var prefix = '[data-org-grid-scope="' + scope + '"] ';
+  document.querySelectorAll(prefix + '[data-org-grid-copy]').forEach(function (node) { node.textContent = config.sequenceCount + ' 项业务分工 × ' + config.levelCount + ' 级业务分权，共 ' + (config.sequenceCount * config.levelCount) + ' 宫格'; });
+  document.querySelectorAll(prefix + '[data-org-kpi-sequence]').forEach(function (node) { node.textContent = config.sequenceCount; });
+  document.querySelectorAll(prefix + '[data-org-kpi-level]').forEach(function (node) { node.textContent = config.levelCount; });
+  document.querySelectorAll(prefix + '[data-org-kpi-group]').forEach(function (node) { node.textContent = Math.min(8, config.sequenceCount * config.levelCount); });
+}
+
+function initOrgGridConfiguration() {
+  var configurator = document.querySelector('[data-org-grid-config]');
+  if (configurator) {
+    var active = readOrgGridConfig('active');
+    var config = writeOrgGridConfig('draft', active);
+    var sequenceInputs = configurator.querySelectorAll('[name="org-sequence-count"]');
+    var levelInputs = configurator.querySelectorAll('[name="org-level-count"]');
+    var preview = configurator.querySelector('[data-org-grid-mini]');
+    var copy = configurator.querySelector('[data-org-grid-copy]');
+    function render() {
+      sequenceInputs.forEach(function (input) { input.checked = Number(input.value) === config.sequenceCount; });
+      levelInputs.forEach(function (input) { input.checked = Number(input.value) === config.levelCount; });
+      preview.style.gridTemplateColumns = 'repeat(' + config.sequenceCount + ', 1fr)';
+      preview.innerHTML = new Array(config.sequenceCount * config.levelCount).fill('<span></span>').join('');
+      copy.textContent = config.sequenceCount + ' 项业务分工 × ' + config.levelCount + ' 级业务分权，共 ' + (config.sequenceCount * config.levelCount) + ' 宫格';
+      document.querySelectorAll('[data-org-grid-summary]').forEach(function (node) { node.textContent = config.sequenceCount + ' 项业务分工 × ' + config.levelCount + ' 级业务分权（' + (config.sequenceCount * config.levelCount) + ' 宫格）'; });
+    }
+    configurator.addEventListener('change', function (event) {
+      if (event.target.name === 'org-sequence-count') config.sequenceCount = Number(event.target.value);
+      if (event.target.name === 'org-level-count') config.levelCount = Number(event.target.value);
+      config = writeOrgGridConfig('draft', config); render();
+    });
+    render();
+  }
+  document.querySelectorAll('[data-org-matrix]').forEach(renderOrgMatrix);
+  var draft = readOrgGridConfig('draft');
+  document.querySelectorAll('[data-org-sequence-options]').forEach(function (select) {
+    select.innerHTML = orgGridLabels('sequence', draft.sequenceCount).map(function (item) { return '<option>' + item.name + '</option>'; }).join('');
+  });
+  document.querySelectorAll('[data-org-level-options]').forEach(function (select) {
+    select.innerHTML = orgGridLabels('level', draft.levelCount).slice().reverse().map(function (item) { return '<option>' + item.name + '</option>'; }).join('');
+  });
+}
+
 function initHeatmap() {
   document.querySelectorAll('[data-heat]').forEach(function (m) {
     var cells = m.querySelectorAll('.group:not(.empty-cell)');
@@ -905,7 +1061,8 @@ function startAnalysisTask(options) {
     resultHref: options.resultHref,
     returnHref: options.returnHref || '',
     startedAt: Date.now(),
-    duration: options.duration || 12000
+    duration: options.duration || 12000,
+    gridConfig: options.gridConfig ? normalizeOrgGridConfig(options.gridConfig) : null
   };
   if (task.type === 'org') {
     try { localStorage.removeItem('talent-org-analysis-ready-v5'); } catch (_error) {}
@@ -978,6 +1135,10 @@ function initApp() {
   initTabs();
   initAnchorTabs();
   initBubbles();
+  if (document.body.dataset.page === 'org-structure' && new URLSearchParams(location.search).get('effective') === '1') {
+    writeOrgGridConfig('active', readOrgGridConfig('draft'));
+  }
+  initOrgGridConfiguration();
   initHeatmap();
   initListFilter();
   initToasts();

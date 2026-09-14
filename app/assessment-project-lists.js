@@ -46,7 +46,7 @@
       var all = document.createElement('button');
       all.type = 'button';
       all.className = 'cat-tree-item' + (!selected ? ' active' : '');
-      all.innerHTML = '<span>全部</span><span class="cti-count">' + root.dataset.total + '</span>';
+      all.innerHTML = '<span>全部</span>';
       all.dataset.category = '';
       categoryList.appendChild(all);
       managerList.querySelectorAll('.catmgr-row').forEach(function (row) {
@@ -56,9 +56,8 @@
         item.type = 'button';
         item.className = 'cat-tree-item' + (selected === name ? ' active' : '');
         item.dataset.category = name;
-        item.innerHTML = '<span></span><span class="cti-count"></span>';
+        item.innerHTML = '<span></span>';
         item.firstElementChild.textContent = name;
-        item.lastElementChild.textContent = text(row.querySelector('.cmr-count')).replace(/\s*条$/, '');
         categoryList.appendChild(item);
       });
       activeCategory = selected || '';

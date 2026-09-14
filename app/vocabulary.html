@@ -13,8 +13,6 @@
   .indicator-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
   .indicator-category-tree .cat-tree-item.active { background:transparent; color:var(--primary-700); font-weight:500; }
   .indicator-category-tree .cat-tree-item.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:2px; background:var(--primary-600); border-radius:2px; }
-  .indicator-category-tree .cat-tree-item .cti-count { margin-left:12px; font-size:12px; color:var(--neutral-500); }
-  .indicator-category-tree .cat-tree-item.active .cti-count { color:var(--primary-600); }
   .cap-demo-tree-search { position:relative; display:block; margin:2px 6px 10px; }
   .cap-demo-tree-search input { width:100%; height:36px; padding:0 34px 0 12px; border:1px solid var(--border-default); border-radius:6px; background:var(--white); font-size:13px; }
   .cap-demo-tree-search svg { position:absolute; top:9px; right:10px; width:17px; height:17px; color:var(--neutral-400); pointer-events:none; }
@@ -29,7 +27,6 @@
   #cap-tree .cap-demo-arrow.expanded svg { transform:rotate(90deg); }
   #cap-tree .cap-demo-arrow.is-empty { pointer-events:none; }
   #cap-tree .cap-demo-label { min-width:0; flex:1 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  #cap-tree .cap-demo-row .cti-count { flex:0 0 auto; margin-left:auto; padding-left:4px; font-size:11px; }
   #cap-tree .cap-demo-row { gap:4px; padding-left:calc(10px + var(--tree-depth) * 14px); }
   #cap-tree .cap-demo-arrow { width:14px; }
   #cap-tree .cap-demo-row:focus-visible { outline:2px solid var(--focus-neutral); outline-offset:-2px; }
@@ -113,11 +110,11 @@
             <div class="cat-layout list-workbench list-workbench-tree">
               <div class="cat-tree-panel indicator-category-tree" id="mot-tree">
                 <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" data-open="drawer-catmgr-mot" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
-                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">28</span></button>
-                <button class="cat-tree-item" type="button" data-cat="成就与发展"><span>成就与发展</span><span class="cti-count">8</span></button>
-                <button class="cat-tree-item" type="button" data-cat="关系与利他"><span>关系与利他</span><span class="cti-count">6</span></button>
-                <button class="cat-tree-item" type="button" data-cat="价值与意义"><span>价值与意义</span><span class="cti-count">6</span></button>
-                <button class="cat-tree-item" type="button" data-cat="安全与平衡"><span>安全与平衡</span><span class="cti-count">8</span></button>
+                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span></button>
+                <button class="cat-tree-item" type="button" data-cat="成就与发展"><span>成就与发展</span></button>
+                <button class="cat-tree-item" type="button" data-cat="关系与利他"><span>关系与利他</span></button>
+                <button class="cat-tree-item" type="button" data-cat="价值与意义"><span>价值与意义</span></button>
+                <button class="cat-tree-item" type="button" data-cat="安全与平衡"><span>安全与平衡</span></button>
               </div>
               <div class="cat-main">
                 <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-mot-search></div><div class="actions"><button class="btn btn-primary" data-mot-query>查询</button><button class="btn btn-secondary" data-mot-reset>重置</button></div></div>
@@ -174,10 +171,10 @@
             <div class="cat-layout list-workbench list-workbench-tree">
               <div class="cat-tree-panel indicator-category-tree" id="pot-tree">
                 <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" data-open="drawer-catmgr-pot" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button></div>
-                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">60</span></button>
-                <button class="cat-tree-item" type="button" data-cat="思维方式"><span>思维方式</span><span class="cti-count">22</span></button>
-                <button class="cat-tree-item" type="button" data-cat="人际互动"><span>人际互动</span><span class="cti-count">19</span></button>
-                <button class="cat-tree-item" type="button" data-cat="自我情绪"><span>自我情绪</span><span class="cti-count">19</span></button>
+                <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span></button>
+                <button class="cat-tree-item" type="button" data-cat="思维方式"><span>思维方式</span></button>
+                <button class="cat-tree-item" type="button" data-cat="人际互动"><span>人际互动</span></button>
+                <button class="cat-tree-item" type="button" data-cat="自我情绪"><span>自我情绪</span></button>
               </div>
               <div class="cat-main">
                 <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-pot-search></div><div class="actions"><button class="btn btn-primary" data-pot-query>查询</button><button class="btn btn-secondary" data-pot-reset>重置</button></div></div>
@@ -347,11 +344,11 @@
       var children = hasChildren && isOpen ? '<div class="cap-demo-children">' + (node.children || []).filter(function (child) { return !query || child.name.toLowerCase().indexOf(query) >= 0 || (child.children || []).length; }).map(function (child) { return row(child, depth + 1, query); }).join('') + '</div>' : '';
       var visible = !query || node.name.toLowerCase().indexOf(query) >= 0 || children;
       if (!visible) return '';
-      return '<div class="cap-demo-node"><div class="cat-tree-item cap-demo-row ' + (active === node.id ? 'active' : '') + '" style="--tree-depth:' + depth + '" data-cat="' + UI.escape(node.id) + '" data-descendants="' + UI.escape((categoryIds.get(node.id) || [node.id]).map(function (id) { return categoryNames.get(id) || id; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="' + (depth + 1) + '"' + (hasChildren ? ' aria-expanded="' + String(isOpen) + '"' : '') + ' aria-selected="' + String(active === node.id) + '" title="' + UI.escape(node.name) + '">' + arrow(isOpen, hasChildren) + '<span class="cap-demo-label">' + UI.escape(node.name) + '</span><span class="cti-count">' + countFor(node.id) + '</span></div>' + children + '</div>';
+      return '<div class="cap-demo-node"><div class="cat-tree-item cap-demo-row ' + (active === node.id ? 'active' : '') + '" style="--tree-depth:' + depth + '" data-cat="' + UI.escape(node.id) + '" data-descendants="' + UI.escape((categoryIds.get(node.id) || [node.id]).map(function (id) { return categoryNames.get(id) || id; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="' + (depth + 1) + '"' + (hasChildren ? ' aria-expanded="' + String(isOpen) + '"' : '') + ' aria-selected="' + String(active === node.id) + '" title="' + UI.escape(node.name) + '">' + arrow(isOpen, hasChildren) + '<span class="cap-demo-label">' + UI.escape(node.name) + '</span></div>' + children + '</div>';
     }
     function renderTree() {
       var query = (tree.querySelector('[data-cap-tree-search]').value || '').trim().toLowerCase();
-      tree.querySelector('[data-cap-demo-tree]').innerHTML = '<div class="cat-tree-item cap-demo-row ' + (active === 'all' ? 'active' : '') + '" style="--tree-depth:0" data-cat="全部" data-descendants="' + UI.escape((demo.items.cap || []).map(function (item) { return categoryNames.get(item.categoryId) || item.categoryId; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="1" aria-expanded="' + String(rootExpanded) + '" aria-selected="' + String(active === 'all') + '" title="全部">' + arrow(rootExpanded, true) + '<span class="cap-demo-label">全部</span><span class="cti-count">' + (demo.items.cap || []).length + '</span></div>' + (rootExpanded ? '<div class="cap-demo-children" role="group">' + categories.map(function (node) { return row(node, 1, query); }).join('') + '</div>' : '');
+      tree.querySelector('[data-cap-demo-tree]').innerHTML = '<div class="cat-tree-item cap-demo-row ' + (active === 'all' ? 'active' : '') + '" style="--tree-depth:0" data-cat="全部" data-descendants="' + UI.escape((demo.items.cap || []).map(function (item) { return categoryNames.get(item.categoryId) || item.categoryId; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="1" aria-expanded="' + String(rootExpanded) + '" aria-selected="' + String(active === 'all') + '" title="全部">' + arrow(rootExpanded, true) + '<span class="cap-demo-label">全部</span></div>' + (rootExpanded ? '<div class="cap-demo-children" role="group">' + categories.map(function (node) { return row(node, 1, query); }).join('') + '</div>' : '');
     }
     body.innerHTML = (demo.items.cap || []).map(function (item) { var categoryName = categoryNames.get(item.categoryId) || item.categoryId; return '<tr data-cat="' + UI.escape(categoryName) + '"><td><b>' + UI.escape(item.name) + '</b></td><td>' + UI.escape(categoryName) + '</td><td class="muted">' + UI.escape(item.description) + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>'; }).join('');
     var managerList = document.querySelector('#drawer-catmgr-cap [data-catmgr-list]');
@@ -469,21 +466,18 @@
       var active = tree.querySelector('.cat-tree-item.active');
       var activeCat = preferredCat || (active && active.dataset.cat) || '全部';
       var head = tree.querySelector('.ctp-head').outerHTML;
-      var total = 0, html = head;
+      var html = head;
       var cats = [];
       rows.forEach(function (r) {
         var nameEl = r.querySelector('.cmr-name');
         if (!nameEl) return;
         var name = nameEl.textContent;
         cats.push(name);
-        var count = Array.from(tbl.querySelectorAll('tbody tr[data-cat]')).filter(function(row){return row.dataset.cat === name;}).length;
-        total += count;
       });
       if (activeCat !== '全部' && cats.indexOf(activeCat) < 0) activeCat = '全部';
-      html += '<button class="cat-tree-item' + (activeCat === '全部' ? ' active' : '') + '" type="button" data-cat="全部"><span>全部</span><span class="cti-count">' + total + '</span></button>';
+      html += '<button class="cat-tree-item' + (activeCat === '全部' ? ' active' : '') + '" type="button" data-cat="全部"><span>全部</span></button>';
       cats.forEach(function (c) {
-        var count = Array.from(tbl.querySelectorAll('tbody tr[data-cat]')).filter(function(row){return row.dataset.cat === c;}).length;
-        html += '<button class="cat-tree-item' + (activeCat === c ? ' active' : '') + '" type="button" data-cat="' + UI.escape(c) + '"><span>' + UI.escape(c) + '</span><span class="cti-count">' + count + '</span></button>';
+        html += '<button class="cat-tree-item' + (activeCat === c ? ' active' : '') + '" type="button" data-cat="' + UI.escape(c) + '"><span>' + UI.escape(c) + '</span></button>';
       });
       tree.innerHTML = html;
       tree.dispatchEvent(new CustomEvent('categorytreechange'));

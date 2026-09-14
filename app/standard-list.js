@@ -13,9 +13,9 @@
     const namesFor=node=>[node.name,...(node.children||[])];
     const matchesCategoryFor=(s,name)=>{if(!name)return true;const node=tree().find(item=>item.name===name);return node?namesFor(node).includes(s.category):s.category===name;};
     const matchesCategory=s=>matchesCategoryFor(s,category);
-    const categoryButton=(name,label,extra='',reserveToggle=true)=>`<button type="button" class="cat-tree-item std-category ${extra} ${name===category?'active':''}" data-category="${e(name)}">${reserveToggle?'<span class="std-category-toggle-slot" aria-hidden="true"></span>':''}<span class="std-category-label">${e(label)}</span><small class="cti-count">${data.standards.filter(s=>matchesCategoryFor(s,name)).length}</small></button>`;
+    const categoryButton=(name,label,extra='',reserveToggle=true)=>`<button type="button" class="cat-tree-item std-category ${extra} ${name===category?'active':''}" data-category="${e(name)}">${reserveToggle?'<span class="std-category-toggle-slot" aria-hidden="true"></span>':''}<span class="std-category-label">${e(label)}</span></button>`;
     function render(focusTarget) {
-      const all=`<button type="button" class="cat-tree-item std-category ${!category?'active':''}" data-category=""><span class="std-category-toggle-slot" aria-hidden="true"></span><span class="std-category-label">全部</span><small class="cti-count">${data.standards.length}</small></button>`;
+      const all=`<button type="button" class="cat-tree-item std-category ${!category?'active':''}" data-category=""><span class="std-category-toggle-slot" aria-hidden="true"></span><span class="std-category-label">全部</span></button>`;
       const categoryHtml=tree().map(node=>{
         const children=node.children||[];
         if(!children.length)return categoryButton(node.name,node.name);

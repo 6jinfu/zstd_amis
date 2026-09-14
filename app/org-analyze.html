@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>组织结构分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=20260914d">
 <link rel="stylesheet" href="ui/components.css?v=20260908e">
 </head>
 <body data-module="standard" data-page="org-structure">
@@ -44,7 +44,7 @@
         <div><h1>组织结构分析</h1></div>
       </div>
 
-      <!-- 2026-08-26 简化操作流程：分析方法/维度配置/宫格设置暂不开放用户配置，参数由 Dify 工作流内置默认；完整向导见 git 历史 -->
+      <!-- 向导保留三步；分析方法与维度继续使用内置参数，组织结构矩阵规格在生成步开放配置 -->
       <div data-wizard>
         <div class="steps">
           <div class="step"><span class="idx">1</span><span class="lbl">组织范围</span></div><span class="line"></span>
@@ -108,12 +108,46 @@
 
         <!-- ③ 生成 -->
         <div class="step-panel" data-panel="3">
+          <div class="card card-pad org-grid-config-card" data-org-grid-config>
+            <div class="section-title">组织结构矩阵规格</div>
+            <div class="text-sm muted org-grid-config-intro">设置横向业务分工数量和纵向业务分权层数，AI 将在该规格内生成名称并归类岗位。</div>
+            <div class="org-grid-config-layout">
+              <div class="org-grid-config-fields">
+                <fieldset class="org-grid-field">
+                  <legend><span>横轴</span>业务分工</legend>
+                  <div class="org-grid-segments" aria-label="业务分工列数">
+                    <label><input type="radio" name="org-sequence-count" value="1"><span>1</span></label>
+                    <label><input type="radio" name="org-sequence-count" value="2"><span>2</span></label>
+                    <label><input type="radio" name="org-sequence-count" value="3"><span>3</span></label>
+                    <label><input type="radio" name="org-sequence-count" value="4"><span>4</span></label>
+                    <label><input type="radio" name="org-sequence-count" value="5"><span>5</span></label>
+                  </div>
+                </fieldset>
+                <fieldset class="org-grid-field">
+                  <legend><span>纵轴</span>业务分权</legend>
+                  <div class="org-grid-segments" aria-label="业务分权层数">
+                    <label><input type="radio" name="org-level-count" value="1"><span>1</span></label>
+                    <label><input type="radio" name="org-level-count" value="2"><span>2</span></label>
+                    <label><input type="radio" name="org-level-count" value="3"><span>3</span></label>
+                    <label><input type="radio" name="org-level-count" value="4"><span>4</span></label>
+                    <label><input type="radio" name="org-level-count" value="5"><span>5</span></label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="org-grid-preview" aria-live="polite">
+                <div class="org-grid-preview-head"><span>规格预览</span><b data-org-grid-copy>3 项业务分工 × 3 级业务分权，共 9 宫格</b></div>
+                <div class="org-grid-mini" data-org-grid-mini aria-hidden="true"></div>
+                <div class="org-grid-axis"><span>业务分权 ↑</span><span>业务分工 →</span></div>
+              </div>
+            </div>
+          </div>
           <div class="card card-pad">
             <div class="section-title">配置汇总</div>
             <div class="table-wrap"><table class="t">
               <tbody>
                 <tr><td class="muted" style="width:180px">组织范围</td><td>总部 · 研发中心 / 销售中心 / 职能中台（4 部门 · 34 岗位 · 165 人）</td></tr>
                 <tr><td class="muted">说明材料</td><td>岗位说明书汇编.docx（已解析）· 组织架构图.pdf（解析中）</td></tr>
+                <tr><td class="muted">矩阵规格</td><td data-org-grid-summary>3 项业务分工 × 3 级业务分权（9 宫格）</td></tr>
                 <tr><td class="muted">生成物</td><td>新版本草稿（V3）· 确认生效后替换 V2</td></tr>
               </tbody>
             </table></div>
@@ -136,7 +170,7 @@
   </div>
 </div>
 <script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
+<script src="app.js?v=20260914d"></script>
 <script>
   var lb = document.querySelector('[data-step-submit]');
   if (lb) lb.addEventListener('click', function (e) {
@@ -146,11 +180,13 @@
     this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>正在提交…';
     var button = this;
     setTimeout(function () {
+      var gridConfig = window.readOrgGridConfig ? window.readOrgGridConfig('draft') : { sequenceCount: 3, levelCount: 3 };
       button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M5 12l4 4L19 6"/></svg>任务已提交';
       if (window.startAnalysisTask) window.startAnalysisTask({
         type: 'org',
         title: '组织结构分析',
-        subtitle: '新版本草稿 V3 · 岗位评价法 / 结构分析法',
+        subtitle: '新版本草稿 V3 · ' + gridConfig.sequenceCount + '×' + gridConfig.levelCount + ' 组织结构矩阵',
+        gridConfig: gridConfig,
         resultHref: 'org-preview.html',
         returnHref: 'org-structure.html',
         duration: 12000

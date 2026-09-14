@@ -12,8 +12,6 @@
   .key-position-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
   .key-position-category-tree .cat-tree-item.active { color:var(--primary-700); background:transparent; font-weight:500; }
   .key-position-category-tree .cat-tree-item.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:2px; border-radius:2px; background:var(--primary-600); }
-  .key-position-category-tree .cat-tree-item .cti-count { margin-left:12px; color:var(--neutral-500); font-size:12px; }
-  .key-position-category-tree .cat-tree-item.active .cti-count { color:var(--primary-600); }
   .key-position-category-tree .cat-tree-item:focus:not(:focus-visible) { outline:none; }
   body[data-page="key-position"] .review-main table.t { min-width:1160px; }
 </style>
@@ -42,10 +40,10 @@
       <div class="review-layout list-workbench list-workbench-tree">
         <aside class="cat-tree-panel key-position-category-tree" id="kp-tree">
           <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" type="button" data-open="drawer-kp-catmgr" title="管理类别" aria-label="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg></button></div>
-          <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span><span class="cti-count">3</span></button>
-          <button class="cat-tree-item" type="button" data-cat="年度分析"><span>年度分析</span><span class="cti-count">1</span></button>
-          <button class="cat-tree-item" type="button" data-cat="序列分析"><span>序列分析</span><span class="cti-count">1</span></button>
-          <button class="cat-tree-item" type="button" data-cat="专项分析"><span>专项分析</span><span class="cti-count">1</span></button>
+          <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span></button>
+          <button class="cat-tree-item" type="button" data-cat="年度分析"><span>年度分析</span></button>
+          <button class="cat-tree-item" type="button" data-cat="序列分析"><span>序列分析</span></button>
+          <button class="cat-tree-item" type="button" data-cat="专项分析"><span>专项分析</span></button>
         </aside>
         <section class="review-main cat-main">
           <div class="filter-bar" data-filter-bar>
@@ -62,38 +60,38 @@
             <div class="table-wrap"><table class="t" id="kp-table">
           <thead><tr><th>项目名</th><th>类别</th><th>引用组织结构</th><th>分析范围</th><th>所用视角</th><th>关键岗位数</th><th>状态</th><th>负责人</th><th style="text-align:right">操作</th></tr></thead>
           <tbody>
-            <tr data-cat="年度分析">
+            <tr data-cat="年度分析" data-edit-name="2026 年度关键岗位分析" data-edit-target="识别研发与销售序列中需要优先培养的关键岗位，作为本年度标准建模与培养投入的依据。">
               <td><a href="key-position-result.html" style="color:var(--primary-600);font-weight:500">2026 年度关键岗位分析</a></td>
-              <td>年度分析</td>
+              <td data-kp-category>年度分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>岗位族</td>
               <td>经济 + 能力</td>
               <td><b style="color:var(--danger)">11</b></td>
               <td><span class="tag tag-done">已完成</span></td>
               <td>李文静</td>
-              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm danger">删除</button></td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-result.html">查看结果</a><button class="btn-text btn-sm" type="button" data-kp-edit>编辑</button><button class="btn-text btn-sm danger">删除</button></td>
             </tr>
-            <tr data-cat="序列分析">
+            <tr data-cat="序列分析" data-edit-name="研发序列关键岗位试点" data-edit-target="聚焦研发序列，识别对技术交付、平台稳定和业务创新具有关键影响的岗位。">
               <td><a href="key-position-analyzing.html" data-open-analysis-task data-task-type="key" data-task-title="关键岗位分析" data-task-subtitle="研发序列关键岗位试点 · 引用组织结构 V2" data-result-href="key-position-result.html" style="color:var(--primary-600);font-weight:500">研发序列关键岗位试点</a></td>
-              <td>序列分析</td>
+              <td data-kp-category>序列分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>具体岗位</td>
               <td>经济</td>
               <td class="muted">—</td>
               <td><span class="tag tag-running">分析中</span></td>
               <td>王志强</td>
-              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-analyzing.html" data-open-analysis-task data-task-type="key" data-task-title="关键岗位分析" data-task-subtitle="研发序列关键岗位试点 · 引用组织结构 V2" data-result-href="key-position-result.html">查看进度</a><button class="btn-text btn-sm muted" data-toast="已提交终止请求">终止</button></td>
+              <td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="key-position-analyzing.html" data-open-analysis-task data-task-type="key" data-task-title="关键岗位分析" data-task-subtitle="研发序列关键岗位试点 · 引用组织结构 V2" data-result-href="key-position-result.html">查看进度</a><button class="btn-text btn-sm" type="button" data-kp-edit>编辑</button><button class="btn-text btn-sm muted" data-toast="已提交终止请求">终止</button></td>
             </tr>
-            <tr data-cat="专项分析">
+            <tr data-cat="专项分析" data-edit-name="销售铁军关键岗位" data-edit-target="识别销售体系中需要优先保障和培养的关键岗位。">
               <td>销售铁军关键岗位</td>
-              <td>专项分析</td>
+              <td data-kp-category>专项分析</td>
               <td class="muted">V2 · 2026 年组织调整</td>
               <td>具体岗位</td>
               <td>能力</td>
               <td class="muted">0</td>
               <td><span class="tag tag-draft">草稿</span></td>
               <td>张敏</td>
-              <td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">提交</button><button class="btn-text btn-sm danger">删除</button></td>
+              <td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm">提交</button><button class="btn-text btn-sm" type="button" data-kp-edit>编辑</button><button class="btn-text btn-sm danger">删除</button></td>
             </tr>
           </tbody>
 <tr class="row-empty" style="display:none"><td colspan="9" class="muted" style="text-align:center;padding:32px">无匹配结果，试试调整筛选条件</td></tr>
@@ -133,10 +131,37 @@
   var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]');
   function filter(){var active=tree.querySelector('.cat-tree-item.active'),cat=active?active.dataset.cat:'全部',query=(search.value||'').trim().toLowerCase(),any=false;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){var matchCat=cat==='全部'||row.dataset.cat===cat,matchQuery=!query||row.children[0].textContent.toLowerCase().indexOf(query)>=0,tag=row.querySelector('.tag'),matchStatus=status.value==='全部'||(tag&&tag.textContent.trim()===status.value),show=matchCat&&matchQuery&&matchStatus;row.style.display=show?'':'none';if(show)any=true});var empty=table.querySelector('.row-empty');if(empty)empty.style.display=any?'none':''}
   function categoryCount(name){var count=0;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){if(row.dataset.cat===name)count++});return count}
-  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,total=0,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name);total+=categoryCount(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span><span class="cti-count">'+total+'</span></button>';names.forEach(function(name){var count=categoryCount(name);html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+UI.escape(name)+'"><span>'+UI.escape(name)+'</span><span class="cti-count">'+count+'</span></button>'});tree.innerHTML=html;filter()}
+  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span></button>';names.forEach(function(name){html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+UI.escape(name)+'"><span>'+UI.escape(name)+'</span></button>'});tree.innerHTML=html;filter()}
+  function openEditor(row){
+    var categories=[...catList.querySelectorAll('.cmr-name')].map(function(node){return node.textContent.trim();}),currentCategory=row.dataset.cat||'';
+    if(categories.indexOf(currentCategory)<0)categories.unshift(currentCategory);
+    var options=categories.map(function(name){return '<option value="'+UI.escape(name)+'"'+(name===currentCategory?' selected':'')+'>'+UI.escape(name)+'</option>';}).join('');
+    UI.openDialog({
+      title:'编辑关键岗位分析',
+      body:'<div class="field"><label for="kp-edit-name">项目名 <span class="req">*</span></label><input class="input" id="kp-edit-name" maxlength="80" value="'+UI.escape(row.dataset.editName||row.cells[0].textContent.trim())+'"></div>'+
+        '<div class="field"><label for="kp-edit-category">类别 <span class="req">*</span></label><select class="select" id="kp-edit-category">'+options+'</select></div>'+
+        '<div class="field" style="margin-bottom:0"><label for="kp-edit-target">分析目标</label><textarea class="input" id="kp-edit-target" rows="4" maxlength="300">'+UI.escape(row.dataset.editTarget||'')+'</textarea></div>'+
+        '<p class="text-sm muted mt-md">仅修改分析基本信息，不会改变已提交的分析数据和结果。</p>',
+      confirmLabel:'保存',
+      onConfirm:function(dialog){
+        var nameInput=dialog.querySelector('#kp-edit-name'),categoryInput=dialog.querySelector('#kp-edit-category'),targetInput=dialog.querySelector('#kp-edit-target'),name=nameInput.value.trim();
+        if(!name){dialog.showError('请输入项目名');nameInput.focus();return false;}
+        var previousName=row.dataset.editName||row.cells[0].textContent.trim(),activeTask=window.readAnalysisTask?window.readAnalysisTask():null;
+        row.dataset.editName=name;row.dataset.editTarget=targetInput.value.trim();row.dataset.cat=categoryInput.value;
+        var nameLink=row.cells[0].querySelector('a');
+        if(nameLink)nameLink.textContent=name;else row.cells[0].textContent=name;
+        row.querySelector('[data-kp-category]').textContent=categoryInput.value;
+        row.querySelectorAll('[data-open-analysis-task]').forEach(function(trigger){trigger.dataset.taskSubtitle=name+' · 引用组织结构 V2';});
+        if(activeTask&&activeTask.type==='key'&&activeTask.subtitle.indexOf(previousName+' ·')===0&&window.writeAnalysisTask){activeTask.subtitle=name+' · 引用组织结构 V2';window.writeAnalysisTask(activeTask);}
+        renderTree();
+        if(window.showToast)showToast('分析基本信息已保存');
+      }
+    });
+  }
   tree.addEventListener('click',function(event){var item=event.target.closest('.cat-tree-item');if(!item)return;tree.querySelectorAll('.cat-tree-item').forEach(function(node){node.classList.remove('active')});item.classList.add('active');filter()});
   tree.addEventListener('pointerdown',function(event){var item=event.target.closest('.cat-tree-item');if(item)window.setTimeout(function(){item.blur()},0)});
   document.getElementById('kp-query').addEventListener('click',filter);document.getElementById('kp-reset').addEventListener('click',function(){search.value='';status.selectedIndex=0;tree.querySelector('.cat-tree-item').click()});
+  document.addEventListener('click',function(event){var edit=event.target.closest('[data-kp-edit]');if(edit){event.preventDefault();openEditor(edit.closest('tr[data-cat]'));}});
   UI.bindCategoryManager({root:tree,triggerId:'drawer-kp-catmgr',list:catList,table:table,onChange:renderTree});
   filter();
 })();

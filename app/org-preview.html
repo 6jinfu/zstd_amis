@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>分析结果预览 · 组织结构</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=20260914d">
 <style>
   /* 待校准徽标 */
   .badge-calib { position:absolute; top:-9px; right:10px; font-size:11px; color:#b45309; background:var(--warning-bg); border:1px solid #fcd34d; padding:1px 7px; border-radius:var(--radius-full); display:inline-flex; align-items:center; gap:3px; }
@@ -43,30 +43,13 @@
       </div>
 
       <!-- 矩阵（草稿） -->
-      <div class="card card-pad fade-in">
-        <div class="section-title">岗位族矩阵（V3 草稿）</div>
-        <div class="matrix" data-heat style="grid-template-columns:120px repeat(3,1fr)">
-          <!-- 高级（顶） -->
-          <div class="row-head"><div class="rh">高级</div><div class="rh-sub">专家</div></div>
-          <button class="group" data-open="drawer-cell" style="position:relative"><span class="badge-calib">建议校准</span><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗</span><span><b>9</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-3</span></div></button>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗</span><span><b>6</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-3</span></div></button>
-          <div class="group empty-cell"><div class="g-name">暂无岗位</div><div class="text-sm" style="color:var(--neutral-400)">待人工归类</div></div>
-
-          <!-- 中级 -->
-          <div class="row-head"><div class="rh">中级</div><div class="rh-sub">带组</div></div>
-          <button class="group adjusted" data-open="drawer-cell"><span class="badge-adjust">已调整</span><div><div class="g-name">研发·中级</div><div class="g-stats"><span><b>7</b> 岗</span><span><b>36</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-2</span></div></button>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·中级</div><div class="g-stats"><span><b>6</b> 岗</span><span><b>28</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-2</span></div></button>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">职能·中级</div><div class="g-stats"><span><b>4</b> 岗</span><span><b>14</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-FN-2</span></div></button>
-
-          <!-- 初级 -->
-          <div class="row-head"><div class="rh">初级</div><div class="rh-sub">独立</div></div>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>4</b> 岗</span><span><b>18</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-RD-1</span></div></button>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>5</b> 岗</span><span><b>42</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-SA-1</span></div></button>
-          <button class="group" data-open="drawer-cell"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>3</b> 岗</span><span><b>12</b> 人</span></div></div><div class="g-foot"><span class="lvl">G-FN-1</span></div></button>
-
-          <!-- 底部：序列轴 -->
-          <div class="corner-cell"><div class="ax">层级 ↑<br>序列 →</div></div>
-          <div class="col-head">研发<div class="ch-sub">技术序列</div></div><div class="col-head">销售<div class="ch-sub">市场序列</div></div><div class="col-head">职能<div class="ch-sub">支持序列</div></div>
+      <div class="card card-pad fade-in" data-org-grid-scope="draft">
+        <div class="flex between center">
+          <div class="section-title" style="margin:0">岗位族矩阵（V3 草稿）</div>
+          <span class="text-sm muted" data-org-grid-copy>3 项业务分工 × 3 级业务分权，共 9 宫格</span>
+        </div>
+        <div class="org-matrix-scroll">
+          <div class="matrix" data-heat data-org-matrix="draft"></div>
         </div>
 
         <!-- 待人工归类篮 -->
@@ -130,7 +113,7 @@
       </tbody>
     </table></div>
     <div class="field mt-md"><label>最终归属</label>
-      <div class="flex gap-sm"><select class="select" style="flex:1"><option>研发</option><option selected>研发</option><option>职能</option></select><select class="select" style="flex:1"><option selected>中级</option><option>初级</option></select></div>
+      <div class="flex gap-sm"><select class="select" style="flex:1" data-org-sequence-options aria-label="最终序列"></select><select class="select" style="flex:1" data-org-level-options aria-label="最终层级"></select></div>
     </div>
   </div>
   <div class="m-foot"><button class="btn btn-secondary" data-close>保留当前归类</button><button class="btn btn-primary" data-close>采纳</button></div>
@@ -146,6 +129,6 @@
 </div></div>
 
 <script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
+<script src="app.js?v=20260914d"></script>
 </body>
 </html>
