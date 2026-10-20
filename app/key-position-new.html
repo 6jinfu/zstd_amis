@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>新建关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260914d">
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -71,20 +72,20 @@
 
           <div data-org-version="v1" hidden>
             <div class="matrix" data-heat style="grid-template-columns:120px repeat(3,1fr);">
-              <div class="row-head"><div class="rh">高级</div><div class="rh-sub">管理 / 资深</div></div>
-              <div class="group"><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗位</span><span><b>8</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-2</span></div></div>
-              <div class="group"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>5</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-2</span></div></div>
-              <div class="group"><div><div class="g-name">职能·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>6</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-2</span></div></div>
+              <div class="row-head"><div class="rh">高级</div></div>
+              <div class="group"><div><div class="g-name">研发·高级</div><div class="g-stats"><span><b>3</b> 岗位</span><span><b>8</b> 人</span></div></div></div>
+              <div class="group"><div><div class="g-name">销售·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>5</b> 人</span></div></div></div>
+              <div class="group"><div><div class="g-name">职能·高级</div><div class="g-stats"><span><b>2</b> 岗位</span><span><b>6</b> 人</span></div></div></div>
 
-              <div class="row-head"><div class="rh">初级</div><div class="rh-sub">独立执行</div></div>
-              <div class="group"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>9</b> 岗位</span><span><b>45</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-RD-1</span></div></div>
-              <div class="group"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>8</b> 岗位</span><span><b>51</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-SA-1</span></div></div>
-              <div class="group"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>6</b> 岗位</span><span><b>26</b> 人</span></div></div><div class="g-foot"><span class="lvl">组 G-FN-1</span></div></div>
+              <div class="row-head"><div class="rh">初级</div></div>
+              <div class="group"><div><div class="g-name">研发·初级</div><div class="g-stats"><span><b>9</b> 岗位</span><span><b>45</b> 人</span></div></div></div>
+              <div class="group"><div><div class="g-name">销售·初级</div><div class="g-stats"><span><b>8</b> 岗位</span><span><b>51</b> 人</span></div></div></div>
+              <div class="group"><div><div class="g-name">职能·初级</div><div class="g-stats"><span><b>6</b> 岗位</span><span><b>26</b> 人</span></div></div></div>
 
               <div class="corner-cell"><div class="ax">业务分权 ↑<br>业务分工 →</div></div>
-              <div class="col-head">研发<div class="ch-sub">技术序列</div></div>
-              <div class="col-head">销售<div class="ch-sub">市场序列</div></div>
-              <div class="col-head">职能<div class="ch-sub">支持序列</div></div>
+              <div class="col-head">研发</div>
+              <div class="col-head">销售</div>
+              <div class="col-head">职能</div>
             </div>
             <div class="divider"></div>
             <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
@@ -106,8 +107,8 @@
     </main>
   </div>
 </div>
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260914d"></script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
 <script>
   // 引用组织结构版本切换：摘要 + 下方可视化（矩阵 / KPI）联动
   document.addEventListener('DOMContentLoaded', function () {

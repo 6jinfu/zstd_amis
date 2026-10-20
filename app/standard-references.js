@@ -20,10 +20,11 @@
     if(p){const tag=$('.detail-bar .tag');if(tag)tag.hidden=!p.critical;const check=$('[data-section=info] input[type=checkbox]');if(check)check.checked=p.critical;}
     render();
   }
-  function reference(host,key,options,onchange,immediate = true){
+  function reference(host,key,options,onchange,immediate = true,preferred = ''){
     const candidates=options();let chosen=data.selected[key];
     // First use can adopt the sole candidate. An explicit empty selection remains empty.
     if(!Object.prototype.hasOwnProperty.call(data.selected,key)&&candidates.length===1)chosen=candidates[0].id;
+    if(preferred&&candidates.some(s=>s.id===preferred))chosen=preferred;
     if(!candidates.some(s=>s.id===chosen))chosen='';
     host.innerHTML=`<label for="${key}">采用人才标准</label><div class="flex gap-sm"><select class="select" id="${key}"><option value="">${candidates.length?'请选择人才标准':'暂无可用人才标准'}</option>${candidates.map(s=>`<option value="${e(s.id)}" ${s.id===chosen?'selected':''}>${e(s.name)}</option>`).join('')}</select><a class="btn-text" data-view-reference>查看标准</a></div><p data-reference-note></p>`;
     const select=host.querySelector('select');
@@ -41,7 +42,7 @@
       let list=planReference.querySelector('[data-plan-requirements]');if(!list){list=document.createElement('p');list.dataset.planRequirements='';planReference.appendChild(list);}
       list.textContent=s?'能力要求：'+(s.content.cap.map(c=>c.join(' ')).join('、')||'尚未配置'):'';
       const b=$('#ai-course-btn');if(b)b.disabled=!s||!s.content.cap.length;
-    }, false);
+    }, false, isPosition?'':new URLSearchParams(location.search).get('standard')||'');
   }
   if(planHost){
     const table = $('#plan-table');
@@ -50,7 +51,19 @@
     const demo = isPosition ? window.POSITION_DEMO : positionId === 'SA-201' ? window.STANDARD_POSITION_SEEDS.sales : null;
     const rows = data.plans?.[positionId] ?? (demo ? demo.plan : positionId === 'RD-302' ? initialRows : []);
     const editor = UI.mountResourceEditor(table, {rows});
-    if (!isPosition && position) $('.detail-bar .text-sm').textContent = position.name + ' · 学习方案';
+    if (!isPosition && position) {
+      document.title = '学习方案 · ' + position.name + ' · 发展中心';
+      $('.detail-bar .text-sm').textContent = position.name + ' · 学习方案';
+      $('.breadcrumb .cur').textContent = '学习方案 · ' + position.name;
+      const sourceId = new URLSearchParams(location.search).get('standard');
+      if (sourceId && S.associated(data, positionId).some(s => s.id === sourceId)) {
+        const sourceUrl = 'standard-detail.html?id=' + encodeURIComponent(sourceId) + '#plan';
+        $('.breadcrumb a').href = sourceUrl;
+        $('.breadcrumb a').textContent = '人才标准';
+        $('.detail-bar .back').href = sourceUrl;
+        $('.detail-foot a').href = sourceUrl;
+      }
+    }
     const catalog = {
       '课程': demo?.courseOptions || ['分布式系统设计','高并发架构实战','领导力基础','数据治理入门'],
       '项目': demo?.projectOptions || ['架构师加速营','技术管理训练营','跨部门攻坚项目'],

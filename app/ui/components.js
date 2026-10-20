@@ -2,8 +2,8 @@
 (function () {
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
-  function openDialog({title, body = '', confirmLabel = '确定', onConfirm, cancelLabel = '取消'}) {
-    document.querySelectorAll('dialog.ui-dialog[open]').forEach(dialog => dialog.close());
+  function openDialog({title, body = '', confirmLabel = '确定', onConfirm, cancelLabel = '取消', keepParent = false}) {
+    if (!keepParent) document.querySelectorAll('dialog.ui-dialog[open]').forEach(dialog => dialog.close());
     const trigger = document.activeElement;
     const dialog = document.createElement('dialog');
     dialog.className = 'ui-dialog';
@@ -120,7 +120,7 @@
         const isExpanded = expanded.has(node.id) || !!query;
         const matches = !query || node.name.toLowerCase().includes(query);
         const children = hasChildren && isExpanded ? `<div class="ui-picker-tree-children">${renderTreeNodes(node.children, depth + 1, query)}</div>` : '';
-        return `<div class="ui-picker-tree-node"><div class="ui-picker-tree-row${state.activeCategory === node.id ? ' is-active' : ''}${matches ? '' : ' is-parent-match'}" style="--tree-depth:${depth}" data-indicator-tree-category="${escape(node.id)}"><span data-indicator-tree-toggle-wrap>${treeArrow(isExpanded, hasChildren)}</span><span class="ui-picker-tree-label">${escape(node.name)}</span></div>${children}</div>`;
+        return `<div class="ui-picker-tree-node"><div class="ui-picker-tree-row${state.activeCategory === node.id ? ' is-active' : ''}${matches ? '' : ' is-parent-match'}" style="--tree-depth:${depth}" data-indicator-tree-category="${escape(node.id)}" title="${escape(node.name)}"><span data-indicator-tree-toggle-wrap>${treeArrow(isExpanded, hasChildren)}</span><span class="ui-picker-tree-label">${escape(node.name)}</span></div>${children}</div>`;
       }).join('');
     }
     function renderTree() {
@@ -204,29 +204,82 @@
     search.addEventListener('input', () => { state.query = search.value; state.page = 0; renderLists(); });
     treeSearch.addEventListener('input', () => { state.treeQuery = treeSearch.value; renderTree(); });
     render();
+    mountCategoryTrees(dialog);
     return dialog;
   }
 
-  function openCategoryManager({items, onConfirm}) {
-    const draft = items.map(item => ({...item}));
-    const dialog = openDialog({title:'管理类别', body:'<div data-category-editor></div><button type="button" class="btn btn-secondary" data-add-category>新增类别</button>', confirmLabel:'保存', onConfirm() {
-      const names = draft.map(item => item.name.trim());
-      if (names.some(name => !name)) { dialog.showError('请输入类别名称'); return false; }
-      if (new Set(names).size !== names.length) { dialog.showError('类别名称不能重复'); return false; }
-      return onConfirm(draft.map((item, index) => ({...item, name:names[index]})));
-    }});
-    function render() {
-      dialog.querySelector('[data-category-editor]').innerHTML = draft.map((item, index) => `<div class="ui-category-row"><input class="input" maxlength="30" aria-label="类别名称 ${index + 1}" data-name="${index}" value="${escape(item.name)}"><span class="muted text-sm">${item.count} 条</span><button type="button" class="btn-text danger" data-remove="${index}">删除</button></div>`).join('');
+  const categoryCloseIcon = "<svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" class=\"arco-icon arco-icon-close\" stroke-width=\"4\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.8095 8L12.9111 3.11094C12.9798 3.02969 12.922 2.90625 12.8158 2.90625H11.5689C11.4954 2.90625 11.4251 2.93906 11.3767 2.99531L7.99388 7.02812L4.61106 2.99531C4.56419 2.93906 4.49388 2.90625 4.41888 2.90625H3.172C3.06575 2.90625 3.00794 3.02969 3.07669 3.11094L7.17825 8L3.07669 12.8891C3.00794 12.9703 3.06575 13.0938 3.172 13.0938H4.41888C4.49231 13.0938 4.56263 13.0609 4.61106 13.0047L7.99388 8.97188L11.3767 13.0047C11.4236 13.0609 11.4939 13.0938 11.5689 13.0938H12.8158C12.922 13.0938 12.9798 12.9703 12.9111 12.8891L8.8095 8Z\" fill=\"currentColor\" stroke=\"none\"></path></svg>";
+  const categoryFileIcon = "<svg class=\"ui-category-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(1, 0)\"><g><polygon class=\"svg-path-theme\" points=\"10 5 10 0 10.3571429 0.357142857 14.6428571 4.64285714 15 5 10 5\"></polygon><polygon fill-opacity=\"0.35\" fill=\"#FFFFFF\" points=\"10 5 10 0 10.3571429 0.357142857 14.6428571 4.64285714 15 5 10 5\"></polygon></g><g><path class=\"svg-path-theme\" d=\"M9.0729927,4.9 C9.0729927,5.1 9.17518248,5.3 9.37956204,5.5 C9.58394161,5.7 9.78832117,5.8 9.99270073,5.8 L15,5.8 L15,15.1 C14.8978102,15.6 14.5912409,15.9 14.080292,16 L1.91970803,16 C1.71532847,16 1.51094891,15.9 1.30656934,15.7 C1.10218978,15.5 1,15.3 1,15 L1,0.9 C1,0.7 1.10218978,0.5 1.30656934,0.3 C1.40875912,0.1 1.71532847,0 1.91970803,0 L9.17518248,0 L9.0729927,4.9 Z\"></path><path fill-opacity=\"0.6\" fill=\"#FFFFFF\" d=\"M9.0729927,4.9 C9.0729927,5.1 9.17518248,5.3 9.37956204,5.5 C9.58394161,5.7 9.78832117,5.8 9.99270073,5.8 L15,5.8 L15,15.1 C14.8978102,15.6 14.5912409,15.9 14.080292,16 L1.91970803,16 C1.71532847,16 1.51094891,15.9 1.30656934,15.7 C1.10218978,15.5 1,15.3 1,15 L1,0.9 C1,0.7 1.10218978,0.5 1.30656934,0.3 C1.40875912,0.1 1.71532847,0 1.91970803,0 L9.17518248,0 L9.0729927,4.9 Z\"></path></g></g></g></svg>";
+  const categoryFolderIcon = "<svg class=\"ui-category-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(0, 0.6667)\"><path class=\"svg-path-theme\" d=\"M5.85786379,-4.42210708e-05 C6.72615267,-4.42210708e-05 7.38956372,0.771092483 7.38956372,1.66640423 C7.38956372,1.83660769 7.47387201,1.95405717 7.55561085,1.98076277 L7.59023118,1.98654153 L12.3731375,2.0030528 C13.2036422,2.0030528 13.8489943,2.69994377 13.9013318,3.54551557 L13.9047619,3.65660567 L13.9047619,5.6174405 L12.1643895,13.9999558 L1.53169993,13.9999558 C0.701228489,13.9999558 0.0557765061,13.3031741 0.00343063161,12.4576109 L0,12.3465213 L0,1.65351838 C0,0.796068101 0.610854848,0.063427704 1.4244611,0.00386296657 L1.53169993,-4.42210708e-05 L5.85786379,-4.42210708e-05 Z\" opacity=\"0.35\" fill-rule=\"nonzero\"></path><g><path class=\"svg-path-theme\" d=\"M14.4712222,4.60606061 L3.27743512,4.60606061 C2.6702452,4.60606061 2.13973892,5.01629874 1.98698486,5.60396004 L0.12988452,12.7484246 C0.108529885,12.8305781 0.0977222154,12.9151164 0.0977222154,13 C0.0977222154,13.5522847 0.545437466,14 1.09772222,14 L12.7225649,14 C13.3297548,14 13.8602611,13.5897619 14.0130151,13.0021006 L15.7616725,6.27482784 C15.7901453,6.16528974 15.8045556,6.05257211 15.8045556,5.93939394 C15.8045556,5.20301427 15.2076019,4.60606061 14.4712222,4.60606061 Z\"></path><path fill-opacity=\"0.3\" fill=\"#FFFFFF\" d=\"M14.4712222,4.60606061 L3.27743512,4.60606061 C2.6702452,4.60606061 2.13973892,5.01629874 1.98698486,5.60396004 L0.12988452,12.7484246 C0.108529885,12.8305781 0.0977222154,12.9151164 0.0977222154,13 C0.0977222154,13.5522847 0.545437466,14 1.09772222,14 L12.7225649,14 C13.3297548,14 13.8602611,13.5897619 14.0130151,13.0021006 L15.7616725,6.27482784 C15.7901453,6.16528974 15.8045556,6.05257211 15.8045556,5.93939394 C15.8045556,5.20301427 15.2076019,4.60606061 14.4712222,4.60606061 Z\"></path></g></g></g></svg>";
+
+  function openCategoryManager({items, onConfirm, allowChildren = false}) {
+    let draft = items.map(item => ({...item}));
+    let selected = '';
+    const collapsed = new Set();
+    const dialog = openDialog({title:'管理类别', body:`<button type="button" class="btn btn-primary" data-add-category>新增类别</button><label class="ui-category-search"><input class="input" type="search" placeholder="搜索类别" aria-label="搜索类别">${categorySearchIcon}</label><div class="ui-category-tree" data-category-editor role="tree" aria-label="类别"></div>`});
+    dialog.classList.add('ui-category-manager');
+    dialog.querySelector('.icon-close').innerHTML = categoryCloseIcon;
+    dialog.querySelector('.m-foot').remove();
+    const search = dialog.querySelector('.ui-category-search input');
+    function publish(next, form) {
+      if (onConfirm(next.map(item => ({...item}))) === false) { form.showError('保存失败，请重试'); return false; }
+      const renamed = new Map(next.map(item => [item.id, item.name]));
+      selected = renamed.get(selected) || selected;
+      const collapsedNames = [...collapsed].map(id => renamed.get(id) || id);
+      collapsed.clear(); collapsedNames.forEach(id => collapsed.add(id));
+      draft = next.map(item => ({...item, id:item.name, parentId:renamed.get(item.parentId) || item.parentId || ''}));
+      dialog.showError(''); render();
+      return true;
     }
-    dialog.addEventListener('input', event => { if (event.target.dataset.name !== undefined) draft[+event.target.dataset.name].name = event.target.value; });
-    dialog.addEventListener('click', event => {
-      const remove = event.target.closest('[data-remove]');
-      if (remove) {
-        const index = +remove.dataset.remove;
-        if (draft[index].count) { dialog.showError('该类别下有内容，请先调整内容类别'); return; }
-        draft.splice(index, 1); render();
+    function edit(item, parent) {
+      const form = openDialog({title:item ? '编辑类别' : parent ? '新增子级' : '新增类别', keepParent:true,
+        body:`<div class="field"><label for="ui-category-name"><span class="req">*</span> 名称</label><input class="input" id="ui-category-name" maxlength="30" placeholder="请输入名称" value="${escape(item?.name || '')}"></div>`, confirmLabel:'保存', onConfirm(form) {
+          const name = form.querySelector('input').value.trim();
+          if (!name) { form.showError('请输入类别名称'); return false; }
+          if (draft.some(node => node.id !== item?.id && node.name === name)) { form.showError('类别名称不能重复'); return false; }
+          const next = item ? draft.map(node => node.id === item.id ? {...node, name} : {...node}) : [...draft, {id:'new-' + Date.now(),name,count:0,parentId:parent?.id || ''}];
+          return publish(next, form);
+        }});
+      form.classList.add('ui-category-form');
+      form.querySelector('.icon-close').innerHTML = categoryCloseIcon;
+      form.querySelector('input').focus();
+    }
+    function row(item, depth, children, query) {
+      const expanded = !!query || !collapsed.has(item.id);
+      const arrow = children.length ? `<button type="button" class="ui-category-toggle" data-category-toggle="${escape(item.id)}" aria-label="${expanded?'收起':'展开'}${escape(item.name)}"><svg viewBox="0 0 48 48" aria-hidden="true" style="transform:rotate(${expanded?0:-90}deg)"><path d="M24.938 34.829a1.2 1.2 0 0 1-1.875 0L9.56 17.949c-.628-.785-.069-1.949.937-1.949h27.007c1.006 0 1.565 1.164.937 1.95L24.937 34.829Z" fill="currentColor"/></svg></button>` : '<span class="ui-category-toggle" aria-hidden="true"></span>';
+      const icon = children.length ? categoryFolderIcon : categoryFileIcon;
+      return `<div class="ui-category-node${selected===item.id?' is-active':''}" role="treeitem" aria-level="${depth+1}" aria-selected="${selected===item.id}"${children.length?` aria-expanded="${expanded}"`:''} style="--category-depth:${depth}">${arrow}<div class="ui-category-node-title">${icon}<button type="button" class="ui-category-name" data-category-select="${escape(item.id)}" title="${escape(item.name)}">${escape(item.name)}</button><span class="ui-category-ops">${allowChildren&&!depth?`<button type="button" data-category-add-child="${escape(item.id)}">新增子级</button>`:''}<button type="button" data-category-edit="${escape(item.id)}">编辑</button><button type="button" data-category-remove="${escape(item.id)}">删除</button></span></div></div>`;
+    }
+    function render() {
+      const query = search.value.trim().toLowerCase();
+      function branch(item,depth,ancestorMatch) {
+        const children=draft.filter(child=>child.parentId===item.id);
+        const ownMatch=ancestorMatch || item.name.toLowerCase().includes(query);
+        const childHtml=children.map(child=>branch(child,depth+1,ownMatch)).join('');
+        if (query && !ownMatch && !childHtml) return '';
+        return row(item,depth,children,query) + ((!collapsed.has(item.id)||query)?childHtml:'');
       }
-      if (event.target.closest('[data-add-category]')) { draft.push({id:'new-' + Date.now(),name:'',count:0}); render(); dialog.querySelector('[data-category-editor]').lastElementChild.querySelector('input').focus(); }
+      dialog.querySelector('[data-category-editor]').innerHTML = draft.filter(item=>!item.parentId).map(item=>branch(item,0,false)).join('') || '<div class="ui-category-empty">暂无匹配类别</div>';
+    }
+    search.addEventListener('input', render);
+    dialog.addEventListener('click', event => {
+      if (event.target.closest('[data-add-category]')) { edit(); return; }
+      const toggle = event.target.closest('[data-category-toggle]');
+      if (toggle) { const id=toggle.dataset.categoryToggle; collapsed.has(id)?collapsed.delete(id):collapsed.add(id); render(); return; }
+      const select = event.target.closest('[data-category-select]');
+      if (select) { selected=select.dataset.categorySelect; render(); return; }
+      const add = event.target.closest('[data-category-add-child]');
+      if (add) { edit(null,draft.find(item => item.id === add.dataset.categoryAddChild)); return; }
+      const update = event.target.closest('[data-category-edit]');
+      if (update) { edit(draft.find(item => item.id === update.dataset.categoryEdit)); return; }
+      const remove = event.target.closest('[data-category-remove]');
+      if (remove) {
+        const item = draft.find(node => node.id === remove.dataset.categoryRemove);
+        if (item.count || draft.some(child => child.parentId === item.id)) { dialog.showError('该类别下有内容或子类，请先调整后再删除'); return; }
+        const confirmation = openDialog({title:'系统提示',keepParent:true,body:`<p>确定删除【${escape(item.name)}】吗？</p>`,onConfirm(form){ return publish(draft.filter(node => node.id !== item.id),form); }});
+        confirmation.classList.add('ui-category-form');
+        confirmation.querySelector('.icon-close').innerHTML = categoryCloseIcon;
+      }
     });
     render();
     return dialog;
@@ -263,6 +316,114 @@
     });
   }
 
+  const scopeTrees = new WeakMap();
+  const scopePanelSelector = '.cat-tree-panel,.list-rail,.pm-series-panel,.indicator-picker-tree,.review-person-org';
+  const scopeRowSelector = '.cat-tree-item,.pm-series-item,.ui-picker-tree-row,.t-node > label';
+  const categorySearchIcon = '<svg width="14" height="14" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M33.072 33.071c6.248-6.248 6.248-16.379 0-22.627-6.249-6.249-16.38-6.249-22.628 0-6.248 6.248-6.248 16.379 0 22.627 6.249 6.248 16.379 6.248 22.628 0Zm0 0 8.485 8.485"/></svg>';
+  const scopeCaret = '<svg width="12" height="12" viewBox="0 0 48 48" aria-hidden="true" data-scope-caret><path d="M24.938 34.829a1.2 1.2 0 0 1-1.875 0L9.56 17.949c-.628-.785-.069-1.949.937-1.949h27.007c1.006 0 1.565 1.164.937 1.95L24.937 34.829Z" fill="currentColor"/></svg>';
+
+  function mountCategoryTrees(root = document) {
+    const panels = [...root.querySelectorAll(scopePanelSelector)];
+    if (root.matches?.(scopePanelSelector)) panels.unshift(root);
+    panels.forEach(panel => {
+      if (panel.id === 'kp-tree') return;
+      let state = scopeTrees.get(panel);
+      if (!state) {
+        state = {query:'',scheduled:false};
+        scopeTrees.set(panel,state);
+        panel.addEventListener('input', event => {
+          if (event.target.matches('[data-scope-search]')) { state.query=event.target.value; filterScopeTree(panel,state.query); }
+        });
+        state.observer = new MutationObserver(() => {
+          if (state.scheduled) return;
+          state.scheduled=true;
+          queueMicrotask(() => { state.scheduled=false; decorateScopeTree(panel,state); });
+        });
+        state.observer.observe(panel,{childList:true,subtree:true});
+      }
+      decorateScopeTree(panel,state);
+    });
+  }
+
+  function decorateScopeTree(panel,state) {
+    panel.classList.add('scope-category');
+    const head = panel.querySelector('.ctp-head,.list-rail-head,.pm-series-title,.indicator-picker-tree-title,.section-title');
+    if (head) head.classList.add('category-tree-head');
+    let input = panel.querySelector('input[type="search"],[data-cap-tree-search]');
+    let search;
+    if (input) {
+      search=input.closest('label,.pm-series-search-wrap,.cap-demo-tree-search,.indicator-picker-tree-search') || input.parentElement;
+      search.classList.add('category-tree-search');
+      if (!search.querySelector('svg')) search.insertAdjacentHTML('beforeend',categorySearchIcon);
+    } else {
+      search=document.createElement('label'); search.className='category-tree-search';
+      const title=head?.textContent.trim() || '类别';
+      search.innerHTML=`<input class="input" type="search" data-scope-search placeholder="搜索${escape(title==='类别'?'类别':title)}" aria-label="搜索${escape(title)}">${categorySearchIcon}`;
+      input=search.querySelector('input'); input.value=state.query;
+      if (head) head.after(search); else panel.prepend(search);
+    }
+    let body=panel.querySelector(':scope > .category-tree-body');
+    if (!body) {
+      const footer=panel.querySelector(':scope > .pm-series-settings');
+      const roots=Array.from(panel.children).filter(node => node!==head && node!==search && node!==footer && !node.classList.contains('category-tree-empty'));
+      if (roots.length===1) body=roots[0];
+      else { body=document.createElement('div'); roots.forEach(node=>body.append(node)); panel.insertBefore(body,footer); }
+      body.classList.add('category-tree-body');
+    }
+    panel.querySelectorAll(scopeRowSelector).forEach(row => {
+      if (row.classList.contains('scope-node')) return;
+      const branch=row.closest('.std-category-parent-row');
+      const depth=Number(row.style.getPropertyValue('--tree-depth') || (row.classList.contains('std-category-child') || row.closest('.t-l2') ? 1 : 0));
+      row.classList.add('scope-node'); row.style.setProperty('--scope-depth',depth);
+      let arrow=row.querySelector(':scope > .std-category-toggle-slot,:scope > .cap-demo-arrow,:scope > [data-indicator-tree-toggle-wrap]');
+      const toggle=branch?.querySelector('.std-category-toggle') || arrow?.querySelector('button') || (arrow?.tagName==='BUTTON'?arrow:null);
+      const expanded=row.hasAttribute('aria-expanded') ? row.getAttribute('aria-expanded')==='true' : toggle?.getAttribute('aria-expanded')==='true' || !!toggle?.classList.contains('is-expanded');
+      const hasChildren=!!branch || row.hasAttribute('aria-expanded') || !!toggle || !!row.closest('.t-l1')?.nextElementSibling?.classList.contains('t-l2');
+      if (branch) {
+        branch.classList.add('scope-branch'); row.classList.add('scope-branch-label');
+        arrow=toggle;
+      } else if (!arrow) {
+        arrow=document.createElement('span'); arrow.setAttribute('aria-hidden','true'); row.prepend(arrow);
+      }
+      arrow.classList.add('category-tree-switcher');
+      if (toggle) { toggle.innerHTML=scopeCaret; toggle.classList.add('scope-arrow'); toggle.style.setProperty('--scope-rotation',expanded?'0deg':'-90deg'); }
+      if (row.classList.contains('pm-series-item')) row.querySelector(':scope > svg')?.remove();
+      const title=document.createElement('span'); title.className='category-tree-node-title';
+      Array.from(row.childNodes).forEach(node=>{if(node!==arrow && !node.matches?.('.std-category-toggle-slot'))title.append(node);});
+      const name=title.textContent.trim();
+      row.dataset.scopeLabel=name;
+      if (!row.title) row.title=name;
+      const icon=(hasChildren || name==='全部') ? categoryFolderIcon : categoryFileIcon;
+      title.insertAdjacentHTML('afterbegin',icon);
+      title.querySelector('svg').classList.add('category-tree-icon');
+      row.append(title);
+    });
+    if (input.hasAttribute('data-scope-search')) filterScopeTree(panel,state.query);
+  }
+
+  function filterScopeTree(panel,query) {
+    const term=query.trim().toLowerCase();
+    const rows=[...panel.querySelectorAll('.scope-node')];
+    const depths=rows.map(row=>Number(row.style.getPropertyValue('--scope-depth'))||0);
+    const shown=rows.map(row=>!term || row.dataset.scopeLabel.toLowerCase().includes(term));
+    const own=shown.slice();
+    rows.forEach((row,index)=>{
+      if (!own[index]) return;
+      for (let child=index+1;child<rows.length && depths[child]>depths[index];child++) shown[child]=true;
+      let depth=depths[index];
+      for (let parent=index-1;parent>=0 && depth>0;parent--) if (depths[parent]<depth) { shown[parent]=true; depth=depths[parent]; }
+    });
+    rows.forEach((row,index)=>{row.hidden=!shown[index];});
+    panel.querySelectorAll('.std-category-group').forEach(group=>{
+      group.hidden=![...group.querySelectorAll('.scope-node')].some(row=>!row.hidden);
+      group.toggleAttribute('data-scope-search-open',!!term && !group.hidden);
+    });
+    let empty=panel.querySelector(':scope > .category-tree-empty');
+    if (!empty) { empty=document.createElement('div'); empty.className='category-tree-empty'; empty.textContent='暂无匹配项'; panel.append(empty); }
+    const any=shown.some(Boolean);
+    empty.hidden=any; panel.querySelector(':scope > .category-tree-body').hidden=!any;
+  }
+
   function mountResourceEditor(table, {rows = [], onChange = () => {}} = {}) {
     let resources = rows.map(row => [...row]);
     const tags = {'课程':'tag-primary','项目':'tag-success','前测':'tag-warning','后测':'tag-warning','考试':'tag-warning'};
@@ -284,5 +445,5 @@
       }
     };
   }
-  window.UI = {escape, openDialog, openPicker, openCategoryManager, bindCategoryManager, mountResourceEditor};
+  window.UI = {escape, openDialog, openPicker, openCategoryManager, bindCategoryManager, mountCategoryTrees, mountResourceEditor};
 })();

@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>人才标准详情 · 人才发展</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
-<link rel="stylesheet" href="standards.css?v=20260910l">
-<link rel="stylesheet" href="ui/components.css?v=20260910g">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="standards.css?v=sha256-7547638150da">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<style>[data-standard-detail] [data-std-tab][hidden]{display:none!important}</style>
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="standards">
 <div class="app">
@@ -38,6 +40,7 @@
   <a href="#content-cap" class="a-item" data-std-tab="content-cap">能力要求</a>
   <a href="#content-pow" class="a-item" data-std-tab="content-pow">动力要求</a>
   <a href="#content-pot" class="a-item" data-std-tab="content-pot">潜力要求</a>
+  <a href="#plan" class="a-item" data-std-tab="plan">学习方案</a>
  </nav>
  <div class="detail-main">
   <section class="card card-pad" data-std-section="basic">
@@ -56,15 +59,22 @@
    <div class="std-heading"><h2>标准内容</h2></div>
    <div id="std-content-editor"></div>
   </section>
+  <section class="card card-pad" data-std-section="plan" hidden>
+   <div class="std-heading"><h2>学习方案</h2></div>
+
+   <div id="std-plan-positions"></div>
+  </section>
  </div>
 </div>
 <div class="detail-foot"><div class="flex gap-sm"><a class="btn btn-secondary" data-std-cancel href="standards.html">取消</a><button class="btn btn-primary" type="submit">保存</button></div></div>
 </form></main></div></div>
-<script src="ui/components.js?v=20260910g"></script>
-<script src="app.js?v=20260910b"></script>
-<script src="standard-seeds.js?v=20260910a"></script>
-<script src="standards-data.js?v=20260910d"></script>
-<script src="indicator-data.js?v=20260910a"></script>
-<script src="standard-ui.js?v=20260910a"></script>
-<script src="standard-editor.js?v=20260910k"></script>
+
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="talent-settings-data.js?v=sha256-9ac74d26e90d"></script>
+<script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script src="standards-data.js?v=sha256-5458067a498f"></script>
+<script src="indicator-data.js?v=sha256-8919879a24e3"></script>
+<script src="standard-ui.js?v=sha256-7875a532be84"></script>
+<script src="standard-editor.js?v=sha256-d3500bbb704f"></script>
 </body></html>

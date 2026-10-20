@@ -1,0 +1,20 @@
+html[data-proto="canvas"] .review-grid-analysis{grid-template-columns:minmax(0,1fr)}
+html[data-proto="canvas"] .review-grid-matrix-region{padding-top:18px;padding-bottom:22px}
+html[data-proto="canvas"] .rd-matrix{max-width:780px;margin-inline:auto;--rd-row-height:112px}
+html[data-proto="canvas"] .review-grid-analysis .review-grid-insight{display:grid;grid-template-columns:minmax(150px,.7fr) minmax(220px,1.2fr) minmax(130px,.7fr);grid-template-rows:auto auto auto;column-gap:24px;row-gap:0;padding:20px var(--review-grid-pad);border-top:var(--border-hairline) solid var(--border-subtle);border-left:0}
+html[data-proto="canvas"] .review-grid-analysis .review-grid-insight h3{grid-column:1;grid-row:1}
+html[data-proto="canvas"] .review-grid-analysis .insight-number{grid-column:1;grid-row:2;margin-top:8px}
+html[data-proto="canvas"] .review-grid-analysis .insight-desc{grid-column:2;grid-row:1 / span 2;align-self:center;min-height:0;margin:0;font-size:13px}
+html[data-proto="canvas"] .review-grid-analysis .insight-rule{display:none}
+html[data-proto="canvas"] .review-grid-analysis .metric-list{grid-column:3;grid-row:1 / span 2;display:grid;align-content:center}
+html[data-proto="canvas"] .review-grid-analysis .metric-row{display:block;min-height:58px;padding:8px 12px;border-right:var(--border-hairline) solid var(--border-subtle);border-bottom:0}
+html[data-proto="canvas"] .review-grid-analysis .metric-row:first-child{padding-top:8px}
+html[data-proto="canvas"] .review-grid-analysis .metric-row:last-child{border-right:0}
+html[data-proto="canvas"] .review-grid-analysis .metric-row span,html[data-proto="canvas"] .review-grid-analysis .metric-row strong{display:block}
+html[data-proto="canvas"] .review-grid-analysis .metric-row strong{margin-top:7px;font-size:16px}
+html[data-proto="canvas"] .review-grid-analysis .action-note{grid-column:1 / -1;grid-row:3;margin-top:16px;padding-top:13px;border-top:var(--border-hairline) solid var(--border-subtle)}
+html[data-proto="canvas"] .review-grid-analysis .action-note b{display:inline;margin:0 8px 0 0}
+@media(max-width:1180px){
+  html[data-proto="canvas"] .review-grid-analysis .review-grid-insight{grid-template-columns:minmax(140px,.65fr) minmax(190px,1.1fr) minmax(110px,.6fr);column-gap:16px}
+}
+@media(prefers-reduced-motion:reduce){html[data-proto="canvas"] *{scroll-behavior:auto!important}}

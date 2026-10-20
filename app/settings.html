@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>系统设置 · 人才发展</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="settings-editor.css?v=sha256-870f46c866b6">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="settings" data-page="settings">
 <div class="app">
@@ -18,30 +20,22 @@
   <div class="body">
     <aside class="sidenav" data-anchor-tabs data-default="level">
       <a class="nav-item active" data-tab="level" href="#level">职级管理</a>
+      <a class="nav-item" data-tab="dimensions" href="#dimensions">岗位标准维度</a>
       <a class="nav-item" data-tab="learner" href="#learner">功能设置</a>
     </aside>
 
     <main class="content settings-scope-page">
       <div class="detail-main">
         <section class="d-section active" data-section="level">
-          <div class="section-toolbar compact">
-            <p>维护岗位地图使用的职级编码和显示顺序，不在此定义任职标准。</p>
-            <button class="btn btn-primary" data-open="drawer-level"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>新增职级</button>
-          </div>
-          <div class="table-wrap"><table class="t">
-            <thead><tr><th>职级名称</th><th>职级编码</th><th>所属序列</th><th>等级序</th><th>已关联岗位</th><th style="text-align:right">操作</th></tr></thead>
-            <tbody>
-              <tr><td><b>首席</b></td><td class="muted">P5</td><td>技术序列</td><td class="num">5</td><td class="num">2</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-level">编辑</button></td></tr>
-              <tr><td><b>专家</b></td><td class="muted">P4</td><td>技术序列</td><td class="num">4</td><td class="num">4</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-level">编辑</button></td></tr>
-              <tr><td><b>高级</b></td><td class="muted">P3</td><td>技术序列</td><td class="num">3</td><td class="num">8</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-level">编辑</button></td></tr>
-              <tr><td><b>经理</b></td><td class="muted">M3</td><td>管理序列</td><td class="num">3</td><td class="num">5</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-level">编辑</button></td></tr>
-              <tr><td><b>主管</b></td><td class="muted">M2</td><td>管理序列</td><td class="num">2</td><td class="num">7</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-level">编辑</button></td></tr>
-            </tbody>
-          </table></div>
+          <div class="settings-editor-toolbar"><label class="settings-editor-search"><input class="input" id="level-search" type="search" aria-label="搜索序列或职级" placeholder="搜索序列、职级名称或编码"></label><button class="btn btn-primary" id="add-sequence" type="button">新增序列</button></div>
+          <div class="level-tree" id="level-tree" aria-label="序列与职级"></div>
+        </section>
+        <section class="d-section" data-section="dimensions">
+          <div class="dimension-settings-panel"><p>选择客户使用的岗位标准维度。新建标准和 AI 帮建使用已启用的维度；已有标准内容保留，更新方式在帮建结束时确认。</p><div id="dimension-settings" aria-label="岗位标准维度"></div><p id="dimension-error" role="alert"></p><div class="dimension-settings-footer"><button class="btn btn-primary" id="save-dimensions" type="button">保存</button><span id="dimension-save-state" role="status"></span></div></div>
         </section>
 
         <section class="d-section" data-section="learner">
-          <div class="section-toolbar compact"><p>控制本期已建设功能是否显示在学员端。</p><span class="setting-save-state" id="learner-save-state">修改后自动保存</span></div>
+          <div class="section-toolbar compact"><span class="setting-save-state" id="learner-save-state">修改后自动保存</span></div>
           <div class="learner-feature-grid" aria-label="学员端功能">
             <label class="learner-feature-option"><input type="checkbox" checked><span>人才画像</span></label>
             <label class="learner-feature-option"><input type="checkbox" checked><span>岗位发展通道</span></label>
@@ -52,19 +46,10 @@
   </div>
 </div>
 
-<div class="drawer" id="drawer-level">
-  <div class="m-head"><h3>编辑职级</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <div class="m-body">
-    <div class="field"><label for="level-name">职级名称 <span class="req">*</span></label><input class="input" id="level-name" value="专家"></div>
-    <div class="field"><label for="level-code">职级编码 <span class="req">*</span></label><input class="input" id="level-code" value="P4"></div>
-    <div class="field"><label for="level-sequence">所属序列 <span class="req">*</span></label><select class="select" id="level-sequence"><option>技术序列</option><option>管理序列</option><option>销售序列</option><option>专业序列</option></select></div>
-    <div class="field"><label for="level-rank">等级序 <span class="req">*</span></label><input class="input" id="level-rank" type="number" min="1" max="20" value="4"></div>
-  </div>
-  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close data-toast="职级已保存">保存</button></div>
-</div>
-
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="talent-settings-data.js?v=sha256-9ac74d26e90d"></script>
+<script src="settings-editor.js?v=sha256-0d782fabba34"></script>
 <script>
 (function () {
   var state = document.getElementById('learner-save-state');

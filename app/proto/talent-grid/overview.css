@@ -1,0 +1,9 @@
+html[data-proto="overview"] .proto-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:14px var(--review-grid-pad) 0;border-top:var(--border-hairline) solid var(--border-subtle);border-bottom:var(--border-hairline) solid var(--border-subtle)}
+html[data-proto="overview"] .proto-overview-card{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:78px;padding:14px 18px}
+html[data-proto="overview"] .proto-overview-card+.proto-overview-card{border-left:var(--border-hairline) solid var(--border-subtle)}
+html[data-proto="overview"] .proto-overview-label{color:var(--neutral-600);font-size:12px;line-height:1.5}
+html[data-proto="overview"] .proto-overview-value{color:var(--neutral-900);font-size:26px;line-height:1;font-weight:600;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+html[data-proto="overview"] .proto-overview-card[data-tone="primary"] .proto-overview-value{color:var(--primary-700)}
+html[data-proto="overview"] .proto-overview-card[data-tone="risk"] .proto-overview-value{color:var(--danger)}
+html[data-proto="overview"] .review-grid-analysis{margin-top:4px}
+@media(max-width:760px){html[data-proto="overview"] .proto-overview{grid-template-columns:1fr}html[data-proto="overview"] .proto-overview-card+.proto-overview-card{border-left:0;border-top:var(--border-hairline) solid var(--border-subtle)}}

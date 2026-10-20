@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>人才标准 · 人才发展</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
-<link rel="stylesheet" href="standards.css?v=20260911b">
-<link rel="stylesheet" href="ui/components.css?v=20260910g">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="standards.css?v=sha256-7547638150da">
+  <link rel="stylesheet" href="standard-ai-flow.css?v=sha256-b0c972e14cfd">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="standards">
 <div class="app">
@@ -37,15 +39,67 @@
    <div class="field"><label for="std-search">标准名称</label><input id="std-search" class="input" type="search" placeholder="请输入标准名称"></div>
    <div class="actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button></div>
   </form>
-  <div class="flex between center mb-md"><a class="btn btn-primary" href="standard-detail.html">新建人才标准</a></div>
+  <div class="flex between center mb-md"><div class="std-list-actions"><a class="btn btn-primary" href="standard-detail.html">新建人才标准</a><button class="btn btn-secondary" id="std-ai-open" type="button" data-open="std-ai-drawer"><svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".5"/><path d="M3.957 10.513a.038.038 0 0 0 .026.026l.74.22c.037.01.037.062 0 .072l-.74.22a.038.038 0 0 0-.026.026l-.22.74c-.01.037-.062.037-.073 0l-.219-.74a.038.038 0 0 0-.026-.026l-.74-.22c-.037-.01-.037-.062 0-.073l.74-.22a.038.038 0 0 0 .026-.025l.22-.74c.01-.037.062-.037.073 0l.219.74Z" opacity=".2"/></svg>AI帮建</button></div></div>
   <div class="card"><div class="table-wrap"><table class="t" data-native-sticky><thead><tr><th>标准名称</th><th>适用对象</th><th>操作</th></tr></thead><tbody id="std-rows"></tbody></table></div>
   <div class="pagination"><div class="pg-info" id="std-count"></div><div class="pg-controls"><button class="pg-btn" id="std-prev">上一页</button><span id="std-page"></span><button class="pg-btn" id="std-next">下一页</button></div></div>
  </div></section>
 </div></main></div></div>
-<script src="ui/components.js?v=20260910g"></script>
-<script src="app.js?v=20260914h"></script>
-<script src="standard-seeds.js?v=20260910a"></script>
-<script src="standards-data.js?v=20260911a"></script>
-<script src="standard-ui.js?v=20260908e"></script>
-<script src="standard-list.js?v=20260914h"></script>
+
+<aside class="drawer std-ai-drawer" id="std-ai-drawer" aria-hidden="true">
+ <div class="std-ai-shell">
+  <header class="std-ai-head">
+   <strong class="ai-sidebar-custom-header__brand"><span class="ai-sidebar-custom-header__brand-mark" aria-label="AI"><img src="vendor/ai-assistant/ai-mark-a.859a3c0a.svg" alt=""><img src="vendor/ai-assistant/ai-mark-b.adf436fe.svg" alt=""></span><span>帮建</span></strong>
+   <span class="ai-sidebar-custom-header__divider" aria-hidden="true"></span>
+   <button type="button" class="ai-sidebar-custom-header__btn" id="std-ai-history-toggle" aria-label="打开边栏" aria-expanded="false" title="打开边栏"><img src="vendor/ai-assistant/collapse-left.9f818ba5.svg" alt="" class="ai-sidebar-custom-header__icon"></button>
+   <button type="button" class="ai-sidebar-custom-header__btn ai-sidebar-custom-header__btn--new-session" id="std-ai-new-chat" aria-label="新建会话" title="新建会话"><img src="vendor/ai-assistant/header-new.3f738b0a.svg" alt="" class="ai-sidebar-custom-header__icon"></button>
+   <span class="std-ai-head-spacer"></span>
+   <button type="button" class="std-ai-source-icon-button" data-close aria-label="关闭 AI 帮建"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13.379 17.425 18.804a.96.96 0 0 0 1.358.02.96.96 0 0 0 .02-1.399L13.38 12l5.425-5.425a.96.96 0 0 0 .02-1.358.96.96 0 0 0-1.4-.021L12 10.621 6.575 5.196a.97.97 0 0 0-1.383.006.97.97 0 0 0 .004 1.373L10.621 12l-5.425 5.425a.97.97 0 0 0 .006 1.383.97.97 0 0 0 1.373-.004L12 13.379Z" fill="#595959"/></svg></button>
+  </header>
+  <div class="std-ai-workspace">
+   <aside class="std-ai-history" aria-label="历史会话">
+    <button type="button" class="std-ai-history-new" data-ai-reset><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M10.1 2.25H3.375a2.25 2.25 0 0 0-2.25 2.349V16.287c.012.245.12.419.325.523.205.104.402.083.589-.064l2.602-2.165H13.5a2.25 2.25 0 0 0 2.25-2.349V7.875a.562.562 0 1 0-1.124 0v4.357a1.13 1.13 0 0 1-1.126 1.174H4.254L2.251 15.076V4.599a1.13 1.13 0 0 1 1.125-1.175H10.1a.587.587 0 1 0 0-1.174Z"/><path d="m14.323 3.594 2.464.788c.117.035.117.201 0 .236l-2.381.705a.122.122 0 0 0-.083.083l-.705 2.381c-.035.117-.201.117-.236 0l-.705-2.381a.122.122 0 0 0-.083-.083l-2.381-.705c-.117-.035-.117-.201 0-.236l2.381-.705a.122.122 0 0 0 .083-.083l.705-2.381c.035-.117.201-.117.236 0l.705 2.381Z"/></svg><span>新建会话</span></button>
+    <p class="std-ai-history-label">历史会话</p>
+    <div class="std-ai-history-list">
+     <button type="button" data-ai-history="产品专员能够独立完成基本的产品设计工作">产品专员能够独立完成基本的产品设计工作</button>
+     <button type="button" data-ai-history="企业培训平台的初级销售经理建模">企业培训平台的初级销售经理建模</button>
+     <button type="button" data-ai-history="企业培训平台的运营顾问建模">企业培训平台的运营顾问建模</button>
+     <button type="button" data-ai-history="2-3 年培训行业的产品经理">2-3 年培训行业的产品经理</button>
+     <button type="button" data-ai-history="入职三年的产品经理的能力建模">入职三年的产品经理的能力建模</button>
+    </div>
+   </aside>
+   <section class="std-ai-chat" aria-label="AI 帮建会话">
+    <div class="std-ai-messages" id="std-ai-messages" aria-live="polite">
+     <div class="std-ai-welcome" id="std-ai-welcome">
+      <h4>你好！我是AI帮建助手～</h4>
+
+      <div class="std-ai-quick">
+
+       <button type="button" data-ai-quick="企业培训平台的初级销售经理建模">企业培训平台的初级销售经理建模</button>
+       <button type="button" data-ai-quick="个人贡献者能力建模">个人贡献者能力建模</button>
+       <button type="button" data-ai-quick="入职三年的产品经理的能力建模">入职三年的产品经理的能力建模</button>
+      </div>
+     </div>
+    </div>
+    <div class="std-ai-composer">
+     <label class="std-ai-position-label" for="std-ai-position"><span>选择岗位</span><select class="std-ai-position-select" id="std-ai-position"><option value="">请选择岗位</option></select></label>
+     <div class="std-ai-input-box">
+      <label class="sr-only" for="std-ai-prompt">请描述建模的岗位要求</label>
+      <textarea id="std-ai-prompt" rows="3" maxlength="3000" placeholder="请描述建模的岗位要求"></textarea>
+      <div class="std-ai-input-actions"><button type="button" class="std-ai-source-icon-button std-ai-attachment" data-ai-attachment aria-label="上传附件" title="上传附件"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 12.75 14.9 6.35a3 3 0 0 1 4.24 4.24l-8.48 8.49a5 5 0 0 1-7.08-7.08l8.49-8.49a.75.75 0 0 1 1.06 1.06l-8.49 8.49a3.5 3.5 0 0 0 4.95 4.95l8.49-8.48a1.5 1.5 0 0 0-2.12-2.12l-6.4 6.4a1 1 0 1 0 1.42 1.41l5.33-5.33a.75.75 0 1 1 1.06 1.06l-5.33 5.33a2.5 2.5 0 0 1-3.54-3.53Z" fill="#262626"/></svg></button><button type="button" class="std-ai-source-icon-button std-ai-microphone" aria-label="语音输入" title="语音输入"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Zm-.75 18v-1.5A7.5 7.5 0 0 1 4.5 12v.75a7.5 7.5 0 0 0 6.75 6.75V21H9.75a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-1.5v-1.5a7.5 7.5 0 0 0 6.75-6.75V12a.75.75 0 0 1-1.5 0v.75A6 6 0 0 1 12 18a6 6 0 0 1-6-5.25V12a.75.75 0 0 1-1.5 0" fill="#262626"/></svg></button><span class="std-ai-action-divider"></span><button type="button" class="std-ai-send" id="std-ai-send" aria-label="发送" title="发送"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="currentColor"/><path d="M16 9.6 10.8 15a.75.75 0 1 0 1.08 1.04l3.37-3.5V22a.75.75 0 0 0 1.5 0v-9.46l3.37 3.5A.75.75 0 1 0 21.2 15L16 9.6Z" fill="#fff"/></svg></button></div>
+     </div>
+     <input id="std-ai-files" type="file" accept=".doc,.docx,.pdf,.ppt,.pptx,.jpg,.jpeg,.png" hidden>
+
+    </div>
+   </section>
+  </div>
+ </div>
+</aside>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="talent-settings-data.js?v=sha256-9ac74d26e90d"></script>
+<script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script src="standards-data.js?v=sha256-5458067a498f"></script>
+<script src="standard-ui.js?v=sha256-7875a532be84"></script>
+ <script src="standard-list.js?v=sha256-114a42d6b9cc"></script>
+  <script src="standard-ai-assistant.js?v=sha256-fc6bf2e7ad85"></script>
 </body></html>

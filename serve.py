@@ -1,26 +1,22 @@
 #!/usr/bin/env python3
 # 人才发展系统原型 · 开发服务器
-# 用法：python3 serve.py   （默认 8766 端口；HTML 不缓存，带版本号的静态资源长缓存）
-import http.server, os, re, socket, subprocess, sys
-from urllib.parse import parse_qs, urlsplit
+# 用法：python3 serve.py   （默认 8766 端口；本地预览不缓存）
+from functools import partial
+import http.server
+from pathlib import Path
+import re
+import socket
+import subprocess
+import sys
 
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8766
-APP_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app')
-os.chdir(APP_DIR)
+from scripts.asset_versions import sync_assets
 
 class PrototypeHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        request_url = urlsplit(self.path)
-        extension = os.path.splitext(request_url.path)[1].lower()
-        is_versioned_asset = bool(parse_qs(request_url.query).get('v')) and extension in {
-            '.css', '.js', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.woff', '.woff2'
-        }
-        if is_versioned_asset:
-            self.send_header('Cache-Control', 'public, max-age=31536000, immutable')
-        else:
-            self.send_header('Cache-Control', 'no-store, must-revalidate')
-            self.send_header('Pragma', 'no-cache')
-            self.send_header('Expires', '0')
+        # Mutable source files must never be served as immutable, even with an old ?v= URL.
+        self.send_header('Cache-Control', 'no-store, must-revalidate')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
         super().end_headers()
 
 HOST = '0.0.0.0'
@@ -45,5 +41,10 @@ def get_lan_ip():
     finally:
         probe.close()
 
-print(f'serving {APP_DIR} at http://{get_lan_ip()}:{PORT} (LAN enabled; HTML no-cache, versioned assets cached)')
-http.server.test(HandlerClass=PrototypeHandler, port=PORT, bind=HOST)
+if __name__ == '__main__':
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8766
+    app_dir = Path(__file__).resolve().parent / 'app'
+    references, pages = sync_assets(app_dir, write=True)
+    print(f'assets: {references} references checked; {pages} pages updated', flush=True)
+    print(f'serving {app_dir} at http://{get_lan_ip()}:{port} (LAN enabled; cache disabled)', flush=True)
+    http.server.test(HandlerClass=partial(PrototypeHandler, directory=str(app_dir)), port=port, bind=HOST)

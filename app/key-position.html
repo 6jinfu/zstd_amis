@@ -4,18 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关键岗位分析 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
 <style>
-  .key-position-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
-  .key-position-category-tree .ctp-head .ctp-title { font-size:13px; line-height:18px; color:var(--neutral-900); font-weight:600; letter-spacing:.01em; }
-  .key-position-category-tree .cat-tree-item { position:relative; display:flex; width:100%; min-height:40px; align-items:center; justify-content:space-between; margin:1px 0; padding:8px 10px; border:0; border-radius:6px; color:var(--neutral-600); font-size:13px; transition:color .15s ease-out,background-color .15s ease-out; }
-  .key-position-category-tree .cat-tree-item:hover { background:color-mix(in oklch,var(--surface-raised) 76%,transparent); color:var(--neutral-900); }
-  .key-position-category-tree .cat-tree-item.active { color:var(--primary-700); background:transparent; font-weight:500; }
-  .key-position-category-tree .cat-tree-item.active::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:2px; border-radius:2px; background:var(--primary-600); }
-  .key-position-category-tree .cat-tree-item:focus:not(:focus-visible) { outline:none; }
   body[data-page="key-position"] .review-main table.t { min-width:1160px; }
 </style>
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="key-position">
 <div class="app">
@@ -40,10 +34,9 @@
       <div class="review-layout list-workbench list-workbench-tree">
         <aside class="cat-tree-panel key-position-category-tree" id="kp-tree">
           <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" type="button" data-open="drawer-kp-catmgr" title="管理类别" aria-label="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg></button></div>
-          <button class="cat-tree-item active" type="button" data-cat="全部"><span>全部</span></button>
-          <button class="cat-tree-item" type="button" data-cat="年度分析"><span>年度分析</span></button>
-          <button class="cat-tree-item" type="button" data-cat="序列分析"><span>序列分析</span></button>
-          <button class="cat-tree-item" type="button" data-cat="专项分析"><span>专项分析</span></button>
+          <label class="category-tree-search"><input class="input" type="search" placeholder="搜索类别" aria-label="搜索分析类别"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M33.072 33.071c6.248-6.248 6.248-16.379 0-22.627-6.249-6.249-16.38-6.249-22.628 0-6.248 6.248-6.248 16.379 0 22.627 6.249 6.248 16.379 6.248 22.628 0Zm0 0 8.485 8.485"/></svg></label>
+          <div class="category-tree-body"></div>
+          <div class="category-tree-empty" hidden>暂无匹配类别</div>
         </aside>
         <section class="review-main cat-main">
           <div class="filter-bar" data-filter-bar>
@@ -124,14 +117,19 @@
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
 <script>
 (function(){
   var tree=document.getElementById('kp-tree'),table=document.getElementById('kp-table'),search=document.getElementById('kp-search'),status=document.getElementById('kp-status'),catList=document.querySelector('[data-kp-catmgr-list]');
   function filter(){var active=tree.querySelector('.cat-tree-item.active'),cat=active?active.dataset.cat:'全部',query=(search.value||'').trim().toLowerCase(),any=false;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){var matchCat=cat==='全部'||row.dataset.cat===cat,matchQuery=!query||row.children[0].textContent.toLowerCase().indexOf(query)>=0,tag=row.querySelector('.tag'),matchStatus=status.value==='全部'||(tag&&tag.textContent.trim()===status.value),show=matchCat&&matchQuery&&matchStatus;row.style.display=show?'':'none';if(show)any=true});var empty=table.querySelector('.row-empty');if(empty)empty.style.display=any?'none':''}
   function categoryCount(name){var count=0;table.querySelectorAll('tbody tr:not(.row-empty)').forEach(function(row){if(row.dataset.cat===name)count++});return count}
-  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',head=tree.querySelector('.ctp-head').outerHTML,html=head,names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){var name=node.textContent.trim();names.push(name)});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';html+='<button class="cat-tree-item'+(activeCat==='全部'?' active':'')+'" type="button" data-cat="全部"><span>全部</span></button>';names.forEach(function(name){html+='<button class="cat-tree-item'+(activeCat===name?' active':'')+'" type="button" data-cat="'+UI.escape(name)+'"><span>'+UI.escape(name)+'</span></button>'});tree.innerHTML=html;filter()}
+  var categoryFileIcon="<svg class=\"category-tree-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(1, 0)\"><g><polygon class=\"svg-path-theme\" points=\"10 5 10 0 10.3571429 0.357142857 14.6428571 4.64285714 15 5 10 5\"></polygon><polygon fill-opacity=\"0.35\" fill=\"#FFFFFF\" points=\"10 5 10 0 10.3571429 0.357142857 14.6428571 4.64285714 15 5 10 5\"></polygon></g><g><path class=\"svg-path-theme\" d=\"M9.0729927,4.9 C9.0729927,5.1 9.17518248,5.3 9.37956204,5.5 C9.58394161,5.7 9.78832117,5.8 9.99270073,5.8 L15,5.8 L15,15.1 C14.8978102,15.6 14.5912409,15.9 14.080292,16 L1.91970803,16 C1.71532847,16 1.51094891,15.9 1.30656934,15.7 C1.10218978,15.5 1,15.3 1,15 L1,0.9 C1,0.7 1.10218978,0.5 1.30656934,0.3 C1.40875912,0.1 1.71532847,0 1.91970803,0 L9.17518248,0 L9.0729927,4.9 Z\"></path><path fill-opacity=\"0.6\" fill=\"#FFFFFF\" d=\"M9.0729927,4.9 C9.0729927,5.1 9.17518248,5.3 9.37956204,5.5 C9.58394161,5.7 9.78832117,5.8 9.99270073,5.8 L15,5.8 L15,15.1 C14.8978102,15.6 14.5912409,15.9 14.080292,16 L1.91970803,16 C1.71532847,16 1.51094891,15.9 1.30656934,15.7 C1.10218978,15.5 1,15.3 1,15 L1,0.9 C1,0.7 1.10218978,0.5 1.30656934,0.3 C1.40875912,0.1 1.71532847,0 1.91970803,0 L9.17518248,0 L9.0729927,4.9 Z\"></path></g></g></g></svg>";
+  var categoryFolderIcon="<svg class=\"category-tree-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g transform=\"translate(0, 0.6667)\"><path class=\"svg-path-theme\" d=\"M5.85786379,-4.42210708e-05 C6.72615267,-4.42210708e-05 7.38956372,0.771092483 7.38956372,1.66640423 C7.38956372,1.83660769 7.47387201,1.95405717 7.55561085,1.98076277 L7.59023118,1.98654153 L12.3731375,2.0030528 C13.2036422,2.0030528 13.8489943,2.69994377 13.9013318,3.54551557 L13.9047619,3.65660567 L13.9047619,5.6174405 L12.1643895,13.9999558 L1.53169993,13.9999558 C0.701228489,13.9999558 0.0557765061,13.3031741 0.00343063161,12.4576109 L0,12.3465213 L0,1.65351838 C0,0.796068101 0.610854848,0.063427704 1.4244611,0.00386296657 L1.53169993,-4.42210708e-05 L5.85786379,-4.42210708e-05 Z\" opacity=\"0.35\" fill-rule=\"nonzero\"></path><g><path class=\"svg-path-theme\" d=\"M14.4712222,4.60606061 L3.27743512,4.60606061 C2.6702452,4.60606061 2.13973892,5.01629874 1.98698486,5.60396004 L0.12988452,12.7484246 C0.108529885,12.8305781 0.0977222154,12.9151164 0.0977222154,13 C0.0977222154,13.5522847 0.545437466,14 1.09772222,14 L12.7225649,14 C13.3297548,14 13.8602611,13.5897619 14.0130151,13.0021006 L15.7616725,6.27482784 C15.7901453,6.16528974 15.8045556,6.05257211 15.8045556,5.93939394 C15.8045556,5.20301427 15.2076019,4.60606061 14.4712222,4.60606061 Z\"></path><path fill-opacity=\"0.3\" fill=\"#FFFFFF\" d=\"M14.4712222,4.60606061 L3.27743512,4.60606061 C2.6702452,4.60606061 2.13973892,5.01629874 1.98698486,5.60396004 L0.12988452,12.7484246 C0.108529885,12.8305781 0.0977222154,12.9151164 0.0977222154,13 C0.0977222154,13.5522847 0.545437466,14 1.09772222,14 L12.7225649,14 C13.3297548,14 13.8602611,13.5897619 14.0130151,13.0021006 L15.7616725,6.27482784 C15.7901453,6.16528974 15.8045556,6.05257211 15.8045556,5.93939394 C15.8045556,5.20301427 15.2076019,4.60606061 14.4712222,4.60606061 Z\"></path></g></g></g></svg>";
+  function categoryNode(name,active){return '<button class="cat-tree-item'+(active?' active':'')+'" type="button" data-cat="'+UI.escape(name)+'" aria-pressed="'+active+'"><span class="category-tree-switcher" aria-hidden="true"></span><span class="category-tree-node-title">'+(name==='全部'?categoryFolderIcon:categoryFileIcon)+'<span class="category-tree-node-text">'+UI.escape(name)+'</span></span></button>';}
+  function searchCategories(){var query=tree.querySelector('.category-tree-search input').value.trim().toLowerCase(),visible=0;tree.querySelectorAll('.cat-tree-item').forEach(function(item){item.hidden=item.dataset.cat.toLowerCase().indexOf(query)<0;if(!item.hidden)visible++});tree.querySelector('.category-tree-empty').hidden=visible>0;tree.querySelector('.category-tree-body').hidden=visible===0;}
+  function renderTree(preferredCat){var active=tree.querySelector('.cat-tree-item.active'),activeCat=preferredCat||(active&&active.dataset.cat)||'全部',names=[];catList.querySelectorAll('.cmr-name').forEach(function(node){names.push(node.textContent.trim())});if(activeCat!=='全部'&&names.indexOf(activeCat)<0)activeCat='全部';tree.querySelector('.category-tree-body').innerHTML=categoryNode('全部',activeCat==='全部')+names.map(function(name){return categoryNode(name,activeCat===name)}).join('');searchCategories();filter();}
+  tree.addEventListener('input',function(event){if(event.target.matches('.category-tree-search input'))searchCategories()});
   function openEditor(row){
     var categories=[...catList.querySelectorAll('.cmr-name')].map(function(node){return node.textContent.trim();}),currentCategory=row.dataset.cat||'';
     if(categories.indexOf(currentCategory)<0)categories.unshift(currentCategory);
@@ -158,12 +156,12 @@
       }
     });
   }
-  tree.addEventListener('click',function(event){var item=event.target.closest('.cat-tree-item');if(!item)return;tree.querySelectorAll('.cat-tree-item').forEach(function(node){node.classList.remove('active')});item.classList.add('active');filter()});
+  tree.addEventListener('click',function(event){var item=event.target.closest('.cat-tree-item');if(!item)return;tree.querySelectorAll('.cat-tree-item').forEach(function(node){node.classList.remove('active');node.setAttribute('aria-pressed','false')});item.classList.add('active');item.setAttribute('aria-pressed','true');filter()});
   tree.addEventListener('pointerdown',function(event){var item=event.target.closest('.cat-tree-item');if(item)window.setTimeout(function(){item.blur()},0)});
-  document.getElementById('kp-query').addEventListener('click',filter);document.getElementById('kp-reset').addEventListener('click',function(){search.value='';status.selectedIndex=0;tree.querySelector('.cat-tree-item').click()});
+  document.getElementById('kp-query').addEventListener('click',filter);document.getElementById('kp-reset').addEventListener('click',function(){search.value='';status.selectedIndex=0;tree.querySelector('.category-tree-search input').value='';searchCategories();tree.querySelector('.cat-tree-item').click()});
   document.addEventListener('click',function(event){var edit=event.target.closest('[data-kp-edit]');if(edit){event.preventDefault();openEditor(edit.closest('tr[data-cat]'));}});
   UI.bindCategoryManager({root:tree,triggerId:'drawer-kp-catmgr',list:catList,table:table,onChange:renderTree});
-  filter();
+  renderTree();
 })();
 </script>
 </body>

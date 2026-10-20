@@ -17,7 +17,15 @@ python3 serve.py
 
 `serve.py` 默认监听所有本机网络接口，`8766` 是本项目的默认端口；如需临时使用其他端口，可执行 `python3 serve.py 端口号`。
 
-开发服务器对 HTML 禁用缓存，对带 `?v=` 版本参数的静态资源启用缓存；修改 CSS 或 JS 时需要同步升级页面中的版本参数。
+开发服务器对页面与资源统一禁用缓存；启动时自动核对本地 CSS / JS 是否存在，并更新 HTML 中的内容指纹，不再手写或复用日期版本号。修改资源后可手动同步并检查：
+
+```bash
+python3 scripts/asset_versions.py --write
+python3 scripts/asset_versions.py
+python3 -m unittest discover -s tests -v
+```
+
+第二条命令只检查、不修改文件；指纹过期或资源缺失会返回失败。静态打包前也应运行这两条资源命令。
 
 ## 目录说明
 

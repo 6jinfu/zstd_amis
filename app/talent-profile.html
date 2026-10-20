@@ -3,136 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>人才详情 · 张明 · 人才中心</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
-<style>
-  .persona-header { display:flex; align-items:center; gap:var(--space-lg); background:linear-gradient(135deg,var(--primary-600),var(--primary-700)); color:#fff; border-radius:var(--radius-md); padding:var(--space-lg) var(--space-xl); margin-bottom:var(--space-md); }
-  .persona-header .ph-avatar { width:64px; height:64px; border-radius:50%; background:rgba(255,255,255,.2); display:grid; place-items:center; font-size:24px; font-weight:600; flex:0 0 64px; border:2px solid rgba(255,255,255,.3); }
-  .persona-header .ph-name { font-size:22px; font-weight:600; }
-  .persona-header .ph-sub { font-size:13px; opacity:.8; margin-top:2px; }
-  .persona-header .ph-tags { display:flex; gap:6px; margin-top:8px; }
-  .persona-header .ph-tags .tag { background:rgba(255,255,255,.15); color:#fff; }
-  .gauge-row { display:flex; align-items:center; gap:12px; padding:8px 0; border-bottom:1px solid var(--neutral-100); }
-  .gauge-row:last-child { border:none; }
-  .gauge-row .g-name { width:80px; font-size:13px; font-weight:500; flex:0 0 80px; }
-  .gauge-bar { flex:1; height:8px; background:var(--neutral-100); border-radius:var(--radius-full); position:relative; }
-  .gauge-bar .g-std { position:absolute; top:-3px; width:3px; height:14px; background:var(--neutral-400); border-radius:2px; }
-  .gauge-bar .g-act { height:100%; border-radius:var(--radius-full); transition:width .4s ease; }
-  .gauge-row .g-val { width:64px; text-align:right; font-size:13px; font-weight:600; flex:0 0 64px; }
-  .timeline-item { display:flex; gap:12px; padding:10px 0; position:relative; }
-  .timeline-item::before { content:""; position:absolute; left:7px; top:24px; bottom:-10px; width:2px; background:var(--neutral-100); }
-  .timeline-item:last-child::before { display:none; }
-  .timeline-dot { width:16px; height:16px; border-radius:50%; border:3px solid var(--primary-500); flex:0 0 16px; margin-top:2px; z-index:1; background:var(--white); }
-  .timeline-content { flex:1; }
-  .timeline-content .tc-title { font-size:14px; font-weight:500; }
-  .timeline-content .tc-time { font-size:12px; color:var(--neutral-400); }
-  .mini-radar { width:100%; max-width:360px; }
-  .mini-radar .grid { fill:none; stroke:var(--neutral-100); }
-  .mini-radar .std { fill:none; stroke:var(--neutral-400); stroke-dasharray:4 3; }
-  .mini-radar .act { fill:color-mix(in oklch,var(--primary-600) 12%,transparent); stroke:var(--primary-600); stroke-width:2; }
-  .mini-radar .spoke { stroke:var(--neutral-100); }
-  .mini-radar .axlabel { font-size:11px; fill:var(--neutral-600); }
-  .idp-progress { height:10px; background:var(--neutral-100); border-radius:var(--radius-full); overflow:hidden; margin:8px 0; }
-  .idp-progress > i { display:block; height:100%; background:linear-gradient(90deg,var(--primary-500),var(--success)); border-radius:inherit; }
-  .grid3x3 { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; max-width:360px; }
-  .grid3x3 .g3 { min-height:52px; border-radius:var(--radius-sm); padding:8px; display:flex; flex-direction:column; justify-content:center; align-items:center; font-size:12px; color:var(--neutral-400); }
-  .grid3x3 .g3.hi { background:color-mix(in oklch,var(--primary-600) 14%,transparent); color:var(--primary-600); }
-  .grid3x3 .g3.core { background:rgba(22,163,74,.14); color:var(--success); }
-  .grid3x3 .g3.mid { background:var(--neutral-100); color:var(--neutral-500); }
-  .grid3x3 .g3.risk { background:rgba(220,38,38,.11); color:var(--danger); }
-  .grid3x3 .g3.current { box-shadow:0 0 0 3px var(--primary-500), 0 0 0 5px var(--white); font-weight:700; font-size:14px; }
-  .grid3x3 .g3 .g3-label { font-size:10px; opacity:.7; }
-  .grid3x3 .g3 .g3-val { font-size:18px; font-weight:700; }
-</style>
-<link rel="stylesheet" href="standards.css?v=20260908e">
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<title>人才档案 · 人才中心</title>
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="talent-center.css?v=sha256-c764c36a0fa0">
+<script defer src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script defer src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script defer src="standards-data.js?v=sha256-5458067a498f"></script>
+<script defer src="talent-data.js?v=sha256-a4789063f1eb"></script>
+<script defer src="vendor/echarts-6.0.0.min.js?v=sha256-baa8dfe7e1d9"></script>
+<script defer src="talent-center.js?v=sha256-767537bea631"></script>
+<script defer src="app.js?v=sha256-8b03ce2d3019"></script>
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
-<body class="talent-profile-page" data-module="talent" data-page="talent-list">
+<body class="tc-page" data-module="talent" data-page="talent-list">
 <div class="app">
   <header class="topbar">
     <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
-    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <nav class="nav-main"><a data-module="standard" href="standards.html">人才标准</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
     <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
   </header>
   <div class="body">
-    <aside class="sidenav"><a class="nav-item active" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才列表</a></aside>
+    <aside class="sidenav"><a class="nav-item active" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才库</a></aside>
 
-    <main class="content">
-      <!-- 人物头部 -->
-      <div class="persona-header">
-        <span class="ph-avatar">张</span>
-        <div style="flex:1">
-          <div class="ph-name">张明</div>
-          <div class="ph-sub">架构师 · 研发中心 · P4 专家 · 司龄 6 年</div>
-          <div class="ph-tags"><span class="tag">2026 新星</span><span class="tag">技术骨干</span><span class="tag">985 硕士</span></div>
-        </div>
-        
-      </div>
 
-      <div class="detail-layout">
-        <!-- 左锚点菜单 -->
-        <nav class="anchor-nav" data-default="ability">
-          <a class="a-item active" data-tab="ability" href="#ability">综合能力</a>
-          <a class="a-item" data-tab="review" href="#review">盘点结果</a>
-        </nav>
-
-        <!-- 右内容 -->
-        <div class="detail-main">
-
-          <!-- 综合能力（雷达图）-->
-          <section data-section="ability" class="card card-pad d-section active">
-            <div class="flex gap-lg" style="align-items:center;gap:var(--space-xl)">
-              <svg class="mini-radar" viewBox="0 0 200 200" width="200" height="200" style="flex:0 0 200px">
-                <polygon class="grid" points="100,65 133.3,89.2 120.6,128.3 79.4,128.3 66.7,89.2"/>
-                <polygon class="grid" points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4"/>
-                <line class="spoke" x1="100" y1="100" x2="100" y2="30"/><line class="spoke" x1="100" y1="100" x2="166.6" y2="78.4"/><line class="spoke" x1="100" y1="100" x2="141.2" y2="156.6"/><line class="spoke" x1="100" y1="100" x2="58.8" y2="156.6"/><line class="spoke" x1="100" y1="100" x2="33.4" y2="78.4"/>
-                <polygon class="std" points="100,30 166.6,78.4 141.2,156.6 58.8,156.6 33.4,78.4"/>
-                <polygon class="act" points="100,40 157,82 128,140 72,138 48,84"/>
-                <text class="axlabel" x="100" y="22" text-anchor="middle">系统架构</text>
-                <text class="axlabel" x="175" y="76" text-anchor="start">技术选型</text>
-                <text class="axlabel" x="146" y="172" text-anchor="middle">团队管理</text>
-                <text class="axlabel" x="54" y="172" text-anchor="middle">跨部门沟通</text>
-                <text class="axlabel" x="25" y="76" text-anchor="end">创新思维</text>
-              </svg>
-              <div style="flex:1;min-width:0">
-                <div class="flex between center" style="margin-bottom:10px"><div class="text-sm" style="font-weight:600">岗位要求 vs 实际能力</div><div class="ability-legend"><span><i class="legend-standard"></i>岗位要求</span><span><i class="legend-actual"></i>实际能力</span></div></div>
-                <div class="gauge-row"><span class="g-name">系统架构</span><div class="gauge-bar"><div class="g-act" style="width:88%;background:var(--success)"></div><div class="g-std" style="left:80%"></div></div><span class="g-val" style="color:var(--success)">4.4/5</span></div>
-                <div class="gauge-row"><span class="g-name">技术选型</span><div class="gauge-bar"><div class="g-act" style="width:92%;background:var(--success)"></div><div class="g-std" style="left:80%"></div></div><span class="g-val" style="color:var(--success)">4.6/5</span></div>
-                <div class="gauge-row"><span class="g-name">团队管理</span><div class="gauge-bar"><div class="g-act" style="width:64%;background:var(--warning)"></div><div class="g-std" style="left:70%"></div></div><span class="g-val" style="color:var(--warning)">3.2/5</span></div>
-                <div class="gauge-row"><span class="g-name">跨部门沟通</span><div class="gauge-bar"><div class="g-act" style="width:56%;background:var(--danger)"></div><div class="g-std" style="left:70%"></div></div><span class="g-val" style="color:var(--danger)">2.8/5</span></div>
-                <div class="gauge-row"><span class="g-name">创新思维</span><div class="gauge-bar"><div class="g-act" style="width:84%;background:var(--success)"></div><div class="g-std" style="left:70%"></div></div><span class="g-val" style="color:var(--success)">4.2/5</span></div>
-                <div class="ability-source-note mt-sm"><b>数据口径</b><span>岗位要求来自当前岗位标准；实际能力按最新有效结果汇总，同一能力在考试和评估中取最高等级。</span></div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 盘点结果 -->
-          <section data-section="review" class="card card-pad d-section">
-            <div class="flex between center mb-md"><div class="sect-title" style="margin:0">盘点落位</div><span class="tag">最新盘点结果</span></div>
-            <div class="grid3x3">
-              <div class="g3 mid"><span class="g3-label">中坚</span></div>
-              <div class="g3 core"><span class="g3-label">核心</span></div>
-              <div class="g3 hi current"><span class="g3-label">高潜</span><span class="g3-val">★</span></div>
-              <div class="g3 risk"><span class="g3-label">待发展</span></div>
-              <div class="g3 mid"><span class="g3-label">胜任</span></div>
-              <div class="g3 core"><span class="g3-label">骨干</span></div>
-              <div class="g3 mid"><span class="g3-label">胜任</span></div>
-              <div class="g3 mid"><span class="g3-label">中坚</span></div>
-              <div class="g3 mid"><span class="g3-label">中坚</span></div>
-            </div>
-            <div class="text-sm muted mt-md">2026 年度人才盘点 · 2026-07-30 结束 · 落位：高潜（绩效高 × 能力高）</div>
-          </section>
-
-        </div>
-      </div>
-    </main>
-  </div>
-</div>
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
-<script src="standard-seeds.js?v=20260908a"></script>
-<script src="standards-data.js?v=20260910b"></script>
-<script src="standard-ui.js?v=20260908e"></script>
-<script src="standard-references.js?v=20260910c"></script>
+<main class="content" data-talent-center="profile"></main>
+</div></div>
 </body>
 </html>

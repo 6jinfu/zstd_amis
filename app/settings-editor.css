@@ -1,0 +1,41 @@
+.settings-editor-toolbar { display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px; }
+.settings-editor-search { width:360px;max-width:50%; }
+.level-tree { padding:8px 0; }
+.level-tree-row { display:flex;align-items:center;gap:8px;min-height:52px;padding:0 16px;border-radius:6px; }
+.level-tree-row:hover { background:#f8faff; }
+.level-tree-row.is-selected { background:#eaf1ff; }
+.level-tree-toggle { display:grid;place-items:center;width:32px;height:40px;border:0;background:transparent;cursor:pointer;color:#747d8a; }
+.level-tree-toggle svg { width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6; }
+.level-tree-label { display:flex;align-items:center;gap:12px;min-height:44px;padding:0;border:0;background:transparent;color:var(--neutral-900);text-align:left;cursor:pointer;font:inherit;font-size:16px; }
+.level-tree-label svg { width:23px;height:23px;fill:#9ab6f5;stroke:#fff;stroke-width:.8;flex:none; }
+.level-tree-group>.level-tree-row .level-tree-label svg { fill:#648bea; }
+.level-tree-children { padding-left:40px; }
+.level-tree-actions { display:flex;align-items:center;gap:22px;margin-left:24px;opacity:0;pointer-events:none; }
+.level-tree-actions button { min-height:40px;font-size:14px; }
+.level-tree-row:is(:hover,:focus-within,.is-selected) .level-tree-actions { opacity:1;pointer-events:auto; }
+.level-tree-code,.level-tree-rank { margin-left:12px;color:var(--neutral-600);font-size:14px;font-variant-numeric:tabular-nums; }
+.level-tree-rank { margin-left:8px; }
+.level-tree-empty { padding:12px 16px;color:var(--neutral-600);font-size:14px; }
+.dimension-settings-panel { max-width:880px; }
+.dimension-settings-panel>p { margin:0 0 24px;font-size:14px;line-height:1.7;color:var(--neutral-700); }
+.dimension-setting-row { display:grid;grid-template-columns:minmax(0,1fr) 20px 70px;align-items:center;gap:20px;min-height:64px;border-bottom:1px solid var(--border-subtle);font-size:15px;cursor:pointer; }
+.dimension-setting-row input { width:18px;height:18px;accent-color:var(--primary-600); }
+.dimension-setting-state { color:var(--neutral-600);font-size:14px; }
+.dimension-settings-footer { display:flex;align-items:center;gap:20px;margin-top:24px; }
+.dimension-settings-footer span { font-size:14px;color:var(--neutral-600); }
+.settings-scope-page #dimension-error { margin-top:12px;color:var(--danger,#b42318);font-size:14px; }
+.settings-scope-page :is(button,input,select):focus-visible { outline:2px solid var(--neutral-600);outline-offset:3px; }
+
+@media (min-width:821px) {
+  .settings-scope-page .level-tree-row { min-height:40px; padding:0 8px; gap:4px; }
+  .settings-scope-page .level-tree-toggle { width:16px; height:40px; min-height:40px; }
+  .settings-scope-page .level-tree-label { height:40px; min-height:40px; gap:10px; font-size:16px; line-height:24px; }
+  .settings-scope-page .level-tree-label svg { width:24px; height:24px; }
+  .settings-scope-page .level-tree-children { padding-left:22px; }
+  .settings-scope-page .level-tree-children .level-tree-row { padding-left:28px; }
+  .settings-scope-page .level-tree-actions { gap:16px; margin-left:16px; }
+  .settings-scope-page .level-tree-actions button { height:28px; min-height:28px; min-width:40px; font-size:14px; }
+  .settings-scope-page .level-tree-row.is-selected { background:var(--primary-50); }
+  .settings-scope-page .level-tree-row.is-selected .level-tree-label { color:var(--primary-700); font-weight:500; }
+  .settings-scope-page .level-tree-row:hover:not(.is-selected) { background:var(--neutral-100); }
+}

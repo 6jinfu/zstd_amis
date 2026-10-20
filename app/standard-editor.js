@@ -14,12 +14,44 @@
     if(params.has('copy')&&original){draft.id=uid();draft.name+='（副本）';draft.mode='none';draft.positions=[];draft.groups=[];}
     const context=S.positions.find(p=>p.id===params.get('position'));
     if(context&&!original){draft.name=context.name+'标准';draft.category=context.category;draft.mode='positions';draft.positions=[context.id];}
+    let aiImported=false;
+    if(params.has('ai')){
+      try {
+        const aiDraft=JSON.parse(sessionStorage.getItem('talent-standard-ai-draft-v1')||'null');
+        if(aiDraft){
+          if(original&&aiDraft.targetId===original.id&&['replace','merge'].includes(aiDraft.updateStrategy)){
+            draft.content=TalentSettings.mergeContent(draft.content,aiDraft.content,aiDraft.generatedSections,aiDraft.updateStrategy);
+          }else if(!original){draft={...draft,...aiDraft,id:draft.id,content:S.clone(aiDraft.content||S.emptyContent())};}
+          else throw new Error('AI draft target does not match');
+          aiImported=true;sessionStorage.removeItem('talent-standard-ai-draft-v1');
+        }
+      } catch(err) { sessionStorage.removeItem('talent-standard-ai-draft-v1'); }
+    }
     let dirty=false;
     function changed(){dirty=true;$('#std-save-state').textContent='有未保存的修改';}
     document.querySelectorAll('[data-std-cancel]').forEach(link=>link.addEventListener('click',()=>{dirty=false;}));
-    let activeContentTab='duty';
+    function renderPlanEntries(){
+      const host=$('#std-plan-positions');
+      if(!host)return;
+      const saved=data.standards.find(s=>s.id===draft.id);
+      if(!saved){host.innerHTML='<div class="empty-state">先保存人才标准，再为适用岗位配置学习方案。</div>';return;}
+      const positions=S.positions.filter(p=>S.associated(data,p.id).some(s=>s.id===saved.id));
+      if(!positions.length){
+        host.innerHTML='<div class="empty-state">暂无关联岗位。可先在<a href="#scope">应用范围</a>中指定岗位，或从岗位详情关联这条标准。</div>';
+        return;
+      }
+      host.innerHTML=positions.map(p=>{
+        const count=data.plans?.[p.id]?.length||0;
+        const selected=data.selected['plan-'+p.id]===saved.id;
+        const note=(count?`已保存 ${count} 项学习资源`:'可配置学习方案')+(selected?' · 当前采用本标准':'');
+        return `<div class="std-link-row"><div><b>${e(p.name)}</b><p>${e(p.category)} · ${e(p.id)} · ${note}</p></div><a class="btn btn-secondary" href="learning-plan.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}">配置学习方案</a></div>`;
+      }).join('');
+    }
+    const availableSections=Object.keys(TalentSettings.dimensions).filter(key=>TalentSettings.enabled().includes(key)||(original&&draft.content[key].length));
+    document.querySelectorAll('[data-std-tab^="content-"]').forEach(link=>link.hidden=!availableSections.includes(link.dataset.stdTab.slice(8)));
+    let activeContentTab=availableSections[0];
     function contentTab(name){
-      if(!['duty','exp','cap','pow','pot'].includes(name))name='duty';
+      if(!availableSections.includes(name))name=availableSections[0];
       activeContentTab=name;
       document.querySelectorAll('[data-content-section]').forEach(s=>s.hidden=s.dataset.contentSection!==name);
     }
@@ -28,7 +60,8 @@
       let section=name;
       if(name.indexOf('content-')===0){contentTab(name.slice(8));section='content';}
       if(section==='content')contentTab(activeContentTab);
-      if(!['basic','scope','content'].includes(section))section='basic';
+      if(!['basic','scope','content','plan'].includes(section))section='basic';
+      if(section==='plan')renderPlanEntries();
       const activeKey=section==='content'?'content-'+activeContentTab:section;
       document.querySelectorAll('[data-std-section]').forEach(s=>s.hidden=s.dataset.stdSection!==section);
       document.querySelectorAll('[data-std-tab]').forEach(a=>{const active=a.dataset.stdTab===activeKey;a.classList.toggle('active',active);a.setAttribute('aria-current',active?'page':'false');});
@@ -40,10 +73,11 @@
     $('#std-category').innerHTML=data.categories.map(c=>`<option value="${e(c)}">${e(c)}</option>`).join('');
     [['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
     document.querySelectorAll('[name=mode]').forEach(input=>{input.checked=input.value===draft.mode;input.onchange=()=>{draft.mode=input.value;changed();renderScope();};});
+    if(aiImported){dirty=true;$('#std-save-state').textContent='AI 生成内容待确认';}
     const values=field=>field==='critical'?['是','否']:field==='position'?[...new Set([...S.positions.map(p=>p.name),...S.people.map(p=>p.position)])]:field==='category'?[...new Set(S.positions.map(p=>p.category))]:[...new Set(S.people.map(p=>p.department))];
     function renderScope(){
       $('#std-scope-error').textContent='';
-      if(draft.mode==='none')$('#std-scope').innerHTML='<p class="text-sm muted">可先维护标准，后续再关联岗位或人员。</p>';
+      if(draft.mode==='none')$('#std-scope').innerHTML='';
       if(draft.mode==='positions')$('#std-scope').innerHTML=button('选择岗位','id="std-pick-positions"')+`<div class="mt-md">${draft.positions.map(id=>{const p=S.positions.find(p=>p.id===id);return `<div class="std-link-row"><div><b>${e(p?.name||id)}</b><p>${e(p?.category||'')} · ${e(id)}</p></div>${button('移除',`data-remove-position="${e(id)}"`,'btn-text danger')}</div>`;}).join('')||'<p class="text-sm muted">尚未选择岗位</p>'}</div>`;
       if(draft.mode==='rules')$('#std-scope').innerHTML=draft.groups.map((group,gi)=>`${gi?'<div class="std-or">或满足以下条件</div>':''}<div class="std-rule-group"><div class="std-rule-head"><b class="text-sm">条件组 ${gi+1} · 全部满足</b>${button('删除组',`data-remove-group="${gi}"`,'btn-text danger')}</div>${group.map((r,ri)=>`<div class="std-rule"><select class="select" aria-label="条件字段 ${gi+1}-${ri+1}" data-rule-field="${gi},${ri}">${Object.entries(S.fields).map(([k,label])=>`<option value="${k}" ${k===r.field?'selected':''}>${label}</option>`).join('')}</select><span class="text-sm muted">属于</span>${button(e(r.values.join('、')||'选择条件值'),`data-rule-values="${gi},${ri}"`,'btn btn-secondary std-values')}${button('×',`data-remove-rule="${gi},${ri}" aria-label="删除条件 ${gi+1}-${ri+1}"`,'btn-text')}</div>`).join('')}${button('添加条件',`data-add-rule="${gi}"`,'btn btn-ghost')}</div>`).join('')+button('添加另一组条件','id="std-add-group"','btn btn-secondary mt-md');
     }
@@ -92,13 +126,13 @@
       if(!draft.category){tab('basic');showToast('请选择类别');return;}
       const scopeInvalid=draft.mode==='positions'&&!draft.positions.length || draft.mode==='rules'&&(!draft.groups.length||draft.groups.some(g=>!g.length||g.some(r=>!r.values.length)));
       if(scopeInvalid){tab('scope');$('#std-scope-error').textContent=draft.mode==='positions'?'请选择至少一个岗位，或改为暂不关联。':'每个条件组至少包含一条条件，并选择条件值。';return;}
-      const c=draft.content;if(c.duty.some(d=>!d.n.trim()||d.t.some(t=>!t.trim()))||c.exp.some(t=>!t.trim())){tab('content');showToast('请填写空白要求，或移除未使用的条目');return;}
+      const c=draft.content;if(c.cap.length>20){tab('content-cap');showToast('最多保留 20 项能力，请移除多余条目后保存');return;}if(c.duty.some(d=>!d.n.trim()||d.t.some(t=>!t.trim()))||c.exp.some(t=>!t.trim())){tab('content');showToast('请填写空白要求，或移除未使用的条目');return;}
       if(draft.mode!=='positions')draft.positions=[];if(draft.mode!=='rules')draft.groups=[];
       delete draft.object;
       delete draft.objectDescription;
       draft.updated=new Date().toLocaleDateString('sv-SE');
       const index=data.standards.findIndex(s=>s.id===draft.id);if(index<0)data.standards.push(S.clone(draft));else data.standards[index]=S.clone(draft);
-      if(!persist())return;dirty=false;$('#std-save-state').textContent='已保存';$('#std-title').textContent=draft.name;history.replaceState(null,'','standard-detail.html?id='+draft.id+location.hash);showToast('人才标准已保存');
+      if(!persist())return;dirty=false;$('#std-save-state').textContent='已保存';$('#std-title').textContent=draft.name;history.replaceState(null,'','standard-detail.html?id='+draft.id+location.hash);renderPlanEntries();showToast('人才标准已保存');
     };
     window.addEventListener('beforeunload',ev=>{if(dirty){ev.preventDefault();ev.returnValue='';}});
     $('#std-form').onkeydown=ev=>{if((ev.metaKey||ev.ctrlKey)&&ev.key==='Enter'){$('#std-form').requestSubmit();}};

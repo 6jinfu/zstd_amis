@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位地图 · 发展中心</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="position-map.css?v=sha256-1b9e97e74141">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="develop" data-page="position-map">
 <div class="app">
@@ -20,43 +22,21 @@
       <a class="nav-item active" data-page="position-map" href="position-map.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 12h12"/></svg>岗位地图</a>
     </aside>
 
-    <main class="content">
-      <div class="breadcrumb">发展中心<span class="sep">/</span><span class="cur">岗位地图</span></div>
-
-      <!-- 序列 tab -->
-      <div class="secondary-tab-row">
-        <div class="pm-tabs">
-          <span class="pm-tab active">技术序列 P</span>
-          <span class="pm-tab">管理序列 M</span>
-          <span class="pm-tab">销售条线</span>
-          <span class="pm-tab">专业 - 人力</span>
-        </div>
-        <a class="btn btn-secondary btn-sm" href="settings.html#sequence">序列框架设置</a>
-      </div>
-
-      <!-- 岗位梯子 -->
-      <div class="card">
-        <div class="card-body" style="padding:var(--space-sm) var(--space-lg)">
-          <div class="pm-ladder">
-            <div class="pm-step">
-              <span class="pm-badge">P4 · 专家</span>
-              <button class="pm-node set" data-open="drawer-node" data-position="RD-302">架构师<span class="pm-plan">方案</span></button>
-            </div>
-            <div class="pm-step">
-              <span class="pm-badge">P3 · 高级</span>
-              <button class="pm-node set" data-open="drawer-node" data-position="">高级开发工程师</button>
-            </div>
-            <div class="pm-step">
-              <span class="pm-badge">P2 · 中级</span>
-              <button class="pm-node set" data-open="drawer-node" data-position="RD-205">后端开发工程师<span class="pm-plan">方案</span></button>
-            </div>
-            <div class="pm-step">
-              <span class="pm-badge">P1 · 初级</span>
-              <button class="pm-node empty" data-open="drawer-selpos">+ 配置岗位</button>
-            </div>
+    <main class="content pm-workspace">
+      <div class="pm-layout">
+        <aside class="pm-series-panel" aria-label="职级序列">
+          <div class="pm-series-title">职级序列</div>
+          <label class="pm-series-search-wrap"><span class="sr-only">搜索职级序列</span><input id="pm-series-search" type="search" placeholder="输入关键字搜索" autocomplete="off"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg></label>
+          <div id="pm-series-list" class="pm-series-list" aria-label="序列列表"></div>
+          <a class="pm-series-settings" href="settings.html#sequence">职级框架设置</a>
+        </aside>
+        <section class="pm-map-panel" aria-label="岗位地图">
+          <div class="pm-toolbar">
+            <button class="btn btn-primary pm-add-map" type="button" id="pm-add-map">新增岗位地图</button>
+            <form class="pm-position-search" id="pm-search-form" role="search"><label class="sr-only" for="pm-position-search">搜索岗位名称</label><input id="pm-position-search" type="search" placeholder="请输入岗位名称" autocomplete="off"><button class="btn btn-primary" type="submit">搜索</button></form>
           </div>
-          <div class="pm-axis-label">岗位等级（自下而上递增）</div>
-        </div>
+          <div class="pm-map-scroll"><div id="pm-matrix" class="pm-matrix" aria-live="polite"></div></div>
+        </section>
       </div>
     </main>
   </div>
@@ -82,7 +62,7 @@
         <span>添加岗位</span>
       </button>
       <div class="action-divider"></div>
-      <button class="action-item danger">
+      <button class="action-item danger" id="pm-remove-position">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
         <span>移除岗位</span>
       </button>
@@ -95,17 +75,13 @@
 <div class="drawer" id="drawer-selpos">
   <div class="m-head"><h3>选择岗位</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="m-body">
-    <input class="input mb-md" placeholder="搜索岗位">
+    <input class="input mb-md" id="pm-pick-search" placeholder="搜索岗位">
     <div class="table-wrap"><table class="t">
       <thead><tr><th style="width:40px"></th><th>岗位</th><th>类别</th></tr></thead>
-      <tbody>
-        <tr><td><input type="radio" name="pos"></td><td>前端开发工程师</td><td class="muted">研发</td></tr>
-        <tr><td><input type="radio" name="pos" checked></td><td>初级开发工程师</td><td class="muted">研发</td></tr>
-        <tr><td><input type="radio" name="pos"></td><td>测试工程师</td><td class="muted">研发</td></tr>
-      </tbody>
+      <tbody id="pm-pick-results"></tbody>
     </table></div>
   </div>
-  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>挂载</button></div>
+  <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" id="pm-attach-position">挂载</button></div>
 </div>
 
 <!-- 发展通道 -->
@@ -127,7 +103,7 @@
 <div class="drawer" id="drawer-level">
   <div class="m-head"><div><h3>职级管理 · 技术序列 P</h3></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="m-body">
-    <div class="flex between center mb-md"><span class="text-sm muted">自下而上递增</span><button class="btn btn-primary btn-sm">+ 新增职级</button></div>
+    <div class="flex center mb-md" style="justify-content:flex-end"><button class="btn btn-primary btn-sm">+ 新增职级</button></div>
     <div class="table-wrap"><table class="t">
       <thead><tr><th>职级</th><th>名称</th><th>等级序</th><th style="text-align:right">操作</th></tr></thead>
       <tbody>
@@ -142,21 +118,10 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>关闭</button></div>
 </div>
 
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260910b"></script>
-<script>
-(function () {
-  document.querySelectorAll('.pm-node[data-open="drawer-node"]').forEach(function (button) {
-    button.addEventListener('click', function () {
-      var drawer = document.getElementById('drawer-node');
-      drawer.querySelector('h3').textContent = button.firstChild.textContent.trim();
-      drawer.querySelector('.m-head .text-sm').textContent = button.closest('.pm-step').querySelector('.pm-badge').textContent;
-      var link = drawer.querySelector('a.action-item');
-      link.hidden = !button.dataset.position;
-      if (button.dataset.position) link.href = 'learning-plan.html?position=' + encodeURIComponent(button.dataset.position);
-    });
-  });
-})();
-</script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script src="standards-data.js?v=sha256-5458067a498f"></script>
+<script src="position-map.js?v=sha256-7d995075c60b"></script>
 </body>
 </html>

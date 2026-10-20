@@ -1,0 +1,57 @@
+.eva-ai-drawer .std-ai-composer { bottom:20px; }
+.eva-ai-input-settings { display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;color:#595959;font-size:14px; }
+.eva-ai-input-settings .std-ai-position-label { display:block;flex:1 1 128px;min-width:128px;width:auto;margin:0; }
+.eva-ai-input-settings>span { flex:0 0 auto;white-space:nowrap; }
+.eva-ai-input-settings .std-ai-position-label>span { display:none; }
+.eva-ai-input-settings select { height:32px;max-width:100%;padding:0 24px 0 10px;border:1px solid #e5e6eb;border-radius:6px;background:#fff;color:#262626;font:inherit;cursor:pointer; }
+.eva-ai-question-types { display:flex;flex:0 0 auto;align-items:center;gap:8px; }
+.eva-ai-input-error { margin:8px 0 0;color:#b42318;font-size:14px;line-height:22px; }
+.eva-ai-input-error:empty { display:none; }
+.eva-ai-drawer .std-ai-history { padding-top:0; }
+.eva-ai-history-search { display:block;width:calc(100% - 32px);margin:16px; }
+.eva-ai-history-empty { margin:16px 8px;color:#595959;font-size:14px; }
+.eva-ai-drawer .std-ai-chat.conversation-mode { display:grid;grid-template-rows:minmax(0,1fr) auto; }
+.eva-ai-drawer .conversation-mode .std-ai-composer { position:relative;display:block;bottom:auto;left:auto;transform:none;width:calc(100% - 56px);max-width:800px;margin:0 auto;padding:16px 0 20px; }
+.eva-ai-drawer .conversation-mode .std-ai-messages { display:flex;flex-direction:column;min-height:0;overflow:hidden; }
+.eva-ai-thread-scroll { flex:1;min-height:0;overflow:auto;overscroll-behavior:contain; }
+.eva-ai-thread { width:calc(100% - 56px);max-width:800px;margin:0 auto;padding:24px 0 28px;font-size:14px;line-height:1.8;color:#262626; }
+.eva-ai-message { margin:0 0 24px; }
+.eva-ai-message p { margin:0;white-space:pre-wrap;overflow-wrap:anywhere; }
+.eva-ai-message.user { display:flex;justify-content:flex-end; }
+.eva-ai-message.user p { padding:10px 16px;max-width:85%;border-radius:12px;background:#e8f3ff; }
+.eva-ai-confirm { padding:24px;border:1px solid #e5e6eb;border-radius:12px; }
+.eva-ai-confirm h3 { margin:0 0 20px;font-size:18px; }
+.eva-ai-confirm dl { margin:0 0 20px; }
+.eva-ai-confirm dl>div { display:grid;grid-template-columns:80px 1fr;gap:16px;margin:10px 0; }
+.eva-ai-confirm dt { color:#595959; }.eva-ai-confirm dd { margin:0;overflow-wrap:anywhere; }
+.eva-ai-confirm fieldset { margin:0;padding:0;border:0; }
+.eva-ai-confirm legend { margin-bottom:8px;font-weight:500; }
+.eva-ai-confirm fieldset label { display:flex;align-items:center;gap:12px;min-height:40px;cursor:pointer; }
+.eva-ai-confirm fieldset label span:last-child { margin-left:auto;color:#595959; }
+.eva-ai-confirm input { width:16px;height:16px;accent-color:var(--brand-primary); }
+.eva-ai-confirm-actions { display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:20px; }
+.eva-ai-ability-nav { display:flex;flex-shrink:0;align-items:center;gap:12px;min-height:56px;padding:8px 28px;border-bottom:1px solid #eee;overflow-x:auto; }
+.eva-ai-ability-nav button { min-height:32px;padding:4px 12px;border:0;border-radius:6px;background:#f5f5f5;color:#595959;font:inherit;font-size:14px;white-space:nowrap;cursor:pointer; }
+.eva-ai-ability-nav button:hover,.eva-ai-ability-nav button.active { background:#e8f3ff;color:var(--brand-primary); }
+.eva-ai-questionnaire h2 { margin:0 0 16px;font-size:22px;font-weight:600;line-height:1.5; }
+.eva-ai-questionnaire>p { margin:8px 0;color:#595959; }
+.eva-ai-questionnaire section { margin-top:28px;padding-top:20px;border-top:1px solid #e5e6eb;scroll-margin-top:20px; }
+.eva-ai-questionnaire h3 { margin:0 0 20px;font-size:18px; }
+.eva-ai-questionnaire h4 { margin:24px 0 12px;font-size:16px;font-weight:600; }
+.eva-question-preview { margin:20px 0;font-size:14px;line-height:1.8;color:#262626; }
+.eva-question-preview>p { margin:0 0 10px; }
+.eva-question-options { display:grid;gap:8px;padding-left:20px; }
+.eva-question-options label { display:flex;align-items:baseline;gap:10px;min-height:30px; }
+.eva-question-options input { accent-color:var(--brand-primary); }
+.eva-score-options { display:flex;flex-wrap:wrap;gap:20px; }
+.eva-question-options textarea { width:100%;font:inherit; }
+.eva-ai-result-actions { display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:32px; }
+.eva-ai-drawer :is(button,input,select,textarea):focus-visible { outline:2px solid #667085;outline-offset:2px; }
+.eva-ai-drawer .std-ai-input-box textarea:focus-visible { outline:none; }
+.eva-ai-input-settings .std-ai-position-select { width:100%; }
+.eva-ai-question-types label { position:relative;display:block; }
+.eva-ai-question-types label::after { content:"";position:absolute;right:11px;top:12px;width:5px;height:5px;border-right:1.5px solid #8c8c8c;border-bottom:1.5px solid #8c8c8c;transform:rotate(45deg);pointer-events:none; }
+.eva-ai-question-types select { appearance:none;width:100px;padding:0 24px 0 10px;border-radius:16px; }
+.eva-ai-drawer .std-ai-welcome { top:25%; }
+.eva-ai-confirm-actions { flex-shrink:0;width:calc(100% - 56px);max-width:800px;margin:0 auto;padding:12px 0;background:#fff;border-top:1px solid #eee;font-size:14px; }
+.eva-ai-drawer.history-open .std-ai-history { width:220px;flex-basis:220px; }

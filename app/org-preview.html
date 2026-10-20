@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>分析结果预览 · 组织结构</title>
-<link rel="stylesheet" href="styles.css?v=20260914d">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
 <style>
   /* 待校准徽标 */
   .badge-calib { position:absolute; top:-9px; right:10px; font-size:11px; color:#b45309; background:var(--warning-bg); border:1px solid #fcd34d; padding:1px 7px; border-radius:var(--radius-full); display:inline-flex; align-items:center; gap:3px; }
   .basket { border:1px dashed var(--warning); background:var(--warning-bg); border-radius:var(--radius-md); padding:var(--space-md); }
 </style>
-<link rel="stylesheet" href="ui/components.css?v=20260908e">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="org-structure">
 <div class="app">
@@ -46,7 +47,6 @@
       <div class="card card-pad fade-in" data-org-grid-scope="draft">
         <div class="flex between center">
           <div class="section-title" style="margin:0">岗位族矩阵（V3 草稿）</div>
-          <span class="text-sm muted" data-org-grid-copy>3 项业务分工 × 3 级业务分权，共 9 宫格</span>
         </div>
         <div class="org-matrix-scroll">
           <div class="matrix" data-heat data-org-matrix="draft"></div>
@@ -71,7 +71,7 @@
 
 <!-- 格内岗位 -->
 <div class="drawer wide" id="drawer-cell"><div class="box wide">
-  <div class="m-head"><div><h3>研发·中级</h3><div class="text-sm muted">组 G-RD-2 · 7 岗位 · 36 人 · <span style="color:var(--primary-600)">已人工调整</span></div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="m-head"><div><h3>研发·中级</h3><div class="text-sm muted">7 岗位 · 36 人 · <span style="color:var(--primary-600)">已人工调整</span></div></div><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="m-body">
     <div class="table-wrap"><table class="t">
       <thead><tr><th>岗位</th><th>AI 序列</th><th>AI 层级</th><th>岗评总分</th><th>结构法</th><th>操作</th></tr></thead>
@@ -128,7 +128,7 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><a class="btn btn-primary" href="org-structure.html?effective=1">确认生效</a></div>
 </div></div>
 
-<script src="ui/components.js?v=20260908e"></script>
-<script src="app.js?v=20260914d"></script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
 </body>
 </html>

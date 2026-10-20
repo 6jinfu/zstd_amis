@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人才对比 · 人才中心</title>
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="talent-center.css?v=sha256-c764c36a0fa0">
+<script defer src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script defer src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script defer src="standards-data.js?v=sha256-5458067a498f"></script>
+<script defer src="talent-data.js?v=sha256-a4789063f1eb"></script>
+<script defer src="talent-center.js?v=sha256-767537bea631"></script>
+<script defer src="app.js?v=sha256-8b03ce2d3019"></script>
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
+</head>
+<body class="tc-page" data-module="talent" data-page="talent-list">
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>
+    <nav class="nav-main"><a data-module="standard" href="standards.html">人才标准</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
+    <div class="right"><button class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <aside class="sidenav"><a class="nav-item active" data-page="talent-list" href="talent-list.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>人才库</a></aside>
+
+
+<main class="content" data-talent-center="compare"></main>
+</div></div>
+</body>
+</html>

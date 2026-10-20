@@ -42,7 +42,9 @@ const RELEASE_BUSINESS_NAV = {
     { page: 'position-map', href: 'position-map.html', label: '岗位地图' }
   ],
   talent: [
-    { page: 'talent-list', href: 'talent-list.html', label: '人才列表' }
+    { page: 'talent-list', href: 'talent-list.html', label: '人才库' },
+    { page: 'talent-pool', href: 'talent-pool.html', label: '人才池' },
+    { page: 'talent-dashboard', href: 'talent-dashboard.html', label: '人才看板' }
   ]
 };
 
@@ -85,9 +87,7 @@ function initShellNavigation() {
 
   // 共享脚本位于页面底部，此处先切入新版 Shell，避免 Chrome 首次绘制旧版骨架。
   app.classList.add('shell-v2');
-  let isNavCollapsed = false;
-  try { isNavCollapsed = localStorage.getItem(NAV_COLLAPSED_KEY) === 'true'; } catch (_error) {}
-  app.classList.toggle('nav-collapsed', isNavCollapsed);
+  app.classList.remove('nav-collapsed');
 
   const primaryNav = document.createElement('nav');
   primaryNav.className = 'primary-nav';
@@ -630,7 +630,7 @@ function initTabs() {
 /* ---------- ⑦ 页面内分区切换 ---------- */
 function initAnchorTabs() {
   document.querySelectorAll('.anchor-nav, .sidenav[data-anchor-tabs], .business-nav[data-anchor-tabs]').forEach(nav => {
-    if (nav.querySelector('[data-std-tab]')) return;
+    if (nav.querySelector('[data-std-tab], [data-tc-tab]')) return;
     const items = Array.from(nav.querySelectorAll('.a-item, .nav-item[data-tab]'));
     if (!items.length) return;
     const main = document.querySelector('.detail-main');
@@ -745,11 +745,23 @@ function orgGridCells(config) {
     });
     return result;
   }
-  var occupied = Math.min(seeds.length, total);
-  for (var i = 0; i < occupied; i++) {
-    var index = Math.round(i * (total - 1) / Math.max(1, occupied - 1));
-    result[index] = seeds[i];
-  }
+  var profile = [
+    [[1, 4], null, null, [1, 3], null],
+    [[2, 9], [1, 5], [1, 4], [1, 6], [1, 4]],
+    [[3, 18], [2, 12], [2, 8], [2, 11], [2, 7]],
+    [[2, 15], [2, 11], [2, 7], [1, 8], [1, 6]],
+    [[1, 7], [2, 9], [1, 6], [1, 3], [2, 2]]
+  ];
+  profile.forEach(function (row, rowIndex) {
+    row.forEach(function (item, columnIndex) {
+      if (!item) return;
+      var targetRow = Math.floor(rowIndex * config.levelCount / 5);
+      var targetColumn = Math.floor(columnIndex * config.sequenceCount / 5);
+      var target = targetRow * config.sequenceCount + targetColumn;
+      if (!result[target]) result[target] = { jobs: 0, people: 0 };
+      result[target].jobs += item[0]; result[target].people += item[1];
+    });
+  });
   return result;
 }
 
@@ -766,9 +778,8 @@ function renderOrgMatrix(matrix) {
   levels.slice().reverse().forEach(function (level) {
     var rowHead = document.createElement('div');
     rowHead.className = 'row-head';
-    rowHead.innerHTML = '<div class="rh"></div><div class="rh-sub"></div>';
+    rowHead.innerHTML = '<div class="rh"></div>';
     rowHead.querySelector('.rh').textContent = level.name;
-    rowHead.querySelector('.rh-sub').textContent = level.sub;
     matrix.appendChild(rowHead);
     sequences.forEach(function (sequence) {
       var seed = cells[cellIndex++];
@@ -780,26 +791,24 @@ function renderOrgMatrix(matrix) {
       var group = document.createElement(matrix.dataset.orgMatrixInteractive === 'false' ? 'div' : 'button');
       group.className = 'group';
       if (group.tagName === 'BUTTON') { group.type = 'button'; group.dataset.open = 'drawer-cell'; }
-      group.innerHTML = '<div><div class="g-name"></div><div class="g-stats"><span><b></b> 岗位</span><span><b></b> 人</span></div></div><div class="g-foot"><span class="lvl"></span></div>';
+      group.innerHTML = '<div><div class="g-name"></div><div class="g-stats"><span><b></b> 岗位</span><span><b></b> 人</span></div></div>';
       group.querySelector('.g-name').textContent = sequence.name + '·' + level.name;
       group.querySelectorAll('.g-stats b')[0].textContent = seed.jobs;
       group.querySelectorAll('.g-stats b')[1].textContent = seed.people;
-      group.querySelector('.lvl').textContent = '组 G-' + sequence.code + '-' + level.order;
       matrix.appendChild(group);
     });
   });
   var corner = document.createElement('div'); corner.className = 'corner-cell'; corner.innerHTML = '<div class="ax">业务分权 ↑<br>业务分工 →</div>'; matrix.appendChild(corner);
   sequences.forEach(function (sequence) {
     var head = document.createElement('div'); head.className = 'col-head';
-    head.innerHTML = '<span></span><div class="ch-sub"></div>';
-    head.querySelector('span').textContent = sequence.name; head.querySelector('.ch-sub').textContent = sequence.sub;
+    head.innerHTML = '<span></span>';
+    head.querySelector('span').textContent = sequence.name;
     matrix.appendChild(head);
   });
   var prefix = '[data-org-grid-scope="' + scope + '"] ';
-  document.querySelectorAll(prefix + '[data-org-grid-copy]').forEach(function (node) { node.textContent = config.sequenceCount + ' 项业务分工 × ' + config.levelCount + ' 级业务分权，共 ' + (config.sequenceCount * config.levelCount) + ' 宫格'; });
   document.querySelectorAll(prefix + '[data-org-kpi-sequence]').forEach(function (node) { node.textContent = config.sequenceCount; });
   document.querySelectorAll(prefix + '[data-org-kpi-level]').forEach(function (node) { node.textContent = config.levelCount; });
-  document.querySelectorAll(prefix + '[data-org-kpi-group]').forEach(function (node) { node.textContent = Math.min(8, config.sequenceCount * config.levelCount); });
+  document.querySelectorAll(prefix + '[data-org-kpi-group]').forEach(function (node) { node.textContent = cells.filter(Boolean).length; });
 }
 
 function initOrgGridConfiguration() {
@@ -841,11 +850,11 @@ function initHeatmap() {
     var cells = m.querySelectorAll('.group:not(.empty-cell)');
     var vals = [];
     var heatColors = [
-      'var(--primary-50)',
-      'var(--primary-100)',
-      'var(--primary-200)',
-      'var(--primary-300)',
-      'var(--primary-400)'
+      '#F0F6FF',
+      '#DCEAFF',
+      '#B8D5FF',
+      '#85B7FF',
+      '#4D91FF'
     ];
     cells.forEach(function (c) {
       var n = 0;
@@ -935,7 +944,7 @@ function showAiGen(opts) {
   (async function () {
     if (opts.trigger) { opts.trigger.disabled = true; opts.trigger.style.opacity = .6; }
     var ov = document.createElement('div'); ov.className = 'ai-gen-overlay';
-    ov.innerHTML = '<div class="ai-gen-card"><div class="ai-gen-header"><div class="ai-gen-orb"></div><div><div class="ai-gen-title">' + opts.title + '</div><div class="ai-gen-sub">' + opts.subtitle + '</div></div></div><div class="ai-gen-chain"></div><div class="ai-gen-results">' + opts.steps.map(rowHtml).join('') + '</div><div class="ai-gen-foot"><span class="ai-gen-spin"></span><span class="ai-foot-txt">' + (opts.footOn || '生成中…') + '</span></div></div>';
+    ov.innerHTML = '<div class="ai-gen-card"><div class="ai-gen-header"><div class="ai-gen-orb"></div><div><div class="ai-gen-title">' + opts.title + '</div></div></div><div class="ai-gen-chain"></div><div class="ai-gen-results">' + opts.steps.map(rowHtml).join('') + '</div><div class="ai-gen-foot"><span class="ai-gen-spin"></span><span class="ai-foot-txt">' + (opts.footOn || '生成中…') + '</span></div></div>';
     document.body.appendChild(ov); requestAnimationFrame(function () { ov.classList.add('show'); });
     await sleep(450);
     var chain = ov.querySelector('.ai-gen-chain'), results = ov.querySelector('.ai-gen-results');
@@ -1007,7 +1016,7 @@ function saveAnalysisTaskInBackground(task) {
 function openAnalysisResult(task, box) {
   if (analysisTaskProgress(task) < 100) return;
   if (analysisTaskTimer) clearInterval(analysisTaskTimer);
-  box.innerHTML = '<div class="async-task-result-loading" role="status" aria-live="polite"><span class="async-task-result-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 13h8M8 17h6"/></svg></span><h2>正在装载分析结果</h2><p>读取结果、生成视图并准备校准项…</p></div>';
+  box.innerHTML = '<div class="async-task-result-loading" role="status" aria-live="polite"><span class="async-task-result-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h10l4 4v14H5z"/><path d="M15 3v5h5M8 13h8M8 17h6"/></svg></span><h2>正在装载分析结果</h2></div>';
   try { localStorage.removeItem(ANALYSIS_TASK_KEY); } catch (_error) {}
   setTimeout(function () { location.href = task.resultHref; }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 250 : 1300);
 }
@@ -1019,10 +1028,9 @@ function openAnalysisTaskModal(task) {
   modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
   modal.setAttribute('aria-label', task.title + '进度');
-  modal.innerHTML = '<div class="async-task-box"><div class="async-task-head"><div><h2></h2><p class="text-sm muted"></p></div><button class="async-task-close" type="button" data-async-close aria-label="关闭进度弹窗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="async-task-body"><div class="async-task-status"><span class="tag tag-running">分析中</span><span data-task-stage>任务已提交，等待执行</span><strong data-task-progress>0%</strong></div><div class="async-task-progress"><i></i></div><div class="async-task-stage-list"></div><div class="async-task-note"><span>你可以继续等待，也可以暂时关闭弹窗返回分析页；关闭后任务仍会在后台运行。</span></div></div><div class="async-task-foot"><span class="async-task-foot-note">稍后可从分析页重新查看进度</span><div class="async-task-actions"><button class="btn btn-secondary" type="button" data-task-background>暂时关闭，返回分析页</button><button class="btn btn-primary" type="button" data-task-result data-async-result disabled>完成后查看结果</button></div></div></div>';
+  modal.innerHTML = '<div class="async-task-box"><div class="async-task-head"><div><h2></h2></div><button class="async-task-close" type="button" data-async-close aria-label="关闭进度弹窗"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><div class="async-task-body"><div class="async-task-status"><span class="tag tag-running">分析中</span><strong data-task-progress>0%</strong></div><div class="async-task-progress"><i></i></div><div class="async-task-stage-list"></div></div><div class="async-task-foot"><div class="async-task-actions"><button class="btn btn-secondary" type="button" data-task-background>暂时关闭，返回分析页</button><button class="btn btn-primary" type="button" data-task-result data-async-result disabled>完成后查看结果</button></div></div></div>';
   document.body.appendChild(modal);
   modal.querySelector('h2').textContent = task.title;
-  modal.querySelector('.async-task-head p').textContent = task.subtitle || '已创建后台分析任务';
   var stageList = modal.querySelector('.async-task-stage-list');
   analysisTaskStages(task).forEach(function (label) {
     var row = document.createElement('div'); row.className = 'async-task-stage'; row.innerHTML = '<span></span>'; row.lastChild.textContent = label; stageList.appendChild(row);
@@ -1034,15 +1042,11 @@ function openAnalysisTaskModal(task) {
     modal.querySelector('[data-task-progress]').textContent = progress + '%';
     modal.querySelector('.async-task-progress > i').style.width = progress + '%';
     stages.forEach(function (stage, index) { stage.classList.toggle('done', progress >= 100 || index < activeIndex); stage.classList.toggle('active', progress < 100 && index === activeIndex); });
-    var stageText = modal.querySelector('[data-task-stage]');
     var tag = modal.querySelector('.async-task-status .tag');
     var result = modal.querySelector('[data-task-result]');
     if (progress >= 100) {
-      stageText.textContent = '分析结果已校验完成';
       tag.className = 'tag tag-effective'; tag.textContent = '已完成';
       result.disabled = false;
-    } else {
-      stageText.textContent = analysisTaskStages(task)[activeIndex] + '…';
     }
   }
   modal.addEventListener('click', function (event) { if (event.target === modal) closeAnalysisTaskModal(); });
@@ -1143,6 +1147,7 @@ function initApp() {
   initListFilter();
   initToasts();
   initAnalysisTasks();
+  window.UI?.mountCategoryTrees(document);
   // 品牌标识点击 → 人才标准
   document.querySelectorAll('.brand').forEach(function (_brand) {
     _brand.setAttribute('role', 'link');

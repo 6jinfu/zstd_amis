@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>指标库 · 岗位中心</title>
-<link rel="stylesheet" href="styles.css?v=20260908e">
+<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
 <style>
   .indicator-category-tree { width:208px; flex:0 0 208px; padding:14px 12px; position:sticky; top:72px; align-self:stretch; background:var(--list-rail-surface); border:0; border-radius:10px; box-shadow:inset -1px 0 var(--hairline) !important; }
   .indicator-category-tree .ctp-head { display:flex; min-height:30px; align-items:center; justify-content:space-between; padding:0 6px 8px; }
@@ -44,7 +44,8 @@
   .catmgr-row .cmr-name { flex:1; font-size:14px; font-weight:500; }
   .catmgr-row .cmr-edit-input { flex:1; }
 </style>
-<link rel="stylesheet" href="ui/components.css?v=20260910g">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
 </head>
 <body data-module="standard" data-page="vocabulary">
 <div class="app">
@@ -309,9 +310,9 @@
 <!-- 动力/潜力词条编辑 -->
 <div class="drawer" id="drawer-trait"><div class="m-head"><h3>查看词条</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>名称</label><input class="input" value="成就结果" disabled></div><div class="field"><label>类别</label><select class="select" disabled><option>成就与发展</option><option>关系与利他</option><option>价值与意义</option><option>安全与平衡</option></select></div><div class="field"><label>描述</label><textarea class="input" rows="3" disabled>追求把事情做成、达成结果与可衡量成就的倾向。</textarea></div></div><div class="m-foot"><button class="btn btn-primary" data-close>关闭</button></div></div>
 
-<script src="ui/components.js?v=20260910g"></script>
-<script src="app.js?v=20260910b"></script>
-<script src="indicator-data.js?v=20260910a"></script>
+<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
+<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="indicator-data.js?v=sha256-8919879a24e3"></script>
 <script>
   // 能力指标演示数据：类别树与选择能力指标组件共用同一套层级。
   (function () {
@@ -341,9 +342,10 @@
     }
     function row(node, depth, query) {
       var hasChildren = !!(node.children && node.children.length), isOpen = expanded.has(node.id) || !!query;
-      var children = hasChildren && isOpen ? '<div class="cap-demo-children">' + (node.children || []).filter(function (child) { return !query || child.name.toLowerCase().indexOf(query) >= 0 || (child.children || []).length; }).map(function (child) { return row(child, depth + 1, query); }).join('') + '</div>' : '';
-      var visible = !query || node.name.toLowerCase().indexOf(query) >= 0 || children;
-      if (!visible) return '';
+      var ownMatch = !query || node.name.toLowerCase().indexOf(query) >= 0;
+      var childRows = hasChildren && isOpen ? (node.children || []).map(function (child) { return row(child, depth + 1, ownMatch ? '' : query); }).join('') : '';
+      if (!ownMatch && !childRows) return '';
+      var children = childRows ? '<div class="cap-demo-children">' + childRows + '</div>' : '';
       return '<div class="cap-demo-node"><div class="cat-tree-item cap-demo-row ' + (active === node.id ? 'active' : '') + '" style="--tree-depth:' + depth + '" data-cat="' + UI.escape(node.id) + '" data-descendants="' + UI.escape((categoryIds.get(node.id) || [node.id]).map(function (id) { return categoryNames.get(id) || id; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="' + (depth + 1) + '"' + (hasChildren ? ' aria-expanded="' + String(isOpen) + '"' : '') + ' aria-selected="' + String(active === node.id) + '" title="' + UI.escape(node.name) + '">' + arrow(isOpen, hasChildren) + '<span class="cap-demo-label">' + UI.escape(node.name) + '</span></div>' + children + '</div>';
     }
     function renderTree() {
@@ -359,6 +361,29 @@
       categoryNames.forEach(function (name) { if (allCategoryNames.indexOf(name) < 0) allCategoryNames.push(name); });
       categorySelect.innerHTML = allCategoryNames.map(function (name) { return '<option>' + UI.escape(name) + '</option>'; }).join('');
     }
+    tree.dataset.capCategoryManaged='true';
+    var capabilityManager=tree.querySelector('.ctp-head button');
+    capabilityManager.removeAttribute('data-open');
+    capabilityManager.addEventListener('click',function(){
+      var entries=[];
+      function flatten(nodes,parent){nodes.forEach(function(node){entries.push({id:node.name,name:node.name,parentId:parent||'',count:countFor(node.id)});flatten(node.children||[],node.name);});}
+      flatten(categories,'');
+      UI.openCategoryManager({items:entries,onConfirm:function(items){
+        var previous=new Map();
+        function index(nodes){nodes.forEach(function(node){previous.set(node.name,node);index(node.children||[]);});}
+        index(categories);
+        var serial=0;
+        function build(item){var original=previous.get(item.id),children=items.filter(function(child){return child.parentId===item.id;}).map(build);return {id:original?original.id:'cap-category-'+Date.now()+'-'+(++serial),name:item.name,children:children};}
+        var next=items.filter(function(item){return !item.parentId;}).map(build);
+        categories.splice.apply(categories,[0,categories.length].concat(next));
+        categoryNames.clear();categoryIds.clear();collect(categories,[]);
+        body.querySelectorAll('tr').forEach(function(row,index){var item=(demo.items.cap||[])[index];if(!item)return;var name=categoryNames.get(item.categoryId)||item.categoryId;row.dataset.cat=name;row.cells[1].textContent=name;});
+        if(active!=='all'&&!categoryNames.has(active))active='all';
+        if(managerList)managerList.innerHTML=Array.from(categoryNames.entries()).map(function(entry){return '<div class="catmgr-row"><span class="cmr-name">'+UI.escape(entry[1])+'</span><span class="cmr-count">'+countFor(entry[0])+' 条</span></div>';}).join('');
+        if(categorySelect)categorySelect.innerHTML=Array.from(categoryNames.values()).map(function(name){return '<option>'+UI.escape(name)+'</option>';}).join('');
+        renderTree();tree.dispatchEvent(new CustomEvent('categorytreechange'));
+      }});
+    });
     tree.addEventListener('click', function (event) {
       var toggle = event.target.closest('[data-cap-tree-toggle]');
       if (toggle) { event.stopPropagation(); var node = toggle.closest('[data-cat]'); if (node) { if (node.dataset.cat === '全部') rootExpanded = !rootExpanded; else expanded.has(node.dataset.cat) ? expanded.delete(node.dataset.cat) : expanded.add(node.dataset.cat); renderTree(); } return; }
@@ -459,7 +484,7 @@
     var list = drawer.querySelector('[data-catmgr-list]');
     var tree = document.getElementById(treeId);
     var tbl = document.getElementById(tableId);
-    if (!list || !tree || !tbl) return;
+    if (!list || !tree || !tbl || tree.dataset.capCategoryManaged === 'true') return;
 
     function refreshTree(preferredCat) {
       var rows = list.querySelectorAll('.catmgr-row');
