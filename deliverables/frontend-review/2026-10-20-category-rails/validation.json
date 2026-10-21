@@ -1,0 +1,24 @@
+{
+  "routes": 18,
+  "geometry": "all sampled rails192/detail144, rows40, font13",
+  "resources": {
+    "styles.css": {
+      "references": 33,
+      "version": "20261020ag"
+    },
+    "standard-list.js": {
+      "references": 1,
+      "version": "20261020ae"
+    },
+    "ui/components.js": {
+      "references": 33,
+      "version": "20261020ae"
+    },
+    "position-map.js": {
+      "references": 1,
+      "version": "20261020ae"
+    }
+  },
+  "syntax": "node --check passed for3 changed JavaScript files",
+  "diff_check": "git diff --check passed for task source and current docs"
+}

@@ -1,0 +1,371 @@
+[
+  {
+    "panels": [
+      {
+        "class": "cat-tree-panel",
+        "padding": "14px 12px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "全部",
+            "y": 139
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "通用标准",
+            "y": 189
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 18px",
+            "text": "岗位序列标准",
+            "y": 239
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 26px",
+            "text": "产品序列",
+            "y": 285
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 26px",
+            "text": "研发序列",
+            "y": 330
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 26px",
+            "text": "销售序列",
+            "y": 375
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 26px",
+            "text": "专业序列",
+            "y": 420
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "职级标准",
+            "y": 470
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "专项标准",
+            "y": 520
+          }
+        ],
+        "width": 208
+      }
+    ],
+    "url": "/standards.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "panels": [
+      {
+        "class": "cat-tree-panel indicator-category-tree",
+        "padding": "14px 12px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "全部",
+            "y": 213
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 24px",
+            "text": "技能",
+            "y": 258
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 38px",
+            "text": "管理能力",
+            "y": 303
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 38px",
+            "text": "通用能力",
+            "y": 348
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 38px",
+            "text": "销售能力建设",
+            "y": 393
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 38px",
+            "text": "专业能力",
+            "y": 438
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 38px",
+            "text": "云端技能",
+            "y": 483
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 24px",
+            "text": "知识",
+            "y": 528
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px 8px 24px",
+            "text": "素养",
+            "y": 573
+          }
+        ],
+        "width": 208
+      }
+    ],
+    "url": "/vocabulary.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "panels": [
+      {
+        "class": "pm-series-panel",
+        "padding": "28px 18px 22px",
+        "rows": [
+          {
+            "font": "14px",
+            "height": 41,
+            "padding": "0px 10px",
+            "text": "研发序列",
+            "y": 192
+          },
+          {
+            "font": "14px",
+            "height": 41,
+            "padding": "0px 10px",
+            "text": "管理序列",
+            "y": 236
+          },
+          {
+            "font": "14px",
+            "height": 41,
+            "padding": "0px 10px",
+            "text": "销售序列",
+            "y": 280
+          },
+          {
+            "font": "14px",
+            "height": 41,
+            "padding": "0px 10px",
+            "text": "专业序列",
+            "y": 324
+          }
+        ],
+        "width": 246
+      }
+    ],
+    "url": "/position-map.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "panels": [
+      {
+        "class": "cat-tree-panel assess-category-tree",
+        "padding": "14px 12px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "8px 10px",
+            "text": "全部",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "8px 10px",
+            "text": "通用能力",
+            "y": 209
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "8px 10px",
+            "text": "领导力",
+            "y": 250
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "8px 10px",
+            "text": "专业能力",
+            "y": 291
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "8px 10px",
+            "text": "其他",
+            "y": 332
+          }
+        ],
+        "width": 208
+      }
+    ],
+    "url": "/assess-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "panels": [
+      {
+        "class": "cat-tree-panel",
+        "padding": "14px 12px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "全部",
+            "y": 128
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "研发中心",
+            "y": 173
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "销售中心",
+            "y": 218
+          },
+          {
+            "font": "13px",
+            "height": 44,
+            "padding": "8px 10px",
+            "text": "职能中台",
+            "y": 263
+          }
+        ],
+        "width": 208
+      }
+    ],
+    "url": "/talent-list.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "panels": [
+      {
+        "class": "anchor-nav",
+        "padding": "16px 12px",
+        "rows": [
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "基本信息",
+            "y": 180
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "应用范围",
+            "y": 222
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "职责任务",
+            "y": 264
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "经历经验",
+            "y": 306
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "能力要求",
+            "y": 348
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "动力要求",
+            "y": 390
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "潜力要求",
+            "y": 432
+          },
+          {
+            "font": "14px",
+            "height": 42,
+            "padding": "10px 12px",
+            "text": "学习方案",
+            "y": 474
+          }
+        ],
+        "width": 152
+      }
+    ],
+    "url": "/standard-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+]

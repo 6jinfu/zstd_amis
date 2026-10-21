@@ -1,0 +1,52 @@
+{
+  "add": {
+    "font": "14px",
+    "height": 28,
+    "padding": "0px 15px",
+    "radius": "4px",
+    "width": 88
+  },
+  "body": {
+    "font": "14px",
+    "height": 664,
+    "padding": "24px",
+    "radius": "0px",
+    "width": 560
+  },
+  "drawer": {
+    "font": "14px",
+    "height": 720,
+    "padding": "0px",
+    "radius": "0px",
+    "width": 560
+  },
+  "footer": false,
+  "header": {
+    "font": "14px",
+    "height": 56,
+    "padding": "0px 24px",
+    "radius": "0px",
+    "width": 560
+  },
+  "node": {
+    "font": "14px",
+    "height": 32,
+    "padding": "0px 0px 0px 2px",
+    "radius": "0px",
+    "width": 512
+  },
+  "search": {
+    "font": "14px",
+    "height": 32,
+    "padding": "0px 32px 0px 12px",
+    "radius": "4px",
+    "width": 512
+  },
+  "title": {
+    "font": "14px",
+    "height": 22,
+    "padding": "0px",
+    "radius": "0px",
+    "width": 55.734375
+  }
+}

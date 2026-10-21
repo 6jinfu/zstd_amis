@@ -1,0 +1,21 @@
+{
+  "sales": "\t王芳\t销售中心\t区域销售总监\t核心\t2026-09-18\t查看",
+  "search": "研发中心",
+  "collapsedLevelRows": 2,
+  "manager": {
+    "hasFooter": false,
+    "icons": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "searchWidth": 14,
+    "width": 560
+  },
+  "managerSearch": "岗位序列标准\n产品序列"
+}

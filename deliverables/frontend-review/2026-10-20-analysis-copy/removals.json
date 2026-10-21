@@ -1,0 +1,357 @@
+[
+  {
+    "file": "app/org-analyze.html",
+    "removed": "<div class=\"text-sm muted org-grid-config-intro\">设置横向业务分工数量和纵向业务分权层数，AI 将在该规格内生成名称并归类岗位。</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/org-structure.html",
+    "removed": "<div class=\"desc\">完成组织分析后，可在这里查看岗位族、层级和人员覆盖情况。</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/org-structure.html",
+    "removed": "<div class=\"desc\">从平台已有的部门 / 岗位数据开始，AI 帮你推断序列与层级，生成岗位族矩阵。</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/org-structure.html",
+    "removed": "<p>任务正在后台运行，无需停留等待。分析完成后刷新本页，即可呈现岗位族矩阵。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/org-structure.html",
+    "removed": "<div class=\"text-sm muted mb-sm\">本次分析采用岗位评价法与结构分析法综合判断</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standard-detail.html",
+    "removed": "<p class=\"text-sm muted\">学习方案按岗位配置。选择关联岗位后，可继续配置课程、项目、前测和后测。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standards.html",
+    "removed": "<p>你可以直接输入你的场景需求，我将为你生成更专业的人才标准。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standards.html",
+    "removed": "<span>你可以这样问</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standards.html",
+    "removed": "<p class=\"std-ai-tip\">内容由AI生成，仅供参考</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/assess-projects.html",
+    "removed": "<p>你可以直接输入你的场景需求，我将为你生成更专业的评估问卷。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/assess-projects.html",
+    "removed": "<span>你可以这样问</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/assess-new.html",
+    "removed": "<p>确认评估能力后，问卷会在这里展开。你可以逐题修改，再预览并保存。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/settings.html",
+    "removed": "<p>控制本期已建设功能是否显示在学员端。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<p class=\"text-sm muted mt-xs\">勾选的维度决定人才图谱中可分析、可切换的字段范围</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span>按六类分析关系自动组合</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span>创建后生成对应统计图表</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-detail.html",
+    "removed": "<div class=\"text-sm muted mt-xs\">从本次盘点人员中按维度与分层组建人才池</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-detail.html",
+    "removed": "<div class=\"text-sm muted\">记录本次人员落位调整</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-detail.html",
+    "removed": "<div class=\"text-sm muted\">先定义人才池，再按盘点条件组建人员</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-detail.html",
+    "removed": "<div class=\"text-sm muted\">根据本次盘点结果选择入池人员</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/proto/talent-grid/frame.html",
+    "removed": "<div class=\"text-sm muted mt-xs\">从本次盘点人员中按维度与分层组建人才池</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/proto/talent-grid/frame.html",
+    "removed": "<div class=\"text-sm muted\">记录本次人员落位调整</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/proto/talent-grid/frame.html",
+    "removed": "<div class=\"text-sm muted\">先定义人才池，再按盘点条件组建人员</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/proto/talent-grid/frame.html",
+    "removed": "<div class=\"text-sm muted\">根据本次盘点结果选择入池人员</div>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/org-analyzing.html",
+    "removed": "<div class=\"hint-box mt-md\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8h.01M11 12h1v4h1\" stroke-linecap=\"round\"/></svg>\n          <span>分析预计需要较长时间。你可以离开本页，任务会继续执行；之后可从组织结构的“分析记录”再次查看进度。</span>\n        </div>",
+    "reason": "重复等待教学"
+  },
+  {
+    "file": "app/org-analyzing.html",
+    "removed": "<div class=\"text-sm muted\">新版本草稿 V3 · 引用方法：岗位评价法 / 结构分析法</div>",
+    "reason": "进度页装饰副标"
+  },
+  {
+    "file": "app/org-analyzing.html",
+    "removed": "<p>正在装载岗位族矩阵、归类依据和待校准项，请稍候…</p>",
+    "reason": "装载状态重复说明"
+  },
+  {
+    "file": "app/org-analyzing.html",
+    "removed": "<div class=\"pt-desc\">AI 据打分将岗位聚成 序列 × 层级…</div>",
+    "reason": "重复阶段说明"
+  },
+  {
+    "file": "app/org-analyzing.html",
+    "removed": "<div class=\"pt-desc\">待开始</div>",
+    "reason": "重复阶段说明"
+  },
+  {
+    "file": "app/key-position-analyzing.html",
+    "removed": "<div class=\"hint-box mt-md\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 8h.01M11 12h1v4h1\" stroke-linecap=\"round\"/></svg>\n          <span>分析预计需要较长时间。你可以离开本页，任务会继续执行；之后可从关键岗位分析列表再次查看进度。</span>\n        </div>",
+    "reason": "重复等待教学"
+  },
+  {
+    "file": "app/key-position-analyzing.html",
+    "removed": "<div class=\"text-sm muted\">2026 年度关键岗位分析（研发 + 销售） · 引用组织结构 V2 · 经济 + 能力双视角</div>",
+    "reason": "进度页装饰副标"
+  },
+  {
+    "file": "app/key-position-analyzing.html",
+    "removed": "<p>正在装载岗位评分、判定依据和待校准项，请稍候…</p>",
+    "reason": "装载状态重复说明"
+  },
+  {
+    "file": "app/key-position-analyzing.html",
+    "removed": "<div class=\"pt-desc\">计算 ART 与培养时间成本得分…</div>",
+    "reason": "重复阶段说明"
+  },
+  {
+    "file": "app/key-position-analyzing.html",
+    "removed": "<div class=\"pt-desc\">待开始</div>",
+    "reason": "重复阶段说明"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>比较人才列表和组织岗位中的两个盘点维度</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>使用绩效模板中的部门、岗位和绩效等级</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>从能力、动力和潜力词典中选择两个具体指标</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>比较人员属性与低、中、高绩效等级的分布差异</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>比较不同绩效等级人员的具体能力、动力或潜力指标</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<p>识别不同组织岗位群体的具体能力、动力或潜力差异</p>",
+    "reason": "章节标题和选择器已表达同一信息"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">01</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">02</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">03</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">04</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">05</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-detail.html",
+    "removed": "<span class=\"chapter-no\">06</span>",
+    "reason": "装饰章节编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">01</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">02</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">03</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">04</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">05</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span class=\"analysis-index\">06</span>",
+    "reason": "装饰预览编号"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<p class=\"map-preview-fields\" data-preview-fields>8 个人员维度可分别与绩效等级组合</p>",
+    "reason": "重复组合关系"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<p class=\"map-preview-fields\" data-preview-fields>绩效等级可与能力、动力、潜力的具体指标组合</p>",
+    "reason": "重复组合关系"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<p class=\"map-preview-fields\" data-preview-fields>人员维度可与能力、动力、潜力的具体指标组合</p>",
+    "reason": "重复组合关系"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context\">阶段完成由培养负责人核对成果；能力结果仍以评鉴记录为准。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context\">实际能力 · 有效评鉴结果</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context tc-footnote\">仅比较已有有效证据，未评估项单独列示。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context\">采用同一标准比较，缺少有效结果的要求显示为待补充证据。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context\">后备人选以人工确认的在池记录为准。岗位范围为当前已标记关键岗位，人员按所选部门统计；有人选不代表已具备任用资格。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p class=\"tc-context\">有效评鉴覆盖以至少一条有效记录计算；盘点分类保留各自来源，不作为岗位胜任结论。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p>当前无有效评鉴，核对后安排评估</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "<p>由培养负责人核对阶段成果</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standard-ai-assistant.js",
+    "removed": "<p>你可以直接输入你的场景需求，我将为你生成更专业的人才标准。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/standard-ai-assistant.js",
+    "removed": "<span>你可以这样问</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/assessment-ai-assistant.js",
+    "removed": "<span>按下方题型与题数生成</span>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/assessment-builder.js",
+    "removed": "<p>选择标准并确认评估能力，生成初始问卷后继续编辑。</p>",
+    "reason": "重复说明或装饰副标"
+  },
+  {
+    "file": "app/review-map-new.html",
+    "removed": "<span>配置人员、数据与盘点维度</span>",
+    "reason": "步骤已表达同一信息"
+  },
+  {
+    "file": "app/key-position-result.html",
+    "removed": "（AI 计算 · 仅供参考）",
+    "reason": "泛化副标"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "当前组织范围",
+    "reason": "与顶部组织范围重复"
+  },
+  {
+    "file": "app/talent-center.js",
+    "removed": "当前组织范围的培养计划",
+    "reason": "与顶部组织范围及指标标题重复"
+  }
+]

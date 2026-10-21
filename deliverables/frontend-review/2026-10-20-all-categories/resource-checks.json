@@ -1,0 +1,18 @@
+{
+  "production-ui.css": {
+    "version": "20261020ay",
+    "pages": 33
+  },
+  "ui/components.js": {
+    "version": "20261020aj",
+    "pages": 33
+  },
+  "app.js": {
+    "version": "20261020ak",
+    "pages": 32
+  },
+  "talent-center.js": {
+    "version": "20261020z",
+    "pages": 6
+  }
+}

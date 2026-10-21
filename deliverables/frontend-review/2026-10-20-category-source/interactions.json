@@ -1,0 +1,15 @@
+{
+  "search": [
+    "年度分析"
+  ],
+  "filter": [
+    "2026 年度关键岗位分析\n              年度"
+  ],
+  "empty": true,
+  "reset": {
+    "active": "全部",
+    "items": 4,
+    "search": ""
+  },
+  "manager": true
+}

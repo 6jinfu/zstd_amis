@@ -1,0 +1,206 @@
+[
+  {
+    "clip": "intro",
+    "title": "AI 帮建",
+    "claim": "项目设计，SO easy！",
+    "loaded": [
+      {
+        "family": "Source Han Sans SC",
+        "weight": "700",
+        "status": "loaded"
+      },
+      {
+        "family": "Source Han Sans SC",
+        "weight": "500",
+        "status": "loaded"
+      }
+    ],
+    "boxes": [
+      {
+        "text": "AI",
+        "left": 701.984375,
+        "right": 797.203125,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "帮",
+        "left": 826,
+        "right": 923,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "建",
+        "left": 929,
+        "right": 1026,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "项目设计，",
+        "left": 310.5,
+        "right": 870.5,
+        "top": 501,
+        "bottom": 669,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "SO easy！",
+        "left": 874.5,
+        "right": 1417.484375,
+        "top": 501,
+        "bottom": 669,
+        "font": "\"Source Han Sans SC\""
+      }
+    ],
+    "actualFonts": [
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 1
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 1
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 5
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    ],
+    "passed": true
+  },
+  {
+    "clip": "outro",
+    "title": "AI 帮建",
+    "claim": "从培养需求到项目方案，SO easy！",
+    "loaded": [
+      {
+        "family": "Source Han Sans SC",
+        "weight": "700",
+        "status": "loaded"
+      },
+      {
+        "family": "Source Han Sans SC",
+        "weight": "500",
+        "status": "loaded"
+      }
+    ],
+    "boxes": [
+      {
+        "text": "AI",
+        "left": 701.984375,
+        "right": 797.203125,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "帮",
+        "left": 826,
+        "right": 923,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "建",
+        "left": 929,
+        "right": 1026,
+        "top": 319,
+        "bottom": 453.390625,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "从培养需求到项目方案，",
+        "left": 196.375,
+        "right": 1120.375,
+        "top": 501,
+        "bottom": 627,
+        "font": "\"Source Han Sans SC\""
+      },
+      {
+        "text": "SO easy！",
+        "left": 1124.375,
+        "right": 1531.609375,
+        "top": 501,
+        "bottom": 627,
+        "font": "\"Source Han Sans SC\""
+      }
+    ],
+    "actualFonts": [
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 2
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 1
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 1
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC Medium",
+          "postScriptName": "SourceHanSansSC-Medium",
+          "isCustomFont": true,
+          "glyphCount": 11
+        }
+      ],
+      [
+        {
+          "familyName": "Source Han Sans SC",
+          "postScriptName": "SourceHanSansSC-Bold",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    ],
+    "passed": true
+  }
+]

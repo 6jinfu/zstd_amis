@@ -1,0 +1,300 @@
+{
+  "before": {
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 834,
+      "height": 774,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "18px",
+      "top": 60
+    },
+    "tab": {
+      "bottom": 122,
+      "height": 44,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "10px",
+      "top": 78
+    },
+    "tabs": {
+      "bottom": 124,
+      "height": 46,
+      "marginBottom": "14px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 78
+    },
+    "width": 1280,
+    "workbench": {
+      "bottom": 806,
+      "height": 668,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 138
+    }
+  },
+  "after": {
+    "header": {
+      "bottom": 60,
+      "height": 60,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 820,
+      "height": 760,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "4px",
+      "top": 60
+    },
+    "tab": {
+      "bottom": 108,
+      "height": 44,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "10px",
+      "top": 64
+    },
+    "tabs": {
+      "bottom": 110,
+      "height": 46,
+      "marginBottom": "14px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 64
+    },
+    "width": 1280,
+    "workbench": {
+      "bottom": 792,
+      "height": 668,
+      "marginBottom": "0px",
+      "marginTop": "0px",
+      "paddingTop": "0px",
+      "top": 124
+    }
+  },
+  "checks": [
+    {
+      "page": "assess-projects.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 820,
+        "height": 760,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "4px",
+        "top": 60
+      },
+      "tab": {
+        "bottom": 108,
+        "height": 44,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "10px",
+        "top": 64
+      },
+      "tabs": {
+        "bottom": 110,
+        "height": 46,
+        "marginBottom": "14px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 64
+      },
+      "width": 1280,
+      "workbench": {
+        "bottom": 792,
+        "height": 668,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 124
+      }
+    },
+    {
+      "page": "talent-assessment-projects.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 820,
+        "height": 760,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "4px",
+        "top": 60
+      },
+      "tab": {
+        "bottom": 108,
+        "height": 44,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "10px",
+        "top": 64
+      },
+      "tabs": {
+        "bottom": 110,
+        "height": 46,
+        "marginBottom": "14px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 64
+      },
+      "width": 1280,
+      "workbench": {
+        "bottom": 792,
+        "height": 668,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 124
+      }
+    },
+    {
+      "page": "exam-projects.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 820,
+        "height": 760,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "4px",
+        "top": 60
+      },
+      "tab": {
+        "bottom": 108,
+        "height": 44,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "10px",
+        "top": 64
+      },
+      "tabs": {
+        "bottom": 110,
+        "height": 46,
+        "marginBottom": "14px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 64
+      },
+      "width": 1280,
+      "workbench": {
+        "bottom": 792,
+        "height": 668,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 124
+      }
+    },
+    {
+      "page": "assess-detail.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 1011,
+        "height": 951,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "18px",
+        "top": 60
+      },
+      "tab": null,
+      "tabs": null,
+      "width": 1280,
+      "workbench": null
+    },
+    {
+      "page": "review-detail.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 718.0625,
+        "height": 658.0625,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "18px",
+        "top": 60
+      },
+      "tab": null,
+      "tabs": null,
+      "width": 1280,
+      "workbench": null
+    },
+    {
+      "page": "review-new.html",
+      "header": {
+        "bottom": 60,
+        "height": 60,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "0px",
+        "top": 0
+      },
+      "height": 720,
+      "main": {
+        "bottom": 790,
+        "height": 730,
+        "marginBottom": "0px",
+        "marginTop": "0px",
+        "paddingTop": "18px",
+        "top": 60
+      },
+      "tab": null,
+      "tabs": null,
+      "width": 1280,
+      "workbench": null
+    }
+  ],
+  "gridTabSwitch": true
+}

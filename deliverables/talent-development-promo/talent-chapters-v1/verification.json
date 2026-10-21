@@ -1,0 +1,55 @@
+{
+  "verified": true,
+  "date": "2026-10-13",
+  "duration": 12,
+  "chapterCutsSeconds": [
+    4,
+    8
+  ],
+  "chapterCutFrames": [
+    240,
+    480
+  ],
+  "outputs": [
+    {
+      "file": "talent-chapters-numbered.mp4",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "profile": "High 4:4:4 Predictive",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv444p",
+          "avg_frame_rate": "60/1",
+          "duration": "12.000000",
+          "nb_read_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "12.000000",
+        "size": "2715134"
+      }
+    },
+    {
+      "file": "talent-chapters-numbered-compatible.mp4",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "profile": "High",
+          "width": 1728,
+          "height": 1118,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "60/1",
+          "duration": "12.000000",
+          "nb_read_frames": "720"
+        }
+      ],
+      "format": {
+        "duration": "12.000000",
+        "size": "2668660"
+      }
+    }
+  ]
+}

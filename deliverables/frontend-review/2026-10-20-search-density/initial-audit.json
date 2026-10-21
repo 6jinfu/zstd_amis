@@ -1,0 +1,559 @@
+[
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "talent-assess-name",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "talent-assess-product",
+        "type": "SELECT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "field-control-3",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "field-control-4",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "talent-assess-creator",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "talent-assess-status",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "talent-assessment-projects.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "std-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "standards.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "s360-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "input eva-ai-history-search",
+        "h": 32,
+        "id": "eva-ai-history-search",
+        "type": "INPUT"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "assess-projects.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "exam-name",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "exam-position",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "exam-type",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "exam-projects.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "",
+        "h": 32,
+        "id": "",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "field-control-1",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "vocabulary.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "field-control-1",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "positions.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "kp-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "kp-status",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "kp-query",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "kp-reset",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "key-position.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "rp-grid-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "rp-grid-status",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "rp-grid-query",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "rp-grid-reset",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "review-projects.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "tc-query-text",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "tc-classification",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "tc-list-coverage",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "tc-list-target",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "tc-list-standard",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "talent-list.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "tc-pool-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "talent-pool.html"
+  },
+  {
+    "controls": [],
+    "nav": 184,
+    "overflow": false,
+    "path": "talent-dashboard.html"
+  },
+  {
+    "controls": [],
+    "nav": 184,
+    "overflow": false,
+    "path": "talent-compare.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "level-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "add-sequence",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "settings.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "",
+        "h": 32,
+        "id": "pm-series-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "",
+        "h": 32,
+        "id": "pm-position-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "position-map.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "learner-search",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "learner-status",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "learner-query",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "learner-reset",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "assess-detail.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "select",
+        "h": 32,
+        "id": "report-department",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "report-position",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "review-map-detail.html"
+  },
+  {
+    "controls": [],
+    "nav": 184,
+    "overflow": false,
+    "path": "review-detail.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "",
+        "type": "INPUT"
+      },
+      {
+        "css": "input",
+        "h": 32,
+        "id": "field-control-8",
+        "type": "INPUT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "review-map-new.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "",
+        "type": "INPUT"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "review-new.html"
+  },
+  {
+    "controls": [
+      {
+        "css": "input",
+        "h": 32,
+        "id": "review-person-name",
+        "type": "INPUT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "review-person-department",
+        "type": "SELECT"
+      },
+      {
+        "css": "select",
+        "h": 32,
+        "id": "review-person-placement",
+        "type": "SELECT"
+      },
+      {
+        "css": "btn btn-primary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      },
+      {
+        "css": "btn btn-secondary",
+        "h": 32,
+        "id": "",
+        "type": "BUTTON"
+      }
+    ],
+    "nav": 184,
+    "overflow": false,
+    "path": "proto/talent-grid/frame.html"
+  }
+]

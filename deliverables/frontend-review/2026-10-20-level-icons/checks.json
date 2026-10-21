@@ -1,0 +1,58 @@
+[
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "技术序列"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "首席P5等级序 5"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "专家P4等级序 4"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "高级P3等级序 3"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "管理序列"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "经理M3等级序 3"
+  },
+  {
+    "font": "16px",
+    "gap": "10px",
+    "iconHeight": 24,
+    "iconWidth": 24,
+    "rowHeight": 40,
+    "text": "主管M2等级序 2"
+  }
+]

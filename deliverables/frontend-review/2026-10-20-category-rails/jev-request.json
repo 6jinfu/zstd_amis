@@ -1,0 +1,109 @@
+{
+  "model": "jev-latest",
+  "state": {
+    "task": "Desktop Chinese enterprise talent-development prototype. User explicitly requests narrower, tighter and consistent category trees and similar scope/navigation panels across all pages. Judge actual UI geometry, not HR data.",
+    "constraints": [
+      "Existing primary navigation is 184px, do not alter it",
+      "No decorative captions or colored one-sided card borders",
+      "Retain tree hierarchy, expand controls, filtering, search, editing and keyboard focus",
+      "Main settings tree is a full-width editable two-level data structure, not a navigation rail",
+      "Desktop baseline1280x720 and user screenshot1297x984"
+    ],
+    "observations": {
+      "category_standard": {
+        "width": 208,
+        "row_height": 44,
+        "row_pitch": "45-50",
+        "padding": "14px 12px",
+        "arrow_slot": 24,
+        "arrow_text_gap": 8
+      },
+      "indicator": {
+        "width": 208,
+        "row_height": 44,
+        "indent_step": 14,
+        "font": 13,
+        "depths": "up to 5 with long Chinese labels"
+      },
+      "assessment": {
+        "width": 208,
+        "row_height": 40,
+        "row_pitch": 41
+      },
+      "department": {
+        "width": 208,
+        "row_height": 44
+      },
+      "position_map_sequence": {
+        "width": 246,
+        "row_height": 41,
+        "row_pitch": 44,
+        "font": 14,
+        "decorative_file_icons": true
+      },
+      "detail_nav": {
+        "width": 152,
+        "row_height": "40-42",
+        "font": "13-14"
+      },
+      "indicator_picker": {
+        "width": "30% min230px",
+        "row_height": 40,
+        "indent_step": 22,
+        "font": 14
+      },
+      "people_picker_department": {
+        "width": 176,
+        "nest_indent": 22
+      }
+    }
+  },
+  "questions": {
+    "category_width": {
+      "type": "choice",
+      "instructions": "Choose the best common width balancing user request, readable short categories and table space. 13px Chinese typical4-8characters; deep nodes can ellipsize with title retaining full name.",
+      "criteria": {
+        "w176": "176px compact, more clipping at deep levels",
+        "w184": "184px moderate reduction from208, major reduction from246",
+        "w192": "192px conservative shrink with extra text room",
+        "keep208": "Keep208 because narrowing is too risky"
+      }
+    },
+    "row_density": {
+      "type": "choice",
+      "instructions": "Choose consistent category/scope/detail row geometry given desktop density request. No overlaid click areas.",
+      "criteria": {
+        "r36": "36px rows,20px text line,8px horizontal padding,no external vertical gaps",
+        "r40": "40px rows,20px text line,8px horizontal padding,no external vertical gaps",
+        "r44": "44px rows and current1px margins"
+      }
+    },
+    "scope": {
+      "type": "choice",
+      "instructions": "How should analogous UI be unified without changing business behavior?",
+      "criteria": {
+        "by_role": "Common density, typography, hover/active/focus,16px indent. Same category/department/sequence rail width; detail nav144px; popup trees use the category width; editable main settings tree only shares row rhythm and typography, retains inline actions",
+        "literal_all": "Set every tree, form stepper, main settings tree and horizontal tab to identical narrow width",
+        "category_only": "Only standards and assessment categories; keep all similar department/sequence/picker trees distinct"
+      }
+    },
+    "selection": {
+      "type": "choice",
+      "instructions": "Choose a consistent sidebar selection treatment given many existing styles and ban on one-sided decorative card borders.",
+      "criteria": {
+        "rounded_fill": "Single pale brand-blue rounded whole-row fill plus blue text, neutral hover, no side stripe, shared by flat/hierarchical navigation",
+        "stripe": "Transparent background with thin blue left selection marker only",
+        "preserve": "Keep page-specific selection treatments"
+      }
+    },
+    "hierarchy": {
+      "type": "choice",
+      "instructions": "Which spacing policy balances compactness and hierarchy?",
+      "criteria": {
+        "consistent16": "16px reserved arrow slot,4px gap,16px indentation increment; arrow only on expandable nodes, leaf reserves space in hierarchical lists; flat lists no empty icon slot; eliminate sequence file icons; long names ellipsize with full title",
+        "keep24": "Keep24px arrow slots,8px gaps,22px nested indent and file icons",
+        "flatten": "Remove all indentation and arrows"
+      }
+    }
+  }
+}

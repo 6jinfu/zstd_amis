@@ -1,0 +1,266 @@
+{
+  "fontChecksumsPassed": true,
+  "chapters": [
+    {
+      "time": 2,
+      "visible": [
+        "chapter-1"
+      ],
+      "number": "01",
+      "numberBottom": 377.796875,
+      "questionTop": 405,
+      "title": "需要什么样的人？",
+      "detail": "组织与关键岗位分析 · 人才标准",
+      "boxes": [
+        {
+          "left": 779.03125,
+          "right": 948.953125,
+          "opacity": "1"
+        },
+        {
+          "left": 458,
+          "right": 556,
+          "opacity": "1"
+        },
+        {
+          "left": 560,
+          "right": 658,
+          "opacity": "1"
+        },
+        {
+          "left": 662,
+          "right": 760,
+          "opacity": "1"
+        },
+        {
+          "left": 764,
+          "right": 862,
+          "opacity": "1"
+        },
+        {
+          "left": 866,
+          "right": 964,
+          "opacity": "1"
+        },
+        {
+          "left": 968,
+          "right": 1066,
+          "opacity": "1"
+        },
+        {
+          "left": 1070,
+          "right": 1168,
+          "opacity": "1"
+        },
+        {
+          "left": 1172,
+          "right": 1270,
+          "opacity": "1"
+        },
+        {
+          "left": 531.640625,
+          "right": 1196.34375,
+          "opacity": "1"
+        }
+      ],
+      "cover": 0,
+      "fonts": [
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        }
+      ],
+      "actualFonts": [
+        "SourceHanSansSC-Bold",
+        "SourceHanSansSC-Medium"
+      ],
+      "passed": true
+    },
+    {
+      "time": 6,
+      "visible": [
+        "chapter-2"
+      ],
+      "number": "02",
+      "numberBottom": 377.796875,
+      "questionTop": 405,
+      "title": "现在的人怎么样？",
+      "detail": "360 评估 · 人才盘点",
+      "boxes": [
+        {
+          "left": 779.03125,
+          "right": 948.953125,
+          "opacity": "1"
+        },
+        {
+          "left": 458,
+          "right": 556,
+          "opacity": "1"
+        },
+        {
+          "left": 560,
+          "right": 658,
+          "opacity": "1"
+        },
+        {
+          "left": 662,
+          "right": 760,
+          "opacity": "1"
+        },
+        {
+          "left": 764,
+          "right": 862,
+          "opacity": "1"
+        },
+        {
+          "left": 866,
+          "right": 964,
+          "opacity": "1"
+        },
+        {
+          "left": 968,
+          "right": 1066,
+          "opacity": "1"
+        },
+        {
+          "left": 1070,
+          "right": 1168,
+          "opacity": "1"
+        },
+        {
+          "left": 1172,
+          "right": 1270,
+          "opacity": "1"
+        },
+        {
+          "left": 648.140625,
+          "right": 1079.859375,
+          "opacity": "1"
+        }
+      ],
+      "cover": 0,
+      "fonts": [
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        }
+      ],
+      "actualFonts": [
+        "SourceHanSansSC-Bold",
+        "SourceHanSansSC-Medium"
+      ],
+      "passed": true
+    },
+    {
+      "time": 10,
+      "visible": [
+        "chapter-3"
+      ],
+      "number": "03",
+      "numberBottom": 377.796875,
+      "questionTop": 405,
+      "title": "知道差距以后怎么办？",
+      "detail": "岗位地图 · 学习方案 · 人才中心",
+      "boxes": [
+        {
+          "left": 779.03125,
+          "right": 948.953125,
+          "opacity": "1"
+        },
+        {
+          "left": 356,
+          "right": 454,
+          "opacity": "1"
+        },
+        {
+          "left": 458,
+          "right": 556,
+          "opacity": "1"
+        },
+        {
+          "left": 560,
+          "right": 658,
+          "opacity": "1"
+        },
+        {
+          "left": 662,
+          "right": 760,
+          "opacity": "1"
+        },
+        {
+          "left": 764,
+          "right": 862,
+          "opacity": "1"
+        },
+        {
+          "left": 866,
+          "right": 964,
+          "opacity": "1"
+        },
+        {
+          "left": 968,
+          "right": 1066,
+          "opacity": "1"
+        },
+        {
+          "left": 1070,
+          "right": 1168,
+          "opacity": "1"
+        },
+        {
+          "left": 1172,
+          "right": 1270,
+          "opacity": "1"
+        },
+        {
+          "left": 1274,
+          "right": 1372,
+          "opacity": "1"
+        },
+        {
+          "left": 521.296875,
+          "right": 1206.703125,
+          "opacity": "1"
+        }
+      ],
+      "cover": 0,
+      "fonts": [
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        }
+      ],
+      "actualFonts": [
+        "SourceHanSansSC-Bold",
+        "SourceHanSansSC-Medium"
+      ],
+      "passed": true
+    }
+  ],
+  "cuts": [
+    {
+      "time": 4,
+      "whiteCoverOpacity": 1
+    },
+    {
+      "time": 8,
+      "whiteCoverOpacity": 1
+    },
+    {
+      "time": 12,
+      "whiteCoverOpacity": 1
+    }
+  ]
+}

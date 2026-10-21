@@ -1,0 +1,62 @@
+{
+  "verified": true,
+  "outputs": [
+    {
+      "file": "talent-intro-v2.mp4",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "profile": "High 4:4:4 Predictive",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv444p",
+          "avg_frame_rate": "60/1",
+          "duration": "8.000000",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "3170074"
+      }
+    },
+    {
+      "file": "talent-intro-v2-edit.mov",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "prores",
+          "profile": "4444",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv444p12le",
+          "avg_frame_rate": "60/1",
+          "duration": "8.000000",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "91033059"
+      }
+    },
+    {
+      "file": "talent-intro-v2-preview.webm",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "width": 1728,
+          "height": 1117,
+          "avg_frame_rate": "60/1",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "2307773"
+      }
+    }
+  ]
+}

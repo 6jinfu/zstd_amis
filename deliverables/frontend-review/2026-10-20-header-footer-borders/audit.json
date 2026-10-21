@@ -1,0 +1,781 @@
+{
+  "before": [
+    {
+      "route": "key-position.html",
+      "regions": []
+    },
+    {
+      "route": "standards.html",
+      "regions": []
+    },
+    {
+      "route": "vocabulary.html",
+      "regions": []
+    },
+    {
+      "route": "assess-projects.html",
+      "regions": []
+    },
+    {
+      "route": "talent-assessment-projects.html",
+      "regions": []
+    },
+    {
+      "route": "exam-projects.html",
+      "regions": []
+    },
+    {
+      "route": "review-projects.html?method=grid",
+      "regions": []
+    },
+    {
+      "route": "review-projects.html?method=map",
+      "regions": []
+    },
+    {
+      "route": "positions.html",
+      "regions": []
+    },
+    {
+      "route": "talent-list.html",
+      "regions": []
+    },
+    {
+      "route": "talent-pool.html",
+      "regions": []
+    },
+    {
+      "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回技术骨干后备池编辑导出成员"
+        }
+      ]
+    },
+    {
+      "route": "talent-dashboard.html",
+      "regions": []
+    },
+    {
+      "route": "position-map.html",
+      "regions": []
+    },
+    {
+      "route": "standard-detail.html?id=std-sales",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回销售经理标准"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "取消保存"
+        }
+      ]
+    },
+    {
+      "route": "position-detail.html?position=RD-302",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回\n          架构师\n          关键岗位\n          RD-302 · 研发"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "取消\n          保存"
+        }
+      ]
+    },
+    {
+      "route": "settings.html",
+      "regions": []
+    },
+    {
+      "route": "key-position-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none",
+          "text": "新建关键岗位分析"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "取消\n          \n          提交分析"
+        }
+      ]
+    },
+    {
+      "route": "org-analyze.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none",
+          "text": "组织结构分析"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "上一步\n          \n          \n            保存草稿\n            下一步\n           "
+        }
+      ]
+    },
+    {
+      "route": "org-structure.html",
+      "regions": []
+    },
+    {
+      "route": "org-preview.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none",
+          "text": "分析结果预览\n        \n          综合视图岗位评价法视图结构分析法视图\n          保存草稿\n          "
+        }
+      ]
+    },
+    {
+      "route": "key-position-result.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none",
+          "text": "分析结果基于 V2 组织结构 · 经济 + 能力双视角\n        返回列表去岗位管理配置 →"
+        }
+      ]
+    },
+    {
+      "route": "review-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "上一步取消保存草稿下一步创建并生成盘点结果"
+        }
+      ]
+    },
+    {
+      "route": "review-map-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "上一步取消保存草稿下一步创建并生成分析结果"
+        }
+      ]
+    },
+    {
+      "route": "review-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回2026 年度人才盘点已结束35 人"
+        }
+      ]
+    },
+    {
+      "route": "review-map-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回2026 管理梯队人才图谱进行中35 人"
+        }
+      ]
+    },
+    {
+      "route": "talent-profile.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回张明加入人才池导出档案"
+        }
+      ]
+    },
+    {
+      "route": "talent-compare.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回人才对比"
+        }
+      ]
+    },
+    {
+      "route": "learning-plan.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回\n          学习方案\n          架构师 · 学习方案"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "rgb(229, 230, 235) 0px 0px 0px 1px, oklch(0.2 0.018 255 / 0.025) 0px 1px 2px 0px",
+          "text": "取消\n          保存"
+        }
+      ]
+    },
+    {
+      "route": "assess-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回管理者通用能力 360进行中区域销售总监 · 2026-07-18 至 2026-07-31\n        催办结束评估"
+        }
+      ]
+    },
+    {
+      "route": "assess-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "1px",
+            "0px"
+          ],
+          "class": "assessment-topbar",
+          "shadow": "none",
+          "text": "‹ 返回新建 360 评估预览问卷保存草稿"
+        }
+      ]
+    },
+    {
+      "route": "proto/talent-grid/frame.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none",
+          "text": "返回2026 年度人才盘点已结束35 人"
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "route": "key-position.html",
+      "regions": []
+    },
+    {
+      "route": "standards.html",
+      "regions": []
+    },
+    {
+      "route": "vocabulary.html",
+      "regions": []
+    },
+    {
+      "route": "assess-projects.html",
+      "regions": []
+    },
+    {
+      "route": "talent-assessment-projects.html",
+      "regions": []
+    },
+    {
+      "route": "exam-projects.html",
+      "regions": []
+    },
+    {
+      "route": "review-projects.html?method=grid",
+      "regions": []
+    },
+    {
+      "route": "review-projects.html?method=map",
+      "regions": []
+    },
+    {
+      "route": "positions.html",
+      "regions": []
+    },
+    {
+      "route": "talent-list.html",
+      "regions": []
+    },
+    {
+      "route": "talent-pool.html",
+      "regions": []
+    },
+    {
+      "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "talent-dashboard.html",
+      "regions": []
+    },
+    {
+      "route": "position-map.html",
+      "regions": []
+    },
+    {
+      "route": "standard-detail.html?id=std-sales",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "position-detail.html?position=RD-302",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "settings.html",
+      "regions": []
+    },
+    {
+      "route": "key-position-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "org-analyze.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "org-structure.html",
+      "regions": []
+    },
+    {
+      "route": "org-preview.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "key-position-result.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "page-head",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "review-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "review-map-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "wiz-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "review-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "review-map-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "talent-profile.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "talent-compare.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "learning-plan.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        },
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-foot",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "assess-detail.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "assess-new.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "assessment-topbar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "proto/talent-grid/frame.html",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    },
+    {
+      "route": "key-position-analyzing.html",
+      "regions": []
+    },
+    {
+      "route": "org-analyzing.html",
+      "regions": []
+    },
+    {
+      "route": "review-detail.html#pool",
+      "regions": [
+        {
+          "borders": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "class": "detail-bar",
+          "shadow": "none"
+        }
+      ]
+    }
+  ]
+}

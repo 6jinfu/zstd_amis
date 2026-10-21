@@ -1,0 +1,64 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "interaction": {
+      "type": "choice",
+      "choice": "content_choices",
+      "confidence": 1.0,
+      "probabilities": {
+        "content_choices": 1.0,
+        "mandatory_rounds": 0.0,
+        "long_animation": 0.0,
+        "insufficient": 0.0
+      }
+    },
+    "unknown_context": {
+      "type": "choice",
+      "choice": "ask_or_unset",
+      "confidence": 0.97,
+      "probabilities": {
+        "ask_or_unset": 0.98,
+        "default_fact": 0.02,
+        "block_all": 0.0,
+        "insufficient": 0.0
+      }
+    },
+    "update_safety": {
+      "type": "choice",
+      "choice": "explicit_preview",
+      "confidence": 1.0,
+      "probabilities": {
+        "explicit_preview": 1.0,
+        "auto_merge": 0.0,
+        "immediate_overwrite": 0.0,
+        "insufficient": 0.0
+      }
+    },
+    "assessment_control": {
+      "type": "choice",
+      "choice": "editable_questions",
+      "confidence": 1.0,
+      "probabilities": {
+        "editable_questions": 1.0,
+        "count_only": 0.0,
+        "extra_dimensions": 0.0,
+        "insufficient": 0.0
+      }
+    },
+    "tree_editing": {
+      "type": "choice",
+      "choice": "inline_two_levels",
+      "confidence": 1.0,
+      "probabilities": {
+        "inline_two_levels": 1.0,
+        "recursive": 0.0,
+        "table_only": 0.0,
+        "insufficient": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 1407,
+    "output_tokens": 268
+  }
+}

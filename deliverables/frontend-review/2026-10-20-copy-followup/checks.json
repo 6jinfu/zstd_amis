@@ -1,0 +1,62 @@
+[
+  {
+    "page": "org-structure",
+    "axisSubtitles": 0,
+    "groups": 22,
+    "specCopy": 0
+  },
+  {
+    "page": "org-preview.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "key-position-new.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "org-analyze.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 1,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "learning-plan.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "position-map.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "review-new.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "talent-dashboard.html",
+    "axisSubtitles": 0,
+    "configurationCopy": 0,
+    "repeatLabels": [],
+    "repeatedSpec": 0
+  },
+  {
+    "page": "talent-dashboard.html#reserve",
+    "captions": 0,
+    "labels": "关键岗位\n6\n岗位后备覆盖\n17%\n后备人员\n3\n待复评后备\n0"
+  }
+]

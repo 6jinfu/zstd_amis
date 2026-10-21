@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/adobe-fonts/source-han-sans",
+  "commit": "a4f7cf94edfb9d7ffbdfc4841de276358bd7e0f2",
+  "license": "SIL Open Font License 1.1",
+  "files": [
+    {
+      "name": "SourceHanSansSC-Bold.otf",
+      "sha": "3b33e77fce75424e20c90eb2feaa489e38ebe9d7"
+    },
+    {
+      "name": "SourceHanSansSC-Medium.otf",
+      "sha": "304b3e6cc2eb1b0c694d53fba21107fe83116cea"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "bottom": "0px",
+    "className": "filter-bar",
+    "shadow": "none"
+  },
+  {
+    "bottom": "0px",
+    "className": "flex between center mb-md",
+    "shadow": "none"
+  }
+]

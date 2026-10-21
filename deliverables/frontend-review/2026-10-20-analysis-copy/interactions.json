@@ -1,0 +1,20 @@
+{
+  "orgInProgress": {
+    "deletedNodes": 0,
+    "resultEnabled": false,
+    "text": "组织结构分析\n分析中\n79%\n读取组织数据\n执行分析方法\n归类岗位族\n校验分析结果\n暂时关闭，返回分析页\n完成后查看结果"
+  },
+  "orgCompletionEnabled": true,
+  "resultLoadingTitle": "正在装载分析结果",
+  "key": {
+    "heading": "关键岗位分析",
+    "removedNodes": 0,
+    "stages": 4
+  },
+  "backgroundClose": true,
+  "questionnaireGenerated": true,
+  "standardConfirm": true,
+  "mapCards": 6,
+  "retainedFieldLists": 3,
+  "consoleErrors": []
+}

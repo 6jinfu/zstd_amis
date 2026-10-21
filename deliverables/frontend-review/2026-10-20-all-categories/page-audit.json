@@ -1,0 +1,385 @@
+[
+  {
+    "route": "key-position.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "kp-tree",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "standards.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 9,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "vocabulary.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "cap-tree",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 10,
+        "searchHeight": 28,
+        "title": "能力指标",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "assess-projects.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 5,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "talent-assessment-projects.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 5,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "exam-projects.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 5,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=grid",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "rp-grid-tree",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=map",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "rp-map-tree",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "positions.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "岗位类别",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "talent-list.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "所属部门",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "talent-pool.html",
+    "panels": []
+  },
+  {
+    "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "panels": []
+  },
+  {
+    "route": "talent-dashboard.html",
+    "panels": []
+  },
+  {
+    "route": "position-map.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "职级序列",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "standard-detail.html?id=std-sales",
+    "panels": []
+  },
+  {
+    "route": "position-detail.html?position=RD-302",
+    "panels": []
+  },
+  {
+    "route": "settings.html",
+    "panels": []
+  },
+  {
+    "route": "key-position-new.html",
+    "panels": []
+  },
+  {
+    "route": "org-analyze.html",
+    "panels": []
+  },
+  {
+    "route": "org-structure.html",
+    "panels": []
+  },
+  {
+    "route": "org-preview.html",
+    "panels": []
+  },
+  {
+    "route": "key-position-result.html",
+    "panels": []
+  },
+  {
+    "route": "review-new.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "组织范围",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-map-new.html",
+    "panels": [
+      {
+        "fonts": [
+          "14px"
+        ],
+        "headerHeight": 28,
+        "iconSizes": [
+          16
+        ],
+        "id": "",
+        "padding": "16px",
+        "rowHeights": [
+          32
+        ],
+        "rows": 4,
+        "searchHeight": 28,
+        "title": "组织范围",
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-detail.html",
+    "panels": []
+  },
+  {
+    "route": "review-map-detail.html",
+    "panels": []
+  },
+  {
+    "route": "talent-profile.html",
+    "panels": []
+  },
+  {
+    "route": "talent-compare.html",
+    "panels": []
+  },
+  {
+    "route": "learning-plan.html",
+    "panels": []
+  },
+  {
+    "route": "assess-detail.html",
+    "panels": []
+  },
+  {
+    "route": "assess-new.html",
+    "panels": []
+  },
+  {
+    "route": "proto/talent-grid/frame.html",
+    "panels": []
+  },
+  {
+    "route": "key-position-analyzing.html",
+    "panels": []
+  },
+  {
+    "route": "org-analyzing.html",
+    "panels": []
+  }
+]

@@ -1,0 +1,214 @@
+{
+  "before": [
+    {
+      "class": "level-tree-row",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 32,
+      "line": "22px",
+      "text": "技术序列新增职级编辑删除",
+      "width": 1068
+    },
+    {
+      "class": "level-tree-label",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 32,
+      "line": "20px",
+      "text": "技术序列",
+      "width": 80
+    },
+    {
+      "class": "",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 16,
+      "line": "20px",
+      "text": "",
+      "width": 16
+    },
+    {
+      "class": "",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 20,
+      "line": "20px",
+      "text": "技术序列",
+      "width": 56
+    },
+    {
+      "class": "btn-text",
+      "color": "rgb(1, 82, 217)",
+      "font": "14px",
+      "height": 28,
+      "line": "22px",
+      "text": "新增职级",
+      "width": 66
+    },
+    {
+      "class": "btn-text",
+      "color": "rgb(1, 82, 217)",
+      "font": "14px",
+      "height": 28,
+      "line": "22px",
+      "text": "编辑",
+      "width": 40
+    },
+    {
+      "class": "btn-text",
+      "color": "rgb(1, 82, 217)",
+      "font": "14px",
+      "height": 28,
+      "line": "22px",
+      "text": "删除",
+      "width": 40
+    },
+    {
+      "class": "level-tree-row",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 32,
+      "line": "22px",
+      "text": "首席P5等级序 5新增同级编辑删除",
+      "width": 1046
+    },
+    {
+      "class": "level-tree-label",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 32,
+      "line": "20px",
+      "text": "首席P5等级序 5",
+      "width": 160.453125
+    },
+    {
+      "class": "",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 16,
+      "line": "20px",
+      "text": "",
+      "width": 16
+    },
+    {
+      "class": "",
+      "color": "rgb(31, 31, 31)",
+      "font": "14px",
+      "height": 20,
+      "line": "20px",
+      "text": "首席",
+      "width": 28
+    },
+    {
+      "class": "level-tree-code",
+      "color": "rgb(89, 89, 89)",
+      "font": "14px",
+      "height": 20,
+      "line": "20px",
+      "text": "P5",
+      "width": 17.390625
+    },
+    {
+      "class": "level-tree-rank",
+      "color": "rgb(89, 89, 89)",
+      "font": "14px",
+      "height": 20,
+      "line": "20px",
+      "text": "等级序 5",
+      "width": 55.0625
+    },
+    {
+      "class": "btn-text",
+      "color": "rgb(1, 82, 217)",
+      "font": "14px",
+      "height": 28,
+      "line": "22px",
+      "text": "新增同级",
+      "width": 66
+    }
+  ],
+  "after": {
+    "meta": [
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px",
+      "14px"
+    ],
+    "names": [
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      },
+      {
+        "font": "16px",
+        "icon": 20,
+        "line": "24px"
+      }
+    ],
+    "rows": [
+      40,
+      40,
+      40,
+      40,
+      40,
+      40,
+      40
+    ]
+  },
+  "collapsedChildren": 2,
+  "search": "技术序列\n新增职级\n编辑\n删除\n专家\nP4\n等级序 4\n新增同级\n编辑\n删除",
+  "version": "20261020az"
+}

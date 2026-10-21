@@ -1,0 +1,251 @@
+[
+  {
+    "main": true,
+    "notes": [],
+    "path": "/org-structure.html",
+    "textLength": 882,
+    "title": "组织结构 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/org-analyze.html",
+    "textLength": 280,
+    "title": "组织结构分析 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/org-analyzing.html",
+    "textLength": 194,
+    "title": "后台分析中 · 组织结构"
+  },
+  {
+    "main": true,
+    "notes": [
+      "3 项业务分工 × 3 级业务分权，共 9 宫格"
+    ],
+    "path": "/org-preview.html",
+    "textLength": 898,
+    "title": "分析结果预览 · 组织结构"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/key-position.html",
+    "textLength": 454,
+    "title": "关键岗位分析 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [
+      "生效于 2026-06-18 · 岗位评价法 / 结构分析法 · 宫格 3×3 · 8 岗位族 / 34 岗位 / 165 人"
+    ],
+    "path": "/key-position-new.html",
+    "textLength": 568,
+    "title": "新建关键岗位分析 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/key-position-analyzing.html",
+    "textLength": 208,
+    "title": "后台分析中 · 关键岗位分析"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/key-position-result.html",
+    "textLength": 1292,
+    "title": "分析结果 · 关键岗位分析"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/positions.html",
+    "textLength": 381,
+    "title": "岗位管理 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [
+      "RD-301 · 研发·高级",
+      "指定岗位 · 高级算法工程师",
+      "当前可用在岗人员未匹配其他条件标准。"
+    ],
+    "path": "/position-detail.html",
+    "textLength": 191,
+    "title": "岗位详情 · 高级算法工程师"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/standards.html",
+    "textLength": 593,
+    "title": "人才标准 · 人才发展"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/standard-detail.html",
+    "textLength": 184,
+    "title": "人才标准详情 · 人才发展"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/vocabulary.html",
+    "textLength": 1418,
+    "title": "指标库 · 人才标准"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/assess-projects.html",
+    "textLength": 1367,
+    "title": "360 评估 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/assess-new.html",
+    "textLength": 111,
+    "title": "新建 360 评估 · 人才发展"
+  },
+  {
+    "main": true,
+    "notes": [
+      "区域销售总监 · 2026-07-18 至 2026-07-31"
+    ],
+    "path": "/assess-detail.html",
+    "textLength": 632,
+    "title": "360 评估详情 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-assessment-projects.html",
+    "textLength": 703,
+    "title": "人才测评 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/exam-projects.html",
+    "textLength": 697,
+    "title": "考试 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/review-projects.html",
+    "textLength": 577,
+    "title": "人才盘点 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/review-new.html",
+    "textLength": 352,
+    "title": "创建宫格盘点 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/review-detail.html",
+    "textLength": 605,
+    "title": "2026 年度人才盘点 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/review-map-new.html",
+    "textLength": 518,
+    "title": "创建人才图谱盘点 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [
+      "每个点代表 1 名盘点人员 · n=35",
+      "当前盘点人员 · n=35",
+      "绩效模板有效记录 · n=35",
+      "同口径标准分关系 · n=28",
+      "系统架构、学习成长、前瞻性",
+      "各层级低、中、高绩效人数占比",
+      "按绩效等级比较司龄分布 · n=35",
+      "按低、中、高绩效分组 · n=28",
+      "各部门不同层级的前瞻性得分",
+      "群体得分分布 · n=32"
+    ],
+    "path": "/review-map-detail.html",
+    "textLength": 1326,
+    "title": "2026 管理梯队人才图谱 · 评鉴中心"
+  },
+  {
+    "main": true,
+    "notes": [
+      "能力要求：系统架构 L5、技术选型 L4、团队管理 L3、跨部门沟通 L4、创新思维 L3"
+    ],
+    "path": "/learning-plan.html",
+    "textLength": 344,
+    "title": "学习方案 · 架构师 · 发展中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/position-map.html",
+    "textLength": 464,
+    "title": "岗位地图 · 发展中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/settings.html",
+    "textLength": 220,
+    "title": "系统设置 · 人才发展"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-list.html",
+    "textLength": 436,
+    "title": "人才库 · 人才中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-profile.html?person=zhangming",
+    "textLength": 216,
+    "title": "人才档案 · 人才中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-compare.html?people=zhangming,lihua",
+    "textLength": 283,
+    "title": "人才对比 · 人才中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-pool.html",
+    "textLength": 142,
+    "title": "人才池 · 人才中心"
+  },
+  {
+    "main": true,
+    "notes": [],
+    "path": "/talent-pool-detail.html",
+    "textLength": 83,
+    "title": "人才池详情 · 人才中心"
+  },
+  {
+    "main": true,
+    "notes": [
+      "0 条在池记录超过复评日期"
+    ],
+    "path": "/talent-dashboard.html",
+    "textLength": 355,
+    "title": "人才看板 · 人才中心"
+  }
+]

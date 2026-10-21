@@ -1,0 +1,409 @@
+{
+  "pages": [
+    {
+      "page": "talent-list.html",
+      "rows": [
+        {
+          "h": 32,
+          "text": "全部"
+        },
+        {
+          "h": 32,
+          "text": "研发中心"
+        },
+        {
+          "h": 32,
+          "text": "销售中心"
+        },
+        {
+          "h": 32,
+          "text": "职能中台"
+        }
+      ],
+      "search": [
+        {
+          "h": 14,
+          "position": "absolute",
+          "w": 14
+        }
+      ]
+    },
+    {
+      "page": "key-position.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "standards.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "vocabulary.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "assess-projects.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "talent-assessment-projects.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "exam-projects.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "review-projects.html?method=grid",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "review-projects.html?method=map",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "position-map.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": "positions.html",
+      "panels": [
+        {
+          "panel": 220,
+          "rows": [
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            },
+            {
+              "font": "14px",
+              "height": 32
+            }
+          ],
+          "search": [
+            {
+              "h": 14,
+              "w": 14
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "salesFilter": "\t王芳\t销售中心\t区域销售总监\t核心\t2026-09-18\t查看"
+}

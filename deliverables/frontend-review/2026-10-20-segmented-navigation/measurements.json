@@ -1,0 +1,499 @@
+{
+  "before": {
+    "gap": 18,
+    "headerBottom": 60,
+    "tabsTop": 78,
+    "treeRows": [
+      {
+        "depth": "0",
+        "height": 44,
+        "paddingLeft": "10px",
+        "text": "全部"
+      },
+      {
+        "depth": "1",
+        "height": 44,
+        "paddingLeft": "24px",
+        "text": "技能"
+      },
+      {
+        "depth": "2",
+        "height": 44,
+        "paddingLeft": "38px",
+        "text": "管理能力"
+      },
+      {
+        "depth": "2",
+        "height": 44,
+        "paddingLeft": "38px",
+        "text": "通用能力"
+      }
+    ]
+  },
+  "final": [
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 4,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "能力"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "动力"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "潜力"
+        }
+      ],
+      "path": "/vocabulary.html",
+      "radius": "0px",
+      "top": 64,
+      "width": 232,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 4,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "360评估"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "人才测评"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "考试"
+        }
+      ],
+      "path": "/assess-projects.html",
+      "radius": "0px",
+      "top": 64,
+      "width": 260.828125,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 4,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "360评估"
+        },
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "人才测评"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "考试"
+        }
+      ],
+      "path": "/talent-assessment-projects.html",
+      "radius": "0px",
+      "top": 64,
+      "width": 260.828125,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 4,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "360评估"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "人才测评"
+        },
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "考试"
+        }
+      ],
+      "path": "/exam-projects.html",
+      "radius": "0px",
+      "top": 64,
+      "width": 260.828125,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 4,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "宫格盘点"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "人才图谱盘点"
+        }
+      ],
+      "path": "/review-projects.html",
+      "radius": "0px",
+      "top": 64,
+      "width": 210,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 234,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "经济视角 E（需求 × 供给）"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "能力视角 A（ART × 时间成本）"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "综合（供需比 × ART）"
+        }
+      ],
+      "path": "/key-position-result.html",
+      "radius": "0px",
+      "top": 294,
+      "width": 601.875,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "background": "rgba(0, 0, 0, 0)",
+      "bodyOverflow": false,
+      "gap": 12,
+      "headerBottom": 60,
+      "height": 40,
+      "items": [
+        {
+          "active": true,
+          "after": "none",
+          "background": "oklch(0.492 0.2173 261.41)",
+          "height": 32,
+          "radius": "999px",
+          "text": "人才概览"
+        },
+        {
+          "active": false,
+          "after": "none",
+          "background": "rgba(0, 0, 0, 0)",
+          "height": 32,
+          "radius": "999px",
+          "text": "岗位储备"
+        }
+      ],
+      "path": "/talent-dashboard.html",
+      "radius": "0px",
+      "top": 72,
+      "width": 184,
+      "selectedColors": {
+        "background": "oklch(0.492 0.2173 261.41)",
+        "fontWeight": "500",
+        "shadow": "none",
+        "text": "rgb(255, 255, 255)"
+      }
+    }
+  ],
+  "interactionChecks": [
+    {
+      "page": "/vocabulary.html",
+      "items": [
+        {
+          "text": "能力",
+          "active": false
+        },
+        {
+          "text": "动力",
+          "active": true
+        },
+        {
+          "text": "潜力",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/assess-projects.html",
+      "items": [
+        {
+          "text": "360评估",
+          "active": true
+        },
+        {
+          "text": "人才测评",
+          "active": false
+        },
+        {
+          "text": "考试",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/talent-assessment-projects.html",
+      "items": [
+        {
+          "text": "360评估",
+          "active": false
+        },
+        {
+          "text": "人才测评",
+          "active": true
+        },
+        {
+          "text": "考试",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/exam-projects.html",
+      "items": [
+        {
+          "text": "360评估",
+          "active": false
+        },
+        {
+          "text": "人才测评",
+          "active": false
+        },
+        {
+          "text": "考试",
+          "active": true
+        }
+      ]
+    },
+    {
+      "page": "/review-projects.html",
+      "items": [
+        {
+          "text": "宫格盘点",
+          "active": false
+        },
+        {
+          "text": "人才图谱盘点",
+          "active": true
+        }
+      ]
+    },
+    {
+      "page": "/key-position-result.html",
+      "items": [
+        {
+          "text": "经济视角 E（需求 × 供给）",
+          "active": true
+        },
+        {
+          "text": "能力视角 A（ART × 时间成本）",
+          "active": false
+        },
+        {
+          "text": "综合（供需比 × ART）",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/talent-dashboard.html",
+      "items": [
+        {
+          "text": "人才概览",
+          "active": true
+        },
+        {
+          "text": "岗位储备",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/talent-dashboard.html",
+      "items": [
+        {
+          "text": "人才概览",
+          "active": false
+        },
+        {
+          "text": "岗位储备",
+          "active": true
+        }
+      ]
+    },
+    {
+      "page": "/review-new.html",
+      "items": [
+        {
+          "text": "项目数据",
+          "active": false
+        },
+        {
+          "text": "绩效数据",
+          "active": true
+        }
+      ]
+    },
+    {
+      "page": "/review-map-new.html",
+      "items": [
+        {
+          "text": "人员数据",
+          "active": false
+        },
+        {
+          "text": "绩效数据",
+          "active": false
+        },
+        {
+          "text": "能力数据",
+          "active": true
+        },
+        {
+          "text": "动力数据",
+          "active": false
+        },
+        {
+          "text": "潜力数据",
+          "active": false
+        }
+      ]
+    },
+    {
+      "page": "/review-detail.html",
+      "items": [
+        {
+          "text": "项目数据",
+          "active": false
+        },
+        {
+          "text": "绩效数据",
+          "active": true
+        }
+      ]
+    }
+  ],
+  "keyboardPotential": true,
+  "keyboardCapability": true
+}

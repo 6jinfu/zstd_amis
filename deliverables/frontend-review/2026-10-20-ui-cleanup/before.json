@@ -1,0 +1,1265 @@
+[
+  {
+    "route": "talent-list.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "key-position.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel key-position-category-tree",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "standards.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item std-category active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category std-category-parent scope-node scope-branch-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px",
+            "width": 168
+          },
+          {
+            "class": "cat-tree-item std-category std-category-child scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category std-category-child scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category std-category-child scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category std-category-child scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item std-category scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "vocabulary.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel indicator-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item cap-demo-row active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 46px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 46px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 46px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 46px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 46px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item cap-demo-row scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 24px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "assess-projects.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel assess-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "talent-assessment-projects.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel assess-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "exam-projects.html",
+    "metrics": [
+      {
+        "class": "cat-tree-panel assess-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=grid",
+    "metrics": [
+      {
+        "class": "cat-tree-panel review-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=map",
+    "metrics": [
+      {
+        "class": "cat-tree-panel review-category-tree scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "position-map.html",
+    "metrics": [
+      {
+        "class": "pm-series-panel scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "pm-series-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "pm-series-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "pm-series-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "pm-series-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "positions.html",
+    "metrics": [
+      {
+        "class": "list-rail scope-category",
+        "items": [
+          {
+            "class": null,
+            "color": "rgb(89, 89, 89)",
+            "display": "block",
+            "font": "14px",
+            "height": 14,
+            "line": "22px",
+            "padding": "0px",
+            "width": 14
+          },
+          {
+            "class": "cat-tree-item list-scope-item active scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item list-scope-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item list-scope-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          },
+          {
+            "class": "cat-tree-item list-scope-item scope-node",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "0px 0px 0px 2px",
+            "width": 192
+          }
+        ],
+        "width": 220
+      }
+    ]
+  },
+  {
+    "route": "settings.html#level",
+    "metrics": [
+      {
+        "class": "level-tree",
+        "items": [
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px",
+            "width": 1068
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 94
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px 0px 28px",
+            "width": 1046
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 174.453125
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px 0px 28px",
+            "width": 1046
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 174.453125
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px 0px 28px",
+            "width": 1046
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 174.453125
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px",
+            "width": 1068
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 94
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px 0px 28px",
+            "width": 1046
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 177.8125
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "level-tree-row",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "14px",
+            "height": 40,
+            "line": "22px",
+            "padding": "0px 8px 0px 28px",
+            "width": 1046
+          },
+          {
+            "class": "level-tree-label",
+            "color": "rgb(31, 31, 31)",
+            "display": "flex",
+            "font": "16px",
+            "height": 40,
+            "line": "24px",
+            "padding": "0px",
+            "width": 177.8125
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 66
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          },
+          {
+            "class": "btn-text",
+            "color": "rgb(1, 82, 217)",
+            "display": "flex",
+            "font": "14px",
+            "height": 28,
+            "line": "22px",
+            "padding": "0px 4px",
+            "width": 40
+          }
+        ],
+        "width": 1068
+      }
+    ]
+  },
+  {
+    "route": "standard-detail.html?id=std-algorithm#content-duty",
+    "metrics": [
+      {
+        "class": "anchor-nav",
+        "items": [
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item active",
+            "color": "rgb(1, 72, 191)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          },
+          {
+            "class": "a-item",
+            "color": "rgb(89, 89, 89)",
+            "display": "flex",
+            "font": "14px",
+            "height": 32,
+            "line": "22px",
+            "padding": "5px 8px",
+            "width": 160
+          }
+        ],
+        "width": 160
+      }
+    ]
+  }
+]

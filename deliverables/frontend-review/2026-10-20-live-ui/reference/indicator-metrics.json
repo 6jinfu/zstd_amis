@@ -1,0 +1,1152 @@
+{
+  "components": [
+    {
+      "items": [
+        {
+          "background": "rgb(248, 248, 248)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout is-iframe",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal 8px",
+          "height": 895,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "人才标准评鉴中心发展中心人才中心系统设置帮助中心组织结构关键岗位分析岗",
+          "weight": "400",
+          "width": 1516,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px 8px 8px 0px",
+          "boxShadow": "none",
+          "class": "side-layout__sider",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 895,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "8px 12px",
+          "text": "人才标准评鉴中心发展中心人才中心系统设置帮助中心",
+          "weight": "400",
+          "width": 148,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout__sider"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout__nav",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "4px",
+          "height": 823,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "人才标准评鉴中心发展中心人才中心系统设置",
+          "weight": "400",
+          "width": 124,
+          "x": 12,
+          "y": 8
+        }
+      ],
+      "selector": ".side-layout__nav"
+    },
+    {
+      "items": [
+        {
+          "background": "color(srgb 0.00392157 0.321569 0.85098 / 0.12)",
+          "border": "0px none rgb(1, 82, 217)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "side-nav__item is-active",
+          "color": "rgb(1, 82, 217)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 40,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "8px 16px 8px 12px",
+          "text": "人才标准",
+          "weight": "400",
+          "width": 124,
+          "x": 12,
+          "y": 8
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "side-nav__item",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 40,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "8px 16px 8px 12px",
+          "text": "评鉴中心",
+          "weight": "400",
+          "width": 124,
+          "x": 12,
+          "y": 52
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "side-nav__item",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 40,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "8px 16px 8px 12px",
+          "text": "发展中心",
+          "weight": "400",
+          "width": 124,
+          "x": 12,
+          "y": 96
+        }
+      ],
+      "selector": ".side-nav__item"
+    },
+    {
+      "items": [
+        {
+          "background": "color(srgb 0.00392157 0.321569 0.85098 / 0.12)",
+          "border": "0px none rgb(1, 82, 217)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "side-nav__item is-active",
+          "color": "rgb(1, 82, 217)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 40,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "8px 16px 8px 12px",
+          "text": "人才标准",
+          "weight": "400",
+          "width": 124,
+          "x": 12,
+          "y": 8
+        }
+      ],
+      "selector": ".side-nav__item.is-active"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "",
+          "borderRadius": "8px 8px 0px 0px",
+          "boxShadow": "none",
+          "class": "side-layout__header",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "24px",
+          "height": 49,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 24px",
+          "text": "组织结构关键岗位分析岗位管理指标库",
+          "weight": "400",
+          "width": 1352,
+          "x": 156,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout__header"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout__level2",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "32px",
+          "height": 48,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "组织结构关键岗位分析岗位管理指标库",
+          "weight": "400",
+          "width": 1280,
+          "x": 180,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout__level2"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "lv-tab",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 48,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "13px 0px",
+          "text": "组织结构",
+          "weight": "400",
+          "width": 56,
+          "x": 180,
+          "y": 0
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "lv-tab",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 48,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "13px 0px",
+          "text": "关键岗位分析",
+          "weight": "400",
+          "width": 84,
+          "x": 268,
+          "y": 0
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "lv-tab",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 48,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "13px 0px",
+          "text": "岗位管理",
+          "weight": "400",
+          "width": 56,
+          "x": 384,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout__level2 .lv-tab"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(1, 82, 217)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "lv-tab is-active",
+          "color": "rgb(1, 82, 217)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 48,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "13px 0px",
+          "text": "指标库",
+          "weight": "500",
+          "width": 42,
+          "x": 472,
+          "y": 0
+        }
+      ],
+      "selector": ".side-layout__level2 .lv-tab.is-active"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout__level3",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "16px",
+          "height": 52,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 24px",
+          "text": "能力动力潜力",
+          "weight": "400",
+          "width": 1352,
+          "x": 156,
+          "y": 49
+        }
+      ],
+      "selector": ".side-layout__level3"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "28px",
+          "boxShadow": "none",
+          "class": "lv-tab",
+          "color": "rgb(31, 31, 31)",
+          "font": "12px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "3px 12px",
+          "text": "能力",
+          "weight": "400",
+          "width": 48,
+          "x": 180,
+          "y": 61
+        },
+        {
+          "background": "rgb(1, 82, 217)",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "28px",
+          "boxShadow": "none",
+          "class": "lv-tab is-active",
+          "color": "rgb(255, 255, 255)",
+          "font": "12px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "3px 12px",
+          "text": "动力",
+          "weight": "500",
+          "width": 48,
+          "x": 244,
+          "y": 61
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "28px",
+          "boxShadow": "none",
+          "class": "lv-tab",
+          "color": "rgb(31, 31, 31)",
+          "font": "12px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "3px 12px",
+          "text": "潜力",
+          "weight": "400",
+          "width": 48,
+          "x": 308,
+          "y": 61
+        }
+      ],
+      "selector": ".side-layout__level3 .lv-tab"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(1, 82, 217)",
+          "border": "0px none rgb(255, 255, 255)",
+          "borderRadius": "28px",
+          "boxShadow": "none",
+          "class": "lv-tab is-active",
+          "color": "rgb(255, 255, 255)",
+          "font": "12px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "3px 12px",
+          "text": "动力",
+          "weight": "500",
+          "width": 48,
+          "x": 244,
+          "y": 61
+        }
+      ],
+      "selector": ".side-layout__level3 .lv-tab.is-active"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout__body",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 786,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "类别全部目标过程自我他人名称 :查 询重 置名称类别描述操作专业理论过",
+          "weight": "400",
+          "width": 1352,
+          "x": 156,
+          "y": 101
+        }
+      ],
+      "selector": ".side-layout__body"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px 0px 8px 8px",
+          "boxShadow": "none",
+          "class": "side-layout__content is-l3",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 786,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 24px 24px",
+          "text": "类别全部目标过程自我他人名称 :查 询重 置名称类别描述操作专业理论过",
+          "weight": "400",
+          "width": 1352,
+          "x": 156,
+          "y": 101
+        }
+      ],
+      "selector": ".side-layout__content"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "side-layout__panel",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 762,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "类别全部目标过程自我他人名称 :查 询重 置名称类别描述操作专业理论过",
+          "weight": "400",
+          "width": 1304,
+          "x": 180,
+          "y": 101
+        }
+      ],
+      "selector": ".side-layout__panel"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(255, 255, 255, 0.6)",
+          "border": "1px solid rgba(0, 0, 0, 0.1)",
+          "borderRadius": "8px",
+          "boxShadow": "none",
+          "class": "ads-left-tree motive__left",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "8px",
+          "height": 761,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "16px",
+          "text": "类别全部目标过程自我他人",
+          "weight": "400",
+          "width": 220,
+          "x": 180,
+          "y": 101
+        }
+      ],
+      "selector": ".ads-left-tree"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "cate-tree__head",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "8px",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px 0px 8px",
+          "padding": "0px",
+          "text": "类别",
+          "weight": "400",
+          "width": 186,
+          "x": 197,
+          "y": 118
+        }
+      ],
+      "selector": ".cate-tree__head"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-tree-node arco-tree-node-is-tail arco-tree-node-expanded",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 0px 0px 2px",
+          "text": "全部",
+          "weight": "400",
+          "width": 192,
+          "x": 197,
+          "y": 190
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-tree-node arco-tree-node-is-leaf",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 0px 0px 2px",
+          "text": "目标",
+          "weight": "400",
+          "width": 192,
+          "x": 197,
+          "y": 222
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-tree-node arco-tree-node-is-leaf",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 0px 0px 2px",
+          "text": "过程",
+          "weight": "400",
+          "width": 192,
+          "x": 197,
+          "y": 254
+        }
+      ],
+      "selector": ".arco-tree-node"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-tree-node-title arco-tree-node-title-block",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px 0px 0px -4px",
+          "padding": "5px 4px",
+          "text": "全部",
+          "weight": "400",
+          "width": 172,
+          "x": 217,
+          "y": 190
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-tree-node-title arco-tree-node-title-block",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px 0px 0px -4px",
+          "padding": "5px 4px",
+          "text": "目标",
+          "weight": "400",
+          "width": 150,
+          "x": 239,
+          "y": 222
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-tree-node-title arco-tree-node-title-block",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px 0px 0px -4px",
+          "padding": "5px 4px",
+          "text": "过程",
+          "weight": "400",
+          "width": 150,
+          "x": 239,
+          "y": 254
+        }
+      ],
+      "selector": ".arco-tree-node-title"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(217, 217, 217)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-input-wrapper arco-input-search",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 12px",
+          "text": "",
+          "weight": "400",
+          "width": 186,
+          "x": 197,
+          "y": 154
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(217, 217, 217)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-input-wrapper",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 12px",
+          "text": "",
+          "weight": "400",
+          "width": 136,
+          "x": 477.359375,
+          "y": 102
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(217, 217, 217)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-input-wrapper arco-input-number arco-input-number-mode-embed arco-input-number-size-medium arco-pagination-jumper-input",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22px",
+          "margin": "0px",
+          "padding": "0px 2px",
+          "text": "",
+          "weight": "400",
+          "width": 40,
+          "x": 1443,
+          "y": 672
+        }
+      ],
+      "selector": ".arco-input-wrapper"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-input arco-input-size-small",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 26,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "2px 0px",
+          "text": "",
+          "weight": "400",
+          "width": 134,
+          "x": 210,
+          "y": 155
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-input arco-input-size-medium",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 30,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "4px 0px",
+          "text": "",
+          "weight": "400",
+          "width": 110,
+          "x": 490.359375,
+          "y": 103
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-input arco-input-size-medium",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 30,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "4px 0px",
+          "text": "",
+          "weight": "400",
+          "width": 34,
+          "x": 1446,
+          "y": 673
+        }
+      ],
+      "selector": ".arco-input"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-text arco-btn-shape-square arco-btn-size-small arco-btn-status-normal sider-ext__row-btn help-center__entry",
+          "color": "rgb(89, 89, 89)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 13px",
+          "text": "帮助中心",
+          "weight": "400",
+          "width": 106,
+          "x": 12,
+          "y": 839
+        },
+        {
+          "background": "rgb(1, 82, 217)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-primary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 15px",
+          "text": "查 询",
+          "weight": "400",
+          "width": 64.671875,
+          "x": 633.359375,
+          "y": 102
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(201, 205, 212)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-secondary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 15px",
+          "text": "重 置",
+          "weight": "400",
+          "width": 64.671875,
+          "x": 706.03125,
+          "y": 102
+        }
+      ],
+      "selector": ".arco-btn"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(1, 82, 217)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-primary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 15px",
+          "text": "查 询",
+          "weight": "400",
+          "width": 64.671875,
+          "x": 633.359375,
+          "y": 102
+        }
+      ],
+      "selector": ".arco-btn-primary"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "1px solid rgb(201, 205, 212)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-secondary arco-btn-shape-square arco-btn-size-medium arco-btn-status-normal",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 15px",
+          "text": "重 置",
+          "weight": "400",
+          "width": 64.671875,
+          "x": 706.03125,
+          "y": 102
+        }
+      ],
+      "selector": ".arco-btn-secondary"
+    },
+    {
+      "items": [
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-text arco-btn-shape-square arco-btn-size-small arco-btn-status-normal sider-ext__row-btn help-center__entry",
+          "color": "rgb(89, 89, 89)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px 13px",
+          "text": "帮助中心",
+          "weight": "400",
+          "width": 106,
+          "x": 12,
+          "y": 839
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-text arco-btn-shape-square arco-btn-size-small arco-btn-status-normal",
+          "color": "rgb(1, 82, 217)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 28,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "查看",
+          "weight": "400",
+          "width": 30,
+          "x": 1408.53125,
+          "y": 205
+        },
+        {
+          "background": "rgba(0, 0, 0, 0)",
+          "border": "1px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-btn arco-btn-text arco-btn-shape-square arco-btn-size-mini arco-btn-status-normal arco-more-list-more-btn",
+          "color": "rgb(1, 82, 217)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 24,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "···",
+          "weight": "400",
+          "width": 29,
+          "x": 1408.53125,
+          "y": 207
+        }
+      ],
+      "selector": ".arco-btn-text"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(245, 245, 245)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-th",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "名称",
+          "weight": "600",
+          "width": 210.328125,
+          "x": 425,
+          "y": 150
+        },
+        {
+          "background": "rgb(245, 245, 245)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-th",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "类别",
+          "weight": "600",
+          "width": 168.265625,
+          "x": 635.328125,
+          "y": 150
+        },
+        {
+          "background": "rgb(245, 245, 245)",
+          "border": "0px none rgb(31, 31, 31)",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-th",
+          "color": "rgb(31, 31, 31)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "描述",
+          "weight": "600",
+          "width": 588.9375,
+          "x": 803.59375,
+          "y": 150
+        }
+      ],
+      "selector": ".arco-table-th"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-td",
+          "color": "rgb(29, 33, 41)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "专业理论",
+          "weight": "400",
+          "width": 210.328125,
+          "x": 425,
+          "y": 196
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-td",
+          "color": "rgb(29, 33, 41)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "过程",
+          "weight": "400",
+          "width": 168.265625,
+          "x": 635.328125,
+          "y": 196
+        },
+        {
+          "background": "rgb(255, 255, 255)",
+          "border": "",
+          "borderRadius": "0px",
+          "boxShadow": "none",
+          "class": "arco-table-td",
+          "color": "rgb(29, 33, 41)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 46,
+          "line": "22.001px",
+          "margin": "0px",
+          "padding": "0px",
+          "text": "对专业领域的知识和理论有浓厚兴趣，追求在专业领域的深入研究和践行，凡事",
+          "weight": "400",
+          "width": 588.9375,
+          "x": 803.59375,
+          "y": 196
+        }
+      ],
+      "selector": ".arco-table-td"
+    },
+    {
+      "items": [
+        {
+          "background": "rgb(245, 245, 245)",
+          "border": "0px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-pagination-item arco-pagination-item-previous arco-pagination-item-disabled",
+          "color": "rgb(191, 191, 191)",
+          "font": "12px",
+          "gap": "normal",
+          "height": 32,
+          "line": "32px",
+          "margin": "0px 8px 0px 0px",
+          "padding": "0px 8px",
+          "text": "",
+          "weight": "400",
+          "width": 32,
+          "x": 1089.3125,
+          "y": 672
+        },
+        {
+          "background": "rgb(1, 82, 217)",
+          "border": "0px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-pagination-item arco-pagination-item-active",
+          "color": "rgb(255, 255, 255)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "32px",
+          "margin": "0px 8px 0px 0px",
+          "padding": "0px 8px",
+          "text": "1",
+          "weight": "400",
+          "width": 32,
+          "x": 1129.3125,
+          "y": 672
+        },
+        {
+          "background": "rgb(245, 245, 245)",
+          "border": "0px solid rgba(0, 0, 0, 0)",
+          "borderRadius": "4px",
+          "boxShadow": "none",
+          "class": "arco-pagination-item",
+          "color": "rgb(89, 89, 89)",
+          "font": "14px",
+          "gap": "normal",
+          "height": 32,
+          "line": "32px",
+          "margin": "0px 8px 0px 0px",
+          "padding": "0px 8px",
+          "text": "2",
+          "weight": "400",
+          "width": 32,
+          "x": 1169.3125,
+          "y": 672
+        }
+      ],
+      "selector": ".arco-pagination-item"
+    }
+  ],
+  "font": "PingFang-SC, \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif",
+  "sheets": [
+    {
+      "href": null,
+      "inline": true
+    },
+    {
+      "href": "https://v4static.21tb.com/ai-apps/base/20261010160739/assets/setup-BRH9Viac.css",
+      "inline": false
+    },
+    {
+      "href": null,
+      "inline": true
+    },
+    {
+      "href": "https://v4static.21tb.com/ai-apps/apps/talent/20261012175249/index.css?v=20261012175249",
+      "inline": false
+    }
+  ],
+  "title": "人才发展 - 动力"
+}

@@ -1,0 +1,34 @@
+{
+  "viewport": {
+    "width": 1143,
+    "height": 894
+  },
+  "target": {
+    "height": 32,
+    "width": 95.75,
+    "font": 13,
+    "icon": 14,
+    "radius": 6,
+    "hitHeight": 40
+  },
+  "keyboardFocus": true,
+  "extendedHitNavigates": true,
+  "createFooter": [
+    36,
+    36
+  ],
+  "indicatorDialog": {
+    "close": 32,
+    "query": 32,
+    "moveIn": 32,
+    "moveOut": 32,
+    "cancel": 36,
+    "confirm": 36
+  },
+  "standardAIConfirm": 36,
+  "dimensionSave": 36,
+  "normalInput": 44,
+  "queryRows": 1,
+  "resetRows": 3,
+  "version": "20261020u"
+}

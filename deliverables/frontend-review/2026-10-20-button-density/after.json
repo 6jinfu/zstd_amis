@@ -1,0 +1,3638 @@
+[
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建分析",
+        "width": 95.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看结果",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看进度",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm muted",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "终止",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "提交",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "key-position.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary btn-lg",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 36,
+        "table": false,
+        "text": "开始分析",
+        "width": 103.75
+      }
+    ],
+    "overflow": false,
+    "path": "org-structure.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建人才标准",
+        "width": 101.625
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "AI帮建",
+        "width": 82.046875
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "standards.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建能力",
+        "width": 96
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn ",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "2",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn ",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "3",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn ",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "4",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn ",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "vocabulary.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "添加关键岗位",
+        "width": 122
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary muted",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm muted",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "适用标准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm ops-secondary muted",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "学习方案",
+        "width": 59.75
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "positions.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理360评估类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary assess-action-settings",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "列表设置",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建",
+        "width": 49.875
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "AI帮建",
+        "width": 62.046875
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "添加授权",
+        "width": 76
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "移除授权",
+        "width": 76
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "导出已选项",
+        "width": 89
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "导出当前结果",
+        "width": 102
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "关闭",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "关闭",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "关闭",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "项目设置",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "宣传设置",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "‹",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "2",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "3",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "›",
+        "width": 32
+      }
+    ],
+    "overflow": false,
+    "path": "assess-projects.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理人才测评类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary assess-action-settings",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "列表设置",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "删除",
+        "width": 50
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "九型人格测评",
+        "width": 84
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "中层管理者技能测评",
+        "width": 120
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "管理梯队动力潜力测评",
+        "width": 132
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "PDP行为风格测评",
+        "width": 108.265625
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "销售经理领导风格测评",
+        "width": 132
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "核心人才潜力测评",
+        "width": 108
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "新员工适岗测评",
+        "width": 96
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "‹",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "2",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "3",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "14",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "›",
+        "width": 32
+      }
+    ],
+    "overflow": false,
+    "path": "talent-assessment-projects.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理考试类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary assess-action-settings",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "列表设置",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "删除",
+        "width": 50
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "后端开发上岗考试",
+        "width": 108
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "前端开发上岗考试",
+        "width": 108
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "测试工程师任职资格考试",
+        "width": 144
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "初级开发入职前测",
+        "width": 108
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "员工胜任力考试",
+        "width": 96
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "发布",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm danger",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "OA基础考试",
+        "width": 77.375
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "架构师能力考试",
+        "width": 96
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "btn-text table-link",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "销售新人入职考试",
+        "width": 108
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "监控",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "统计",
+        "width": 40
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "复制",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "‹",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "2",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "›",
+        "width": 32
+      }
+    ],
+    "overflow": false,
+    "path": "exam-projects.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "管理宫格盘点类别",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "创建宫格盘点",
+        "width": 121.625
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看结果",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看结果",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "进入校准",
+        "width": 59.75
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看结果",
+        "width": 59.75
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "review-projects.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "更多筛选",
+        "width": 76
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "加入人才池",
+        "width": 89
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "人才对比",
+        "width": 76
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "导出",
+        "width": 50
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "talent-list.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新建人才池",
+        "width": 89
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "talent-pool.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      }
+    ],
+    "overflow": false,
+    "path": "talent-dashboard.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary pm-add-map",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新增岗位地图",
+        "width": 102
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "搜索",
+        "width": 50
+      }
+    ],
+    "overflow": false,
+    "path": "position-map.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "新增序列",
+        "width": 76
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增职级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增同级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增同级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增同级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增职级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增同级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "新增同级",
+        "width": 60
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "编辑",
+        "width": 40
+      },
+      {
+        "cls": "btn-text",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": false,
+        "text": "删除",
+        "width": 40
+      }
+    ],
+    "overflow": false,
+    "path": "settings.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "催办",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "结束评估",
+        "width": 76
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看报告",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看报告",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看报告",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看报告",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "查看报告",
+        "width": 60
+      },
+      {
+        "cls": "btn-text btn-sm",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 28,
+        "table": true,
+        "text": "催办",
+        "width": 40
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "上一页",
+        "width": 54
+      },
+      {
+        "cls": "pg-btn active",
+        "disabled": false,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "1",
+        "width": 32
+      },
+      {
+        "cls": "pg-btn disabled",
+        "disabled": true,
+        "font": "12px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "下一页",
+        "width": 54
+      }
+    ],
+    "overflow": false,
+    "path": "assess-detail.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      }
+    ],
+    "overflow": false,
+    "path": "review-detail.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查询",
+        "width": 50
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "重置",
+        "width": 50
+      }
+    ],
+    "overflow": false,
+    "path": "review-map-detail.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-ghost",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "取消",
+        "width": 57.875
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "提交分析",
+        "width": 103.75
+      }
+    ],
+    "overflow": false,
+    "path": "key-position-new.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "查看通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "取消",
+        "width": 57.875
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "保存",
+        "width": 58
+      }
+    ],
+    "overflow": false,
+    "path": "standard-detail.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "icon-btn",
+        "disabled": false,
+        "font": "13.3333px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "通知",
+        "width": 32
+      },
+      {
+        "cls": "btn btn-ghost",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "取消",
+        "width": 57.875
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "保存草稿",
+        "width": 84
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": false,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "下一步",
+        "width": 71
+      }
+    ],
+    "overflow": false,
+    "path": "review-new.html"
+  },
+  {
+    "buttons": [
+      {
+        "cls": "btn btn-secondary",
+        "disabled": true,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "预览问卷",
+        "width": 84
+      },
+      {
+        "cls": "btn btn-primary",
+        "disabled": true,
+        "font": "13px",
+        "footer": true,
+        "height": 36,
+        "table": false,
+        "text": "保存草稿",
+        "width": 84
+      },
+      {
+        "cls": "btn btn-secondary",
+        "disabled": false,
+        "font": "13px",
+        "footer": false,
+        "height": 32,
+        "table": false,
+        "text": "使用 AI 帮建",
+        "width": 96.140625
+      }
+    ],
+    "overflow": false,
+    "path": "assess-new.html"
+  }
+]

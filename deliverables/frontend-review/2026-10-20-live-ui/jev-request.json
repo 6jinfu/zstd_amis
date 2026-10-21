@@ -1,0 +1,91 @@
+{
+  "model": "jev-latest",
+  "state": {
+    "user_request": "Match online talent-development feature UI exactly: navigation, buttons, lists, details. Prototype-only features use same style. Do not copy outer platform navigation. Use Jev for judgment. Existing business scope and user data must remain.",
+    "evidence": "Read actual rendered HTML, component CSS and KeyPositionPage/CategoryTree source from signed-in online feature. Excludes platform wrapper.",
+    "online_metrics": {
+      "primary_nav": "148px, white, text-only 40px items, 4px gap, active brand blue12% fill, no brand or user avatar bar",
+      "business_nav": "49px bar,24px horizontal padding,32px gaps,14px normal/active500,32x3px centered blue active underline",
+      "page_tabs": "52px bar,28px high capsules,12px text,12px horizontal padding,16px gaps",
+      "controls": "32px normal buttons and forms,14px text,4px radius,flat1px border,no tinted shadows",
+      "category_rail": "220px width,16px padding,8px border radius,32px tree row,22px hierarchy step in source",
+      "list": "category/main24px gap,filter inline labels +32px fields,16px vertical groups,46px rows/header,14px text,light gray#f5f5f5 header,9px16px8px cells,32px paging",
+      "tokens": "brand#0152D9, text#1F1F1F/#595959/#8C8C8C, border#D9D9D9/#E5E6EB, page surround#F8F8F8, white main"
+    },
+    "prototype_now": {
+      "nav": "184px icons with local brand,60px header includes synthetic avatar/bell/help text",
+      "page_tabs": "40px row,32px options,13px text",
+      "controls": "32px13px6px corner;commit36px;forms44px;shadows",
+      "category": "192px continuous workbench,40px rows,16px indent",
+      "lists": "52px white header/rows,13px data",
+      "features_unique": [
+        "standards and AI standard creation",
+        "360 AI questionnaire dialog flow",
+        "talent map review and pool closed loop",
+        "dimension settings and two-level grade editor"
+      ]
+    },
+    "hard_constraints": [
+      "No decorative captions or colored one-sided card stripes",
+      "Do not copy network academy/BD/OD/LD platform menu, application tab bar, search app, user avatar or switch learner",
+      "Do not migrate frameworks or import production runtime/data/API",
+      "Keep real routes, drafts, save/cancel, filters, disabled states, tree hierarchy and text meanings"
+    ]
+  },
+  "questions": {
+    "shell": {
+      "type": "choice",
+      "instructions": "Choose UI shell adaptation matching latest user request and measured feature boundary.",
+      "criteria": {
+        "inner_only": "Use148px text-only five-center nav,49px internal business nav,8px surround; omit prototype logo/icon/synthetic user bar; preserve routes and current feature names",
+        "keep_old": "Keep184px icons,brand and avatar because earlier local styles were approved",
+        "copy_outer": "Also reproduce academy/BD/OD/LD global shell"
+      }
+    },
+    "components": {
+      "type": "choice",
+      "instructions": "Choose control token policy for strict reference fidelity including prototype-only controls.",
+      "criteria": {
+        "reference_tokens": "Use measured14px type,32px controls,4px corners,flat borders and shared blue states;translate existing controls without replacing behavior",
+        "mixed": "Keep13px6px local controls and use online styles only on key-position page",
+        "framework_replace": "Rebuild all pages using the live Vue runtime and production APIs"
+      }
+    },
+    "rails": {
+      "type": "choice",
+      "instructions": "Newest user requests exact online style; earlier local rail192px/40px conflicts with measured220px/32px. Which policy applies?",
+      "criteria": {
+        "latest_reference": "Use220px separated category panel,16px padding,32px rows and consistent hierarchy style;full-width grade editor remains editor",
+        "old_density": "Preserve192px40px to prioritize earlier iteration over current reference",
+        "flatten": "Flatten all hierarchy into narrow buttons"
+      }
+    },
+    "lists": {
+      "type": "choice",
+      "instructions": "Choose list treatment across existing and prototype-only pages.",
+      "criteria": {
+        "shared_reference": "46px table/header rows,gray header,14px type,flat32px pager,inline32px filters;preserve right alignment and sticky operations",
+        "partial": "Style only visible key-position table;other centers keep52px rows",
+        "pixel_data": "Copy online columns and records into local pages to match screenshot"
+      }
+    },
+    "unique_features": {
+      "type": "choice",
+      "instructions": "How should local-only AI workflows, talent-pool tracking, talent-map and dimension settings be treated?",
+      "criteria": {
+        "skin_existing": "Retain business content and interactions;apply common navigation,forms,buttons,tables,modal tokens;use existing semantic hierarchy",
+        "remove": "Delete features without online equivalents",
+        "invent": "Add extra metrics,decorative subtitles and new business rules to fill gaps"
+      }
+    },
+    "page_tabs": {
+      "type": "choice",
+      "instructions": "Which segmented navigation geometry best satisfies this task?",
+      "criteria": {
+        "online28": "Use online52px row with28px capsules,12px type,16px gaps and blue selected state",
+        "local32": "Keep local40px row with32px capsule,13px type,8px gaps",
+        "underline_all": "Convert all levels to the same underline style"
+      }
+    }
+  }
+}

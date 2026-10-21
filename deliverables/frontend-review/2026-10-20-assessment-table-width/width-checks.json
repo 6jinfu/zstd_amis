@@ -1,0 +1,35 @@
+[
+  {
+    "target": 650,
+    "nameFullyInViewport": true,
+    "nameRight": 912.8125,
+    "nameWidth": 240.296875,
+    "opsLeft": 1172.09375,
+    "opsPosition": "static",
+    "overflow": "auto",
+    "scrollWidth": 1120,
+    "width": 650
+  },
+  {
+    "target": 824,
+    "nameFullyInViewport": true,
+    "nameRight": 912.8125,
+    "nameWidth": 240.296875,
+    "opsLeft": 1172.09375,
+    "opsPosition": "static",
+    "overflow": "auto",
+    "scrollWidth": 1120,
+    "width": 824
+  },
+  {
+    "target": 960,
+    "nameFullyInViewport": true,
+    "nameRight": 912.8125,
+    "nameWidth": 240.296875,
+    "opsLeft": 1012.09375,
+    "opsPosition": "sticky",
+    "overflow": "auto",
+    "scrollWidth": 1120,
+    "width": 960
+  }
+]

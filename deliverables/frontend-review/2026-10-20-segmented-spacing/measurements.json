@@ -1,0 +1,53 @@
+{
+  "before": {
+    "activeHeight": 32,
+    "bottomGap": 18,
+    "page": "/exam-projects.html",
+    "topGap": 8,
+    "workbenchTop": 118
+  },
+  "after": {
+    "activeHeight": 32,
+    "bottomGap": 8,
+    "page": "/exam-projects.html",
+    "topGap": 8,
+    "workbenchTop": 108
+  },
+  "pages": [
+    {
+      "activeHeight": 32,
+      "bottomGap": 8,
+      "page": "/assess-projects.html",
+      "topGap": 8,
+      "workbenchTop": 108
+    },
+    {
+      "activeHeight": 32,
+      "bottomGap": 8,
+      "page": "/talent-assessment-projects.html",
+      "topGap": 8,
+      "workbenchTop": 108
+    },
+    {
+      "activeHeight": 32,
+      "bottomGap": 8,
+      "page": "/vocabulary.html",
+      "topGap": 8,
+      "workbenchTop": 108
+    },
+    {
+      "activeHeight": 32,
+      "bottomGap": 8,
+      "page": "/review-projects.html",
+      "topGap": 8,
+      "workbenchTop": 108
+    },
+    {
+      "activeHeight": 32,
+      "bottomGap": 8,
+      "page": "/review-projects.html",
+      "topGap": 8,
+      "workbenchTop": 108
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+[
+  {
+    "sequenceCount": 1,
+    "levelCount": 1,
+    "groups": 1,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 1,
+    "levelCount": 2,
+    "groups": 2,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 1,
+    "levelCount": 3,
+    "groups": 3,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 1,
+    "levelCount": 4,
+    "groups": 4,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 1,
+    "levelCount": 5,
+    "groups": 5,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 2,
+    "levelCount": 1,
+    "groups": 2,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 2,
+    "levelCount": 2,
+    "groups": 4,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 2,
+    "levelCount": 3,
+    "groups": 6,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 2,
+    "levelCount": 4,
+    "groups": 8,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 2,
+    "levelCount": 5,
+    "groups": 10,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 3,
+    "levelCount": 1,
+    "groups": 3,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 3,
+    "levelCount": 2,
+    "groups": 6,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 3,
+    "levelCount": 3,
+    "groups": 8,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 3,
+    "levelCount": 4,
+    "groups": 12,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 3,
+    "levelCount": 5,
+    "groups": 14,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 4,
+    "levelCount": 1,
+    "groups": 4,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 4,
+    "levelCount": 2,
+    "groups": 8,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 4,
+    "levelCount": 3,
+    "groups": 12,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 4,
+    "levelCount": 4,
+    "groups": 16,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 4,
+    "levelCount": 5,
+    "groups": 18,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 5,
+    "levelCount": 1,
+    "groups": 5,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 5,
+    "levelCount": 2,
+    "groups": 10,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 5,
+    "levelCount": 3,
+    "groups": 15,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 5,
+    "levelCount": 4,
+    "groups": 20,
+    "jobs": 34,
+    "people": 165
+  },
+  {
+    "sequenceCount": 5,
+    "levelCount": 5,
+    "groups": 22,
+    "jobs": 34,
+    "people": 165
+  }
+]

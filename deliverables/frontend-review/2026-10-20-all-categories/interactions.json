@@ -1,0 +1,169 @@
+{
+  "standardSearch": [
+    "岗位序列标准",
+    "产品序列"
+  ],
+  "collapsePreserved": true,
+  "standardFiltered": "共 6 条 · 每页 10 条",
+  "talentFilter": "\t王芳\t销售中心\t区域销售总监\t核心\t2026-09-18\t查看",
+  "talentRemounted": 4,
+  "positionSeries": "G\n总经理\n首席财务官\nA\n部门总监\n财务总监\nB\n部门经理\n财务分析经理\nC\n主管\n团队主管\nD\n专员\n招聘专员\n职级 / 通道\n综合管理通道\n职能管理通道",
+  "capExpanded": true,
+  "capSearch": [
+    "全部",
+    "技能",
+    "专业能力",
+    "技术簇"
+  ],
+  "capManagerLevels": [
+    "1",
+    "2",
+    "3"
+  ],
+  "capManagerSearch": [
+    "技能",
+    "专业能力",
+    "技术簇"
+  ],
+  "indicator-mot": {
+    "rows": [
+      {
+        "height": 32,
+        "name": "全部"
+      },
+      {
+        "height": 32,
+        "name": "成就与发展"
+      },
+      {
+        "height": 32,
+        "name": "关系与利他"
+      },
+      {
+        "height": 32,
+        "name": "价值与意义"
+      },
+      {
+        "height": 32,
+        "name": "安全与平衡"
+      }
+    ],
+    "search": 28,
+    "width": 220
+  },
+  "indicator-pot": {
+    "rows": [
+      {
+        "height": 32,
+        "name": "全部"
+      },
+      {
+        "height": 32,
+        "name": "思维方式"
+      },
+      {
+        "height": 32,
+        "name": "人际互动"
+      },
+      {
+        "height": 32,
+        "name": "自我情绪"
+      }
+    ],
+    "search": 28,
+    "width": 220
+  },
+  "picker": {
+    "icons": 18,
+    "rows": [
+      32
+    ],
+    "search": 28,
+    "width": 220
+  },
+  "pickerSearch": [
+    "全部",
+    "技能",
+    "专业能力",
+    "技术簇"
+  ],
+  "reviewScope": {
+    "rows": [
+      {
+        "checked": true,
+        "height": 32
+      },
+      {
+        "checked": true,
+        "height": 32
+      },
+      {
+        "checked": true,
+        "height": 32
+      },
+      {
+        "checked": true,
+        "height": 32
+      }
+    ],
+    "search": 28,
+    "width": 220
+  },
+  "capRenameHierarchy": [
+    {
+      "level": "1",
+      "name": "技能"
+    },
+    {
+      "level": "2",
+      "name": "专业能力"
+    },
+    {
+      "level": "3",
+      "name": "技术簇校验"
+    }
+  ],
+  "capRenamedRows": 4,
+  "capRenameRestored": 4,
+  "moduleFilters": [
+    {
+      "route": "assess-projects.html",
+      "selected": "通用能力",
+      "visibleRows": 4
+    },
+    {
+      "route": "talent-assessment-projects.html",
+      "selected": "人格测评",
+      "visibleRows": 1
+    },
+    {
+      "route": "exam-projects.html",
+      "selected": "岗位认证",
+      "visibleRows": 3
+    },
+    {
+      "route": "review-projects.html?method=grid",
+      "selected": "年度盘点",
+      "visibleRows": 1
+    },
+    {
+      "route": "review-projects.html?method=map",
+      "selected": "年度盘点",
+      "visibleRows": 1
+    },
+    {
+      "route": "positions.html",
+      "selected": "研发",
+      "visibleRows": 6
+    }
+  ],
+  "mapScope": {
+    "rows": [
+      32
+    ],
+    "search": 28,
+    "width": 220
+  },
+  "emptyState": true,
+  "emptyRestored": 4
+}

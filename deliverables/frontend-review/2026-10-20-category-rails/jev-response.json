@@ -1,0 +1,60 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "category_width": {
+      "type": "choice",
+      "choice": "w192",
+      "confidence": 0.36,
+      "probabilities": {
+        "w176": 0.02,
+        "w184": 0.44,
+        "w192": 0.52,
+        "keep208": 0.02
+      }
+    },
+    "row_density": {
+      "type": "choice",
+      "choice": "r40",
+      "confidence": 0.72,
+      "probabilities": {
+        "r36": 0.01,
+        "r40": 0.81,
+        "r44": 0.18
+      }
+    },
+    "scope": {
+      "type": "choice",
+      "choice": "by_role",
+      "confidence": 1.0,
+      "probabilities": {
+        "by_role": 1.0,
+        "literal_all": 0.0,
+        "category_only": 0.0
+      }
+    },
+    "selection": {
+      "type": "choice",
+      "choice": "rounded_fill",
+      "confidence": 0.98,
+      "probabilities": {
+        "rounded_fill": 0.99,
+        "stripe": 0.01,
+        "preserve": 0.0
+      }
+    },
+    "hierarchy": {
+      "type": "choice",
+      "choice": "consistent16",
+      "confidence": 0.73,
+      "probabilities": {
+        "consistent16": 0.82,
+        "keep24": 0.18,
+        "flatten": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 1423,
+    "output_tokens": 224
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "duration_seconds": 300,
+  "subtitle_count": 63,
+  "shot_count": 32,
+  "voice_han_characters": 1007,
+  "subtitle_start_seconds": 8,
+  "subtitle_end_seconds": 300,
+  "max_subtitle_lines": 2,
+  "max_line_characters": 17,
+  "max_spoken_units_per_second": 4.46,
+  "min_cue_seconds": 3.009,
+  "source_srt_sha256": "429916c47b3f7f04da40976a6fb4868ca8952b4a5fb3c4600c6bbe0d200a0c2e",
+  "per_segment": [
+    {
+      "name": "片头",
+      "seconds": 8,
+      "spoken_units": 0,
+      "average_spoken_units_per_second": 0.0
+    },
+    {
+      "name": "提出三个问题",
+      "seconds": 17,
+      "spoken_units": 53,
+      "average_spoken_units_per_second": 3.12
+    },
+    {
+      "name": "组织结构分析",
+      "seconds": 22,
+      "spoken_units": 72,
+      "average_spoken_units_per_second": 3.27
+    },
+    {
+      "name": "关键岗位分析",
+      "seconds": 23,
+      "spoken_units": 86,
+      "average_spoken_units_per_second": 3.74
+    },
+    {
+      "name": "人才标准与指标",
+      "seconds": 40,
+      "spoken_units": 148,
+      "average_spoken_units_per_second": 3.7
+    },
+    {
+      "name": "从标准转向看人",
+      "seconds": 10,
+      "spoken_units": 34,
+      "average_spoken_units_per_second": 3.4
+    },
+    {
+      "name": "360 评估",
+      "seconds": 30,
+      "spoken_units": 95,
+      "average_spoken_units_per_second": 3.17
+    },
+    {
+      "name": "人才盘点与校准",
+      "seconds": 50,
+      "spoken_units": 184,
+      "average_spoken_units_per_second": 3.68
+    },
+    {
+      "name": "从盘点转向发展",
+      "seconds": 10,
+      "spoken_units": 32,
+      "average_spoken_units_per_second": 3.2
+    },
+    {
+      "name": "岗位地图",
+      "seconds": 23,
+      "spoken_units": 73,
+      "average_spoken_units_per_second": 3.17
+    },
+    {
+      "name": "学习方案",
+      "seconds": 33,
+      "spoken_units": 117,
+      "average_spoken_units_per_second": 3.55
+    },
+    {
+      "name": "人才中心",
+      "seconds": 24,
+      "spoken_units": 87,
+      "average_spoken_units_per_second": 3.62
+    },
+    {
+      "name": "收束",
+      "seconds": 10,
+      "spoken_units": 35,
+      "average_spoken_units_per_second": 3.5
+    }
+  ],
+  "verified": [
+    "300 秒段落及镜头覆盖",
+    "SRT 编号、格式与无重叠",
+    "两行与单行长度",
+    "旁白与字幕文字一致"
+  ],
+  "not_verified": [
+    "真实视频画面",
+    "实际配音时长与字幕同步",
+    "补录是否完成",
+    "实际剪映导入与会场播放"
+  ]
+}

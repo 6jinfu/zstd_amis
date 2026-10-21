@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人才发展 · 三个问题</title>
+<style>
+@font-face{font-family:"Source Han Sans SC";src:url("assets/SourceHanSansSC-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Source Han Sans SC";src:url("assets/SourceHanSansSC-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:block}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}
+body{font-family:"Source Han Sans SC";font-synthesis:none;-webkit-font-smoothing:antialiased}
+#main{position:absolute;width:1728px;height:1117px;overflow:hidden;transform-origin:0 0;background:#fff}
+#air{position:absolute;inset:0;width:1728px;height:1117px}
+.chapter{position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden}
+.chapter-number-position{position:absolute;top:205px;left:0;right:0;text-align:center}
+.chapter-number-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 4px 8px}
+.chapter-number{display:inline-block;color:#0b5eff;font-size:144px;line-height:1.2;font-weight:700;font-variant-numeric:tabular-nums;opacity:0;will-change:transform,opacity}
+.question-position{position:absolute;top:405px;left:0;right:0;text-align:center;transform-origin:50% 50%}
+h2{margin:0;color:#0b5eff;font-size:98px;line-height:1.4;font-weight:700;letter-spacing:0;white-space:nowrap}
+.glyph-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 2px 8px}
+.glyph{display:inline-block;opacity:0;transform-origin:50% 80%;will-change:transform,opacity}
+.detail{position:absolute;left:0;right:0;top:610px;text-align:center;margin:0;color:#0b5eff;font-size:46px;line-height:1.5;font-weight:500;white-space:nowrap}
+.detail-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 4px 8px}
+.detail-text{display:inline-block;opacity:0;will-change:transform,opacity}
+#white-cover{position:absolute;inset:0;pointer-events:none;background:#fff;opacity:1}
+</style>
+</head>
+<body>
+<main id="main" data-composition-id="main" data-width="1728" data-height="1117" data-duration="12" data-fps="60">
+<canvas id="air" class="clip" data-start="0" data-duration="12" data-track-index="0" aria-hidden="true"></canvas>
+<section id="chapter-1" class="chapter scene clip" data-start="0" data-duration="4" data-track-index="1" aria-label="需要什么样的人？">
+<div class="chapter-number-position"><span class="chapter-number-mask"><span class="chapter-number" aria-label="第一部分">01</span></span></div>
+<div class="question-position"><h2>需要什么样的人？</h2></div>
+<p class="detail"><span class="detail-mask"><span class="detail-text">组织与关键岗位分析 · 人才标准</span></span></p>
+</section>
+<section id="chapter-2" class="chapter scene clip" data-start="4" data-duration="4" data-track-index="1" aria-label="现在的人怎么样？">
+<div class="chapter-number-position"><span class="chapter-number-mask"><span class="chapter-number" aria-label="第二部分">02</span></span></div>
+<div class="question-position"><h2>现在的人怎么样？</h2></div>
+<p class="detail"><span class="detail-mask"><span class="detail-text">360 评估 · 人才盘点</span></span></p>
+</section>
+<section id="chapter-3" class="chapter scene clip" data-start="8" data-duration="4" data-track-index="1" aria-label="知道差距以后怎么办？">
+<div class="chapter-number-position"><span class="chapter-number-mask"><span class="chapter-number" aria-label="第三部分">03</span></span></div>
+<div class="question-position"><h2>知道差距以后怎么办？</h2></div>
+<p class="detail"><span class="detail-mask"><span class="detail-text">岗位地图 · 学习方案 · 人才中心</span></span></p>
+</section>
+<div id="white-cover"></div>
+</main>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+const chapters=[...document.querySelectorAll('.chapter')];
+chapters.forEach(chapter=>{
+ const heading=chapter.querySelector('h2'),text=heading.textContent;
+ heading.setAttribute('aria-label',text);heading.textContent='';
+ for(const char of text){const mask=document.createElement('span'),glyph=document.createElement('span');mask.className='glyph-mask';glyph.className='glyph';glyph.textContent=char;glyph.setAttribute('aria-hidden','true');mask.appendChild(glyph);heading.appendChild(mask);}
+});
+const renderAir=window.createAirScene(document.getElementById('air'),{exit:false});
+let current=0;
+const clock={};
+function draw(t){const local=t>=12?4:t%4;renderAir(local*1.4);}
+Object.defineProperty(clock,'t',{get:()=>current,set:t=>{current=t;draw(t);},enumerable:true});
+const tl=gsap.timeline({paused:true});
+tl.to(clock,{t:12,duration:12,ease:'none'},0);
+chapters.forEach((chapter,i)=>{
+ const start=i*4,selector='#'+chapter.id;
+ tl.set(selector,{visibility:'visible',opacity:1,y:0},start);
+ tl.to('#white-cover',{opacity:0,duration:.45,ease:'power2.out'},start);
+ tl.fromTo(selector+' .chapter-number',{y:32,scale:.95,opacity:0},{y:0,scale:1,opacity:1,duration:.68,ease:'power4.out',immediateRender:false},start+.12);
+ tl.fromTo(selector+' .glyph',{y:58,x:n=>-9+n*.6,rotation:n=>-.9+n*.075,opacity:0},{y:0,x:0,rotation:0,opacity:1,duration:.6,stagger:.02,ease:'power4.out',immediateRender:false},start+.34);
+ tl.fromTo(selector+' .question-position',{y:9,scale:.987},{y:0,scale:1,duration:.9,ease:'power3.out',immediateRender:false},start+.34);
+ tl.fromTo(selector+' .detail-text',{y:37,x:-9,opacity:0},{y:0,x:0,opacity:1,duration:.62,ease:'power3.out',immediateRender:false},start+.79);
+ tl.to(selector,{y:-12,opacity:0,duration:.3,ease:'power2.in'},start+3.5);
+ tl.to('#white-cover',{opacity:1,duration:.36,ease:'power2.inOut'},start+3.64);
+ tl.set(selector,{visibility:'hidden'},start+4);
+});
+window.__timelines=window.__timelines||{};window.__timelines.main=tl;
+window.seekChapters=t=>{t=Math.max(0,Math.min(12,t));tl.pause().seek(t,false);draw(t);};
+function fit(){const s=Math.min(innerWidth/1728,innerHeight/1117),e=document.getElementById('main');e.style.transform='scale('+s+')';e.style.left=(innerWidth-1728*s)/2+'px';e.style.top=(innerHeight-1117*s)/2+'px';}
+addEventListener('resize',fit);fit();draw(0);
+window.fontsReady=Promise.all([
+ document.fonts.load('700 98px "Source Han Sans SC"','010203'+chapters.map(c=>c.querySelector('h2').getAttribute('aria-label')).join('')),
+ document.fonts.load('500 46px "Source Han Sans SC"',chapters.map(c=>c.querySelector('.detail').textContent).join(''))
+]).then(()=>document.fonts.ready);
+window.fontsReady.then(()=>{const p=new URLSearchParams(location.search);if(p.has('t'))window.seekChapters(Number(p.get('t')));else if(matchMedia('(prefers-reduced-motion: reduce)').matches)window.seekChapters(2);else if(location.protocol==='file:'||p.has('play'))tl.play(0);});
+</script>
+</body>
+</html>

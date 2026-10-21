@@ -1,0 +1,1349 @@
+[
+  {
+    "test": "动力列表操作",
+    "result": {
+      "actions": [
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        }
+      ],
+      "url": "/vocabulary.html"
+    }
+  },
+  {
+    "test": "潜力列表操作",
+    "result": {
+      "actions": [
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "查看"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        }
+      ],
+      "url": "/vocabulary.html"
+    }
+  },
+  {
+    "test": "岗位适用标准操作导航",
+    "result": "/position-detail.html?position=RD-302#standard"
+  },
+  {
+    "test": "公共类别管理操作",
+    "result": {
+      "actions": [
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "编辑"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "学习方案"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": false,
+          "disabled": false,
+          "text": "复制"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        },
+        {
+          "color": "oklch(0.492 0.2173 261.41)",
+          "danger": true,
+          "disabled": false,
+          "text": "删除"
+        }
+      ],
+      "url": "/standards.html"
+    }
+  },
+  {
+    "test": "列表真实禁用项",
+    "result": [
+      {
+        "background": "oklch(0.955 0.005 255)",
+        "color": "oklch(0.68 0.01 255)",
+        "disabled": true,
+        "text": "添加授权"
+      },
+      {
+        "background": "oklch(0.955 0.005 255)",
+        "color": "oklch(0.68 0.01 255)",
+        "disabled": true,
+        "text": "移除授权"
+      },
+      {
+        "background": "oklch(0.955 0.005 255)",
+        "color": "oklch(0.68 0.01 255)",
+        "disabled": true,
+        "text": "导出已选项"
+      }
+    ]
+  }
+]

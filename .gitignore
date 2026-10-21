@@ -8,3 +8,12 @@ __pycache__/
 .venv/
 node_modules/
 *.log
+
+# Promo binary assets are preserved in the v2026.10.21-all Release; see MIGRATION.md.
+/deliverables/talent-development-promo/**/*.png
+/deliverables/talent-development-promo/**/*.jpg
+/deliverables/talent-development-promo/**/*.mov
+/deliverables/talent-development-promo/**/*.mp4
+/deliverables/talent-development-promo/**/*.webm
+/deliverables/talent-development-promo/**/*.otf
+/deliverables/talent-development-promo/**/*.zip

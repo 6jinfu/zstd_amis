@@ -1,0 +1,86 @@
+{
+  "verified": true,
+  "date": "2026-10-13",
+  "capture": "Hyperframes PNG sequence; deterministic GSAP seek; local Chrome",
+  "outputs": [
+    {
+      "file": "talent-intro-v4.mp4",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "profile": "High 4:4:4 Predictive",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv444p",
+          "avg_frame_rate": "60/1",
+          "duration": "8.000000",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "1374752"
+      }
+    },
+    {
+      "file": "talent-intro-v4-edit.mov",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "prores",
+          "profile": "4444",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv444p12le",
+          "avg_frame_rate": "60/1",
+          "duration": "8.000000",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "266456428"
+      }
+    },
+    {
+      "file": "talent-intro-v4-compatible.mp4",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "profile": "High",
+          "width": 1728,
+          "height": 1118,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "60/1",
+          "duration": "8.000000",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "1342459"
+      }
+    },
+    {
+      "file": "talent-intro-v4-preview.webm",
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "profile": "Profile 0",
+          "width": 1728,
+          "height": 1117,
+          "pix_fmt": "yuv420p",
+          "avg_frame_rate": "60/1",
+          "nb_read_frames": "480"
+        }
+      ],
+      "format": {
+        "duration": "8.000000",
+        "size": "587631"
+      }
+    }
+  ]
+}

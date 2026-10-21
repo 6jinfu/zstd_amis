@@ -1,0 +1,36 @@
+{
+  "formSize": 420,
+  "required": "请输入类别名称",
+  "added": 1,
+  "child": 1,
+  "renamed": [
+    {
+      "level": "1",
+      "name": "根类别"
+    },
+    {
+      "level": "2",
+      "name": "子类别"
+    },
+    {
+      "level": "1",
+      "name": "已有内容"
+    },
+    {
+      "level": "1",
+      "name": "验证类别三"
+    },
+    {
+      "level": "2",
+      "name": "验证子类"
+    }
+  ],
+  "deleteGuard": "该类别下有内容或子类，请先调整后再删除",
+  "duplicate": "类别名称不能重复",
+  "search": [
+    "验证类别三",
+    "验证子类"
+  ],
+  "deleteConfirmation": "确定删除【验证子类】吗？",
+  "deleted": true
+}

@@ -1,0 +1,16 @@
+{
+  "model": "jev-latest",
+  "state": {
+    "product": "人才发展管理端静态原型",
+    "user_goal": "标准帮建互动更精致，五类内容可勾选；公司可设置启用维度；更新已有标准最后选择覆盖或保留更新；360选择人才标准即确定应用范围，只评能力不设置动力潜力；职级固定序列和职级两层树，行内新增编辑删除。",
+    "current_problems": ["只有确认基本信息和摘要，没有草稿内容确认阶段", "未说明的岗位层级和团队范围被自动填为中层不带团队", "修改反馈难以看见实际改动", "360固定示例且保存只提示", "职级固定表格"],
+    "proposal": "标准：描述需求→确认信息及勾选维度→选择简洁或常规内容和侧重，可直接生成→全文预览和局部调整→确认范围和已有标准更新策略→带入编辑器，保存才落库。360：选择标准并展示真实范围→确认能力和题数→对话生成→逐题编辑预览→保存草稿。职级：两层可展开树，选中行内操作，职级只能新增同级。"
+  },
+  "questions": {
+    "interaction": {"type":"choice","instructions":"哪种增强方式最符合用户控制生成内容且不过度增加负担的目标？","criteria":{"content_choices":"维度勾选、可直接确认的内容侧重、草稿逐项预览编辑；已知信息不重复问","mandatory_rounds":"所有用户强制增加三轮文字问答","long_animation":"延长动画并模拟模型思考","insufficient":"依据不足"}},
+    "unknown_context": {"type":"choice","instructions":"只输入帮我建一个能力模型，未提供岗位层级和管理范围时，应如何呈现？","criteria":{"ask_or_unset":"未知项显示未指定，允许选择或通用生成，不冒充已确认事实","default_fact":"默认中层且不带团队作为已确认事实","block_all":"禁止所有生成","insufficient":"无法判断"}},
+    "update_safety": {"type":"choice","instructions":"哪种已有标准更新交互更兼顾用户选择和可审查性？","criteria":{"explicit_preview":"最后明确选直接覆盖或保留更新，展示影响维度条目，带入编辑器后保存；未选择不落库","auto_merge":"后台自动合并，不显示冲突","immediate_overwrite":"生成立即覆盖全部历史内容","insufficient":"无法判断"}},
+    "assessment_control": {"type":"choice","instructions":"360生成后哪种确认环节更有助于判断问卷可用并理解能力来源？","criteria":{"editable_questions":"按标准能力分组展示行为题，能编辑删除预览量表；修改明确反馈实际题目变化","count_only":"仅展示题数，保存后才能看题目","extra_dimensions":"补充动力潜力以显得全面","insufficient":"无法判断"}},
+    "tree_editing": {"type":"choice","instructions":"哪种职级编辑方式更贴近两层树与截图行内操作？","criteria":{"inline_two_levels":"序列展开职级，职级只能新增同级，选中行内编辑删除，可搜索","recursive":"任何节点都能无限新增下级","table_only":"表格仅换视觉","insufficient":"无法判断"}}
+  }
+}

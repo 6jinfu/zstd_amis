@@ -1,0 +1,3619 @@
+[
+  {
+    "route": "key-position.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建分析",
+        "width": 109.734375
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部草稿排队中分析中校验中已完成分析失败已取消",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 615,
+        "radius": "8px",
+        "text": "类别\n          全部\n         ",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026 年度关键岗位分析\n           ",
+        "width": 1160
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "研发序列关键岗位试点\n              ",
+        "width": 1160
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售铁军关键岗位\n              专项",
+        "width": 1160
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/key-position.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "standards.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建人才标准",
+        "width": 115.59375
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "AI帮建",
+        "width": 94.53125
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 615,
+        "radius": "8px",
+        "text": "类别\n  全部通用标准岗位序列标准产品序列研发序列",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "高级算法工程师标准高级算法工程师编辑学习方案复制删",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售经理标准销售经理编辑学习方案复制删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "架构师标准架构师编辑学习方案复制删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 60,
+        "radius": "0px",
+        "text": "研发协作能力标准部门：研发中心 且 关键岗位：是编",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "芯片前端设计标准—编辑学习方案复制删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "亚马逊广告专业标准—编辑学习方案复制删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "跨岗位技术协作标准—编辑学习方案复制删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "我问问—编辑学习方案复制删除",
+        "width": 824
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/standards.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "vocabulary.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建能力",
+        "width": 110
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 587,
+        "radius": "8px",
+        "text": "能力指标\n                \n   ",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "沟通通用能力清晰传达、倾听并推动共识编辑删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "问题分析通用能力识别、拆解并厘清复杂问题编辑删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "协同推进通用能力协调相关方共同完成目标编辑删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "团队管理管理能力带领团队达成目标并持续提升编辑删除",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "辅导下属管理能力通过反馈、示范和授权促进成长编辑删",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售策略制定销售能力建设基于市场和客户洞察制定销售",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "商务谈判销售能力建设围绕目标、价值和风险推进谈判编",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "解决方案设计技术簇理解业务需求并形成可落地方案编辑",
+        "width": 824
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "能力",
+        "width": 48
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "动力",
+        "width": 48
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "潜力",
+        "width": 48
+      }
+    ],
+    "url": "/vocabulary.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "assess-projects.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 32
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "AI帮建",
+        "width": 72.53125
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加授权",
+        "width": 88
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "移除授权",
+        "width": 88
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "导出已选项",
+        "width": 102
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 587,
+        "radius": "8px",
+        "text": "类别\n          全部通用能力领导力专业能",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "assess-mvggiecx研发协作能力标准 3",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "202607105322223管理者通用能力360",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "202607104822363研发协作能力360评",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20260514561516709架构师专业能力3",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2025101312170349销售序列领导力评估",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20240906222251313销售序列领导力评",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20241108201544301研发中心绩效评估",
+        "width": 1120
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20241108281548459产品经理胜任力评",
+        "width": 1120
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "0px none rgb(255, 255, 255)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "360评估",
+        "width": 69.265625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才测评",
+        "width": 71.734375
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "考试",
+        "width": 47.875
+      }
+    ],
+    "url": "/assess-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-assessment-projects.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 32
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建",
+        "width": 64
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "删除",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 247.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部九型人格测评管理技能测评动力潜力测评PDP行为",
+        "width": 247.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 111.75
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 111.75
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 247.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部草稿未开始进行中已结束",
+        "width": 297
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 587,
+        "radius": "8px",
+        "text": "类别\n          全部人格测评管理技能动力",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "九型人格测评九型人格测评2026-08-3150%",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "中层管理者技能测评管理技能测评2026-08-28",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "管理梯队动力潜力测评动力潜力测评2026-09-1",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "PDP行为风格测评PDP行为风格测评2026-08",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售经理领导风格测评管理技能测评2026-07-3",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "核心人才潜力测评动力潜力测评2026-09-053",
+        "width": 1420
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "新员工适岗测评PDP行为风格测评2026-06-3",
+        "width": 1420
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "360评估",
+        "width": 69.265625
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "0px none rgb(255, 255, 255)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才测评",
+        "width": 71.734375
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "考试",
+        "width": 47.875
+      }
+    ],
+    "url": "/talent-assessment-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "exam-projects.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 32
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建",
+        "width": 64
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "删除",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 247.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部后端开发工程师前端开发工程师测试工程师架构师初",
+        "width": 247.5
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部前测后测",
+        "width": 297
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 587,
+        "radius": "8px",
+        "text": "类别\n          全部岗位认证任职资格培训",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026081110372929后端开发上岗考试后",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "202608111032066前端开发上岗考试前端",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026040716131818测试工程师任职资格",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026032722293737初级开发入职前测初",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20251209153532336员工胜任力考试—",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20251111181116503OA基础考试——",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20230224173747790架构师能力考试架",
+        "width": 1060
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "20230216112751130销售新人入职考试",
+        "width": 1060
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "360评估",
+        "width": 69.265625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才测评",
+        "width": 71.734375
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "0px none rgb(255, 255, 255)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "考试",
+        "width": 47.875
+      }
+    ],
+    "url": "/exam-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-projects.html?method=grid",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "创建宫格盘点",
+        "width": 137.59375
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部草稿进行中已结束",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 668,
+        "radius": "8px",
+        "text": "类别\n              全部年度盘点季度",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026 年度人才盘点年度盘点352026-06 ",
+        "width": 1080
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "Q2 管理者盘点管理者盘点122026-04 ~ ",
+        "width": 1080
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "研发序列专项盘点季度盘点362026-07 ~ 2",
+        "width": 1080
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售铁军盘点季度盘点422026-07 ~ 202",
+        "width": 1080
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "宫格盘点",
+        "width": 72
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才图谱盘点",
+        "width": 96
+      }
+    ],
+    "url": "/review-projects.html?method=grid",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-projects.html?method=map",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "创建人才图谱盘点",
+        "width": 165.453125
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部草稿进行中已结束",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 668,
+        "radius": "8px",
+        "text": "类别\n              全部年度盘点季度",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "2026 管理梯队人才图谱年度盘点352026-0",
+        "width": 1080
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "研发关键人才图谱季度盘点282026-05 ~ 2",
+        "width": 1080
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "销售梯队图谱盘点管理者盘点18未开始草稿张敏202",
+        "width": 1080
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "宫格盘点",
+        "width": 72
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才图谱盘点",
+        "width": 96
+      }
+    ],
+    "url": "/review-projects.html?method=map",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "positions.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加关键岗位",
+        "width": 138
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 615,
+        "radius": "8px",
+        "text": "关键岗位6\n          全部岗位9\n   ",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "RD-302架构师研发关键编辑适用标准学习方案",
+        "width": 880
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "RD-301高级算法工程师研发关键编辑适用标准学习",
+        "width": 880
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "RD-205后端开发工程师研发关键编辑适用标准学习",
+        "width": 880
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "SA-201销售经理销售关键编辑适用标准学习方案",
+        "width": 880
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "SA-301区域销售总监销售关键编辑适用标准学习方",
+        "width": 880
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "SA-110大客户销售经理销售关键编辑适用标准学习",
+        "width": 880
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/positions.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-list.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(184, 207, 244)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "加入人才池",
+        "width": 102
+      },
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "人才对比",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "导出",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 180
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部高潜核心中坚待发展",
+        "width": 180
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "全部有有效评鉴无有效评鉴",
+        "width": 180
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "请选择岗位架构师高级算法工程师后端开发工程师销售经",
+        "width": 180
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "先选择目标岗位",
+        "width": 180
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 615,
+        "radius": "8px",
+        "text": "所属部门全部研发中心销售中心职能中台",
+        "width": 220
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "张明研发中心架构师高潜2026-07-28查看",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "李华研发中心算法工程师核心2026-09-15查看",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "王芳销售中心区域销售总监核心2026-09-18查",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "赵琳职能中台财务分析经理中坚—查看",
+        "width": 824
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "陈强研发中心测试工程师待发展—查看",
+        "width": 824
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/talent-list.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-pool.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建人才池",
+        "width": 102
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(217, 217, 217)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "",
+        "width": 136
+      }
+    ],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "技术骨干后备池架构师李文静22026-12-31查",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "单独高级算法工程师李文静02026-10-20查看",
+        "width": 1068
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/talent-pool.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "编辑",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "导出成员",
+        "width": 88
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加成员",
+        "width": 88
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 128,
+        "radius": "0px",
+        "text": "基本信息在池成员个人发展计划跟进与历史",
+        "width": 160
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 106,
+        "radius": "0px",
+        "text": "张明架构师依据年度盘点与同标准能力比较，纳入后备培",
+        "width": 852
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 105.5,
+        "radius": "0px",
+        "text": "李华算法工程师已确认继续作为技术骨干后备培养，补充",
+        "width": 852
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-dashboard.html",
+    "buttons": [],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "张明围绕架构师标准的跨部门沟通 L3 要求，提升需",
+        "width": 1018
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "人才概览",
+        "width": 72
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "岗位储备",
+        "width": 72
+      }
+    ],
+    "url": "/talent-dashboard.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "position-map.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新增岗位地图",
+        "width": 116
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "搜索",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置岗",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgba(0, 0, 0, 0.1)",
+        "font": "14px",
+        "height": 615,
+        "radius": "8px",
+        "text": "职级序列\n          搜索职级序列\n   ",
+        "width": 220
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/position-map.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "standard-detail.html?id=std-sales",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 256,
+        "radius": "0px",
+        "text": "基本信息\n 应用范围\n  职责任务\n  经历经验\n",
+        "width": 160
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/standard-detail.html?id=std-sales",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "position-detail.html?position=RD-302",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加关联",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存",
+        "width": 82
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 96,
+        "radius": "0px",
+        "text": "岗位信息\n          适用标准\n     ",
+        "width": 160
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/position-detail.html?position=RD-302",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "settings.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新增序列",
+        "width": 88
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置职",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "技术序列新增职级编辑删除",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "首席P5等级序 5新增同级编辑删除",
+        "width": 1046
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "专家P4等级序 4新增同级编辑删除",
+        "width": 1046
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "高级P3等级序 3新增同级编辑删除",
+        "width": 1046
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "管理序列新增职级编辑删除",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "经理M3等级序 3新增同级编辑删除",
+        "width": 1046
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 32,
+        "radius": "6px",
+        "text": "主管M2等级序 2新增同级编辑删除",
+        "width": 1046
+      }
+    ],
+    "tabs": [],
+    "url": "/settings.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "key-position-new.html",
+    "buttons": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "提交分析",
+        "width": 109.734375
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/key-position-new.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "org-analyze.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "上一步",
+        "width": 96
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存草稿",
+        "width": 87.734375
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "下一步",
+        "width": 96
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展\n    人才标准评鉴中心发展中心人才中心",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展\n    人才标准评鉴中心发展中心人才中心",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "高级算法工程师研发6",
+        "width": 585.65625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "后端开发工程师研发14",
+        "width": 585.65625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "大客户销售经理销售12",
+        "width": 585.65625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "区域销售总监销售4",
+        "width": 585.65625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "财务分析经理职能3",
+        "width": 585.65625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "… 共 34 个岗位",
+        "width": 585.65625
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/org-analyze.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "org-structure.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "新建分析",
+        "width": 109.734375
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "分析记录",
+        "width": 110
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "了解分析方法",
+        "width": 138
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展\n    人才标准评鉴中心发展中心人才中心",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展\n    人才标准评鉴中心发展中心人才中心",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/org-structure.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "org-preview.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存草稿",
+        "width": 87.734375
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "确认生效",
+        "width": 110
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/org-preview.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "key-position-result.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "返回列表",
+        "width": 87.734375
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "去岗位管理配置 →",
+        "width": 148.046875
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置组",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "架构师0.95需求高 · 供给少建议关键查看依据",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "高级算法工程师0.92需求高 · 供给少建议关键查",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "后端开发工程师0.81需求高 · 供给少建议关键查",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "区域销售总监0.88需求高 · 供给少建议关键查看",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "大客户销售经理0.78需求高 · 供给多建议关键查",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "测试工程师0.72多视角差异待校准建议校准",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "前端开发工程师0.54需求中 · 供给多未达阈值未",
+        "width": 1068
+      }
+    ],
+    "settings": [],
+    "tabs": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "经济视角 E（需求 × 供给）",
+        "width": 170.90625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "能力视角 A（ART × 时间成本）",
+        "width": 194.5625
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "12px",
+        "height": 28,
+        "radius": "28px",
+        "text": "综合（供需比 × ART）",
+        "width": 146.6875
+      }
+    ],
+    "url": "/key-position-result.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-new.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "上一步",
+        "width": 74
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存草稿",
+        "width": 88
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "下一步",
+        "width": 74
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/review-new.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-map-new.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "上一步",
+        "width": 74
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存草稿",
+        "width": 88
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "下一步",
+        "width": 74
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/review-map-new.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-detail.html",
+    "buttons": [],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 160,
+        "radius": "0px",
+        "text": "基本信息盘点活动盘点结果盘点校准人才池",
+        "width": 160
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/review-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-map-detail.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 128,
+        "radius": "0px",
+        "text": "基本信息盘点数据人才图谱人才分层",
+        "width": 160
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/review-map-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-profile.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "加入人才池",
+        "width": 102
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "导出档案",
+        "width": 88
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 128,
+        "radius": "0px",
+        "text": "概览标准与差距评鉴与盘点发展记录",
+        "width": 160
+      }
+    ],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/talent-profile.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-compare.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "返回人才库",
+        "width": 101.65625
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置人",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/talent-compare.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "learning-plan.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "推荐学习资源",
+        "width": 138
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加课程",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加项目",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加前测",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "添加后测",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "取消",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存",
+        "width": 82
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置岗",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "课程分布式系统设计培训平台 · 24 课时移除",
+        "width": 952
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "课程高并发架构实战培训平台 · 16 课时移除",
+        "width": 952
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "项目架构师加速营（第 3 期）培训项目 · 3 个",
+        "width": 952
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "前测系统架构认证认证考试 · 培养开始前移除",
+        "width": 952
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "后测系统架构认证认证考试 · 培养结束后移除",
+        "width": 952
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/learning-plan.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "assess-detail.html",
+    "buttons": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "催办",
+        "width": 64
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "结束评估",
+        "width": 88
+      },
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "王芳区域销售总监4 / 4沟通能力 L4 · 团队",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "赵琳区域销售总监4 / 4沟通能力 L3 · 团队",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "陈杰区域销售总监4 / 4沟通能力 L4 · 影响",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "周宁区域销售总监4 / 4团队管理 L3 · 影响",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "孙悦区域销售总监4 / 4沟通能力 L3 · 团队",
+        "width": 1068
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 46,
+        "radius": "0px",
+        "text": "刘洋区域销售总监2 / 4完成全部评价后生成进行中",
+        "width": 1068
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/assess-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "assess-new.html",
+    "buttons": [
+      {
+        "background": "rgb(245, 245, 245)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "预览问卷",
+        "width": 88
+      },
+      {
+        "background": "rgb(184, 207, 244)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "保存草稿",
+        "width": 88
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "使用 AI 帮建",
+        "width": 109.28125
+      }
+    ],
+    "header": [],
+    "inputs": [],
+    "nav": [],
+    "overflow": false,
+    "rails": [],
+    "rows": [],
+    "settings": [],
+    "tabs": [],
+    "url": "/assess-new.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "proto/talent-grid/frame.html",
+    "buttons": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "border": "1px solid rgba(0, 0, 0, 0)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "查询",
+        "width": 64
+      },
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "1px solid rgb(201, 205, 212)",
+        "font": "14px",
+        "height": 32,
+        "radius": "4px",
+        "text": "重置",
+        "width": 64
+      }
+    ],
+    "header": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "",
+        "font": "14px",
+        "height": 49,
+        "radius": "8px 8px 0px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置评",
+        "width": 1116
+      }
+    ],
+    "inputs": [],
+    "nav": [
+      {
+        "background": "rgb(255, 255, 255)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 720,
+        "radius": "0px 8px 8px 0px",
+        "text": "人才发展人才标准评鉴中心发展中心人才中心系统设置收",
+        "width": 148
+      }
+    ],
+    "overflow": false,
+    "rails": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(31, 31, 31)",
+        "font": "14px",
+        "height": 160,
+        "radius": "0px",
+        "text": "基本信息盘点活动盘点结果盘点校准人才池",
+        "width": 160
+      }
+    ],
+    "rows": [
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 62,
+        "radius": "0px",
+        "text": "张明研发中心架构师88%高核心人才查看人才",
+        "width": 792
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 62,
+        "radius": "0px",
+        "text": "徐冉销售中心华东大区战略客户拓展与区域协同负责人8",
+        "width": 792
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 62,
+        "radius": "0px",
+        "text": "马睿销售中心大区销售总监88%高核心人才查看人才",
+        "width": 792
+      },
+      {
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px none rgb(29, 33, 41)",
+        "font": "14px",
+        "height": 62,
+        "radius": "0px",
+        "text": "朱航销售中心战略客户总监88%高核心人才查看人才",
+        "width": 792
+      }
+    ],
+    "settings": [],
+    "tabs": [],
+    "url": "/proto/talent-grid/frame.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+]

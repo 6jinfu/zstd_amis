@@ -1,0 +1,235 @@
+[
+  {
+    "test": "指标展开",
+    "result": "true"
+  },
+  {
+    "test": "指标类别搜索",
+    "result": [
+      "全部",
+      "技能",
+      "专业能力",
+      "人力资源簇",
+      "云端技能",
+      "知识",
+      "素养",
+      "新品导入与开发"
+    ]
+  },
+  {
+    "test": "动力类别规格",
+    "result": {
+      "panels": [
+        {
+          "class": "cat-tree-panel indicator-category-tree",
+          "padding": "12px 8px",
+          "rows": [
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "全部",
+              "y": 156
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "成就与发展",
+              "y": 196
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "关系与利他",
+              "y": 236
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "价值与意义",
+              "y": 276
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "安全与平衡",
+              "y": 316
+            }
+          ],
+          "width": 192
+        }
+      ],
+      "url": "/vocabulary.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "test": "潜力类别规格",
+    "result": {
+      "panels": [
+        {
+          "class": "cat-tree-panel indicator-category-tree",
+          "padding": "12px 8px",
+          "rows": [
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "全部",
+              "y": 156
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "思维方式",
+              "y": 196
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "人际互动",
+              "y": 236
+            },
+            {
+              "font": "13px",
+              "height": 40,
+              "padding": "6px 8px",
+              "text": "自我情绪",
+              "y": 276
+            }
+          ],
+          "width": 192
+        }
+      ],
+      "url": "/vocabulary.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    }
+  },
+  {
+    "test": "标准树收起",
+    "result": false
+  },
+  {
+    "test": "标准类别筛选",
+    "result": "共 1 条 · 每页 10 条"
+  },
+  {
+    "test": "公共指标选择器规格",
+    "result": {
+      "fonts": [
+        "13px"
+      ],
+      "heights": [
+        40
+      ],
+      "width": 192
+    }
+  },
+  {
+    "test": "选择器分类筛选",
+    "result": "人才发展"
+  },
+  {
+    "test": "职级编辑树规格",
+    "result": {
+      "labels": [
+        {
+          "font": "13px",
+          "text": "技术序列",
+          "x": 232
+        },
+        {
+          "font": "13px",
+          "text": "首席P5等级序 5",
+          "x": 248
+        },
+        {
+          "font": "13px",
+          "text": "专家P4等级序 4",
+          "x": 248
+        }
+      ],
+      "rows": [
+        40
+      ],
+      "width": 1056
+    }
+  },
+  {
+    "test": "职级行内操作",
+    "result": "新增同级\n编辑\n删除"
+  },
+  {
+    "test": "人才部门筛选",
+    "result": "\t张明\t研发中心\t架构师\t高潜\t2026-07-28\t查看\n\t李华\t研发中心\t算法工程师\t核心\t2026-09-15\t查看\n\t陈强\t研发中心\t测试工程师\t待发展\t—\t查看"
+  },
+  {
+    "test": "地图序列切换",
+    "result": "true"
+  },
+  {
+    "test": "盘点选人组织栏",
+    "result": {
+      "rows": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "width": 192
+    }
+  },
+  {
+    "test": "职级选中反馈修正",
+    "result": {
+      "background": "oklch(0.9712 0.0136 258.34)",
+      "color": "oklch(0.4459 0.1965 261.4)"
+    }
+  },
+  {
+    "test": "组织范围树密度",
+    "result": [
+      {
+        "font": "13px",
+        "height": 40
+      },
+      {
+        "font": "13px",
+        "height": 40
+      },
+      {
+        "font": "13px",
+        "height": 40
+      },
+      {
+        "font": "13px",
+        "height": 40
+      },
+      {
+        "font": "13px",
+        "height": 40
+      },
+      {
+        "font": "13px",
+        "height": 40
+      }
+    ]
+  },
+  {
+    "test": "类别管理入口",
+    "expected": "管理类别",
+    "result": true
+  }
+]

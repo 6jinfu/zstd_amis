@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>发展方案编排 · 发展中心</title>
+  <link rel="stylesheet" href="../../app/styles.css?v=20260924">
+  <link rel="stylesheet" href="concept-v3.css?v=20260924">
+</head>
+<body data-module="develop" data-page="position-map">
+<div class="app shell-v2">
+  <aside class="sidenav" aria-label="全站导航">
+    <a class="brand" href="../../app/standards.html"><span class="logo">AI</span><span class="name">人才发展</span></a>
+    <nav class="primary-nav" aria-label="一级导航">
+      <a class="primary-item" href="../../app/standards.html"><span class="nav-icon">▦</span><span>人才标准</span></a>
+      <a class="primary-item" href="../../app/assess-projects.html"><span class="nav-icon">▧</span><span>评鉴中心</span></a>
+      <a class="primary-item active" href="../../app/position-map.html" aria-current="page"><span class="nav-icon">◇</span><span>发展中心</span></a>
+      <a class="primary-item" href="../../app/talent-list.html"><span class="nav-icon">♧</span><span>人才中心</span></a>
+      <a class="primary-item" href="../../app/settings.html"><span class="nav-icon">⚙</span><span>系统设置</span></a>
+    </nav>
+  </aside>
+  <header class="topbar">
+    <nav class="business-nav" aria-label="业务菜单"><a class="business-item active" href="../../app/position-map.html" aria-current="page">岗位地图</a></nav>
+    <div class="right"><button class="icon-btn" type="button" aria-label="通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
+  </header>
+  <div class="body">
+    <main class="content content-medium">
+      <div class="breadcrumb"><a href="../../app/position-map.html">岗位地图</a><span class="sep">/</span><span class="cur">发展方案编排</span></div>
+      <div class="detail-bar"><div class="db-left"><a class="back" href="../../app/position-map.html"><span aria-hidden="true">‹</span> 返回</a><h1>发展方案编排</h1><span class="text-sm muted">销售经理 · 销售序列 M · M2</span></div><span class="draft-label">草稿</span></div>
+
+      <section class="card card-pad plan-section" aria-labelledby="standard-title">
+        <div class="section-head"><div><h2 id="standard-title">采用人才标准</h2><p>方案围绕所选标准编排；标准变更时，需要重新核对要求。</p></div></div>
+        <div class="standard-grid">
+          <label class="field-label" for="standard-select">人才标准</label>
+          <select id="standard-select"><option>销售经理人才标准 · 现行版</option></select>
+          <a class="subtle-link" href="../../app/standards.html">查看标准 ›</a>
+        </div>
+        <div class="standard-note">职责任务、经历经验、能力要求、动力要求与潜力要求，共 7 项示例要求。</div>
+      </section>
+
+      <section class="card card-pad plan-section" aria-labelledby="goal-title">
+        <div class="section-head"><div><h2 id="goal-title">总体培养目标</h2><p>描述完成方案后，任职者应能独立完成的岗位工作。</p></div></div>
+        <label class="field-label" for="overall-goal">目标描述</label>
+        <textarea id="overall-goal" rows="3">能够独立识别重点客户需求，组织解决方案销售，推进复杂商机并完成商务谈判；以真实项目成果和能力后测验证达成情况。</textarea>
+      </section>
+
+      <section class="card card-pad plan-section" aria-labelledby="modules-title">
+        <div class="section-head"><div><h2 id="modules-title">培养模块</h2><p>按培养顺序配置任务，每个模块关联要发展的标准要求和达成条件。</p></div><button type="button" class="btn btn-secondary" id="add-module">添加模块</button></div>
+        <div id="module-list" class="module-list"></div>
+      </section>
+
+      <section class="card card-pad plan-section" aria-labelledby="coverage-title">
+        <div class="section-head"><div><h2 id="coverage-title">标准要求处理</h2><p>逐项核对标准要求是否已进入培养模块，或明确作为选人依据。</p></div><span id="coverage-summary" class="coverage-summary"></span></div>
+        <div class="table-wrap"><table class="t coverage-table"><thead><tr><th>标准要求</th><th>处理方式</th><th>关联模块</th><th class="align-right">操作</th></tr></thead><tbody id="coverage-body"></tbody></table></div>
+      </section>
+
+      <div class="detail-foot"><span id="save-status" class="save-status" role="status" aria-live="polite">此页为独立方案示意，不写入现有项目</span><div class="foot-actions"><a class="btn btn-secondary" href="../../app/position-map.html">取消</a><button type="button" class="btn btn-primary" id="save-plan">保存草稿</button></div></div>
+    </main>
+  </div>
+</div>
+
+<dialog id="module-dialog" class="module-dialog" aria-labelledby="dialog-title">
+  <form id="module-form" method="dialog">
+    <div class="dialog-head"><div><h2 id="dialog-title">编辑培养模块</h2><p>把目标、任务与标准要求连起来。</p></div><button type="button" class="dialog-close" id="close-dialog" aria-label="关闭">×</button></div>
+    <div class="dialog-body">
+      <div class="form-grid"><div><label class="field-label" for="module-name">模块名称 <span class="required">*</span></label><input id="module-name" required maxlength="40"></div><div><label class="field-label" for="module-stage">培养阶段</label><select id="module-stage"><option>培养前</option><option>核心培养</option><option>实战应用</option><option>结果确认</option></select></div></div>
+      <label class="field-label" for="module-goal">模块目标 <span class="required">*</span></label><textarea id="module-goal" required rows="2"></textarea>
+      <fieldset class="req-fieldset"><legend>关联标准要求 <span class="required">*</span></legend><div id="requirement-options" class="requirement-options"></div><p id="req-error" class="field-error" hidden>请至少关联一项标准要求。</p></fieldset>
+      <label class="field-label" for="module-tasks">培养任务</label><textarea id="module-tasks" rows="3" placeholder="每行一项，如：课程｜顾问式销售实战"></textarea><p class="field-hint">可写课程、项目、岗位实践或辅导任务；每行一项。</p>
+      <label class="field-label" for="module-evidence">达成条件</label><textarea id="module-evidence" rows="2" placeholder="写明需提交的成果及审核方式"></textarea>
+    </div>
+    <div class="dialog-foot"><button type="button" class="btn btn-secondary" id="cancel-dialog">取消</button><button type="submit" class="btn btn-primary">保存模块</button></div>
+  </form>
+</dialog>
+<script src="concept-v3.js?v=20260924"></script>
+</body>
+</html>

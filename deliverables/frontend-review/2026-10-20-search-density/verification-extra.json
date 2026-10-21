@@ -1,0 +1,19 @@
+{
+  "viewport": {
+    "width": 1143,
+    "height": 894
+  },
+  "sidebarExpanded": 184,
+  "sidebarCollapsed": 72,
+  "searchControls": 32,
+  "dateInputWidth": 132,
+  "regularFormHeight": 44,
+  "advancedFilters": 7,
+  "comparisonSelects": 2,
+  "boardScopeHeight": 32,
+  "indicatorSearchHeight": 32,
+  "textQueryRows": 1,
+  "dateQueryRows": 3,
+  "indicatorQueryRows": 2,
+  "version": "20261020q"
+}

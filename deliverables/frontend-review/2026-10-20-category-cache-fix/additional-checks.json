@@ -1,0 +1,28 @@
+{
+  "failures": [],
+  "indicatorTabs": [
+    {
+      "kind": "mot",
+      "rowHeights": [
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "searchWidth": 14,
+      "width": 220
+    },
+    {
+      "kind": "pot",
+      "rowHeights": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "searchWidth": 14,
+      "width": 220
+    }
+  ]
+}

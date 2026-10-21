@@ -1,0 +1,30 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const values=new Map();
+const context=vm.createContext({window:{},localStorage:{getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)}});
+for(const file of ['standard-seeds.js','standards-data.js','talent-settings-data.js','assessment-data.js'])vm.runInContext(fs.readFileSync('app/'+file,'utf8'),context);
+// Browser scripts resolve window globals through the browser global object.
+const {Standards:S,TalentSettings:T,AssessmentDrafts:A}=context.window;
+context.Standards=S;
+const plain=value=>JSON.parse(JSON.stringify(value));
+let checks=0;
+function check(name,run){run();checks++;console.log('PASS '+name);}
+const original={duty:[{n:'交付',t:['设计']}],exp:['经验'],cap:[['沟通','L3'],['规划','L4']],pow:['动机'],pot:['潜力']};
+const incoming={duty:[{n:'交付',t:['设计','验证']}],exp:[],cap:[['沟通','L5'],['执行','L3']],pow:[],pot:[]};
+check('replace changes selected dimensions only',()=>assert.deepEqual(plain(T.mergeContent(original,incoming,['cap'],'replace')),{...original,cap:incoming.cap}));
+check('merge preserves old capabilities and updates matching levels',()=>assert.deepEqual(plain(T.mergeContent(original,incoming,['cap'],'merge').cap),[['沟通','L5'],['规划','L4'],['执行','L3']]));
+check('duty merge keeps unique tasks',()=>assert.deepEqual(plain(T.mergeContent(original,incoming,['duty'],'merge').duty),[{n:'交付',t:['设计','验证']}]));
+check('merge does not mutate source content',()=>assert.deepEqual(original.cap,[['沟通','L3'],['规划','L4']]));
+check('repeated merge does not duplicate content',()=>{const merged=T.mergeContent(original,incoming,['cap','duty'],'merge');assert.deepEqual(plain(T.mergeContent(merged,incoming,['cap','duty'],'merge')),plain(merged));});
+check('default dimension configuration preserves all five choices',()=>assert.deepEqual(plain(T.enabled()),['duty','exp','cap','pow','pot']));
+const settings=T.read();settings.dimensions=['cap'];T.write(settings);
+check('dimension setting persists without changing existing standards',()=>{assert.deepEqual(plain(T.enabled()),['cap']);assert.ok(S.read().standards.find(s=>s.id==='std-sales').content.duty.length);});
+const data=S.read(),collaboration=data.standards.find(s=>s.id==='std-collaboration'),architecture=data.standards.find(s=>s.id==='std-architecture');
+check('rule-based assessment scope resolves actual people',()=>assert.deepEqual(plain(A.resolve(collaboration).people.map(p=>p.name)),['张明','李华']));
+check('position scope does not invent matching people',()=>assert.deepEqual(plain(A.resolve(architecture).people.map(p=>p.name)),['张明']));
+check('unconfigured scope is invalid',()=>assert.equal(A.resolve(data.standards.find(s=>s.id==='std-chip')).valid,false));
+check('missing person attributes remain unknown',()=>{const standard=plain(collaboration);standard.groups[0].push({field:'category',values:['研发']});assert.deepEqual(plain(A.resolve(standard).unknown.map(p=>p.name)),['李华']);});
+check('explicit position links are included in scope',()=>{data.links['RD-302']=['std-sales'];S.write(data);assert.ok(A.resolve(data.standards.find(s=>s.id==='std-sales')).people.some(p=>p.name==='张明'));});
+check('assessment draft storage preserves edited question content',()=>{const projects=[{id:'test',questions:[{ability:'沟通',text:'保留手工编辑内容'}]}];A.write(projects);assert.deepEqual(plain(A.read()),projects);});
+console.log(checks+' data checks passed');

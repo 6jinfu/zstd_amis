@@ -1,0 +1,111 @@
+{
+  "fontChecksumsPassed": true,
+  "parts": [
+    {
+      "id": "intro",
+      "visible": [
+        "intro"
+      ],
+      "title": "人才发展",
+      "detail": "人才标准 · 评鉴盘点 · 学习方案",
+      "boxes": [
+        {
+          "left": 555,
+          "right": 705,
+          "opacity": 1
+        },
+        {
+          "left": 711,
+          "right": 861,
+          "opacity": 1
+        },
+        {
+          "left": 867,
+          "right": 1017,
+          "opacity": 1
+        },
+        {
+          "left": 1023,
+          "right": 1173,
+          "opacity": 1
+        },
+        {
+          "left": 476.59375,
+          "right": 1251.40625,
+          "opacity": 1
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        }
+      ],
+      "actualFonts": [
+        "SourceHanSansSC-Bold",
+        "SourceHanSansSC-Medium"
+      ],
+      "passed": true
+    },
+    {
+      "id": "outro",
+      "visible": [
+        "outro"
+      ],
+      "title": "人才发展",
+      "detail": "让岗位有标准，识人有依据，培养有方向",
+      "boxes": [
+        {
+          "left": 555,
+          "right": 705,
+          "opacity": 1
+        },
+        {
+          "left": 711,
+          "right": 861,
+          "opacity": 1
+        },
+        {
+          "left": 867,
+          "right": 1017,
+          "opacity": 1
+        },
+        {
+          "left": 1023,
+          "right": 1173,
+          "opacity": 1
+        },
+        {
+          "left": 396,
+          "right": 1332,
+          "opacity": 1
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        },
+        {
+          "family": "Source Han Sans SC",
+          "status": "loaded"
+        }
+      ],
+      "actualFonts": [
+        "SourceHanSansSC-Bold",
+        "SourceHanSansSC-Medium"
+      ],
+      "passed": true
+    }
+  ],
+  "cutOpacity": 1,
+  "outroEnd": {
+    "visible": "visible",
+    "opacity": 1,
+    "cover": 0
+  }
+}

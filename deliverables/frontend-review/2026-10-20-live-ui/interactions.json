@@ -1,0 +1,89 @@
+[
+  {
+    "test": "标准帮建确认进入内容侧重",
+    "result": true
+  },
+  {
+    "test": "360 标准与范围确认后生成完整问卷",
+    "result": {
+      "actions": [
+        {
+          "font": "14px",
+          "height": 32,
+          "radius": "4px",
+          "text": "创建问卷"
+        },
+        {
+          "font": "14px",
+          "height": 32,
+          "radius": "4px",
+          "text": "调整评估能力"
+        }
+      ],
+      "groups": 5,
+      "heading": "销售经理标准 360 评估",
+      "questionnaire": true
+    }
+  },
+  {
+    "test": "关键岗位编辑弹窗",
+    "result": {
+      "visible": [
+        {
+          "buttons": [
+            {
+              "font": "14px",
+              "height": 32,
+              "text": "取消"
+            },
+            {
+              "font": "14px",
+              "height": 32,
+              "text": "保存"
+            }
+          ],
+          "radius": "4px",
+          "width": 560
+        }
+      ]
+    }
+  },
+  {
+    "test": "关键岗位查询",
+    "result": 1
+  },
+  {
+    "test": "职级搜索",
+    "result": [
+      "技术序列",
+      "专家P4等级序 4"
+    ]
+  },
+  {
+    "test": "标准帮建确认控件统一规格",
+    "result": [
+      {
+        "font": "14px",
+        "height": 32,
+        "id": "std-ai-source",
+        "radius": "4px"
+      },
+      {
+        "font": "14px",
+        "height": 32,
+        "id": "std-ai-level",
+        "radius": "4px"
+      },
+      {
+        "font": "14px",
+        "height": 32,
+        "id": "std-ai-management",
+        "radius": "4px"
+      }
+    ]
+  },
+  {
+    "test": "指标库页签切换",
+    "result": "true"
+  }
+]

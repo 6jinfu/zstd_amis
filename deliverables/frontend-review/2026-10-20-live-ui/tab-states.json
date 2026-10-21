@@ -1,0 +1,94 @@
+[
+  {
+    "route": "vocabulary.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "能力"
+      }
+    ]
+  },
+  {
+    "route": "assess-projects.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "360评估"
+      }
+    ]
+  },
+  {
+    "route": "talent-assessment-projects.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "人才测评"
+      }
+    ]
+  },
+  {
+    "route": "exam-projects.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "考试"
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=grid",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "宫格盘点"
+      }
+    ]
+  },
+  {
+    "route": "review-projects.html?method=map",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "人才图谱盘点"
+      }
+    ]
+  },
+  {
+    "route": "talent-dashboard.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "人才概览"
+      }
+    ]
+  },
+  {
+    "route": "org-structure.html",
+    "active": []
+  },
+  {
+    "route": "key-position-result.html",
+    "active": [
+      {
+        "background": "rgb(1, 82, 217)",
+        "color": "rgb(255, 255, 255)",
+        "height": 28,
+        "text": "经济视角 E（需求 × 供给）"
+      }
+    ]
+  }
+]

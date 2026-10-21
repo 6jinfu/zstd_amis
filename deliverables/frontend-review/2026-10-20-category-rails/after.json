@@ -1,0 +1,938 @@
+[
+  {
+    "route": "standards.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 126
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "通用标准",
+            "y": 166
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 4px",
+            "text": "岗位序列标准",
+            "y": 206
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "产品序列",
+            "y": 246
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "研发序列",
+            "y": 286
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "销售序列",
+            "y": 326
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "专业序列",
+            "y": 366
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "职级标准",
+            "y": 406
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "专项标准",
+            "y": 446
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/standards.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "vocabulary.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel indicator-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 200
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "技能",
+            "y": 240
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 40px",
+            "text": "管理能力",
+            "y": 280
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 40px",
+            "text": "通用能力",
+            "y": 320
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 40px",
+            "text": "销售能力建设",
+            "y": 360
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 40px",
+            "text": "专业能力",
+            "y": 400
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 40px",
+            "text": "云端技能",
+            "y": 440
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "知识",
+            "y": 480
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px 6px 24px",
+            "text": "素养",
+            "y": 520
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/vocabulary.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "key-position.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel key-position-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 127
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "年度分析",
+            "y": 167
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "序列分析",
+            "y": 207
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "专项分析",
+            "y": 247
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/key-position.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "assess-projects.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel assess-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 156
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "通用能力",
+            "y": 196
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "领导力",
+            "y": 236
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "专业能力",
+            "y": 276
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "其他",
+            "y": 316
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/assess-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-assessment-projects.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel assess-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 156
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "人格测评",
+            "y": 196
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "管理技能",
+            "y": 236
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "动力潜力",
+            "y": 276
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "行为风格",
+            "y": 316
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/talent-assessment-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "exam-projects.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel assess-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 156
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "岗位认证",
+            "y": 196
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "任职资格",
+            "y": 236
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "培训考试",
+            "y": 276
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "通用考试",
+            "y": 316
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/exam-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-projects.html?method=grid",
+    "panels": [
+      {
+        "class": "cat-tree-panel review-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 156
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "年度盘点",
+            "y": 196
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "季度盘点",
+            "y": 236
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "管理者盘点",
+            "y": 276
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/review-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-projects.html?method=map",
+    "panels": [
+      {
+        "class": "cat-tree-panel review-category-tree",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 156
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "年度盘点",
+            "y": 196
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "季度盘点",
+            "y": 236
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "管理者盘点",
+            "y": 276
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/review-projects.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "positions.html",
+    "panels": [
+      {
+        "class": "list-rail",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 186
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "研发",
+            "y": 226
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "销售",
+            "y": 266
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "职能",
+            "y": 306
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/positions.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-list.html",
+    "panels": [
+      {
+        "class": "cat-tree-panel",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "全部",
+            "y": 126
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "研发中心",
+            "y": 166
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "销售中心",
+            "y": 206
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "职能中台",
+            "y": 246
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/talent-list.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "position-map.html",
+    "panels": [
+      {
+        "class": "pm-series-panel",
+        "padding": "12px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "研发序列",
+            "y": 170
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "管理序列",
+            "y": 210
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "销售序列",
+            "y": 250
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "专业序列",
+            "y": 290
+          }
+        ],
+        "width": 192
+      }
+    ],
+    "url": "/position-map.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "standard-detail.html?id=std-sales",
+    "panels": [
+      {
+        "class": "anchor-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "基本信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "应用范围",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "职责任务",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "经历经验",
+            "y": 288
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "能力要求",
+            "y": 328
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "动力要求",
+            "y": 368
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "潜力要求",
+            "y": 408
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "学习方案",
+            "y": 448
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/standard-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "position-detail.html?id=pos-001",
+    "panels": [
+      {
+        "class": "anchor-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "岗位信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "适用标准",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "学习方案",
+            "y": 248
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/position-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-detail.html",
+    "panels": [
+      {
+        "class": "anchor-nav review-detail-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "基本信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点活动",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点结果",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点校准",
+            "y": 288
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "人才池",
+            "y": 328
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/review-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "review-map-detail.html",
+    "panels": [
+      {
+        "class": "anchor-nav review-detail-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "基本信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点数据",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "人才图谱",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "人才分层",
+            "y": 288
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/review-map-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-profile.html",
+    "panels": [
+      {
+        "class": "anchor-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "概览",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "标准与差距",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "评鉴与盘点",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "发展记录",
+            "y": 288
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/talent-profile.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "panels": [
+      {
+        "class": "anchor-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "基本信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "在池成员",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "个人发展计划",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "跟进与历史",
+            "y": 288
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/talent-pool-detail.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "route": "proto/talent-grid/frame.html",
+    "panels": [
+      {
+        "class": "anchor-nav review-detail-nav",
+        "padding": "4px 8px",
+        "rows": [
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "基本信息",
+            "y": 168
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点活动",
+            "y": 208
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点结果",
+            "y": 248
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "盘点校准",
+            "y": 288
+          },
+          {
+            "font": "13px",
+            "height": 40,
+            "padding": "6px 8px",
+            "text": "人才池",
+            "y": 328
+          }
+        ],
+        "width": 144
+      }
+    ],
+    "url": "/proto/talent-grid/frame.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "route": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "result": {
+      "bar": [
+        {
+          "border": "",
+          "height": 49,
+          "position": "relative",
+          "top": "0px",
+          "y": 73
+        }
+      ],
+      "nav": [
+        {
+          "width": 160,
+          "y": 138
+        }
+      ],
+      "overflow": false
+    }
+  },
+  {
+    "route": "talent-profile.html",
+    "result": {
+      "bar": [
+        {
+          "border": "",
+          "height": 49,
+          "position": "relative",
+          "top": "0px",
+          "y": 73
+        }
+      ],
+      "nav": [
+        {
+          "width": 160,
+          "y": 138
+        }
+      ],
+      "overflow": false
+    }
+  },
+  {
+    "route": "position-detail.html?position=RD-302",
+    "result": {
+      "bar": [
+        {
+          "border": "",
+          "height": 48,
+          "position": "relative",
+          "top": "0px",
+          "y": 73
+        }
+      ],
+      "nav": [
+        {
+          "width": 160,
+          "y": 137
+        }
+      ],
+      "overflow": false
+    }
+  },
+  {
+    "route": "review-detail.html",
+    "result": {
+      "bar": [
+        {
+          "border": "",
+          "height": 48,
+          "position": "relative",
+          "top": "0px",
+          "y": 73
+        }
+      ],
+      "nav": [
+        {
+          "width": 160,
+          "y": 137
+        }
+      ],
+      "overflow": false
+    }
+  }
+]

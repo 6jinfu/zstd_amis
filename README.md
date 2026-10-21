@@ -4,16 +4,20 @@
 
 后续接手或继续迭代时，先阅读 [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md)；完整需求再按任务定向查看当前 PRD，无需从历史资料开始通读。
 
+## 下载与换机接手
+
+最新完整交接版本为 [`v2026.10.21-all`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-all)。代码、PRD、交接和常规成果在仓库中；宣传片完整素材放在该版本的三个 ZIP 附件中。下载范围、恢复、校验及接手顺序见 [`MIGRATION.md`](MIGRATION.md)。
+
 ## 本地预览
 
 项目不需要安装前端依赖，运行：
 
 ```bash
-cd /Users/jeff/Documents/Codex/cc_zstd_amis
+cd 你的项目目录
 python3 serve.py
 ```
 
-本机访问 <http://127.0.0.1:8766/>；同一局域网的其他电脑使用启动日志显示的 `http://本机局域网IP:8766/`。当前环境可访问 <http://172.21.1.220:8766/>。
+本机访问 <http://127.0.0.1:8766/>；同一局域网的其他电脑使用启动日志显示的 `http://本机局域网IP:8766/`。
 
 `serve.py` 默认监听所有本机网络接口，`8766` 是本项目的默认端口；如需临时使用其他端口，可执行 `python3 serve.py 端口号`。
 
