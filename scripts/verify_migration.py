@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a restored v2026.10.21-all workspace against its file manifest."""
+"""Check a restored v2026.10.21-project workspace against its file manifest."""
 
 import hashlib
 import json
@@ -8,13 +8,13 @@ from pathlib import Path
 
 def main():
     root = Path(__file__).resolve().parent.parent
-    manifest = root / "deliverables/migration/v2026.10.21-all/manifest.json"
+    manifest = root / "deliverables/migration/v2026.10.21-project/manifest.json"
     entries = json.loads(manifest.read_text(encoding="utf-8"))["files"]
     failures = []
     for entry in entries:
         path = root / entry["path"]
         if not path.is_file():
-            failures.append(f"Missing: {entry['path']} ({entry['archive']})")
+            failures.append(f"Missing: {entry['path']}")
             continue
         if path.stat().st_size != entry["bytes"]:
             failures.append(f"Size mismatch: {entry['path']}")

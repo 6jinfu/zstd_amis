@@ -9,7 +9,7 @@ __pycache__/
 node_modules/
 *.log
 
-# Promo binary assets are preserved in the v2026.10.21-all Release; see MIGRATION.md.
+# Local promo binary assets are excluded from the project handoff; see MIGRATION.md.
 /deliverables/talent-development-promo/**/*.png
 /deliverables/talent-development-promo/**/*.jpg
 /deliverables/talent-development-promo/**/*.mov

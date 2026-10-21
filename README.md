@@ -6,7 +6,7 @@
 
 ## 下载与换机接手
 
-最新完整交接版本为 [`v2026.10.21-all`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-all)。代码、PRD、交接和常规成果在仓库中；宣传片完整素材放在该版本的三个 ZIP 附件中。下载范围、恢复、校验及接手顺序见 [`MIGRATION.md`](MIGRATION.md)。
+最新项目交接版本为 [`v2026.10.21-project`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-project)。代码、全部 PRD、交接和常规成果在仓库及同版本主项目 ZIP 中；按用户最新要求，不上传宣传视频、字体和渲染素材。恢复、校验及接手顺序见 [`MIGRATION.md`](MIGRATION.md)。
 
 ## 本地预览
 

@@ -1,0 +1,4406 @@
+{
+  "tag": "v2026.10.21-project",
+  "date": "2026-10-21",
+  "product_baseline": "v2026.10.20 / PRD V1.62",
+  "manifest_excludes_itself": true,
+  "excluded": "Promo binary media excluded at user request; local dependencies, credentials and browser data excluded.",
+  "file_count": 879,
+  "total_bytes": 85328512,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 518,
+      "sha256": "4762833b698f1411efe116db4a77b9fe6ba894997fbae86edffe81023c38480f"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 1169,
+      "sha256": "83d1a0ab0cc6e2243cab6ae7037ca9049c4bdbee70dce6baaee5973103ea8415"
+    },
+    {
+      "path": "DEPLOYMENT.md",
+      "bytes": 2134,
+      "sha256": "755cb589ab5cb332ed1f74f0305be9abac3bdd3a977dd859a8540ff694bcbef0"
+    },
+    {
+      "path": "MIGRATION.md",
+      "bytes": 3677,
+      "sha256": "8dcc4cdb4dfedb45efc83dc595e0743be3a5666e524e8e776c31dd97c85404cc"
+    },
+    {
+      "path": "PROJECT_HANDOFF.md",
+      "bytes": 79915,
+      "sha256": "e34e71220cae4c764ebd3a9456f93a6d861223740b98d1fee915d371680a9a2a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2339,
+      "sha256": "f674006914b42753663f38f909cb3842c2da7cf7ef09f7b20ddd60c10f76000f"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "bytes": 2347,
+      "sha256": "7cb83a52fe189b44cac43ebf043cd59029be1ea007bfa7306718d197d1517ef5"
+    },
+    {
+      "path": "app/app.js",
+      "bytes": 56422,
+      "sha256": "8b03ce2d3019efacda35df4f0f7c77b6d4d39cc94edb6e2bc9d8bea669bc1c36"
+    },
+    {
+      "path": "app/assess-detail.html",
+      "bytes": 8411,
+      "sha256": "c6f75e86f7bfdb881eac9c92a2444c8ff3c4ff4fb09444e6040c9975f15cc8bd"
+    },
+    {
+      "path": "app/assess-new.html",
+      "bytes": 2534,
+      "sha256": "90462d58093e4ae3eb3b233752696dba704ca78c5b3493789670f70f0fff9b28"
+    },
+    {
+      "path": "app/assess-projects.html",
+      "bytes": 22328,
+      "sha256": "d87062161769146fae84062d14a214c8381a29509f45416d75a00ce4460ac30a"
+    },
+    {
+      "path": "app/assess-results.html",
+      "bytes": 402,
+      "sha256": "37650f9d909fb00b39159ed53adbd5959a4a5633b37d72800667a36c330af5af"
+    },
+    {
+      "path": "app/assess-tools.html",
+      "bytes": 402,
+      "sha256": "37650f9d909fb00b39159ed53adbd5959a4a5633b37d72800667a36c330af5af"
+    },
+    {
+      "path": "app/assessment-ai-assistant.css",
+      "bytes": 5207,
+      "sha256": "6f027742030b05e6c5b0d278a8e93a43bb5f48d71a681d8a34d3ca05cbf6bb5d"
+    },
+    {
+      "path": "app/assessment-ai-assistant.js",
+      "bytes": 11106,
+      "sha256": "4ab14ad06d4b1897e4dff0a5b8d8991576947b9145067e2ccdec1558b46b713b"
+    },
+    {
+      "path": "app/assessment-builder.css",
+      "bytes": 6931,
+      "sha256": "230a9fb7b1688354f3134b9544fba343ecbdebfd054695086a609f6c039b2629"
+    },
+    {
+      "path": "app/assessment-builder.js",
+      "bytes": 9902,
+      "sha256": "24d9ee86728c905cfb07785ddcc456d00c31f3f52817b8891b69186d03092cf9"
+    },
+    {
+      "path": "app/assessment-data.js",
+      "bytes": 4901,
+      "sha256": "4c684a3df86b594cf57e721989063aa003730a3b2c709256c91edc517515104a"
+    },
+    {
+      "path": "app/assessment-draft-list.js",
+      "bytes": 947,
+      "sha256": "c5e6edd70ac55dcab40c09c341a8472edb01772d3ecae6ce531a634f7b08ccaa"
+    },
+    {
+      "path": "app/assessment-project-lists.js",
+      "bytes": 5930,
+      "sha256": "beab3616c9605cd416f13373b01c7450a015829ee7ec57542684d8230acf2f7e"
+    },
+    {
+      "path": "app/exam-projects.html",
+      "bytes": 14137,
+      "sha256": "417f03b6d0b40fecbadce1d2faca82a6dda9ea8befd0d1c1142964e9a096f175"
+    },
+    {
+      "path": "app/idp-list.html",
+      "bytes": 395,
+      "sha256": "b60212b42b8c760f8f6395dbcd453a8796d036e159bb4d91280a399901b5166b"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 374,
+      "sha256": "73a529531573d5c5df355e08476a260ba10c7814911fa61a95b3c1e8b941e5e7"
+    },
+    {
+      "path": "app/indicator-data.js",
+      "bytes": 7434,
+      "sha256": "8919879a24e3168bff809621f52734b123be0c089b0651bfde65c2dd28454f3d"
+    },
+    {
+      "path": "app/key-position-analyzing.html",
+      "bytes": 12524,
+      "sha256": "50df04bc07bb90664bd02d32bf61d5860ed118b9ac6333b0da06878f84f89320"
+    },
+    {
+      "path": "app/key-position-new.html",
+      "bytes": 11894,
+      "sha256": "b8b697734c6a56f23f2bb1f22da49a5ae69e9092fbf4f7e29015a12eb834c05f"
+    },
+    {
+      "path": "app/key-position-result.html",
+      "bytes": 28226,
+      "sha256": "72eacb38ed73bcdf3d764630ca1902323477802bc2a7e8caced728cfcf9e3524"
+    },
+    {
+      "path": "app/key-position.html",
+      "bytes": 22102,
+      "sha256": "dcddd2d545ccdc55d4e30f403ebf5fb255c9514f5bde9f95d086035550c01628"
+    },
+    {
+      "path": "app/learning-plan.html",
+      "bytes": 5977,
+      "sha256": "7735557dfec4fb405ab245642358a0cce8f4816d71433f9db17274553cda3023"
+    },
+    {
+      "path": "app/level-map.html",
+      "bytes": 395,
+      "sha256": "b60212b42b8c760f8f6395dbcd453a8796d036e159bb4d91280a399901b5166b"
+    },
+    {
+      "path": "app/org-analyze.html",
+      "bytes": 13741,
+      "sha256": "34dbc86d185709e87389effbabc1d0368a6f7402b3ce3f1140de3911e5319cd6"
+    },
+    {
+      "path": "app/org-analyzing.html",
+      "bytes": 12476,
+      "sha256": "fa1d6d8dabd1da6be5d7f645ac81c388cd53ff8ac99dd9a2dddf9a6ba31bcc02"
+    },
+    {
+      "path": "app/org-dashboard.html",
+      "bytes": 392,
+      "sha256": "c123e8ba5354d70e33bb6aee27dfa7b813a4cfef32d011e68a61bfcbcd51f57f"
+    },
+    {
+      "path": "app/org-preview.html",
+      "bytes": 11411,
+      "sha256": "e356c91aed213f54580bcecba9a56b99f904d58b41451b7d3cf2ecd0ed52f848"
+    },
+    {
+      "path": "app/org-structure.html",
+      "bytes": 29214,
+      "sha256": "c6ea6c524acb58ef18210d2ed330cfeb3eced555a6172a6f8234b7a251218dcc"
+    },
+    {
+      "path": "app/position-detail.html",
+      "bytes": 12382,
+      "sha256": "4984cb438c7029d7ca6bb10a5e7f0577ee58d18707e3cb149e415d15e8b94d45"
+    },
+    {
+      "path": "app/position-map.css",
+      "bytes": 4985,
+      "sha256": "1b9e97e74141533ad9c07a28da44255db9ad7e7dfa6f29b5980c276b61837d15"
+    },
+    {
+      "path": "app/position-map.html",
+      "bytes": 9662,
+      "sha256": "055fecd553e174165d877b3c8975fcccd3b31b73599c046ed148f69a65af336d"
+    },
+    {
+      "path": "app/position-map.js",
+      "bytes": 10607,
+      "sha256": "7d995075c60b80802ea5fa36b7e56eca231dfeed70ad72cd95b525d045a3ab37"
+    },
+    {
+      "path": "app/positions.html",
+      "bytes": 14746,
+      "sha256": "73c23d7ed586b05921e230db7018609418c7fb272e1067ad48f1c866e230614e"
+    },
+    {
+      "path": "app/production-ui.css",
+      "bytes": 30501,
+      "sha256": "84e7ded4d5b7833ca68e344f8a1c1be213a53c7d1e492ec912cb452b54b55de3"
+    },
+    {
+      "path": "app/proto/talent-grid/balanced.css",
+      "bytes": 30,
+      "sha256": "fd36fdd27d46aab9f8c6851f65a4bb3cc96bf75608117604f3425fb6ad0de160"
+    },
+    {
+      "path": "app/proto/talent-grid/canvas.css",
+      "bytes": 2352,
+      "sha256": "d5f76ad1cec2752604a5c90e02c4d548b768c5240bb605e9df6311d6b6b4642c"
+    },
+    {
+      "path": "app/proto/talent-grid/frame.html",
+      "bytes": 65229,
+      "sha256": "1f54282e1579f393331875456a62bfd24690fcc9952bd7fcaef57a131b19dc73"
+    },
+    {
+      "path": "app/proto/talent-grid/index.html",
+      "bytes": 5056,
+      "sha256": "4a790c32001986d174749ba80ad93ff6f3d12791aadbf3c76f3dc3a4c547c96a"
+    },
+    {
+      "path": "app/proto/talent-grid/overview.css",
+      "bytes": 1374,
+      "sha256": "1f90995e6a02212737885bdc224acfae60b1051d6921bd00ed2b968b690c0eab"
+    },
+    {
+      "path": "app/proto/talent-grid/overview.js",
+      "bytes": 1909,
+      "sha256": "aabfb731a5698fd2b225d385d3855234fb241f29d9d8028be9f51df05d75214a"
+    },
+    {
+      "path": "app/proto/talent-grid/worst-content.js",
+      "bytes": 2891,
+      "sha256": "82f5a329a7c1facef06ac0d2faaea3177e9ec960c87eb513297751de520edf47"
+    },
+    {
+      "path": "app/review-compare.html",
+      "bytes": 404,
+      "sha256": "336c48fa325a2b6b8e61db5a233752a9c8149a23b6359174c56c5c94e73df82d"
+    },
+    {
+      "path": "app/review-detail.html",
+      "bytes": 64417,
+      "sha256": "2d5917fa4a4e37cbd547d13e613e69852352fb5265e57eb5543632254b3c8868"
+    },
+    {
+      "path": "app/review-map-charts.js",
+      "bytes": 23217,
+      "sha256": "7966eb1dad2479cadca984f1d67344b8a31e0a492f6148bf75b00777720aafd0"
+    },
+    {
+      "path": "app/review-map-detail.html",
+      "bytes": 29180,
+      "sha256": "6e26bf88d7d634cdb223e27c43319878a7d145817ad986e577f7addb4f105363"
+    },
+    {
+      "path": "app/review-map-new.html",
+      "bytes": 34383,
+      "sha256": "eb2baa736828afa161a4da377093d63d8c4a75191a289ec7b1182b934a026982"
+    },
+    {
+      "path": "app/review-new.html",
+      "bytes": 33947,
+      "sha256": "6c992f46fd6226f42cc562fd98efe6c3cce6c687ab25fb4353ade36108330503"
+    },
+    {
+      "path": "app/review-projects.html",
+      "bytes": 19841,
+      "sha256": "f5d47e550a22365a9a158dea6a887e7b0c52d8eb58839ec5d7ad61e3fd8f3083"
+    },
+    {
+      "path": "app/settings-editor.css",
+      "bytes": 3552,
+      "sha256": "870f46c866b632d9f533fb064c7ebb46336e7181d3dd6315c84b2fa3dd3f1309"
+    },
+    {
+      "path": "app/settings-editor.js",
+      "bytes": 8425,
+      "sha256": "0d782fabba340439290c61de9686ea2b1b33afd89ce300518fb30d284d240c07"
+    },
+    {
+      "path": "app/settings.html",
+      "bytes": 4347,
+      "sha256": "555f05c20aea65da9eb22844ef2c1d3e34fdaf192c75f6568f8a7ec6ae3c80fe"
+    },
+    {
+      "path": "app/standard-ai-assistant.js",
+      "bytes": 34167,
+      "sha256": "fc6bf2e7ad85353e314054c4e24d45f85c1a5bdcd9c7b44dab71d85b402fb9d1"
+    },
+    {
+      "path": "app/standard-ai-flow.css",
+      "bytes": 31689,
+      "sha256": "b0c972e14cfd64098e712fd96bbdfc3b4233500e11fc259cc534788e9543fb10"
+    },
+    {
+      "path": "app/standard-detail.html",
+      "bytes": 7020,
+      "sha256": "92dd6fe4c732fc9b0d42c6b4a1bf5abfab061d954a234aa702f8ca95fc3211af"
+    },
+    {
+      "path": "app/standard-editor.js",
+      "bytes": 16325,
+      "sha256": "d3500bbb704f30044c6e683af012cc5e4bcd8d81700eca4dac0ef91ddb2af93a"
+    },
+    {
+      "path": "app/standard-list.js",
+      "bytes": 6493,
+      "sha256": "114a42d6b9cca1ddc34b510ce33d41b04e1bdbc1c8ee73151083adb2fbd2ee6b"
+    },
+    {
+      "path": "app/standard-references.js",
+      "bytes": 11416,
+      "sha256": "5d894cee82f813001038536d9a3027c82cd4bfd58af7973ceb2ee75a02955ef4"
+    },
+    {
+      "path": "app/standard-seeds.js",
+      "bytes": 7099,
+      "sha256": "074d6e888ad663c921784281491288b49987f0f82af486c5201453fd33a0c010"
+    },
+    {
+      "path": "app/standard-ui.js",
+      "bytes": 2148,
+      "sha256": "7875a532be84f6faecebb16f351ceb91c01c43704491a1cede772e17c5b3cef0"
+    },
+    {
+      "path": "app/standards-data.js",
+      "bytes": 7630,
+      "sha256": "5458067a498fd6475c86e00b528ead8a1f9a6e81b3621749077a717105dad651"
+    },
+    {
+      "path": "app/standards.css",
+      "bytes": 42277,
+      "sha256": "7547638150da280d0239b66255905fb1d1e3461e39017a43d154267527daa165"
+    },
+    {
+      "path": "app/standards.html",
+      "bytes": 13225,
+      "sha256": "20a2c6f8a7640a9226d99396ba7a6488263714494e4f00f7e951f38ac71db852"
+    },
+    {
+      "path": "app/styles.css",
+      "bytes": 226775,
+      "sha256": "5a3579fcc9c469b7928b27df10ce10c535386378329b8fe5c4e0ecdb16967ae4"
+    },
+    {
+      "path": "app/succession-map.html",
+      "bytes": 392,
+      "sha256": "c123e8ba5354d70e33bb6aee27dfa7b813a4cfef32d011e68a61bfcbcd51f57f"
+    },
+    {
+      "path": "app/talent-assessment-projects.html",
+      "bytes": 15382,
+      "sha256": "96769154ced115a97bc569880f3a1917aa8d24f608542fa6ef2c6398ab06ed41"
+    },
+    {
+      "path": "app/talent-center.css",
+      "bytes": 16445,
+      "sha256": "c764c36a0fa0f358bd147263315a6319d2f38e3aa3e0756f672d81a7dda155a8"
+    },
+    {
+      "path": "app/talent-center.js",
+      "bytes": 54236,
+      "sha256": "767537bea631b4809b6b9edd6c2e3683ab6601d46c19035651230a7db70eec49"
+    },
+    {
+      "path": "app/talent-compare.html",
+      "bytes": 2419,
+      "sha256": "23dc2a16a4b724e1d36e895c78b6d1920ce2c365daa224c85cac23ac92365879"
+    },
+    {
+      "path": "app/talent-dashboard.html",
+      "bytes": 2426,
+      "sha256": "6fff7df2bd967f1cacbad668085e1a60e7f3d84b70a877ba557d89220c7aeb7c"
+    },
+    {
+      "path": "app/talent-data.js",
+      "bytes": 8570,
+      "sha256": "a4789063f1ebb38dfada70e414f1737c5110d838a11c11df5e8ef1e71ec5ee98"
+    },
+    {
+      "path": "app/talent-list.html",
+      "bytes": 2413,
+      "sha256": "c7b9c20dbd05462e196265953ed14cfdeddd052983b1f987ea0acedd1d6a4808"
+    },
+    {
+      "path": "app/talent-pool-detail.html",
+      "bytes": 2426,
+      "sha256": "9fff4b60470aa1e8ef31fdf9ef681685e0623be812ec801aa9d133b6ee3ee761"
+    },
+    {
+      "path": "app/talent-pool.html",
+      "bytes": 2414,
+      "sha256": "77a99b2d3bf1499d2ab301da4a3b75e1d2b49de73d15da7b4e4852e2ac871dbc"
+    },
+    {
+      "path": "app/talent-profile.html",
+      "bytes": 2499,
+      "sha256": "f3ed05f3e250ab8cfc0392fa3c3f84823f8c637417712330b103753ac29a7420"
+    },
+    {
+      "path": "app/talent-settings-data.js",
+      "bytes": 1752,
+      "sha256": "9ac74d26e90d55a9c2f673a3823eb595a368df1d044d1b6ad7cbda39eb0796e6"
+    },
+    {
+      "path": "app/ui/components.css",
+      "bytes": 10551,
+      "sha256": "ef5c8434811607c9aee40c0fe6a48acc729aeaa65d91027685dad7f04b82daa3"
+    },
+    {
+      "path": "app/ui/components.js",
+      "bytes": 38039,
+      "sha256": "7a07d48b552b08afcd49a0bc9556a11c3f31bc9dd2a40bb3141cf244ffc4fa56"
+    },
+    {
+      "path": "app/vendor/ECHARTS-LICENSE.txt",
+      "bytes": 11990,
+      "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+    },
+    {
+      "path": "app/vendor/ai-assistant/ai-mark-a.859a3c0a.svg",
+      "bytes": 1343,
+      "sha256": "67297a535950025e54c979da56fdcf9460f539177480ac0cda88f530de3e7fac"
+    },
+    {
+      "path": "app/vendor/ai-assistant/ai-mark-b.adf436fe.svg",
+      "bytes": 1345,
+      "sha256": "f1bb05c0673c04dce4126a487087b09f85e4de28346c1951f335a9e361dad648"
+    },
+    {
+      "path": "app/vendor/ai-assistant/collapse-left.9f818ba5.svg",
+      "bytes": 827,
+      "sha256": "130f297935e650e4d20ba13485c7830f7b9f5738af80ffe053b58e0d2e5256f4"
+    },
+    {
+      "path": "app/vendor/ai-assistant/header-new.3f738b0a.svg",
+      "bytes": 5396,
+      "sha256": "34fab7ea435623edf9f5b40f0794bf2fe105b639fb58440e8b02c10a1690394e"
+    },
+    {
+      "path": "app/vendor/ai-assistant/icon_AI出卷助手.0ec7eed2.svg",
+      "bytes": 12052,
+      "sha256": "d05e135bd72743295dd0b674dbd384084d0291cb4c793acf2cce7ac7c9e5f677"
+    },
+    {
+      "path": "app/vendor/echarts-6.0.0.min.js",
+      "bytes": 1117939,
+      "sha256": "baa8dfe7e1d9336b98e8986ba7e20ea15e7cdbea1ef42a59d59478632fa45a1d"
+    },
+    {
+      "path": "app/vocabulary.html",
+      "bytes": 59396,
+      "sha256": "64436e3aa06e5a3b7e82d21b4cda4bac5d202008e7f31396f47b3c74d3e89865"
+    },
+    {
+      "path": "deliverables/2026-09-29_景旺需求分析与人才中心设计建议.md",
+      "bytes": 26839,
+      "sha256": "2dd102d6bd1b84048cef8c8b2afd41c9094d4374a261e926d982f4edc72d4a47"
+    },
+    {
+      "path": "deliverables/2026-09-30_景旺原始沟通补充与需求闭环.md",
+      "bytes": 5154,
+      "sha256": "c3154d0f4af0bbe4900dba36db9860b8f1d429eb758eb4f22730a3cf325cbe55"
+    },
+    {
+      "path": "deliverables/competency-dictionary-comparison/报告二_AB横向对比与词典优化方案.html",
+      "bytes": 502201,
+      "sha256": "88002fdd79c37fad53d36a51e533c4cc77be172bda26947dae9f165435094be9"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/00-整体业务流程.mmd",
+      "bytes": 582,
+      "sha256": "4b0a0ca8d099a68f1ae708f2cc33c11f9d967c52a6db98aade2f51335cad80ab"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/00-整体业务流程.png",
+      "bytes": 133753,
+      "sha256": "bcdb77ac92aa3812c004e8de192f8dd70eb9a85b974887e372447a95c2d09fe4"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01-岗位中心总览.mmd",
+      "bytes": 373,
+      "sha256": "0804aea390375f790590efc51176c731d8ad9af3ef581fe8caf634de52593ff4"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01-岗位中心总览.png",
+      "bytes": 79700,
+      "sha256": "47ad89f6e69a51963451b65c55aa0db674b417cf999a20784b3eb3f862bdd1a1"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01A-组织结构分析流程.mmd",
+      "bytes": 507,
+      "sha256": "39a4b1f1922dbddf0cb67338ab43e400c9217e7638a67e9718266279d6e8acf0"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01A-组织结构分析流程.png",
+      "bytes": 115571,
+      "sha256": "85e8a6c8f67354f13102bfe9c93c5bcc3cc37f5d7e8a83dc8314260cc22a7de3"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01B-关键岗位分析流程.mmd",
+      "bytes": 503,
+      "sha256": "19857b39941f467d2ae1003f05ed8225602f28ecb043d33dbd56d6a2677aa0c0"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01B-关键岗位分析流程.png",
+      "bytes": 129097,
+      "sha256": "31bbca23eedc40d2097bd72998f350f277b7eee767b2352df005fe1e300e5f02"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01C-岗位标准与学习方案流程.mmd",
+      "bytes": 620,
+      "sha256": "1a166cd597c3fdff86fb7d3b2653ec72cee742922607fea127ea816ddb0505b5"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/01C-岗位标准与学习方案流程.png",
+      "bytes": 144033,
+      "sha256": "03c31c6a2e9a15834c2a2283fd46a53c1965d037a19f3f8d66022ef5d66df25d"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02-评鉴中心总览.mmd",
+      "bytes": 505,
+      "sha256": "b39ae23b0ea0948d504a0ee9d35731c8b18fd0760631eb999060cdc0284a70d2"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02-评鉴中心总览.png",
+      "bytes": 116314,
+      "sha256": "30c3fc84aa3d683382c82859b3b1f10d8dbb9ce2903f515c95c429337ae2d1b3"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02A-360评估流程.mmd",
+      "bytes": 503,
+      "sha256": "3f60f43f24f26811563214419a6da61d33689af54d4169f6b3cd0b4b1506e35a"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02A-360评估流程.png",
+      "bytes": 120664,
+      "sha256": "93a0efe1bb7ff96c3672c7e96ceb5f01da3ef19a8880d9d42438f168210e66b8"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02B-人才盘点流程.mmd",
+      "bytes": 518,
+      "sha256": "28dd100f15dd38fb0235b80197a0cfb972ab81029a355882f0f2c19fe468276c"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/02B-人才盘点流程.png",
+      "bytes": 122894,
+      "sha256": "40eaa9a77fe270837a1a2da97e9abd4c1ac61c0bff861eaaef7e067af1ea2a36"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/03-发展中心流程.mmd",
+      "bytes": 598,
+      "sha256": "e65a8b97b55dce281f7f935c4228a4f178505a4b3cfbbd97071594b280daeb4b"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/03-发展中心流程.png",
+      "bytes": 131335,
+      "sha256": "2c63e4261f71a7d98c9d26912698e19cc74a604154e7e89028ebbbc3031f24ee"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/04-人才中心流程.mmd",
+      "bytes": 576,
+      "sha256": "9505c7a1fe020a5e5f737a7811faa5514abba6d38ca7a86bc8114a38c8538f93"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/04-人才中心流程.png",
+      "bytes": 150223,
+      "sha256": "c57074e086cda8102188d43c087195bd7e94ac2aa869e81705af743e17869d41"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/05-系统设置流程.mmd",
+      "bytes": 577,
+      "sha256": "f1871ab7b2ed1d895ef349b34a147d2f3c05a09850b6761f6ae458f7ab2cf207"
+    },
+    {
+      "path": "deliverables/craft-mermaid-current-prd/05-系统设置流程.png",
+      "bytes": 149938,
+      "sha256": "6da63ce787cbafcc52948656a5cc2a5fb6bf113f4d5438a41805fec008a63221"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v2.html",
+      "bytes": 29452,
+      "sha256": "f8fbf3dd64e89f3ad4d6712795534c7ae529e51775af80f314fe090d79715aa4"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v3.css",
+      "bytes": 6736,
+      "sha256": "a847b9e547fdea8713691443474e732ed85b8a56aa2b75c3869b595ec5ad700c"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v3.html",
+      "bytes": 7122,
+      "sha256": "a84939db235ae09107a7a58a20ece3708673f3a31d73de2ddc7a1cc3337b540e"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v3.js",
+      "bytes": 8307,
+      "sha256": "585c56b02aeb42f30a1903ece2f2bd33bc55f1e44765651aee9a77a52f125184"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v4.css",
+      "bytes": 12383,
+      "sha256": "e55a4e3aa860c1ad5828e2716804acc8ea190b0afa312f7d6691cb0c0ba92a1f"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v4.html",
+      "bytes": 7409,
+      "sha256": "57259a143117c175e2719dffc843992014815cf1c17ca46f81756dedd8c11413"
+    },
+    {
+      "path": "deliverables/development-solution-concept/concept-v4.js",
+      "bytes": 11159,
+      "sha256": "3ae5cafe4c3adfd59a47947bbeccd7e2c3764918dc0136f3b0029a9022f71f51"
+    },
+    {
+      "path": "deliverables/development-solution-concept/index.html",
+      "bytes": 273,
+      "sha256": "bf7ba3da4584bfe6b854f4bc02cafb77b209ef376cf4948e509df08cddb0973b"
+    },
+    {
+      "path": "deliverables/development-solution-concept/设计说明.md",
+      "bytes": 1873,
+      "sha256": "d13c87ec556eb5c84171584a133ade4fe12f3c74f2d63c772cbe09220a8652a3"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/00-overall.drawio",
+      "bytes": 13081,
+      "sha256": "f1097228ae9f9319466a2f4629ab2ff25519d5505ccfeeb6cf083791448a0ff0"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/01-standard.drawio",
+      "bytes": 14212,
+      "sha256": "f0dbfdef318fcb8838f24c398e456a35cf581b5212f86acc01faa21932e78d08"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/02-assessment.drawio",
+      "bytes": 15413,
+      "sha256": "0fda862b47c398870ba66d09a582ab2d24ea1249b075894156f68eaa43a3d8fd"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/03-review.drawio",
+      "bytes": 14576,
+      "sha256": "5b5b0ad0fb563708623b86dde5967676423bb1543cf473aeb729ca4bde17a7f6"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/04-development.drawio",
+      "bytes": 10685,
+      "sha256": "f92db41019fe2712ea2dddf65e7fa1826409e85404023bf757129eb6085dbeb3"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/05-talent.drawio",
+      "bytes": 14067,
+      "sha256": "da450752f29a84a637e59aa68bd8fd430a17e9af52a910489ca87a32c16d5aff"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/06-settings.drawio",
+      "bytes": 12092,
+      "sha256": "b9335a66960041ac562048cbaf710a32ede389f4ebcfa3b2aa5779b6c0eba1d8"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/README.md",
+      "bytes": 1218,
+      "sha256": "15331711d693797e6bd6a2f52da124db382944125ed78b8af10e6e19ac2dcf76"
+    },
+    {
+      "path": "deliverables/drawio-flowcharts/人才发展系统-全部流程图.drawio",
+      "bytes": 92994,
+      "sha256": "64abf69ae54130823deea38c8ee9496713b0e0e8104b1cf857fc62ab4f0d961f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-08-review.md",
+      "bytes": 5774,
+      "sha256": "3cac2620186cefc1bd03208f2c8231ae8d5952f36e4d418e21d28a394183612b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-20-ai-flow/01-review-1280.png",
+      "bytes": 59740,
+      "sha256": "ddb8a7ce2de48f047a1170c7f1fd93e1d9c3a29c81b2fccfc3508f1558f05b9d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-20-ai-flow/02-draft-1280.png",
+      "bytes": 66462,
+      "sha256": "00b7bccd67c20d9872a003f50d980f2e87dde2fb75e621b65032b665515bbfba"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-20-ai-flow/03-draft-1440.png",
+      "bytes": 81619,
+      "sha256": "64693bbc43734dc361174562ba5bfe28461039b4f5296e5737465d1f1873bf1a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-20-ai-flow/04-draft-1920.png",
+      "bytes": 99516,
+      "sha256": "fd5776d30151672c8ab2c8c68eda9d951906439d9dc7f045a61910d44cbf5a22"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-20-ai-flow/review.md",
+      "bytes": 3472,
+      "sha256": "4884dc82c94f9be40c7f8dbec0fdae1a9e3bacc535f845d1aeb96a510ebcd736"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/check-data.cjs",
+      "bytes": 4410,
+      "sha256": "a869fae3157b84cf8c81fde0d3e23877910bb66134d978e70315dd24873d1483"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/compare-refined.png",
+      "bytes": 66012,
+      "sha256": "2c9fdb84fee5bc7a0e4b6dad9a06c36255a8ef3ad4e126b3107d772a5a8f2609"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/dashboard-no-accent-border.png",
+      "bytes": 61212,
+      "sha256": "a6a9a5539afc13952af31986f1ca0c447de8326906988ebdcd54d531c7f336b4"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/dashboard-refined.png",
+      "bytes": 48148,
+      "sha256": "70a5551c51a812183876036b50b81a7ad2ff2bed157a08d2a6d9d10615addb55"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/dashboard-visual-review.md",
+      "bytes": 1174,
+      "sha256": "cd4d523c72a5f7d3d265c639098a0db96f65c9773a85911fd52bd5ba667f89c7"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/dashboard-visual.png",
+      "bytes": 61874,
+      "sha256": "4c114b5ba6af263b8c5e3d42ed39166f162337080b923f2902b33e7a9f3550b7"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/navigation-fixed.png",
+      "bytes": 59240,
+      "sha256": "2a97904c9610211195cbaa612ec94c445723e9f693f8b790d3990766f607a936"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/pool-detail-refined.png",
+      "bytes": 55524,
+      "sha256": "2d431692c954b55726f1b1a58689f1fa9bd81c5b3e3eb30274c0995d12b0eac5"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/profile-refined.png",
+      "bytes": 46890,
+      "sha256": "365e3b40195b645c8b613c9f35e37f406fbd33e2617191f0970b70191298fb71"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/refinement-review.md",
+      "bytes": 3904,
+      "sha256": "aeed55e3d3d0bcf9bd1395ad8a80ee5fb2a1a9e386f5eca01c33e3d80746e5d9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/review.md",
+      "bytes": 4784,
+      "sha256": "4a49bc1690c762d48ea7b00ea3a1cc7faa00273ff9993dad9d2f0a481c0be942"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/talent-list-refined.png",
+      "bytes": 54210,
+      "sha256": "75da79ae985d4c5a20d5081613071576338d8ac7d21b2204516ee98953422e7d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/talent-list.png",
+      "bytes": 65381,
+      "sha256": "b4f9f543740c12b2945c5d40fb4291b223f8c6c45604c07c0d7ce3336a978049"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-29-talent-center/talent-pool.png",
+      "bytes": 64753,
+      "sha256": "ccdac6bb7f28c3692b2d2c613d245cc306312c4385231d40afbe40686dd85dbb"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/check-rules.cjs",
+      "bytes": 4158,
+      "sha256": "f26d556afe8800cbf9696d25e34e4a3394fe6e74424c58930f589f33a592cc30"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/filter-correction.md",
+      "bytes": 1356,
+      "sha256": "ef4aad18ed05fe0110e06f8d7139a55e633292227747bc88201ef55170717c25"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/filter-correction.png",
+      "bytes": 49519,
+      "sha256": "da7458baf9edbfd4668d7f20928762ef3fb7f4267f120fd65d39eb56eedd7896"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/idp.png",
+      "bytes": 57904,
+      "sha256": "ee8653026f573e8949a22a9f93b46471c6f4770997ecca57f63fe732687cfc7c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/overview.png",
+      "bytes": 79422,
+      "sha256": "41d5a177f164f92037c27dec66c9e0a2d29d7bf1baee3d364c50f6d6d5d80c0c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/plan.md",
+      "bytes": 3523,
+      "sha256": "26d953dd093886f688f4864c76eb0653dd8f98b4bd7d701a4b621e361f34f58a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/pool-idp.png",
+      "bytes": 44286,
+      "sha256": "c37c4523927e9876e29d61542dfaee47fb968c50f61747aa242ab932b2ee1ade"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/reserve.png",
+      "bytes": 69847,
+      "sha256": "2325fec8f04fd33ddaddb52c126ccd83ba52c69b67fd1c78e5bc2fee70b9a4ed"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/review.md",
+      "bytes": 3701,
+      "sha256": "cea610966659f8e52f4e7658b9c274fd4faf20c1d325d9f9e44a5e8aaaa84442"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-09-30-talent-center/talent-list.png",
+      "bytes": 60867,
+      "sha256": "36afcf1db3d9d975e653a97bd74978345d665ea9adc8f9d23f7fef55c19ec22c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/assessment-builder.png",
+      "bytes": 66681,
+      "sha256": "7c5ff37f19e35eedfa7bad5bb91ca2b0b249acbcc9266297e03d51f9aba1574a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/check-data.cjs",
+      "bytes": 3567,
+      "sha256": "d5d8697d5e83fedde9580cc6b8591990cbdfcd1fffebe412a1b0a26f51a29bce"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/dimension-settings.png",
+      "bytes": 37754,
+      "sha256": "3ea2eda6d251dc6dbe3ae3bc0e43a3e4b5b50146140816b743b192966574591c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/jev-request.json",
+      "bytes": 3164,
+      "sha256": "837baf688c575692747a43c526ea6d27889b0ab0cd1f11c98065ba2e8d0102fe"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/jev-response.json",
+      "bytes": 1458,
+      "sha256": "a433ee0e1f709134d78a3bbe2185cf59f9389128e72c84ec2e17baa97133033a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/level-tree.png",
+      "bytes": 34656,
+      "sha256": "3dfc4bf79d360067a409dfed947808218480ab4db01f86dd7c23d1efa5e76018"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/review.md",
+      "bytes": 4702,
+      "sha256": "b579cf720f1d9bc58b6568c7c623ae45c1523298ea9038343c9a779a63b97d3e"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/standard-preview.png",
+      "bytes": 72476,
+      "sha256": "2c45435e236c62bd73d7c4ef4ada7d7f2b744198db403ccce887126a62acd499"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ai-settings/standard-update-choice.png",
+      "bytes": 59599,
+      "sha256": "bfb2bd7fc562b83007e0c7f256ede646b2a1c1163cee5e2dc10c3d623d8bec24"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/assess-projects-after.png",
+      "bytes": 89296,
+      "sha256": "183c1215aa676221f6a6a33492e6956e4a6718355fd09cc4db0878f6baad61ff"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/indicator-manager-after.png",
+      "bytes": 40137,
+      "sha256": "3b4bd71ec287cc287ba1ca003c43f6fc85d44357355dc5c7244dcde87d251952"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/indicator-mot-after.png",
+      "bytes": 67267,
+      "sha256": "5fc5ee1bcd726aa0e39fd886cc1f1ffe32f31ade9a17ef73606f5848becbe383"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/indicator-picker-after.png",
+      "bytes": 46571,
+      "sha256": "c64908a1715a8f44b930599353b25ffd02f2782f5a54ba4e47929505af87bf5c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/indicator-pot-after.png",
+      "bytes": 60636,
+      "sha256": "2d939bc687394d1c1c55c47691e4c391ca7b15f094db4b63938f14ccfca5a416"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/interactions.json",
+      "bytes": 3146,
+      "sha256": "63f761aa83382f9690f7e7e5bfd710ac6f55beec6843e4a98a1f5b395bd49283"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/map-people-scope-after.png",
+      "bytes": 44818,
+      "sha256": "f68c26138dc3ef7c26bff9ad9863c86ed492b952e59e1da0ce3654722b6f85dd"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/page-audit.json",
+      "bytes": 6587,
+      "sha256": "c9ea5c4b76947fef691b91841279f24dadc5b2fd7d8942694daea73959754fe3"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/position-map-after.png",
+      "bytes": 55665,
+      "sha256": "fb8537099d82e402d0b0a2a7f0e95886c71db2b7b3204ae44278a86c9e01fbbe"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/resource-checks.json",
+      "bytes": 287,
+      "sha256": "06d04b5b0a84363e566277b7ac7f53268d8cf304bbc87277e8eb2ad25e9bb4ae"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/review-people-scope-after.png",
+      "bytes": 44842,
+      "sha256": "dc4e17d14d5ddc0bbd23d49776d0f9189962e9bba5bc851c4f34e8d060b21ffd"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/review-projects-after.png",
+      "bytes": 51530,
+      "sha256": "2aee9d81818f06042f3dc50916a00f0bf91a53f281d40a8369c3d209895319c4"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/review.md",
+      "bytes": 2931,
+      "sha256": "94965955bc3ef8f270d4c1b88802c6863de701d33a965430abff090d3dd9f7a4"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/standards-after.png",
+      "bytes": 72530,
+      "sha256": "4befad5f69950b81ffc47dc6a97e57f9ee2fb115ae80529b226610a7d0414ab9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/talent-list-after.png",
+      "bytes": 58068,
+      "sha256": "5e22b80a2cb3f728b773c57149f1e4eae2798baae1d7bf86cb1582324dd704ff"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-all-categories/vocabulary-after.png",
+      "bytes": 73016,
+      "sha256": "96b50d4f0a2dbe7356a79e13681fd6a670c5e2b81826bc3d128fe1403fc8fc8f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/interactions.json",
+      "bytes": 591,
+      "sha256": "e0550980acef527d4c26c9d02f554734b3c046d4e1a479e7cca7f96074bce6c1"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/map-dimensions.png",
+      "bytes": 70407,
+      "sha256": "b15a58fedc8ebdf7f1a425e8b711850e40842e1b3ed063f1eb4dd18aa91ba8d7"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/org-complete.png",
+      "bytes": 30866,
+      "sha256": "ad5161514829bb9230f518b0b612c42350ac009456e131d924af03deaf782c4d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/org-progress.png",
+      "bytes": 30289,
+      "sha256": "5628f347945fc5774f392caf6dfbb3ef3d6443e786867e976e0711d471ba99c2"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/pages.json",
+      "bytes": 5884,
+      "sha256": "bf5efd6bd9894d55972d5f074c3c495076d83456350a9a754ed9eb93f878550a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/removals.json",
+      "bytes": 13797,
+      "sha256": "c405538e5518f7db8683386bfd9a1104da8b4a7f194ce227c5bdfa49fe30b304"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/review.md",
+      "bytes": 2740,
+      "sha256": "50baee5db1f96ad41598aeb83f94dd3e8dac73fba11be4d656b743a7e087d6fc"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/source-files.txt",
+      "bytes": 1560,
+      "sha256": "fb30d93e5f5e2ad4bd6b8d2b4320a16ceab09c729c7ea8c151f5bb27fdc28eaa"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-analysis-copy/talent-dashboard.png",
+      "bytes": 50505,
+      "sha256": "20e233c5f2bace51f33c37a30aab278f4681995d72f4ce92e49fd56dda29db10"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/check-data.cjs",
+      "bytes": 2489,
+      "sha256": "564880119eaaf8d94201107136d08beca85888649b4db6c2248c3e15628ae193"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/confirmation.png",
+      "bytes": 46864,
+      "sha256": "9bdfb9d0453f47505d4a6bc398bee34af2592a3b8c12a65bcbc44119f5ce08fe"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/input-focus-fixed.png",
+      "bytes": 51595,
+      "sha256": "e5eb3cd4c841504a82f74594e4e456fa764db0e9a8c8fba39746dbc80c2932b6"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/input-settings-single-row.png",
+      "bytes": 45038,
+      "sha256": "e2b9594c73b84f156d6ae20f833d60076d4e00a700ab5401f7b5134de33ecb9f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/questionnaire.png",
+      "bytes": 50853,
+      "sha256": "25ea7cce43b6c89c6b4628ae3a60ec361fa26423ef725f390223070627068ea9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/reference-questionnaire.png",
+      "bytes": 114011,
+      "sha256": "96f1a057f1224dfcbb701d245854dfa181aec10bebe919e2c0bb053486308a97"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/review.md",
+      "bytes": 3639,
+      "sha256": "a3e1d3b6b9b1251f399e4fb27d4d8dae4cf2024621fdf756e8df6db8da5d0d7f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/saved-editor.png",
+      "bytes": 60150,
+      "sha256": "bedb374de79a8d09f1a005c7e8fd1fa1650e047f3725417deb9515eb8428fd97"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-ai-alignment/welcome.png",
+      "bytes": 43457,
+      "sha256": "4de858f895df2e4b831db63946262ef7f9439bafaa518aefc7c66f69881e8eff"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-list/assessment-projects.png",
+      "bytes": 75816,
+      "sha256": "b24eb0ffbda06263f3facca49120e75c4b25c9cc01aa8ada7a4a8740538c0b85"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-list/measurements.json",
+      "bytes": 1411,
+      "sha256": "4fe3cadf67f62089054d83330d9b65837a515debc3ae88558184ee27efb5304b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-list/review.md",
+      "bytes": 861,
+      "sha256": "90924384018f007d50db508695ae76780f9b5c6366e687b35045bd89cb1f09e8"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/assess-projects-after.png",
+      "bytes": 80549,
+      "sha256": "ba751fee2191086e99a399531b1d702c6e446ea8c0bd53cf0871cfaac3041288"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/narrow-actions-after.png",
+      "bytes": 70175,
+      "sha256": "608a9314fe6eda4f6cd57e4948bd4e3dec6aa4529163b864d0a12c3d883c43ab"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/narrow-after.png",
+      "bytes": 75518,
+      "sha256": "8cb6ae87408cd94294c4be1ae8174dda4846aa2fa3ab9478c58060279f17fa29"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/review.md",
+      "bytes": 1473,
+      "sha256": "95d3ef124a2b9d92c142b4276e4e5fe04af9a0c836a8ba656a48f9ee8416a481"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/search-check.json",
+      "bytes": 106,
+      "sha256": "607b965ff0177301db0b57cdbeaa05b3bbef7cd6d3d4cf37c2d70d27c61a16be"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-assessment-table-width/width-checks.json",
+      "bytes": 719,
+      "sha256": "510b89a08bd081605e92051246b2b487b7b4e63a61a3095e6b65b3c0206798ad"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/after.json",
+      "bytes": 79450,
+      "sha256": "9392c565ab85ca1399d7c9a74cc785c1fd7b3a1a46ca1a3802607ee2877c71fb"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/before.json",
+      "bytes": 79547,
+      "sha256": "76e9a0a34a71c93199000f7ff501a3f811b2cde2b46db71f601748fc04bfb36f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/create-footer.png",
+      "bytes": 64130,
+      "sha256": "c9cee040e99e87bb01f99aec45962051d4e6396dcd45617079095364835c8fb0"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/indicator-dialog.png",
+      "bytes": 51351,
+      "sha256": "733735067bf0c0603d76bf123e1067c638128ed88fa5cc8ae2eb608f703a4093"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/interaction-checks.json",
+      "bytes": 551,
+      "sha256": "d5baed72a0efa58b0c904cd6904c589b5d01f5e5cca2b7ffccc051d60e57cc50"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/key-position.png",
+      "bytes": 52222,
+      "sha256": "c2ec765d01c10e1ab870b353f397359148797db1728d4dcc57dcc2275c803f0b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/review.md",
+      "bytes": 3296,
+      "sha256": "8e5411677f7b7e2c9953e98e870577e804357cb7defab8482cd9de7a42bb164c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/standard-ai-confirm.png",
+      "bytes": 57821,
+      "sha256": "ba2a7a80ec492b56a9f7b7c8ba4a8921f75f66a017ef3622c29a9066d01dfadd"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-button-density/versioned-pages.txt",
+      "bytes": 791,
+      "sha256": "0d0b5968dab4bb601942705b2142b22cef0b1ac9e077a826ec66c9d68bf671df"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-cache-fix/additional-checks.json",
+      "bytes": 369,
+      "sha256": "cc84071d9514858898ca2921f8152a28ee2147291bf260b5fe1c6ac06a4b5258"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-cache-fix/checks.json",
+      "bytes": 7837,
+      "sha256": "84dc232c84e92c60a6f97a9238431ad899b866a011f29070c4d89a56b64073d5"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-cache-fix/review.md",
+      "bytes": 1503,
+      "sha256": "a2116afb173dab8e90253814c67b0e9df374192a558d79b1c20823f6d9030de7"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-cache-fix/talent-list-after.png",
+      "bytes": 58068,
+      "sha256": "5e22b80a2cb3f728b773c57149f1e4eae2798baae1d7bf86cb1582324dd704ff"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/category-form-after.png",
+      "bytes": 33188,
+      "sha256": "4143bba8ba0be3078b0b1f1bf0eeab25e20ebcfcb52d2b97d7aeda90198f005b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/interactions.json",
+      "bytes": 679,
+      "sha256": "dcc7685c4648c1d2a15a233247829f02e3995265b85cb484c5e3726e05efc5a8"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/key-position-drawer-after.png",
+      "bytes": 31626,
+      "sha256": "2b5aac328a82ee77f32f1c61b231b9bf7e69fe286980ef819d116a5fda7216f1"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/local-metrics.json",
+      "bytes": 876,
+      "sha256": "dda86a44a59c5a392e56699775c11d96230d628f15438919577a77289648f8ad"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/reference-form.html",
+      "bytes": 3075,
+      "sha256": "67931e2bbd812aa342cd8067f69daa19864bf0de4d05164521feeaf891dbdc62"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/reference.html",
+      "bytes": 12389,
+      "sha256": "18b2c1f1cdd9608e7e596a73968b7e57619756683c2947967938d7698c15076a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/reference.json",
+      "bytes": 21009,
+      "sha256": "3f483c39d58a13198ba52c83ae410fb481871aef9a4162c17f59b245bc32f558"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/reference.png",
+      "bytes": 83523,
+      "sha256": "4f55ead70937813b4a61682355b98d07cb134db218cf30f243f6bf2b8ca018a9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/review.md",
+      "bytes": 1743,
+      "sha256": "87eac965b8c1eec362f70ab4bb6bfde73d2be46131a75f19f2e59e9438dc2945"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-drawer/standards-drawer-after.png",
+      "bytes": 43113,
+      "sha256": "0ac6a73788eaacf6f1bd290d564aa994f8c64306600325e3b0541d7058dd1cec"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/after.json",
+      "bytes": 20659,
+      "sha256": "2e8a588660c40343e76d8c95a952499f3034bb399b3f5aed3b7f3fc3abff11f3"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/before.json",
+      "bytes": 8262,
+      "sha256": "46ff42d328e7234941c85ed58aa5a4b2c56398dc1b62a25daa4c617ea4ecf0d5"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/interactions.json",
+      "bytes": 4763,
+      "sha256": "8fbd11d06af805cd09f3869300a77396a82a0562bad572f0185b82958876c662"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/jev-request.json",
+      "bytes": 4614,
+      "sha256": "c3f624c2ad3946e151585599c25affff2ebce5634a8674cbf6bbf73ff1e843e0"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/jev-response.json",
+      "bytes": 1188,
+      "sha256": "4fe3c4fcd0d04fb0732749a0b0277ea8b2f0207096fd347a78725afe35dc7d08"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/people-picker-after.png",
+      "bytes": 39391,
+      "sha256": "8d754dd457c877c4f47900f240506a657f2b8a4fb381f1cefa6e583ce09b2877"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/picker-after.png",
+      "bytes": 49517,
+      "sha256": "a427d683a72a15060ce4231359758583a52af9d5332f6e4481e3b636577dc521"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/position-map-after.png",
+      "bytes": 49286,
+      "sha256": "11b225581a9e2964c8ffe0916534ac0a5100b669bc53dcc0071c27025e5c95f2"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/review.md",
+      "bytes": 3995,
+      "sha256": "098ad6d13215264679aa65d79c60304040cead5362c91cf02035cf170d6e4993"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/settings-after.png",
+      "bytes": 32102,
+      "sha256": "5c2e096489d337e24fb3d65b93671ea7ef8e0711166608cd6cff0a0eb4fd95a7"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/standards-after.png",
+      "bytes": 62104,
+      "sha256": "fef1c46e416a8545bf24427e696cae945be01081ca74ed2c808f655bfe10d08a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/standards-before.png",
+      "bytes": 62162,
+      "sha256": "c8e1e26acba7a624a0db1fb199fd03817ff259d0475562aa9bdd7f237749504e"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-rails/validation.json",
+      "bytes": 583,
+      "sha256": "c184684626253e0b8adca638b3420eb9c44128a886b3a56c084ef3db4a2a58fb"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-source/interactions.json",
+      "bytes": 228,
+      "sha256": "0aa04948a4a1625bbcb99f1703686756f064e10decab1064c6f8bf30de4bceac"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-source/key-position-after.png",
+      "bytes": 53817,
+      "sha256": "952dd0c3a9b2310a2e3b9491690a5bbad3792721931a181895196a70c9b2387a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-source/reference-source.json",
+      "bytes": 26716,
+      "sha256": "4c9b2796a2cdec52ba7008fde82fae9d2d64eeccdd4c1d66584ec6845f78d3ff"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-source/reference-tree.html",
+      "bytes": 12639,
+      "sha256": "4f58b9fc88995c9b6ee4a592ff3a4fdae9319c9a29f0c618095425eb7167e23f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-category-source/review.md",
+      "bytes": 1554,
+      "sha256": "dfbe45d0bb8aa900d31a3486fb5096eebbf98e5fadf79e61ec7cc26b5cfff18f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-copy-followup/checks.json",
+      "bytes": 1252,
+      "sha256": "b20f046736c29c1b0aafbb19d60917e86e9bd9477d067ad2fdc067e20021a7eb"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-copy-followup/dashboard-after.png",
+      "bytes": 56820,
+      "sha256": "e7727d6a13a5c827449d902f10408c2bce5b95c88b0cdff282ce356f231c37f1"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-copy-followup/org-structure-after.png",
+      "bytes": 62973,
+      "sha256": "d0e45c955c047987b48db00b1722c2fe04958cac8a4091a36f626f4291b1238f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-copy-followup/review.md",
+      "bytes": 1664,
+      "sha256": "08ea0877478dde70159d2eec353b7975d925eb02ec4be4a1745984a1575897e9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-detail-border/standard-detail-after.png",
+      "bytes": 42180,
+      "sha256": "d874a05982c233f1e1adb794c7f7d1490c96b3db79a3aad3ea02fbf68a816fb9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-detail-border/verification.json",
+      "bytes": 158,
+      "sha256": "1b145623c6d60a1eada645734e16c9e1f86ac0d8d6b6abca31c824995034aff8"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-filter-line/checks.json",
+      "bytes": 181,
+      "sha256": "ac122be396d3bf218e35ed0d848322df4a041ef702fc93fbca399d4a47a4a9cf"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-filter-line/key-position-after.png",
+      "bytes": 57816,
+      "sha256": "441318f280428cd7f4fb75623b7f49f7554ab1203f2ecbfd488cbb6a9477fc06"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-header-footer-borders/audit.json",
+      "bytes": 16031,
+      "sha256": "45b4403fd11830c11752b95dcfda12ba78cd85b903f00940872f7b95be4a8462"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-header-footer-borders/review-detail-after.png",
+      "bytes": 34655,
+      "sha256": "33bbedd37558155199051a205361a85129c50f11892b41e926a65cc6e342c4bc"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-header-footer-borders/review.md",
+      "bytes": 858,
+      "sha256": "4bf43dd260915b8693e4ec8059d6ac4a9d4cfa7cf4279a12e1996267a357972b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-header-footer-borders/standard-detail-after.png",
+      "bytes": 40253,
+      "sha256": "e4d0d31b453e24bcc2952bfc573b3ac72d1faf8df9d804775b1b2aef8f69cdaa"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-level-icons/checks.json",
+      "bytes": 1010,
+      "sha256": "9fd4cf220080a9eae8b3427beb8fdf6830a86860e047422f28656fe48fa65831"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-level-icons/settings-after.png",
+      "bytes": 26413,
+      "sha256": "59fbed9dd3d9efd4ad371145d8231539735f49cbc7cf14b4ab590fb94c072a65"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-level-readability/checks.json",
+      "bytes": 4003,
+      "sha256": "f6c794844674e929ec5d6a0a14fd1f029e6ba2e36010464b9be232ba738a8e58"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-level-readability/review.md",
+      "bytes": 806,
+      "sha256": "fcff47d629193b70d590ee0ae4ba6cb60b7308a196c9d8ab64929719b086121c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-level-readability/settings-after.png",
+      "bytes": 31539,
+      "sha256": "e4102cca3523d385d771821f722e0fcffbd454eb76105be99e779b96f0426686"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-list-action-color/after.json",
+      "bytes": 56526,
+      "sha256": "55bb7a900d61e46ecf247a46f0ca9e4ddcc7990cea65ceb0a4280f6d98f9c845"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-list-action-color/assessment-after.png",
+      "bytes": 78388,
+      "sha256": "bce7effb991fcbbb66f71304ed97bfb67f59a7791daeecfabceaece4a1eea099"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-list-action-color/before.json",
+      "bytes": 19274,
+      "sha256": "9e6ae22f440fbe32ca199bc7ee2e517337e8b8d99c93a49df0b2865b5905c445"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-list-action-color/checks.json",
+      "bytes": 34072,
+      "sha256": "c7959c2a50f2be9d14436f183c07f4a021a8bd580a8d1045ddce7409868aa37f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-list-action-color/review.md",
+      "bytes": 2011,
+      "sha256": "ccd2a5e565e016d01efc5fd8f67d6d0a5e7d65578c3bf498045add90b54c7f92"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/ai-assessment.png",
+      "bytes": 58887,
+      "sha256": "def29936c3c50f6152c74c101f3d780785aea2ee999b2d1a6c36491bee3e4600"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/ai-standard.png",
+      "bytes": 55563,
+      "sha256": "17795962fc1d0471b282872b3cec2ee07ece70264a7128251e8a78430d9c1f8c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/detail-layouts.json",
+      "bytes": 1453,
+      "sha256": "ceff3d861ad1cd3981f308df1c48580f3a1cbbe4cc9be879bf9efcc22a11d09f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/interactions.json",
+      "bytes": 1680,
+      "sha256": "e90ad9a92d47cd5bc20b4ea05549950ac6729eb40afef5cd1ea91f65570e7cda"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/jev-request.json",
+      "bytes": 5477,
+      "sha256": "bd8eea6ff90221510067e18ada36b20432c7ee69577abab7ae2ba9268d4b8c2e"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/jev-response.json",
+      "bytes": 1450,
+      "sha256": "fa87112aa4db7870926756092566db19bf131d76c0d53afbf85fe0597f46db79"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/key-position-after.png",
+      "bytes": 51950,
+      "sha256": "a23ed00a5a79f1349851490e4a6b1f859f247060e2a8d33d9405745d4b066ccb"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/measurements.json",
+      "bytes": 93979,
+      "sha256": "ff5c103ca9c5ddd42dbfcdcc16b09a57d7221180b65d914096cff4b771452829"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/CategoryTree.js",
+      "bytes": 191,
+      "sha256": "985c31e850f0e25717ae18074debeed70db23cd889a0d870f07b1c05554248d6"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/KeyPositionPage.js",
+      "bytes": 16846,
+      "sha256": "56e275438d558c343ed1e5876c21c0a741af892ca8acf05afd645e0a24388392"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/component-layout-rules.css",
+      "bytes": 45014,
+      "sha256": "114d4a0e698426d359226fca67d57d19a3902c7c2df92381726e7e0bbb9b2d3d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/components.css",
+      "bytes": 503890,
+      "sha256": "d9d6f3d465601e79496aa5a63683f11f888d26cce97c612a4cdb7cf66852862c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/indicator-metrics.json",
+      "bytes": 32803,
+      "sha256": "36dfbc34ed6b4b1cc15a1deadf009d9aa7e455d1b343487d63e280f39cf6c803"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/key-position-rendered.html",
+      "bytes": 67063,
+      "sha256": "bb32a27258d6252e615fb59105c129a7fbed46581174a13e7d432d8360894890"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/key-position.png",
+      "bytes": 125068,
+      "sha256": "fce8c06a77acfd32fb1e364635484912ad38057857b1713bc32484e1e6f11f6b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/layout-rules.css",
+      "bytes": 4039,
+      "sha256": "a83572b54d466d44b65ddac08a55fb4bbc0211afb861f8fba67fdc54f8562e8d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/reference-states.json",
+      "bytes": 45188,
+      "sha256": "633e58eb85b560b6e06dcb1c9b8d111f6b9e0fb862deb5bcda7367de47261b96"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/reference/talent.css",
+      "bytes": 272601,
+      "sha256": "7c2f42bfea34834a81ea5a70508b601622d3425195e473a9d8c7cede1907719b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/review.md",
+      "bytes": 5303,
+      "sha256": "3285dc9f5703266cc872d35fca4fc7119a46512eb99b9c1910447bc3c8fa4bc3"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/settings-after.png",
+      "bytes": 23949,
+      "sha256": "3cc6e040d9bc048672c4a275da2bfd5449cdf2f8b52fc38066aabe634d2c1457"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/standards-after.png",
+      "bytes": 69189,
+      "sha256": "a8186a31f9cdecacafd92a9a8e3427b313a683390878bffb9617f2af535c0c6a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/tab-states.json",
+      "bytes": 1846,
+      "sha256": "830c80d0d50fd29e19a451aee1d5f1c1039fb985cab9cc9bfa51ec26b5160310"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/talent-pool-after.png",
+      "bytes": 51082,
+      "sha256": "020cba360b15f4848f90fb19142c78b24cfbdce53c69833fb0fdd431bd11340e"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/validation.json",
+      "bytes": 1894,
+      "sha256": "db8c7e61bd20ed53e49f71694cdcced6c3c77140640d01d976d6ca2aaefa9064"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-live-ui/vocabulary-after.png",
+      "bytes": 70595,
+      "sha256": "d7ca8eaa0da2e423eb0de0e506e5dc28d94ea6bc662789d48e10ede1d698f68d"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix-codes/checks.json",
+      "bytes": 332,
+      "sha256": "4c09d0d30ef3c0cf590355b4138e64ba72ff88590556bb9c154efb38e8f7db12"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix-codes/org-structure-after.png",
+      "bytes": 63165,
+      "sha256": "868a36fd88098368e90686d150dbe8dade51add09adc0e09ab9e8ce2e2be5179"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix/data-checks.json",
+      "bytes": 2637,
+      "sha256": "762ca2bb9f54ebca10ff9aa1dbdd191f905d5f2227d27a422076dc3ba70def90"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix/matrix-after.png",
+      "bytes": 67587,
+      "sha256": "be36a42a109f6b6eaff0098edaac3f0aa6956bd05fba434a17a1a8df5c80bdc3"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix/matrix-totals-after.png",
+      "bytes": 70730,
+      "sha256": "42c93ee4aba5abc453160b0db92a348f17de4f3f6ada6a58a7b1b71bc31d41ac"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-org-matrix/review.md",
+      "bytes": 1047,
+      "sha256": "aebdf2da387b0d026095ee4e8d301c56397225192604bdc108e3eeccd2afd715"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/advanced-filters.png",
+      "bytes": 47296,
+      "sha256": "57cf93f3f9723f0849fc65703fb6a54f7580a11cc9226bad4893ae168f9accd1"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/brand-text-only.png",
+      "bytes": 72428,
+      "sha256": "c1a4843895553ce113d2c385ab4af1c838cb5810553ecf75477dc66d99eb454f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/indicator-search.png",
+      "bytes": 50945,
+      "sha256": "e602ba2a0f70cd41f2d1d53b6779e5c11cc88eb8830f93c6064a796e7962c674"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/initial-audit.json",
+      "bytes": 10111,
+      "sha256": "2c49ef8958c1c2b371ac5109187dc30e1f3dd260e8d3d22dc736c71589f5563f"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/review.md",
+      "bytes": 3804,
+      "sha256": "a83f8f44e3c9740dfd140dc691737592569666dd6d5442687233882d521ed958"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/standards.png",
+      "bytes": 59064,
+      "sha256": "be4e999d360defb962ed3716ea315362fea00abefc97c5ee799f999a8e3089a2"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/talent-assessment.png",
+      "bytes": 63151,
+      "sha256": "8420825ca10114dbf3c6ff091b01c3dac576b0425c2de62bfe32d10344333adf"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/talent-list.png",
+      "bytes": 57651,
+      "sha256": "39fc2ca1f7b5bd27f207ab48b12f6852bfb3e3433f9a6cf34d1c66512bdcf256"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/verification-extra.json",
+      "bytes": 392,
+      "sha256": "9c8bdf1f6fa5c029db4e45e4ec06b57c20a3e2e4a09ead4b6e8fa0963efc1979"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-search-density/versioned-pages.txt",
+      "bytes": 791,
+      "sha256": "0d0b5968dab4bb601942705b2142b22cef0b1ac9e077a826ec66c9d68bf671df"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-navigation/assessment-tools.png",
+      "bytes": 75218,
+      "sha256": "3ac9a10764b4a26374c34f1c65c2cd2e6c59ebea320ff8cfced191da1344acee"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-navigation/measurements.json",
+      "bytes": 11118,
+      "sha256": "1ed68635c8e8e229d185291e07a4447ea238858fe53e7c376a99d83a10af0111"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-navigation/review-methods.png",
+      "bytes": 50141,
+      "sha256": "19974e2513ee229ed70f47fdde7d037813b64e2fcd8f1ae1d2592c4dd7ccecf9"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-navigation/review.md",
+      "bytes": 2262,
+      "sha256": "af79f160d0ae9e0db92f1cd8df23a3ad6b0b81fe587aa2eadf17c5b526551c5c"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-navigation/vocabulary.png",
+      "bytes": 67317,
+      "sha256": "aa357fe9f9f64ae598aa3e2bc51bdb70c197139ee29a7cfb4c281eb35f0812c1"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-spacing/exam-projects.png",
+      "bytes": 66280,
+      "sha256": "49c7429f10b7e1b44f7fada27475e445bab5af31fb57ce886d244463f2ea20ea"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-spacing/measurements.json",
+      "bytes": 1028,
+      "sha256": "7508b87bddffc2be36bf5b752914eb7e5b52887c14cbc5876ca0670feee37e17"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-segmented-spacing/review.md",
+      "bytes": 897,
+      "sha256": "89d33bbca9af4cc0597e9a6bb5edf2757c6adb738abef705cbb44279a45ec772"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-settings-search/settings.png",
+      "bytes": 32997,
+      "sha256": "0c464db370941e53730ae1f25d387d9f556e46c9a2b5e5720d62c6e119ba1ff2"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-tab-spacing/measurements.json",
+      "bytes": 6259,
+      "sha256": "6547ef966c1e9aadbc9f91b7be2e152b0dd73ad403aacc293d701bda6de8b428"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-tab-spacing/review-map.png",
+      "bytes": 46808,
+      "sha256": "2063d362347f3f40098672d1ea6e34948591f100efa748d4c1e9b7139cacaa79"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-tab-spacing/review.md",
+      "bytes": 906,
+      "sha256": "8bb7dd82b56cf274fab011c0191f8d2c2198b0a793f182b696fe40584ca7c42a"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/after.json",
+      "bytes": 34648,
+      "sha256": "ff41569770c5cf2fdb9ac3a47041a4d3b65fdff909a3fd95563cc433b63b9b38"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/before.json",
+      "bytes": 34648,
+      "sha256": "ff41569770c5cf2fdb9ac3a47041a4d3b65fdff909a3fd95563cc433b63b9b38"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/category-manager-after.png",
+      "bytes": 39047,
+      "sha256": "ff62152e421964475028fbf2c3cf918440813243eb0e6a8986458ee7710d1d3b"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/interactions.json",
+      "bytes": 382,
+      "sha256": "06bbd2d9f735655f8c11f4219da1fe5ba327554dc0cee2b4bb11b90e1ec74d80"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/review.md",
+      "bytes": 2221,
+      "sha256": "f82c114538860ad56164ec5bb72dd4c2124302678dc210f7dd175d72fcd775fe"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/settings-after.png",
+      "bytes": 29929,
+      "sha256": "2f8ba57569e6673ca6ed6b845f8106fec75b5a6337c55e696f3dd844387565fe"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/style-diff.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "deliverables/frontend-review/2026-10-20-ui-cleanup/talent-list-after.png",
+      "bytes": 58095,
+      "sha256": "d076bdefe55e92f362ccf3eccdcee603dffee3e482f2828980890b26e80b6714"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/PPT介绍逐字稿.md",
+      "bytes": 5984,
+      "sha256": "ac2722a9fb762a4a7f659479ab380c7c7526780e410171d314df46f7bfdfaa9c"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/assets/motion.min.js",
+      "bytes": 64206,
+      "sha256": "45615c1e7639fb9828942d0689c897e745690b0f6df13022223c9409fc01557c"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/build-pptx.js",
+      "bytes": 12637,
+      "sha256": "dbd5adf8fe2b39130a062abc473a7e64b9ac4b622b670bf443221ed26187ac07"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/build-web-deck.py",
+      "bytes": 1019,
+      "sha256": "f3e566168e5de2afc65d43f6ccc6da78a905744d784b7b5973ce536400154716"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/index.html",
+      "bytes": 184813,
+      "sha256": "5a09e434f81d24b85a555f6b2d764966cafdfbf12cd079055d030b6f9c1047dc"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/check-1.png",
+      "bytes": 78665,
+      "sha256": "e56d6c861435f694892399a20946401704d9874848ecfdcf1144c5b1e056e714"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/contact-sheet.png",
+      "bytes": 374111,
+      "sha256": "0297ec31f8eda7bd9ad171790f936f641ae72908a237f8c0b4f85c60bed9fe21"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-1.png",
+      "bytes": 93500,
+      "sha256": "e47ca03b6f608fbcd3282596c53cec38f404d6f9a86fb15747ee82a922245b5f"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-2.png",
+      "bytes": 114298,
+      "sha256": "36496e4c6cf32c5dfdb93f34cd7b6d8c532fa7a7005de15b864b184896d2d2dd"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-3.png",
+      "bytes": 119004,
+      "sha256": "3da37bb8d389ef6d13d90a3baebf633ddbd24ac0aef268ecc9ad31153314d6ec"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-4.png",
+      "bytes": 81069,
+      "sha256": "76a70efd8346083d373b6dfa75a1c1c50de167ce267299f93a7ab2adfc69ce53"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-5.png",
+      "bytes": 101009,
+      "sha256": "5e972d398cccca779bc2b388e1bf7d51a09b8896c2b705aa60ce17bb8dfe67fe"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-6.png",
+      "bytes": 104966,
+      "sha256": "49823eb977f4931f499af6ffbd9d040476bf68c4233cc6cc4673c10a189dccde"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-7.png",
+      "bytes": 121304,
+      "sha256": "2137639dcf66e8cc3f46fe1aa6ee611e688139a618dd8128864224d21458be53"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-8.png",
+      "bytes": 111748,
+      "sha256": "a2ccbeb0d6657da656050495a090926f1715ac3252c2353bfaef9c228f2edd68"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/slide-9.png",
+      "bytes": 84666,
+      "sha256": "d5bbbf0c3722e1e94a887c1eb92da4bdefecd858809c790b6829843ae82c97ba"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/render/景旺电子人才发展_介绍与演示.pdf",
+      "bytes": 385528,
+      "sha256": "57c2562d3f2a48e7401cbf33087754832012913fb45a933dbf6997dacabccd63"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/slides.html",
+      "bytes": 15967,
+      "sha256": "10d25550315e2305aa9702078354372fbd3f7c7d9f08b20d40ee53c11a9755b2"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/speaker-notes.js",
+      "bytes": 4125,
+      "sha256": "c6c2b6a52562d3579deef5267978bf291a850a2e491d5b2b5bcb40fb4afbd92c"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/景旺电子人才发展_介绍与演示.pptx",
+      "bytes": 279710,
+      "sha256": "e738c3b48f8bed0c269e7fbdafdb668fa2aef15d09852441d81f70103ea9adff"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-deck/演示设计.md",
+      "bytes": 3892,
+      "sha256": "04f75a4647b0bb5d9d3c06d445a54ac77b7d127e2a66c0da29b80719fa6d7fac"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/PPT介绍逐字稿.md",
+      "bytes": 5478,
+      "sha256": "430f02212656c1aa25e6f3a9f9c51363f5e0343732a9ef768168b5417075d495"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/build-pptx.js",
+      "bytes": 12771,
+      "sha256": "66d4418e8cad2a9c220c125242e081aa6bc7bee447554b65e1b14f5ca5c86fb2"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/build-web-deck.py",
+      "bytes": 12397,
+      "sha256": "4ff81b0c11f43591fbf6320e4c652c1c1e9898dd4f6493e54e149cd6ac21d063"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/index.html",
+      "bytes": 208821,
+      "sha256": "5238d8d9d09873e0f134c086c2db82d001e5f77d4f5ef353d9c605eea12b6ac7"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/contact-sheet.png",
+      "bytes": 219914,
+      "sha256": "bf82c585fbf68346145fc406f7c284839fae9c74d581ee3a8f2ac40db351860a"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/recheck-10.png",
+      "bytes": 95381,
+      "sha256": "68e04fee097782cb56c263af172152fc112e1585cb2e3e277758b8f4372f1553"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-01.png",
+      "bytes": 39475,
+      "sha256": "122e157b7b81dbc3a295be1b74665bb3022805b51f46c5a5d8a1131c7c1aa9be"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-02.png",
+      "bytes": 60382,
+      "sha256": "23676fe1a253b42dc935de6aa45b2e55032e2d36ecfb9f63e984ec8987d0686d"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-03.png",
+      "bytes": 65911,
+      "sha256": "312f623dff03750781dda1359d102d09ff0c686d584cdb09c40e54237bc3d67c"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-04.png",
+      "bytes": 62763,
+      "sha256": "6101e00e286b163b80115af8eb9cb0dff289a11e101b4ed4e62d59e3b4eb4bba"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-05.png",
+      "bytes": 82635,
+      "sha256": "2ccd4959057e6d6235433b93ae397ed973d2f6950f32a0395961d3345bc72875"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-06.png",
+      "bytes": 69204,
+      "sha256": "8890abb5ee25f2b9e13ae345517d70d8ca9f0432dda6265e1c0e53ce3cfeacec"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-07.png",
+      "bytes": 56687,
+      "sha256": "c88eafe5546d73468ed6224b1d8a9061227e5c1885cbefef37da4cc839289661"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-08.png",
+      "bytes": 78927,
+      "sha256": "85f0f654912e28773794f1438d31f4c8d5429512a2065291aeb0af4e198a9379"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-09.png",
+      "bytes": 57415,
+      "sha256": "14b282d22571419ae5be40f9c52ac9c8c70f3072ae58c75778dbc963819bed78"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-10.png",
+      "bytes": 70226,
+      "sha256": "d72602c7f2ff3bc22f6340545f115dbb38b7bc9b5221379173a1c29fc4d197c6"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/slide-11.png",
+      "bytes": 50733,
+      "sha256": "b9192ea1dd86182e07f261147f89d788daa52106b8fabdc26d7987408a0322e3"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/render/景旺电子人才发展_完整介绍_优化版.pdf",
+      "bytes": 434103,
+      "sha256": "ae6be6b82f26a83dc889f035dba0d558c30b0f16351ff96e79aec6b7c3be111f"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/slides.html",
+      "bytes": 10835,
+      "sha256": "19a793ccea8ae6b4fb46f76905616abc1b3cadc00e03870d3f40630140b38548"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/景旺电子人才发展_完整介绍_优化版.pptx",
+      "bytes": 269791,
+      "sha256": "be107b97438c5c701a01fdcff90e9f39eecf5cf0219e0a3dc8a118d5bfbdc100"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-final/演示说明.md",
+      "bytes": 1268,
+      "sha256": "29718b0c880d5ed99a3890938657e1e639fb14c4de5b3b975db76cf61c922303"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/assets/motion.min.js",
+      "bytes": 64206,
+      "sha256": "45615c1e7639fb9828942d0689c897e745690b0f6df13022223c9409fc01557c"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/build-pptx.js",
+      "bytes": 15303,
+      "sha256": "3db5875734e4d192671c256a5180a7cd90325175660e7d9a5aefdf347dbd9143"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/build-web-deck.py",
+      "bytes": 4393,
+      "sha256": "acadec35c48b7dfda97ef8a91aa4a1fc33353a5f841fe0b472bdc3ad53a7719f"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/index.html",
+      "bytes": 282261,
+      "sha256": "9dfc7ff59db034e18531cee78391fb582263cc533395fc2061c23620ac4887ad"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/contact-sheet.png",
+      "bytes": 274935,
+      "sha256": "4dac40d2397ab5546fd7f98cf172818df850a83ebffa4958d0387cbcbf404638"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/review9-09.png",
+      "bytes": 54186,
+      "sha256": "58adbca3d6ce23618f689713bc4b76a39b29fabe844e7776f550546f3191f84e"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-01.png",
+      "bytes": 46512,
+      "sha256": "bd29acd2d0b85fed6b257e295c0585acc1307bc96c05c6acedf24683454b1185"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-02.png",
+      "bytes": 63965,
+      "sha256": "e85df8253293816567f68d4a8a48ab1a012994acb6f17949b875f07b44675ce3"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-03.png",
+      "bytes": 35361,
+      "sha256": "9096a8deae7c07a55bd6c591971d59e984f35d33cf5823bb2a3d1de15e7d4026"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-04.png",
+      "bytes": 56170,
+      "sha256": "612e0e9e16be16cd1115a58e6cee42eb88e98077e4b9aa9c0fde14d5d0d218bf"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-05.png",
+      "bytes": 48372,
+      "sha256": "fe475f1e83e5adb6b8c8e684a36c55c4c93a5a7737dc7c1ba6bb9006ac299519"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-06.png",
+      "bytes": 55089,
+      "sha256": "1be24da2de68ffe1a3f1f8595da8dee3d6c73f7b53f3171b321d3bf7a581f076"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-07.png",
+      "bytes": 49684,
+      "sha256": "576bc24e556a216bff9977e402ae3ffb335d39607fa52d198d4e9798e063cf29"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-08.png",
+      "bytes": 50771,
+      "sha256": "0431ea014e1c51ff382495fa3ab6fe0249a8b02eb9b17ddfbc4d82b7f1317d30"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-09.png",
+      "bytes": 40832,
+      "sha256": "f2f3d0948e1df3e14c6d6e249f8106e0497062b222f51316d6df77b6ece74260"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-10.png",
+      "bytes": 56256,
+      "sha256": "7a81098583b26a16c35cd9705343d7266804d54608b75028948d613c25b0a9d4"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-11.png",
+      "bytes": 52151,
+      "sha256": "93f7fbabff35f45982755d61424c43c2c165aae5290b533f360c359804ff3be8"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-12.png",
+      "bytes": 49229,
+      "sha256": "b89770b5c25f955799f9e1c8e4f81d616b0ab37d66c6573bd877851d5d9397a4"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-13.png",
+      "bytes": 66153,
+      "sha256": "1997fbf016d584eec90104a79141636c4e34e3359c6313ce64f822d47b6e4f0f"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-14.png",
+      "bytes": 66202,
+      "sha256": "9e6998652f27b74e5d704996b714668033139caae0d7e987d46c1901970dc9a3"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-15.png",
+      "bytes": 62713,
+      "sha256": "9ef0bf326678becbbf8bed3e5eeb09c1376ce7514348dd391464add35a500e2b"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/slide-16.png",
+      "bytes": 51323,
+      "sha256": "b1cfd6118642e206ccc3aee42191c60d3f7668f46f80f8d5b466fd551b9067a5"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/render/景旺电子人才发展_演示模板.pdf",
+      "bytes": 427859,
+      "sha256": "e6d9e11adf27af69d1e6f818c1914fc0b2cbdc2b7a9814d27fa07f053e9cb98f"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/slides.html",
+      "bytes": 26838,
+      "sha256": "994d4cffeceae76f02ab7245da008ff24d83b0c81249a7b4fc6c51105c441ffb"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/景旺电子人才发展_演示模板.pptx",
+      "bytes": 426751,
+      "sha256": "12a01878bef3e2f377ed740e33fe72b4a657004dc3fcf71668527ae7ecf23912"
+    },
+    {
+      "path": "deliverables/jingwang-talent-development-template/模板说明.md",
+      "bytes": 2757,
+      "sha256": "ecedc2d757f0bb25bde56bc5b6b33c53191f9258359b03cd04ee1d487f92c460"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/README.md",
+      "bytes": 1855,
+      "sha256": "5544b1e2b2b2374939d826d8e3a95efaddc9c3031a42a9fce4e85573e5044f2e"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/css/chunk-018c5eee.6997efa8.css",
+      "bytes": 13707,
+      "sha256": "a41f1660686328676c3818b97ab43cd912f0dfa9e097b4349671f5e1704eaace"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/css/chunk-90931a28.a0b681e0.css",
+      "bytes": 526758,
+      "sha256": "f950fa5b200d9a9caa86f89a79f5fd27886c0e9acaa6d8a6c09b495da7252b32"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/css/chunk-elementUI-1789729642740.717c90ab.css",
+      "bytes": 233320,
+      "sha256": "786a28f26cb9cc245e5dfad65bf0f23c142de3adf527332c4e52c8c012dadea5"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/css/tbc-ai-kit.css",
+      "bytes": 1213617,
+      "sha256": "b63606b72b0c51a657b0cf14ebb37ce80726cc3346df6eee60322d229e06aa99"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/ai-even-bundle.js",
+      "bytes": 306210,
+      "sha256": "857c94ef4d498386b9642646cbdd6611e7d2da21c1237de73221cbb1247f1c36"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/app.6b77b5e1.js",
+      "bytes": 20802,
+      "sha256": "187ed8972de9df8706765fd2f9fffd93cd348a0f7a8fe31b05860a73d14c7aa4"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-018c5eee.0f96c8ca.js",
+      "bytes": 47631,
+      "sha256": "1ef19aec2cbfe8d894d47e9e8eeb8885d8731994bf56f778d686c4231347eae3"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-90931a28.a6c78220.js",
+      "bytes": 2917807,
+      "sha256": "b3bd7afae15572144f9e1b2a4dcbc81675e746f348fc40314e507e46b284ab84"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-bdf0dc32.499e0839.js",
+      "bytes": 1140996,
+      "sha256": "26c53c657b0e8a1ba047fb8ad164a9e3bb6beb1c16142ed5f976edca4576a81c"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-elementUI-1789729642736.efd82781.js",
+      "bytes": 31070,
+      "sha256": "ceb31d3cb0546f9eedad54c6d3f0d323401ae65ba9f40836766f35db312c51a6"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-elementUI-1789729642737.f132e9f8.js",
+      "bytes": 49993,
+      "sha256": "00849490e64a0773a08d2929a14324b003776d5f8e76a6f76b6693947e1f173b"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-elementUI-1789729642738.4395a66d.js",
+      "bytes": 54112,
+      "sha256": "bab738a94eb2f3629099e7afc7a1da42020f247013f6bcce46442399434554ee"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-elementUI-1789729642740.602b3678.js",
+      "bytes": 41855,
+      "sha256": "4cffa3814982275d98412283d8c8f9ca2a60839c1544e7051102bf8fd9f0659a"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-fcab7f2a.ffcc6aab.js",
+      "bytes": 40471,
+      "sha256": "a5513de90089d69458f7a98837ffbe22644cd70709696c0676243db8f645bc74"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/chunk-libs.a8b9273a.js",
+      "bytes": 213132,
+      "sha256": "9a8d719ad9849d25894e35594769516d8d47e423b8cb10eaa03fff0120fa836b"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/assets/js/tbc-ai-kit.umd.js",
+      "bytes": 9286305,
+      "sha256": "a48f5f7a3e72a8c4dfffb7ef7149ab281233cfb55fb27a184ebaee8ea33c5b8c"
+    },
+    {
+      "path": "deliverables/reference/ai-assistant-drawer-source/original.html",
+      "bytes": 12598,
+      "sha256": "19fc9f94a51fbc4e9ec48f8b31adcc6dc720f1f40bb4d2affbbc5dea614a4f41"
+    },
+    {
+      "path": "deliverables/student-client-package/README.md",
+      "bytes": 1408,
+      "sha256": "b5365d02de1c08232711badbfc13a16dfb3912d83ebda431b084e174b0f9c1ea"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/avatar.png",
+      "bytes": 2674,
+      "sha256": "9acd8c3c28d48d7255bbbad6181e7af0469b7308c6cfb2994c4244688042d9e5"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-book.png",
+      "bytes": 58963,
+      "sha256": "859b53468f82ab5e8c86dd17c423db7e8cea0460a2702d5b48246e48fd69e135"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-desk.png",
+      "bytes": 169552,
+      "sha256": "6d8706a3a5684b1517db662eae4f2de0bd3a239d9f15f800287315584230f0fc"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-device.png",
+      "bytes": 63550,
+      "sha256": "b7886adc419158abf765a44e9b944d49a949c71663c8266ef8f7400b7abaa0ea"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-emotion.png",
+      "bytes": 132788,
+      "sha256": "27bf24a721949925aaa1e70b1a8499cd57506dfeb72e0dd993801502ba40f485"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-management.png",
+      "bytes": 26730,
+      "sha256": "76c12094aab3f609d175ab0613814c136f0a7ce7df1d43fd0715e6f477e636a4"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/course-cover-virus.png",
+      "bytes": 143476,
+      "sha256": "8dc1f53e911fbbd018737e0bdc662f0375130ef615e96f48669240dd0f9f5530"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/empty-state.png",
+      "bytes": 12711,
+      "sha256": "25a6005c0e7779740d106f0cf00f3b2e4f84e91d0510108f78c530ba63eee1c3"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-background.png",
+      "bytes": 608831,
+      "sha256": "7abcfbf74102ddba8892588f45e07681a621cfbf8a45ed5b6fae2c80d268efbd"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-path-1.png",
+      "bytes": 3550,
+      "sha256": "48df75f77f7b8dcee197f777bbfc7b9768004c6ddaba98769ee47f60910da8db"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-path-2.png",
+      "bytes": 11680,
+      "sha256": "14efa400b877a9bc7de3ced417cb41a41b58b308f69438bcddcb9e661dd12902"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-path-rank-1.png",
+      "bytes": 3453,
+      "sha256": "d9b6d5ec073e3b1d43bdcfbc80c93e7de69a26f564d160830bf5e50232d8c825"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-path-rank-2.png",
+      "bytes": 11419,
+      "sha256": "277c14cdb9559172b6880b89a739379a917b9dd5b128678795a2bbf917449769"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-person-rank.png",
+      "bytes": 44391,
+      "sha256": "2b704c736ed2eb3390a6a7b6ffcd8a4d2977ed799d1c6152fbbec5be8432aea1"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/jobmap-person.png",
+      "bytes": 43430,
+      "sha256": "ac2764b862d0634a9238ab0e80194da741925c4d9bdede2435a2f09fba1b952a"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/metric-available-points.png",
+      "bytes": 9241,
+      "sha256": "6905346e89d88a4f7039ecf7bbaa1a8a6e0a7fce8dba13c29d79e85b0bb732b4"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/metric-credits.png",
+      "bytes": 10325,
+      "sha256": "22af47822c6cff3ee42078074cc2e0f6b23dc84145c372b122538a47ab503570"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/metric-hours.png",
+      "bytes": 10596,
+      "sha256": "76f34a233320b1c205c6d34f581abcb67f290821dcf67271e4b912b610a874b0"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/metric-points.png",
+      "bytes": 8458,
+      "sha256": "048eddb4d6767180ae115d79319b8cee1299606e9975735902a48b9eb0397013"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/resource-course-manager.png",
+      "bytes": 184544,
+      "sha256": "9b304822555fa48efb34e4e506915edca092d39ebb4bac2938a3129cf75d37d5"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/resource-course-product.png",
+      "bytes": 108476,
+      "sha256": "6376e3d125028d5f48358c32db7ee2d474f74e6b804efaad4f2a87c62c0c2f46"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/resource-topic-operations.png",
+      "bytes": 38228,
+      "sha256": "bc67c19d21f003ecb7216dd3967852fea1516a8b762b590205833600b128f4d1"
+    },
+    {
+      "path": "deliverables/student-client-package/assets/resource-topic-skill.png",
+      "bytes": 419780,
+      "sha256": "702c8725fd94db40ec581d9c10fda86a07b11b66adcf8316bc074ec8b642f0c9"
+    },
+    {
+      "path": "deliverables/student-client-package/student.html",
+      "bytes": 146185,
+      "sha256": "09b242127e6079576298f250f449fec8222ef48387a4f6001c43471c8b093e3a"
+    },
+    {
+      "path": "deliverables/student-client-package/交付清单.sha256",
+      "bytes": 3370,
+      "sha256": "fc775265c4d09957ddec73d785323b203179e786dd51d4badbfc19b3ebb08a03"
+    },
+    {
+      "path": "deliverables/student-client-package/学员端功能梳理与确认.md",
+      "bytes": 10356,
+      "sha256": "fcbf8a9972bcb4e444f15309a6a752660334826dc1ccf314584985f3e822db4c"
+    },
+    {
+      "path": "deliverables/student-client-package/学员端功能说明.md",
+      "bytes": 7209,
+      "sha256": "1b80d342083d0f75c7cbef9f8621c28d00c9fb6dd4f54fbcaa41b44095cb0997"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/assets/LICENSE-SourceHanSans.txt",
+      "bytes": 4463,
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/build.mjs",
+      "bytes": 7087,
+      "sha256": "473eb1344364e5814c85a01c0303419a274b06c20b8c99e5569a5b0bc848ff9e"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/font-source.json",
+      "bytes": 408,
+      "sha256": "3efc50f3e9683c5376abf76811a1dda76d0b7d676a274add11a43d8f8e80aabe"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/font-verification.json",
+      "bytes": 4603,
+      "sha256": "1398196d6a8e3a51830c879c0f1426f67035f7230b8236e2c01d0ca922d78c1d"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/intro/assets/LICENSE-SourceHanSans.txt",
+      "bytes": 4463,
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/intro/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/intro/assets/scene.js",
+      "bytes": 4521,
+      "sha256": "f966b06309a7c1cc36820ba2e86bd026de21988878e6fd920940f9cea6cd806c"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/intro/index.html",
+      "bytes": 4786,
+      "sha256": "06c0a3962c9d0914da9891ddeb82ae982ee6b50bc67dfe2eb5ff16dcf0f46df1"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/outro/assets/LICENSE-SourceHanSans.txt",
+      "bytes": 4463,
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/outro/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/outro/assets/scene.js",
+      "bytes": 4521,
+      "sha256": "f966b06309a7c1cc36820ba2e86bd026de21988878e6fd920940f9cea6cd806c"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/outro/index.html",
+      "bytes": 4629,
+      "sha256": "2facc8e3450eccf233b7175a658544db3ba922899d99625c8fe89f30ed095d59"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/render.mjs",
+      "bytes": 3935,
+      "sha256": "c4a3113857ecaaea1379ef4fdded53dae0bdc7444f9249e0a159aa5d83f67aed"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/verification-intro.json",
+      "bytes": 1489,
+      "sha256": "bec897288d9b0af430cc4505ceb0afef19b1af4900502a2723189f4ef949a793"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/verification-outro.json",
+      "bytes": 1489,
+      "sha256": "46c0c8229b1b01bb76c0b123e0551b7587d2f276a2faa983c411730590d5be3f"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/verify-fonts.mjs",
+      "bytes": 2703,
+      "sha256": "80a7efdf60064e88cbbb6363ec7989e75a98c0b928bf3693004ac2a241e3b97d"
+    },
+    {
+      "path": "deliverables/talent-development-promo/ai-help-intro-outro-v1/使用说明.md",
+      "bytes": 2735,
+      "sha256": "ebf7d6be19ea7236d29a5c0663c543bd9fde434e43cad8d2e9526f5a8f5a35c3"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/Notion_新增章节.md",
+      "bytes": 35411,
+      "sha256": "c997435fcd1a222afa686e74b59862ea2d8275ace25af14cf0a43c01e82db73b"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/build_package.py",
+      "bytes": 34900,
+      "sha256": "9ed811c6a799c6bfe8dcea0b51638f43952b6a1ef9d730944bdc8d93c26ba59e"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/人才发展_5分钟完整配音稿.txt",
+      "bytes": 3434,
+      "sha256": "e73e39068e080f43e668d3c6ce39cad5b351b92a769ca7aed626cf886ea1df8b"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/人才发展_5分钟宣传版_预排字幕.srt",
+      "bytes": 5642,
+      "sha256": "374a400d76576ae08f23318a4702399401c4555896cdac7aeb23bc179a8cd7b1"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/人才发展_5分钟视频脚本与分镜.md",
+      "bytes": 27217,
+      "sha256": "35b73d9bcf846ce3644199c7568d4dd23a932d940d7b324d4a3a18a71c73414d"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/原片候选取材与分镜表.csv",
+      "bytes": 6040,
+      "sha256": "cc0fc0bb57db45778b143cceb6cd55371cacf58b11b061e40cfbd5b593535884"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/给剪映_5分钟剪辑指令_单次3000字内.txt",
+      "bytes": 7846,
+      "sha256": "3f23284a73075e9fdf1f1aeab09df4bcd1131c34730e18f96f5419a7bf68fe0d"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/给剪映的完整剪辑指令.txt",
+      "bytes": 5071,
+      "sha256": "5ecdf3114d63a6d2e1011f26721fb5d2fed8a551839004a55a2b6a3ff20a713a"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/镜头执行表_3000字内.txt",
+      "bytes": 5523,
+      "sha256": "b290eb072be54df63f898adb5af27735820207b2c4e23e96ab8ae5ae51a5f0c5"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v1/验证记录.json",
+      "bytes": 2526,
+      "sha256": "9643890f70c0afa54ca5ea948af0bbe02f36871b397374b1dd891e91077c67eb"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v2/5分钟重剪方案与镜头表.md",
+      "bytes": 8481,
+      "sha256": "f05ffd158fad121a0c6924cacba4553204a38980b57a4799c7a72674876dd91e"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v2/ScreenStudio_粗剪后补录清单.md",
+      "bytes": 2576,
+      "sha256": "540f66a6dc0c3d8efe0d1935ade58cebce4b49727112c5959e997b74bd39568a"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v2/给剪映_完整指令_3000字内.txt",
+      "bytes": 7528,
+      "sha256": "8a100c3137fa39d5d6192d0f3d91d669e9d6e5ed4f9da6a2dc8bebdecc4362ec"
+    },
+    {
+      "path": "deliverables/talent-development-promo/five-minute-v2/验证记录.json",
+      "bytes": 611,
+      "sha256": "f5565df645c95491ff3b9f6e610f3709d95cbb2943f60244b5fec64d750486b8"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/assets/LICENSE-SourceHanSans.txt",
+      "bytes": 4463,
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/assets/scene.js",
+      "bytes": 4521,
+      "sha256": "f966b06309a7c1cc36820ba2e86bd026de21988878e6fd920940f9cea6cd806c"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/content-verification.json",
+      "bytes": 5223,
+      "sha256": "5fa789286a2abae00c442b650cf7cad45b5cb39700652675b48fd35550bc9aa6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/font-source.json",
+      "bytes": 408,
+      "sha256": "3efc50f3e9683c5376abf76811a1dda76d0b7d676a274add11a43d8f8e80aabe"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/index.html",
+      "bytes": 6956,
+      "sha256": "3fdde7b6613cd6c76807741c19ad1963f3950717bd82bbb309e4a17bfd794db7"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/render.mjs",
+      "bytes": 3761,
+      "sha256": "891cbaa0407922290d89a42b55a72fa10b7c024e732f81a677ac1c8046ad6978"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/verification.json",
+      "bytes": 1128,
+      "sha256": "bddd83ff6a763ff4014e3b821738bd31ca1df10b3a63d788ffbf9662677303be"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/verify.mjs",
+      "bytes": 4331,
+      "sha256": "94053740ee7c0e949c4e6852d3a59dc51e600071b640aa58a185839addfb7609"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-chapters-v1/章节与剪辑说明.md",
+      "bytes": 2700,
+      "sha256": "c004197d7ccc289bfc96bd26419bb346784f3c407088d646228b921cca2c7fbc"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/assets/LICENSE-SourceHanSans.txt",
+      "bytes": 4463,
+      "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/assets/scene.js",
+      "bytes": 4521,
+      "sha256": "f966b06309a7c1cc36820ba2e86bd026de21988878e6fd920940f9cea6cd806c"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/content-verification.json",
+      "bytes": 2140,
+      "sha256": "98122276ea03370e3a67551370dcf8b488c48ad819d56055223dc3096e228974"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/font-source.json",
+      "bytes": 408,
+      "sha256": "3efc50f3e9683c5376abf76811a1dda76d0b7d676a274add11a43d8f8e80aabe"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/index.html",
+      "bytes": 5442,
+      "sha256": "2c4c7b48f164360498e4c7699bb26a03e334ec4fd036c6e961834235bdaf09ca"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/render.mjs",
+      "bytes": 3623,
+      "sha256": "24cbb73cfee56ff0977843e956958ef7cbd6bc286ab77005d56bb58d2f18753e"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/verification.json",
+      "bytes": 1948,
+      "sha256": "801cc97cd6fd0fb60e977248fe76fb28d50b28ff47aae99cae0757e988406a9c"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/verify.mjs",
+      "bytes": 3922,
+      "sha256": "69fe6d3a715d644cdb62631d78d493c78015b79b4a7b6e8c863b2ce618966e17"
+    },
+    {
+      "path": "deliverables/talent-development-promo/talent-intro-outro-v1/使用说明.md",
+      "bytes": 2195,
+      "sha256": "39532e3af23aafb0fde333d1da9c201a43e2f63317229d27ad1d737142186682"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/assets/scene.js",
+      "bytes": 4352,
+      "sha256": "709badd7f2bf663364f012cb1be51001d39040eed939bf110173d533ace7a355"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/assets/three.min.js",
+      "bytes": 669884,
+      "sha256": "170c6789f43217c96b3170f4b42fafe135de7f7cd48497a4218f9757ee1d49fa"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/index.html",
+      "bytes": 6323,
+      "sha256": "44bc72228328f146b75b8f09143278402ad9ec6c52a69f6c1639196c557d167a"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/verification.json",
+      "bytes": 1339,
+      "sha256": "dcbbbb056d9a1eef7506c51f90b86f14e1da93554e16325b300c95f8c3392b5d"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v2/使用说明.md",
+      "bytes": 2222,
+      "sha256": "a12d77e5f047febfb1e8142df332ae006e6be86372fa8d3facdb4e267ecf01e5"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/assets/scene.js",
+      "bytes": 5413,
+      "sha256": "c2d437dba372d6a91f541edeb04028aa457e074c0c7805cae8816c32075f28bb"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/assets/three.min.js",
+      "bytes": 669884,
+      "sha256": "170c6789f43217c96b3170f4b42fafe135de7f7cd48497a4218f9757ee1d49fa"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/index.html",
+      "bytes": 5922,
+      "sha256": "3e7de1fe76b0b01fb3c13d446943fd1861989c8a5a0d31ec30f4ab98e46fa3a8"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/verification.json",
+      "bytes": 1405,
+      "sha256": "079c578f009e001ac7ffac802ec3ab75fcf31b63c065616f8759553a637cc1a9"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v3/使用说明.md",
+      "bytes": 1781,
+      "sha256": "bcd04d25beda07ddbd30309719727a1bd9c6d69453cbb79b8a523ff458f2da32"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/assets/scene.js",
+      "bytes": 4464,
+      "sha256": "d71b9ca4790fbf8ec65999385c978b0e008225ad75ca129ba326be5abca65ee7"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/assets/three.min.js",
+      "bytes": 669884,
+      "sha256": "170c6789f43217c96b3170f4b42fafe135de7f7cd48497a4218f9757ee1d49fa"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/index.html",
+      "bytes": 4388,
+      "sha256": "6c5babf67f14ebc889f81d9d9236b1b8a2e294115399729aae6feeb1b1639bd1"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/render.mjs",
+      "bytes": 4294,
+      "sha256": "efcfcfa797a058f6f19b1410dccb7ae1aa696dabab73781d9437b5bd52e5e985"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/verification.json",
+      "bytes": 1973,
+      "sha256": "818dd602ce26cc5cc4e8fe4abc03c390fdbd459a6acf08c6a7f36d84d2c7ccae"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro-v4/动效设计与使用说明.md",
+      "bytes": 2693,
+      "sha256": "80d94fc3b93e133094092cc8a57fd695032db70317de8d6e613ed756d77827ea"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro/assets/gsap.min.js",
+      "bytes": 72435,
+      "sha256": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro/index.html",
+      "bytes": 5133,
+      "sha256": "636c5a9bcb4ba316c35426b985a7f2fb86eb4ab74b24dbb3fbdcd9662e3ca209"
+    },
+    {
+      "path": "deliverables/talent-development-promo/title-intro/使用说明.md",
+      "bytes": 1571,
+      "sha256": "abfd27efda9e1117dcdba764205bd6aceefc62f4dc21b1efc3b950a4a328a546"
+    },
+    {
+      "path": "deliverables/talent-development-promo/人才发展讲解_3分钟宣传版.srt",
+      "bytes": 3082,
+      "sha256": "cf7d7b9393a110f696bbbfb4dd2ab9a924f20157947fc77a6b12a7eedea938e2"
+    },
+    {
+      "path": "deliverables/talent-development-promo/人才发展讲解_原片选材对应表.csv",
+      "bytes": 2178,
+      "sha256": "477663d21865511fa8b25db6043b3fbaff7604cd1a40fea36bc919963e75ba7e"
+    },
+    {
+      "path": "deliverables/talent-development-promo/人才发展讲解_精简说明与配音稿.md",
+      "bytes": 10902,
+      "sha256": "1fba7e2396cdb23abb4c1234a4a86ef30139dfa5a02022da7204d79413b63429"
+    },
+    {
+      "path": "deliverables/talent-development-prototype-20260826j.zip",
+      "bytes": 570907,
+      "sha256": "e53e8c79473a92ff430352d51bcb3685e3693bb470416ba212ebab8d61faf6ba"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位培训内容运营方案_大纲-v1.md",
+      "bytes": 1730,
+      "sha256": "53930583a5df57c128b0f7327745edc9b999709cc706a58e280028d2fec20b4e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位培训内容运营方案_瑞士风版.pptx",
+      "bytes": 443909,
+      "sha256": "75ed72ef598e64413d582fcc4e0cbd772ff0b31b0b987f622f510bf2cfef0cba"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位学习内容建设_简版大纲.md",
+      "bytes": 876,
+      "sha256": "d48ebdcdaea91fd96fd4643dff411288e1d48113e4810c793ea91bf364723493"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位学习内容建设方案_简版.pptx",
+      "bytes": 261654,
+      "sha256": "37f05c846379c86787060d61dd6fcabe2dee63bccd6191a13b6d34196f37d688"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位学习内容建设方案_简版_冬青黑体版.pdf",
+      "bytes": 438946,
+      "sha256": "3ca545f4ff461812c71d5073d14874b71255f32f74622fc5f58bab61bb5538c0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/AI岗位学习内容建设方案_简版_冬青黑体版.pptx",
+      "bytes": 269399,
+      "sha256": "3aeca03912a48065a5447889704aefd6f18c930896b3cef45a876bf19abd1661"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/assets/motion.min.js",
+      "bytes": 64206,
+      "sha256": "45615c1e7639fb9828942d0689c897e745690b0f6df13022223c9409fc01557c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/build-ai-learning-simple-pptx.js",
+      "bytes": 16431,
+      "sha256": "4b850f3e0754abcd076f6510cf93b4333db48675ef55227f77a7e6ddb59a30ba"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/build-ai-training-pptx.js",
+      "bytes": 28814,
+      "sha256": "86e99272a19f496695c35b49fe675b11d2b028ded18f1069eedfc84daac8cea0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/build-pptx.js",
+      "bytes": 29806,
+      "sha256": "30053c83918308a737d115621428a91e6df5468aa39eb6e67358611424d2a570"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/02-org-analysis.png",
+      "bytes": 22503,
+      "sha256": "8ab444eec7b587d9c34738243c6b417904edd6fda92daadef57781fb6b8d62e2"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/04-bd-od-td-ld-reference.jpg",
+      "bytes": 181881,
+      "sha256": "4f73c9681b551d9b8f2557fad7d5484358984ddaa7026339ee8fb6313a3423c9"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-development-actions-crop.png",
+      "bytes": 105630,
+      "sha256": "68bbd01786e8972ce2727698dee9f0bbf0fad8264eb71fb04d576887f29b8dbe"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-development-actions.png",
+      "bytes": 52927,
+      "sha256": "fc2ad986dc29ae2e6d8dfc4138304eb95fa5689a527210226ae48a4a29cede6f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-job-foundation-crop.png",
+      "bytes": 151325,
+      "sha256": "4717679b732dec027a76dc248c45831a44dad952fd620f2c79feb43de0720afd"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-job-foundation.png",
+      "bytes": 62926,
+      "sha256": "4d92928af61e6ec5c93ba30c413c7242557382eccc36a84afdbd2206ece357e5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-talent-review-crop.png",
+      "bytes": 124168,
+      "sha256": "067496403c8faf0466136ae04d7a1af2c325cd917f2df39368739fb1c59e2764"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/images/09-talent-review.png",
+      "bytes": 55954,
+      "sha256": "46fee5b5983c62b75fd3b56972cea02f493dbb0136d0e7efc4d8b49025164b36"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/index.html",
+      "bytes": 192457,
+      "sha256": "d18e50925964519526967c5da67f70e70588a1d8b513828b716fc85b6dd65f1f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/preview-v5-flow.png",
+      "bytes": 76372,
+      "sha256": "3d1c4f9ed1cfcfdc1aa149dd2ddc52683c1562054801d428ee67a9fa561fb02a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/AI岗位学习内容建设方案_简版_冬青黑体版.pdf",
+      "bytes": 438946,
+      "sha256": "3ca545f4ff461812c71d5073d14874b71255f32f74622fc5f58bab61bb5538c0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-1.png",
+      "bytes": 114123,
+      "sha256": "76e0eb120b2ac1f36c5dcdc4cbd5a959e596b3834a557908c5a5a515b98d050c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-2.png",
+      "bytes": 144432,
+      "sha256": "eafd65cadb721c8a637bc2a8a2f10229f42686ebb6355447a3c11d247686f2e5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-3.png",
+      "bytes": 162550,
+      "sha256": "f3b8868f00433299c47ff548711e75a63040607cddecc11afc501bdd6c2445e6"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-4.png",
+      "bytes": 171132,
+      "sha256": "9378f0e38e7276b171f7e302af9bb74251609fa5b17f93b094ec982dd4c864fb"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-5.png",
+      "bytes": 183486,
+      "sha256": "66b9ce271b1f201f8b38cd6c95978db5bcb4d907a7c79e2c261c781d6ff762a5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-6.png",
+      "bytes": 177317,
+      "sha256": "d7beaf4b2815580adfe4a6a08d2a09266e2f9912ebbc88bab46078c977664d07"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-final/slide-7.png",
+      "bytes": 134190,
+      "sha256": "b53299fad260c5847e4cefbe629f4706bff3042bd18818f3f90821b12f5e1eee"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/AI岗位学习内容建设方案_简版_冬青黑体版.pdf",
+      "bytes": 436135,
+      "sha256": "84b200c1b1d0978bf7fa3670d7ec083df1667cc85cc198f2616dd8662137018c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/contact-sheet.png",
+      "bytes": 319454,
+      "sha256": "8b822d27c0ce8efdb89147c78abc2bca428ccfbf5730010c46fe35b1c88e9260"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-1.png",
+      "bytes": 114123,
+      "sha256": "76e0eb120b2ac1f36c5dcdc4cbd5a959e596b3834a557908c5a5a515b98d050c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-2.png",
+      "bytes": 144432,
+      "sha256": "eafd65cadb721c8a637bc2a8a2f10229f42686ebb6355447a3c11d247686f2e5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-3.png",
+      "bytes": 168946,
+      "sha256": "7247ba70b7d1af9fa193e6885108f5d33ab88d754159d038522189ae9e20dc85"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-4.png",
+      "bytes": 176985,
+      "sha256": "97ee659cab95a93f45d770fc1ace13a89f2c38bd04956d4b3b788407fab6eb72"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-5.png",
+      "bytes": 186337,
+      "sha256": "7f4cbd6578ce7d23d76fb5e1ce3a2e9eb3e4c74644ed13ebad53215161835fa2"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-6.png",
+      "bytes": 180303,
+      "sha256": "58051cc573e52f8f8559120111f448f78ae84c60520c36b28b26651cfcfa3c0d"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-hiragino-v1/slide-7.png",
+      "bytes": 137792,
+      "sha256": "7cce0628ecfe35bffa04ff2981286d04a84b44fdf7c71a697366e2ea926f4f57"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/AI岗位学习内容建设方案_简版.pdf",
+      "bytes": 551529,
+      "sha256": "e07229aaaccecead747301ca4581d9ea41fb94250a4bdb0045c2aaf55f10f03d"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/contact-sheet.png",
+      "bytes": 314403,
+      "sha256": "f283add7f3f3726a2e91a59e63f502da4a15753e927a2f6d22f1457b323436c4"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-1.png",
+      "bytes": 107388,
+      "sha256": "65e9192322b6f990d1ea14ad13e856409926459179431bf01a1526f10c5d3531"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-2.png",
+      "bytes": 137768,
+      "sha256": "fac0d2c0944a7950b524a90b6c1d113b23369c61454e910d7da53699f6d93764"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-3.png",
+      "bytes": 164307,
+      "sha256": "7656871e259f2a71d12f93316a33296f8e493f784ba2e5bb6de0beb1913a19af"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-4.png",
+      "bytes": 171002,
+      "sha256": "d0b909fba20e40c7b92b60975b69235aab795f5615dc46508c6a88f5dfc85938"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-5.png",
+      "bytes": 182285,
+      "sha256": "8a66001b5d7530b9bc60224673da9c59493ff28c14065349eab5abe36ec58709"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-6.png",
+      "bytes": 175548,
+      "sha256": "1e4dfaee6dad2b187d0add57c935c09f899d83491e8b1a7955dba8eacf2ae1b2"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-learning-simple-v1/slide-7.png",
+      "bytes": 131997,
+      "sha256": "ac344bf40a5c08303760c0473828610f97c80932ffca11fd941d2b756df61401"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/contact-sheet.png",
+      "bytes": 506451,
+      "sha256": "4cb85f3b35ca9ddd58c1a9da9a591b5f342c8cbb45673686329a6c3d52274814"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-01.png",
+      "bytes": 116530,
+      "sha256": "bda0e6a081685baba164b568c4648b2de22e6ed0352e554ad06240314ea60f02"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-02.png",
+      "bytes": 160784,
+      "sha256": "08d84f5df3c33ea4105c377aa3d95037bece344a002a537aa63c9aac091361b6"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-03.png",
+      "bytes": 150738,
+      "sha256": "c93d4d3ab6f8e4f0dde37d960e11caad0545efe45bcdd39f36e0d8c4c26e4b67"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-04.png",
+      "bytes": 170688,
+      "sha256": "32717a7dae11dfbf0deac068f5f7bfd175b79016e1cc38a24d7f2e1229e57a20"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-05.png",
+      "bytes": 165387,
+      "sha256": "477c10d59d87b383fd57cf6188c36164b827e641d15c512b3744bba189bc526b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-06.png",
+      "bytes": 196429,
+      "sha256": "0ac3767ef754e7a8bf48fd3d0baf105aeaec41baf697af076545d1a1df91b82e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-07.png",
+      "bytes": 189231,
+      "sha256": "2f84b669d7a54a00037c34876b74e4cd053be5e963453f2f5b49efd2f096ea6e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-08.png",
+      "bytes": 173114,
+      "sha256": "b3a38ac90b4c2b28a01f28c37b5429e5e3e22147c2c100977a08ff3550583de4"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-09.png",
+      "bytes": 136888,
+      "sha256": "845cc0c886c07aa7f5b466bdb0a8c621a03c8dacff14c9e8fb0bb60693754b0b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-10.png",
+      "bytes": 145476,
+      "sha256": "29ac8ad41f6dcc37e73ac7c5a92ce18e5de10a8761d92da841de701f57d846ea"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/slide-11.png",
+      "bytes": 115281,
+      "sha256": "929680a081feb44e453299c0c32f33030330e15f902957ffb9029f4073a82be1"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-final/海格汽车_AI岗位培训内容运营方案_瑞士风版.pdf",
+      "bytes": 998250,
+      "sha256": "6a146948f58bb1ce19cb667681fada7cd30b9c425874c7fd9f29087f524adcb9"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/AI岗位培训内容运营方案_瑞士风版.pdf",
+      "bytes": 997090,
+      "sha256": "0734ed805e26641e26ecbdd1b8638de412fc7d77dca69ba622bb80240646210f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/contact-sheet.png",
+      "bytes": 506244,
+      "sha256": "8dff36b08eaf56740c5aae0b2a600949e5d5a2236755b61eb00cbbb2f062b574"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-01.png",
+      "bytes": 114182,
+      "sha256": "e8278276558b2400f354f75dfa2345b3c2e92b6dbd4a48461753bac6d888dc74"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-02.png",
+      "bytes": 164848,
+      "sha256": "12c3bf99aa04dc213174c5ab8c76a67d3073a25c0d6709d3406f30f47f7f72b8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-03.png",
+      "bytes": 150738,
+      "sha256": "c93d4d3ab6f8e4f0dde37d960e11caad0545efe45bcdd39f36e0d8c4c26e4b67"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-04.png",
+      "bytes": 170688,
+      "sha256": "32717a7dae11dfbf0deac068f5f7bfd175b79016e1cc38a24d7f2e1229e57a20"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-05.png",
+      "bytes": 165387,
+      "sha256": "477c10d59d87b383fd57cf6188c36164b827e641d15c512b3744bba189bc526b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-06.png",
+      "bytes": 196429,
+      "sha256": "0ac3767ef754e7a8bf48fd3d0baf105aeaec41baf697af076545d1a1df91b82e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-07.png",
+      "bytes": 189987,
+      "sha256": "42b44df9ec43caedabfc9b3a4532436c5619628a2484c2bbfb8fef0488554a72"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-08.png",
+      "bytes": 173114,
+      "sha256": "b3a38ac90b4c2b28a01f28c37b5429e5e3e22147c2c100977a08ff3550583de4"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-09.png",
+      "bytes": 136888,
+      "sha256": "845cc0c886c07aa7f5b466bdb0a8c621a03c8dacff14c9e8fb0bb60693754b0b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-10.png",
+      "bytes": 145476,
+      "sha256": "29ac8ad41f6dcc37e73ac7c5a92ce18e5de10a8761d92da841de701f57d846ea"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-ai-training-generic-final/slide-11.png",
+      "bytes": 113305,
+      "sha256": "6a5d12fcba39de5cbb109603bbaacf39a36556ec71d89e1e9cfe2963d2a6a134"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/contact-sheet.png",
+      "bytes": 107303,
+      "sha256": "8239221657fb8f12614a4780a6b81054cf33b91378b0b4da79488697e16fc447"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/make_contact_sheet.py",
+      "bytes": 886,
+      "sha256": "e72990dfddf5940cab50061d0dbc96cfaa5832b47a66a789b724f81fd047be05"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-01.png",
+      "bytes": 14749,
+      "sha256": "c33582d8a4ec7045d6221a2414a7bb2370290605e2fa8e9ff1ff7ad8b933781f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-02.png",
+      "bytes": 31683,
+      "sha256": "56f7a3fafe1be224e45e693d6803b344c987ef97179bd2bce955edb887daba49"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-03.png",
+      "bytes": 10792,
+      "sha256": "c94e42c1367a6aa09a0ffe97d4b921d6f4a89cd4e5656c355fa235bfc824564b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-04.png",
+      "bytes": 28971,
+      "sha256": "06e6e24e3b9024d56487e50b9ac6c99333bb7c9229b5d1fa1620dde9bcf05569"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-05.png",
+      "bytes": 29584,
+      "sha256": "136d5f744a98ba023ace710cd4215efd60c8651523ce376e25bef1bf0985bad8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-06.png",
+      "bytes": 23994,
+      "sha256": "54df4992edced41735aaa70043b6eac8d66428b854f3b8ffc46fc1342e41143a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-07.png",
+      "bytes": 33023,
+      "sha256": "77ebeea4c845e7c877c4b98a6a06d22bd367377c429b6f8f6ed61afeb6f68f78"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-08.png",
+      "bytes": 30871,
+      "sha256": "13e69d6b8a2fbd836432a9aedbaa917a5a696dd280a51e257f1818ebc1b0fec7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-09.png",
+      "bytes": 31501,
+      "sha256": "5abc4237af777d84fdca1af4523d97fdfc314f14915bf3e00d7c78a81ae43e43"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-10.png",
+      "bytes": 12024,
+      "sha256": "027b7877b5aae16cea39eb5e2584cd83035eec02fb8b79cb61431fd5d027aba0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/slide-11.png",
+      "bytes": 18871,
+      "sha256": "f14c325dcd1ec63060c841cf07f96934d65d04ffe2a1b66c241aa5038e773de8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v3/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 279342,
+      "sha256": "dfa7e18b0f1b3d4ceb3397d749fe9f62a489a819329d938e8a65f76d3a5296c1"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/check-04.png",
+      "bytes": 28971,
+      "sha256": "06e6e24e3b9024d56487e50b9ac6c99333bb7c9229b5d1fa1620dde9bcf05569"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/contact-sheet.png",
+      "bytes": 111838,
+      "sha256": "65c95c8ed03fed53e481acaa940d0364c9e0a6805c84b7c1cac693df69b2fb02"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/make_contact_sheet.py",
+      "bytes": 886,
+      "sha256": "e72990dfddf5940cab50061d0dbc96cfaa5832b47a66a789b724f81fd047be05"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-01.png",
+      "bytes": 8625,
+      "sha256": "ac383dfde7cc472eccc5977ef4bb179573b9e6e401d2036f9e0fc8379db253d5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-02.png",
+      "bytes": 16441,
+      "sha256": "7324dc46762884d7590b889d6e86b963c8c1ef82446add0e437d7ed49f54e3a4"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-03.png",
+      "bytes": 5662,
+      "sha256": "070b61a18f4f3c55114e1eb6838298f68d23785dfb8563c6888dbba2467adbf9"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-04.png",
+      "bytes": 16132,
+      "sha256": "2566824ca477ae2baa45c8e0b23f013d0bae9a5daa39479107a5ced876bf7050"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-05.png",
+      "bytes": 16582,
+      "sha256": "faeefff9864c6b39e5aa76a8d714a8e2a49bfd2682ec3f6541ab942d25023f55"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-06.png",
+      "bytes": 15451,
+      "sha256": "45a02576d8a41469cfe16ebe9a5e7afa52457c8843cc06aea219619b7467ea82"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-07.png",
+      "bytes": 18413,
+      "sha256": "7e593708c67446fb39b1e823d02cc1332ee7ffdf7a2a3c8a023c32fbc7cad82c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-08.png",
+      "bytes": 17816,
+      "sha256": "6fc2f21da4b76871f06d062238e4d1c309b8c10d48c2cb1038878858b0f7671c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-09.png",
+      "bytes": 18030,
+      "sha256": "9cb07d232849cadc0cbf1ee33aa861caee280b1e96c2be868e84e9e0a0255bb7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-10.png",
+      "bytes": 6505,
+      "sha256": "5f7a575e2748aa95ec959cf07b7b1ad5b95d3ea74d03feb01f9e6cc34b316b4e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/slide-11.png",
+      "bytes": 11605,
+      "sha256": "a5df33cce51a6e94bef131b070a4f6c26d499c81295cf2c1c3394cae0093d81c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v4/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 279342,
+      "sha256": "cf984dd82f8186719ef5f41d74afddf209b7dc5da65aff5845e992c82c7628b5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/contact-sheet.png",
+      "bytes": 431240,
+      "sha256": "8ed2e5217101d31fa79d580433b6c931a2d59a8a5184498e4b89ebe514c87180"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/make_contact_sheet.py",
+      "bytes": 886,
+      "sha256": "e72990dfddf5940cab50061d0dbc96cfaa5832b47a66a789b724f81fd047be05"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-01.png",
+      "bytes": 69876,
+      "sha256": "7d53838a3b04e3d005b4376bbe48ad18a6b78204f91c8516c38ac4d687bd244f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-02.png",
+      "bytes": 133677,
+      "sha256": "18259b460a77a2bda40463572737acc3404be16e250284747ee75f093d1c5498"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-03.png",
+      "bytes": 67267,
+      "sha256": "478b6f45a1412822eb27152390de780e494144fd40d9897d797975cc10c5a5c7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-04.png",
+      "bytes": 108626,
+      "sha256": "94cfa4306b53b1c8d8ae09a4466501a69875fe8acd8f0d1c4406214aa782510a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-05.png",
+      "bytes": 95671,
+      "sha256": "2e7fe5bdb78cffa20fa0b39543918c1a40dd84c6310213506b103f36effe5ddc"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-06.png",
+      "bytes": 82123,
+      "sha256": "e4ac4024d8a6cafb960e05ef21e913cba7b3cb9c4130df0fab7f0a131abe771c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-07.png",
+      "bytes": 107228,
+      "sha256": "83f407388e4b94147abce27d1a66d46044add7f20a56e588a1b57a8089a3036f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-08.png",
+      "bytes": 99430,
+      "sha256": "b5ed3f35ce9f809ea77232548cc69ca84b711a9bce160776dd64a6d88524e29f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-09.png",
+      "bytes": 102462,
+      "sha256": "4812f3d6d4d9443e2bb2c119917bea51d8e6c03537776f6086d7d843f75e3685"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-10.png",
+      "bytes": 71009,
+      "sha256": "d2ef31b94323157f04c07b076cb2348e3109deca0ae197ab19675aef4130ead1"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/slide-11.png",
+      "bytes": 106101,
+      "sha256": "7b1e489ce4899bfd95fb25591a85a64bf5789d5308967e8ae81f8df1c37b4b87"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v5/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 652547,
+      "sha256": "ecd4478478a264dff2dae5edbe3f8e8b43297ee8a12d1a81f9397afa174c9da8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v6/check-08.png",
+      "bytes": 104044,
+      "sha256": "57dd0e40a86069e94e3838f0ee01b49bb1d99ec6e24c9701f1dd4203fdfb9940"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v6/check-09.png",
+      "bytes": 106571,
+      "sha256": "bd471991aeaeec288cc82c2896ac159a2884f4bf1a9d20abcf854cd68f6b96ed"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v6/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 655865,
+      "sha256": "de5b72359ed2e3732968b9f4a0e7c69ae5b764dd07541260eec29eabe3a5b915"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/contact-sheet.png",
+      "bytes": 427596,
+      "sha256": "2c2b91aff97d763f30cfb116e6fa3f04a53333edc7dab1d10aafb5ce4d28981f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/make_contact_sheet.py",
+      "bytes": 886,
+      "sha256": "e72990dfddf5940cab50061d0dbc96cfaa5832b47a66a789b724f81fd047be05"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-01.png",
+      "bytes": 69876,
+      "sha256": "7d53838a3b04e3d005b4376bbe48ad18a6b78204f91c8516c38ac4d687bd244f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-02.png",
+      "bytes": 132425,
+      "sha256": "91db3836592cddb51d4d566397b54c921e08f81d001d61b2fa8c9132d02ef010"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-03.png",
+      "bytes": 67267,
+      "sha256": "478b6f45a1412822eb27152390de780e494144fd40d9897d797975cc10c5a5c7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-04.png",
+      "bytes": 108263,
+      "sha256": "70a4dfc814320f8246964d60cac76a31e8757151641a3c4a0969ac8d9ea77cb5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-05.png",
+      "bytes": 95120,
+      "sha256": "cd1dec1d7e4489112708f4fc56829bb9ad4b9dd1c29fe08babf5f4f3eda0c1fa"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-06.png",
+      "bytes": 82123,
+      "sha256": "e4ac4024d8a6cafb960e05ef21e913cba7b3cb9c4130df0fab7f0a131abe771c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-07.png",
+      "bytes": 103702,
+      "sha256": "4850fbce0619cb498dbc664de8b893730d0dcf4e9534bae5633bca67413d83e8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-08.png",
+      "bytes": 102224,
+      "sha256": "c281f363f9d80019ebeb6057dd51e5bc176ac1580c9acd02a68388910733d019"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-09.png",
+      "bytes": 101483,
+      "sha256": "53438964ff363601bb719bac5d7fa5a6a33127b7590b0e8945c9d1f68ef016c1"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-10.png",
+      "bytes": 71009,
+      "sha256": "d2ef31b94323157f04c07b076cb2348e3109deca0ae197ab19675aef4130ead1"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/slide-11.png",
+      "bytes": 106101,
+      "sha256": "7b1e489ce4899bfd95fb25591a85a64bf5789d5308967e8ae81f8df1c37b4b87"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-compat-v7/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 658016,
+      "sha256": "7608e715ad9609f3c46fee0bba61d2ab3959215c4552ae85389d22e10c7191a5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-01.png",
+      "bytes": 76803,
+      "sha256": "44a43f328c926e4f23cc78500e2e5dc6b3295522d70ea8dcec7123e720703d0e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-02.png",
+      "bytes": 65664,
+      "sha256": "0bdc0a257bee8db80f99e8b321b37664dacdb77c5df91a2f768e4f8b4870a3a0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-03.png",
+      "bytes": 62507,
+      "sha256": "dbfc2010272e0c1bf30aa1a85ee816039c7aee0df31e2002dbaa372b1218aec6"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-04.png",
+      "bytes": 111411,
+      "sha256": "ec041dda8ef6d554da8f05a9bcf3d4ce6a1dc542fcd2cf7084f72351f8ca1760"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-05.png",
+      "bytes": 123444,
+      "sha256": "0ec0605ebfc8d5183c57061c139c48c5b035a0e1098eb42d27775c7d736f83c5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-06.png",
+      "bytes": 112873,
+      "sha256": "bdfe22242bd1d1e63c7fe141d63f573522a0265a491a2d4fb60419502066bd67"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-07.png",
+      "bytes": 107540,
+      "sha256": "94b12b5c50469ee1864b3f1c3f4b686932f835a6d18206d1617396b83dbe5664"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-08.png",
+      "bytes": 114294,
+      "sha256": "bdd16ab30b88922a4c76fcf3b49406c480d86b547a9b15b716990630cc1fc5ea"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-09.png",
+      "bytes": 184553,
+      "sha256": "529b285d426134a98f8a0f12f1a8b980a24e326afa1f615f8930cd7af051106c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-10.png",
+      "bytes": 101381,
+      "sha256": "b369ccd21b131951888fbb4332901bf8e66416c00a472981e96c66701a82fba0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/slide-11.png",
+      "bytes": 105335,
+      "sha256": "bcdc0a1a9d84c6a3ddda7f8184d326f8f902e71eb8a62d28ed193d5f468df6ff"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-final/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 980223,
+      "sha256": "3b2a527f870d49c719b0b1e990e8888d911389949e560925bf06f4e813b0cc26"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-compat/slide-02.png",
+      "bytes": 38269,
+      "sha256": "23f9e38929fdf9d308f068f452267d63c147363f992f0a90cae8f41ec09e533b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-compat/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 330512,
+      "sha256": "5ff00776cb181b9b6d5bbe544da57ebdead57932f177a6a2a80a644c34c3f738"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-01.png",
+      "bytes": 20406,
+      "sha256": "89ebb359254aec1e7273e35211a2d38871e8180391c9eaf3dbea3bc16ee4968c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-02.png",
+      "bytes": 38313,
+      "sha256": "8258ce4eb070f86c6f7741689981c99fbc7f7d0ed2d3abbc8724908e953cf18b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-03.png",
+      "bytes": 41656,
+      "sha256": "a6897a899d50180972a19c1cdbade94efeb2f5f684d7cd2ad95890584e708118"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-04.png",
+      "bytes": 14837,
+      "sha256": "54713da483f5ff746f3357db2afd1535bd10aafd9148cd51767b3985a840d82f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-05.png",
+      "bytes": 38652,
+      "sha256": "f4461f8eec4d16573ad0fd18475589962d4370223fe1e68cdfa702e352c1355f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-06.png",
+      "bytes": 40070,
+      "sha256": "58938938ab5c83b913c378899315a8b5aef554cf7326c3849c2eb01b2a784303"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-07.png",
+      "bytes": 29223,
+      "sha256": "1dee826b358247c400cce05b941a823c41e16c40cb49ad196f1f2815f04c1ee8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-08.png",
+      "bytes": 44227,
+      "sha256": "75004446fb62625f1c57390e1e9d3a11b66b1b4bca6e47e1613989e2bedf6356"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-09.png",
+      "bytes": 42109,
+      "sha256": "89b9e75e2b0cd906a7f1fe51174ea56d6dcf0a1c7a981b6a746fc8a8f2fc08fe"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-10.png",
+      "bytes": 42175,
+      "sha256": "e4f73610e0e135c75f8e1be92def5573756ab4f217c4d104d0cfe2940e45f551"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-11.png",
+      "bytes": 15502,
+      "sha256": "321442fa2feec3de68ef91033615b668f2315de93454e9055c6ab7d494ed5368"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/slide-12.png",
+      "bytes": 24938,
+      "sha256": "e09be79c3b33831cace7dd60581a2a9b2e5ffa356d883e4c5a7c4c721a9a7c4a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-final/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 330518,
+      "sha256": "992d0d5f40b386109d4f5c3f79552400664aff4ec65fbd22faf945e0a3c473c6"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-pingfang/slide-02.png",
+      "bytes": 38269,
+      "sha256": "23f9e38929fdf9d308f068f452267d63c147363f992f0a90cae8f41ec09e533b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-pingfang/海格汽车人才发展方案_瑞士风_苹方版.pdf",
+      "bytes": 330512,
+      "sha256": "a1fed99f02b571cae8ed3c9131c980b95e276e848c79df15bfdf11d125888bb5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-system/check-03.png",
+      "bytes": 41656,
+      "sha256": "a6897a899d50180972a19c1cdbade94efeb2f5f684d7cd2ad95890584e708118"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-system/slide-02.png",
+      "bytes": 38269,
+      "sha256": "23f9e38929fdf9d308f068f452267d63c147363f992f0a90cae8f41ec09e533b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-global-system/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 330512,
+      "sha256": "ac79bbd5a448e3e53313b5ec5954afaf6c4fb41585767cdc4ae3953b5196e28a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-guizang-global-final/slide-02.png",
+      "bytes": 45843,
+      "sha256": "9dfa52ceef94cda769cba53b6db4e3b450d873fab076899291c8a26092a65bc0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-guizang-global-final/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 343024,
+      "sha256": "c7d2bfbdf8b67e8ff05216b39bc5cea83b51cfc5357645bff89cb436418629fc"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-guizang-global-v1/slide-02.png",
+      "bytes": 45843,
+      "sha256": "797b230ef8d749b2b5b720f5484619dc3de762a22b6df304242b997cfc70fa99"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-guizang-global-v1/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 343034,
+      "sha256": "95d11776ae9e2bf7f891f8f1f3730159986453ca4f9d5bd4856dbc9b4d081f06"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-01.png",
+      "bytes": 85269,
+      "sha256": "76ee268137f6ff17310691881876a5cadb954d753f5f16a96c5fce23cf3c30ba"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-02.png",
+      "bytes": 79590,
+      "sha256": "dc9e3829161ded1aaf90badebb3873e970edf1ce5ad1bbf98afa6b4d92cd2d28"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-03.png",
+      "bytes": 62965,
+      "sha256": "2664c5426e7543ca13d8ca064d8fe7814fadf7cc9060b25f1334f90f376eb11b"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-04.png",
+      "bytes": 112224,
+      "sha256": "2a917f1b0e6290e19aade7295bf2d65feedf9dffe0bb7d40d336652fff486f48"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-05.png",
+      "bytes": 114161,
+      "sha256": "e537d3064fb5550d4c95bb49efbb53d41e09f7dc7ec80d91a39a4ebb8e35895f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-06.png",
+      "bytes": 110836,
+      "sha256": "9458265ed0904fb061413a453663776f6f279dc7f1db57084f8027ae30e2efbe"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-07.png",
+      "bytes": 112381,
+      "sha256": "15876875bc8c1fded15c37cd4f2643e151b62a4e65fd01f9c2d05e22a2e4681f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-08.png",
+      "bytes": 123920,
+      "sha256": "5ca9b313b0ae697f64dc3f1cb72a6606715673f4601a3f49bb7adfcd6c48d914"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-09.png",
+      "bytes": 185527,
+      "sha256": "32ac9996c6ff9b15c4cb033e2440c3a87c0e12aaa11ffe9420e52dfc3b109180"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-10.png",
+      "bytes": 107414,
+      "sha256": "72616f312504473fdb4876e4a05e7bad56779deb2769cc14d9476e78d431612f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/slide-11.png",
+      "bytes": 112913,
+      "sha256": "bcdb060e9c34c1deff59ee95de61b4b6d1876b862b464f181cb054eeb413775a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-final/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 1057348,
+      "sha256": "8f2d237eed2a59e96b14f9ae4ba4ea7498814ee27ae27c08ac978ba01cc01022"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-v2/slide-04-check-04.png",
+      "bytes": 110821,
+      "sha256": "aeef86c0e5f53240dc8587c67534cb04c8a539f6ded7bd088975b946fcbdf25f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-v2/slide-08-check-08.png",
+      "bytes": 123344,
+      "sha256": "94ab86c0bf2393adc3cba0e27f10ee8e4f065baf751d36e9d644fa1fbd9444b5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-v2/slide-11-check-11.png",
+      "bytes": 110963,
+      "sha256": "7d27f9c0c9aa58bef1d4e24e66f40766086b92dc5cce27cfbc7d2fd70bd295d3"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy-v2/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 999676,
+      "sha256": "d5e60dbbfe9aeb032a392e4c7e5a368659f5f3bf098343190ad7034740f6c6cf"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-01.png",
+      "bytes": 85021,
+      "sha256": "88afc2895e602aee23073d0743faeb83d84e037f25f8856cce069635b2605b9f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-02.png",
+      "bytes": 78984,
+      "sha256": "70538e0c93e655895b1187a51308c8e41d8124a46282ebeb8c9bce3619f59105"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-03.png",
+      "bytes": 62750,
+      "sha256": "70fba671083005e4a239bb49d828a3dfe9cb8f6fe89f2a6873f6527534499d39"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-04.png",
+      "bytes": 108661,
+      "sha256": "a7a9733f95677699e74b2c372950b12ed6552eb5c69bd08f66494daa57ee7cee"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-05.png",
+      "bytes": 114161,
+      "sha256": "e537d3064fb5550d4c95bb49efbb53d41e09f7dc7ec80d91a39a4ebb8e35895f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-06.png",
+      "bytes": 107149,
+      "sha256": "d560f8d0b0bdee2671b0599afe03085101619ba3950611b2c1d910d807a9f059"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-07.png",
+      "bytes": 111663,
+      "sha256": "1e64062553af4af8dff42625fcba7833be6dcfb4dbee939aaf4635b84779e8ea"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-08.png",
+      "bytes": 124790,
+      "sha256": "e94c4d76ee51b6376d4685a996e33822a2455cee53c6c076d5ba18ee6bb664b5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-09.png",
+      "bytes": 185527,
+      "sha256": "32ac9996c6ff9b15c4cb033e2440c3a87c0e12aaa11ffe9420e52dfc3b109180"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-10.png",
+      "bytes": 107646,
+      "sha256": "905967f66b3879f112b940c1061ccb8500f50d770b24fa1aeaa4086ef53f3a2e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/slide-11.png",
+      "bytes": 112092,
+      "sha256": "14383b20cbf10f90dbd5ad54558b700e1e1b46e0cb1c4eb07bde262666eaeaa8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-human-copy/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 999636,
+      "sha256": "ec044363772c53de95d7aa88efc3891e9a08560cedb371cb71c17e601cac0f53"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-01.png",
+      "bytes": 88666,
+      "sha256": "63dd5a9ee49a9466efc3e0a810258a5ce6c02b4bf20a995cfc7655aa03f54b5f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-02.png",
+      "bytes": 80659,
+      "sha256": "7009f61d40ad23ef74a8b7ad2a64831f91474adf888f5362f4bd6879934f2e9c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-03.png",
+      "bytes": 64963,
+      "sha256": "3904e371b0c31a9f45bade9fdd3c95f0b9d26c8083684d83fdcc4e4048875fd8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-04.png",
+      "bytes": 113242,
+      "sha256": "b0a7f5110d3b5970c19f25563dc97f1b714eb4be0dad438ccf2cfddf86dead3e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-05.png",
+      "bytes": 116470,
+      "sha256": "0526767815889e64ed5e9ba769e6e612b119f55e7034413d9acebd75a84dc7e3"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-06.png",
+      "bytes": 111105,
+      "sha256": "a9834a0f84d32f480eddeb9fe2b6c55fc8606eb5d9ff6011894dcb8cf4734ff7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-07.png",
+      "bytes": 115003,
+      "sha256": "b8619621e1c563b38f7de545123da7b32002432d4f427580160fe55cd3196a44"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-08.png",
+      "bytes": 127487,
+      "sha256": "a960356c68aab2080309aedfe6a8c95ac924e52aa4581fe7d497e57a13419dec"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-09.png",
+      "bytes": 186297,
+      "sha256": "af47e659b7fbea885b961d0c103ef5cac7d15476964b899080344d4b2412e94c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-10.png",
+      "bytes": 109627,
+      "sha256": "b58b4351ee8d549a916d13a79ed01bc0c3e0e4b26fc78ee1b66d551498e31452"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/slide-11.png",
+      "bytes": 114752,
+      "sha256": "6fe8af7ccc84eb8796c059bb8346321b067cf4ba47a15262c31193bce5cf1540"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-final/海格汽车人才发展方案_瑞士风_苹方版.pdf",
+      "bytes": 994949,
+      "sha256": "8e22d0e93232ab2bf500b8861668f1ebaf14fc8394d2f5c8059b93f8b76ba835"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-01.png",
+      "bytes": 88743,
+      "sha256": "ac21bf4bc6a3def59b739b33080683f8a814dab2c0774ac0955b3a3482a3e83d"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-02.png",
+      "bytes": 80354,
+      "sha256": "c4f83ccead56d3ae058809fb2768856e685aad9ef1c89c8f7e07f2651a8acd31"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-03.png",
+      "bytes": 64680,
+      "sha256": "52628beff7a7a865476f66da0b7def300f0a68818d63d1bc7657610074bd83ce"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-04.png",
+      "bytes": 113738,
+      "sha256": "3cb5daa7799da5dc83eb895f5d6a7ff4fd2c6750cae284a772100345a27943d0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-05.png",
+      "bytes": 116517,
+      "sha256": "c39c2a83303c4ed7bb4df3e33a3a669f1b3d803ca83a9901184b349777a931d7"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-06.png",
+      "bytes": 112196,
+      "sha256": "0977d506a3b8b605a42d8c2aec44c852dc8a5831ab42f943cbb0d4855c03b018"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-07.png",
+      "bytes": 114772,
+      "sha256": "1b10740ce3a9b0ff704d53d249544c4054b7ec4c7ce13ab87c9efc3233764c53"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-08.png",
+      "bytes": 127230,
+      "sha256": "88280aa399ab5c4f955d96f13eb59562108b761120cf700b10cf1bd8c416c97d"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-09.png",
+      "bytes": 185916,
+      "sha256": "34a995af9a6c33b33f99190632f7f4095ae09af36146e1209bbd2a531b7647fa"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-10.png",
+      "bytes": 109558,
+      "sha256": "1c65b17083d1b5d476264929526673fcec13e666e48f91002636c7e4112522d9"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/slide-11.png",
+      "bytes": 115201,
+      "sha256": "90051a1731911976a0f3e2b7dc2f7ac3cd3c1913b126bad310d6c978f3479b39"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v1/海格汽车人才发展方案_瑞士风_苹方版.pdf",
+      "bytes": 995305,
+      "sha256": "4edd03ca283891919ec445cd5876eb55ef32f900f19565eb163abce99914afdf"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-01.png",
+      "bytes": 88666,
+      "sha256": "63dd5a9ee49a9466efc3e0a810258a5ce6c02b4bf20a995cfc7655aa03f54b5f"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-02.png",
+      "bytes": 80659,
+      "sha256": "7009f61d40ad23ef74a8b7ad2a64831f91474adf888f5362f4bd6879934f2e9c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-03.png",
+      "bytes": 64963,
+      "sha256": "3904e371b0c31a9f45bade9fdd3c95f0b9d26c8083684d83fdcc4e4048875fd8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-04.png",
+      "bytes": 113938,
+      "sha256": "39da92d924c9beae734031e8211ed5963cd5e363efab892e365fdf35041b2e91"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-05.png",
+      "bytes": 116913,
+      "sha256": "2a112b64432e3a2744b72f470dd4cd466a72179aa8014eb9c73c8596b52a4d38"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-06.png",
+      "bytes": 112386,
+      "sha256": "f2c7c374f6079441de61e31059b5389da347ada72cdf6fa7c8b8b8d52166fb98"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-07.png",
+      "bytes": 115003,
+      "sha256": "b8619621e1c563b38f7de545123da7b32002432d4f427580160fe55cd3196a44"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-08.png",
+      "bytes": 127487,
+      "sha256": "a960356c68aab2080309aedfe6a8c95ac924e52aa4581fe7d497e57a13419dec"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-09.png",
+      "bytes": 186297,
+      "sha256": "af47e659b7fbea885b961d0c103ef5cac7d15476964b899080344d4b2412e94c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-10.png",
+      "bytes": 109627,
+      "sha256": "b58b4351ee8d549a916d13a79ed01bc0c3e0e4b26fc78ee1b66d551498e31452"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/slide-11.png",
+      "bytes": 114752,
+      "sha256": "6fe8af7ccc84eb8796c059bb8346321b067cf4ba47a15262c31193bce5cf1540"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render-pingfang-v2/海格汽车人才发展方案_瑞士风_苹方版.pdf",
+      "bytes": 995311,
+      "sha256": "b7a7e5ecaadaaacfbb978e8605a00f7f04cb7782f2825dba616b4a10519be2ee"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/contact-sheet.png",
+      "bytes": 309957,
+      "sha256": "bcaaeab6c9ec9ca9b11b21946a81cd65e1a1b8eb3d82cb9454171d1a44ddd848"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-01.png",
+      "bytes": 76803,
+      "sha256": "44a43f328c926e4f23cc78500e2e5dc6b3295522d70ea8dcec7123e720703d0e"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-02.png",
+      "bytes": 65664,
+      "sha256": "0bdc0a257bee8db80f99e8b321b37664dacdb77c5df91a2f768e4f8b4870a3a0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-03.png",
+      "bytes": 54414,
+      "sha256": "37716d0e03ec7a466367a216efc4d0a646092adb2df35068cd2ccd0b700a61a8"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-04.png",
+      "bytes": 111411,
+      "sha256": "ec041dda8ef6d554da8f05a9bcf3d4ce6a1dc542fcd2cf7084f72351f8ca1760"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-05.png",
+      "bytes": 123444,
+      "sha256": "0ec0605ebfc8d5183c57061c139c48c5b035a0e1098eb42d27775c7d736f83c5"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-06.png",
+      "bytes": 112873,
+      "sha256": "bdfe22242bd1d1e63c7fe141d63f573522a0265a491a2d4fb60419502066bd67"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-07.png",
+      "bytes": 107540,
+      "sha256": "94b12b5c50469ee1864b3f1c3f4b686932f835a6d18206d1617396b83dbe5664"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-08.png",
+      "bytes": 110885,
+      "sha256": "1e480816044ec58fa216b6b121e7c7a28e448e2c02c42d0b0bd98d727f193464"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-09.png",
+      "bytes": 223752,
+      "sha256": "aebcf4bd93caa24694d8d800f54018540a6b6b96e7446f324997457cc53f67fb"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-10.png",
+      "bytes": 101381,
+      "sha256": "b369ccd21b131951888fbb4332901bf8e66416c00a472981e96c66701a82fba0"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/slide-11.png",
+      "bytes": 105335,
+      "sha256": "bcdc0a1a9d84c6a3ddda7f8184d326f8f902e71eb8a62d28ed193d5f468df6ff"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/render/海格汽车人才发展方案_瑞士风版.pdf",
+      "bytes": 1071280,
+      "sha256": "a4fe9db7a42b92eccc833f7f8efc902bcba5fcdd0e843951dd1daf5c33c5151c"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/大纲-v1.md",
+      "bytes": 3232,
+      "sha256": "ba21481e6aff1913a06a207853c931fcf4a3c3a3aa9cb7ce12675c5d973403de"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/海格汽车_AI岗位培训内容运营方案_瑞士风版.pptx",
+      "bytes": 443954,
+      "sha256": "f3a8341b9e35f21f2f03333c145a78ab849d419c18ca8cc8b983a113ffdf0956"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/海格汽车人才发展方案_瑞士风_苹方版.pptx",
+      "bytes": 433583,
+      "sha256": "5e1056145ba5f43d95bde36d20470c8b68b982ac4a8d082dbd1ae1872ad83e7a"
+    },
+    {
+      "path": "deliverables/talent-development-solution-deck/海格汽车人才发展方案_瑞士风版.pptx",
+      "bytes": 64192,
+      "sha256": "576c4aa34aa70f3b37d99228c5c9421ff9d49f295cbc38f632bfa50029584b40"
+    },
+    {
+      "path": "deliverables/talent-development-storyboard-v2.md",
+      "bytes": 7665,
+      "sha256": "065710cdf0cc5f3fc42cad007ef2f87da4d3ea649d45c8151f6d2974cc94b441"
+    },
+    {
+      "path": "deliverables/人才发展四大模块_功能清单.docx",
+      "bytes": 21543,
+      "sha256": "254f1f155ebb94f69cee77dd2b88909abe305452faa0d44e02e922c91b61aafd"
+    },
+    {
+      "path": "deliverables/人才发展系统-流程图-drawio.zip",
+      "bytes": 20996,
+      "sha256": "7f25c26584e3238fe8d590e23bd105d73dc06039e88aff7cf5ac709a8efb66f7"
+    },
+    {
+      "path": "deliverables/客户需求(1)_人才发展适配评估.docx",
+      "bytes": 19393,
+      "sha256": "696da1dd3eb6596e6be65dc2092f1101524231f0ff6394554ff9d82b5b61a3e9"
+    },
+    {
+      "path": "dify/key-position-analysis-chatflow.yml",
+      "bytes": 28823,
+      "sha256": "84203ae8aa0d433a821a42fb8f6e04967a20a5ac5af9152a7504ac25f66c5974"
+    },
+    {
+      "path": "dify/key-position-analysis-parameter-workflow.yml",
+      "bytes": 23574,
+      "sha256": "d51fff7e12595bc96b7a8eb4ae4ba669195be385788de7cb67633a124b493b84"
+    },
+    {
+      "path": "dify/organization-structure-analysis-chatflow.yml",
+      "bytes": 31714,
+      "sha256": "124bb8db4c37f61d0bcc4b8700939732b2f9f2ff0ad7abb0a5ce81655f09a542"
+    },
+    {
+      "path": "dify/organization-structure-analysis-parameter-workflow.yml",
+      "bytes": 23334,
+      "sha256": "6bbd8dee2aff1a0cf9d386990db522841846dc081a3b1f44a769e7a6a384a5df"
+    },
+    {
+      "path": "dify/parameter-workflows-README.md",
+      "bytes": 4233,
+      "sha256": "4ce2f8273e4636db93c7a202bd7e42a63da10f1f4e2c7da533700e75dcf5e568"
+    },
+    {
+      "path": "dify/talent-standard-ai-assistant-chatflow.yml",
+      "bytes": 36654,
+      "sha256": "85da53a52d375b4318253064cc558b8312bb0a8c7c8d6c3a1f131e41dbc7275b"
+    },
+    {
+      "path": "dify/talent-standard-ai-assistant-field-design.md",
+      "bytes": 6716,
+      "sha256": "6033cae646df65d6668d643e5def50d8f287025dc64b1398a3a30c7a29d13ee9"
+    },
+    {
+      "path": "fyi/D01-1 研发技术族-芯片研发-芯片设计类任职资格标准.XLSX",
+      "bytes": 34971,
+      "sha256": "e072cb999b253c7a82b90379f4421f65e3d417832f1744a13ca21b6d7c95b4c2"
+    },
+    {
+      "path": "fyi/审批试运行-亚马逊广告专业序列任职资格标准（含晋升管理通道标准）.xlsx",
+      "bytes": 25710,
+      "sha256": "858a931acaf5e27010377c26b65689126c439fe3e509368694ff9fec60e68e99"
+    },
+    {
+      "path": "fyi/运营职系-质量类-质量管理.xls",
+      "bytes": 317952,
+      "sha256": "facc65a5a241b26fba3381c8edd55458605c7f63127492337823e07144dd4100"
+    },
+    {
+      "path": "mcp-apps/.env.example",
+      "bytes": 148,
+      "sha256": "8c2d66a81721266a84a459ffdb820fee1b62d7809586291e18fab88b13366810"
+    },
+    {
+      "path": "mcp-apps/.gitignore",
+      "bytes": 19,
+      "sha256": "b4e6bbd79ad86dcfefe0b15b6ac92202d42293d4020e4a2e1d3b5a9a8b005a16"
+    },
+    {
+      "path": "mcp-apps/README.md",
+      "bytes": 2080,
+      "sha256": "a56a964a96d1359212f9ef97d0b8935dd755c56af61e1fad55796005c37796e6"
+    },
+    {
+      "path": "mcp-apps/dist/key-position-analysis.html",
+      "bytes": 361945,
+      "sha256": "5eaaa5670e03b2d4b76080ec51ec71aaca78770014cefe6beab954dafe392647"
+    },
+    {
+      "path": "mcp-apps/dist/org-analysis.html",
+      "bytes": 363242,
+      "sha256": "8704f060859a616224158b4c303df34414fca0d3a72825792b9a1dd2dce2d007"
+    },
+    {
+      "path": "mcp-apps/key-position-analysis.html",
+      "bytes": 339,
+      "sha256": "4a21c20554748b0f73500a2c7dd4ffe3d6d8f8104c30f6611fec211d1d23de37"
+    },
+    {
+      "path": "mcp-apps/main.ts",
+      "bytes": 1803,
+      "sha256": "d13d82dc2aa11b3e4c44571b7609a2445f2aa9a77babf780f6ebc3c91e8b2c4f"
+    },
+    {
+      "path": "mcp-apps/org-analysis.html",
+      "bytes": 330,
+      "sha256": "61e38b12851ac7031c25b3f440a177b44293d888e9cf9d2f303b845e8e48ca39"
+    },
+    {
+      "path": "mcp-apps/package-lock.json",
+      "bytes": 87432,
+      "sha256": "3a4e9ec75527459156a75a64b1170c68abbf902fcaaf8bcd948019b857f44ab1"
+    },
+    {
+      "path": "mcp-apps/package.json",
+      "bytes": 873,
+      "sha256": "fad0fc620179377d4cd67dd41b9856f3f31c3461453654867453f5b6daa8bedf"
+    },
+    {
+      "path": "mcp-apps/server.ts",
+      "bytes": 13568,
+      "sha256": "67e844c465f47de764b47e1c49753d53364fc898b9c21206f4d7de6010401ce3"
+    },
+    {
+      "path": "mcp-apps/src/key-position-app.ts",
+      "bytes": 22444,
+      "sha256": "4b238ea2953a8342e1a88cb8345bc63525e264983f11cc737371f844597a6876"
+    },
+    {
+      "path": "mcp-apps/src/org-app.ts",
+      "bytes": 23611,
+      "sha256": "208e0559eb82eba45eb7c836964e398b253362aca3b3ba6ff1b10059bcb3fbb0"
+    },
+    {
+      "path": "mcp-apps/src/shared.ts",
+      "bytes": 2132,
+      "sha256": "2b89d97332b62853e240ce50db5fb8041fa4f2daecfad9933de19eeb7ebf533d"
+    },
+    {
+      "path": "mcp-apps/src/styles.css",
+      "bytes": 9591,
+      "sha256": "7bf978dcd2297ba316ea24428c334e6e83dcc5c565ef3893743a97ee6aae8b9c"
+    },
+    {
+      "path": "mcp-apps/tsconfig.json",
+      "bytes": 342,
+      "sha256": "fd2db53ce3d4cfb3ec4ca8b52a9a0f1190b22b8cf5dd539170c4d9f27f466da4"
+    },
+    {
+      "path": "mcp-apps/vite.config.ts",
+      "bytes": 402,
+      "sha256": "020e02e4e2dada88c26424c9116787b381e4af3ac963ac76f0019fbac3117dc3"
+    },
+    {
+      "path": "newprd/10_组织与关键岗位分析_Dify工作流接口.md",
+      "bytes": 13782,
+      "sha256": "1cb058e80bcf1ec80a2e01a8a1112ef7cf4bd2451c59b9a1dd729a4db1f61564"
+    },
+    {
+      "path": "newprd/11_人才发展系统_当前版本PRD.md",
+      "bytes": 125398,
+      "sha256": "dbfc8590f8e79aecf0f476960fb237203eb7f9b5e913012011c764d3713c9a8e"
+    },
+    {
+      "path": "newprd/README.md",
+      "bytes": 6621,
+      "sha256": "fd37b15f11f748c2003473abe4a0adc3559b62e27c6eec17002f44075521079c"
+    },
+    {
+      "path": "newprd/_archive/03_评鉴中心_测评与盘点.md",
+      "bytes": 16202,
+      "sha256": "8df7d8aba8e44683adfafe93cde58e7e26ce0b4444e9e81bfa4fb9a50e071f3a"
+    },
+    {
+      "path": "newprd/_archive/06_人才中心_列表群组池与看板.md",
+      "bytes": 7730,
+      "sha256": "1a596498cab155d7191223427534fc4d926ac881ec924fec5a2e43a17dd49dbc"
+    },
+    {
+      "path": "newprd/_archive/README.md",
+      "bytes": 630,
+      "sha256": "09b7d7d450d4d868beac0dc7912d4bbee2065cd4d237c9b35853da462ccc9edf"
+    },
+    {
+      "path": "newprd/_archive/legacy/00_总览与规范.md",
+      "bytes": 21675,
+      "sha256": "4ca3903702d5cc8be9664b839827cd98080b2c445434d11598826edbef6256e0"
+    },
+    {
+      "path": "newprd/_archive/legacy/05_发展中心_学习方案与发展计划.md",
+      "bytes": 10851,
+      "sha256": "b4ce6878bca634915d5b5ef0b14e5dec5ebe34ac927caf35619c15d5cb6542ac"
+    },
+    {
+      "path": "newprd/_archive/legacy/07_UI设计规范.md",
+      "bytes": 13745,
+      "sha256": "2f05d4dc0b6c69508b2e6079a4408f21e9fb0679ff65cb5c36c8d1fb326d7569"
+    },
+    {
+      "path": "newprd/_archive/legacy/08_完整页面地图.md",
+      "bytes": 12982,
+      "sha256": "010c2cb48d88a2db25abff4c655c201f7541613ea38ead9688012a860f12c19b"
+    },
+    {
+      "path": "newprd/_archive/legacy/09_2026-07-29研发评审修改计划.md",
+      "bytes": 3869,
+      "sha256": "4a782bd37fd3b7fe8790568be16797a15407e24911325d76889bc2ed11e79a3d"
+    },
+    {
+      "path": "newprd/_archive/legacy/AI介入清单.md",
+      "bytes": 7764,
+      "sha256": "21160c23c4acbe4b5baadf1ce9dc413bebb12980173e077af4baf4e79e0e7f9e"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F01_组织结构分析.md",
+      "bytes": 20834,
+      "sha256": "698ff3f46353c399799e41e01118e6058b27d6ca0fb37dc45eede541a69ed61f"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F02_关键岗位诊断.md",
+      "bytes": 12450,
+      "sha256": "ff8740ebaef7feea57c3fd8c0bf9a33366e1b70a12d2fb32d36d61bc90d69b82"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F04_岗位管理.md",
+      "bytes": 8200,
+      "sha256": "5b778281a6c2740f003e13935713c37ae15da6bdc612812e1c7b8384783fa45c"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F05_词库.md",
+      "bytes": 8526,
+      "sha256": "9035e0b3207f974213b808f3f6251742417d46576d7eb13b03b2927f88ff931d"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F06_测评建议.md",
+      "bytes": 13397,
+      "sha256": "a6ebac8e46db6852ddae2dc3c0964a4d45a48ff9c95c56a218d0f7f801e25918"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F07_盘点建议.md",
+      "bytes": 19103,
+      "sha256": "0a4fea1627206fc2d630eb3a0583507ec2bcd8002f1800edded8ce3731e1475d"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F08_测评工具库.md",
+      "bytes": 9657,
+      "sha256": "3ac472b4eba7aace3718cdaff43396aa8795e5b49f82f9983e7595ddc51f4e61"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F09_岗位地图.md",
+      "bytes": 8758,
+      "sha256": "03e024c9348bb09bebe8ace568ad914c230dcfa5171b28da12b71c69aa3f13d1"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F10_人才列表.md",
+      "bytes": 8498,
+      "sha256": "06bb5210daa2d552308ea824d75a669efa5ac298286c54db9b2dffd2a3f44927"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F11_人才池.md",
+      "bytes": 7744,
+      "sha256": "722051352822f24e2defb0b03935a16bed4391c29e2ac10d0c0910b8d6fae3d1"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F12_继任地图.md",
+      "bytes": 6637,
+      "sha256": "7a006b478e66466b63e9f1aba19c07551de3a1391b653fb1d8a6fa041abe94bd"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F13_组织看板.md",
+      "bytes": 5866,
+      "sha256": "992eb18e2148a23c32f7ee5008ddfeed7c41bfa8f4eaf8952afb3cdae76b2e17"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/F14_人才中心设置.md",
+      "bytes": 5496,
+      "sha256": "f90cb4d1adfdd82cc21ae57987150c0a289a44e85c78a5624be990d9c52bfe27"
+    },
+    {
+      "path": "newprd/_archive/legacy/features/README_本次执行.md",
+      "bytes": 4018,
+      "sha256": "4e70e2e14739c6720f4d6ea309f15371d661fbf5206edb6aa7476bfaf001868d"
+    },
+    {
+      "path": "newprd/_archive/wireframes/W01_岗位中心.md",
+      "bytes": 5461,
+      "sha256": "59cc6f5773861cdab7b18b8bb2fde3fa23a924c6af80ef5eceaa9e9daa9c4c49"
+    },
+    {
+      "path": "newprd/_archive/wireframes/W02_评鉴中心.md",
+      "bytes": 4984,
+      "sha256": "1e7b3f97606c20e045fb3d9cbb6665c6495c41bfb31f181d965f3bed3a9c13f2"
+    },
+    {
+      "path": "newprd/_archive/wireframes/W04_发展中心.md",
+      "bytes": 3496,
+      "sha256": "d0514908b6a072e09833a8e363ad3d0f1bf6d9ca362d200519b0bc8d73d36014"
+    },
+    {
+      "path": "newprd/_archive/wireframes/W05_人才中心.md",
+      "bytes": 3170,
+      "sha256": "eca0ed1d8f9c76588e0a7904c5e040a0c55cd02efb5d08e4ba0c18c5519753f8"
+    },
+    {
+      "path": "newprd/_archive/wireframes/W06_系统设置.md",
+      "bytes": 1899,
+      "sha256": "b0b71661180227b5c7a932d936804f2671117c5efa78ce140c4458ef2d492243"
+    },
+    {
+      "path": "prd/00_总览与规范.md",
+      "bytes": 19447,
+      "sha256": "53b77b71d23c423b0688ec7bde7ad92c11c73b12258063d2e5816e4e64a5d1db"
+    },
+    {
+      "path": "prd/01_岗位中心_组织诊断与关键岗位.md",
+      "bytes": 9917,
+      "sha256": "93e93fbd7a958399b41f5d7a3cb37f32d9e1c564d76795dec2fa6d30f869e157"
+    },
+    {
+      "path": "prd/02_人才标准_任职与资格.md",
+      "bytes": 5358,
+      "sha256": "ea66d61b2aa1516409f8c4bc9bd96f07d644d64be290d7831f8c5b7c0a0d8da5"
+    },
+    {
+      "path": "prd/03_评鉴中心_测评与盘点.md",
+      "bytes": 16202,
+      "sha256": "8df7d8aba8e44683adfafe93cde58e7e26ce0b4444e9e81bfa4fb9a50e071f3a"
+    },
+    {
+      "path": "prd/05_发展中心_学习方案与发展计划.md",
+      "bytes": 9983,
+      "sha256": "5cd1471bc6b3bdfaaaf5512a005ac0c5b6f8fb54c9ac9225b95e4cdb86e41449"
+    },
+    {
+      "path": "prd/06_人才中心_列表群组池与看板.md",
+      "bytes": 6775,
+      "sha256": "8c2c5a75df4f9242c1f6138e57bddfc320818a3f04e6b04398987acd0767d9b8"
+    },
+    {
+      "path": "prd/07_UI设计规范.md",
+      "bytes": 12761,
+      "sha256": "370f6c5731b091fcce3dd7ebed0e262fda3d6bb0a4e24e5509413464f901f789"
+    },
+    {
+      "path": "prd/08_完整页面地图.md",
+      "bytes": 12277,
+      "sha256": "d0b40d127bb1be39bb2629ad87b788b297d6cf80cf244ca7be47421a0a1378ef"
+    },
+    {
+      "path": "prd/AI介入清单.md",
+      "bytes": 4389,
+      "sha256": "b842709656b16e8fb0a8489aed235e2529786ea9cffeda30f2960809c3f166cc"
+    },
+    {
+      "path": "prd/README.md",
+      "bytes": 3514,
+      "sha256": "84d0634634dfa0a4fd4ef2aed888204c253aa1a8350695b1f9ea6f6d582a06f0"
+    },
+    {
+      "path": "prd/features/F01_组织结构分析.md",
+      "bytes": 17108,
+      "sha256": "4be5b4d966c2a9f841e93308945b34ae9dcc0c84067c5a2cc83559e4acf606aa"
+    },
+    {
+      "path": "prd/features/F02_关键岗位诊断.md",
+      "bytes": 11723,
+      "sha256": "a7c6f6a815ae8203e0761bf479036aa0de782dce03e7d6929988267f328d7264"
+    },
+    {
+      "path": "prd/features/F04_岗位管理.md",
+      "bytes": 7349,
+      "sha256": "62118dfd56d9eef2d74419f7c15b2a50d76a4a2e230070ae1543c1fd9701ad6e"
+    },
+    {
+      "path": "prd/features/README_本次执行.md",
+      "bytes": 4018,
+      "sha256": "4e70e2e14739c6720f4d6ea309f15371d661fbf5206edb6aa7476bfaf001868d"
+    },
+    {
+      "path": "prd/wireframes/W01_岗位中心.md",
+      "bytes": 5461,
+      "sha256": "59cc6f5773861cdab7b18b8bb2fde3fa23a924c6af80ef5eceaa9e9daa9c4c49"
+    },
+    {
+      "path": "prd/wireframes/W02_评鉴中心.md",
+      "bytes": 4984,
+      "sha256": "1e7b3f97606c20e045fb3d9cbb6665c6495c41bfb31f181d965f3bed3a9c13f2"
+    },
+    {
+      "path": "prd/wireframes/W04_发展中心.md",
+      "bytes": 3496,
+      "sha256": "d0514908b6a072e09833a8e363ad3d0f1bf6d9ca362d200519b0bc8d73d36014"
+    },
+    {
+      "path": "prd/wireframes/W05_人才中心.md",
+      "bytes": 3170,
+      "sha256": "eca0ed1d8f9c76588e0a7904c5e040a0c55cd02efb5d08e4ba0c18c5519753f8"
+    },
+    {
+      "path": "prd/wireframes/W06_系统设置.md",
+      "bytes": 1899,
+      "sha256": "b0b71661180227b5c7a932d936804f2671117c5efa78ce140c4458ef2d492243"
+    },
+    {
+      "path": "screenshots/ui-final-assess-360-tree.png",
+      "bytes": 56842,
+      "sha256": "fa5b2f86ec9c2a1db20e300f4d8b56499f19409431e93335da63c2240f30f48c"
+    },
+    {
+      "path": "screenshots/ui-final-assess-exam-tree.png",
+      "bytes": 61175,
+      "sha256": "9761fa4f05ddaad9adada6e49eabadac55162507b0f789acb63de24c163b5d8b"
+    },
+    {
+      "path": "screenshots/ui-final-assess-projects.png",
+      "bytes": 60410,
+      "sha256": "520e8712d84249672eebf4653526be46d210e91f8684ce34b8488ba37dba0f45"
+    },
+    {
+      "path": "screenshots/ui-final-assess-talent-tree.png",
+      "bytes": 57330,
+      "sha256": "76378376866ead92eb657e4278deef8a47a0d4e83b5c600f54ce58338668828f"
+    },
+    {
+      "path": "screenshots/ui-final-assessment-tree.png",
+      "bytes": 56776,
+      "sha256": "cfa7f07f658d0ab323c8bfbadccc7d826fce6cdb844889524eaa8624c4cdc089"
+    },
+    {
+      "path": "screenshots/ui-final-frozen-table.png",
+      "bytes": 56659,
+      "sha256": "4200ffb7fa85f378625df9829746d95b2836ad43f938e2f86c63798e8d73f738"
+    },
+    {
+      "path": "screenshots/ui-final-key-position-new.png",
+      "bytes": 64228,
+      "sha256": "a2bfbf752c0daa7f7b1a7f6db1237354eb25ca7e9fec074d287592d312dfac7b"
+    },
+    {
+      "path": "screenshots/ui-final-list-workbench.png",
+      "bytes": 63966,
+      "sha256": "93471813286488ebe960a3f07c98b71a04be0f9147f421b62e1c4ce80bf908a2"
+    },
+    {
+      "path": "screenshots/ui-final-mobile-talent-profile.png",
+      "bytes": 30534,
+      "sha256": "bd2701dada9171f1da9bcbb8964534c4890f13dc1c67634117770e3f6c9b6fab"
+    },
+    {
+      "path": "screenshots/ui-final-org-empty.png",
+      "bytes": 38594,
+      "sha256": "ebf4746720266f200b689174a0cc0e962705ac53e2fea4c37e58432433aca0a7"
+    },
+    {
+      "path": "screenshots/ui-final-position-detail.png",
+      "bytes": 50099,
+      "sha256": "f5c1dd32351ccd33e0cd479a122fa57cd8e1248605a4e2d8e6780eb754486782"
+    },
+    {
+      "path": "screenshots/ui-final-wizard-surface.png",
+      "bytes": 59409,
+      "sha256": "673608f0b5013f9ed601fdac88a02fdbc33d8ff4ceb777bc32bc7438ca640f37"
+    },
+    {
+      "path": "scripts/asset_versions.py",
+      "bytes": 2999,
+      "sha256": "5f89224bd4816c1389d4c6070fdde0fa53ea38f7c66b7c427091b4b3335d7adb"
+    },
+    {
+      "path": "scripts/reflow-drawio.mjs",
+      "bytes": 7862,
+      "sha256": "2a8eab130addab6d9be740c6020931d34773c33bec8fbfd2459f41a6148b126b"
+    },
+    {
+      "path": "scripts/verify_migration.py",
+      "bytes": 1273,
+      "sha256": "5737c21592d22227d19d035bc449788e8a9cb21fb6b4cc91f96785fd115dbe66"
+    },
+    {
+      "path": "serve.py",
+      "bytes": 1933,
+      "sha256": "4f35db0b4fe854e5f92dbe5069ccb5c58d3b9aa5ca23e115ca1eed373b9addee"
+    },
+    {
+      "path": "tests/test_preview_assets.py",
+      "bytes": 4424,
+      "sha256": "53ea0812ab37b25d892e9627b7e9fae62e88af3a619830b13b1e8edd2fba9fb3"
+    }
+  ]
+}
