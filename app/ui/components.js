@@ -15,6 +15,9 @@
       dialog.showError('');
       if (onConfirm?.(dialog) !== false) dialog.close();
     };
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'Escape' || event.key === 'Tab') event.stopPropagation();
+    });
     dialog.addEventListener('click', event => {
       const box = dialog.getBoundingClientRect();
       if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right)) dialog.close();
@@ -25,10 +28,10 @@
     return dialog;
   }
 
-  function openPicker({title, items, selectedIds = [], maxSelected = Infinity, onConfirm, variant = 'simple', categories = [], treeTitle = '指标', nameLabel = '名称'}) {
-    if (variant === 'indicator') return openIndicatorPicker({title, items, selectedIds, maxSelected, onConfirm, categories, treeTitle, nameLabel});
+  function openPicker({title, items, selectedIds = [], maxSelected = Infinity, onConfirm, variant = 'simple', categories = [], treeTitle = '指标', nameLabel = '名称', keepParent = false}) {
+    if (variant === 'indicator') return openIndicatorPicker({title, items, selectedIds, maxSelected, onConfirm, categories, treeTitle, nameLabel, keepParent});
     const selected = new Set(selectedIds);
-    const dialog = openDialog({title, body: '<label for="ui-picker-search">搜索</label><input type="search" id="ui-picker-search" class="input mt-sm mb-md" placeholder="输入名称"><p class="text-sm muted" data-selection-count></p><div data-picker-results></div>', onConfirm() {
+    const dialog = openDialog({title, keepParent, body: '<label for="ui-picker-search">搜索</label><input type="search" id="ui-picker-search" class="input mt-sm mb-md" placeholder="输入名称"><p class="text-sm muted" data-selection-count></p><div data-picker-results></div>', onConfirm() {
       if (selected.size > maxSelected) { dialog.showError(`最多选择 ${maxSelected} 项`); return false; }
       return onConfirm([...selected]);
     }});
@@ -55,7 +58,7 @@
     return `<button type="button" class="ui-picker-tree-arrow${expanded ? ' is-expanded' : ''}" data-indicator-tree-toggle aria-label="${expanded ? '收起' : '展开'}"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2.5 8 6l-4 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>`;
   }
 
-  function openIndicatorPicker({title, items, selectedIds = [], maxSelected = Infinity, onConfirm, categories = [], treeTitle = '指标', nameLabel = '名称'}) {
+  function openIndicatorPicker({title, items, selectedIds = [], maxSelected = Infinity, onConfirm, categories = [], treeTitle = '指标', nameLabel = '名称', keepParent = false}) {
     const source = items.map(item => ({
       id: String(item.id),
       label: String(item.label ?? item.name ?? item.id),
@@ -91,7 +94,7 @@
         </div>
       </section>
     </div>`;
-    const dialog = openDialog({title, body, onConfirm() {
+    const dialog = openDialog({title, body, keepParent, onConfirm() {
       if (selected.size > maxSelected) { dialog.showError(`最多选择 ${maxSelected} 项`); return false; }
       return onConfirm([...selected]);
     }});

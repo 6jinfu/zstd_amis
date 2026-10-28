@@ -1,0 +1,280 @@
+html, body { margin: 0; padding: 0; min-height: 100%; }
+.qualifications_item > .title > .line { display: none !important; }
+.postbase[fromtype="rank"] > .qualifications { display: none !important; }
+.local-failure { padding: 24px; font-size: 14px; line-height: 1.8; color: #444; }
+
+/* Keep the original map nodes and their click handlers; only adapt the map artwork. */
+.wrap[data-v-6275379d] {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: #f4f6fa;
+}
+.wrap .head_tab[data-v-6275379d] {
+  height: 52px;
+}
+.wrap .head_tab .tab[data-v-6275379d] {
+  padding: 0 8px;
+}
+.wrap .head_tab .tab .name[data-v-6275379d] {
+  margin-top: 13px;
+  font-size: 15px;
+}
+.wrap .head_tab .tab .line[data-v-6275379d] {
+  width: 22px;
+  height: 3px;
+  margin: 6px auto 0;
+}
+.wrap .head_tab .tab .a_line[data-v-6275379d] {
+  background: #2858ba;
+}
+.wrap .head_nav[data-v-6275379d] {
+  margin-top: 0;
+  padding: 14px 20px 0;
+  box-shadow: none;
+}
+.wrap .head_nav .head_nav_item[data-v-6275379d] {
+  height: auto;
+  padding: 0;
+}
+.wrap .head_nav .head_nav_item .text[data-v-6275379d] {
+  min-width: 0;
+  height: 32px;
+  padding: 0 18px;
+  border-radius: 18px;
+  background: #e6ecf8;
+  color: #2858ba;
+  font-size: 14px;
+  line-height: 32px;
+}
+.wrap .head_nav .head_nav_item .active_text[data-v-6275379d] {
+  background: #2858ba;
+  color: #fff;
+}
+.wrap .head_nav + div[data-v-6275379d] {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  box-sizing: border-box;
+  padding: 30px 0;
+  min-height: 1100px;
+  background: url('./stairs-10.svg?v=20261009-refined-progress') center top / 100% 100% no-repeat;
+}
+.wrap:has(.head_tab .tab:nth-child(2) .a_name) .head_nav + div[data-v-6275379d] {
+  min-height: 892px;
+  background-image: url('./stairs-8.svg?v=20261009-refined-progress');
+}
+.wrap .post_item[data-v-6275379d] {
+  position: relative;
+  left: auto !important;
+  top: auto !important;
+  display: block;
+  box-sizing: border-box;
+  width: 46%;
+  height: 104px;
+  padding: 0 9px;
+  margin: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.wrap .post_item:nth-child(even)[data-v-6275379d] {
+  margin-left: 54%;
+}
+.wrap .post_item img[data-v-6275379d]:not(.tip_img) {
+  display: none;
+}
+.wrap .post_item .post_num[data-v-6275379d] {
+  position: static;
+  display: block;
+  width: auto;
+  height: 32px;
+  color: #29354b;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: center;
+}
+.wrap:not(:has(.head_tab .tab:nth-child(2) .a_name)) .post_item:nth-child(-n+7) .post_num[data-v-6275379d],
+.wrap:has(.head_tab .tab:nth-child(2) .a_name) .post_item:nth-child(-n+2) .post_num[data-v-6275379d] {
+  color: #a65b22;
+}
+.wrap .post_item .post_name[data-v-6275379d] {
+  position: static;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  margin: 3px auto 0;
+  padding: 0 3px;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  color: #2e3440;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  text-overflow: clip;
+  white-space: normal;
+}
+.wrap .post_item.current-post .post_num[data-v-6275379d],
+.wrap .post_item.current-post .post_name[data-v-6275379d] {
+  position: relative;
+  top: auto;
+  left: auto;
+  z-index: 2;
+  color: #1d50a3;
+}
+.wrap .post_item.current-post:nth-child(even) .post_num[data-v-6275379d],
+.wrap .post_item.current-post:nth-child(even) .post_name[data-v-6275379d] {
+  transform: translateX(42px);
+}
+.wrap .post_item.current-post:nth-child(odd) .post_num[data-v-6275379d],
+.wrap .post_item.current-post:nth-child(odd) .post_name[data-v-6275379d] {
+  transform: translateX(-42px);
+}
+.wrap .post_item.current-post[data-v-6275379d] {
+  z-index: 1;
+}
+.wrap .post_item.current-post[data-v-6275379d]::before {
+  content: '';
+  position: absolute;
+  left: clamp(26px, 8vw, 34px);
+  top: 11px;
+  width: 70px;
+  height: 90px;
+  background: url('../assets/jobmap-person.png') left -14px / 94px 104px no-repeat;
+  pointer-events: none;
+}
+.wrap .post_item.current-post:nth-child(odd)[data-v-6275379d]::before {
+  left: auto;
+  right: 3px;
+}
+.wrap:has(.head_tab .tab:nth-child(2) .a_name) .post_item.current-post[data-v-6275379d]::before {
+  background-image: url('../assets/jobmap-person-rank.png');
+}
+.wrap .post_item.current-post[data-v-6275379d]::after {
+  content: '当前岗位';
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  box-sizing: border-box;
+  width: 88px;
+  height: 24px;
+  background: #ff666b;
+  clip-path: polygon(9% 0, 100% 0, 91% 50%, 100% 100%, 9% 100%, 0 50%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+.wrap .post_item.current-post:nth-child(odd)[data-v-6275379d]::after {
+  left: calc(100% - 18px);
+}
+.wrap:has(.head_tab .tab:nth-child(2) .a_name) .post_item.current-post[data-v-6275379d]::after {
+  content: '当前职级';
+}
+@media (max-width: 360px) {
+  .wrap .post_item.current-post[data-v-6275379d]::before {
+    top: 26px;
+    width: 60px;
+    height: 75px;
+    background-size: 80px 88px;
+    background-position: left -13px;
+  }
+}
+.wrap .post_item .tip_img[data-v-6275379d] {
+  display: none;
+}
+.wrap .popup .popup_wrap .popup_item_active[data-v-6275379d] {
+  background: #2858ba;
+}
+.wrap.router-view > .van-popup:has(.popup) {
+  box-sizing: border-box;
+  left: max(0px, calc((100vw - 430px) / 2)) !important;
+  right: auto !important;
+  width: min(100vw, 430px) !important;
+  container-type: inline-size;
+}
+.wrap .popup[data-v-6275379d] { padding: 4cqw !important; }
+.wrap .popup .popup_img img[data-v-6275379d] { width: 4.267cqw !important; height: 4.267cqw !important; }
+.wrap .popup .popup_wrap[data-v-6275379d] { padding-top: 3.733cqw !important; }
+.wrap .popup .popup_wrap .popup_item[data-v-6275379d] {
+  width: 28.8cqw !important;
+  height: 9.6cqw !important;
+  margin-bottom: 2.667cqw !important;
+  border-radius: 4.8cqw !important;
+  font-size: 3.2cqw !important;
+  line-height: 9.6cqw !important;
+}
+.wrap .popup .popup_wrap .popup_item:nth-child(3n-1)[data-v-6275379d] { margin: 0 2.667cqw !important; }
+
+/* Keep the original H5 detail layout and use the PC student palette. */
+body:has(.index_wrap.router-view) { background: #f4f6fa; }
+.local-detail-return { box-sizing: border-box; width: 100%; max-width: 430px; margin: 0 auto; padding: 12px 16px 0; background: #f4f6fa; }
+.local-detail-return button { min-height: 44px; padding: 0; border: 0; background: transparent; color: #2858ba; font-size: 13px; font-weight: 600; cursor: pointer; }
+.local-detail-return button:focus-visible { outline: 2px solid #2858ba; outline-offset: 3px; }
+.index_wrap.router-view { box-sizing: border-box; width: 100%; max-width: 430px; min-height: 100dvh; margin: 0 auto; container-type: inline-size; }
+.index_wrap.router-view .head_top { background-image: linear-gradient(180deg, #2858ba 25%, #f4f6fa) !important; }
+.index_wrap.router-view .post_tab .post_item .tit_active { color: #2858ba !important; }
+.index_wrap.router-view .post_tab .post_item .line_active { background-image: none !important; background-color: #2858ba !important; }
+.index_wrap.router-view .postbase .qualifications_list .van-circle__hover { stroke: #2858ba !important; }
+.index_wrap.router-view .qualifications .tab_nav_item_active,
+.index_wrap.router-view .program .box_info .tab .active,
+.index_wrap.router-view .job_info .tab_list .active,
+.index_wrap.router-view .exam-card .box_info .tab .active { background: #2858ba !important; color: #fff !important; }
+.index_wrap.router-view .program .box_info .list_scroll,
+.index_wrap.router-view .exam-card .box_info .list_scroll { display: flex; width: max-content !important; }
+.index_wrap.router-view .program .box_info .list_scroll > div,
+.index_wrap.router-view .exam-card .box_info .list_scroll > div { flex: 0 0 92cqw; float: none; }
+.index_wrap.router-view .program .box_info .scrollbar .step,
+.index_wrap.router-view .exam-card .box_info .scrollbar .step { max-width: 100%; }
+
+/* Preserve the source ability detail proportions inside the mobile canvas. */
+body:has(.base_info.router-view) { background: #f4f6fa; }
+.base_info.router-view {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: #f4f6fa;
+  container-type: inline-size;
+}
+.base_info.router-view .top_bg { display: none; }
+.base_info.router-view .main { position: static; box-sizing: border-box; width: 100%; margin: 0; padding: 4cqw; }
+.base_info.router-view .main .top_info {
+  padding: 5.333cqw;
+  border-radius: 2.133cqw;
+  background: #fff;
+  box-shadow: none;
+  font-size: 3.733cqw;
+  line-height: 5.867cqw;
+}
+.base_info.router-view .main .top_info .title { margin-top: 5.333cqw; color: #29313d; }
+.base_info.router-view .main .top_info .title:first-child { margin-top: 0; }
+.base_info.router-view .main .top_info .des { margin-top: 2.667cqw; color: #626d7c; }
+.base_info.router-view .main .detail {
+  margin-top: 2.667cqw;
+  padding: 6.4cqw 5.333cqw 1.067cqw;
+  border-radius: 2.133cqw;
+  background: #fff;
+  box-shadow: none;
+}
+.base_info.router-view .main .detail:last-child { margin-bottom: 4cqw; }
+.base_info.router-view .main .detail .title .tit { font-size: 3.733cqw; color: #29313d; }
+.base_info.router-view .main .detail .title .req {
+  margin-left: 3.2cqw;
+  padding: 0 1.6cqw;
+  border-color: #2b70d6;
+  border-radius: 0 1.067cqw 0 1.067cqw;
+  color: #2b70d6;
+  font-size: 3.2cqw;
+  line-height: 5.333cqw;
+}
+.base_info.router-view .main .detail .info { margin-top: 2.667cqw; color: #626d7c; font-size: 3.733cqw; line-height: 5.867cqw; }
+.base_info.router-view .main .detail .info:last-child { margin-bottom: 5.333cqw; }

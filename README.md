@@ -21,6 +21,8 @@ python3 serve.py
 
 `serve.py` 默认监听所有本机网络接口，`8766` 是本项目的默认端口；如需临时使用其他端口，可执行 `python3 serve.py 端口号`。
 
+管理端导航统一在`app/navigation.js`维护，各页面在主内容前同步加载；不再保留旧导航骨架或由`app.js`转换导航。跨页面淡入已移除，避免局域网切页残影。
+
 开发服务器对页面与资源统一禁用缓存；启动时自动核对本地 CSS / JS 是否存在，并更新 HTML 中的内容指纹，不再手写或复用日期版本号。修改资源后可手动同步并检查：
 
 ```bash
@@ -33,6 +35,7 @@ python3 -m unittest discover -s tests -v
 
 ## 目录说明
 
+- `student-client/`：2026-10-28从桌面复制的学员端Web与H5源码，岗位详情已适配整套标准选择、五类要求及对应学习方案。执行`cd student-client`后运行`python3 serve.py --port 4182`；Web为`http://127.0.0.1:4182/student.html`，H5为`http://127.0.0.1:4182/mobile/index.html`。支持局域网，用本机IP替换127.0.0.1；当前组合方案为独立演示配置，尚未接入管理端实时保存及真实学习进度。
 - `app/`：静态 HTML、CSS 与交互脚本。
 - `newprd/`：当前生效的产品需求与接口说明。
 - `prd/`：历史需求资料，仅用于追溯。

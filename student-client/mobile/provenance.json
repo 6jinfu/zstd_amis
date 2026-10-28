@@ -1,0 +1,185 @@
+{
+  "capturedAt": "2026-09-30",
+  "sourceEntry": "https://v4.21tb.com/frontend-h5/#/jobSysH5",
+  "originalFiles": [
+    {
+      "file": "source/app.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/app.03651038.js",
+      "bytes": 19206,
+      "sha256": "1d283032790976a7c19bb778097d21ba7ad70a0ad2fe40b79453ec0b2a812edd"
+    },
+    {
+      "file": "source/libs.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-libs.c9f15ad3.js",
+      "bytes": 141259,
+      "sha256": "385776d7b6fe9453c561756d3eaec2ef7698bfcda6dbac797c874775ef454aaf"
+    },
+    {
+      "file": "source/vant.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-vantUI.904d4e79.js",
+      "bytes": 257213,
+      "sha256": "1d0297a91f5f538107d1ae3064d337a27f8774dcd60297e4fc6db9f66450f611"
+    },
+    {
+      "file": "source/vant.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-vantUI.7f32843f.css",
+      "bytes": 145390,
+      "sha256": "e1b7b1c5a3bf6d50ca4a6bb231ad9632d6e618e75da5f1488d8922e02805f6de"
+    },
+    {
+      "file": "source/common.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-35cab158.574b5029.js",
+      "bytes": 674798,
+      "sha256": "0dce5dddaafc8aae761ccaafb7f8f6d69a164c8e06516e85a5a4ebd551ccab3a"
+    },
+    {
+      "file": "source/common.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-35cab158.b03e573d.css",
+      "bytes": 27257,
+      "sha256": "b41751a44c4c4e8866796c6c50b13f7bc403af2e792bc5e8eaa254e54ba5ebac"
+    },
+    {
+      "file": "source/shared.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-74e14855.6eec54c6.js",
+      "bytes": 46569,
+      "sha256": "1df08a12f0a86eec0d799a643361bb24195f3c37acaa9ec0fcb43d18afedf337"
+    },
+    {
+      "file": "source/shared.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-74e14855.9c09efb1.css",
+      "bytes": 12380,
+      "sha256": "a8689a212a707bfa8f0c331957f88ef77b836231ebe91cfb84357686f7060c28"
+    },
+    {
+      "file": "source/map.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-0ea63994.6fb2ba9c.js",
+      "bytes": 25223,
+      "sha256": "fb3df99c532ff6e77e9e6a636cf42f94cafb496e4341107aa8671a4d23220980"
+    },
+    {
+      "file": "source/map.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-0ea63994.64452f83.css",
+      "bytes": 6880,
+      "sha256": "2ccf60303fb918c7231c3215ce1b05767d0b626ff63823e37f359494cf8c5d47"
+    },
+    {
+      "file": "source/detail.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-5a63389c.d53a29e7.js",
+      "bytes": 64915,
+      "sha256": "5d0af12345e8fce713f02a069e9c4206607ff331eb3118a10e07ba31bdad4667"
+    },
+    {
+      "file": "source/detail.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-5a63389c.b5993caf.css",
+      "bytes": 228740,
+      "sha256": "2540f6c0d262865e9e1e64267e42f6135f1a5e2cfce44e477ac56a97a6fecda2"
+    },
+    {
+      "file": "source/chart-a.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-5d442d1d.87d3b4d1.js",
+      "bytes": 310934,
+      "sha256": "62e9b35fc08d8e32bf866b601a51a0c8a7cc9e39c7b33ac909c85f14ca3ec889"
+    },
+    {
+      "file": "source/chart-b.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-6e83591c.22ec3898.js",
+      "bytes": 23303,
+      "sha256": "f81dd59570991c3c3def519ceaa53025d64c2e6f02f5610fa027e7b3bb59f124"
+    },
+    {
+      "file": "source/chart-c.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-26273ac2.f6f584aa.js",
+      "bytes": 1076740,
+      "sha256": "04da456b8d38eaf86f86a40525d1a07d9011d44d68a80773801e3763a0242f6c"
+    },
+    {
+      "file": "source/ability.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-4f3267c3.d839874d.js",
+      "bytes": 7024,
+      "sha256": "acf6deb80bcdb8be085fc13a8e3aa33f71160259c72c47a355c9e82963a64086"
+    },
+    {
+      "file": "source/ability.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-4f3267c3.6274782e.css",
+      "bytes": 36809,
+      "sha256": "f843313c3d70728b6782c15cc066caea98e4cb92c5b4fcad19bcef49f7c32187"
+    },
+    {
+      "file": "source/skills.js",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/js/chunk-3fd2cbd2.645b4730.js",
+      "bytes": 7293,
+      "sha256": "f4d1106b33d063c75a824ab2371eb904c8113d6809d0ea3cdf457ceb25b3bcb1"
+    },
+    {
+      "file": "source/skills.css",
+      "originalUrl": "https://v4static.21tb.com/frontend-h5/css/chunk-3fd2cbd2.aa68d92e.css",
+      "bytes": 36809,
+      "sha256": "35a011b91548e26b1c798b5f41847a2eda9d468d7eb8a52bcdbbfc95a43413be"
+    }
+  ],
+  "originalModules": 543,
+  "responses": 388,
+  "assetReferences": 188,
+  "positions": [
+    {
+      "name": "业务经理",
+      "id": "2a43904270da4dcaa37172abd788f463",
+      "visible": true
+    },
+    {
+      "name": "客户经理",
+      "id": "baa64273f47d49418cf6a71d4342edf6",
+      "visible": true
+    },
+    {
+      "name": "销售经理",
+      "id": "e31182eeb7714c2b81ec3c04ccf5417e",
+      "visible": true
+    },
+    {
+      "name": "销售顾问",
+      "id": "0581ceda51f345718c8703be937791a3",
+      "visible": true
+    },
+    {
+      "name": "大区总经理",
+      "id": "cf538eab2b684dcda7c033c8d44dc2da",
+      "visible": true
+    },
+    {
+      "name": "产品实习生",
+      "id": "1210aec19e0a4f999df50e32a8ef2020",
+      "visible": true
+    },
+    {
+      "name": "产品专员",
+      "id": "04a71b28c49342b99c9623ecea1eebed",
+      "visible": true
+    },
+    {
+      "name": "产品经理",
+      "id": "fcd0836e5f5e4697a75a0041ea3b5973",
+      "visible": true
+    },
+    {
+      "name": "产品部部门经理",
+      "id": "59b75f8147154b4ab7bc9a3e7a4dc232",
+      "visible": true
+    },
+    {
+      "name": "产品运营部总监（见习）",
+      "id": "1c45241cb2e34a91b3bd9a1641090f98",
+      "visible": true
+    },
+    {
+      "name": "储备总监（产品运营总监）",
+      "id": "fda397b1aa974647aa9c8004c94ca784",
+      "visible": false
+    },
+    {
+      "name": "产品设计与运营总监",
+      "id": "dcadd4346f67469c8ed4a348eda72bae",
+      "visible": false
+    }
+  ]
+}

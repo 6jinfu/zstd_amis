@@ -14,7 +14,8 @@
       variant:'indicator',
       categories:options.categories || config.categories || [],
       treeTitle:options.treeTitle || '指标',
-      nameLabel:options.nameLabel || '名称'
+      nameLabel:options.nameLabel || '名称',
+      keepParent:options.keepParent || false
     });
   }
   function preview(s) {

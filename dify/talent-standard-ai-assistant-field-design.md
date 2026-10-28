@@ -1,5 +1,7 @@
 # 人才标准 AI 帮建：Dify 字段与流程设计
 
+> 本文记录2026-09-21旧版 Chatflow。2026-10-26起，当前接入以 [分阶段 Workflow 说明](talent-standard-ai-assistant-workflow-README.md) 和 `talent-standard-ai-assistant-workflow.yml` 为准。新版本显式传入动作和状态，不再以聊天历史推断阶段，不再使用HTML注释传递结果。
+
 对应可导入文件：`dify/talent-standard-ai-assistant-chatflow.yml`
 
 ## 1. 为什么使用 Advanced Chatflow

@@ -23,7 +23,9 @@
 .std-category-toggle:hover { color:var(--neutral-700); }
 .std-category-children .std-category-child { padding-left:26px; }
 .std-category-toggle:focus-visible,.std-category:focus-visible { outline:2px solid var(--focus-neutral);outline-offset:-2px; }
-.std-table-name { font-weight:500;color:var(--primary); }
+.std-table-name { font-weight:500;color:var(--primary-600); }
+.std-table-name:hover { color:var(--primary-500); }
+.std-table-name:active { color:var(--primary-700); }
 .standards-workbench table[data-native-sticky] th:nth-child(2),.standards-workbench table[data-native-sticky] td:nth-child(2) { width:180px;text-align:left; }
 .standards-workbench table.t td.std-object-count { height:auto;padding-top:10px;padding-bottom:10px;color:var(--neutral-700);white-space:normal;overflow-wrap:anywhere;line-height:1.5; }
 .std-range-summary { display:block;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }

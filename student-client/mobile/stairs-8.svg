@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 932" preserveAspectRatio="none">
+  <defs>
+    <g id="step-left">
+      <rect x="46" y="-8" width="90" height="16" rx="2" fill="#2858ba"/>
+      <path d="M48-6h86v9H48z" fill="#7797db"/>
+    </g>
+    <g id="step-right">
+      <rect x="254" y="-8" width="90" height="16" rx="2" fill="#2858ba"/>
+      <path d="M256-6h86v9h-86z" fill="#7797db"/>
+    </g>
+    <g id="step-left-done">
+      <rect x="46" y="-8" width="90" height="16" rx="2" fill="#c78238"/>
+      <path d="M48-6h86v9H48z" fill="#ebba80"/>
+    </g>
+    <g id="step-right-done">
+      <rect x="254" y="-8" width="90" height="16" rx="2" fill="#c78238"/>
+      <path d="M256-6h86v9h-86z" fill="#ebba80"/>
+    </g>
+    <g id="step-left-current">
+      <rect x="42" y="-12" width="98" height="24" rx="5" fill="#d9e4fb"/>
+      <rect x="46" y="-8" width="90" height="16" rx="2" fill="#17479f"/>
+      <path d="M48-6h86v9H48z" fill="#6689d3"/>
+    </g>
+  </defs>
+  <path d="M254 155 150 241 Q126 254 150 267 L240 345 Q264 358 240 371 L150 449 Q126 462 150 475 L240 553 Q264 566 240 579 L150 657 Q126 670 150 683 L240 761 Q264 774 240 787 L136 873" fill="none" stroke="#2858ba" stroke-width="8" stroke-linecap="square" stroke-linejoin="round"/>
+  <path d="M136 670 Q126 670 150 683 L240 761 Q264 774 240 787 L136 873" fill="none" stroke="#c78238" stroke-width="8" stroke-linejoin="round"/>
+  <use href="#step-right" transform="translate(0 150)"/>
+  <use href="#step-left" transform="translate(0 254)"/>
+  <use href="#step-right" transform="translate(0 358)"/>
+  <use href="#step-left" transform="translate(0 462)"/>
+  <use href="#step-right" transform="translate(0 566)"/>
+  <use href="#step-left-current" transform="translate(0 670)"/>
+  <use href="#step-right-done" transform="translate(0 774)"/>
+  <use href="#step-left-done" transform="translate(0 878)"/>
+</svg>

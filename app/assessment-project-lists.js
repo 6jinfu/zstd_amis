@@ -23,8 +23,6 @@
         var key = field.dataset.filter;
         if (key === 'deadlineFrom') matches = (row.dataset.deadline || '') >= value;
         else if (key === 'deadlineTo') matches = (row.dataset.deadline || '') <= value;
-        else if (key === 'progressMin') matches = Number(row.dataset.progress || 0) >= Number(value);
-        else if (key === 'progressMax') matches = Number(row.dataset.progress || 0) <= Number(value);
         else if (key.endsWith('Query')) matches = (row.dataset[key] || '').toLowerCase().includes(value.trim().toLowerCase());
         else matches = (row.dataset[key] || '') === value;
       });

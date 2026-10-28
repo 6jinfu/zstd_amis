@@ -1,0 +1,4 @@
+{
+  "action": "prepare_assessment",
+  "payload_json": "{\"request_id\":\"demo-position-001\",\"session_id\":\"demo-assessment-session\",\"phase\":\"welcome\",\"entry\":{\"type\":\"position\",\"position_id\":\"RD-302\"},\"standards\":[{\"id\":\"std-architecture\",\"version\":\"demo-v1\",\"name\":\"架构师标准\",\"mode\":\"positions\",\"positions\":[\"RD-302\"],\"groups\":[],\"content\":{\"duty\":[{\"n\":\"负责系统架构与技术方案\",\"t\":[\"完成架构设计与技术选型\",\"推进跨团队技术协作\"]}],\"exp\":[],\"cap\":[[\"系统架构\",\"L4\"],[\"技术选型\",\"L4\"],[\"团队管理\",\"L3\"]],\"pow\":[],\"pot\":[]}}],\"positions\":[{\"id\":\"RD-302\",\"name\":\"架构师\",\"standard_ids\":[\"std-architecture\"]}],\"counts\":{\"single\":1,\"multi\":1,\"score\":1,\"essay\":1},\"purpose\":\"观察项目交付中的架构与技术方案能力\",\"scenario\":\"跨部门企业软件项目交付\",\"questionnaire_version\":0}"
+}

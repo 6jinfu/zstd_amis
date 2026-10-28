@@ -1,0 +1,102 @@
+{
+  "filterChecks": [
+    {
+      "dimension": "ability",
+      "layer": "高",
+      "names": [
+        "周凯",
+        "林雪",
+        "陈晨",
+        "顾婷"
+      ]
+    },
+    {
+      "dimension": "ability",
+      "layer": "中",
+      "names": [
+        "王磊",
+        "赵颖",
+        "孙杰",
+        "何静"
+      ]
+    },
+    {
+      "dimension": "ability",
+      "layer": "低",
+      "names": [
+        "刘洋",
+        "蒋峰"
+      ]
+    },
+    {
+      "dimension": "performance",
+      "layer": "高",
+      "names": [
+        "周凯",
+        "林雪",
+        "王磊",
+        "赵颖",
+        "刘洋"
+      ]
+    },
+    {
+      "dimension": "performance",
+      "layer": "中",
+      "names": [
+        "陈晨",
+        "孙杰"
+      ]
+    },
+    {
+      "dimension": "performance",
+      "layer": "低",
+      "names": [
+        "何静",
+        "蒋峰",
+        "顾婷"
+      ]
+    },
+    {
+      "dimension": "placement",
+      "layer": "关键人才",
+      "names": [
+        "王磊",
+        "赵颖"
+      ]
+    },
+    {
+      "dimension": "placement",
+      "layer": "关注发展",
+      "names": []
+    }
+  ],
+  "projectForm": {
+    "labels": [
+      "人才池名称 *",
+      "来源盘点项目 *",
+      "创建人 *",
+      "期望人数 *",
+      "备注"
+    ],
+    "locked": true,
+    "source": "review-sales"
+  },
+  "centerForm": {
+    "labels": [
+      "人才池名称 *",
+      "来源盘点项目 *",
+      "创建人 *",
+      "期望人数 *",
+      "备注"
+    ],
+    "locked": false,
+    "source": ""
+  },
+  "selectionCheck": {
+    "count": "已在池 3 人，本次选择 1 人",
+    "existing": true,
+    "selected": true,
+    "indeterminate": true
+  },
+  "selectedFour": "已在池 3 人，本次选择 4 人"
+}

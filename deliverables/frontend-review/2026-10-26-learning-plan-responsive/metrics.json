@@ -1,0 +1,26 @@
+[
+  {
+    "content": 1379,
+    "maxWidth": "none",
+    "pageOverflow": false,
+    "rightGap": 52,
+    "table": 1291,
+    "viewport": 1543
+  },
+  {
+    "content": 860,
+    "maxWidth": "none",
+    "pageOverflow": false,
+    "rightGap": 52,
+    "table": 772,
+    "viewport": 1024
+  },
+  {
+    "content": 744,
+    "maxWidth": "none",
+    "pageOverflow": false,
+    "rightGap": 32,
+    "table": 704,
+    "viewport": 768
+  }
+]

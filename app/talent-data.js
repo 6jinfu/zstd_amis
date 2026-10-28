@@ -11,7 +11,160 @@
   ];
   const people = Standards.people.map((person,i) => ({...person,...base[i],id:ids[i]}));
   const today = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
-  const uid = prefix => prefix+'-'+crypto.randomUUID();
+  const uid = prefix => {
+    if(typeof crypto.randomUUID==='function')return prefix+'-'+crypto.randomUUID();
+    const bytes=crypto.getRandomValues(new Uint8Array(16));
+    bytes[6]=(bytes[6]&15)|64;
+    bytes[8]=(bytes[8]&63)|128;
+    const hex=Array.from(bytes,byte=>byte.toString(16).padStart(2,'0')).join('');
+    return prefix+'-'+[hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20)].join('-');
+  };
+  const reviewProjects = [
+  {
+    "id": "review-annual",
+    "name": "2026 年度人才盘点",
+    "owner": "李文静",
+    "date": "2026-07-30",
+    "url": "review-detail.html",
+    "people": [
+      {
+        "id": "zhangming",
+        "name": "张明",
+        "department": "研发中心",
+        "position": "架构师",
+        "ability": "88%",
+        "performance": "高",
+        "classification": "核心人才"
+      },
+      {
+        "id": "lihua",
+        "name": "李华",
+        "department": "研发中心",
+        "position": "高级算法工程师",
+        "ability": "76%",
+        "performance": "高",
+        "classification": "关键人才"
+      },
+      {
+        "id": "wangfang",
+        "name": "王芳",
+        "department": "销售中心",
+        "position": "区域销售总监",
+        "ability": "78%",
+        "performance": "高",
+        "classification": "关键人才"
+      },
+      {
+        "id": "chenqiang",
+        "name": "陈强",
+        "department": "研发中心",
+        "position": "测试工程师",
+        "ability": "48%",
+        "performance": "低",
+        "classification": "重点关注"
+      }
+    ]
+  },
+  {
+    "id": "review-sales",
+    "name": "销售铁军盘点",
+    "owner": "张敏",
+    "date": "2026-08-15",
+    "url": "review-detail.html?case=sales",
+    "people": [
+      {
+        "id": "review-sales-1",
+        "name": "周凯",
+        "department": "销售中心",
+        "position": "大区销售总监",
+        "ability": "91%",
+        "performance": "高",
+        "classification": "核心人才"
+      },
+      {
+        "id": "review-sales-2",
+        "name": "林雪",
+        "department": "销售中心",
+        "position": "战略客户总监",
+        "ability": "86%",
+        "performance": "高",
+        "classification": "核心人才"
+      },
+      {
+        "id": "review-sales-3",
+        "name": "王磊",
+        "department": "销售中心",
+        "position": "区域销售经理",
+        "ability": "78%",
+        "performance": "高",
+        "classification": "关键人才"
+      },
+      {
+        "id": "review-sales-4",
+        "name": "赵颖",
+        "department": "销售中心",
+        "position": "高级渠道经理",
+        "ability": "74%",
+        "performance": "高",
+        "classification": "关键人才"
+      },
+      {
+        "id": "review-sales-5",
+        "name": "陈晨",
+        "department": "销售中心",
+        "position": "高级销售经理",
+        "ability": "83%",
+        "performance": "中",
+        "classification": "骨干人才"
+      },
+      {
+        "id": "review-sales-6",
+        "name": "孙杰",
+        "department": "销售中心",
+        "position": "大客户销售经理",
+        "ability": "69%",
+        "performance": "中",
+        "classification": "稳定贡献"
+      },
+      {
+        "id": "review-sales-7",
+        "name": "刘洋",
+        "department": "销售中心",
+        "position": "销售顾问",
+        "ability": "57%",
+        "performance": "高",
+        "classification": "重点提升"
+      },
+      {
+        "id": "review-sales-8",
+        "name": "何静",
+        "department": "销售中心",
+        "position": "区域销售经理",
+        "ability": "64%",
+        "performance": "低",
+        "classification": "待观察"
+      },
+      {
+        "id": "review-sales-9",
+        "name": "蒋峰",
+        "department": "销售中心",
+        "position": "渠道经理",
+        "ability": "52%",
+        "performance": "低",
+        "classification": "重点关注"
+      },
+      {
+        "id": "review-sales-10",
+        "name": "顾婷",
+        "department": "销售中心",
+        "position": "高级销售顾问",
+        "ability": "82%",
+        "performance": "低",
+        "classification": "能力错配"
+      }
+    ]
+  }
+];
   const initial = () => ({
     selections:{}, pools:[], followups:[], actions:[],
     evidence:[
@@ -21,7 +174,7 @@
     ],
     reviews: people.map(p => ({id:'review-'+p.id,person:p.id,project:'2026 年度人才盘点',date:'2026-07-30',method:'宫格盘点',classification:p.classification,performance:p.performance}))
   });
-  function read() { const raw=localStorage.getItem(key); const data=raw ? JSON.parse(raw) : initial(); data.actions ||= []; return data; }
+  function read() { const raw=localStorage.getItem(key); const data=raw ? JSON.parse(raw) : initial(); data.actions ||= []; seedProjectPools(data); return data; }
   function write(data) { localStorage.setItem(key,JSON.stringify(data)); }
   const person = id => people.find(p=>p.id===id);
   const activeMembers = pool => pool.members.filter(m=>!m.exited);
@@ -92,15 +245,33 @@
       return true;
     });
   }
+  const sourceProject = pool => reviewProjects.find(project=>project.id===pool.sourceProject);
+  const poolPerson = member => member.profile || person(member.person);
+  function seedProjectPools(data) {
+    const seeds=[['annual-core','核心人才池','review-annual',10,['zhangming','lihua','wangfang']],['annual-focus','重点发展人才池','review-annual',12,['chenqiang']],['sales-core','销售核心人才池','review-sales',8,['review-sales-1','review-sales-2','review-sales-3']],['sales-reserve','区域负责人后备池','review-sales',10,['review-sales-2','review-sales-5']]];
+    for(const [id,name,sourceProject,expected,ids] of seeds) {
+      if(data.pools.some(pool=>pool.id==='pool-'+id))continue;
+      const project=reviewProjects.find(item=>item.id===sourceProject);
+      const pool={id:'pool-'+id,name,sourceProject,expected,owner:project.owner,purpose:'',created:project.date,members:ids.map(personId=>({
+        id:'pool-'+id+'-'+personId,person:personId,profile:{...project.people.find(p=>p.id===personId)},joined:project.date,
+        reason:'依据盘点结果确认入池',confirmedBy:project.owner,sourceProject,source:project.name,exited:null,exitReason:''
+      }))};
+      data.pools.push(pool);
+    }
+  }
   function addMembers(data,pool,ids,reason) {
+    const project=sourceProject(pool);
+    if(!project)throw new Error('请先关联来源盘点项目，再从该项目组建人员');
+    const unique=[...new Set(ids)];
+    if(unique.some(id=>!project.people.some(p=>p.id===id)))throw new Error('只能加入来源盘点项目内的人员');
     let count=0;
-    [...new Set(ids)].filter(id=>person(id)).forEach(id=>{
-      if(activeMembers(pool).some(m=>m.person===id))return;
-      const review=latestReview(data,id);
-      pool.members.push({id:uid('member'),person:id,joined:today(),reason,confirmedBy:'李文静',source:review?`${review.project} · ${review.date} · ${review.classification}`:'人才库人工选择',nextReview:pool.nextReview,exited:null,exitReason:''});
+    for(const id of unique) {
+      if(activeMembers(pool).some(member=>member.person===id))continue;
+      const profile=project.people.find(p=>p.id===id);
+      pool.members.push({id:uid('member'),person:id,profile:{...profile},joined:today(),reason,confirmedBy:'李文静',sourceProject:project.id,source:project.name,exited:null,exitReason:''});
       count++;
-    });
+    }
     return count;
   }
-  window.Talent={key,people,person,today,uid,read,write,evidence,values,requirements,compare,summary,filterPeople,activeMembers,poolsFor,addMembers,latestReview,developmentItems,createDevelopment,confirmStage,reserveRows};
+  window.Talent={reviewProjects,sourceProject,poolPerson,key,people,person,today,uid,read,write,evidence,values,requirements,compare,summary,filterPeople,activeMembers,poolsFor,addMembers,latestReview,developmentItems,createDevelopment,confirmStage,reserveRows};
 })();

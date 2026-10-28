@@ -86,27 +86,87 @@
     if(pendingInput){messages.querySelector('[data-ai-review-feedback]').value=pendingInput;prompt.value='';}
     const threadScroll=messages.querySelector('.std-ai-thread-scroll');threadScroll.scrollTop=threadScroll.scrollHeight;
   }
+  function capabilityPreview(items){
+    if(items.length<3)return `<ul>${items.map(([name,level])=>`<li>${e(name)}<span class="std-ai-level-value">${e(level)}</span></li>`).join('')||'<li>暂无内容</li>'}</ul>`;
+    const dense=items.length>8||items.some(([name])=>name.length>12),cx=160,cy=142,radius=82;
+    const point=(index,r)=>{const angle=-Math.PI/2+index*2*Math.PI/items.length;return [cx+Math.cos(angle)*r,cy+Math.sin(angle)*r];};
+    const polygon=r=>items.map((_,index)=>point(index,r).join(',')).join(' ');
+    const grid=Array.from({length:5},(_,index)=>`<polygon class="std-ai-radar-ring" points="${polygon(radius*(index+1)/5)}"/>`).reverse().join('');
+    const axes=items.map((_,index)=>{const [x,y]=point(index,radius);return `<line class="std-ai-radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;}).join('');
+    const values=items.map(([,level],index)=>point(index,radius*Number(level.slice(1))/5));
+    const labels=items.map(([name,level],index)=>{
+      const [x,y]=point(index,116),lines=dense?[String(index+1)]:(name.match(/.{1,6}/gu)||[]);
+      return `<text class="std-ai-radar-label" x="${x}" y="${y-(lines.length-1)*8}" text-anchor="middle">${lines.map((line,i)=>`<tspan x="${x}" dy="${i?17:0}">${e(line)}</tspan>`).join('')}${dense?'':`<tspan class="std-ai-radar-level" x="${x}" dy="19">${e(level)}</tspan>`}</text>`;
+    }).join('');
+    const scale=Array.from({length:5},(_,index)=>`<text class="std-ai-radar-scale" x="${cx+7}" y="${cy-radius*(index+1)/5+4}">${index+1}</text>`).join('');
+    const name=(sourceStandard()?.name||result.name).replace(/标准$/,'')+'能力雷达图';
+    const description=items.map(([term,level],index)=>`${dense?index+1+'、':''}${term} ${level}`).join('；');
+    return `<figure class="std-ai-radar"><figcaption>${e(name)}</figcaption><svg viewBox="0 0 320 284" role="img" aria-label="${e(name+'，等级范围 L1 至 L5；'+description)}"><g aria-hidden="true">${grid}${axes}<polygon class="std-ai-radar-area" points="${values.map(p=>p.join(',')).join(' ')}"/>${values.map(([x,y])=>`<circle class="std-ai-radar-point" cx="${x}" cy="${y}" r="4"/>`).join('')}${scale}${labels}</g></svg>${dense?`<ol class="std-ai-radar-legend">${items.map(([term,level])=>`<li><span>${e(term)}</span><span class="std-ai-level-value">${e(level)}</span></li>`).join('')}</ol>`:''}</figure>`;
+  }
   function previewMarkup(){
     const content=result.content;
-    const rows=generatedSections.map(key=>`<details class="std-ai-draft-section" open><summary><span>${sectionLabels[key]}</span><span>${content[key].length} 项</span></summary><ul>${content[key].map(item=>`<li>${key==='duty'?`<strong>${e(item.n)}</strong><ul>${item.t.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`:key==='cap'?`${e(item[0])}<span class="std-ai-level-value">${e(item[1])}</span>`:e(item)}</li>`).join('')||'<li>暂无内容</li>'}</ul><button class="btn-text" type="button" data-ai-section-edit="${key}">编辑${sectionLabels[key]}</button></details>`).join('');
+    const rows=generatedSections.map(key=>`<details class="std-ai-draft-section" open><summary><span>${sectionLabels[key]}</span><span>${content[key].length} 项</span></summary>${key==='cap'?capabilityPreview(content[key]):`<ul>${content[key].map(item=>`<li>${key==='duty'?`<strong>${e(item.n)}</strong><ul>${item.t.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`:e(item)}</li>`).join('')||'<li>暂无内容</li>'}</ul>`}<button class="btn-text" type="button" data-ai-section-edit="${key}">编辑${sectionLabels[key]}</button></details>`).join('');
     return `<div class="std-ai-artifact-scroll"><div class="std-ai-preview-title"><strong>${e(sourceStandard()?.name||result.name)}</strong></div>${rows}</div>`;
   }
-  function editDraftSection(key){
-    const c=result.content;
-    const value=key==='duty'?c[key].map(item=>[item.n,...item.t.map(t=>'  '+t)].join('\n')).join('\n\n'):key==='cap'?c[key].map(item=>item.join(' | ')).join('\n'):c[key].join('\n');
-    const format=key==='duty'?'每组第一行为职责，其后每行一个任务；组间空一行。':key==='cap'?'每行一项能力，格式：能力名称 | L1–L5。':'每行一项要求。';
-    UI.openDialog({title:'编辑'+sectionLabels[key],body:`<p>${format}</p><label class="sr-only" for="ai-section-content">${sectionLabels[key]}</label><textarea class="input std-ai-edit-content" id="ai-section-content" rows="10">${e(value)}</textarea>`,confirmLabel:'更新草稿',onConfirm(d){
-      const text=d.querySelector('textarea').value.trim();
-      if(key==='duty')c[key]=text?text.split(/\n\s*\n/).map(block=>{const [n,...t]=block.split('\n').map(line=>line.trim()).filter(Boolean);return {n,t};}):[];
-      else if(key==='cap'){
-        const values=text?text.split('\n').filter(line=>line.trim()).map(line=>line.split(/\s*[|｜]\s*/).map(v=>v.trim())):[];
-        if(values.some(item=>item.length!==2||!item[0]||!/^L[1-5]$/.test(item[1]))){d.showError('每行请填写能力名称 | L1–L5');return false;}
-        if(values.length>20){d.showError('最多保留 20 项能力');return false;}
-        if(new Set(values.map(item=>item[0])).size!==values.length){d.showError('能力名称不能重复');return false;}
-        c[key]=values;
-      }else c[key]=text?text.split('\n').map(line=>line.trim()).filter(Boolean):[];
-      feedbackHistory.push('编辑'+sectionLabels[key]);feedbackResponses.push(`已更新${sectionLabels[key]}，当前 ${c[key].length} 项。`);renderScope();
+  function updateDraftSection(key,items){
+    result.content[key]=items;
+    feedbackHistory.push('编辑'+sectionLabels[key]);feedbackResponses.push(`已更新${sectionLabels[key]}，当前 ${items.length} 项。`);renderScope();
+  }
+  function editIndicatorDraft(key){
+    const capability=key==='cap',label={cap:'能力',pow:'动力',pot:'潜力'}[key];
+    let items=S.clone(result.content[key]);
+    const form=UI.openDialog({title:'编辑'+sectionLabels[key],body:`<div class="std-ai-section-editor"><div class="std-block-head"><strong data-ai-indicator-count></strong><button class="btn btn-secondary" type="button" data-ai-indicator-pick>选择${label}</button></div><div data-ai-indicator-list></div></div>`,confirmLabel:'更新草稿',onConfirm(){
+      updateDraftSection(key,items);
     }});
+    function render(){
+      form.querySelector('[data-ai-indicator-count]').textContent=`已选 ${items.length} 项${label}`;
+      form.querySelector('[data-ai-indicator-list]').innerHTML=items.map((item,index)=>{const name=capability?item[0]:item;return `<span class="std-chip">${e(name)}${capability?`<select class="select" aria-label="${e(name)}要求等级" data-ai-cap-level="${index}">${[1,2,3,4,5].map(n=>`<option ${item[1]==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>`:''}<button class="btn-text" type="button" data-ai-indicator-remove="${index}" aria-label="移除${e(name)}">×</button></span>`;}).join('')||`<p>尚未配置${sectionLabels[key]}</p>`;
+    }
+    form.addEventListener('change',ev=>{if(ev.target.dataset.aiCapLevel!==undefined)items[+ev.target.dataset.aiCapLevel][1]=ev.target.value;});
+    form.addEventListener('click',ev=>{
+      const button=ev.target.closest('button');if(!button)return;
+      if(button.dataset.aiIndicatorRemove!==undefined){items.splice(+button.dataset.aiIndicatorRemove,1);render();form.querySelector('[data-ai-indicator-pick]').focus();}
+      if(button.hasAttribute('data-ai-indicator-pick')){
+        const categories=capability?(window.IndicatorDemo?.categories||[]):(window.IndicatorDemo?.traitCategories[key]||[]);
+        const fallback=capability?Object.values(window.STANDARD_POSITION_SEEDS||{}).flatMap(seed=>seed.abilityOptions.map(item=>item[0])):key==='pow'?['成就导向','技术钻研','创新探索','影响他人','稳定归属','自主独立','掌控权力','协作共赢']:['战略思维','变革推动','学习敏锐','复杂决策','跨界整合','坚韧抗压'];
+        const library=new Map((window.IndicatorDemo?.items[key]||[]).map(item=>[item.name,{id:item.name,name:item.name,note:item.description,categoryId:item.categoryId}]));
+        const names=[...fallback,...S.read().standards.flatMap(item=>item.content[key].map(value=>capability?value[0]:value)),...items.map(item=>capability?item[0]:item)];
+        names.forEach(name=>{if(!library.has(name))library.set(name,{id:name,name,categoryId:capability?'general':categories[0]?.id||''});});
+        StandardUI.pickIndicators(capability?'选择关联指标':`选择${label}指标`,[...library.values()],items.map(item=>capability?item[0]:item),selected=>{
+          items=selected.map(name=>capability?(items.find(item=>item[0]===name)||[name,'L3']):name);render();
+        },capability?20:Infinity,{categories,treeTitle:label+'指标',nameLabel:label+'名称',keepParent:true});
+      }
+    });
+    render();
+  }
+  function editDraftSection(key){
+    if(['cap','pow','pot'].includes(key)){editIndicatorDraft(key);return;}
+    const duty=key==='duty',label=duty?'职责':'经历',items=S.clone(result.content[key]);
+    const form=UI.openDialog({title:'编辑'+sectionLabels[key],body:`<div class="std-ai-section-editor"><div class="std-block-head"><strong data-ai-section-count></strong><button class="btn btn-secondary" type="button" data-ai-section-add>${duty?'新增职责':'添加经历'}</button></div><div data-ai-section-items></div></div>`,confirmLabel:'更新草稿',onConfirm(){
+      const invalid=duty?items.some(item=>!item.n.trim()||item.t.some(task=>!task.trim())):items.some(item=>!item.trim());
+      if(invalid){form.showError('请填写空白要求，或移除未使用的条目');[...form.querySelectorAll('textarea')].find(input=>!input.value.trim())?.focus();return false;}
+      updateDraftSection(key,duty?items.map(item=>({n:item.n.trim(),t:item.t.map(task=>task.trim())})):items.map(item=>item.trim()));
+    }});
+    function render(focus){
+      form.querySelector('[data-ai-section-count]').textContent=`已配置 ${items.length} 项${label}`;
+      form.querySelector('[data-ai-section-items]').innerHTML=items.map((item,index)=>duty?`<div class="std-duty"><div class="std-text-row"><textarea class="input" aria-label="职责 ${index+1}" data-ai-duty="${index}" placeholder="填写职责">${e(item.n)}</textarea><button class="btn-text" type="button" data-ai-section-remove="${index}" aria-label="移除职责 ${index+1}">移除</button></div>${item.t.map((task,j)=>`<div class="std-text-row std-task"><textarea class="input" aria-label="职责 ${index+1} 的任务 ${j+1}" data-ai-task="${index},${j}" placeholder="填写任务">${e(task)}</textarea><button class="btn-text" type="button" data-ai-task-remove="${index},${j}" aria-label="移除职责 ${index+1} 的任务 ${j+1}">×</button></div>`).join('')}<button class="btn-text std-task" type="button" data-ai-task-add="${index}">添加任务</button></div>`:`<div class="std-text-row"><textarea class="input" aria-label="经历经验 ${index+1}" data-ai-exp="${index}" placeholder="填写经历经验">${e(item)}</textarea><button class="btn-text" type="button" data-ai-section-remove="${index}" aria-label="移除经历经验 ${index+1}">移除</button></div>`).join('')||`<p>尚未配置${sectionLabels[key]}</p>`;
+      if(focus)form.querySelector(focus)?.focus();
+    }
+    form.addEventListener('input',ev=>{
+      const input=ev.target,d=input.dataset;
+      if(d.aiDuty!==undefined)items[+d.aiDuty].n=input.value;
+      if(d.aiTask!==undefined){const[i,j]=d.aiTask.split(',').map(Number);items[i].t[j]=input.value;}
+      if(d.aiExp!==undefined)items[+d.aiExp]=input.value;
+      form.showError('');
+    });
+    form.addEventListener('click',ev=>{
+      const button=ev.target.closest('button');if(!button)return;const d=button.dataset;
+      if(d.aiSectionAdd!==undefined){items.push(duty?{n:'',t:[]}:'');render(`[data-ai-${duty?'duty':'exp'}="${items.length-1}"]`);}
+      if(d.aiSectionRemove!==undefined){items.splice(+d.aiSectionRemove,1);render('[data-ai-section-add]');}
+      if(d.aiTaskAdd!==undefined){const i=+d.aiTaskAdd;items[i].t.push('');render(`[data-ai-task="${i},${items[i].t.length-1}"]`);}
+      if(d.aiTaskRemove!==undefined){const[i,j]=d.aiTaskRemove.split(',').map(Number);items[i].t.splice(j,1);render(`[data-ai-task-add="${i}"]`);}
+    });
+    render();
   }
   function scopeCard(){
     const position=selectedPosition(),samePositions=position?S.positions.filter(item=>item.category===position.category):[];

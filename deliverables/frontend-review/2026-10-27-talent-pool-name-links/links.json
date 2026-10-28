@@ -1,0 +1,14 @@
+[
+  {
+    "color": "rgb(1, 82, 217)",
+    "href": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8",
+    "name": "技术骨干后备池",
+    "viewHref": "talent-pool-detail.html?pool=pool-a934dd01-7f73-4646-bd1c-f3c00aa7d1c8"
+  },
+  {
+    "color": "rgb(1, 82, 217)",
+    "href": "talent-pool-detail.html?pool=pool-4798c3cb-6de4-4464-ac7c-460e364c7cfc",
+    "name": "单独",
+    "viewHref": "talent-pool-detail.html?pool=pool-4798c3cb-6de4-4464-ac7c-460e364c7cfc"
+  }
+]

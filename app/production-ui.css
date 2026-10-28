@@ -167,6 +167,10 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
   body .shell-v2 .content:has(> .card[data-tabs] > .tab-btns, > .assessment-tool-tabs, > .tc-board-header) {
     padding-top:0; --live-list-height:calc(100dvh - 133px);
   }
+  body.tc-page .tc-board-header { display:block; padding-inline:0; }
+  body.tc-page .tc-board-scope { gap:8px; margin-bottom:16px; color:#1f1f1f; font-size:14px; }
+  body.tc-page .tc-board-scope .select { width:136px; }
+  body.tc-page .tc-board-scope > span { margin-left:auto; }
   body :is(.tab-btns,.assessment-tool-tabs,.pm-tabs,.lm-tabs),
   body.tc-page .tc-board-tabs,
   body .shell-v2 .content > .card[data-tabs] > .tab-btns {
@@ -174,7 +178,8 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
     margin:0 0 16px; padding:12px 0; background:transparent; border:0; box-shadow:none;
   }
   body .shell-v2 .content > .assessment-tool-tabs,
-  body .shell-v2 .content > .card[data-tabs] > .tab-btns { margin-bottom:0; }
+  body .shell-v2 .content > .card[data-tabs] > .tab-btns,
+  body.tc-page .tc-board-tabs { margin-bottom:0; }
   body :is(.tab-btn,.assessment-tool-tabs a,.pm-tab,.lm-tab),
   body.tc-page .tc-board-tab,
   body .shell-v2 .content > .card[data-tabs] > .tab-btns .tab-btn,
@@ -224,7 +229,7 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
   body :is(.input,.select):hover { border-color:var(--primary-600); }
   body :is(.input,.select):focus { border-color:var(--primary-600); box-shadow:0 0 0 2px #ebf1fc; }
   body .field > label,body .filter-bar .field > label,
-  body :is(.filter-bar,.monitor-filter,.report-filters,.indicator-picker-filter) label { color:#1f1f1f; font-size:14px; font-weight:400; line-height:22px; }
+  body :is(.filter-bar,.monitor-filter,.report-filters,.indicator-picker-filter,.tc-board-scope) label { color:#1f1f1f; font-size:14px; font-weight:400; line-height:22px; }
   body .field { margin-bottom:20px; }
   body .field > label { margin-bottom:8px; }
 
@@ -288,6 +293,7 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
   body .list-workbench .filter-bar .actions { margin-left:0; }
   body .list-workbench .filter-bar .input,body .list-workbench .filter-bar .select { width:136px; }
   body .list-workbench .filter-bar .field > :is(.input,.select) { width:136px !important; }
+  body .talent-assessment-list .assessment-range-inputs { width:296px; flex:0 0 auto; }
   body .list-workbench .assessment-filter-grid :is(.input,.select) { width:100%; }
   body .list-workbench .assessment-filter-grid .field > :is(.input,.select) { width:100% !important; }
   body .list-workbench :is(.list-main,.cat-main,.review-main) > :is(.assess-project-actions,.flex.mb-md,.flex.between) {

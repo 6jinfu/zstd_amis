@@ -281,7 +281,20 @@
 .std-ai-draft-section strong { font-weight:500; }
 .std-ai-draft-section .btn-text { min-height:36px;font-size:14px; }
 .std-ai-level-value { margin-left:12px;color:var(--flow-blue);font-variant-numeric:tabular-nums; }
-.std-ai-edit-content { width:100%;min-height:280px;margin-top:14px;line-height:1.8; }
+.std-ai-radar { margin:12px 0 4px; }
+.std-ai-radar figcaption { color:#202b3d;font-size:14px;font-weight:500;line-height:22px;overflow-wrap:anywhere; }
+.std-ai-radar svg { display:block;width:100%;max-width:320px;height:auto;margin:0 auto;overflow:visible; }
+.std-ai-radar-ring { fill:#f8fafc;stroke:#dce3ed;stroke-width:1; }
+.std-ai-radar-axis { stroke:#dce3ed;stroke-width:1; }
+.std-ai-radar-area { fill:var(--flow-blue);fill-opacity:.12;stroke:var(--flow-blue);stroke-width:2;stroke-linejoin:round; }
+.std-ai-radar-point { fill:var(--flow-blue);stroke:#fff;stroke-width:2; }
+.std-ai-radar-label { fill:#202b3d;font-size:14px;font-family:inherit; }
+.std-ai-radar-level { fill:var(--flow-blue);font-weight:400; }
+.std-ai-radar-scale { fill:#586174;font-size:12px;font-family:inherit;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round; }
+.std-ai-draft-section .std-ai-radar-legend { display:grid;gap:8px;margin:0 0 12px;padding-left:24px; }
+.std-ai-draft-section .std-ai-radar-legend li { margin:0;padding-left:4px;line-height:22px;overflow-wrap:anywhere; }
+.std-ai-radar-legend li::marker { color:#586174;font-variant-numeric:tabular-nums; }
+.std-ai-section-editor .std-text-row textarea { min-width:0; }
 .std-ai-update-options { display:grid;gap:12px;margin:20px 0 0;padding:0;border:0; }
 .std-ai-update-options legend { margin-bottom:12px;font-weight:600; }
 .std-ai-update-options label { display:flex;gap:12px;padding:16px;border:1px solid #dce1e8;border-radius:8px;cursor:pointer; }

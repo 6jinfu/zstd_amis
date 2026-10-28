@@ -1,0 +1,282 @@
+{
+  "verifiedAt": "2026-09-30T07:19:58.644Z",
+  "positions": [
+    {
+      "courses": 16,
+      "name": "业务经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "客户经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "销售经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "销售顾问",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "大区总经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 0,
+      "name": "产品实习生",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 0,
+      "name": "产品专员",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "产品经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 0,
+      "name": "产品部部门经理",
+      "overflow": false,
+      "width": 390
+    },
+    {
+      "courses": 16,
+      "name": "产品运营部总监（见习）",
+      "overflow": false,
+      "width": 390
+    }
+  ],
+  "ranks": [
+    {
+      "base": "基本要求 专业经验 制定明确目标的经验，调整目标以适应需求。 职级职责 设定并审核项目目标，确保其与战略一致。",
+      "name": "M1",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 目标设定要项：明确性要项描述：确保目标明确、可测量，与团队充分沟通。",
+      "broken": 0,
+      "courses": 6,
+      "projects": 1,
+      "sections": [
+        "学习项目",
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 具备详细计划制定经验，细化任务和时间表。 职级职责 具备详细计划制定经验，细化任务和时间表。",
+      "name": "M2",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 计划制定要项：详尽性要项描述：制定详尽计划，涵盖所有关键路径和里程碑。",
+      "broken": 0,
+      "courses": 4,
+      "projects": 1,
+      "sections": [
+        "学习项目",
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 擅长资源优化配置，实现最大效益。 职级职责 协调分配项目资源，确保使用最优化。",
+      "name": "M3",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 资源管理要项：高效性要项描述：高效分配管理资源，避免浪费。",
+      "broken": 0,
+      "courses": 4,
+      "projects": 1,
+      "sections": [
+        "学习项目",
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 具备带领多元团队经验，促进有效协作。 职级职责 领导团队，确保高效协作与沟通。",
+      "name": "团队协作力",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 团队合作要项：协同性要项描述：促进成员合作，提升整体绩效。",
+      "broken": 0,
+      "courses": 6,
+      "projects": 0,
+      "sections": [
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 熟悉风险评估和管理，规避潜在风险。 职级职责 识别并控制项目风险，确保安全。",
+      "name": "风险全面控",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 风险管理要项：预见性要项描述：提前识别风险，制定应对措施。",
+      "broken": 0,
+      "courses": 10,
+      "projects": 0,
+      "sections": [
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 能够精准跟踪项目进度，及时调整计划。 职级职责 监控并调整项目进度，确保按计划推进。",
+      "name": "进度精准管",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 进度管理要项：精准性要项描述：实时跟踪进度，调整计划以确保目标达成。",
+      "broken": 0,
+      "courses": 5,
+      "projects": 1,
+      "sections": [
+        "学习项目",
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 在复杂环境中有效沟通，具备领导能力。 职级职责 负责项目内外沟通，确保信息畅通。",
+      "name": "沟通领导力",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 沟通管理要项：透明性要项描述：保持信息透明，确保团队理解项目目标。",
+      "broken": 0,
+      "courses": 7,
+      "projects": 0,
+      "sections": [
+        "课程"
+      ],
+      "tasks": 0
+    },
+    {
+      "base": "基本要求 专业经验 能将项目成果与公司战略相结合，提升价值。 职级职责 评估项目成果，确保其符合战略目标。",
+      "name": "成果战略化",
+      "tabs": [
+        "基本条件",
+        "任职资格",
+        "学习方案"
+      ],
+      "width": 390,
+      "qualifications": "行为标准  素质道德  知识技能 暂无数据",
+      "broken": 0,
+      "courses": 11,
+      "projects": 0,
+      "sections": [
+        "课程"
+      ],
+      "tasks": 0
+    }
+  ],
+  "viewports": [
+    {
+      "broken": 0,
+      "cardWidth": 151.984375,
+      "courses": 16,
+      "overflow": false,
+      "width": 375
+    },
+    {
+      "broken": 0,
+      "cardWidth": 174.28125,
+      "courses": 16,
+      "overflow": false,
+      "width": 430
+    }
+  ],
+  "abilities": [
+    {
+      "canvas": 1,
+      "group": "产品技能养成",
+      "items": 5,
+      "definition": "技能维度产品市场分析能力技能定义对行业情报、竞争对手动态和用户变化进行掌握和分析，确定产品的市场地位，掌握竞争格局，预测市场变化，确定战略战术",
+      "levels": 5,
+      "title": "产品市场分析能力"
+    },
+    {
+      "canvas": 1,
+      "group": "产品思维素养",
+      "items": 5,
+      "definition": "技能维度搜集信息技能定义-",
+      "levels": 5,
+      "title": "搜集信息"
+    },
+    {
+      "canvas": 1,
+      "group": "产品经理知识构建",
+      "items": 4,
+      "definition": "技能维度营销知识技能定义",
+      "levels": 3,
+      "title": "营销知识"
+    }
+  ],
+  "projectFilters": [
+    {
+      "label": "进行中",
+      "projects": 1,
+      "text": "学习项目 全部  进行中  未开始  已结项  进行中 项目经理学习项目"
+    },
+    {
+      "label": "未开始",
+      "projects": 0,
+      "text": "学习项目 全部  进行中  未开始  已结项 暂无数据"
+    },
+    {
+      "label": "已结项",
+      "projects": 0,
+      "text": "学习项目 全部  进行中  未开始  已结项 暂无数据"
+    },
+    {
+      "label": "全部",
+      "projects": 1,
+      "text": "学习项目 全部  进行中  未开始  已结项  进行中 项目经理学习项目"
+    }
+  ],
+  "map400GeometryMatches": true,
+  "abilityDetailTextMatches": true,
+  "externalLearningAndSubmission": "Not executed; independent original applications require original login and backend."
+}

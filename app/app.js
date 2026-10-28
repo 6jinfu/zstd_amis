@@ -1,154 +1,8 @@
 /* ============================================================
    人才发展系统 · 静态原型共享脚本
-   职责：①导航选中态 ②抽屉/弹窗开关 ③mock 数据 ④轻交互
+   职责：页面布局、抽屉/弹窗、原型数据与轻交互；导航由 navigation.js 维护。
    调交互 → 只改本文件
    ============================================================ */
-
-/* ---------- ① 导航：按 body[data-page] 高亮 ---------- */
-function initNav() {
-  const page = document.body.dataset.page;
-  if (!page) return;
-  document.querySelectorAll('.sidenav .nav-item').forEach(el => {
-    if (el.dataset.page === page) el.classList.add('active');
-  });
-  document.querySelectorAll('.topbar .nav-main a').forEach(el => {
-    if (el.dataset.module === document.body.dataset.module) el.classList.add('active');
-  });
-}
-
-/* ---------- 导航框架：左侧一级导航 + 顶部当前业务菜单 ---------- */
-const PRIMARY_NAV_ICONS = {
-  standard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
-  assess: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h6"/><path d="M9 3h6a2 2 0 0 1 2 2v1h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2V5a2 2 0 0 1 2-2Z"/><path d="m8 14 2.5 2.5L16 11"/></svg>',
-  develop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-7"/><path d="M3 19h18"/><path d="m4 9 6-4 6 7 4-4"/></svg>',
-  talent: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2"/><path d="M16 15a5 5 0 0 1 5 5"/></svg>',
-  settings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>'
-};
-const NAV_COLLAPSED_KEY = 'talent-development-nav-collapsed';
-
-/* ---------- 本期开发范围：按研发评审结论统一业务菜单 ---------- */
-const RELEASE_BUSINESS_NAV = {
-  standard: [
-    { page: 'org-structure', href: 'org-structure.html', label: '组织结构' },
-    { page: 'key-position', href: 'key-position.html', label: '关键岗位分析' },
-    { page: 'standards', href: 'standards.html', label: '人才标准' },
-    { page: 'vocabulary', href: 'vocabulary.html', label: '指标库' }
-  ],
-  assess: [
-    { page: 'assess-projects', href: 'assess-projects.html', label: '评鉴工具' },
-    { page: 'review-projects', href: 'review-projects.html', label: '人才盘点' }
-  ],
-  develop: [
-    { page: 'position-map', href: 'position-map.html', label: '岗位地图' }
-  ],
-  talent: [
-    { page: 'talent-list', href: 'talent-list.html', label: '人才库' },
-    { page: 'talent-pool', href: 'talent-pool.html', label: '人才池' },
-    { page: 'talent-dashboard', href: 'talent-dashboard.html', label: '人才看板' }
-  ]
-};
-
-function applyReleaseScope() {
-  const module = document.body.dataset.module;
-  const sidenav = document.querySelector('.sidenav');
-  const config = RELEASE_BUSINESS_NAV[module];
-  const activePage = document.body.dataset.page === 'positions' ? 'standards' : document.body.dataset.page;
-  if (sidenav && config) {
-    const sources = Array.from(sidenav.querySelectorAll('.nav-item'));
-    sidenav.replaceChildren();
-    config.forEach(item => {
-      const source = sources.find(node => node.getAttribute('href') === item.href)
-        || sources.find(node => node.getAttribute('href') === 'positions.html');
-      const link = source ? source.cloneNode(true) : document.createElement('a');
-      const icon = link.querySelector('svg')?.outerHTML || '';
-      link.className = `nav-item${activePage === item.page ? ' active' : ''}`;
-      link.dataset.page = item.page;
-      link.href = item.href;
-      link.innerHTML = `${icon}${item.label}`;
-      sidenav.appendChild(link);
-    });
-  }
-
-  return true;
-}
-
-function initShellNavigation() {
-  const app = document.querySelector('.app');
-  const topbar = app?.querySelector('.topbar');
-  const sidenav = app?.querySelector('.sidenav');
-  const sourcePrimary = topbar?.querySelector('.nav-main');
-  const brand = topbar?.querySelector('.brand');
-  const right = topbar?.querySelector('.right');
-  if (!app || !topbar || !sidenav || !sourcePrimary || !brand || !right) return;
-
-  // Every page uses the same brand mark, including minimal page shells.
-  const logo = brand.querySelector('.logo');
-  if (logo) logo.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18l5-11 4 7 7-4"/></svg>';
-
-  // 共享脚本位于页面底部，此处先切入新版 Shell，避免 Chrome 首次绘制旧版骨架。
-  app.classList.add('shell-v2');
-  app.classList.remove('nav-collapsed');
-
-  const primaryNav = document.createElement('nav');
-  primaryNav.className = 'primary-nav';
-  primaryNav.id = 'primary-navigation';
-  primaryNav.setAttribute('aria-label', '一级导航');
-  sourcePrimary.querySelectorAll('a').forEach(source => {
-    const item = source.cloneNode(false);
-    const label = source.dataset.module === 'standard' ? '人才标准' : source.textContent.trim();
-    item.className = `primary-item${source.classList.contains('active') ? ' active' : ''}`;
-    item.href = source.dataset.module === 'standard' ? 'standards.html' : source.getAttribute('href');
-    item.setAttribute('aria-label', label);
-    item.title = label;
-    item.innerHTML = `${PRIMARY_NAV_ICONS[source.dataset.module] || ''}<span>${label}</span>`;
-    primaryNav.appendChild(item);
-  });
-
-  const businessNav = document.createElement('nav');
-  businessNav.className = 'business-nav';
-  businessNav.setAttribute('aria-label', '业务菜单');
-  if (sidenav.hasAttribute('data-anchor-tabs')) {
-    businessNav.setAttribute('data-anchor-tabs', '');
-    if (sidenav.dataset.default) businessNav.dataset.default = sidenav.dataset.default;
-  }
-  sidenav.querySelectorAll('.nav-item').forEach(source => {
-    const item = source.cloneNode(true);
-    item.classList.add('business-item');
-    businessNav.appendChild(item);
-  });
-
-  const mobileBrand = brand.cloneNode(true);
-  mobileBrand.classList.add('mobile-brand');
-  const mobilePrimary = primaryNav.cloneNode(true);
-  mobilePrimary.removeAttribute('id');
-  mobilePrimary.className = 'mobile-primary-nav';
-  mobilePrimary.setAttribute('aria-label', '一级导航');
-
-  const navToggle = document.createElement('button');
-  navToggle.type = 'button';
-  navToggle.className = 'nav-collapse-toggle';
-  navToggle.setAttribute('aria-controls', primaryNav.id);
-  navToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span>收起导航</span>';
-  function syncNavToggle() {
-    const collapsed = app.classList.contains('nav-collapsed');
-    navToggle.setAttribute('aria-expanded', String(!collapsed));
-    navToggle.setAttribute('aria-label', collapsed ? '展开导航' : '收起导航');
-    navToggle.title = collapsed ? '展开导航' : '收起导航';
-    navToggle.querySelector('span').textContent = collapsed ? '展开导航' : '收起导航';
-  }
-  navToggle.addEventListener('click', function () {
-    app.classList.toggle('nav-collapsed');
-    try { localStorage.setItem(NAV_COLLAPSED_KEY, String(app.classList.contains('nav-collapsed'))); } catch (_error) {}
-    syncNavToggle();
-  });
-  syncNavToggle();
-
-  sidenav.replaceChildren(brand, primaryNav, navToggle);
-  sourcePrimary.remove();
-  topbar.insertBefore(mobileBrand, right);
-  topbar.insertBefore(mobilePrimary, right);
-  topbar.insertBefore(businessNav, right);
-}
 
 function initPageLayout() {
   const main = document.querySelector('main.content');
@@ -373,7 +227,7 @@ function initAccessibility() {
     }
   }
 
-  document.querySelectorAll('.primary-item.active, .business-item.active, .topbar .nav-main a.active, .sidenav .nav-item.active').forEach(link => {
+  document.querySelectorAll('.primary-item.active, .business-item.active').forEach(link => {
     link.setAttribute('aria-current', 'page');
   });
 
@@ -629,9 +483,9 @@ function initTabs() {
 
 /* ---------- ⑦ 页面内分区切换 ---------- */
 function initAnchorTabs() {
-  document.querySelectorAll('.anchor-nav, .sidenav[data-anchor-tabs], .business-nav[data-anchor-tabs]').forEach(nav => {
+  document.querySelectorAll('.anchor-nav, .business-nav[data-anchor-tabs]').forEach(nav => {
     if (nav.querySelector('[data-std-tab], [data-tc-tab]')) return;
-    const items = Array.from(nav.querySelectorAll('.a-item, .nav-item[data-tab]'));
+    const items = Array.from(nav.querySelectorAll('.a-item, .business-item[data-tab]'));
     if (!items.length) return;
     const main = document.querySelector('.detail-main');
     const panels = main ? Array.from(main.querySelectorAll(':scope > .d-section')) : [];
@@ -1125,9 +979,6 @@ function normalizeTalentStandardNaming() {
 /* ---------- 启动 ---------- */
 function initApp() {
   normalizeTalentStandardNaming();
-  if (!applyReleaseScope()) return;
-  initNav();
-  initShellNavigation();
   initListWorkbenches();
   initFrozenListTables();
   initPageLayout();
@@ -1160,7 +1011,7 @@ function initApp() {
   });
 }
 
-// app.js 在完整页面骨架之后同步执行；不要再等 DOMContentLoaded，避免旧骨架先被绘制。
+// 底部脚本立即初始化；head defer 脚本在文档解析完成后初始化。
 if (document.body?.querySelector('.app')) {
   initApp();
 } else {

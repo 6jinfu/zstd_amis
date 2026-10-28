@@ -4,23 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>创建宫格盘点 · 评鉴中心</title>
-<link rel="stylesheet" href="styles.css?v=sha256-5a3579fcc9c4">
+<link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
 <style>
   body[data-page="review-projects"] .distribution-controls[data-count="5"] .distribution-card-head{display:grid;justify-items:start;gap:5px}
   body[data-page="review-projects"] .distribution-controls[data-count="5"] .distribution-card-head>span{justify-self:end}
 </style>
-<link rel="stylesheet" href="production-ui.css?v=sha256-84e7ded4d5b7">
+<link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
 </head>
 <body data-module="assess" data-page="review-projects">
-<div class="app">
-  <header class="topbar">
-    <div class="brand"><span class="logo"></span><span class="name">人才发展</span></div>
-    <nav class="nav-main"><a data-module="standard" href="org-structure.html">岗位中心</a><a data-module="assess" href="assess-projects.html">评鉴中心</a><a data-module="develop" href="position-map.html">发展中心</a><a data-module="talent" href="talent-list.html">人才中心</a><a data-module="settings" href="settings.html">系统设置</a></nav>
-    <div class="right"><button class="icon-btn" title="通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div>
-  </header>
+<div class="app shell-v2">
+<script src="navigation.js?v=sha256-fe6f0e0f3c7f"></script>
   <div class="body">
-    <aside class="sidenav"><a class="nav-item" data-page="assess-projects" href="assess-projects.html">评鉴工具</a><a class="nav-item active" data-page="review-projects" href="review-projects.html">人才盘点</a></aside>
     <main class="content content-medium">
       <div data-wizard data-review-wizard data-free-navigation>
         <nav class="steps" aria-label="创建宫格盘点步骤">
@@ -131,8 +126,8 @@
   <div class="m-body"><div class="review-person-picker"><aside class="review-person-org"><div class="section-title">组织范围</div><div class="tree"><div class="t-node t-l1"><label><input type="checkbox" checked> 总部</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 研发中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 销售中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 职能中台</label></div></div></aside><section class="review-person-candidates"><div class="review-person-search"><input class="input" type="search" data-review-person-search placeholder="搜索姓名、工号或岗位" aria-label="搜索盘点人员" autocomplete="off" spellcheck="false"><span class="tag tag-primary">已选 35 人</span></div><div class="table-wrap"><table class="t"><thead><tr><th style="width:42px"><input type="checkbox" checked aria-label="选择全部候选人员"></th><th>姓名</th><th>部门</th><th>岗位</th></tr></thead><tbody><tr><td><input type="checkbox" checked aria-label="选择张明"></td><td><b>张明</b></td><td>研发中心</td><td>架构师</td></tr><tr><td><input type="checkbox" checked aria-label="选择李华"></td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td></tr><tr><td><input type="checkbox" checked aria-label="选择王芳"></td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td></tr><tr><td><input type="checkbox" checked aria-label="选择赵琳"></td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td></tr><tr><td><input type="checkbox" aria-label="选择周宁"></td><td><b>周宁</b></td><td>销售中心</td><td>销售经理</td></tr></tbody></table></div></section></div></div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="button" data-close data-toast="盘点人员已添加">确认添加</button></div>
 </div>
-<script src="ui/components.js?v=sha256-7a07d48b552b"></script>
-<script src="app.js?v=sha256-8b03ce2d3019"></script>
+<script src="ui/components.js?v=sha256-8322b836883d"></script>
+<script src="app.js?v=sha256-8a401953524f"></script>
 <script>
 (function(){
   var wizard=document.querySelector('[data-review-wizard]'),sources=Array.from(document.querySelectorAll('[data-review-source]')),sourceCount=document.getElementById('review-source-count'),sourceAll=document.querySelector('[data-review-source-all]'),confirmProject=document.querySelector('[data-review-confirm-project]'),performanceFile=document.getElementById('review-performance-file'),performanceFileName=document.getElementById('review-performance-file-name');

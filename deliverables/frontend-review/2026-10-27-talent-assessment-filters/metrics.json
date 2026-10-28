@@ -1,0 +1,70 @@
+{
+  "reference360": {
+    "display": "flex",
+    "fieldDirection": "row",
+    "inputHeight": 32,
+    "inputWidth": 136,
+    "labelFont": "13px"
+  },
+  "talentAssessment": {
+    "controlHeights": [
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "display": "flex",
+    "fields": [
+      {
+        "controlWidths": [
+          136
+        ],
+        "direction": "row",
+        "label": "项目名称"
+      },
+      {
+        "controlWidths": [
+          136
+        ],
+        "direction": "row",
+        "label": "匹配产品"
+      },
+      {
+        "controlWidths": [
+          136,
+          136
+        ],
+        "direction": "row",
+        "label": "项目截止日期"
+      },
+      {
+        "controlWidths": [
+          136
+        ],
+        "direction": "row",
+        "label": "创建人"
+      },
+      {
+        "controlWidths": [
+          136
+        ],
+        "direction": "row",
+        "label": "项目状态"
+      }
+    ],
+    "labelFont": "13px",
+    "progressControls": 0
+  },
+  "narrow": {
+    "dateWidths": [
+      136,
+      136
+    ],
+    "pageOverflow": false,
+    "viewport": 1024
+  }
+}
