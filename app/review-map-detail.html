@@ -41,8 +41,6 @@
   .map-data-card h3 { margin:0; font-size:13px; }
   .map-data-card p { margin:0; color:var(--neutral-500); font-size:12px; line-height:19px; }
   .map-data-card .tag { justify-self:start; }
-  .layering-header { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:16px; }
-  .layering-header h2 { margin:0; font-size:16px; line-height:25px; }
   .layering-header p { max-width:72ch; margin:4px 0 0; color:var(--neutral-500); font-size:12px; line-height:19px; }
   .layering-layout { display:grid; grid-template-columns:minmax(280px,.88fr) minmax(0,1.12fr); gap:20px; }
   .funnel-card,.score-card { padding:18px; border-radius:9px; background:var(--surface-subtle); box-shadow:inset 0 0 0 1px var(--hairline); }
@@ -53,14 +51,13 @@
   .class-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin:14px 0; }
   .class-summary article { display:grid; gap:3px; padding:12px 13px; border-radius:8px; background:var(--surface-subtle); box-shadow:inset 0 0 0 1px var(--hairline); }
   .class-summary span { color:var(--neutral-500); font-size:11px; }.class-summary strong { font-size:18px; font-variant-numeric:tabular-nums; }.class-summary small { color:var(--neutral-500); font-size:10px; }
-  .score-cell { display:block; min-width:54px; padding:5px 8px; border-radius:5px; color:var(--neutral-800); font-variant-numeric:tabular-nums; text-align:center; }
-  .score-hi { background:var(--primary-100); color:var(--primary-800); }.score-mid { background:var(--neutral-100); }.score-low { background:color-mix(in oklch,var(--warning) 15%,white); }
   .person-head { display:flex; align-items:center; gap:12px; }.person-avatar { display:grid; width:42px; height:42px; place-items:center; border-radius:9px; background:var(--primary-50); color:var(--primary-700); font-weight:600; }
   .detail-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:9px; }.detail-item { display:grid; gap:3px; padding:11px 12px; border-radius:7px; background:var(--surface-subtle); }.detail-item span { color:var(--neutral-500); font-size:11px; }.detail-item b { font-size:13px; }
   @media (max-width:1080px){.analysis-index{grid-template-columns:repeat(3,1fr)}.chart-grid,.chart-grid.reverse,.layering-layout{grid-template-columns:1fr}.map-data-grid{grid-template-columns:1fr}.map-data-card,.map-data-card:nth-child(-n+2){grid-column:auto}.chapter-head{flex-direction:column}}
   @media (max-width:720px){.analysis-index{grid-template-columns:repeat(2,1fr)}.class-summary{grid-template-columns:repeat(2,1fr)}.report-intro{flex-direction:column}}
 </style>
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="review-layering.css?v=sha256-2eff13d6bfa7">
 <link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
 </head>
 <body data-module="assess" data-page="review-projects">
@@ -110,7 +107,7 @@
 
 <script src="vendor/echarts-6.0.0.min.js?v=sha256-baa8dfe7e1d9"></script>
 <script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-8a401953524f"></script>
+<script src="app.js?v=sha256-6796ad5142be"></script>
 <script>
 (function(){
   if(new URLSearchParams(location.search).get('status')==='done'){var projectTitle=document.getElementById('map-project-title'),projectStatus=document.getElementById('map-project-status');projectTitle.textContent='研发关键人才图谱';projectStatus.textContent='已结束';projectStatus.className='tag tag-done';document.getElementById('map-project-meta').textContent='28 人';document.title='研发关键人才图谱 · 评鉴中心'}

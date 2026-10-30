@@ -444,3 +444,19 @@
  .std-ai-review-confirm { align-items:flex-start;flex-direction:column; }
  .std-ai-choice-row>span:nth-child(2) { align-items:flex-start;flex-direction:column;gap:0; }
 }
+
+/* 能力要求：雷达概览与同一份可编辑等级。 */
+.std-cap-layout { display:grid;grid-template-columns:minmax(280px,1.1fr) minmax(240px,1fr);gap:28px;align-items:start; }
+.std-cap-visual { min-width:0; }
+.std-cap-visual .std-radar { margin:0; }
+.std-cap-visual .std-radar figcaption { text-align:center;color:var(--neutral-600);font-weight:400; }
+.std-cap-requirements { min-width:0; }
+.std-cap-list-head { display:flex;justify-content:space-between;gap:12px;padding:0 0 12px;border-bottom:1px solid var(--border-subtle);color:var(--neutral-600);font-size:12px; }
+.std-cap-items { max-height:420px;overflow:auto; }
+.std-cap-row { display:grid;grid-template-columns:minmax(0,1fr) 72px 32px;align-items:center;gap:12px;min-height:58px;border-bottom:1px solid var(--border-subtle); }
+.std-cap-row:last-child { border-bottom:0; }
+.std-cap-row label { margin:0;color:var(--neutral-800);font-size:14px;overflow-wrap:anywhere; }
+.std-cap-row .select { width:72px; }
+.std-cap-row .btn-text { min-width:32px;min-height:32px; }
+.std-cap-empty { display:grid;place-items:center;min-height:180px;padding:24px;color:var(--neutral-500);background:var(--surface-subtle);border-radius:8px;font-size:14px;line-height:1.7;text-align:center; }
+@media(max-width:1100px) { .std-cap-layout { grid-template-columns:1fr;gap:20px; }.std-cap-items { max-height:none; } }

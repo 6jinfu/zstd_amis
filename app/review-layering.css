@@ -1,0 +1,14 @@
+/* 两种盘点共用的人员得分展示。 */
+.score-cell { display:block; min-width:54px; padding:5px 8px; border-radius:5px; color:var(--neutral-800); font-variant-numeric:tabular-nums; text-align:center; }
+.score-hi { background:var(--primary-100); color:var(--primary-800); }
+.score-mid { background:var(--neutral-100); }
+.score-low { background:color-mix(in oklch,var(--warning) 15%,white); }
+.layering-header { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:16px; }
+.layering-header h2 { margin:0; font-size:16px; line-height:25px; }
+.grid-layering .review-detail-query { margin-top:16px; margin-bottom:16px; border:0; box-shadow:none; }
+.grid-layering .score-cell { text-align:right; }
+.grid-layering .pagination { margin:0 22px 22px; }
+@media (min-width:1181px) { .grid-layering .review-detail-query { grid-template-columns:repeat(4,minmax(0,1fr)) auto auto; } }
+@media (min-width:641px) and (max-width:1180px) { .grid-layering .review-detail-query { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.grid-layering .table-wrap { max-width:100%; }
+.grid-layering .t { min-width:680px; }

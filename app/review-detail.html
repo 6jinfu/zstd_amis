@@ -103,10 +103,12 @@
 </style>
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
 <link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
+<link rel="stylesheet" href="review-layering.css?v=sha256-2eff13d6bfa7">
 <link rel="stylesheet" href="talent-center.css?v=sha256-e02e45f42c28">
 <script defer src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
 <script defer src="standards-data.js?v=sha256-5458067a498f"></script>
 <script defer src="talent-data.js?v=sha256-d9a20df1a0f8"></script>
+<script defer src="review-layering.js?v=sha256-61687f247be0"></script>
 <script defer src="talent-pools.js?v=sha256-daa2ba64b1ca"></script>
 </head>
 <body data-module="assess" data-page="review-projects">
@@ -120,7 +122,7 @@
       </div>
 
       <div class="detail-layout">
-        <nav class="anchor-nav review-detail-nav" data-default="overview" aria-label="盘点项目详情"><a class="a-item active" data-tab="overview" href="#overview">基本信息</a><a class="a-item" data-tab="activity" href="#activity">盘点活动</a><a class="a-item" data-tab="result" href="#result">盘点结果</a><a class="a-item" data-tab="calibration" href="#calibration">盘点校准</a><a class="a-item" data-tab="pool" href="#pool">人才池</a></nav>
+        <nav class="anchor-nav review-detail-nav" data-default="overview" aria-label="盘点项目详情"><a class="a-item active" data-tab="overview" href="#overview">基本信息</a><a class="a-item" data-tab="activity" href="#activity">盘点活动</a><a class="a-item" data-tab="result" href="#result">盘点结果</a><a class="a-item" data-tab="layering" href="#layering">人才分层</a><a class="a-item" data-tab="calibration" href="#calibration">盘点校准</a><a class="a-item" data-tab="pool" href="#pool">人才池</a></nav>
         <div class="detail-main">
           <section class="card card-pad d-section active" data-section="overview">
             <div class="kpi-row"><div class="kpi"><div class="label">盘点人员</div><div class="value">35</div></div><div class="kpi"><div class="label">项目数据</div><div class="value">3</div></div><div class="kpi"><div class="label">绩效数据</div><div class="value">35</div></div><div class="kpi"><div class="label">校准任务</div><div class="value" id="calibration-kpi">3</div></div></div>
@@ -167,6 +169,22 @@
             </section>
           </section>
 
+          <section class="card d-section review-result-workspace grid-layering" data-section="layering">
+            <header class="review-grid-head">
+              <div class="review-grid-title"><h2 class="section-title">人才分层</h2></div>
+              <div class="review-grid-total"><strong data-layer-total></strong><span>代表人员</span></div>
+            </header>
+            <form class="review-detail-query" role="search" aria-label="人才分层筛选">
+              <label for="grid-layer-name">姓名<input class="input" id="grid-layer-name" name="name" type="search" placeholder="请输入姓名" autocomplete="off"></label>
+              <label for="grid-layer-department">部门<select class="select" id="grid-layer-department" name="department"></select></label>
+              <label for="grid-layer-field">筛选字段<select class="select" id="grid-layer-field" name="field"><option value="ability">能力得分</option><option value="performance">绩效等级</option><option value="classification">人才分类</option><option value="position">岗位</option></select></label>
+              <label for="grid-layer-value">筛选条件<select class="select" id="grid-layer-value" name="value"></select></label>
+              <button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button>
+            </form>
+            <div class="table-wrap review-result-table"><table class="t" id="grid-layer-table"><thead><tr><th>姓名</th><th>部门</th><th>岗位</th><th>能力得分</th><th>绩效</th><th>人才分类</th><th style="text-align:right">操作</th></tr></thead><tbody></tbody></table></div>
+            <div class="pagination"><div class="pg-info" data-layer-count role="status" aria-live="polite"></div></div>
+          </section>
+
           <section class="card card-pad d-section" data-section="calibration">
             <div class="flex between center mb-md"><div><div class="section-title" style="margin:0">盘点校准任务</div><div class="text-sm muted mt-xs">校准只调整人员落位，不修改能力与绩效原始数据</div></div><button class="btn btn-primary" type="button" id="create-calibration" data-open="drawer-calibration-task" hidden>创建</button></div>
             <form class="review-detail-query review-detail-query-two" data-table-query="#calibration-table">
@@ -200,7 +218,7 @@
 </div>
 
 <script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-8a401953524f"></script>
+<script src="app.js?v=sha256-6796ad5142be"></script>
 <script>
 (function(){
   var params=new URLSearchParams(location.search),matrixCounts={'y2-x0':3,'y2-x1':6,'y2-x2':4,'y1-x0':4,'y1-x1':6,'y1-x2':3,'y0-x0':2,'y0-x1':4,'y0-x2':3};

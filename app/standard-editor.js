@@ -71,7 +71,7 @@
     window.addEventListener('hashchange',()=>tab(location.hash.slice(1)));
     $('#std-title').textContent=original&&!params.has('copy')?draft.name:'新建人才标准';
     $('#std-category').innerHTML=data.categories.map(c=>`<option value="${e(c)}">${e(c)}</option>`).join('');
-    [['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
+    [['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;if(k==='name')renderCapabilityChart();changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
     document.querySelectorAll('[name=mode]').forEach(input=>{input.checked=input.value===draft.mode;input.onchange=()=>{draft.mode=input.value;changed();renderScope();};});
     if(aiImported){dirty=true;$('#std-save-state').textContent='AI 生成内容待确认';}
     const values=field=>field==='critical'?['是','否']:field==='position'?[...new Set([...S.positions.map(p=>p.name),...S.people.map(p=>p.position)])]:field==='category'?[...new Set(S.positions.map(p=>p.category))]:[...new Set(S.people.map(p=>p.department))];
@@ -102,13 +102,24 @@
       return [...items.values()];
     }
     const libraries={cap:libraryItems('cap',abilityOptions),pow:libraryItems('pow',['成就导向','技术钻研','创新探索','影响他人','稳定归属','自主独立','掌控权力','协作共赢']),pot:libraryItems('pot',['战略思维','变革推动','学习敏锐','复杂决策','跨界整合','坚韧抗压'])};
+    function capabilityEditor(){
+      const items=draft.content.cap;
+      if(!items.length)return '<div class="std-cap-empty">尚未配置能力要求，请先选择能力并设置要求等级。</div>';
+      return `<div class="std-cap-layout"><div class="std-cap-visual" data-std-cap-chart></div><div class="std-cap-requirements"><div class="std-cap-list-head"><span>能力项</span><span>要求等级 · ${items.length} 项</span></div><div class="std-cap-items">${items.map(([name,level],i)=>`<div class="std-cap-row"><label for="std-cap-level-${i}">${e(name)}</label><select class="select" id="std-cap-level-${i}" aria-label="${e(name)}要求等级" data-cap-level="${i}">${[1,2,3,4,5].map(n=>`<option ${level==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>${button('×',`data-remove-content="cap,${i}" aria-label="移除${e(name)}"`,'btn-text')}</div>`).join('')}</div></div></div>`;
+    }
+    function renderCapabilityChart(){
+      const host=$('[data-std-cap-chart]');if(!host)return;
+      const items=draft.content.cap;
+      host.innerHTML=items.length>=3?window.StandardUI.capabilityRadar(items,(draft.name||'人才标准').replace(/标准$/,'')+'能力雷达图'):'<div class="std-cap-empty">至少选择 3 项能力后展示雷达图，当前要求可在右侧编辑。</div>';
+    }
     function renderContent(){const c=draft.content;
       $('#std-content-editor').innerHTML=`<div class="std-block" data-content-section="duty"><div class="std-block-head"><h3>职责任务</h3>${button('新增职责','data-add-duty-std')}</div>${c.duty.map((d,i)=>`<div class="std-duty"><div class="std-text-row"><textarea class="input" aria-label="职责 ${i+1}" data-duty-std="${i}" placeholder="填写职责">${e(d.n)}</textarea>${button('移除',`data-remove-duty-std="${i}"`,'btn-text danger')}</div>${d.t.map((t,j)=>`<div class="std-text-row std-task"><textarea class="input" aria-label="职责 ${i+1} 的任务 ${j+1}" data-task-std="${i},${j}" placeholder="填写任务">${e(t)}</textarea>${button('×',`data-remove-task-std="${i},${j}" aria-label="移除任务"`,'btn-text')}</div>`).join('')}${button('添加任务',`data-add-task-std="${i}"`,'btn-text std-task')}</div>`).join('')||'<p class="text-sm muted">尚未配置职责任务</p>'}</div>
       <div class="std-block" data-content-section="exp"><div class="std-block-head"><h3>经历经验</h3>${button('添加经历','data-add-exp-std')}</div>${c.exp.map((t,i)=>`<div class="std-text-row"><textarea class="input" aria-label="经历经验 ${i+1}" data-exp-std="${i}">${e(t)}</textarea>${button('移除',`data-remove-exp-std="${i}"`,'btn-text danger')}</div>`).join('')||'<p class="text-sm muted">尚未配置经历经验</p>'}</div>
-      ${[['cap','能力要求','能力'],['pow','动力要求','动力'],['pot','潜力要求','潜力']].map(([key,label,action])=>`<div class="std-block" data-content-section="${key}"><div class="std-block-head"><h3>${label}</h3>${button('选择'+action,`data-pick-content="${key}"`)}</div>${c[key].map((item,i)=>`<span class="std-chip">${e(key==='cap'?item[0]:item)}${key==='cap'?`<select class="select" aria-label="${e(item[0])}要求等级" data-cap-level="${i}">${[1,2,3,4,5].map(n=>`<option ${item[1]==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>`:''}${button('×',`data-remove-content="${key},${i}" aria-label="移除${e(key==='cap'?item[0]:item)}"`,'btn-text')}</span>`).join('')||'<p class="text-sm muted">尚未配置'+label+'</p>'}</div>`).join('')}`;
+      ${[['cap','能力要求','能力'],['pow','动力要求','动力'],['pot','潜力要求','潜力']].map(([key,label,action])=>`<div class="std-block" data-content-section="${key}"><div class="std-block-head"><h3>${label}</h3>${button('选择'+action,`data-pick-content="${key}"`)}</div>${key==='cap'?capabilityEditor():c[key].map((item,i)=>`<span class="std-chip">${e(item)}${button('×',`data-remove-content="${key},${i}" aria-label="移除${e(item)}"`,'btn-text')}</span>`).join('')||'<p class="text-sm muted">尚未配置'+label+'</p>'}</div>`).join('')}`;
+      renderCapabilityChart();
       contentTab(activeContentTab);
     }
-    $('#std-content-editor').oninput=ev=>{const el=ev.target,d=el.dataset,c=draft.content;if(d.dutyStd!==undefined)c.duty[+d.dutyStd].n=el.value;if(d.taskStd){const[i,j]=d.taskStd.split(',').map(Number);c.duty[i].t[j]=el.value;}if(d.expStd!==undefined)c.exp[+d.expStd]=el.value;if(d.capLevel!==undefined)c.cap[+d.capLevel][1]=el.value;changed();};
+    $('#std-content-editor').oninput=ev=>{const el=ev.target,d=el.dataset,c=draft.content;if(d.dutyStd!==undefined)c.duty[+d.dutyStd].n=el.value;if(d.taskStd){const[i,j]=d.taskStd.split(',').map(Number);c.duty[i].t[j]=el.value;}if(d.expStd!==undefined)c.exp[+d.expStd]=el.value;if(d.capLevel!==undefined){c.cap[+d.capLevel][1]=el.value;renderCapabilityChart();}changed();};
     $('#std-content-editor').onclick=ev=>{const b=ev.target.closest('button');if(!b)return;const d=b.dataset,c=draft.content;
       if(d.pickContent){const key=d.pickContent,labels={cap:'能力',pow:'动力',pot:'潜力'},treeTitles={cap:'能力指标',pow:'动力指标',pot:'潜力指标'};pickIndicators(key==='cap'?'选择关联指标':'选择'+labels[key]+'指标',libraries[key],c[key].map(i=>key==='cap'?i[0]:i),list=>{if(key==='cap'&&list.length>20){showToast('最多选择 20 项能力');return false;}c[key]=list.map(n=>key==='cap'?(c.cap.find(x=>x[0]===n)||[n,'L3']):n);changed();renderContent();},key==='cap'?20:Infinity,{categories:key==='cap'?(window.IndicatorDemo?.categories||[]):(demoCategories[key]||[]),treeTitle:treeTitles[key],nameLabel:labels[key]+'名称'});return;}
       if('addDutyStd'in d)c.duty.push({n:'',t:[]});

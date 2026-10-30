@@ -1,0 +1,15 @@
+/* 标准详情和 AI 草稿共用五级能力雷达。 */
+.std-radar { margin:12px 0 4px; }
+.std-radar figcaption { color:#202b3d;font-size:14px;font-weight:500;line-height:22px;overflow-wrap:anywhere; }
+.std-radar svg { display:block;width:100%;max-width:320px;height:auto;margin:0 auto;overflow:visible; }
+.std-radar-ring { fill:#f8fafc;stroke:#dce3ed;stroke-width:1; }
+.std-radar-axis { stroke:#dce3ed;stroke-width:1; }
+.std-radar-area { fill:var(--primary-600);fill-opacity:.12;stroke:var(--primary-600);stroke-width:2;stroke-linejoin:round; }
+.std-radar-point { fill:var(--primary-600);stroke:#fff;stroke-width:2; }
+.std-radar-label { fill:#202b3d;font-size:14px;font-family:inherit; }
+.std-radar-level { fill:var(--primary-600);font-weight:400; }
+.std-radar-scale { fill:#586174;font-size:12px;font-family:inherit;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round; }
+.std-radar .std-radar-legend { display:grid;gap:8px;margin:0 0 12px;padding-left:24px; }
+.std-radar .std-radar-legend li { margin:0;padding-left:4px;line-height:22px;overflow-wrap:anywhere; }
+.std-radar-legend li::marker { color:#586174;font-variant-numeric:tabular-nums; }
+.std-radar-level-value { margin-left:12px;color:var(--primary-600);font-variant-numeric:tabular-nums; }

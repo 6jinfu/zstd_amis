@@ -41,7 +41,7 @@
             <option value="v2" selected>V2 · 2026 年组织调整（生效中）</option>
             <option value="v1">V1 · 初始组织结构（已存档）</option>
           </select>
-          <div class="text-sm muted mt-sm" id="org-version-hint">生效于 2026-06-18 · 岗位评价法 / 结构分析法 · 宫格 3×3 · 8 岗位族 / 34 岗位 / 165 人</div>
+          <div class="text-sm muted mt-sm" id="org-version-hint">生效于 2026-06-18 · 岗位评价法 / 结构分析法 · 宫格 5×5 · 22 岗位族 / 34 岗位 / 165 人</div>
 
           <div class="text-sm muted mt-lg mb-sm">岗位族矩阵</div>
 
@@ -94,16 +94,17 @@
   </div>
 </div>
 <script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-8a401953524f"></script>
+<script src="app.js?v=sha256-6796ad5142be"></script>
 <script>
   // 引用组织结构版本切换：摘要 + 下方可视化（矩阵 / KPI）联动
   document.addEventListener('DOMContentLoaded', function () {
     var sel = document.getElementById('sel-org-version');
     if (!sel) return;
-    var activeGrid = window.readOrgGridConfig ? window.readOrgGridConfig('active') : { sequenceCount: 3, levelCount: 3 };
+    var activeGrid = window.readOrgGridConfig ? window.readOrgGridConfig('active') : { sequenceCount: 5, levelCount: 5 };
     var activeGridCopy = '宫格 ' + activeGrid.sequenceCount + '×' + activeGrid.levelCount;
+    var activeGroupCount = orgGridCells(activeGrid).filter(Boolean).length;
     var meta = {
-      v2: { name: 'V2 · 2026 年组织调整', tag: '当前生效', tagCls: 'tag tag-effective', hint: '生效于 2026-06-18 · 岗位评价法 / 结构分析法 · ' + activeGridCopy + ' · 8 岗位族 / 34 岗位 / 165 人' },
+      v2: { name: 'V2 · 2026 年组织调整', tag: '当前生效', tagCls: 'tag tag-effective', hint: '生效于 2026-06-18 · 岗位评价法 / 结构分析法 · ' + activeGridCopy + ' · ' + activeGroupCount + ' 岗位族 / 34 岗位 / 165 人' },
       v1: { name: 'V1 · 初始组织结构', tag: '已存档', tagCls: 'tag tag-archived', hint: '生效于 2025-12-01 · 结构分析法 · 宫格 3×2 · 6 岗位族 / 30 岗位 / 141 人' }
     };
     document.getElementById('org-version-hint').textContent = meta.v2.hint;

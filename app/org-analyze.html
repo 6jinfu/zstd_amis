@@ -53,11 +53,11 @@
                 <div class="table-wrap"><table class="t">
                   <thead><tr><th>岗位</th><th>类别</th><th>人数</th></tr></thead>
                   <tbody>
-                    <tr><td>高级算法工程师</td><td>研发</td><td class="num">6</td></tr>
-                    <tr><td>后端开发工程师</td><td>研发</td><td class="num">14</td></tr>
-                    <tr><td>大客户销售经理</td><td>销售</td><td class="num">12</td></tr>
-                    <tr><td>区域销售总监</td><td>销售</td><td class="num">4</td></tr>
-                    <tr><td>财务分析经理</td><td>职能</td><td class="num">3</td></tr>
+                    <tr><td>高级算法工程师</td><td>研发</td><td class="num">5</td></tr>
+                    <tr><td>后端开发工程师</td><td>研发</td><td class="num">10</td></tr>
+                    <tr><td>大客户销售经理</td><td>销售</td><td class="num">8</td></tr>
+                    <tr><td>区域销售总监</td><td>销售</td><td class="num">5</td></tr>
+                    <tr><td>财务分析师</td><td>职能</td><td class="num">3</td></tr>
                     <tr><td colspan="3" class="muted" style="text-align:center">… 共 34 个岗位</td></tr>
                   </tbody>
                 </table></div>
@@ -112,7 +112,7 @@
                 </fieldset>
               </div>
               <div class="org-grid-preview" aria-live="polite">
-                <div class="org-grid-preview-head"><span>规格预览</span><b data-org-grid-copy>3 项业务分工 × 3 级业务分权，共 9 宫格</b></div>
+                <div class="org-grid-preview-head"><span>规格预览</span><b data-org-grid-copy>5 项业务分工 × 5 级业务分权，共 25 宫格</b></div>
                 <div class="org-grid-mini" data-org-grid-mini aria-hidden="true"></div>
                 <div class="org-grid-axis"><span>业务分权 ↑</span><span>业务分工 →</span></div>
               </div>
@@ -124,7 +124,7 @@
               <tbody>
                 <tr><td class="muted" style="width:180px">组织范围</td><td>总部 · 研发中心 / 销售中心 / 职能中台（4 部门 · 34 岗位 · 165 人）</td></tr>
                 <tr><td class="muted">说明材料</td><td>岗位说明书汇编.docx（已解析）· 组织架构图.pdf（解析中）</td></tr>
-                <tr><td class="muted">矩阵规格</td><td data-org-grid-summary>3 项业务分工 × 3 级业务分权（9 宫格）</td></tr>
+                <tr><td class="muted">矩阵规格</td><td data-org-grid-summary>5 项业务分工 × 5 级业务分权（25 宫格）</td></tr>
                 <tr><td class="muted">生成物</td><td>新版本草稿（V3）· 确认生效后替换 V2</td></tr>
               </tbody>
             </table></div>
@@ -147,7 +147,7 @@
   </div>
 </div>
 <script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-8a401953524f"></script>
+<script src="app.js?v=sha256-6796ad5142be"></script>
 <script>
   var lb = document.querySelector('[data-step-submit]');
   if (lb) lb.addEventListener('click', function (e) {
@@ -157,7 +157,7 @@
     this.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M12 3a9 9 0 1 0 9 9"/></svg>正在提交…';
     var button = this;
     setTimeout(function () {
-      var gridConfig = window.readOrgGridConfig ? window.readOrgGridConfig('draft') : { sequenceCount: 3, levelCount: 3 };
+      var gridConfig = window.readOrgGridConfig ? window.readOrgGridConfig('draft') : { sequenceCount: 5, levelCount: 5 };
       button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:15px;height:15px"><path d="M5 12l4 4L19 6"/></svg>任务已提交';
       if (window.startAnalysisTask) window.startAnalysisTask({
         type: 'org',

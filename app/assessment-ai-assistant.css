@@ -58,3 +58,31 @@
 .eva-ai-confirm-actions { flex-shrink:0;width:calc(100% - 56px);max-width:800px;margin:0 auto;padding:12px 0;background:#fff;border-top:1px solid #eee;font-size:14px; }
 .eva-ai-drawer.history-open .std-ai-history { width:220px;flex-basis:220px; }
 @media (max-width:760px) { .eva-ai-confirm fieldset { grid-template-columns:minmax(0,1fr); } }
+
+/* 题本生成过程沿用同一条对话，进度来自已完成的能力批次。 */
+.eva-ai-generation { padding:20px;border:1px solid #e5e6eb;border-radius:10px;background:#fff;animation:eva-ai-enter .25s ease-out; }
+.eva-ai-generation header { display:flex;justify-content:space-between;align-items:center;gap:16px; }
+.eva-ai-generation header strong { font-size:16px;font-weight:600; }
+.eva-ai-generation header>span { color:#667085;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap; }
+.eva-ai-generation .eva-ai-generation-status { margin:10px 0 14px;color:#595959; }
+.eva-ai-generation progress { display:block;width:100%;height:5px;border:0;border-radius:3px;overflow:hidden;accent-color:var(--brand-primary); }
+.eva-ai-generation progress::-webkit-progress-bar { background:#eef1f5; }
+.eva-ai-generation progress::-webkit-progress-value { background:var(--brand-primary); }
+.eva-ai-generation-list { display:grid;gap:12px;margin:18px 0 0;padding:0;list-style:none; }
+.eva-ai-generation-list li { display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14px; }
+.eva-ai-generation-list li>span:last-child { color:#667085;font-size:13px;font-variant-numeric:tabular-nums; }
+.eva-ai-generation-dot { display:grid;place-items:center;width:16px;height:16px;border:1px solid #d9dfe8;border-radius:50%;font-size:11px;line-height:1; }
+.eva-ai-generation-list .done .eva-ai-generation-dot { color:var(--brand-primary);background:#eef4ff;border-color:#c6d6f4; }
+.eva-ai-generation-list .active .eva-ai-generation-dot { border:2px solid #d9e5f8;border-top-color:var(--brand-primary);animation:eva-ai-spin .9s linear infinite; }
+.eva-ai-generation-list .pending { color:#8c8c8c; }
+.eva-ai-generation-sample { margin-top:18px;padding:12px 14px;border-radius:6px;background:#f7f9fc;animation:eva-ai-enter .25s ease-out; }
+.eva-ai-generation-sample>span { color:#667085;font-size:12px; }
+.eva-ai-generation .eva-ai-generation-sample p { margin:6px 0 0; }
+.eva-ai-generation-record { margin-top:12px;padding:12px 16px;border:1px solid #e5e6eb;border-radius:8px; }
+.eva-ai-generation-record summary { cursor:pointer;color:#595959;font-size:14px; }
+.eva-ai-generation-record ul { margin:16px 0 0;padding-left:18px;color:#667085;font-size:13px; }
+.eva-ai-questionnaire { animation:eva-ai-enter .3s ease-out; }
+.eva-ai-drawer .is-generating .std-ai-send:disabled { opacity:.4; }
+@keyframes eva-ai-enter { from { opacity:0;transform:translateY(8px); } to { opacity:1;transform:translateY(0); } }
+@keyframes eva-ai-spin { to { transform:rotate(360deg); } }
+@media(prefers-reduced-motion:reduce) { .eva-ai-generation,.eva-ai-generation-sample,.eva-ai-questionnaire,.eva-ai-generation-list .active .eva-ai-generation-dot { animation:none; } }

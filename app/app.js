@@ -540,8 +540,8 @@ const ORG_GRID_ACTIVE_KEY = 'talent-org-grid-active-v1';
 function normalizeOrgGridConfig(config) {
   config = config || {};
   return {
-    sequenceCount: Math.min(5, Math.max(1, Number(config.sequenceCount || config.sequence_count) || 3)),
-    levelCount: Math.min(5, Math.max(1, Number(config.levelCount || config.level_count) || 3))
+    sequenceCount: Math.min(5, Math.max(1, Number(config.sequenceCount || config.sequence_count) || 5)),
+    levelCount: Math.min(5, Math.max(1, Number(config.levelCount || config.level_count) || 5))
   };
 }
 
@@ -599,21 +599,25 @@ function orgGridCells(config) {
     });
     return result;
   }
+  // 原型示例：34 个岗位、165 人；按岗位明细汇总，非真实企业数据。
+  // 行从专家到基础，列为研发、销售、职能、产品、运营。
   var profile = [
-    [[1, 4], null, null, [1, 3], null],
-    [[2, 9], [1, 5], [1, 4], [1, 6], [1, 4]],
-    [[3, 18], [2, 12], [2, 8], [2, 11], [2, 7]],
-    [[2, 15], [2, 11], [2, 7], [1, 8], [1, 6]],
-    [[1, 7], [2, 9], [1, 6], [1, 3], [2, 2]]
+    [[['技术架构师', 2, 4.8]], null, null, [['产品专家', 1, 4.7]], null],
+    [[['技术负责人', 4, 4.4], ['高级算法工程师', 5, 4.2]], [['区域销售总监', 5, 4.3]], [['人力资源经理', 4, 4.1]], [['高级产品经理', 6, 4.2]], [['运营经理', 4, 4.1]]],
+    [[['后端开发工程师', 10, 3.6], ['前端开发工程师', 6, 3.5], ['测试工程师', 4, 3.2]], [['大客户销售经理', 8, 3.7], ['渠道经理', 6, 3.5]], [['人力资源专员', 5, 3.3], ['财务分析师', 3, 3.6]], [['产品经理', 7, 3.6], ['交互设计师', 4, 3.4]], [['产品运营', 4, 3.4], ['客户成功专员', 3, 3.3]]],
+    [[['初级开发工程师', 8, 2.7], ['初级测试工程师', 7, 2.5]], [['销售代表', 7, 2.8], ['渠道专员', 4, 2.6]], [['招聘专员', 4, 2.7], ['行政专员', 3, 2.4]], [['助理产品经理', 8, 2.8]], [['内容运营专员', 6, 2.6]]],
+    [[['研发助理', 7, 1.9]], [['销售助理', 6, 1.8], ['商务助理', 3, 1.9]], [['财务助理', 6, 1.8]], [['产品研究助理', 3, 1.9]], [['运营助理', 1, 1.8], ['客服助理', 1, 1.7]]]
   ];
   profile.forEach(function (row, rowIndex) {
-    row.forEach(function (item, columnIndex) {
-      if (!item) return;
+    row.forEach(function (positions, columnIndex) {
+      if (!positions) return;
       var targetRow = Math.floor(rowIndex * config.levelCount / 5);
       var targetColumn = Math.floor(columnIndex * config.sequenceCount / 5);
       var target = targetRow * config.sequenceCount + targetColumn;
-      if (!result[target]) result[target] = { jobs: 0, people: 0 };
-      result[target].jobs += item[0]; result[target].people += item[1];
+      if (!result[target]) result[target] = { jobs: 0, people: 0, positions: [] };
+      result[target].jobs += positions.length;
+      result[target].people += positions.reduce(function (sum, position) { return sum + position[1]; }, 0);
+      result[target].positions = result[target].positions.concat(positions);
     });
   });
   return result;
@@ -644,7 +648,12 @@ function renderOrgMatrix(matrix) {
       }
       var group = document.createElement(matrix.dataset.orgMatrixInteractive === 'false' ? 'div' : 'button');
       group.className = 'group';
-      if (group.tagName === 'BUTTON') { group.type = 'button'; group.dataset.open = 'drawer-cell'; }
+      if (group.tagName === 'BUTTON') {
+        group.type = 'button'; group.dataset.open = 'drawer-cell';
+        if (config.sequenceCount === 5 && config.levelCount === 5) {
+          group.addEventListener('click', function () { renderOrgCellDetail(seed, sequence, level); });
+        }
+      }
       group.innerHTML = '<div><div class="g-name"></div><div class="g-stats"><span><b></b> 岗位</span><span><b></b> 人</span></div></div>';
       group.querySelector('.g-name').textContent = sequence.name + '·' + level.name;
       group.querySelectorAll('.g-stats b')[0].textContent = seed.jobs;
@@ -659,10 +668,50 @@ function renderOrgMatrix(matrix) {
     head.querySelector('span').textContent = sequence.name;
     matrix.appendChild(head);
   });
+  document.querySelectorAll('[data-org-grid-version="' + scope + '"]').forEach(function (node) {
+    node.textContent = config.sequenceCount + '×' + config.levelCount;
+  });
   var prefix = '[data-org-grid-scope="' + scope + '"] ';
   document.querySelectorAll(prefix + '[data-org-kpi-sequence]').forEach(function (node) { node.textContent = config.sequenceCount; });
   document.querySelectorAll(prefix + '[data-org-kpi-level]').forEach(function (node) { node.textContent = config.levelCount; });
   document.querySelectorAll(prefix + '[data-org-kpi-group]').forEach(function (node) { node.textContent = cells.filter(Boolean).length; });
+}
+
+function renderOrgCellDetail(seed, sequence, level) {
+  var drawer = document.getElementById('drawer-cell');
+  if (!drawer) return;
+  drawer.querySelector('.m-head h3').textContent = sequence.name + '·' + level.name;
+  drawer.querySelector('.m-head .text-sm').textContent = seed.jobs + ' 岗位 · ' + seed.people + ' 人';
+  drawer.querySelector('thead').innerHTML = '<tr><th>岗位</th><th>人数</th><th>AI 序列</th><th>AI 层级</th><th>岗评总分</th><th>操作</th></tr>';
+  var tbody = drawer.querySelector('tbody');
+  tbody.innerHTML = '';
+  seed.positions.forEach(function (position) {
+    var row = document.createElement('tr');
+    [position[0], position[1], sequence.name, level.name, position[2].toFixed(1) + ' / 5'].forEach(function (value) {
+      var cell = document.createElement('td'); cell.textContent = value; row.appendChild(cell);
+    });
+    var actions = document.createElement('td'); actions.className = 'ops';
+    var evidence = document.createElement('button');
+    evidence.type = 'button'; evidence.className = 'btn-text btn-sm';
+    evidence.dataset.open = 'drawer-evidence'; evidence.textContent = '查看依据';
+    evidence.addEventListener('click', function () {
+      var target = document.getElementById('drawer-evidence');
+      target.querySelector('.m-head h3').textContent = '归类依据 · ' + position[0];
+      var body = target.querySelector('.m-body');
+      body.innerHTML = '<div class="table-wrap"><table class="t"><thead><tr><th>方法</th><th>分析结果</th><th>主要依据</th></tr></thead><tbody><tr><td>岗位评价法</td><td data-score></td><td>任务复杂性、专业要求、影响范围与责任程度</td></tr><tr><td>结构分析法</td><td data-structure></td><td>岗位职责、组织位置及上下游协作关系</td></tr></tbody></table></div><div class="flex between mt-md"><b>建议归属</b><b data-assignment></b></div><p class="text-sm mt-md" data-reason></p>';
+      body.querySelector('[data-score]').textContent = position[2].toFixed(1) + ' / 5';
+      body.querySelector('[data-structure]').textContent = sequence.name + '序列';
+      body.querySelector('[data-assignment]').textContent = sequence.name + ' · ' + level.name;
+      body.querySelector('[data-reason]').textContent = position[0] + '承担' + sequence.name + '相关职责，责任范围为' + level.sub + '，归入' + sequence.name + '·' + level.name + '岗位族。';
+    });
+    actions.appendChild(evidence);
+    if (document.getElementById('drawer-calib') && position[0] === '测试工程师') {
+      var calibrate = document.createElement('button');
+      calibrate.type = 'button'; calibrate.className = 'btn-text btn-sm';
+      calibrate.dataset.open = 'drawer-calib'; calibrate.textContent = '建议校准'; actions.appendChild(calibrate);
+    }
+    row.appendChild(actions); tbody.appendChild(row);
+  });
 }
 
 function initOrgGridConfiguration() {
@@ -992,6 +1041,7 @@ function initApp() {
   initBubbles();
   if (document.body.dataset.page === 'org-structure' && new URLSearchParams(location.search).get('effective') === '1') {
     writeOrgGridConfig('active', readOrgGridConfig('draft'));
+    try { localStorage.setItem('talent-org-analysis-ready-v5', 'true'); } catch (_error) {}
   }
   initOrgGridConfiguration();
   initHeatmap();
