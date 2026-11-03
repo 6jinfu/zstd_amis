@@ -1,6 +1,8 @@
 # 人才发展部署说明
 
-最新全量交接标签：`v2026.10.21-project`。产品代码基线：`v2026.10.20` / PRD V1.62。本次补齐项目材料，未修改产品功能；完整换机恢复见 `MIGRATION.md`。
+核对日期：2026-11-03。最新源码以仓库 `main` 为准，当前产品需求为 PRD V1.101；接手先读 `PROJECT_HANDOFF.md`。`v2026.10.21-project` 及 `MIGRATION.md` 是历史归档，不是最新代码部署包。
+
+用户要求的管理端静态部署包只包含 `app/` 内全部页面、脚本、样式和素材，ZIP根目录直接为 `index.html`；不包含学员端、Dify、开发服务器、PRD或历史交付物。以下Python启动方式适用于完整源码仓库；只有管理端ZIP时直接按静态服务器方式部署。
 
 ## 解压后直接运行
 
@@ -47,12 +49,17 @@ server {
 - 普通原型预览无需配置 Dify。`dify/` 是工作流及接口设计；真实 AI 服务和业务后端需另行按接口文档部署。
 - `mcp-apps/` 是独立的 Dify MCP 扩展，按其 README 配置；不是静态原型启动的必要依赖。
 
+## 可选学员端预览
+
+完整仓库包含独立的 `student-client/`，在根目录另开终端运行 `python3 student-client/serve.py --port 4182`。Web入口为 `http://127.0.0.1:4182/student.html`，H5为 `http://127.0.0.1:4182/mobile/index.html`。学员端未接管理端实时数据；用户只要管理端部署时不打包此目录。
+
 ## 修改代码后的检查
 
 ```bash
 python3 scripts/asset_versions.py --write
 python3 scripts/asset_versions.py
+node --test tests/*.test.cjs student-client/tests/*.test.cjs
 python3 -m unittest discover -s tests -v
 ```
 
-第一条同步内容指纹，第二条只检查；缺失资源或过期指纹会失败。测试会使用临时本地端口验证缓存行为。
+第一条同步管理端内容指纹，第二条只检查；缺失资源或过期指纹会失败。学员端指纹检查、更新方式见交接文档。测试使用Node.js 20.11+；Python工作流测试需要PyYAML，缓存测试需允许绑定本机临时端口。普通静态预览不依赖这些测试工具。

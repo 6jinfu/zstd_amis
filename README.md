@@ -2,11 +2,13 @@
 
 这是一个静态 HTML 业务原型，覆盖岗位中心、评鉴中心、发展中心、人才中心和系统设置等模块。
 
-后续接手或继续迭代时，先阅读 [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md)；完整需求再按任务定向查看当前 PRD，无需从历史资料开始通读。
+智能体接手先读 [`AGENTS.md`](AGENTS.md) 和 [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md)。交接包含启动命令、代码索引、实现边界和验证依据；再按任务阅读当前 PRD，不用通读历史资料。
 
-## 下载与换机接手
+## 最新代码与历史归档
 
-最新项目交接版本为 [`v2026.10.21-project`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-project)。代码、全部 PRD、交接和常规成果在仓库及同版本主项目 ZIP 中；按用户最新要求，不上传宣传视频、字体和渲染素材。恢复、校验及接手顺序见 [`MIGRATION.md`](MIGRATION.md)。
+最新代码及交接以仓库 [`main`](https://github.com/6jinfu/zstd_amis/tree/main) 为准，当前产品需求为 PRD V1.101。接手先用 `git status -sb`、`git log -3 --oneline` 核对实际状态。
+
+[`v2026.10.21-project`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-project) 和 [`MIGRATION.md`](MIGRATION.md) 对应历史归档，不包含后续全部修改。宣传视频、字体和渲染素材按既有约定不上传；管理端静态部署只使用 `app/` 内容，见 [`DEPLOYMENT.md`](DEPLOYMENT.md)。
 
 ## 本地预览
 
@@ -42,7 +44,7 @@ python3 -m unittest discover -s tests -v
 - `deliverables/`：业务流程图及可编辑交付文件。
 - `screenshots/`：原型视觉回归截图。
 - `scripts/`：交付物辅助脚本。
-- `dify/`：组织结构分析与关键岗位分析的 Dify Chatflow 导入文件。
+- `dify/`：组织结构、关键岗位分析及标准/360 AI 帮建的工作流、契约和离线样例；文件存在不代表已完成真实服务联调。
 - `mcp-apps/`：将两份 Dify Chatflow 包装为交互式 MCP Apps 的服务端与 HTML 资源。
 
 当前需求入口见 [`newprd/README.md`](newprd/README.md)。用户在对话中形成的最新明确结论如与旧文档冲突，以最新结论为准，并须同步更新当前 PRD 与交接文档。
