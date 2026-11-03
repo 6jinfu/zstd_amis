@@ -4,7 +4,6 @@
     {
       "id": "product-operations-acting",
       "name": "产品运营部总监岗位标准",
-      "description": "统筹产品运营策略与用户价值，推动运营、产品和商业目标协同。",
       "content": {
         "duty": [
           {
@@ -82,7 +81,6 @@
       },
       "learningPlan": {
         "name": "产品运营部总监岗位学习方案",
-        "goal": "统筹产品运营策略与用户价值，推动运营、产品和商业目标协同。",
         "courses": [
           {
             "id": "aff800c3781b4b82a2572cf5df3e0ecf",
@@ -139,7 +137,6 @@
     {
       "id": "product-operations-director",
       "name": "产品运营总监标准",
-      "description": "负责产品运营体系与增长引擎建设，持续提升用户价值和经营效率。",
       "content": {
         "duty": [
           {
@@ -217,7 +214,6 @@
       },
       "learningPlan": {
         "name": "产品运营总监学习方案",
-        "goal": "负责产品运营体系与增长引擎建设，持续提升用户价值和经营效率。",
         "courses": [
           {
             "id": "e4e9282be5f6ac6ddef827de10870448",
@@ -274,7 +270,6 @@
     {
       "id": "product-design-director",
       "name": "产品设计与运营总监标准",
-      "description": "整合产品设计、用户体验与运营策略，推动端到端用户价值实现。",
       "content": {
         "duty": [
           {
@@ -352,7 +347,6 @@
       },
       "learningPlan": {
         "name": "产品设计与运营总监学习方案",
-        "goal": "整合产品设计、用户体验与运营策略，推动端到端用户价值实现。",
         "courses": [
           {
             "id": "9b878572f49146fb96f37e3a2c24f420",
@@ -409,7 +403,6 @@
     {
       "id": "business-core",
       "name": "业务经理岗位标准",
-      "description": "面向重点行业拓展，负责从客户需求识别到合同交付的业务闭环。",
       "content": {
         "duty": [
           {
@@ -487,7 +480,6 @@
       },
       "learningPlan": {
         "name": "业务经理岗位学习方案",
-        "goal": "面向重点行业拓展，负责从客户需求识别到合同交付的业务闭环。",
         "courses": [
           {
             "id": "fb06a0021f5bb0af0baedf24e00f320f",
@@ -544,7 +536,6 @@
     {
       "id": "account-core",
       "name": "客户经理岗位标准",
-      "description": "围绕存量客户经营与服务，持续提升客户使用价值、续约与合作深度。",
       "content": {
         "duty": [
           {
@@ -622,7 +613,6 @@
       },
       "learningPlan": {
         "name": "客户经理岗位学习方案",
-        "goal": "围绕存量客户经营与服务，持续提升客户使用价值、续约与合作深度。",
         "courses": [
           {
             "id": "92b0943b56ce4363b39128609dee8c89",
@@ -679,7 +669,6 @@
     {
       "id": "sales-manager-core",
       "name": "销售经理岗位标准",
-      "description": "负责销售团队目标达成、过程管理和客户价值交付。",
       "content": {
         "duty": [
           {
@@ -764,7 +753,6 @@
       },
       "learningPlan": {
         "name": "销售经理岗位学习方案",
-        "goal": "负责销售团队目标达成、过程管理和客户价值交付。",
         "courses": [
           {
             "id": "c4ac08690aeabd49512caaffaecd587f",
@@ -819,7 +807,6 @@
     {
       "id": "sales-key-account",
       "name": "销售经理大客户经营标准",
-      "description": "适用于战略客户与复杂项目，强调客户决策链、方案价值和长期合作。",
       "content": {
         "duty": [
           {
@@ -888,7 +875,6 @@
       },
       "learningPlan": {
         "name": "销售经理大客户经营学习方案",
-        "goal": "适用于战略客户与复杂项目，强调客户决策链、方案价值和长期合作。",
         "courses": [
           {
             "id": "MAM070404_tbc.com",
@@ -945,7 +931,6 @@
     {
       "id": "sales-advisor-core",
       "name": "销售顾问岗位标准",
-      "description": "准确理解客户场景，提供清晰、可信的产品与解决方案建议。",
       "content": {
         "duty": [
           {
@@ -1015,7 +1000,6 @@
       },
       "learningPlan": {
         "name": "销售顾问岗位学习方案",
-        "goal": "准确理解客户场景，提供清晰、可信的产品与解决方案建议。",
         "courses": [
           {
             "id": "efeb9924d54249c284318f7b650217a4",
@@ -1072,7 +1056,6 @@
     {
       "id": "regional-core",
       "name": "大区总经理岗位标准",
-      "description": "统筹区域业务增长、经营质量与组织能力建设。",
       "content": {
         "duty": [
           {
@@ -1150,7 +1133,6 @@
       },
       "learningPlan": {
         "name": "大区总经理岗位学习方案",
-        "goal": "统筹区域业务增长、经营质量与组织能力建设。",
         "courses": [
           {
             "id": "9053dae0074bbcf839949f899fa5bf90",
@@ -1207,7 +1189,6 @@
     {
       "id": "product-intern-core",
       "name": "产品实习生岗位标准",
-      "description": "在导师指导下参与用户调研、需求整理和版本交付支持。",
       "content": {
         "duty": [
           {
@@ -1277,7 +1258,6 @@
       },
       "learningPlan": {
         "name": "产品实习生岗位学习方案",
-        "goal": "在导师指导下参与用户调研、需求整理和版本交付支持。",
         "courses": [
           {
             "id": "9b878572f49146fb96f37e3a2c24f420",
@@ -1325,7 +1305,6 @@
     {
       "id": "product-specialist-core",
       "name": "产品专员岗位标准",
-      "description": "独立负责边界清晰的产品需求，保障从分析、设计到上线验证的质量。",
       "content": {
         "duty": [
           {
@@ -1403,7 +1382,6 @@
       },
       "learningPlan": {
         "name": "产品专员岗位学习方案",
-        "goal": "独立负责边界清晰的产品需求，保障从分析、设计到上线验证的质量。",
         "courses": [
           {
             "id": "9b878572f49146fb96f37e3a2c24f420",
@@ -1468,7 +1446,6 @@
     {
       "id": "product-manager-core",
       "name": "产品经理岗位标准",
-      "description": "面向企业软件产品，负责用户价值、需求优先级和版本交付。",
       "content": {
         "duty": [
           {
@@ -1563,7 +1540,6 @@
       },
       "learningPlan": {
         "name": "产品经理岗位学习方案",
-        "goal": "面向企业软件产品，负责用户价值、需求优先级和版本交付。",
         "courses": [
           {
             "id": "9b878572f49146fb96f37e3a2c24f420",
@@ -1626,7 +1602,6 @@
     {
       "id": "product-growth",
       "name": "产品经理增长专项标准",
-      "description": "面向产品激活、留存与商业转化，强调基于证据的增长策略和实验能力。",
       "content": {
         "duty": [
           {
@@ -1704,7 +1679,6 @@
       },
       "learningPlan": {
         "name": "产品经理增长专项学习方案",
-        "goal": "面向产品激活、留存与商业转化，强调基于证据的增长策略和实验能力。",
         "courses": [
           {
             "id": "aff800c3781b4b82a2572cf5df3e0ecf",
@@ -1761,7 +1735,6 @@
     {
       "id": "product-lead-core",
       "name": "产品部部门经理岗位标准",
-      "description": "统筹产品组合、团队交付与人才培养，保障产品投入与业务目标一致。",
       "content": {
         "duty": [
           {
@@ -1839,7 +1812,6 @@
       },
       "learningPlan": {
         "name": "产品部部门经理岗位学习方案",
-        "goal": "统筹产品组合、团队交付与人才培养，保障产品投入与业务目标一致。",
         "courses": [
           {
             "id": "d15eaf9830bcc1cdd8efc5ff94ec3a57",
