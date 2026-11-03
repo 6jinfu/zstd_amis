@@ -1,6 +1,6 @@
 # 人才发展原型项目交接
 
-最后核对：2026-11-03。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) V1.101 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
+最后核对：2026-11-04。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) V1.102 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
 
 ## 1. 接手先确认
 
@@ -11,7 +11,7 @@ git log -3 --oneline
 
 - 仓库：<https://github.com/6jinfu/zstd_amis/tree/main>，当前分支为main；本机目录为 `/Users/jeff/Documents/Codex/cc_zstd_amis`，换机使用实际克隆目录。
 - 本轮产品代码核对基线为 `d87e056`（2026-11-03）；前序 `f99654d` 包含组织结构、标准AI、评鉴及盘点更新。后续最新状态查Git，不将此处基线当作永久最新提交。
-- 本轮开始时仅 `promo-site/` 三张宣传图片未跟踪，按此前约定不上传；不属于漏推业务代码。接手时仍须重新检查工作区，禁止重置、清空或覆盖无关改动。
+- 2026-11-04版本标签为 `v2026.11.04`，包含标准AI生成设置及生成偏好调整和对应PRD；`promo-site/` 三张宣传图片按此前约定不上传。接手时仍须重新检查工作区，禁止重置、清空或覆盖无关改动。
 - 当前没有用户确认的下一步开发任务；下文未实现事项是边界，不是授权立即扩展的待办。
 
 ## 2. 运行与部署
@@ -63,11 +63,14 @@ python3 student-client/serve.py --port 4182
 
 | 时间/代码提交 | 已落地内容 | 定向证据 |
 | --- | --- | --- |
+| 2026-11-03，随 `v2026.11.04` 归档 | 标准AI生成设置移除岗位层级/管理范围；内容侧重改为生成偏好，区分详略与能力侧重，明确下一步 | `app/standard-ai-assistant.js`、`app/standard-ai-flow.css`；11月3日定向浏览器核验，11月4日推送前未重测浏览器 |
 | 2026-11-02，随 `d87e056` 提交 | 学员头部；Web选择器240×32px；H5标签列56px、间距8px，选择器最大240×32px/14px；删除无来源简介 | `deliverables/frontend-review/2026-11-02-student-header/`、`2026-11-02-mobile-standard-selector/`；`student-client/QA.md` |
 | 2026-10-29相关实现，随 `f99654d` 提交 | 组织默认5×5、标准能力雷达、AI排序评分/需求理解、360逐能力生成记录、宫格人才分层 | `tests/org-grid.test.cjs`、`standard-radar.test.cjs`、`standard-ai-priority.test.cjs`、`standard-brief.test.cjs`、`assessment-ai-generation.test.cjs`、`review-layering.test.cjs`；当天验收目录 |
 | 2026-10-28，随 `a4e668b` 提交 | 共用人才池与筛选、创建人/状态列调整、LAN HTTP UUID兼容；学员整套标准切换；旧导航删除 | `tests/talent-pools.test.cjs`、`navigation.test.cjs`、`student-client/tests/requirements.test.cjs`；当天验收目录 |
 
 浏览器记录为既有验收证据，不代表11月3日重测全部页面/视口。2026-11-03推送前实际通过：48项Node＋56项Python回归；管理端297处、学员端28处资源指纹；学员交付清单286份文件哈希。离线工作流测试替换了模型输出，不证明真实模型效果。测试数量会变，以当次输出为准。
+
+2026-11-04标签归档前复核：48项Node＋56项Python回归全部通过；管理端297处、学员端28处资源指纹一致；JS语法与`git diff --check`通过。本轮未重测浏览器，也未调用真实模型。
 
 ```sh
 # 仅读取检查；将write=False改成True才会更新引用。

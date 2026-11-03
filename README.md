@@ -6,7 +6,7 @@
 
 ## 最新代码与历史归档
 
-最新代码及交接以仓库 [`main`](https://github.com/6jinfu/zstd_amis/tree/main) 为准，当前产品需求为 PRD V1.101。接手先用 `git status -sb`、`git log -3 --oneline` 核对实际状态。
+最新代码及交接以仓库 [`main`](https://github.com/6jinfu/zstd_amis/tree/main) 为准，当前产品需求为 PRD V1.102。接手先用 `git status -sb`、`git log -3 --oneline` 核对实际状态。
 
 [`v2026.10.21-project`](https://github.com/6jinfu/zstd_amis/releases/tag/v2026.10.21-project) 和 [`MIGRATION.md`](MIGRATION.md) 对应历史归档，不包含后续全部修改。宣传视频、字体和渲染素材按既有约定不上传；管理端静态部署只使用 `app/` 内容，见 [`DEPLOYMENT.md`](DEPLOYMENT.md)。
 

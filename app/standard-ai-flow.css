@@ -260,11 +260,19 @@
 .std-ai-dimension-picker label { display:flex;align-items:center;gap:8px;min-height:42px;padding:8px 12px;border:1px solid #dce1e8;border-radius:6px;cursor:pointer; }
 .std-ai-dimension-picker label:has(:checked) { border-color:var(--flow-blue);background:#f5f8ff; }
 .std-ai-dimension-picker input,.std-ai-outline-option input,.std-ai-update-options input { width:16px;height:16px;margin:0;accent-color:var(--flow-blue,#0152d9); }
-.std-ai-outline-options { padding:20px;display:grid;gap:22px; }
-.std-ai-outline-options fieldset { display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;border:0; }
-.std-ai-outline-options legend { margin-bottom:12px;font-size:14px;font-weight:500; }
-.std-ai-outline-option { display:flex;align-items:center;gap:8px;min-height:42px;padding:8px 12px;border:1px solid #dce1e8;border-radius:6px;cursor:pointer; }
+.std-ai-outline-options { padding:20px;display:grid;gap:28px; }
+.std-ai-outline-options fieldset { min-width:0;margin:0;padding:0;border:0; }
+.std-ai-outline-options legend { margin-bottom:12px;font-size:14px;font-weight:600; }
+.std-ai-outline-options p { margin:0 0 12px;color:#586174;font-size:14px;line-height:1.7; }
+.std-ai-outline-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px; }
+.std-ai-outline-focus { display:flex;flex-wrap:wrap;gap:10px; }
+.std-ai-outline-option { display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 14px;border:1px solid #dce1e8;border-radius:6px;cursor:pointer;font-size:14px;line-height:1.6; }
+.std-ai-outline-option input { flex-shrink:0; }
+.std-ai-outline-option strong { display:block;font-size:14px;font-weight:500; }
+.std-ai-outline-option>span>span { display:block;margin-top:4px;color:#586174; }
+.std-ai-outline-option:hover { border-color:#8a94a5; }
 .std-ai-outline-option:has(:checked) { border-color:var(--flow-blue);background:#f5f8ff; }
+.std-ai-outline-option:has(input:focus-visible) { outline:2px solid #667085;outline-offset:2px; }
 .conversation-mode .std-ai-confirm-dock { padding-bottom:20px; }
 .conversation-mode .std-ai-confirm-card { width:100%;max-width:800px;padding:14px 16px; }
 .conversation-mode .std-ai-confirm-card>textarea,.conversation-mode .std-ai-elicitation>textarea { min-height:44px;font-size:14px; }
