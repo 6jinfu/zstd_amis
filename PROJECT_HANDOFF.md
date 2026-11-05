@@ -1,6 +1,6 @@
 # 人才发展原型项目交接
 
-最后核对：2026-11-04。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) V1.102 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
+最后核对：2026-11-05（评鉴报告入口）。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) V1.112 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
 
 ## 1. 接手先确认
 
@@ -12,7 +12,7 @@ git log -3 --oneline
 - 仓库：<https://github.com/6jinfu/zstd_amis/tree/main>，当前分支为main；本机目录为 `/Users/jeff/Documents/Codex/cc_zstd_amis`，换机使用实际克隆目录。
 - 本轮产品代码核对基线为 `d87e056`（2026-11-03）；前序 `f99654d` 包含组织结构、标准AI、评鉴及盘点更新。后续最新状态查Git，不将此处基线当作永久最新提交。
 - 2026-11-04版本标签为 `v2026.11.04`，包含标准AI生成设置及生成偏好调整和对应PRD；`promo-site/` 三张宣传图片按此前约定不上传。接手时仍须重新检查工作区，禁止重置、清空或覆盖无关改动。
-- 当前没有用户确认的下一步开发任务；下文未实现事项是边界，不是授权立即扩展的待办。
+- 当前用户要求暂隐藏标准AI需求理解展示、保留生成设置和确认，内容详略使用五档滑块，原能力侧重改为三档能力描述方式；非结构化需求整理与补充引导的交互仍待确定。下文未实现事项是边界，不是授权立即扩展的待办。
 
 ## 2. 运行与部署
 
@@ -63,6 +63,14 @@ python3 student-client/serve.py --port 4182
 
 | 时间/代码提交 | 已落地内容 | 定向证据 |
 | --- | --- | --- |
+| 2026-11-05，本地修改 | 人才档案评鉴记录操作改为“查看报告”，移除原分项依据抽屉；当前无关联报告页面，点击暂提示“报告暂未接入” | `app/talent-center.js`；PRD §9.2；核验见 `deliverables/frontend-review/2026-11-05-profile-report/README.md` |
+| 2026-11-05，本地修改 | 移除人才档案顶部“加入人才池”和“导出档案”按钮，仅保留返回、姓名；其他页面入池入口及已有成员记录不变 | `app/talent-center.js`；PRD §9.2；浏览器证据见 `deliverables/frontend-review/2026-11-05-profile-actions/README.md` |
+| 2026-11-05，本地修改 | 人才档案评鉴记录的完成日期、有效至两列替换为总分，按用户最新要求暂固定展示“5 分”，仅作原型示例，不写入评鉴数据或自行换算。日期及有效期仍保留在记录中用于有效性判断，盘点记录不变 | `app/talent-center.js`；PRD §9.2；浏览器及检查记录见 `deliverables/frontend-review/2026-11-05-profile-total-score/README.md` |
+| 2026-11-04，本地修改 | 独立学习方案资源卡片上移，添加项目下拉提供已有项目选择和新标签页打开培训平台新建入口；修复删除副标题后的初始化异常，标准选择区位于操作栏下。未改变岗位单份保存或接入外部项目回填 | `app/learning-plan.html`、`app/standard-references.js`；验证见 `deliverables/frontend-review/2026-11-04-learning-plan-actions/README.md` |
+| 2026-11-04，本地修改 | 两组生成偏好滑块改为连续跟手、松开240ms缓动吸附，按压放大与柔和光晕；保留离散档位、键盘和减少动态效果支持 | `app/standard-ai-assistant.js`、`app/standard-ai-flow.css`；验证见 `deliverables/frontend-review/2026-11-04-slider-motion/README.md` |
+| 2026-11-04，本地修改 | 原能力侧重替换为只写行为/带上情境/包含成果三档能力描述方式，复用详略滑块，示例实时切换及220ms过渡；移除原候选侧重排序。选择进入确认记录及草稿generationPreferences，尚无正式能力描述字段/真实生成，不改Dify | `app/standard-ai-assistant.js`、`app/standard-ai-flow.css`；验证见 `deliverables/frontend-review/2026-11-04-description-structure/README.md` |
+| 2026-11-04，本地修改 | 内容详略改为简洁/精要/适中/充实/详细五档滑块，拖动/刻度点击/键盘即时反馈，返回保留、新会话重置；原型条目上限实际联动且不补造内容，不改能力等级或Dify契约 | `app/standard-ai-assistant.js`、`app/standard-ai-flow.css`；验证见 `deliverables/frontend-review/2026-11-04-detail-slider/README.md` |
+| 2026-11-04，本地修改 | 暂隐藏标准AI背景/行动/成果理解展示及后续理解回看，生成设置独立可见，保留底部补充输入和确认继续；输入按钮改为提交补充。内部需求整理及原型生成保留；替代交互待定 | `app/standard-ai-assistant.js`；验证记录见 `deliverables/frontend-review/2026-11-04-hide-standard-brief/README.md` |
 | 2026-11-03，随 `v2026.11.04` 归档 | 标准AI生成设置移除岗位层级/管理范围；内容侧重改为生成偏好，区分详略与能力侧重，明确下一步 | `app/standard-ai-assistant.js`、`app/standard-ai-flow.css`；11月3日定向浏览器核验，11月4日推送前未重测浏览器 |
 | 2026-11-02，随 `d87e056` 提交 | 学员头部；Web选择器240×32px；H5标签列56px、间距8px，选择器最大240×32px/14px；删除无来源简介 | `deliverables/frontend-review/2026-11-02-student-header/`、`2026-11-02-mobile-standard-selector/`；`student-client/QA.md` |
 | 2026-10-29相关实现，随 `f99654d` 提交 | 组织默认5×5、标准能力雷达、AI排序评分/需求理解、360逐能力生成记录、宫格人才分层 | `tests/org-grid.test.cjs`、`standard-radar.test.cjs`、`standard-ai-priority.test.cjs`、`standard-brief.test.cjs`、`assessment-ai-generation.test.cjs`、`review-layering.test.cjs`；当天验收目录 |
@@ -71,6 +79,8 @@ python3 student-client/serve.py --port 4182
 浏览器记录为既有验收证据，不代表11月3日重测全部页面/视口。2026-11-03推送前实际通过：48项Node＋56项Python回归；管理端297处、学员端28处资源指纹；学员交付清单286份文件哈希。离线工作流测试替换了模型输出，不证明真实模型效果。测试数量会变，以当次输出为准。
 
 2026-11-04标签归档前复核：48项Node＋56项Python回归全部通过；管理端297处、学员端28处资源指纹一致；JS语法与`git diff --check`通过。本轮未重测浏览器，也未调用真实模型。
+
+2026-11-05推送前复核：48项Node＋56项Python回归全部通过；管理端297处、学员端28处资源指纹一致；本次变更JS语法及`git diff --check`通过。人才档案浏览器核验见当天验收记录；未重测其他页面全部交互，未调用真实模型。本次提交包含11月4日标准AI、学习方案调整及11月5日人才档案改动和对应文档、测试、验收记录；未跟踪的 `deliverables/talent-development-10min-20261021/` 演示PPT及构建文件不纳入代码提交。
 
 ```sh
 # 仅读取检查；将write=False改成True才会更新引用。

@@ -6,9 +6,21 @@
   const pendingKey='talent-standard-ai-draft-v1';
   const productContent={duty:[{n:'负责产品规划与需求管理',t:['结合业务目标完成需求分析与优先级判断','输出清晰的产品方案并推动评审']},{n:'推动产品交付与持续优化',t:['协同研发、设计和运营推进版本落地','跟踪核心数据与用户反馈并持续迭代']}],exp:['本科及以上，产品、计算机或相关专业优先','2 年以上互联网或企业软件产品经验','具备从需求分析到产品交付的完整项目经验'],cap:[['需求分析','L3'],['产品规划','L3'],['数据分析','L3'],['跨部门沟通','L3'],['项目管理','L3'],['市场洞察','L3'],['客户导向','L3']],pow:['成就导向','协作共赢','创新探索'],pot:['学习敏锐','复杂决策','跨界整合']};
   const commonContent={duty:[{n:'围绕岗位目标完成专业工作交付',t:['理解任务目标并制定执行计划','按质量和时间要求完成工作成果']},{n:'参与团队协作与持续改进',t:['主动同步进展、问题和风险','沉淀经验并参与知识共享']}],exp:['具备与岗位相关的专业学习或实践经历','能够独立承担职责范围内的工作任务'],cap:[['目标执行','L3'],['问题解决','L3'],['跨部门沟通','L3'],['持续学习','L3'],['协同推进','L3'],['专业知识整合','L3'],['自我认知','L2']],pow:['成就导向','协作共赢'],pot:['学习敏锐','坚韧抗压']};
+  const detailLevels=[
+    {value:'concise',label:'简洁',description:'聚焦核心职责与要求，便于快速审阅。',limit:{duty:2,exp:2,cap:5,pow:2,pot:2}},
+    {value:'essential',label:'精要',description:'保留核心内容，适当补充相关能力。',limit:{duty:2,exp:2,cap:6,pow:2,pot:2}},
+    {value:'regular',label:'适中',description:'兼顾阅读效率与职责、经历和能力的覆盖。',limit:{duty:3,exp:3,cap:7,pow:3,pot:3}},
+    {value:'expanded',label:'充实',description:'扩展职责与能力覆盖，保留更多相关要求。',limit:{duty:4,exp:4,cap:8,pow:4,pot:4}},
+    {value:'detailed',label:'详细',description:'更充分地展开可用内容，便于逐项审阅和调整。',limit:{duty:5,exp:5,cap:10,pow:5,pot:5}}
+  ];
+  const descriptionStructures=[
+    {value:'behavior',label:'只写行为',description:'直接说明需要表现出的行为。',example:'主动澄清各方诉求，协调解决方案。'},
+    {value:'context_behavior',label:'带上情境',description:'先交代工作情境，再说明应该如何行动。',example:'项目协作出现分歧时，主动澄清各方诉求，协调解决方案。'},
+    {value:'context_behavior_result',label:'包含成果',description:'在情境和行动之外，进一步说明期望达成的结果。',example:'项目协作出现分歧时，主动澄清各方诉求，协调解决方案，推动各方形成一致的行动安排。'}
+  ];
   const T=window.TalentSettings,defaultSections=Object.keys(T.dimensions),sectionLabels=T.dimensions;
   let confirmedBrief=null;
-  let sourceId='',detail='concise',focus='balanced',feedbackResponses=[];
+  let sourceId='',detail='concise',descriptionStructure='behavior',feedbackResponses=[];
   let stage='welcome',result=null,originalRequest='',brief=null,uploadedFile='',generationTimer=0,thinkingTarget='review',generatedSections=T.enabled(),scope='position',scopeFeedback='',feedbackHistory=[],reviewFeedbackHistory=[];
 
   let priorityItems=[],rankedCapabilities=[],capabilityScores=Object.create(null),comparisonConfirmed=false,priorityPhase='',priorityStep=0,draggedCapability=null;
@@ -20,7 +32,7 @@
     stage=next;chat.classList.toggle('conversation-mode',next!=='welcome');chat.classList.toggle('thinking-mode',next==='thinking'&&thinkingTarget!=='rank');chat.classList.toggle('preview-mode',next==='scope');drawer.classList.toggle('flow-active',next!=='welcome');positionSelect.disabled=next!=='welcome';
     const hidden=['review','outline','scope','rank','compare','priority-thinking'].includes(next)||(next==='thinking'&&thinkingTarget==='rank'),promptText=next==='welcome'?'请描述建模的岗位要求':'有问题或者需要调整的，可以直接告诉我';composer.setAttribute('aria-hidden',String(hidden));prompt.placeholder=promptText;promptLabel.textContent=promptText;send.disabled=hidden||!prompt.value.trim();
   }
-  function reset(){clearTimeout(generationTimer);resetPriority();confirmedBrief=null;result=null;originalRequest='';brief=null;uploadedFile='';files.value='';thinkingTarget='review';generatedSections=T.enabled();sourceId='';detail='concise';focus='balanced';feedbackResponses=[];scope='position';scopeFeedback='';feedbackHistory=[];reviewFeedbackHistory=[];setStage('welcome');positionSelect.value='';prompt.value='';send.disabled=true;messages.innerHTML=welcomeMarkup();prompt.focus();}
+  function reset(){clearTimeout(generationTimer);resetPriority();confirmedBrief=null;result=null;originalRequest='';brief=null;uploadedFile='';files.value='';thinkingTarget='review';generatedSections=T.enabled();sourceId='';detail='concise';descriptionStructure='behavior';feedbackResponses=[];scope='position';scopeFeedback='';feedbackHistory=[];reviewFeedbackHistory=[];setStage('welcome');positionSelect.value='';prompt.value='';send.disabled=true;messages.innerHTML=welcomeMarkup();prompt.focus();}
   function selectedPosition(){return S.positions.find(item=>item.id===positionSelect.value);}
   function inferPosition(text){return S.positions.find(item=>text.includes(item.name));}
   function inferBrief(text){
@@ -80,23 +92,20 @@
     if(/重点客户|大客户|客户经营/.test(feedback)&&content.duty[0])content.duty[0].n='负责销售目标达成与重点客户经营';
     if(/精简|减少/.test(feedback)){content.exp=content.exp.slice(0,2);content.pow=content.pow.slice(0,2);content.pot=content.pot.slice(0,2);}
     if(/团队|辅导/.test(feedback)&&generatedSections.includes('cap')&&!content.cap.some(item=>item[0]==='团队管理'))content.cap.push(['团队管理','L3']);
-    const limit=detail==='concise'?{duty:2,exp:2,cap:5,pow:2,pot:2}:{duty:3,exp:3,cap:7,pow:3,pot:3};
-    const pattern=focus==='collaboration'?/沟通|协作|协同/:focus==='leadership'?/管理|团队|辅导/:/执行|目标|交付|规划/;
-    if(focus!=='balanced')content.cap.sort((a,b)=>Number(pattern.test(b[0]))-Number(pattern.test(a[0])));
+    const limit=detailLevels.find(item=>item.value===detail).limit;
     defaultSections.forEach(key=>{content[key]=generatedSections.includes(key)?content[key].slice(0,limit[key]):[];});
-    return {name:position?`${position.name}标准`:'人才标准草稿',category,description:`面向${brief.scenario}${brief.level==='未指定'?'':'，岗位层级：'+brief.level}${brief.management==='未指定'?'':'，管理范围：'+brief.management}。` ,mode:position?'positions':'none',positions:position?[position.id]:[],groups:[],content};
+    return {name:position?`${position.name}标准`:'人才标准草稿',category,description:`面向${brief.scenario}${brief.level==='未指定'?'':'，岗位层级：'+brief.level}${brief.management==='未指定'?'':'，管理范围：'+brief.management}。` ,mode:position?'positions':'none',positions:position?[position.id]:[],groups:[],content,generationPreferences:{detail,...(generatedSections.includes('cap')?{descriptionStructure}:{})}};
   }
   function flowLayout(body,footer){return `<div class="std-ai-flow-workspace">${body}${footer||''}</div>`;}
-  function generationConfirmation(){const labels={balanced:'均衡呈现',delivery:'工作交付',collaboration:'协同沟通',leadership:'团队管理'};return `生成${generatedSections.map(key=>sectionLabels[key]).join('、')}；${detail==='concise'?'简洁内容':'常规内容'}${generatedSections.includes('cap')?'；能力侧重：'+labels[focus]:''}`;}
+  function generationConfirmation(){return `生成${generatedSections.map(key=>sectionLabels[key]).join('、')}；${detailLevels.find(item=>item.value===detail).label}内容${generatedSections.includes('cap')?'；能力描述：'+descriptionStructures.find(item=>item.value===descriptionStructure).label:''}`;}
   function sourceStandard(){return S.read().standards.find(item=>item.id===sourceId);}
   function userMessage(text){return `<article class="std-ai-thread-message user"><div class="std-ai-thread-bubble">${e(text)}</div></article>`;}
   function assistantMessage(text,component='',className=''){return `<article class="std-ai-thread-message assistant ${className}"><div class="std-ai-thread-message-body">${text?`<div class="std-ai-thread-copy">${text}</div>`:''}${component}</div></article>`;}
   function threadHeader(status){return `<header class="std-ai-thread-header"><div><strong>人才标准帮建</strong><span>${e(selectedPosition()?.name||'未指定岗位')}</span></div><span class="std-ai-thread-status">${status}</span></header>`;}
-  function conversationLead(){return `${userMessage(originalRequest)}${assistantMessage(selectedPosition()?'我已结合岗位和你的描述整理了建模信息。':'我已根据你的描述整理了建模信息，岗位可在后续再关联。')}`;}
+  function conversationLead(){return `${userMessage(originalRequest)}${assistantMessage(selectedPosition()?'已收到你的建模需求。':'已收到你的建模需求，岗位可在后续再关联。')}`;}
   function reviewFeedbackTurns(pending=false){
-    const history=reviewFeedbackHistory.map((item,index)=>`${userMessage(item)}${pending&&index===reviewFeedbackHistory.length-1?'':assistantMessage('已结合你的补充更新理解，请看看是否准确。')}`).join('');
-    const showConfirmed=confirmedBrief&&stage!=='review'&&!(stage==='thinking'&&thinkingTarget==='review');
-    return history+(showConfirmed?assistantMessage('',`<details class="std-ai-understanding-record"><summary>已确认的建模理解</summary>${understandingMarkup(confirmedBrief)}</details>`):'');
+    const history=reviewFeedbackHistory.map((item,index)=>`${userMessage(item)}${pending&&index===reviewFeedbackHistory.length-1?'':assistantMessage('已记录你的补充。')}`).join('');
+    return history;
   }
   function focusHeading(){messages.querySelector('[data-ai-stage-heading]')?.focus({preventScroll:true});}
   function thinkingMarkup(){
@@ -112,13 +121,31 @@
   }
   function reviewSummary(){
     const position=selectedPosition();
-    return `<div class="std-ai-review-summary">${understandingMarkup(interpretBrief(originalRequest,reviewFeedbackHistory,position?.name))}<details class="std-ai-review-options"><summary>生成设置</summary><div class="std-ai-review-fields"><label class="std-ai-review-field full"><span>本次操作</span><select id="std-ai-source"><option value="">新建人才标准</option>${S.read().standards.map(item=>`<option value="${e(item.id)}" ${item.id===sourceId?'selected':''}>更新：${e(item.name)}</option>`).join('')}</select></label><div class="std-ai-review-field full"><span>目标岗位</span><strong>${e(position?.name||'未指定')}</strong></div><div class="std-ai-review-field full"><span>业务场景</span><p>${e(brief.scenario)}</p></div>${uploadedFile?`<div class="std-ai-review-field full"><span>参考资料</span><p>${e(uploadedFile)}</p></div>`:''}</div><fieldset class="std-ai-dimension-picker"><legend>本次生成内容</legend><div>${T.enabled().map(key=>`<label><input type="checkbox" value="${key}" data-ai-dimension ${generatedSections.includes(key)?'checked':''}><span>${sectionLabels[key]}</span></label>`).join('')}</div></fieldset></details></div>`;
+    return `<div class="std-ai-review-summary"><div class="std-ai-review-fields"><label class="std-ai-review-field full"><span>本次操作</span><select id="std-ai-source"><option value="">新建人才标准</option>${S.read().standards.map(item=>`<option value="${e(item.id)}" ${item.id===sourceId?'selected':''}>更新：${e(item.name)}</option>`).join('')}</select></label><div class="std-ai-review-field full"><span>目标岗位</span><strong>${e(position?.name||'未指定')}</strong></div><div class="std-ai-review-field full"><span>业务场景</span><p>${e(brief.scenario)}</p></div>${uploadedFile?`<div class="std-ai-review-field full"><span>参考资料</span><p>${e(uploadedFile)}</p></div>`:''}</div><fieldset class="std-ai-dimension-picker"><legend>本次生成内容</legend><div>${T.enabled().map(key=>`<label><input type="checkbox" value="${key}" data-ai-dimension ${generatedSections.includes(key)?'checked':''}><span>${sectionLabels[key]}</span></label>`).join('')}</div></fieldset></div>`;
   }
   function reviewDecision(){return `<footer class="std-ai-confirm-dock"><div class="std-ai-confirm-card"><label class="sr-only" for="std-ai-review-feedback">补充建模信息</label><textarea id="std-ai-review-feedback" rows="1" maxlength="1200" data-ai-review-feedback placeholder="可以继续补充实际工作、需要做的事，或希望达成的变化"></textarea><p class="std-ai-flow-error" data-ai-review-error aria-live="polite"></p><div class="std-ai-confirm-footer"><span data-ai-dimension-count>已选择 ${generatedSections.length} 类内容</span><button type="button" class="std-ai-flow-primary" data-ai-review-submit>确认，继续</button></div></div></footer>`;}
-  function outlineMarkup(){
-    const options=(name,items,current)=>items.map(([value,label,description])=>`<label class="std-ai-outline-option"><input type="radio" name="${name}" value="${value}" ${value===current?'checked':''}><span><strong>${label}</strong>${description?`<span>${description}</span>`:''}</span></label>`).join('');
-    return `<div class="std-ai-outline-options"><fieldset><legend>内容详略</legend><div class="std-ai-outline-grid">${options('ai-detail',[['concise','简洁','聚焦核心职责与要求，便于快速审阅。'],['regular','常规','保留更多职责、经历和能力条目。']],detail)}</div></fieldset>${generatedSections.includes('cap')?`<fieldset><legend>能力侧重</legend><p id="std-ai-focus-help">相关能力会优先进入候选，下一步可逐项调整顺序和重要性；不改变能力要求等级。</p><div class="std-ai-outline-focus" aria-describedby="std-ai-focus-help">${options('ai-focus',[['balanced','均衡呈现'],['delivery','工作交付'],['collaboration','协同沟通'],['leadership','团队管理']],focus)}</div></fieldset>`:''}</div>`;
+  function preferenceMarkup(name,title,levels,value){
+    const index=levels.findIndex(item=>item.value===value),level=levels[index],id='std-ai-'+name;
+    return `<fieldset class="std-ai-preference-control ${name==='structure'?'std-ai-structure-control':''}" data-ai-preference="${name}"><legend><span id="${id}-label">${title}</span><output for="${id}">${level.label}</output></legend><p id="${id}-help" data-ai-preference-help>${level.description}</p><div class="std-ai-preference-slider" style="--slider-progress:${index/(levels.length-1)*100}%;--slider-ratio:${index/(levels.length-1)}"><input id="${id}" name="ai-${name}" type="range" min="0" max="${levels.length-1}" step="1" value="${index}" aria-labelledby="${id}-label" aria-describedby="${id}-help" aria-valuetext="${level.label}"><div class="std-ai-slider-visual" aria-hidden="true"><span class="std-ai-slider-fill"></span><span class="std-ai-slider-thumb"></span></div><div class="std-ai-preference-stops">${levels.map((item,i)=>`<button type="button" data-ai-preference-stop="${i}" aria-label="${title}：${item.label}" aria-pressed="${i===index}">${item.label}</button>`).join('')}</div></div>${name==='structure'?`<div class="std-ai-structure-example"><span>表达示例</span><p data-ai-structure-example aria-live="polite">${level.example}</p></div>`:''}</fieldset>`;
   }
+  function updatePreference(control,value){
+    const index=Math.round(value),structure=control.dataset.aiPreference==='structure',levels=structure?descriptionStructures:detailLevels,level=levels[index];
+    const slider=control.querySelector('.std-ai-preference-slider'),input=control.querySelector('input'),position=slider.classList.contains('is-dragging')?value:index;
+    input.value=position;input.setAttribute('aria-valuetext',level.label);
+    slider.style.setProperty('--slider-progress',`${position/(levels.length-1)*100}%`);
+    slider.style.setProperty('--slider-ratio',position/(levels.length-1));
+    if(level.value===(structure?descriptionStructure:detail))return;
+    if(structure)descriptionStructure=level.value;else detail=level.value;
+    control.querySelector('output').textContent=level.label;
+    control.querySelector('[data-ai-preference-help]').textContent=level.description;
+    control.querySelectorAll('[data-ai-preference-stop]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.aiPreferenceStop)===index)));
+    if(structure){
+      const example=control.querySelector('[data-ai-structure-example]');example.textContent=level.example;
+      example.getAnimations().forEach(animation=>animation.cancel());
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)example.animate([{opacity:.35,transform:'translateY(4px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'ease-out'});
+    }
+  }
+  function outlineMarkup(){return `<div class="std-ai-outline-options">${preferenceMarkup('detail','内容详略',detailLevels,detail)}${generatedSections.includes('cap')?preferenceMarkup('structure','能力描述方式',descriptionStructures,descriptionStructure):''}</div>`;}
   function renderOutline(){
     setStage('outline');
     const selected=generatedSections.map(key=>sectionLabels[key]).join('、');
@@ -129,9 +156,9 @@
   function renderReview(){
     const pendingInput=prompt.value;
     setStage('review');
-    const component=`<div class="std-ai-thread-component"><header><strong id="std-ai-review-title" tabindex="-1" data-ai-stage-heading>对这次建模的理解</strong><span class="std-ai-component-state">可继续补充</span></header>${reviewSummary()}</div>`;
+    const component=`<div class="std-ai-thread-component"><header><strong id="std-ai-review-title" tabindex="-1" data-ai-stage-heading>生成设置</strong></header>${reviewSummary()}</div>`;
     messages.innerHTML=flowLayout(`${threadHeader('信息待确认')}<div class="std-ai-thread-scroll"><div class="std-ai-thread-list">${conversationLead()}${reviewFeedbackTurns()}${assistantMessage('',component)}</div></div>`,reviewDecision());focusHeading();
-    if(pendingInput){messages.querySelector('[data-ai-review-feedback]').value=pendingInput;messages.querySelector('[data-ai-review-submit]').textContent='更新理解';prompt.value='';}
+    if(pendingInput){messages.querySelector('[data-ai-review-feedback]').value=pendingInput;messages.querySelector('[data-ai-review-submit]').textContent='提交补充';prompt.value='';}
     messages.querySelector('[data-ai-stage-heading]').scrollIntoView({block:'start',behavior:'instant'});
   }
   function resetPriority(){priorityItems=[];rankedCapabilities=[];capabilityScores=Object.create(null);comparisonConfirmed=false;priorityPhase='';priorityStep=0;draggedCapability=null;}
@@ -396,15 +423,24 @@
   $('#std-ai-history-toggle').onclick=()=>{const open=!drawer.classList.contains('history-open');drawer.classList.toggle('history-open',open);$('#std-ai-history-toggle').setAttribute('aria-expanded',String(open));$('#std-ai-history-toggle').setAttribute('aria-label',open?'关闭边栏':'打开边栏');};
   $('#std-ai-new-chat').onclick=reset;drawer.querySelector('[data-ai-reset]').onclick=reset;drawer.querySelector('.std-ai-microphone').onclick=()=>showToast('语音输入暂未接入');
   files.addEventListener('change',()=>{uploadedFile=files.files[0]?.name||'';if(uploadedFile)showToast(`已添加资料：${uploadedFile}`);});
-  messages.addEventListener('input',event=>{if(event.target.hasAttribute('data-ai-review-feedback')){messages.querySelector('[data-ai-review-error]').textContent='';messages.querySelector('[data-ai-review-submit]').textContent=event.target.value.trim()?'更新理解':'确认，继续';}if(event.target.id==='std-ai-followup')messages.querySelector('[data-ai-followup-error]').textContent='';});
+  messages.addEventListener('pointerdown',event=>{
+    const input=event.target;if(!input.matches('[data-ai-preference] input[type=range]')||event.button!==0)return;
+    input.step='any';input.parentElement.classList.add('is-dragging');input.setPointerCapture(event.pointerId);
+  });
+  function settlePreference(event){
+    const input=event.target;if(!input.matches('[data-ai-preference] input[type=range]')||!input.parentElement.classList.contains('is-dragging'))return;
+    const value=Number(input.value);input.parentElement.classList.remove('is-dragging');input.step='1';
+    updatePreference(input.closest('[data-ai-preference]'),value);
+  }
+  ['pointerup','pointercancel','lostpointercapture','focusout'].forEach(type=>messages.addEventListener(type,settlePreference));
+  messages.addEventListener('input',event=>{if(event.target.matches('[data-ai-preference] input[type=range]'))updatePreference(event.target.closest('[data-ai-preference]'),Number(event.target.value));if(event.target.hasAttribute('data-ai-review-feedback')){messages.querySelector('[data-ai-review-error]').textContent='';messages.querySelector('[data-ai-review-submit]').textContent=event.target.value.trim()?'提交补充':'确认，继续';}if(event.target.id==='std-ai-followup')messages.querySelector('[data-ai-followup-error]').textContent='';});
   messages.addEventListener('change',event=>{const target=event.target;
     if(target.hasAttribute('data-ai-dimension')){generatedSections=[...messages.querySelectorAll('[data-ai-dimension]:checked')].map(input=>input.value);messages.querySelector('[data-ai-dimension-count]').textContent=`已选择 ${generatedSections.length} 类内容`;messages.querySelector('[data-ai-review-error]').textContent='';}
     if(target.id==='std-ai-source'){sourceId=target.value;scope=sourceId?'original':selectedPosition()?'position':'none';const source=sourceStandard();if(source?.positions.length===1)positionSelect.value=source.positions[0];}
-    if(target.name==='ai-detail')detail=target.value;
-    if(target.name==='ai-focus')focus=target.value;
     if(target.hasAttribute('data-ai-scope')){scope=target.value;scopeFeedback='';updateScopeUI();}});
   messages.addEventListener('keydown',event=>{if(event.target.id==='std-ai-outline-feedback'&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();messages.querySelector('[data-ai-generate]').click();return;}if(event.target.hasAttribute('data-ai-review-feedback')&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();submitReviewDecision();}if(event.target.id==='std-ai-followup'&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();confirmScope();}});
   drawer.addEventListener('click',event=>{
+    const preferenceStop=event.target.closest('[data-ai-preference-stop]');if(preferenceStop){updatePreference(preferenceStop.closest('[data-ai-preference]'),Number(preferenceStop.dataset.aiPreferenceStop));return;}
     const item=event.target.closest('[data-ai-quick], [data-ai-history]');if(item){const text=item.dataset.aiQuick||item.dataset.aiHistory;prompt.value=text;send.disabled=false;if(item.dataset.aiQuick!==undefined)run(text);else{if(stage!=='welcome'){reset();prompt.value=text;send.disabled=false;}drawer.classList.remove('history-open');$('#std-ai-history-toggle').setAttribute('aria-expanded','false');prompt.focus();}return;}
     if(event.target.closest('[data-ai-attachment]')){files.click();return;}
     if(event.target.closest('[data-ai-edit-brief]')){clearTimeout(generationTimer);resetPriority();renderReview();return;}

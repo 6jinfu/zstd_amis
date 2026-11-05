@@ -41,8 +41,8 @@ test('重新开始清空评分、顺序、分析阶段及拖拽状态',()=>{
   vm.runInContext(source.slice(source.indexOf('  function resetPriority()'),source.indexOf('  function sortCapabilitiesByScore')),context);
   context.resetPriority();assert.equal(context.priorityItems.length,0);assert.equal(context.rankedCapabilities.length,0);assert.equal(Object.keys(context.capabilityScores).length,0);assert.equal(context.comparisonConfirmed,false);assert.equal(context.priorityPhase,'');assert.equal(context.draggedCapability,null);
 });
-test('新建产品、通用、销售和算法示例分别提供5/7项，沿用岗位候选且不修改源数据',()=>{
-  const context={window:{},S:{clone:structuredClone,read:()=>({categories:['通用标准']})},defaultSections:['duty','exp','cap','pow','pot'],generatedSections:['duty','exp','cap','pow','pot'],feedbackHistory:[],focus:'balanced',sourceStandard:()=>null};
+test('五档详略限制实际生成条目，沿用岗位候选、不补造或修改源数据',()=>{
+  const context={window:{},S:{clone:structuredClone,read:()=>({categories:['通用标准']})},defaultSections:['duty','exp','cap','pow','pot'],generatedSections:['duty','exp','cap','pow','pot'],feedbackHistory:[],descriptionStructure:'behavior',sourceStandard:()=>null};
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../app/standard-seeds.js'),'utf8'),context);
   vm.runInContext(source.slice(source.indexOf('  const productContent'),source.indexOf('  const T=')),context);
@@ -56,7 +56,29 @@ test('新建产品、通用、销售和算法示例分别提供5/7项，沿用�
     }
   }
   assert.equal(JSON.stringify(context.window.STANDARD_POSITION_SEEDS),original);
+  const existing={content:{
+    duty:Array.from({length:6},(_,i)=>({n:'职责'+i,t:['任务'+i]})),
+    exp:Array.from({length:6},(_,i)=>'经历'+i),cap:Array.from({length:12},(_,i)=>['能力'+i,'L2']),
+    pow:Array.from({length:6},(_,i)=>'动力'+i),pot:Array.from({length:6},(_,i)=>'潜力'+i)
+  }},before=JSON.stringify(existing);
+  context.sourceStandard=()=>existing;
+  for(const [detail,cap,other] of [['concise',5,2],['essential',6,2],['regular',7,3],['expanded',8,4],['detailed',10,5]]){
+    context.detail=detail;const content=context.build().content;
+    assert.equal(content.cap.length,cap,detail);
+    for(const key of ['duty','exp','pow','pot'])assert.equal(content[key].length,other,detail+key);
+    assert.ok(content.cap.every(([,level])=>level==='L2'));
+  }
+  assert.equal(JSON.stringify(existing),before);
   context.sourceStandard=()=>({content:{duty:[],exp:[],cap:[['既有能力','L2']],pow:[],pot:[]}});
   assert.equal(JSON.stringify(context.build().content.cap),JSON.stringify([['既有能力','L2']]));
-  context.generatedSections=['duty'];assert.equal(context.build().content.cap.length,0);
+  context.sourceStandard=()=>existing;context.generatedSections=['cap'];context.detail='regular';
+  const abilities=JSON.stringify(context.build().content.cap);
+  for(const structure of ['behavior','context_behavior','context_behavior_result']){
+    context.descriptionStructure=structure;const draft=context.build();
+    assert.equal(draft.generationPreferences.descriptionStructure,structure);
+    assert.equal(JSON.stringify(draft.content.cap),abilities,'描述结构不改变能力候选、顺序或等级');
+  }
+  context.generatedSections=['duty'];const withoutCapabilities=context.build();
+  assert.equal(withoutCapabilities.content.cap.length,0);
+  assert.equal('descriptionStructure' in withoutCapabilities.generationPreferences,false);
 });

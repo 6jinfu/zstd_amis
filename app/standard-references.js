@@ -34,7 +34,7 @@
   let selectedPlan=null;
   const planHost=isPosition?$('[data-section=plan]'):location.pathname.endsWith('learning-plan.html')?$('.content .card'):null;
   let planReference;
-  if(planHost){planReference=document.createElement('div');planReference.className='std-reference';planHost.prepend(planReference);}
+  if(planHost){planReference=planHost.querySelector('[data-plan-reference]');if(!planReference){planReference=document.createElement('div');planReference.className='std-reference';planHost.prepend(planReference);}}
   function renderPlanReference(){
     if(!planReference)return;
     reference(planReference,'plan-'+positionId,()=>S.associated(data,positionId),s=>{
@@ -53,7 +53,6 @@
     const editor = UI.mountResourceEditor(table, {rows});
     if (!isPosition && position) {
       document.title = '学习方案 · ' + position.name + ' · 发展中心';
-      $('.detail-bar .text-sm').textContent = position.name + ' · 学习方案';
       $('.breadcrumb .cur').textContent = '学习方案 · ' + position.name;
       const sourceId = new URLSearchParams(location.search).get('standard');
       if (sourceId && S.associated(data, positionId).some(s => s.id === sourceId)) {
@@ -72,12 +71,19 @@
     };
     document.querySelectorAll('[data-picker]').forEach(button => {
       button.addEventListener('click', () => {
+        const menu=button.closest('.plan-project-menu');if(menu){menu.open=false;menu.querySelector('summary').focus();}
         const kind = button.dataset.picker;
         UI.openPicker({title:'添加' + kind, items:catalog[kind].map(name => ({id:name,label:name})), onConfirm(ids) {
           editor.add(ids.map(name => [kind, '', name, '培训平台']));
         }});
       });
     });
+    const projectMenu=planHost.querySelector('.plan-project-menu');
+    if(projectMenu){
+      document.addEventListener('click',event=>{if(!projectMenu.contains(event.target)||event.target.closest('a'))projectMenu.open=false;});
+      projectMenu.addEventListener('keydown',event=>{if(event.key==='Escape'){projectMenu.open=false;projectMenu.querySelector('summary').focus();}});
+      projectMenu.addEventListener('focusout',event=>{if(!projectMenu.contains(event.relatedTarget))projectMenu.open=false;});
+    }
     const b = $('#ai-course-btn');
     b.onclick=()=>{
       if(!selectedPlan)return;

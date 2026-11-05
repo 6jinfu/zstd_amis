@@ -8,12 +8,24 @@
 <link rel="stylesheet" href="standards.css?v=sha256-37245495b13f">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
 <link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
+<style>
+  body .learning-plan-page .detail-bar { margin-bottom:8px;padding-bottom:0;min-height:40px; }
+  .learning-plan-page .plan-resources { padding-top:16px; }
+  .plan-resource-actions { flex-wrap:wrap; }
+  .plan-project-menu { position:relative; }
+  .plan-project-menu summary { list-style:none; }
+  .plan-project-menu summary::-webkit-details-marker { display:none; }
+  .plan-project-options { position:absolute;top:calc(100% + 6px);left:0;z-index:20;min-width:160px;padding:4px;background:#fff;border:1px solid var(--border-subtle);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.1); }
+  .plan-project-options > * { display:block;width:100%;padding:8px 12px;border:0;border-radius:4px;background:transparent;color:var(--neutral-900);font:inherit;text-align:left;white-space:nowrap;cursor:pointer; }
+  .plan-project-options > *:hover,.plan-project-options > *:focus-visible { background:var(--primary-50);color:var(--primary-600); }
+  .learning-plan-page .std-reference { margin:0 0 16px;padding:12px 0 16px; }
+</style>
 </head>
 <body data-module="develop" data-page="position-map">
 <div class="app shell-v2">
 <script src="navigation.js?v=sha256-fe6f0e0f3c7f"></script>
   <div class="body">
-    <main class="content">
+    <main class="content learning-plan-page">
       <div class="breadcrumb"><a href="position-map.html" style="color:var(--neutral-400)">岗位地图</a><span class="sep">/</span><span class="cur">学习方案</span></div>
 
       <div class="detail-bar">
@@ -23,19 +35,26 @@
         </div>
       </div>
 
-      <div class="card card-pad">
+      <div class="card card-pad plan-resources">
         <div class="flex between center mb-md">
           <div>
             <div class="section-title" style="margin:0">学习资源</div>
           </div>
           <button class="btn btn-primary" id="ai-course-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><path d="M19 14l.7 2L22 17l-2.3.7L19 20l-.7-2L16 17l2.3-.7z"/></svg>推荐学习资源</button>
         </div>
-        <div class="flex gap-sm mb-md">
+        <div class="flex gap-sm mb-md plan-resource-actions">
           <button class="btn btn-secondary" data-picker="课程">添加课程</button>
-          <button class="btn btn-secondary" data-picker="项目">添加项目</button>
+          <details class="plan-project-menu">
+            <summary class="btn btn-secondary">添加项目<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+            <div class="plan-project-options">
+              <button type="button" data-picker="项目">选择已有项目</button>
+              <a href="https://tbc.21tb.com/rtr-admin-frontend/appIframe?appCode=mina_face_manage" target="_blank" rel="noopener noreferrer">新建项目</a>
+            </div>
+          </details>
           <button class="btn btn-secondary" data-picker="前测">添加前测</button>
           <button class="btn btn-secondary" data-picker="后测">添加后测</button>
         </div>
+        <div class="std-reference" data-plan-reference></div>
         <div class="table-wrap"><table class="t" id="plan-table">
           <thead><tr><th style="width:90px">类型</th><th>名称</th><th>来源 / 周期</th><th style="text-align:right">操作</th></tr></thead>
           <tbody>
@@ -65,6 +84,6 @@
 <script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
 <script src="standards-data.js?v=sha256-5458067a498f"></script>
 <script src="standard-ui.js?v=sha256-6a79171112e4"></script>
-<script src="standard-references.js?v=sha256-5d894cee82f8"></script>
+<script src="standard-references.js?v=sha256-7d5f65179f29"></script>
 </body>
 </html>
