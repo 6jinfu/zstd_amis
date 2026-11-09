@@ -164,7 +164,7 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
     background:#fff; box-shadow:none; overflow:auto;
     --live-list-height:calc(100dvh - 105px);
   }
-  body .shell-v2 .content:has(> .card[data-tabs] > .tab-btns, > .assessment-tool-tabs, > .tc-board-header) {
+  body .shell-v2 .content:has(> .card[data-tabs] > .tab-btns, > .assessment-tool-tabs, > .tc-board-header, > .std-view-switch) {
     padding-top:0; --live-list-height:calc(100dvh - 133px);
   }
   body.tc-page .tc-board-header { display:block; padding-inline:0; }
@@ -178,6 +178,7 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
     margin:0 0 16px; padding:12px 0; background:transparent; border:0; box-shadow:none;
   }
   body .shell-v2 .content > .assessment-tool-tabs,
+  body .shell-v2 .content > .std-view-switch,
   body .shell-v2 .content > .card[data-tabs] > .tab-btns,
   body.tc-page .tc-board-tabs { margin-bottom:0; }
   body :is(.tab-btn,.assessment-tool-tabs a,.pm-tab,.lm-tab),
@@ -247,6 +248,21 @@ body .scope-category .pm-series-empty { padding:16px 0; color:#595959; font-size
     min-height:28px; margin:0 0 8px; padding:0; font-size:14px; line-height:22px; font-weight:400;
   }
   body .shell-v2 .content .ctp-title { font-size:14px; line-height:22px; font-weight:400; }
+  body[data-page="positions"] .positions-page .list-rail > .segment {
+    flex:0 0 40px; width:calc(100% + 32px); min-height:40px; gap:0;
+    margin:-16px -16px 12px; padding:0; overflow:hidden;
+    border:0; border-radius:8px 8px 0 0;
+    background:#f5f5f5; box-shadow:none;
+  }
+  body[data-page="positions"] .positions-page .list-rail > .segment button {
+    height:40px; min-height:40px; padding:0 8px; border:0; border-radius:0;
+    background:transparent; color:#595959; font-size:14px; line-height:22px; font-weight:500; box-shadow:none;
+  }
+  body[data-page="positions"] .positions-page .list-rail > .segment button::before { content:none; }
+  body[data-page="positions"] .positions-page .list-rail > .segment button.active { background:#fff; color:var(--primary-600); }
+  body[data-page="positions"] .positions-page .list-rail > .segment button:first-child.active { clip-path:polygon(0 0,calc(100% - 10px) 0,100% 100%,0 100%); }
+  body[data-page="positions"] .positions-page .list-rail > .segment button:last-child.active { clip-path:polygon(10px 0,100% 0,100% 100%,0 100%); }
+  body[data-page="positions"] .positions-page .list-rail > .segment button:focus-visible { outline:2px solid var(--focus-neutral); outline-offset:-3px; }
   body .shell-v2 .content :is(.cat-tree-panel,.list-rail,.pm-series-panel,.anchor-nav) :is(.cat-tree-item,.list-scope-item,.pm-series-item,.a-item),
   body[data-page="vocabulary"] #cap-tree .cat-tree-item.cap-demo-row,
   body .ui-picker-indicator .ui-picker-tree-row {

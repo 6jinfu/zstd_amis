@@ -7,16 +7,13 @@
   const positionId = isPosition ? window.POSITION_DEMO.code : new URLSearchParams(location.search).get('position') || 'RD-302';
   if(isPosition){
     const p=S.positions.find(p=>p.id===positionId);
+    $('#position-new-standard').href='standard-detail.html?position='+encodeURIComponent(positionId);
     function render(){
       const linked=S.associated(data,positionId);
-      $('#position-standard-links').innerHTML=linked.map(s=>`<div class="std-link-row"><div><a class="std-table-name" href="standard-detail.html?id=${e(s.id)}">${e(s.name)}</a><p>${e(S.modes[s.mode]||'暂未关联')} · ${e(S.summary(s))}</p></div><a class="btn-text" href="standard-detail.html?id=${e(s.id)}#content">查看内容</a><button class="btn-text danger" data-unlink="${e(s.id)}">解除关联</button></div>`).join('')||'<div class="empty-state">尚未关联标准</div>';
-      const known=S.people.filter(person=>person.position===p?.name);
-      const rules=data.standards.filter(s=>s.mode==='rules'&&known.some(person=>S.match(s,person)===true));
-      $('#position-rule-standards').innerHTML=rules.map(s=>`<div class="std-link-row"><div><a class="std-table-name" href="standard-detail.html?id=${e(s.id)}">${e(s.name)}</a><p>${e(S.summary(s))}</p></div><button class="btn-text" data-rule-preview="${e(s.id)}">查看匹配人员</button></div>`).join('')||'<p class="text-sm muted">当前可用在岗人员未匹配其他条件标准。</p>';
+      $('#position-standard-links').innerHTML=linked.map(s=>{const url='standard-detail.html?id='+encodeURIComponent(s.id)+'&position='+encodeURIComponent(positionId);return `<div class="std-link-row"><div><a class="std-table-name" href="${url}">${e(s.name)}</a><p>${e(S.applicableObjectLabel(data,s))}</p></div><a class="btn-text" href="${url}">编辑标准</a><a class="btn-text" href="${url}#plan">学习方案</a><button class="btn-text danger" data-unlink="${e(s.id)}">解除关联</button></div>`;}).join('')||'<div class="empty-state">尚未关联标准</div>';
     }
     $('#position-link-standard').onclick=()=>{const selected=S.associated(data,positionId).map(s=>s.id);U.pick('关联人才标准',data.standards.filter(s=>!selected.includes(s.id)).map(s=>({id:s.id,name:s.name,note:S.modes[s.mode]||'暂未关联'})),[],ids=>{data.links[positionId]=[...new Set([...(data.links[positionId]||[]),...ids])];if(save()){render();renderPlanReference();showToast('已关联标准');}});};
     $('#position-standard-links').onclick=ev=>{const b=ev.target.closest('[data-unlink]');if(!b)return;const s=data.standards.find(s=>s.id===b.dataset.unlink);U.dialog('解除关联',`<p>解除“${e(s.name)}”与本岗位的关联？标准内容会保留。</p>`,'解除关联',()=>{s.positions=s.positions.filter(id=>id!==positionId);if(s.mode==='positions'&&!s.positions.length)s.mode='none';data.links[positionId]=(data.links[positionId]||[]).filter(id=>id!==s.id);if(data.selected['plan-'+positionId]===s.id)delete data.selected['plan-'+positionId];if(!save())return false;render();renderPlanReference();});};
-    $('#position-rule-standards').onclick=ev=>{const b=ev.target.closest('[data-rule-preview]');if(b)U.preview(data.standards.find(s=>s.id===b.dataset.rulePreview));};
     if(p){const tag=$('.detail-bar .tag');if(tag)tag.hidden=!p.critical;const check=$('[data-section=info] input[type=checkbox]');if(check)check.checked=p.critical;}
     render();
   }
@@ -24,12 +21,12 @@
     const candidates=options();let chosen=data.selected[key];
     // First use can adopt the sole candidate. An explicit empty selection remains empty.
     if(!Object.prototype.hasOwnProperty.call(data.selected,key)&&candidates.length===1)chosen=candidates[0].id;
-    if(preferred&&candidates.some(s=>s.id===preferred))chosen=preferred;
+    if(preferred)chosen=candidates.some(s=>s.id===preferred)?preferred:'';
     if(!candidates.some(s=>s.id===chosen))chosen='';
-    host.innerHTML=`<label for="${key}">采用人才标准</label><div class="flex gap-sm"><select class="select" id="${key}"><option value="">${candidates.length?'请选择人才标准':'暂无可用人才标准'}</option>${candidates.map(s=>`<option value="${e(s.id)}" ${s.id===chosen?'selected':''}>${e(s.name)}</option>`).join('')}</select><a class="btn-text" data-view-reference>查看标准</a></div><p data-reference-note></p>`;
+    host.innerHTML=`${preferred?'<label>来源人才标准</label>':`<label for="${key}">采用人才标准</label>`}<div class="flex gap-sm">${preferred?`<span>${e(candidates.find(s=>s.id===chosen)?.name||'未找到来源标准')}</span>`:`<select class="select" id="${key}"><option value="">${candidates.length?'请选择人才标准':'暂无可用人才标准'}</option>${candidates.map(s=>`<option value="${e(s.id)}" ${s.id===chosen?'selected':''}>${e(s.name)}</option>`).join('')}</select>`}<a class="btn-text" data-view-reference>查看标准</a></div><p data-reference-note></p>`;
     const select=host.querySelector('select');
-    function update(){const s=candidates.find(s=>s.id===select.value);const link=host.querySelector('a');link.hidden=!s;if(s)link.href='standard-detail.html?id='+encodeURIComponent(s.id)+'#content';host.querySelector('p').textContent=s?`应用范围：${S.summary(s)}`:'请选择人才标准查看要求。';onchange(s);}
-    select.onchange=()=>{if(immediate){data.selected[key]=select.value;if(!save())return;}update();};update();return chosen;
+    function update(){const s=candidates.find(s=>s.id===(preferred?chosen:select.value));const link=host.querySelector('a');link.hidden=!s;if(s)link.href='standard-detail.html?id='+encodeURIComponent(s.id)+'#content';host.querySelector('p').textContent=s?`应用范围：${S.summary(s)}`:preferred?'请从人才标准的学习方案入口重新进入。':'请选择人才标准查看要求。';onchange(s);}
+    if(select)select.onchange=()=>{if(immediate){data.selected[key]=select.value;if(!save())return;}update();};update();return chosen;
   }
   let selectedPlan=null;
   const planHost=isPosition?$('[data-section=plan]'):location.pathname.endsWith('learning-plan.html')?$('.content .card'):null;
@@ -102,9 +99,10 @@
     };
     const saveButton = $(isPosition ? '#save-btn' : '#save-lp');
     saveButton.addEventListener('click', () => {
+      if(!isPosition&&new URLSearchParams(location.search).get('standard')&&!selectedPlan){showToast('未找到来源标准，请从人才标准重新进入');return;}
       data.plans = data.plans || {};
       data.plans[positionId] = editor.getValue();
-      data.selected['plan-' + positionId] = planReference.querySelector('select').value;
+      data.selected['plan-' + positionId] = selectedPlan?.id || '';
       if (save()) showToast('已保存');
     });
     renderPlanReference();

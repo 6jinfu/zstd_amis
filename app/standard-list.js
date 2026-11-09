@@ -10,20 +10,20 @@
     let category='',query='',page=1;
     const collapsed=new Set();
     const tree=()=>data.categoryTree||data.categories.map(name=>({name}));
-    const namesFor=node=>[node.name,...(node.children||[])];
-    const matchesCategoryFor=(s,name)=>{if(!name)return true;const node=tree().find(item=>item.name===name);return node?namesFor(node).includes(s.category):s.category===name;};
-    const matchesCategory=s=>matchesCategoryFor(s,category);
     const categoryButton=(name,label,extra='',reserveToggle=true)=>`<button type="button" class="cat-tree-item std-category ${extra} ${name===category?'active':''}" data-category="${e(name)}" title="${e(label)}">${reserveToggle?'<span class="std-category-toggle-slot" aria-hidden="true"></span>':''}<span class="std-category-label">${e(label)}</span></button>`;
     function render(focusTarget) {
+      const categoryTree=tree(),node=categoryTree.find(item=>item.name===category);
+      const categories=category?new Set(node?[node.name,...(node.children||[])]:[category]):null;
+      const search=query.toLowerCase();
       const all=`<button type="button" class="cat-tree-item std-category ${!category?'active':''}" data-category=""><span class="std-category-toggle-slot" aria-hidden="true"></span><span class="std-category-label">全部</span></button>`;
-      const categoryHtml=tree().map(node=>{
+      const categoryHtml=categoryTree.map(node=>{
         const children=node.children||[];
         if(!children.length)return categoryButton(node.name,node.name);
         const expanded=!collapsed.has(node.name);
         return `<div class="std-category-group"><div class="std-category-parent-row${node.name===category?' active':''}"><button type="button" class="std-category-toggle" data-toggle-category="${e(node.name)}" aria-label="${expanded?'收起':'展开'}${e(node.name)}" aria-expanded="${expanded}"><span class="std-category-chevron" aria-hidden="true"></span></button>${categoryButton(node.name,node.name,'std-category-parent',false)}</div><div class="std-category-children"${expanded?'':' hidden'}>${children.map(name=>categoryButton(name,name,'std-category-child')).join('')}</div></div>`;
       }).join('');
       $('#std-categories').innerHTML=all+categoryHtml;
-      const rows=data.standards.filter(s=>matchesCategory(s)&&(!query||s.name.toLowerCase().includes(query.toLowerCase())));
+      const rows=data.standards.filter(s=>(!categories||categories.has(s.category))&&(!search||s.name.toLowerCase().includes(search)));
       page=Math.min(page,Math.max(1,Math.ceil(rows.length/10)));
       $('#std-rows').innerHTML=rows.slice((page-1)*10,page*10).map(s=>`<tr><td><a class="std-table-name" href="standard-detail.html?id=${e(s.id)}">${e(s.name)}</a></td><td class="std-object-count">${e(S.applicableObjectLabel(data,s))}</td><td><div class="flex gap-sm"><a class="btn-text" href="standard-detail.html?id=${e(s.id)}">编辑</a><a class="btn-text" href="standard-detail.html?id=${encodeURIComponent(s.id)}#plan">学习方案</a>${button('复制',`data-copy="${e(s.id)}"`,'btn-text')}${button('删除',`data-delete="${e(s.id)}"`,'btn-text danger')}</div></td></tr>`).join('')||'<tr><td colspan="3"><div class="empty-state">没有符合条件的标准</div></td></tr>';
       $('#std-count').textContent=`共 ${rows.length} 条 · 每页 10 条`;$('#std-page').textContent=`${page} / ${Math.max(1,Math.ceil(rows.length/10))}`;

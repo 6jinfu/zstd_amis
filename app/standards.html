@@ -9,13 +9,14 @@
   <link rel="stylesheet" href="standard-ai-flow.css?v=sha256-ee862a610a01">
 <link rel="stylesheet" href="standard-radar.css?v=sha256-947cd8f77b28">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
-<link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
+<link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="standards">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-fe6f0e0f3c7f"></script>
+<script src="navigation.js?v=sha256-00568d9a9b00"></script>
   <div class="body">
     <main class="content" data-standard-list>
+<nav class="tab-btns std-view-switch" aria-label="人才标准查看方式" data-list-header><a class="tab-btn" href="positions.html">按岗位查看</a><a class="tab-btn active" href="standards.html" aria-current="page">按标准查看</a></nav>
 <div class="list-workbench list-workbench-tree standards-workbench">
  <aside class="cat-tree-panel" aria-label="标准类别">
   <div class="ctp-head"><span class="ctp-title">类别</span><button class="icon-btn" id="std-manage-categories" aria-label="管理类别" title="管理类别"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33A1.65 1.65 0 0 0 14 20.83V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.08A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.08A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg></button></div>
@@ -27,7 +28,7 @@
    <div class="actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button></div>
   </form>
   <div class="flex between center mb-md"><div class="std-list-actions"><a class="btn btn-primary" href="standard-detail.html">新建人才标准</a><button class="btn btn-secondary" id="std-ai-open" type="button" data-open="std-ai-drawer"><svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".5"/><path d="M3.957 10.513a.038.038 0 0 0 .026.026l.74.22c.037.01.037.062 0 .072l-.74.22a.038.038 0 0 0-.026.026l-.22.74c-.01.037-.062.037-.073 0l-.219-.74a.038.038 0 0 0-.026-.026l-.74-.22c-.037-.01-.037-.062 0-.073l.74-.22a.038.038 0 0 0 .026-.025l.22-.74c.01-.037.062-.037.073 0l.219.74Z" opacity=".2"/></svg>AI帮建</button></div></div>
-  <div class="card"><div class="table-wrap"><table class="t" data-native-sticky><thead><tr><th>标准名称</th><th>适用对象</th><th>操作</th></tr></thead><tbody id="std-rows"></tbody></table></div>
+  <div class="card"><div class="table-wrap"><table class="t" data-native-sticky><thead><tr><th>标准名称</th><th>关联岗位</th><th>操作</th></tr></thead><tbody id="std-rows"></tbody></table></div>
   <div class="pagination"><div class="pg-info" id="std-count"></div><div class="pg-controls"><button class="pg-btn" id="std-prev">上一页</button><span id="std-page"></span><button class="pg-btn" id="std-next">下一页</button></div></div>
  </div></section>
 </div></main></div></div>
@@ -81,13 +82,13 @@
   </div>
  </div>
 </aside>
-<script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-6796ad5142be"></script>
+<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="app.js?v=sha256-90aacf1fa158"></script>
 <script src="talent-settings-data.js?v=sha256-9ac74d26e90d"></script>
 <script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
-<script src="standards-data.js?v=sha256-5458067a498f"></script>
+<script src="standards-data.js?v=sha256-743dfa61e18c"></script>
 <script src="indicator-data.js?v=sha256-8919879a24e3"></script>
 <script src="standard-ui.js?v=sha256-6a79171112e4"></script>
- <script src="standard-list.js?v=sha256-114a42d6b9cc"></script>
+ <script src="standard-list.js?v=sha256-cfdd72830858"></script>
   <script src="standard-ai-assistant.js?v=sha256-45732fa3ec8e"></script>
 </body></html>

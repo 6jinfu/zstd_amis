@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
 <link rel="stylesheet" href="standards.css?v=sha256-37245495b13f">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
-<link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
+<link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-fe6f0e0f3c7f"></script>
+<script src="navigation.js?v=sha256-00568d9a9b00"></script>
   <div class="body">
     <main class="content">
       <div class="breadcrumb"><a href="standards.html" style="color:var(--neutral-400)">人才标准</a><span class="sep">/</span><span class="cur">岗位详情</span></div>
@@ -54,9 +54,8 @@
           </section>
 
           <section data-section="standard" class="card card-pad d-section active">
-            <div class="std-heading"><h2>适用标准</h2><div class="flex gap-sm"><button type="button" class="btn btn-secondary" id="position-link-standard">添加关联</button></div></div>
+            <div class="std-heading"><h2>适用标准</h2><div class="flex gap-sm"><button type="button" class="btn btn-secondary" id="position-link-standard">添加关联</button><a class="btn btn-primary" id="position-new-standard" href="standard-detail.html">新建人才标准</a></div></div>
             <div id="position-standard-links"></div>
-            <div class="std-block"><div class="std-heading"><h2>条件匹配标准</h2></div><div id="position-rule-standards"></div></div>
           </section>
 
           <!-- ③ 学习方案 -->
@@ -99,9 +98,9 @@
 </div>
 
 <script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
-<script src="standards-data.js?v=sha256-5458067a498f"></script>
-<script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-6796ad5142be"></script>
+<script src="standards-data.js?v=sha256-743dfa61e18c"></script>
+<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="app.js?v=sha256-90aacf1fa158"></script>
 <script>
   // 同一详情骨架按案例切换业务数据；销售岗位通过 ?case=sales 进入。
   (function () {
@@ -130,6 +129,6 @@
 </script>
 
 <script src="standard-ui.js?v=sha256-6a79171112e4"></script>
-<script src="standard-references.js?v=sha256-7d5f65179f29"></script>
+<script src="standard-references.js?v=sha256-bad2668741aa"></script>
 </body>
 </html>

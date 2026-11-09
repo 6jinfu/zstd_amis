@@ -13,7 +13,12 @@
     let draft=original?S.clone(original):{id:uid(),name:'',category:data.categories[0]||'',description:'',mode:'none',positions:[],groups:[],content:S.emptyContent()};
     if(params.has('copy')&&original){draft.id=uid();draft.name+='（副本）';draft.mode='none';draft.positions=[];draft.groups=[];}
     const context=S.positions.find(p=>p.id===params.get('position'));
-    if(context&&!original){draft.name=context.name+'标准';draft.category=context.category;draft.mode='positions';draft.positions=[context.id];}
+    if(original&&!params.has('copy')&&draft.mode!=='rules'){
+      draft.positions=S.positionIds(data,original);
+      if(draft.positions.length)draft.mode='positions';
+    }
+    if(context&&!original){const category=({研发:'研发序列',销售:'销售序列',职能:'通用标准'})[context.category];draft.name=context.name+'标准';if(data.categories.includes(category))draft.category=category;draft.mode='positions';draft.positions=[context.id];}
+    if(context)document.querySelectorAll('[data-std-cancel]').forEach(link=>{link.href='position-detail.html?position='+encodeURIComponent(context.id)+'#standard';});
     let aiImported=false;
     if(params.has('ai')){
       try {
@@ -27,7 +32,7 @@
         }
       } catch(err) { sessionStorage.removeItem('talent-standard-ai-draft-v1'); }
     }
-    let dirty=false;
+    let dirty=false,scopeModeChanged=false;
     function changed(){dirty=true;$('#std-save-state').textContent='有未保存的修改';}
     document.querySelectorAll('[data-std-cancel]').forEach(link=>link.addEventListener('click',()=>{dirty=false;}));
     function renderPlanEntries(){
@@ -44,7 +49,7 @@
         const count=data.plans?.[p.id]?.length||0;
         const selected=data.selected['plan-'+p.id]===saved.id;
         const note=(count?`已保存 ${count} 项学习资源`:'可配置学习方案')+(selected?' · 当前采用本标准':'');
-        return `<div class="std-link-row"><div><b>${e(p.name)}</b><p>${e(p.category)} · ${e(p.id)} · ${note}</p></div><a class="btn btn-secondary" href="learning-plan.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}">配置学习方案</a></div>`;
+        return `<div class="std-link-row"><div><b>${e(p.name)}</b><p>${e(p.category)} · ${e(p.id)} · ${note}</p></div><div class="flex gap-sm"><a class="btn-text" href="learning-plan-design.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}">查看方案设计版</a><a class="btn btn-secondary" href="learning-plan.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}">配置学习方案</a></div></div>`;
       }).join('');
     }
     const availableSections=Object.keys(TalentSettings.dimensions).filter(key=>TalentSettings.enabled().includes(key)||(original&&draft.content[key].length));
@@ -72,7 +77,7 @@
     $('#std-title').textContent=original&&!params.has('copy')?draft.name:'新建人才标准';
     $('#std-category').innerHTML=data.categories.map(c=>`<option value="${e(c)}">${e(c)}</option>`).join('');
     [['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;if(k==='name')renderCapabilityChart();changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
-    document.querySelectorAll('[name=mode]').forEach(input=>{input.checked=input.value===draft.mode;input.onchange=()=>{draft.mode=input.value;changed();renderScope();};});
+    document.querySelectorAll('[name=mode]').forEach(input=>{input.checked=input.value===draft.mode;input.onchange=()=>{draft.mode=input.value;scopeModeChanged=true;changed();renderScope();};});
     if(aiImported){dirty=true;$('#std-save-state').textContent='AI 生成内容待确认';}
     const values=field=>field==='critical'?['是','否']:field==='position'?[...new Set([...S.positions.map(p=>p.name),...S.people.map(p=>p.position)])]:field==='category'?[...new Set(S.positions.map(p=>p.category))]:[...new Set(S.people.map(p=>p.department))];
     function renderScope(){
@@ -142,8 +147,8 @@
       delete draft.object;
       delete draft.objectDescription;
       draft.updated=new Date().toLocaleDateString('sv-SE');
-      const index=data.standards.findIndex(s=>s.id===draft.id);if(index<0)data.standards.push(S.clone(draft));else data.standards[index]=S.clone(draft);
-      if(!persist())return;dirty=false;$('#std-save-state').textContent='已保存';$('#std-title').textContent=draft.name;history.replaceState(null,'','standard-detail.html?id='+draft.id+location.hash);renderPlanEntries();showToast('人才标准已保存');
+      S.setStandard(data,draft,{preserveRuleLinks:original?.mode==='rules'&&draft.mode==='rules'&&!scopeModeChanged});
+      if(!persist())return;dirty=false;$('#std-save-state').textContent='已保存';$('#std-title').textContent=draft.name;history.replaceState(null,'','standard-detail.html?id='+encodeURIComponent(draft.id)+(context?'&position='+encodeURIComponent(context.id):'')+location.hash);renderPlanEntries();showToast(context&&!S.associated(data,context.id).some(s=>s.id===draft.id)?'已保存，可在人才标准视图查看':'人才标准已保存');
     };
     window.addEventListener('beforeunload',ev=>{if(dirty){ev.preventDefault();ev.returnValue='';}});
     $('#std-form').onkeydown=ev=>{if((ev.metaKey||ev.ctrlKey)&&ev.key==='Enter'){$('#std-form').requestSubmit();}};

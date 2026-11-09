@@ -222,10 +222,20 @@
     return plan;
   }
   function reserveRows(data,standards,department='') {
+    const poolsByPosition=new Map();
+    data.pools.forEach(pool=>{
+      if(!poolsByPosition.has(pool.target))poolsByPosition.set(pool.target,[]);
+      poolsByPosition.get(pool.target).push(pool);
+    });
     return Standards.positions.filter(p=>p.critical).map(position=>{
-      const pools=data.pools.filter(pool=>pool.target===position.id),people=[...new Set(pools.flatMap(pool=>activeMembers(pool).map(m=>m.person)))].filter(id=>!department||person(id)?.department===department);
+      const pools=poolsByPosition.get(position.id)||[],memberIds=new Set(),dueIds=new Set();
+      pools.forEach(pool=>activeMembers(pool).forEach(member=>{
+        memberIds.add(member.person);
+        if(member.nextReview&&member.nextReview<today())dueIds.add(member.person);
+      }));
+      const people=[...memberIds].filter(id=>!department||person(id)?.department===department),peopleSet=new Set(people);
       const linked=Standards.associated(standards,position.id);
-      const due=[...new Set(pools.flatMap(pool=>activeMembers(pool).filter(m=>m.nextReview&&m.nextReview<today()).map(m=>m.person)))].filter(id=>people.includes(id));
+      const due=[...dueIds].filter(id=>peopleSet.has(id));
       return {position,pools,people,linked,due};
     });
   }
@@ -264,11 +274,13 @@
     if(!project)throw new Error('请先关联来源盘点项目，再从该项目组建人员');
     const unique=[...new Set(ids)];
     if(unique.some(id=>!project.people.some(p=>p.id===id)))throw new Error('只能加入来源盘点项目内的人员');
+    const memberIds=new Set(activeMembers(pool).map(member=>member.person));
     let count=0;
     for(const id of unique) {
-      if(activeMembers(pool).some(member=>member.person===id))continue;
+      if(memberIds.has(id))continue;
       const profile=project.people.find(p=>p.id===id);
       pool.members.push({id:uid('member'),person:id,profile:{...profile},joined:today(),reason,confirmedBy:'李文静',sourceProject:project.id,source:project.name,exited:null,exitReason:''});
+      memberIds.add(id);
       count++;
     }
     return count;

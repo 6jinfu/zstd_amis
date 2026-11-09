@@ -76,9 +76,9 @@
   document.querySelector('#save-dimensions').onclick=()=>{
     const dimensions=[...dimensionForm.querySelectorAll('input:checked')].map(input=>input.value);
     const error=document.querySelector('#dimension-error');
-    if(!dimensions.length){error.textContent='请至少启用一个标准维度';return;}
+    if(!dimensions.length){error.textContent='请至少启用一个人才标准维度';return;}
     data.dimensions=dimensions;
-    if(save('岗位标准维度已保存')){error.textContent='';document.querySelector('#dimension-save-state').textContent='已保存';dimensionForm.querySelectorAll('input').forEach(input=>input.nextElementSibling.textContent=input.checked?'已启用':'未启用');}
+    if(save('人才标准维度已保存')){error.textContent='';document.querySelector('#dimension-save-state').textContent='已保存';dimensionForm.querySelectorAll('input').forEach(input=>input.nextElementSibling.textContent=input.checked?'已启用':'未启用');}
   };
   dimensionForm.onchange=event=>{event.target.nextElementSibling.textContent=event.target.checked?'将启用':'将停用';document.querySelector('#dimension-error').textContent='';document.querySelector('#dimension-save-state').textContent='有未保存的修改';};
   renderTree();

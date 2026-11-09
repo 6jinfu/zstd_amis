@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>岗位管理 · 岗位中心</title>
+<title>岗位视图 · 人才标准</title>
 <link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
-<link rel="stylesheet" href="production-ui.css?v=sha256-a812927bf0a8">
+<link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-fe6f0e0f3c7f"></script>
+<script src="navigation.js?v=sha256-00568d9a9b00"></script>
   <div class="body">
     <main class="content positions-page" data-list-mode="filters" data-list-label="岗位筛选">
-      <div class="breadcrumb">岗位中心<span class="sep">/</span>定对象 · 组织分析<span class="sep">/</span><span class="cur">岗位管理</span></div>
+      <nav class="tab-btns std-view-switch" aria-label="人才标准查看方式" data-list-header><a class="tab-btn active" href="positions.html" aria-current="page">按岗位查看</a><a class="tab-btn" href="standards.html">按标准查看</a></nav>
 
       <div class="flex between center mb-md">
         <div class="segment" data-target="pos-table">
-          <button data-filter="key" class="active">关键岗位<span class="count">6</span></button>
-          <button data-filter="all">全部岗位<span class="count">9</span></button>
+          <button data-filter="key" class="active">关键岗位</button>
+          <button data-filter="all">全部岗位</button>
         </div>
       </div>
 
@@ -83,8 +83,8 @@
   <div class="m-foot"><button class="btn btn-secondary" data-close>取消</button><button class="btn btn-primary" data-close>标记为关键</button></div>
 </div>
 
-<script src="ui/components.js?v=sha256-8322b836883d"></script>
-<script src="app.js?v=sha256-6796ad5142be"></script>
+<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="app.js?v=sha256-90aacf1fa158"></script>
 <script>
   // 主操作随双视图切换：全部=新增岗位，关键=添加关键岗位（须在 initSegments 之后，读到最新 active）
   document.addEventListener('DOMContentLoaded', function () {

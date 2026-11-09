@@ -44,10 +44,10 @@ test('导航折叠状态与按钮语义一起更新',()=>{
   result.click();assert.equal(result.attributes['aria-expanded'],'true');assert.equal(result.label.textContent,'收起导航');
 });
 
-test('全部32个入口在主内容前同步加载唯一新版导航，旧转换代码和隐藏补丁已删除',()=>{
+test('全部33个入口在主内容前同步加载唯一新版导航，旧转换代码和隐藏补丁已删除',()=>{
   const files=fs.readdirSync(root,{recursive:true}).filter(file=>file.endsWith('.html'));
   const pages=files.map(file=>fs.readFileSync(path.join(root,file),'utf8')).filter(html=>/src="[^"]*navigation\.js/.test(html));
-  assert.equal(pages.length,32);
+  assert.equal(pages.length,33);
   for(const html of pages) {
     assert.ok(html.includes('class="app shell-v2"'));
     assert.ok(!html.includes('nav-main'));

@@ -81,19 +81,24 @@
   }
   function countApplicable(data,s) {
     if(s.mode==='rules') return people.filter(person=>match(s,person)===true).length;
-    const direct=new Set([...(s.positions||[]), ...Object.keys(data.links||{}).filter(id=>(data.links[id]||[]).includes(s.id))]);
-    return direct.size;
+    return positionIds(data,s).length;
+  }
+  function positionIds(data,s) {
+    return [...new Set([...(s.mode==='positions'?s.positions||[]:[]),...Object.keys(data.links||{}).filter(id=>(data.links[id]||[]).includes(s.id))])];
+  }
+  function setStandard(data,standard,{preserveRuleLinks=false}={}) {
+    if(!preserveRuleLinks)Object.keys(data.links||{}).forEach(id=>{data.links[id]=data.links[id].filter(value=>value!==standard.id);});
+    const index=data.standards.findIndex(s=>s.id===standard.id);
+    if(index<0)data.standards.push(clone(standard));else data.standards[index]=clone(standard);
   }
   function applicableObjectLabel(data,s) {
-    if(s.mode==='none') return '—';
-    if(s.mode==='rules') return summary(s);
-    const ids=[...(s.positions||[]), ...Object.keys(data.links||{}).filter(id=>(data.links[id]||[]).includes(s.id))];
-    return [...new Set(ids)].map(id=>positions.find(p=>p.id===id)?.name || id).join('、') || '—';
+    const names=positionIds(data,s).map(id=>positions.find(p=>p.id===id)?.name || id).join('、');
+    return [names,s.mode==='rules'?summary(s):''].filter(Boolean).join('；') || '—';
   }
   function associated(data,id) { return data.standards.filter(s=>(s.mode==='positions'&&s.positions.includes(id)) || (data.links[id]||[]).includes(s.id)); }
   function forPerson(data,person) {
     const p=positions.find(p=>p.name===person.position);
     return data.standards.filter(s=>match(s,person)===true || (p&&(data.links[p.id]||[]).includes(s.id)));
   }
-  window.Standards={key,positions,people,modes,fields,clone,emptyContent,read,write,match,summary,countApplicable,applicableObjectLabel,associated,forPerson};
+  window.Standards={key,positions,people,modes,fields,clone,emptyContent,read,write,match,summary,countApplicable,applicableObjectLabel,positionIds,setStandard,associated,forPerson};
 })();

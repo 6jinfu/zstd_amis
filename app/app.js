@@ -66,6 +66,7 @@ function initListWorkbenches() {
     var segment = main.querySelector(':scope > .flex .segment');
     var segmentRow = segment && segment.parentElement;
     if (segment) {
+      segment.dataset.scopeToolbar = '';
       rail.appendChild(segment);
     }
     rail.appendChild(railHead);
@@ -96,13 +97,14 @@ function initListWorkbenches() {
     if (scopedSelect) scopedSelect.closest('.field')?.classList.add('scope-field-hidden');
 
     var breadcrumb = main.querySelector(':scope > .breadcrumb');
-    main.insertBefore(workbench, breadcrumb ? breadcrumb.nextSibling : main.firstChild);
+    var listHeader = main.querySelector(':scope > [data-list-header]') || breadcrumb;
+    main.insertBefore(workbench, listHeader ? listHeader.nextSibling : main.firstChild);
     workbench.appendChild(rail);
     workbench.appendChild(listMain);
     listMain.appendChild(filter);
 
     Array.from(main.children).forEach(function (node) {
-      if (node === breadcrumb || node === workbench || node === filter || node === segmentRow) return;
+      if (node === breadcrumb || node === listHeader || node === workbench || node === filter || node === segmentRow) return;
       listMain.appendChild(node);
     });
 

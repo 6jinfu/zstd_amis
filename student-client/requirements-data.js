@@ -3,7 +3,7 @@
   "10": [
     {
       "id": "product-operations-acting",
-      "name": "产品运营部总监岗位标准",
+      "name": "产品运营部总监人才标准",
       "content": {
         "duty": [
           {
@@ -402,7 +402,7 @@
   "01": [
     {
       "id": "business-core",
-      "name": "业务经理岗位标准",
+      "name": "业务经理人才标准",
       "content": {
         "duty": [
           {
@@ -535,7 +535,7 @@
   "02": [
     {
       "id": "account-core",
-      "name": "客户经理岗位标准",
+      "name": "客户经理人才标准",
       "content": {
         "duty": [
           {
@@ -668,7 +668,7 @@
   "03": [
     {
       "id": "sales-manager-core",
-      "name": "销售经理岗位标准",
+      "name": "销售经理人才标准",
       "content": {
         "duty": [
           {
@@ -930,7 +930,7 @@
   "04": [
     {
       "id": "sales-advisor-core",
-      "name": "销售顾问岗位标准",
+      "name": "销售顾问人才标准",
       "content": {
         "duty": [
           {
@@ -1055,7 +1055,7 @@
   "05": [
     {
       "id": "regional-core",
-      "name": "大区总经理岗位标准",
+      "name": "大区总经理人才标准",
       "content": {
         "duty": [
           {
@@ -1188,7 +1188,7 @@
   "06": [
     {
       "id": "product-intern-core",
-      "name": "产品实习生岗位标准",
+      "name": "产品实习生人才标准",
       "content": {
         "duty": [
           {
@@ -1304,7 +1304,7 @@
   "07": [
     {
       "id": "product-specialist-core",
-      "name": "产品专员岗位标准",
+      "name": "产品专员人才标准",
       "content": {
         "duty": [
           {
@@ -1445,7 +1445,7 @@
   "08": [
     {
       "id": "product-manager-core",
-      "name": "产品经理岗位标准",
+      "name": "产品经理人才标准",
       "content": {
         "duty": [
           {
@@ -1734,7 +1734,7 @@
   "09": [
     {
       "id": "product-lead-core",
-      "name": "产品部部门经理岗位标准",
+      "name": "产品部部门经理人才标准",
       "content": {
         "duty": [
           {

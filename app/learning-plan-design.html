@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习方案 · 人才发展</title>
+<link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
+<link rel="stylesheet" href="standards.css?v=sha256-37245495b13f">
+<link rel="stylesheet" href="learning-plan-ai.css?v=sha256-39ebd2cc6360">
+<link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
+<link rel="stylesheet" href="learning-plan-design.css?v=sha256-1edcb1ebfb1a">
+</head>
+<body data-module="develop" data-page="position-map">
+<div class="app shell-v2">
+<script src="navigation.js?v=sha256-00568d9a9b00"></script>
+<div class="body">
+<main class="content lp-design" id="main-content">
+  <div class="lp-heading">
+    <div class="lp-title"><a class="lp-back" id="lp-back" href="standards.html" aria-label="返回人才标准"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><h1>学习方案</h1><span id="lp-save-state" role="status"></span></div>
+    <div class="lp-actions"><button class="btn btn-secondary std-ai-open" id="lp-ai-open" type="button" data-open="lp-ai-drawer"><svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".5"/><path d="M3.957 10.513a.038.038 0 0 0 .026.026l.74.22c.037.01.037.062 0 .072l-.74.22a.038.038 0 0 0-.026.026l-.22.74c-.01.037-.062.037-.073 0l-.219-.74a.038.038 0 0 0-.026-.026l-.74-.22c-.037-.01-.037-.062 0-.073l.74-.22a.038.038 0 0 0 .026-.025l.22-.74c.01-.037.062-.037.073 0l.219.74Z" opacity=".2"/></svg>AI帮建</button><button class="btn btn-secondary" id="lp-preview">整体预览</button><button class="btn btn-primary" id="lp-save">保存</button></div>
+  </div>
+  <div class="lp-context"><span id="lp-position"></span><span>人才标准</span><a id="lp-standard-link" class="btn-text"></a></div>
+  <section class="lp-board" aria-label="学习方案分组配置">
+    <div class="lp-board-head"><h2>学习分组</h2><button class="btn btn-secondary" data-action="add-group">添加分组</button></div>
+    <div class="lp-workspace" id="lp-workspace"></div>
+  </section>
+</main>
+</div>
+</div>
+
+<aside class="drawer std-ai-drawer lp-ai-drawer" id="lp-ai-drawer" role="dialog" aria-modal="true" aria-label="学习方案 AI 帮建" aria-hidden="true" inert>
+ <div class="std-ai-shell">
+  <header class="std-ai-head">
+   <strong class="ai-sidebar-custom-header__brand"><span class="ai-sidebar-custom-header__brand-mark" aria-label="AI"><img src="vendor/ai-assistant/ai-mark-a.859a3c0a.svg" alt=""><img src="vendor/ai-assistant/ai-mark-b.adf436fe.svg" alt=""></span><span>帮建</span></strong>
+   <span class="ai-sidebar-custom-header__divider" aria-hidden="true"></span>
+   <button type="button" class="ai-sidebar-custom-header__btn ai-sidebar-custom-header__btn--new-session" id="lp-ai-new-chat" aria-label="新建会话" title="新建会话"><img src="vendor/ai-assistant/header-new.3f738b0a.svg" alt="" class="ai-sidebar-custom-header__icon"></button>
+   <span class="lp-ai-context" id="lp-ai-context"></span><span class="std-ai-head-spacer"></span>
+   <button type="button" class="std-ai-source-icon-button" data-close aria-label="关闭 AI 帮建"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13.379 17.425 18.804a.96.96 0 0 0 1.358.02.96.96 0 0 0 .02-1.399L13.38 12l5.425-5.425a.96.96 0 0 0 .02-1.358.96.96 0 0 0-1.4-.021L12 10.621 6.575 5.196a.97.97 0 0 0-1.383.006.97.97 0 0 0 .004 1.373L10.621 12l-5.425 5.425a.97.97 0 0 0 .006 1.383.97.97 0 0 0 1.373-.004L12 13.379Z" fill="#595959"/></svg></button>
+  </header>
+  <div class="std-ai-workspace">
+   <section class="std-ai-chat lp-ai-chat" aria-label="学习方案帮建会话">
+    <div class="std-ai-messages" id="lp-ai-messages" aria-live="polite"></div>
+    <div class="std-ai-composer">
+     <div class="std-ai-input-box">
+      <label class="sr-only" for="lp-ai-prompt">描述学习方案需求</label>
+      <textarea id="lp-ai-prompt" rows="3" maxlength="3000" placeholder="描述阶段或分组安排，以及要关联的能力"></textarea>
+      <div class="std-ai-input-actions"><button type="button" class="std-ai-send" id="lp-ai-send" aria-label="发送" title="发送"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="currentColor"/><path d="M16 9.6 10.8 15a.75.75 0 1 0 1.08 1.04l3.37-3.5V22a.75.75 0 0 0 1.5 0v-9.46l3.37 3.5A.75.75 0 1 0 21.2 15L16 9.6Z" fill="#fff"/></svg></button></div>
+     </div>
+     <p class="lp-ai-error" id="lp-ai-error" role="alert"></p>
+    </div>
+   </section>
+   <aside class="lp-ai-preview" id="lp-ai-preview" aria-label="方案草稿预览" hidden></aside>
+  </div>
+ </div>
+</aside>
+<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="app.js?v=sha256-90aacf1fa158"></script>
+<script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script src="standards-data.js?v=sha256-743dfa61e18c"></script>
+<script src="learning-plan-design.js?v=sha256-3204d0cd5def"></script>
+<script src="learning-plan-ai.js?v=sha256-2b5905491010"></script>
+</body>
+</html>

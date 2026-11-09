@@ -368,7 +368,7 @@
     let body=panel.querySelector(':scope > .category-tree-body');
     if (!body) {
       const footer=panel.querySelector(':scope > .pm-series-settings');
-      const roots=Array.from(panel.children).filter(node => node!==head && node!==search && node!==footer && !node.classList.contains('category-tree-empty'));
+      const roots=Array.from(panel.children).filter(node => node!==head && node!==search && node!==footer && !node.hasAttribute('data-scope-toolbar') && !node.classList.contains('category-tree-empty'));
       if (roots.length===1) body=roots[0];
       else { body=document.createElement('div'); roots.forEach(node=>body.append(node)); panel.insertBefore(body,footer); }
       body.classList.add('category-tree-body');

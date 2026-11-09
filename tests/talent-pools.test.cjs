@@ -60,6 +60,70 @@ test('入池去重、退出后再入池保留历史，保存刷新不重复生�
   assert.equal(restored.pools.find(p=>p.id===pool.id).members.find(m=>m.id===first.id).exitReason,'调整名单');
 });
 
+test('批量入池混合已有、退出和重复选择时只追加有效新记录',()=>{
+  const T=setup(),data=T.read(),pool=data.pools.find(p=>p.id==='pool-annual-core');
+  const first=pool.members.find(m=>m.person==='lihua');
+  first.exited=T.today();first.exitReason='调整名单';
+  const before=JSON.stringify(pool.members);
+  assert.equal(T.addMembers(data,pool,[],'空选择'),0);
+  assert.equal(JSON.stringify(pool.members),before);
+  assert.equal(T.addMembers(data,pool,['zhangming','lihua','chenqiang','lihua','chenqiang'],'再次组建'),2);
+  assert.equal(JSON.stringify(pool.members.slice(0,3)),before);
+  assert.equal(JSON.stringify(pool.members.slice(3).map(m=>m.person)),JSON.stringify(['lihua','chenqiang']));
+  assert.equal(T.activeMembers(pool).length,4);
+  assert.equal(T.addMembers(data,pool,['lihua','chenqiang'],'重复提交'),0);
+});
+
+test('储备看板保持跨池去重、逾期边界、部门筛选和原始顺序',()=>{
+  const T=setup(),data=T.read(),today=T.today();
+  const pools=[
+    {id:'first',target:'RD-302',members:[
+      {person:'zhangming',nextReview:today},
+      {person:'wangfang',nextReview:'2000-01-01'},
+      {person:'lihua',nextReview:'2000-01-01',exited:today},
+      {person:'unknown',nextReview:'2000-01-01'}
+    ]},
+    {id:'other',target:'SA-201',members:[{person:'lihua',nextReview:'2000-01-01'}]},
+    {id:'second',target:'RD-302',members:[
+      {person:'zhangming',nextReview:'2000-01-01'},
+      {person:'chenqiang',nextReview:'9999-12-31'},
+      {person:'wangfang',nextReview:'2000-01-01'}
+    ]},
+    {id:'empty',target:'RD-205',members:[]},
+    {id:'noncritical',target:'RD-102',members:[{person:'lihua',nextReview:'2000-01-01'}]},
+    {id:'untargeted',members:[{person:'lihua',nextReview:'2000-01-01'}]}
+  ];
+  data.pools=pools;
+  const standards={standards:[{id:'architecture',mode:'positions',positions:['RD-302']}],links:{},excluded:{}};
+  const before=JSON.stringify({data,standards});
+  const plain=value=>JSON.parse(JSON.stringify(value));
+  const rows=T.reserveRows(data,standards),architecture=rows.find(row=>row.position.id==='RD-302');
+  assert.deepEqual(plain(rows.map(row=>row.position.id)),['RD-302','RD-301','RD-205','SA-201','SA-301','SA-110']);
+  assert.deepEqual(plain(architecture.pools.map(pool=>pool.id)),['first','second']);
+  assert.equal(architecture.pools[0],pools[0]);
+  assert.deepEqual(plain(architecture.people),['zhangming','wangfang','unknown','chenqiang']);
+  assert.deepEqual(plain(architecture.due),['wangfang','unknown','zhangming']);
+  assert.deepEqual(plain(architecture.linked.map(standard=>standard.id)),['architecture']);
+  const empty=rows.find(row=>row.position.id==='RD-301');
+  assert.deepEqual(plain([empty.pools,empty.people,empty.linked,empty.due]),[[],[],[],[]]);
+  assert.deepEqual(plain(rows.find(row=>row.position.id==='RD-205').people),[]);
+  assert.deepEqual(plain(rows.find(row=>row.position.id==='SA-201').people),['lihua']);
+  for(const [department,people,due] of [
+    ['研发中心',['zhangming','chenqiang'],['zhangming']],
+    ['销售中心',['wangfang'],['wangfang']],
+    ['职能中台',[],[]]
+  ]) {
+    const row=T.reserveRows(data,standards,department).find(row=>row.position.id==='RD-302');
+    assert.deepEqual(plain(row.people),people);
+    assert.deepEqual(plain(row.due),due);
+    assert.deepEqual(plain(row.pools.map(pool=>pool.id)),['first','second']);
+  }
+  assert.equal(JSON.stringify({data,standards}),before);
+  pools[0].members[1].exited=today;
+  pools[2].members[2].exited=today;
+  assert.deepEqual(plain(T.reserveRows(data,standards,'销售中心').find(row=>row.position.id==='RD-302').people),[]);
+});
+
 test('未记录来源的旧人才池不猜来源，原成员、复评及计划历史完整保留',()=>{
   const legacy={id:'legacy',name:'技术骨干后备池',target:'RD-302',nextReview:'2026-12-31',members:[{id:'m1',person:'zhangming',nextReview:'2026-12-31'}]};
   const saved={pools:[legacy],selections:{},reviews:[],evidence:[],followups:[{id:'f1',poolId:'legacy'}],actions:[{id:'a1',poolId:'legacy'}]};

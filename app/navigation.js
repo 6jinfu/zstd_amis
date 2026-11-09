@@ -17,7 +17,7 @@
     assess:[['assess-projects','assess-projects.html','评鉴工具'],['review-projects','review-projects.html','人才盘点']],
     develop:[['position-map','position-map.html','岗位地图']],
     talent:[['talent-list','talent-list.html','人才库'],['talent-pool','talent-pool.html','人才池'],['talent-dashboard','talent-dashboard.html','人才看板']],
-    settings:[['level','#level','职级管理'],['dimensions','#dimensions','岗位标准维度'],['learner','#learner','功能设置']]
+    settings:[['level','#level','职级管理'],['dimensions','#dimensions','人才标准维度'],['learner','#learner','功能设置']]
   };
   const href=value=>value.startsWith('#')?value:new URL(value,base).href;
   const primaryLinks=primary.map(([id,url,label])=>`<a class="primary-item${id===module?' active':''}" data-module="${id}" href="${href(url)}" aria-label="${label}" title="${label}" ${id===module?'aria-current="page"':''}>${icons[id]}<span>${label}</span></a>`).join('');
