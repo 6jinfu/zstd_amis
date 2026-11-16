@@ -144,9 +144,9 @@
       xAxis: Object.assign(valueAxis('占比', 0, 100, 25), { axisLabel: { color: color.text, fontSize: 10, formatter: '{value}%' } }),
       yAxis: Object.assign(categoryAxis(['职能中台','销售中心','研发中心']), { axisLabel: { color: color.text, fontSize: 10 } }),
       series: [
-        { name: '低', type: 'bar', stack: 'performance', data: [20,17,13], barWidth: 22, itemStyle: { color: '#cbd5e1', borderRadius: [4,0,0,4] } },
-        { name: '中', type: 'bar', stack: 'performance', data: [50,50,47], itemStyle: { color: color.primaryPale } },
-        { name: '高', type: 'bar', stack: 'performance', data: [30,33,40], itemStyle: { color: color.primaryMid, borderRadius: [0,4,4,0] } }
+        { name: '1 分', type: 'bar', stack: 'performance', data: [20,17,13], barWidth: 22, itemStyle: { color: '#cbd5e1', borderRadius: [4,0,0,4] } },
+        { name: '2 分', type: 'bar', stack: 'performance', data: [50,50,47], itemStyle: { color: color.primaryPale } },
+        { name: '3 分', type: 'bar', stack: 'performance', data: [30,33,40], itemStyle: { color: color.primaryMid, borderRadius: [0,4,4,0] } }
       ]
     });
 
@@ -154,7 +154,7 @@
       grid: { left: 54, right: 18, top: 20, bottom: 42 },
       tooltip: tooltip,
       xAxis: categoryAxis(['研发中心','销售中心','职能中台'], '部门'),
-      yAxis: categoryAxis(['低','中','高'], '绩效等级'),
+      yAxis: categoryAxis(['1','2','3'], '绩效得分'),
       visualMap: { min: 1, max: 7, dimension: 2, show: false, inRange: { color: ['#eef2f7', '#dbeafe', '#60a5fa'] } },
       series: [{ name: '人数', type: 'heatmap', data: [[0,0,2],[0,1,7],[0,2,6],[1,0,2],[1,1,6],[1,2,4],[2,0,2],[2,1,5],[2,2,3]], label: { show: true, color: color.ink, fontSize: 10 }, itemStyle: { borderColor: color.surface, borderWidth: 4, borderRadius: 5 } }]
     });
@@ -192,16 +192,16 @@
       xAxis: categoryAxis(['L1','L2','L3','L4']),
       yAxis: Object.assign(valueAxis('占比', 0, 100, 25), { axisLabel: { color: color.text, fontSize: 10, formatter: '{value}%' }, splitLine: { show: false } }),
       series: [
-        { name: '低', type: 'bar', stack: 'performance', data: [28,18,9,6], barWidth: '54%', itemStyle: { color: '#cbd5e1', borderRadius: [0,0,3,3] } },
-        { name: '中', type: 'bar', stack: 'performance', data: [56,55,48,38], itemStyle: { color: color.primaryPale } },
-        { name: '高', type: 'bar', stack: 'performance', data: [16,27,43,56], itemStyle: { color: color.primaryMid, borderRadius: [3,3,0,0] } }
+        { name: '1 分', type: 'bar', stack: 'performance', data: [28,18,9,6], barWidth: '54%', itemStyle: { color: '#cbd5e1', borderRadius: [0,0,3,3] } },
+        { name: '2 分', type: 'bar', stack: 'performance', data: [56,55,48,38], itemStyle: { color: color.primaryPale } },
+        { name: '3 分', type: 'bar', stack: 'performance', data: [16,27,43,56], itemStyle: { color: color.primaryMid, borderRadius: [3,3,0,0] } }
       ]
     });
 
     makeChart('map-chart-8', {
       grid: { left: 48, right: 18, top: 18, bottom: 42 },
       tooltip: tooltip,
-      xAxis: categoryAxis(['低','中','高'], '绩效等级'),
+      xAxis: categoryAxis(['1','2','3'], '绩效得分'),
       yAxis: valueAxis('司龄（年）', 0, 14, 2),
       series: [{ name: '司龄分布', type: 'boxplot', data: [[1,2,3,4,6],[2,4,6,8,11],[3,6,8,10,13]], itemStyle: { color: color.primaryPale, borderColor: color.primaryMid, borderWidth: 1.4 } }]
     });
@@ -209,7 +209,7 @@
     makeChart('map-chart-9', {
       grid: { left: 48, right: 18, top: 18, bottom: 42 },
       tooltip: tooltip,
-      xAxis: categoryAxis(['低','中','高'], '绩效等级'),
+      xAxis: categoryAxis(['1','2','3'], '绩效得分'),
       yAxis: valueAxis('系统架构（能力）', 40, 100, 10),
       series: [{ name: '系统架构得分', type: 'boxplot', data: [[43,47,51,56,62],[52,61,68,74,82],[68,78,86,90,95]], itemStyle: { color: color.primaryPale, borderColor: color.primaryMid, borderWidth: 1.4 } }]
     });
@@ -217,7 +217,7 @@
     makeChart('map-chart-10', {
       grid: { left: 34, right: 12, top: 18, bottom: 38 },
       tooltip: Object.assign({}, tooltip, { trigger: 'axis' }),
-      xAxis: categoryAxis(['低绩效','中绩效','高绩效']),
+      xAxis: categoryAxis(['1 分','2 分','3 分']),
       yAxis: Object.assign(valueAxis('', 0, 100, 20), { axisLabel: { show: false }, splitLine: { show: false } }),
       series: [
         { name: '系统架构均值', type: 'bar', data: [47,68,86], barWidth: '52%', itemStyle: { color: function (p) { return p.dataIndex === 2 ? color.primaryMid : color.primaryPale; }, borderColor: color.primarySoft, borderWidth: 1 } },

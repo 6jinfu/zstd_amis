@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "action": "confirm_settings",
+    "payload_json": "{\"request_id\": \"r-1127\", \"session_id\": \"s-1127\", \"operation\": \"new\", \"phase\": \"review\", \"draft_version\": 0, \"user_message\": \"为跨团队项目交付制定人才标准\", \"brief\": {\"position_id\": \"p1\", \"scenario\": \"跨团队交付\"}, \"enabled_sections\": [\"duty\", \"exp\", \"cap\", \"pow\", \"pot\"], \"selected_sections\": [\"duty\", \"exp\"], \"generation_preferences\": {\"detail\": \"concise\"}, \"reference_context\": [], \"catalog\": {\"version\": \"demo-v1\", \"positions\": [{\"id\": \"p1\", \"name\": \"技术负责人\", \"category_path\": \"研发\", \"duties\": \"组织跨团队项目交付\"}, {\"id\": \"p2\", \"name\": \"项目交付负责人\", \"category_path\": \"运营\", \"duties\": \"组织跨团队项目交付并验收\"}, {\"id\": \"p3\", \"name\": \"设备维护员\", \"category_path\": \"研发\", \"duties\": \"开展设备维护与巡检\"}], \"categories\": [{\"id\": \"general\", \"name\": \"通用标准\"}], \"cap\": [{\"id\": \"cap1\", \"name\": \"团队管理\", \"definition\": \"组织团队协作完成任务\", \"dimension\": \"技能\", \"category_path\": \"技能.管理能力\", \"levels\": [{\"level\": \"L1\", \"description\": \"在指导下完成任务\"}, {\"level\": \"L3\", \"description\": \"独立协调团队任务\"}, {\"level\": \"L10\", \"description\": \"组织复杂业务协同\"}]}], \"pow\": [{\"id\": \"pow1\", \"name\": \"成就导向\"}], \"pot\": [{\"id\": \"pot1\", \"name\": \"学习敏锐\"}], \"ability_dimensions\": [\"技能\", \"素养\", \"知识\"], \"new_capability_levels\": [\"L1\", \"L2\", \"L3\"]}}",
+    "reference_files": []
+  },
+  "response_mode": "streaming",
+  "user": "example-user"
+}

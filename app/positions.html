@@ -6,11 +6,12 @@
 <title>岗位视图 · 人才标准</title>
 <link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="talent-ability-import.css?v=sha256-92fc4510c037">
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-00568d9a9b00"></script>
+<script src="navigation.js?v=sha256-6d9492ea338d"></script>
   <div class="body">
     <main class="content positions-page" data-list-mode="filters" data-list-label="岗位筛选">
       <nav class="tab-btns std-view-switch" aria-label="人才标准查看方式" data-list-header><a class="tab-btn active" href="positions.html" aria-current="page">按岗位查看</a><a class="tab-btn" href="standards.html">按标准查看</a></nav>
@@ -32,6 +33,7 @@
         <div class="flex gap-sm">
           <a class="btn btn-primary" id="act-add-pos" href="position-detail.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新增岗位</a>
           <button class="btn btn-primary" id="act-add-key" data-open="drawer-addkey" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>添加关键岗位</button>
+          <button class="btn btn-secondary" type="button" data-standard-import>导入人才标准</button>
         </div>
       </div>
 
@@ -84,6 +86,13 @@
 </div>
 
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
+<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="import-dialog.js?v=sha256-42fb803c632a"></script>
+<script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
+<script src="standards-data.js?v=sha256-a1d6a94f30fb"></script>
+<script src="indicator-data.js?v=sha256-1e2517327dd3"></script>
+<script src="standard-import.js?v=sha256-8f0b5cb3ada8"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
 <script>
   // 主操作随双视图切换：全部=新增岗位，关键=添加关键岗位（须在 initSegments 之后，读到最新 active）

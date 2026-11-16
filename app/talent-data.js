@@ -2,6 +2,7 @@
 (function () {
   const key = 'talent-center-v1';
   const ids = ['zhangming', 'lihua', 'wangfang', 'zhaolin', 'chenqiang'];
+  const employeeIds = ['EMP-1026', 'EMP-1088', 'EMP-2031', 'EMP-3072', 'EMP-1120'];
   const base = [
     {sex:'男',education:'硕士',tenure:6,tags:['技术骨干'],classification:'高潜',performance:'A'},
     {sex:'女',education:'博士',tenure:4,tags:['算法研发'],classification:'核心',performance:'A'},
@@ -9,7 +10,7 @@
     {sex:'女',education:'硕士',tenure:5,tags:[],classification:'中坚',performance:'B+'},
     {sex:'男',education:'本科',tenure:3,tags:[],classification:'待发展',performance:'B'}
   ];
-  const people = Standards.people.map((person,i) => ({...person,...base[i],id:ids[i]}));
+  const people = Standards.people.map((person,i) => ({...person,...base[i],id:ids[i],employeeId:employeeIds[i]}));
   const today = () => { const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
   const uid = prefix => {
     if(typeof crypto.randomUUID==='function')return prefix+'-'+crypto.randomUUID();
@@ -183,7 +184,8 @@
   function values(data,id) {
     const map=new Map();
     evidence(data,id).forEach(record => record.values.forEach(([name,value]) => {
-      if(!map.has(name)||value>map.get(name).value)map.set(name,{value,record});
+      const previous=map.get(name)?.record;
+      if(!previous||record.date>previous.date||(record.date===previous.date&&(record.importedAt||'')>=(previous.importedAt||'')))map.set(name,{value,record});
     }));
     return map;
   }
@@ -191,7 +193,7 @@
     const c=standard?.content||{}, result=[];
     (c.duty||[]).forEach(d=>result.push({kind:'职责任务',name:d.n,detail:(d.t||[]).join('；')}));
     (c.exp||[]).forEach(name=>result.push({kind:'经历经验',name}));
-    (c.cap||[]).forEach(([name,level])=>result.push({kind:'能力要求',name,level,threshold:/^L[1-5]$/.test(level)?Number(level.slice(1)):null}));
+    (c.cap||[]).forEach(([name,level])=>result.push({kind:'能力要求',name,level,threshold:/^L(?:10|[1-9])$/.test(level)?Number(level.slice(1)):null}));
     [['pow','动力要求'],['pot','潜力要求']].forEach(([key,kind])=>(c[key]||[]).forEach(name=>result.push({kind,name})));
     return result;
   }

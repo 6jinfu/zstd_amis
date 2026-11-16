@@ -25,6 +25,11 @@
   const flattenCategoryTree = tree => tree.flatMap(node=>[node.name,...(node.children||[])]);
   const clone = x => JSON.parse(JSON.stringify(x));
   const emptyContent = () => ({duty:[],exp:[],cap:[],pow:[],pot:[]});
+  function nextCode(data) {
+    let value=Date.now();
+    while(data.standards.some(item=>item.code===String(value)))value++;
+    return String(value);
+  }
   function initial() {
     const seeds = window.STANDARD_POSITION_SEEDS;
     const categoryTree = defaultCategoryTree();
@@ -41,6 +46,7 @@
   function read() {
     const raw=localStorage.getItem(key), data=raw ? JSON.parse(raw) : initial();
     let migrated=false;
+    (data.standards||[]).forEach(s=>{if(!s.code){s.code=nextCode(data);migrated=true;}});
     (data.standards||[]).forEach(s=>{if(legacyCategoryMap[s.category]){s.category=legacyCategoryMap[s.category];migrated=true;}if(s.id==='std-collaboration'&&s.category==='研发序列'){s.category='通用标准';migrated=true;}});
     const currentCategories=Array.isArray(data.categories)?data.categories:[];
     let tree=Array.isArray(data.categoryTree)&&data.categoryTree.length?data.categoryTree:defaultCategoryTree();
@@ -100,5 +106,5 @@
     const p=positions.find(p=>p.name===person.position);
     return data.standards.filter(s=>match(s,person)===true || (p&&(data.links[p.id]||[]).includes(s.id)));
   }
-  window.Standards={key,positions,people,modes,fields,clone,emptyContent,read,write,match,summary,countApplicable,applicableObjectLabel,positionIds,setStandard,associated,forPerson};
+  window.Standards={key,positions,people,modes,fields,clone,emptyContent,nextCode,read,write,match,summary,countApplicable,applicableObjectLabel,positionIds,setStandard,associated,forPerson};
 })();

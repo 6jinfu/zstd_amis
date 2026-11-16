@@ -112,9 +112,12 @@
     traitItems[key] = traitItems[key].map(([id, name, categoryId, description]) => ({id, name, categoryId, description}));
   });
 
+  const stored = JSON.parse(localStorage.getItem('talent-indicators-v1') || 'null');
+  const dimensionNames=JSON.parse(localStorage.getItem('talent-settings-v1')||'null')?.abilityDimensions||['技能','素养','知识'];
+  const items=(stored?.items||capabilityItems).map(item=>({...item,dimension:dimensionNames[item.dimensionIndex]||item.dimension||dimensionNames[0]}));
   window.IndicatorDemo = {
-    categories: capabilityCategories,
-    items: {cap: capabilityItems, pow: traitItems.pow, pot: traitItems.pot},
+    categories: stored?.categories || capabilityCategories,
+    items: {cap: items, pow: traitItems.pow, pot: traitItems.pot},
     traitCategories
   };
 })();

@@ -13,3 +13,6 @@
 .std-radar .std-radar-legend li { margin:0;padding-left:4px;line-height:22px;overflow-wrap:anywhere; }
 .std-radar-legend li::marker { color:#586174;font-variant-numeric:tabular-nums; }
 .std-radar-level-value { margin-left:12px;color:var(--primary-600);font-variant-numeric:tabular-nums; }
+.std-radar-group + .std-radar-group { margin-top:24px; }
+.std-radar-group h4 { margin:0;font-size:14px;font-weight:500;line-height:22px; }
+.std-radar-group ul { margin:12px 0;padding-left:22px; }

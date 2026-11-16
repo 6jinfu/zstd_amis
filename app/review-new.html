@@ -9,14 +9,50 @@
 <style>
   body[data-page="review-projects"] .distribution-controls[data-count="5"] .distribution-card-head{display:grid;justify-items:start;gap:5px}
   body[data-page="review-projects"] .distribution-controls[data-count="5"] .distribution-card-head>span{justify-self:end}
+  .drawer.review-import-drawer{width:860px;max-width:94vw}
+  .review-import-drawer .review-import-step{margin-bottom:32px}
+  .review-import-drawer .review-import-step h4{margin:0 0 12px;font-size:14px;font-weight:600;line-height:22px}
+  .review-import-drawer .review-import-step p{margin:0 0 16px;font-size:14px;line-height:1.7}
+  .review-import-drawer [data-score-status]{margin:16px 0;line-height:1.7;overflow-wrap:anywhere}
+  .review-import-drawer [data-score-preview]{margin-top:16px}
+  .review-import-drawer label.btn{display:inline-flex;cursor:pointer}
+  .review-rule-panel .grid-copy-input{resize:none;overflow:hidden;white-space:normal;word-break:keep-all;overflow-wrap:normal;line-height:20px}
+  .review-ability-table{margin-top:16px}
+  .review-ability-table .t{min-width:440px!important}
+  .review-rule-panel .distribution-controls{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important}
+  .review-rule-panel .distribution-card-head{display:grid;gap:5px}
+  @media(max-width:720px){.review-rule-panel .distribution-controls{grid-template-columns:1fr!important}}
+  .review-source-toolbar,.review-source-pagination{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:16px 0}
+  .review-source-table .t{min-width:640px!important}.review-source-table th:nth-child(2){width:46%}.review-source-table th:last-child{width:136px}.review-source-actions{display:flex;align-items:center;gap:16px;white-space:nowrap}
+  .review-source-empty{text-align:center!important;height:160px;color:var(--neutral-500)}
+  .review-source-pagination .select{width:112px}
+  #drawer-review-projects{width:1100px;max-width:95vw}
+  #drawer-review-projects>.m-body{display:flex;flex-direction:column}
+  .review-project-search{display:flex;flex:none;gap:16px;padding:20px;background:var(--neutral-50);margin-bottom:16px}
+  .review-project-search .input{width:240px}
+  .review-project-transfer{display:grid;flex:1;min-height:280px;grid-template-columns:minmax(0,1fr) 88px minmax(0,1fr);gap:16px}
+  .review-project-transfer section{display:flex;flex-direction:column;min-height:0;border:1px solid var(--neutral-200);border-radius:6px;overflow:hidden}
+  .review-project-transfer h4{flex:none;margin:0;padding:12px 16px;font-size:14px;line-height:22px;background:var(--neutral-50);border-bottom:1px solid var(--neutral-200)}
+  .review-project-transfer .table-wrap{flex:1;min-height:0;overflow:auto}
+  .review-project-transfer .t{min-width:400px!important;table-layout:fixed}
+  .review-project-transfer .t:has(.review-source-empty){height:100%}
+  .review-project-transfer .t :is(th,td){padding:12px}
+  .review-project-transfer .t th{height:44px;position:sticky;top:0;z-index:1}
+  .review-project-transfer th:first-child{width:40px}
+  .review-project-transfer th:nth-child(2){width:140px}
+  .review-project-transfer th:last-child{width:80px}
+  .review-project-transfer .t td{white-space:normal;overflow-wrap:anywhere}
+  .review-project-transfer .review-source-empty{vertical-align:middle}
+  .review-transfer-actions{display:flex;flex-direction:column;justify-content:center;gap:8px}
+  @media(max-width:720px){.review-project-transfer{flex:none;min-height:0;grid-template-columns:1fr}.review-project-transfer section{min-height:320px}.review-transfer-actions{flex-direction:row;flex-wrap:wrap}.review-source-pagination{flex-wrap:wrap}}
 </style>
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-00568d9a9b00"></script>
+<script src="navigation.js?v=sha256-6d9492ea338d"></script>
   <div class="body">
-    <main class="content content-medium">
+    <main class="content">
       <div data-wizard data-review-wizard data-free-navigation>
         <nav class="steps" aria-label="创建宫格盘点步骤">
           <div class="review-wizard-heading"><strong>创建宫格盘点</strong></div>
@@ -61,25 +97,17 @@
         <div class="step-panel" data-panel="3">
           <div class="card card-pad review-activity-card" data-tabs>
             <div class="section-toolbar compact"><h2>盘点活动</h2></div>
-            <div class="tab-btns"><button class="tab-btn active" type="button" data-tab="project-data">项目数据</button><button class="tab-btn" type="button" data-tab="performance-data">绩效数据</button></div>
-            <div class="tab-panel show" data-tab="project-data">
-              <form class="review-project-query" data-review-project-query>
-                <label><span>项目名称：</span><input class="input" type="search" data-review-project-keyword placeholder="请输入项目名称" autocomplete="off" spellcheck="false"></label>
-                <label><span>项目类型：</span><select class="select" data-review-project-type><option value="">全部</option><option>360 评估</option><option>考试</option></select></label>
-                <button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button>
-              </form>
-              <div class="flex gap-sm center review-project-toolbar mb-md"><span class="tag tag-primary" id="review-source-count">已选 3 项</span><button class="btn btn-primary" type="button" data-review-confirm-project>选择项目</button></div>
-              <div class="table-wrap review-project-table"><table class="t"><thead><tr><th style="width:46px"><input type="checkbox" checked data-review-source-all aria-label="选择全部项目"></th><th>项目编号</th><th>项目名称</th><th>类型</th><th>完成人数</th><th>结束时间</th><th>状态</th></tr></thead><tbody>
-                <tr data-review-project-row data-project-type="360 评估"><td><input type="checkbox" checked data-review-source aria-label="选择管理者通用能力 360"></td><td>AS-202607-018</td><td><b>管理者通用能力 360</b></td><td>360 评估</td><td>42</td><td>2026-07-26</td><td><span class="tag tag-done">已结束</span></td></tr>
-                <tr data-review-project-row data-project-type="考试"><td><input type="checkbox" checked data-review-source aria-label="选择研发专业能力认证"></td><td>EX-202607-006</td><td><b>研发专业能力认证</b></td><td>考试</td><td>36</td><td>2026-07-20</td><td><span class="tag tag-done">已结束</span></td></tr>
-                <tr data-review-project-row data-project-type="360 评估"><td><input type="checkbox" checked data-review-source aria-label="选择协同能力 360"></td><td>AS-202607-011</td><td><b>协同能力 360</b></td><td>360 评估</td><td>58</td><td>2026-07-18</td><td><span class="tag tag-done">已结束</span></td></tr>
-                <tr data-review-project-row data-project-type="考试"><td><input type="checkbox" data-review-source aria-label="选择销售专业能力认证"></td><td>EX-202606-022</td><td><b>销售专业能力认证</b></td><td>考试</td><td>28</td><td>2026-06-30</td><td><span class="tag tag-done">已结束</span></td></tr>
-              </tbody></table></div>
+            <div class="tab-btns"><button class="tab-btn active" type="button" data-tab="ability-data">能力数据</button><button class="tab-btn" type="button" data-tab="performance-data">绩效数据</button></div>
+            <div class="tab-panel show" data-tab="ability-data">
+              <div data-ability-source-panel="project">
+                <div class="review-source-toolbar"><div class="flex gap-sm center"><button class="btn btn-primary" type="button" data-open="drawer-review-projects">添加测评项目</button><button class="btn btn-primary" type="button" data-open="drawer-review-ability-import">导入测评结果</button></div><span id="review-source-count" aria-live="polite"></span></div>
+                <div class="table-wrap review-source-table"><table class="t"><thead><tr><th style="width:42px"><input type="checkbox" data-review-project-all aria-label="选择全部已关联项目"></th><th>项目名称</th><th>类型</th><th>关联时间</th><th>操作</th></tr></thead><tbody data-review-projects></tbody></table></div>
+                <div class="review-source-pagination"><span data-review-project-total></span><div class="flex gap-sm center"><button class="btn btn-secondary" type="button" disabled aria-label="上一页">‹</button><button class="btn btn-primary" type="button" aria-current="page">1</button><button class="btn btn-secondary" type="button" disabled aria-label="下一页">›</button><select class="select" aria-label="项目每页条数"><option>10 条/页</option><option>20 条/页</option><option>50 条/页</option></select></div></div>
+              </div>
             </div>
             <div class="tab-panel" data-tab="performance-data">
-              <div class="review-performance-actions"><div><b>绩效数据</b></div><div class="flex gap-sm"><button class="btn btn-secondary" type="button" data-toast="绩效模板已下载">下载模板</button><label class="btn btn-primary" for="review-performance-file">上传绩效数据</label><input id="review-performance-file" type="file" accept=".xlsx" hidden></div></div>
-              <div class="import-result mb-md" aria-live="polite"><div class="import-result-title"><span class="status-dot"></span><b id="review-performance-file-name">2026_H1_绩效数据.xlsx · 校验通过</b><span class="tag tag-done">35 条有效</span></div><div class="import-result-grid"><span>匹配人员 <b>35</b></span><span>缺失 <b>0</b></span><span>重复 <b>0</b></span><span>非法等级 <b>0</b></span></div></div>
-              <div class="table-wrap review-performance-table"><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>部门</th><th>岗位</th><th>绩效等级</th></tr></thead><tbody><tr><td>EMP-1026</td><td><b>张明</b></td><td>研发中心</td><td>架构师</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-1088</td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td><td><span class="tag tag-primary">中</span></td></tr><tr><td>EMP-2031</td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td><td><span class="tag tag-success">高</span></td></tr><tr><td>EMP-3072</td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td><td><span class="tag">低</span></td></tr></tbody></table></div>
+              <div class="review-source-toolbar"><button class="btn btn-primary" type="button" data-open="drawer-review-performance-import">导入绩效数据</button></div>
+              <div class="table-wrap review-performance-table" data-performance-results><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>绩效得分</th></tr></thead><tbody><tr><td colspan="3" class="review-source-empty">暂无数据</td></tr></tbody></table></div>
             </div>
           </div>
         </div>
@@ -93,21 +121,27 @@
                 <div class="axis-select-row"><label for="review-x-axis">横轴<select class="select" id="review-x-axis"><option value="ability" selected>能力</option><option value="performance">绩效</option></select></label><button class="btn btn-secondary btn-sm" type="button" data-axis-swap aria-label="交换横纵轴">⇄ 交换</button><label for="review-y-axis">纵轴<select class="select" id="review-y-axis"><option value="performance" selected>绩效</option><option value="ability">能力</option></select></label></div>
                 <div class="review-grid-counts" aria-label="宫格区间数量">
                   <label for="review-ability-count">能力区间数<select class="select" id="review-ability-count"><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
-                  <div class="review-fixed-count" role="group" aria-label="绩效区间数固定为 3 档"><span>绩效区间数</span><strong>固定 3 档</strong><small>低 · 中 · 高</small></div>
+                  <label for="review-performance-count">绩效区间数<select class="select" id="review-performance-count"><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
                   <div class="review-grid-count-summary" aria-live="polite"><b data-grid-size-summary>3 × 3</b><span data-grid-total-summary>共 9 格</span></div>
                 </div>
               </section>
               <div class="review-rule-lower">
                 <section class="rule-block rule-scale-block">
                   <div class="rule-section-title">分档规则</div>
-                  <div class="rule-scale-group distribution-rule">
+                  <div class="rule-scale-group distribution-rule" data-distribution-dimension="ability">
                     <div class="distribution-head"><div class="rule-scale-name">能力排名分档</div><button class="btn-text btn-sm" type="button" data-rule-reset>恢复默认</button></div>
                     <div class="distribution-bar" data-distribution-bar aria-label="按能力排名从高到低的人员分档占比"></div>
                     <div class="distribution-ruler" aria-hidden="true"><span>排名最前</span><span>100%</span></div>
                     <div class="distribution-controls" data-distribution-controls></div>
                     <div class="distribution-total" aria-live="polite"><b>分档合计 <strong data-distribution-total>100%</strong></b></div>
                   </div>
-                  <div class="rule-scale-group performance-rule"><div class="rule-scale-name">绩效分档</div><div class="performance-map" data-performance-map></div></div>
+                  <div class="rule-scale-group distribution-rule" data-distribution-dimension="performance">
+                    <div class="distribution-head"><div class="rule-scale-name">绩效排名分档</div><button class="btn-text btn-sm" type="button" data-rule-reset>恢复默认</button></div>
+                    <div class="distribution-bar" data-distribution-bar aria-label="按绩效排名从高到低的人员分档占比"></div>
+                    <div class="distribution-ruler" aria-hidden="true"><span>排名最前</span><span>100%</span></div>
+                    <div class="distribution-controls" data-distribution-controls></div>
+                    <div class="distribution-total" aria-live="polite"><b>分档合计 <strong data-distribution-total>100%</strong></b></div>
+                  </div>
                 </section>
                 <section class="review-grid-editor-wrap"><div class="rule-section-title">宫格名称</div><div class="review-grid-preview review-grid-editor" aria-label="宫格名称预览"><div class="preview-y"><span id="review-preview-y">绩效</span></div><div class="preview-grid" id="review-grid-copy"></div><div class="preview-x"><span id="review-preview-x">能力</span><span data-review-preview-x-levels>：低 · 中 · 高 →</span></div></div></section>
               </div>
@@ -121,6 +155,38 @@
   </div>
 </div>
 
+<div class="drawer wide review-import-drawer" id="drawer-review-performance-import">
+  <div class="m-head"><h3>导入绩效数据</h3><button class="icon-close" data-close aria-label="关闭绩效数据导入">×</button></div>
+  <div class="m-body" data-score-import="performance">
+    <section class="review-import-step"><h4>第一步：下载模板并填写</h4><p>请先下载导入模板，按照模板中的说明填写工号、姓名和绩效得分。</p><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button></section>
+    <section class="review-import-step"><h4>第二步：上传绩效数据</h4><p>支持 .xlsx，文件不超过 5 MB。绩效得分为 0–999，最多两位小数。</p><label class="btn btn-primary" for="review-performance-file">上传绩效数据</label><input id="review-performance-file" data-score-file type="file" accept=".xlsx" hidden></section>
+    <p id="review-performance-file-name" data-score-status role="status" aria-live="polite"></p>
+    <div class="table-wrap" data-score-preview hidden><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>绩效得分</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
+</div>
+<div class="drawer wide review-import-drawer" id="drawer-review-ability-import">
+  <div class="m-head"><h3>导入测评结果</h3><button class="icon-close" data-close aria-label="关闭测评结果导入">×</button></div>
+  <div class="m-body" data-score-import="ability">
+    <section class="review-import-step"><h4>第一步：下载模板并填写</h4><p>请填写工号、姓名、测评项目名称、项目起止日期和测评得分。模板带入当前盘点人员的工号和姓名。</p><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button></section>
+    <section class="review-import-step"><h4>第二步：上传测评结果</h4><p>支持 .xlsx，文件不超过 5 MB。测评得分为 0–999，最多两位小数，0 分有效。</p><label class="btn btn-primary" for="review-ability-file">上传测评结果</label><input id="review-ability-file" data-score-file type="file" accept=".xlsx" hidden></section>
+              <p data-score-status role="status" aria-live="polite"></p>
+              <div class="table-wrap review-ability-table" data-score-preview hidden><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>测评项目名称</th><th>项目开始日期</th><th>项目结束日期</th><th>测评得分</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
+</div>
+<div class="drawer wide" id="drawer-review-projects">
+  <div class="m-head"><h3>选择测评项目</h3><button class="icon-close" data-close aria-label="关闭项目选择">×</button></div>
+  <div class="m-body">
+    <form class="review-project-search" data-review-project-search><input class="input" type="search" placeholder="请输入搜索关键字" aria-label="搜索测评项目"><button class="btn btn-primary" type="submit">查询</button></form>
+    <div class="review-project-transfer">
+      <section><h4 data-review-available-count>待选区</h4><div class="table-wrap"><table class="t"><thead><tr><th><input type="checkbox" data-review-picker-all="available" aria-label="选择全部待选项目"></th><th>项目编号</th><th>测评项目</th><th>完成率</th></tr></thead><tbody data-review-available></tbody></table></div></section>
+      <div class="review-transfer-actions"><button class="btn btn-secondary" type="button" data-review-move="in">移入 ›</button><button class="btn btn-secondary" type="button" data-review-move="out">‹ 移出</button><button class="btn btn-secondary" type="button" data-review-move="all-in">本页 »</button><button class="btn btn-secondary" type="button" data-review-move="all-out">« 本页</button></div>
+      <section><h4 data-review-picked-count>已选择</h4><div class="table-wrap"><table class="t"><thead><tr><th><input type="checkbox" data-review-picker-all="picked" aria-label="选择全部已选项目"></th><th>项目编号</th><th>测评项目</th><th>完成率</th></tr></thead><tbody data-review-picked></tbody></table></div></section>
+    </div>
+  </div>
+  <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>取消</button><button class="btn btn-primary" type="button" data-review-confirm-project data-close>确定</button></div>
+</div>
 <div class="drawer wide" id="drawer-review-people">
   <div class="m-head"><h3>添加盘点人员</h3><button class="icon-close" data-close aria-label="关闭"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="m-body"><div class="review-person-picker"><aside class="review-person-org"><div class="section-title">组织范围</div><div class="tree"><div class="t-node t-l1"><label><input type="checkbox" checked> 总部</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 研发中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 销售中心</label></div><div class="t-node t-l2"><label><input type="checkbox" checked> 职能中台</label></div></div></aside><section class="review-person-candidates"><div class="review-person-search"><input class="input" type="search" data-review-person-search placeholder="搜索姓名、工号或岗位" aria-label="搜索盘点人员" autocomplete="off" spellcheck="false"><span class="tag tag-primary">已选 35 人</span></div><div class="table-wrap"><table class="t"><thead><tr><th style="width:42px"><input type="checkbox" checked aria-label="选择全部候选人员"></th><th>姓名</th><th>部门</th><th>岗位</th></tr></thead><tbody><tr><td><input type="checkbox" checked aria-label="选择张明"></td><td><b>张明</b></td><td>研发中心</td><td>架构师</td></tr><tr><td><input type="checkbox" checked aria-label="选择李华"></td><td><b>李华</b></td><td>研发中心</td><td>高级算法工程师</td></tr><tr><td><input type="checkbox" checked aria-label="选择王芳"></td><td><b>王芳</b></td><td>销售中心</td><td>区域销售总监</td></tr><tr><td><input type="checkbox" checked aria-label="选择赵琳"></td><td><b>赵琳</b></td><td>职能中台</td><td>财务分析经理</td></tr><tr><td><input type="checkbox" aria-label="选择周宁"></td><td><b>周宁</b></td><td>销售中心</td><td>销售经理</td></tr></tbody></table></div></section></div></div>
@@ -128,19 +194,20 @@
 </div>
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
+<script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
+<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="review-grid-content.js?v=sha256-51d1cba155f7"></script>
+<script src="review-distribution.js?v=sha256-6aeefae910be"></script>
+<script src="review-project-monitor.js?v=sha256-bbd769be9446"></script>
+<script src="review-activity.js?v=sha256-744461ab63d9"></script>
 <script>
 (function(){
-  var wizard=document.querySelector('[data-review-wizard]'),sources=Array.from(document.querySelectorAll('[data-review-source]')),sourceCount=document.getElementById('review-source-count'),sourceAll=document.querySelector('[data-review-source-all]'),confirmProject=document.querySelector('[data-review-confirm-project]'),performanceFile=document.getElementById('review-performance-file'),performanceFileName=document.getElementById('review-performance-file-name');
+  var wizard=document.querySelector('[data-review-wizard]'),activity=ReviewActivity.mount();
+  var abilityImport=ReviewScoreImport.mount(document.querySelector('[data-score-import="ability"]'), '[data-review-person-row]', 'ability', activity.setExternal);
+  ReviewScoreImport.mount(document.querySelector('[data-score-import="performance"]'), '[data-review-person-row]', 'performance');
   document.querySelector('[data-review-basic-form]').addEventListener('submit',function(event){event.preventDefault();wizard.querySelector('[data-step-next]').click()});
   document.querySelector('[data-review-rule-form]').addEventListener('submit',function(event){event.preventDefault();wizard.querySelector('[data-step-submit]').click()});
   document.querySelectorAll('[data-count-for]').forEach(function(counter){var input=document.getElementById(counter.dataset.countFor);function sync(){counter.textContent=input.value.length+'/'+input.maxLength}input.addEventListener('input',sync);sync()});
-  function syncSources(){var selected=sources.filter(function(source){return source.checked}).length;sourceCount.textContent='已选 '+selected+' 项';sourceAll.checked=selected===sources.length;sourceAll.indeterminate=selected>0&&selected<sources.length}
-  sources.forEach(function(source){source.addEventListener('change',syncSources)});sourceAll.addEventListener('change',function(){sources.forEach(function(source){source.checked=sourceAll.checked});syncSources()});syncSources();
-  confirmProject.addEventListener('click',function(){var selected=sources.filter(function(source){return source.checked}).length;if(!selected){showToast('请至少勾选一个已结束的评估项目');return}showToast('已选择 '+selected+' 个项目作为盘点项目数据')});
-  var projectQuery=document.querySelector('[data-review-project-query]'),projectKeyword=document.querySelector('[data-review-project-keyword]'),projectType=document.querySelector('[data-review-project-type]');
-  function filterProjects(){var keyword=projectKeyword.value.trim().toLowerCase(),type=projectType.value;document.querySelectorAll('[data-review-project-row]').forEach(function(row){row.style.display=(!keyword||row.textContent.toLowerCase().includes(keyword))&&(!type||row.dataset.projectType===type)?'':'none'})}
-  projectQuery.addEventListener('submit',function(event){event.preventDefault();filterProjects()});projectQuery.addEventListener('reset',function(){setTimeout(filterProjects)});
-  performanceFile.addEventListener('change',function(){if(performanceFile.files&&performanceFile.files[0])performanceFileName.textContent=performanceFile.files[0].name+' · 校验通过'});
 
   var personForm=document.querySelector('[data-review-person-form]'),personSearch=document.querySelector('[data-review-person-search]'),queryKeyword=document.querySelector('[data-review-query-keyword]'),queryDepartment=document.querySelector('[data-review-query-department]'),selectAll=document.querySelector('[data-review-person-select-all]'),batchRemove=document.querySelector('[data-review-batch-remove]');
   if(personSearch)personSearch.addEventListener('input',function(){var keyword=personSearch.value.trim().toLowerCase();document.querySelectorAll('#drawer-review-people tbody tr').forEach(function(row){row.style.display=!keyword||row.textContent.toLowerCase().includes(keyword)?'':'none'})});
@@ -149,29 +216,20 @@
   function filterPeople(){var keyword=queryKeyword.value.trim().toLowerCase(),department=queryDepartment.value;document.querySelectorAll('[data-review-person-row]').forEach(function(row){row.style.display=(!keyword||row.textContent.toLowerCase().includes(keyword))&&(!department||row.dataset.department===department)?'':'none'});syncPersonSelection()}
   personForm.addEventListener('submit',function(event){event.preventDefault();filterPeople()});personForm.addEventListener('reset',function(){setTimeout(filterPeople)});selectAll.addEventListener('change',function(){visiblePersonChecks().forEach(function(check){check.checked=selectAll.checked});syncPersonSelection()});document.querySelector('.review-person-table tbody').addEventListener('change',syncPersonSelection);document.querySelector('.review-person-table tbody').addEventListener('click',function(event){var remove=event.target.closest('[data-review-person-remove]');if(!remove)return;showToast('移除 '+remove.closest('tr').cells[2].textContent.trim()+' 后，该人员将不参与本次盘点')});batchRemove.addEventListener('click',function(){var selected=personChecks().filter(function(check){return check.checked}).length;if(selected)showToast('将把已选 '+selected+' 人移出本次盘点')});syncPersonSelection();
 
-  var xAxis=document.getElementById('review-x-axis'),yAxis=document.getElementById('review-y-axis'),abilityCountInput=document.getElementById('review-ability-count'),grid=document.getElementById('review-grid-copy'),resultLink=wizard.querySelector('[data-step-submit]'),axisNames={ability:'能力',performance:'绩效'},shareDefaults={2:[50,50],3:[60,20,20],4:[40,20,20,20],5:[20,20,20,20,20]},reviewPeopleCount=35,shareState={},labels={
-    'ability-0|performance-2':'重点提升','ability-1|performance-2':'关键人才','ability-2|performance-2':'核心人才',
-    'ability-0|performance-1':'关注发展','ability-1|performance-1':'稳定贡献','ability-2|performance-1':'骨干人才',
-    'ability-0|performance-0':'重点关注','ability-1|performance-0':'待观察','ability-2|performance-0':'能力错配'
-  };
-  function intervalLabels(count){return count===2?['低','高']:count===3?['低','中','高']:count===4?['低','中低','中高','高']:['低','较低','中','较高','高']}
-  function axisCount(dimension){return dimension==='ability'?Number(abilityCountInput.value):3}
-  function currentAbilityCount(){return axisCount('ability')}
-  function defaultShares(count){return shareDefaults[count]?shareDefaults[count].slice():Array(count).fill(Math.floor(100/count)).map(function(value,index){return value+(index<100%count?1:0)})}
-  function currentShares(){var count=currentAbilityCount();if(!shareState[count])shareState[count]=defaultShares(count);return shareState[count].slice()}
+  var xAxis=document.getElementById('review-x-axis'),yAxis=document.getElementById('review-y-axis'),abilityCountInput=document.getElementById('review-ability-count'),performanceCountInput=document.getElementById('review-performance-count'),grid=document.getElementById('review-grid-copy'),resultLink=wizard.querySelector('[data-step-submit]'),axisNames={ability:'能力',performance:'绩效'},reviewPeopleCount=35,labels={};
+  function intervalLabels(count){return ReviewGridContent.bands[count]}
+  function axisCount(dimension){return Number((dimension==='ability'?abilityCountInput:performanceCountInput).value)}
+  var distributions=Array.from(document.querySelectorAll('[data-distribution-dimension]')).map(function(root){return {dimension:root.dataset.distributionDimension,control:ReviewDistribution.mount(root,function(){return axisCount(root.dataset.distributionDimension)},function(){return reviewPeopleCount},syncResultLink)}});
   function renderCountSummary(){var x=axisCount(xAxis.value),y=axisCount(yAxis.value);document.querySelector('[data-grid-size-summary]').textContent=x+' × '+y;document.querySelector('[data-grid-total-summary]').textContent='共 '+(x*y)+' 格'}
-  function syncResultLink(){var x=axisCount(xAxis.value),y=axisCount(yAxis.value),url=new URL(resultLink.href,location.href);url.searchParams.set('grid',x+'x'+y);url.searchParams.set('xaxis',xAxis.value);url.searchParams.set('yaxis',yAxis.value);resultLink.href=url.pathname+'?'+url.searchParams.toString()+'#result'}
-  function renderDistribution(){var count=currentAbilityCount(),names=intervalLabels(count),values=currentShares(),bar=document.querySelector('[data-distribution-bar]'),controls=document.querySelector('[data-distribution-controls]'),map=document.querySelector('[data-performance-map]');bar.replaceChildren();bar.style.gridTemplateColumns=values.slice().reverse().map(function(value){return value+'fr'}).join(' ');controls.replaceChildren();controls.dataset.count=String(count);controls.style.gridTemplateColumns='repeat('+count+',minmax(0,1fr))';var cumulative=0;names.slice().reverse().forEach(function(name,reverseIndex){var index=count-1-reverseIndex,start=cumulative,end=cumulative+values[index],tone=reverseIndex===0?'high':reverseIndex===count-1?'low':'mid',barItem=document.createElement('span');barItem.className=tone;barItem.textContent=name+' '+values[index]+'%';bar.appendChild(barItem);var card=document.createElement('div');card.className='distribution-card';card.innerHTML='<div class="distribution-card-head"><label><i class="band-dot '+tone+'"></i>'+name+'档占比</label><span>'+(reverseIndex===0?'前 '+end+'%':'排名 '+start+'%–'+end+'%')+'</span></div><div class="distribution-stepper"><button type="button" data-band-index="'+index+'" data-step="-5" aria-label="减少'+name+'档占比">−</button><div class="distribution-value"><input type="number" min="5" max="'+(100-(count-1)*5)+'" step="5" data-band-share="'+index+'" value="'+values[index]+'" aria-label="'+name+'档占比"><span>%</span></div><button type="button" data-band-index="'+index+'" data-step="5" aria-label="增加'+name+'档占比">＋</button></div><small>约 '+Math.round(reviewPeopleCount*values[index]/100)+' 人</small>';controls.appendChild(card);cumulative=end});map.replaceChildren();map.style.gridTemplateColumns='repeat('+axisCount('performance')+',minmax(0,1fr))';intervalLabels(axisCount('performance')).forEach(function(name){var item=document.createElement('span');item.innerHTML='<b>'+name+'</b>';map.appendChild(item)});document.querySelector('[data-distribution-total]').textContent=values.reduce(function(total,value){return total+value},0)+'%'}
-  function setShare(index,value){var count=currentAbilityCount(),values=currentShares(),next=Math.min(100-(count-1)*5,Math.max(5,Math.round(Number(value)||5))),delta=next-values[index],remaining=Math.abs(delta);values[index]=next;for(var i=0;i<count;i++){if(i===index||!remaining)continue;var capacity=delta>0?values[i]-5:100-values[i],amount=Math.min(remaining,capacity);values[i]+=delta>0?-amount:amount;remaining-=amount}shareState[count]=values;renderDistribution()}
-  var distributionControls=document.querySelector('[data-distribution-controls]');distributionControls.addEventListener('click',function(event){var button=event.target.closest('[data-band-index]');if(button)setShare(Number(button.dataset.bandIndex),Number(button.closest('.distribution-card').querySelector('[data-band-share]').value)+Number(button.dataset.step))});distributionControls.addEventListener('change',function(event){var input=event.target.closest('[data-band-share]');if(input)setShare(Number(input.dataset.bandShare),input.value)});document.querySelector('[data-rule-reset]').addEventListener('click',function(){shareState[currentAbilityCount()]=defaultShares(currentAbilityCount());renderDistribution();showToast('已恢复默认分档占比')});
-  var standardLabels=labels;
-  function saveGrid(){grid.querySelectorAll('input').forEach(function(input){labels[input.dataset.key]=input.value})}
-  function keyFor(xIndex,yIndex){var values={};values[xAxis.value]=xIndex;values[yAxis.value]=yIndex;return 'ability-'+values.ability+'|performance-'+values.performance}
-  function defaultGridLabel(xIndex,yIndex,xCount,yCount){var key=keyFor(xIndex,yIndex);if(xCount===3&&yCount===3&&standardLabels[key])return standardLabels[key];return intervalLabels(yCount)[yIndex]+axisNames[yAxis.value]+' · '+intervalLabels(xCount)[xIndex]+axisNames[xAxis.value]}
-  function renderGrid(){saveGrid();var xCount=axisCount(xAxis.value),yCount=axisCount(yAxis.value);grid.replaceChildren();grid.style.gridTemplateColumns='repeat('+xCount+',minmax(0,1fr))';grid.style.gridTemplateRows='repeat('+yCount+',minmax(66px,auto))';for(var y=yCount-1;y>=0;y--)for(var x=0;x<xCount;x++){var key=keyFor(x,y),input=document.createElement('input');input.className='grid-copy-input';input.dataset.key=key;input.value=labels[key]||defaultGridLabel(x,y,xCount,yCount);input.maxLength=20;input.required=true;input.setAttribute('aria-label',axisNames[yAxis.value]+intervalLabels(yCount)[y]+'、'+axisNames[xAxis.value]+intervalLabels(xCount)[x]+'的宫格文案');grid.appendChild(input)}document.getElementById('review-preview-x').textContent=axisNames[xAxis.value];document.querySelector('[data-review-preview-x-levels]').textContent='：'+intervalLabels(xCount).join(' · ')+' →';document.getElementById('review-preview-y').textContent=axisNames[yAxis.value];syncResultLink()}
+  function syncResultLink(){var x=axisCount(xAxis.value),y=axisCount(yAxis.value),url=new URL(resultLink.href,location.href);url.searchParams.set('grid',x+'x'+y);url.searchParams.set('xaxis',xAxis.value);url.searchParams.set('yaxis',yAxis.value);distributions.forEach(function(item){url.searchParams.set(item.dimension+'Shares',item.control.getShares().join(','))});resultLink.href=url.pathname+'?'+url.searchParams.toString()+'#result'}
+  function renderDistribution(){distributions.forEach(function(item){item.control.render()})}
+  function saveGrid(){grid.querySelectorAll('.grid-copy-input').forEach(function(input){labels[input.dataset.key]=input.value})}
+  function keyFor(xIndex,yIndex){var values={};values[xAxis.value]=xIndex;values[yAxis.value]=yIndex;return axisCount('ability')+'x'+axisCount('performance')+'|ability-'+values.ability+'|performance-'+values.performance}
+  function defaultGridLabel(xIndex,yIndex,xCount,yCount){var values={};values[xAxis.value]=xIndex;values[yAxis.value]=yIndex;return ReviewGridContent.get(values.ability,values.performance,axisCount('ability'),axisCount('performance')).name}
+  function renderGrid(){saveGrid();var xCount=axisCount(xAxis.value),yCount=axisCount(yAxis.value);grid.replaceChildren();grid.style.gridTemplateColumns='repeat('+xCount+',minmax(0,1fr))';grid.style.gridTemplateRows='repeat('+yCount+',minmax(66px,auto))';for(var y=yCount-1;y>=0;y--)for(var x=0;x<xCount;x++){var key=keyFor(x,y),input=document.createElement('textarea');input.rows=2;input.className='grid-copy-input';input.dataset.key=key;input.value=labels[key]||defaultGridLabel(x,y,xCount,yCount);input.maxLength=20;input.required=true;input.setAttribute('aria-label',axisNames[yAxis.value]+intervalLabels(yCount)[y]+'、'+axisNames[xAxis.value]+intervalLabels(xCount)[x]+'的宫格文案');grid.appendChild(input)}document.getElementById('review-preview-x').textContent=axisNames[xAxis.value];document.querySelector('[data-review-preview-x-levels]').textContent='：'+intervalLabels(xCount).join(' · ')+' →';document.getElementById('review-preview-y').textContent=axisNames[yAxis.value];syncResultLink()}
   function setAxis(changed){var other=changed===xAxis?yAxis:xAxis;other.value=changed.value==='ability'?'performance':'ability';renderCountSummary();renderDistribution();renderGrid()}
-  xAxis.addEventListener('change',function(){setAxis(xAxis)});yAxis.addEventListener('change',function(){setAxis(yAxis)});abilityCountInput.addEventListener('change',function(){renderCountSummary();renderDistribution();renderGrid()});document.querySelector('[data-axis-swap]').addEventListener('click',function(){var currentAxis=xAxis.value;xAxis.value=yAxis.value;yAxis.value=currentAxis;renderCountSummary();renderDistribution();renderGrid()});renderCountSummary();renderDistribution();renderGrid();
-  wizard.addEventListener('click',function(event){var next=event.target.closest('[data-step-next]'),targetStep=event.target.closest('.steps .step'),submit=event.target.closest('[data-step-submit]'),active=wizard.querySelector('.steps .step.active'),steps=Array.from(wizard.querySelectorAll('.steps .step')),step=steps.indexOf(active)+1,destination=next?step+1:(targetStep?steps.indexOf(targetStep)+1:step);if(!next&&!targetStep&&!submit)return;if(destination>step&&step===1&&!document.querySelector('[data-review-basic-form]').reportValidity()){event.preventDefault();event.stopImmediatePropagation();return}if(destination>step&&step===3&&!sources.some(function(source){return source.checked})){event.preventDefault();event.stopImmediatePropagation();showToast('至少选择一个已结束的评估项目');return}if(submit){saveGrid();var empty=Array.from(grid.querySelectorAll('input')).find(function(input){return !input.value.trim()});if(empty){event.preventDefault();event.stopImmediatePropagation();empty.focus();showToast('各宫格文案均不能为空')}}},true);
+  xAxis.addEventListener('change',function(){setAxis(xAxis)});yAxis.addEventListener('change',function(){setAxis(yAxis)});[abilityCountInput,performanceCountInput].forEach(function(input){input.addEventListener('change',function(){renderCountSummary();renderDistribution();renderGrid()})});document.querySelector('[data-axis-swap]').addEventListener('click',function(){var currentAxis=xAxis.value;xAxis.value=yAxis.value;yAxis.value=currentAxis;renderCountSummary();renderDistribution();renderGrid()});renderCountSummary();renderDistribution();renderGrid();
+  wizard.addEventListener('click',function(event){var next=event.target.closest('[data-step-next]'),targetStep=event.target.closest('.steps .step'),submit=event.target.closest('[data-step-submit]'),active=wizard.querySelector('.steps .step.active'),steps=Array.from(wizard.querySelectorAll('.steps .step')),step=steps.indexOf(active)+1,destination=next?step+1:(targetStep?steps.indexOf(targetStep)+1:step);if(!next&&!targetStep&&!submit)return;if(destination>step&&step===1&&!document.querySelector('[data-review-basic-form]').reportValidity()){event.preventDefault();event.stopImmediatePropagation();return}if(destination>step&&step===3&&!activity.getProjectCount()&&!activity.getExternalCount()){event.preventDefault();event.stopImmediatePropagation();showToast('请添加测评项目或导入测评结果');return}if(submit){saveGrid();var empty=Array.from(grid.querySelectorAll('.grid-copy-input')).find(function(input){return !input.value.trim()});if(empty){event.preventDefault();event.stopImmediatePropagation();empty.focus();showToast('各宫格文案均不能为空');return}var url=new URL(resultLink.href,location.href);url.searchParams.set('activityKey',activity.snapshot());resultLink.href=url.pathname+'?'+url.searchParams.toString()+url.hash;}},true);
 })();
 </script>
 </body>

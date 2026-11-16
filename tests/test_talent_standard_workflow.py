@@ -1,426 +1,208 @@
-"""Offline contract and graph regression checks; no Dify or model API calls."""
+"""1127 workflow contracts, executed offline with explicit model substitutes."""
 import copy
+import importlib.util
 import json
-from pathlib import Path
-import re
+import sys
 import unittest
+from pathlib import Path
 
-import yaml
-
-
-ROOT = Path(__file__).resolve().parents[1]
-DSL = yaml.safe_load((ROOT / 'dify/talent-standard-ai-assistant-workflow.yml').read_text())
-NODES = {node['id']: node['data'] for node in DSL['workflow']['graph']['nodes']}
-EDGES = DSL['workflow']['graph']['edges']
-SECTIONS = ['duty', 'exp', 'cap', 'pow', 'pot']
-
-
-def execute_code(node_id, **kwargs):
-    namespace = {}
-    exec(compile(NODES[node_id]['code'], node_id, 'exec'), namespace)
-    result = namespace['main'](**kwargs)
-    if set(result) != set(NODES[node_id]['outputs']):
-        raise AssertionError(node_id + ': output keys differ from declared outputs')
-    types = {'string': str, 'boolean': bool, 'object': dict, 'number': (int, float)}
-    for key, value in result.items():
-        if not isinstance(value, types[NODES[node_id]['outputs'][key]['type']]):
-            raise AssertionError(node_id + ': wrong output type for ' + key)
-    return result
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from talent_standard_workflow_harness import DSL, NODES, EDGES, ROOT, run_graph
+spec = importlib.util.spec_from_file_location('examples', ROOT / 'dify/talent-standard-ai-assistant-v3/examples.py')
+ex = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(ex)
+rt = ex.runtime
 
 
-def validate_schema(value, schema):
-    """Validate the JSON Schema subset used in this self-contained DSL."""
-    kind = schema['type']
-    valid = {'object': isinstance(value, dict), 'array': isinstance(value, list),
-             'string': isinstance(value, str), 'number': isinstance(value, (int, float)) and not isinstance(value, bool)}
-    assert valid[kind], (kind, value)
-    if 'enum' in schema:
-        assert value in schema['enum'], value
-    if kind == 'object':
-        assert set(schema.get('required', [])) <= set(value)
-        if schema.get('additionalProperties') is False:
-            assert set(value) <= set(schema['properties'])
-        for key, child in value.items():
-            validate_schema(child, schema['properties'][key])
-    elif kind == 'array':
-        assert schema.get('minItems', 0) <= len(value) <= schema.get('maxItems', 100000)
-        for item in value:
-            validate_schema(item, schema['items'])
-    elif kind == 'number':
-        assert schema.get('minimum', float('-inf')) <= value <= schema.get('maximum', float('inf'))
+class WorkflowContracts(unittest.TestCase):
+    def run_action(self, action, payload, **kwargs):
+        return run_graph(action, copy.deepcopy(payload), **kwargs)
 
+    def candidate_result(self, model=None):
+        p = ex.payload(True)
+        p['capability_lookup'] = {'complete': True, 'catalog_version': 'demo-v1'}
+        return self.run_action('prepare_capabilities', p, models={'candidates_llm': model or ex.candidate_model()})[0]
 
-def run_graph(action, payload, models=None, files=None, extracted=None):
-    """Follow actual DSL branch handles with model/extractor outputs substituted."""
-    values = {'start': {'action': action, 'payload_json': json.dumps(payload, ensure_ascii=False), 'reference_files': files or []}}
-    queue = ['start']
-    visited = []
-    while queue:
-        node_id = queue.pop(0)
-        if node_id in visited:
-            continue
-        data = NODES[node_id]
-        kind = data['type']
-        handle = 'source'
+    def invalid_before_model(self, action, payload):
+        value, visited = self.run_action(action, payload)
+        self.assertEqual(value['status'], 'invalid')
+        self.assertFalse(any(NODES[key]['type'] == 'llm' for key in visited))
 
-        def read(selector):
-            return values[selector[0]][selector[1]]
-
-        if kind == 'code':
-            values[node_id] = execute_code(node_id, **{v['variable']: read(v['value_selector']) for v in data['variables']})
-        elif kind == 'if-else':
-            handle = 'false'
-            for case in data['cases']:
-                outcomes = []
-                for condition in case['conditions']:
-                    actual = read(condition['variable_selector'])
-                    outcomes.append(bool(actual) if condition['comparison_operator'] == 'not empty' else actual == condition['value'])
-                if all(outcomes):
-                    handle = case['case_id']
-                    break
-        elif kind == 'llm':
-            model = copy.deepcopy((models or {})[node_id])
-            validate_schema(model, data['structured_output']['schema'])
-            values[node_id] = {'structured_output': model}
-        elif kind == 'document-extractor':
-            values[node_id] = {'text': extracted or []}
-        elif kind == 'variable-aggregator':
-            choices = [read(v) for v in data['variables'] if v[0] in values]
-            assert choices, node_id
-            values[node_id] = {'output': choices[0]}
-        elif kind == 'end':
-            output = {v['variable']: read(v['value_selector']) for v in data['outputs']}
-            return json.loads(output['result_json']), visited + [node_id]
-        visited.append(node_id)
-        queue.extend(e['target'] for e in EDGES if e['source'] == node_id and e['sourceHandle'] == handle)
-    raise AssertionError('Graph did not reach an Output node')
-
-
-def note(section, name, **extra):
-    result = {'section': section, 'item': name, 'basis': 'inference', 'source_ids': ['confirmed_brief'], 'quote': '', 'confidence': 0.9}
-    result.update(extra)
-    return result
-
-
-def payload():
-    return {'request_id': 'r1', 'session_id': 's1', 'phase': 'welcome', 'operation': 'new',
-            'draft_version': 0, 'user_message': '为企业软件销售岗位建立通用标准',
-            'enabled_sections': SECTIONS, 'selected_sections': ['duty', 'exp'], 'brief': {},
-            'catalog': {'positions': [], 'categories': [{'id': 'general', 'name': '通用标准'}], 'cap': [], 'pow': [], 'pot': []},
-            'reference_context': []}
-
-
-def confirmed():
-    result = payload()
-    result.update(phase='outline', brief_confirmed=True, focus_confirmed=True,
-                  brief={'scenario': '企业软件销售业务', 'position_id': '', 'level': '未指定', 'management': '未指定'},
-                  detail='concise', focus='balanced')
-    return result
-
-
-def work():
-    return {'name': '销售通用标准', 'category_id': 'general', 'description': '面向企业软件销售业务。',
-            'work_summary': '理解需求，形成方案并推动交付。',
-            'duty': [{'n': '推动客户方案交付', 't': ['确认需求与交付目标']}], 'exp': ['具有相关项目实践经历'],
-            'questions': [], 'evidence_notes': [note('duty', '推动客户方案交付'), note('exp', '具有相关项目实践经历')]}
-
-
-def indicators():
-    return {'cap': [], 'pow': [], 'pot': [], 'unmatched_suggestions': [], 'questions': [], 'evidence_notes': []}
-
-
-def revision_payload():
-    result = confirmed()
-    result.update(phase='scope', draft_version=3, expected_draft_version=3,
-                  user_message='将职责任务中的交付目标改为验收标准，其他内容不要动',
-                  draft={'name': '用户自改名称', 'category': '通用标准', 'description': '用户手工修改的说明',
-                         'mode': 'none', 'positions': [], 'groups': [],
-                         'content': {'duty': copy.deepcopy(work()['duty']), 'exp': ['用户手工编辑的经历'], 'cap': [], 'pow': [], 'pot': []}},
-                  draft_evidence_notes=[note('exp', '用户手工编辑的经历')])
-    return result
-
-
-def plan():
-    return {'status': 'ready', 'target_sections': ['duty'], 'instruction': '将交付目标改为验收标准，保留其他条目', 'questions': []}
-
-
-def revision():
-    return {'content': {'duty': [{'n': '推动客户方案交付', 't': ['确认需求与验收标准']}], 'exp': [], 'cap': [], 'pow': [], 'pot': []},
-            'questions': [], 'evidence_notes': [note('duty', '推动客户方案交付')]}
-
-
-class WorkflowTests(unittest.TestCase):
-    def context(self, action, value):
-        result = execute_code('normalize', action=action, payload_json=json.dumps(value, ensure_ascii=False))
-        self.assertTrue(result['valid'], result['errors_json'])
-        return result['context_json']
-
-    def test_import_does_not_request_a_pinned_plugin_package(self):
-        self.assertEqual(DSL['dependencies'], [])
-        self.assertEqual(DSL['version'], '0.4.0')
-        download = ROOT / 'dify/talent-standard-ai-assistant-workflow-import-fix.yml'
-        self.assertEqual(yaml.safe_load(download.read_text()), DSL)
-
-    def test_dsl_topology_selectors_and_models(self):
+    def test_graph_and_matching_exports(self):
+        self.assertEqual(DSL['kind'], 'app')
         self.assertEqual(DSL['app']['mode'], 'workflow')
-        self.assertEqual(DSL['version'], '0.4.0')
-        self.assertEqual(len(NODES), len(DSL['workflow']['graph']['nodes']))
-        parents = {key: set() for key in NODES}
-        for edge in EDGES:
-            self.assertIn(edge['source'], NODES)
-            self.assertIn(edge['target'], NODES)
-            parents[edge['target']].add(edge['source'])
-            self.assertEqual(edge['data']['sourceType'], NODES[edge['source']]['type'])
-            source = NODES[edge['source']]
-            handles = {c['case_id'] for c in source.get('cases', [])} | {'false'} if source['type'] == 'if-else' else {'source'}
-            self.assertIn(edge['sourceHandle'], handles)
-        ancestry = {}
+        self.assertEqual(DSL['dependencies'], [])
+        self.assertEqual((ROOT/'dify/talent-standard-ai-assistant-workflow.yml').read_bytes(), (ROOT/'dify/talent-standard-ai-assistant-workflow-import-fix.yml').read_bytes())
+        seen=set()
+        def visit(key, active):
+            self.assertNotIn(key, active, 'cycle')
+            if key in seen: return
+            for edge in EDGES:
+                if edge['source']==key:
+                    self.assertIn(edge['target'], NODES)
+                    visit(edge['target'],active|{key})
+            seen.add(key)
+        visit('start',set())
+        self.assertEqual(seen,set(NODES))
+        llms=[node for node in NODES.values() if node['type']=='llm']
+        self.assertEqual(len(llms),5)
+        self.assertTrue(all(node['model']['name']=='qwen3.6-plus' for node in llms))
+        for node in NODES.values():
+            if node['type']=='code': compile(node['code'],'dsl-code','exec')
 
-        def ancestors(key, stack=()):
-            self.assertNotIn(key, stack, 'Cycle in workflow')
-            if key not in ancestry:
-                ancestry[key] = parents[key] | set().union(*(ancestors(p, stack + (key,)) for p in parents[key]))
-            return ancestry[key]
+    def test_analyze_and_attached_material_context(self):
+        p=ex.payload();p['phase']='welcome'
+        model={'brief':p['brief'],'selected_sections':['duty','exp'],'questions':[]}
+        value,visited=self.run_action('analyze_brief',p,models={'brief_llm':model},files=[{'type':'document'}],extracted=['参考岗位职责原文'])
+        self.assertIn('materials',visited)
+        self.assertEqual(value['components'][0]['type'],'generation_settings')
+        self.assertEqual(value['reference_context'][-1]['text'],'参考岗位职责原文')
+        self.assertFalse(value['can_apply'])
 
-        for key, node in NODES.items():
-            self.assertTrue(key == 'start' or 'start' in ancestors(key), key)
-            refs = []
-            if node['type'] == 'code':
-                compile(node['code'], key, 'exec')
-                refs += [v['value_selector'] for v in node['variables']]
-            elif node['type'] == 'variable-aggregator':
-                refs += node['variables']
-            elif node['type'] == 'end':
-                refs += [v['value_selector'] for v in node['outputs']]
-            elif node['type'] == 'if-else':
-                refs += [c['variable_selector'] for case in node['cases'] for c in case['conditions']]
-            elif node['type'] == 'document-extractor':
-                refs.append(node['variable_selector'])
-            elif node['type'] == 'llm':
-                self.assertEqual(node['model']['name'], 'qwen3.6-plus')
-                self.assertEqual(node['model']['provider'], 'langgenius/tongyi/tongyi')
-                self.assertTrue(node['structured_output_enabled'])
-                self.assertFalse(node['retry_config']['retry_enabled'])
-                for prompt in node['prompt_template']:
-                    refs += [list(m) for m in re.findall(r'\{\{#([^.#]+)\.([^#]+)#\}\}', prompt['text'])]
-            for selector in refs:
-                self.assertIn(selector[0], ancestors(key), (key, selector))
-                source = NODES[selector[0]]
-                outputs = set(source.get('outputs', {})) if source['type'] == 'code' else {'structured_output'} if source['type'] == 'llm' else {'output'} if source['type'] == 'variable-aggregator' else {'text'} if source['type'] == 'document-extractor' else {v['variable'] for v in source.get('variables', [])}
-                self.assertIn(selector[1], outputs, (key, selector))
+    def test_lookup_must_complete_before_model(self):
+        value,visited=self.run_action('prepare_capabilities',ex.payload(True))
+        self.assertEqual(value['status'],'needs_data')
+        self.assertEqual(value['service_requests'][0]['type'],'search_platform_capabilities')
+        self.assertNotIn('candidates_llm',visited)
+        p=ex.payload(True);p['capability_lookup']={'complete':True,'catalog_version':'old'}
+        self.invalid_before_model('prepare_capabilities',p)
 
-    def test_default_import_example_runs_to_modeling_card(self):
-        value = json.loads(next(v['default'] for v in NODES['start']['variables'] if v['variable'] == 'payload_json'))
-        model = {'brief': {'scenario': value['user_message'], 'position_id': '', 'level': '基层/初级', 'management': '不带团队'},
-                 'selected_sections': ['duty', 'exp'], 'position_confidence': 0, 'conflicts': [], 'questions': [], 'evidence_notes': []}
-        result, _ = run_graph('analyze_brief', value, {'brief_llm': model})
-        self.assertEqual(result['next_ui'], 'review')
-        self.assertEqual(result['status'], 'needs_confirmation')
-        self.assertIsNone(result['draft'])
+    def test_reuse_and_new_proposal_are_distinguished(self):
+        result=self.candidate_result()
+        old,new=result['capability_bundle']['items']
+        self.assertEqual((old['id'],old['name'],old['levels']),('cap1','团队管理',['L1','L3','L10']))
+        self.assertEqual(new['category_name'],'AI 生成')
+        self.assertEqual(new['levels'],['L1','L2','L3'])
+        self.assertTrue(new['id'].startswith('proposal-'))
+        self.assertFalse(result['components'][0]['data']['show_arrow_buttons'])
+        self.assertEqual(result['service_requests'],[])
 
-    def test_all_confirmation_and_phase_gates_precede_models(self):
-        for field, replacement in [('brief_confirmed', False), ('focus_confirmed', False), ('phase', 'review'), ('phase', 'welcome'), ('phase', 'scope')]:
-            with self.subTest(field=field, value=replacement):
-                value = confirmed()
-                value[field] = replacement
-                result, visited = run_graph('generate_draft', value)
-                self.assertEqual(result['status'], 'invalid')
-                self.assertFalse(any(NODES[n]['type'] == 'llm' for n in visited))
+    def test_reject_forged_candidates(self):
+        for key,value in [('catalog_id','missing'),('name','团队管理'),('dimension','missing'),('considered_ids',['missing'])]:
+            with self.subTest(key=key):
+                model=ex.candidate_model();model['items'][1][key]=value
+                result=self.candidate_result(model)
+                self.assertEqual(result['status'],'invalid')
+                self.assertIsNone(result['draft'])
 
-    def test_disabled_or_empty_dimensions_are_rejected(self):
-        for selected in [[], ['cap'], ['duty', 'duty'], [{}]]:
-            value = payload()
-            value['enabled_sections'] = ['duty']
-            value['selected_sections'] = selected
-            result, _ = run_graph('analyze_brief', value)
-            self.assertEqual(result['status'], 'invalid')
+    def test_settings_and_rating_gates(self):
+        for key,value in [('settings_confirmed',False),('preferences_confirmed',False),('sort_confirmed',False),('ratings_confirmed',False),('importance_scores',{'cap1':0})]:
+            with self.subTest(key=key):
+                p=ex.prepared();p[key]=value
+                self.invalid_before_model('generate_draft',p)
+        p=ex.prepared();p['sorted_capability_ids']=['cap1','cap1']
+        self.invalid_before_model('generate_draft',p)
 
-    def test_nonfinite_and_oversized_payloads_return_invalid(self):
-        for raw in ['{"x":NaN}', '{"x":1e999}', 'x' * 60001, '[]', '{']:
-            value = execute_code('normalize', action='analyze_brief', payload_json=raw)
-            self.assertFalse(value['valid'])
+    def test_stale_candidate_bundle(self):
+        for key,value in [('user_message','改变了建模场景'),('generation_preferences',{'detail':'detailed','description_structure':'behavior'})]:
+            p=ex.prepared();p[key]=value
+            self.invalid_before_model('generate_draft',p)
+        p=ex.prepared();p['catalog']['version']='new-version'
+        self.invalid_before_model('generate_draft',p)
 
-    def test_duty_only_generation_skips_indicator_model(self):
-        result, visited = run_graph('generate_draft', confirmed(), {'work_llm': work()})
-        self.assertEqual(result['status'], 'ok')
-        self.assertNotIn('indicators_llm', visited)
-        self.assertEqual(result['draft']['mode'], 'none')
-        self.assertTrue(result['can_apply'])
-        self.assertEqual(result['next_ui'], 'scope')
+    def test_rating_defaults_and_stable_ties(self):
+        p=ex.prepared();p['phase']='rank';p['sorted_capability_ids'].reverse()
+        result,_=self.run_action('confirm_sort',p)
+        self.assertEqual([x['score'] for x in result['components'][0]['data']['items']],[3,4])
+        p['phase']='compare'
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':ex.draft_model(p)})
+        self.assertEqual([x['id'] for x in result['draft']['capability_requirements']],p['sorted_capability_ids'])
 
-    def test_generation_preserves_reference_evidence(self):
-        value = confirmed()
-        value['reference_context'] = [{'id': 'doc1', 'name': '岗位说明书', 'text': '工作要求：确认需求与交付目标。'}]
-        model = work()
-        model['evidence_notes'][0] = note('duty', '推动客户方案交付', basis='reference', source_ids=['doc1'], quote='确认需求与交付目标')
-        result, _ = run_graph('generate_draft', value, {'work_llm': model})
-        self.assertEqual(result['status'], 'ok')
-        self.assertEqual(result['evidence_notes'][0]['source_ids'], ['doc1'])
+    def test_without_capability_skips_ranking(self):
+        p=ex.payload()
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':ex.draft_model(p)})
+        self.assertEqual(result['status'],'ok')
+        self.assertEqual(result['draft']['capability_requirements'],[])
+        self.assertEqual(result['draft']['content']['cap'],[])
 
-    def test_complete_indicator_branch_resolves_ids_to_editor_names(self):
-        value = confirmed()
-        value['selected_sections'] = SECTIONS
-        value['catalog'].update(cap=[{'id': 'cap-1', 'name': '团队管理', 'levels': [{'level': 'L2', 'description': '协调明确任务'}]}],
-                                pow=[{'id': 'pow-1', 'name': '成就导向'}], pot=[{'id': 'pot-1', 'name': '学习敏锐'}])
-        terms = indicators()
-        terms.update(cap=[{'id': 'cap-1', 'level': 'L2'}], pow=[{'id': 'pow-1'}], pot=[{'id': 'pot-1'}],
-                     evidence_notes=[note('cap', '团队管理'), note('pow', '成就导向'), note('pot', '学习敏锐')])
-        result, visited = run_graph('generate_draft', value, {'work_llm': work(), 'indicators_llm': terms})
-        self.assertIn('indicators_llm', visited)
-        self.assertEqual(result['status'], 'ok')
-        self.assertEqual(result['draft']['content']['cap'], [['团队管理', 'L2']])
-        self.assertEqual(result['draft']['content']['pow'], ['成就导向'])
-        self.assertEqual(result['draft']['content']['pot'], ['学习敏锐'])
+    def test_draft_actual_levels_and_missing_level_rejected(self):
+        p=ex.prepared();model=ex.draft_model(p)
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':model})
+        self.assertEqual(result['status'],'ok')
+        self.assertEqual([x['level'] for x in result['draft']['capability_requirements'][0]['level_descriptions']],['L1','L3','L10'])
+        model['capabilities'][0]['level_descriptions'].pop()
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':model})
+        self.assertEqual(result['status'],'invalid')
 
-    def test_low_confidence_is_not_an_applicable_success(self):
-        model = work()
-        model['evidence_notes'][0]['confidence'] = 0.4
-        result, _ = run_graph('generate_draft', confirmed(), {'work_llm': model})
-        self.assertEqual(result['status'], 'needs_confirmation')
-        self.assertFalse(result['can_apply'])
-        self.assertTrue(result['questions'])
+    def test_description_modes_and_new_identity_rejected(self):
+        p=ex.prepared();model=ex.draft_model(p)
+        model['capabilities'][0]['level_descriptions'][0]['outcome']=''
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':model})
+        self.assertEqual(result['status'],'invalid')
+        model=ex.draft_model(p);model['capabilities'][0]['id']='unknown'
+        result,_=self.run_action('generate_draft',p,models={'draft_llm':model})
+        self.assertEqual(result['status'],'invalid')
 
-    def test_missing_candidate_returns_question_instead_of_inventing_indicator(self):
-        value = confirmed()
-        value['selected_sections'] = ['pow']
-        value['catalog']['pow'] = [{'id': 'pow-1', 'name': '成就导向'}]
-        model = work()
-        model.update(duty=[], exp=[], evidence_notes=[])
-        terms = indicators()
-        terms['unmatched_suggestions'] = [{'section': 'pow', 'suggestion': '技术钻研', 'reason': '提供的候选中未找到匹配项'}]
-        result, _ = run_graph('generate_draft', value, {'work_llm': model, 'indicators_llm': terms})
-        self.assertEqual(result['status'], 'needs_confirmation')
-        self.assertEqual(result['draft']['content']['pow'], [])
-        self.assertFalse(result['can_apply'])
+    def test_new_library_items_require_explicit_snapshot_confirmation(self):
+        p=ex.scoped()
+        pending,_=self.run_action('prepare_apply',p)
+        self.assertEqual(pending['status'],'needs_confirmation')
+        self.assertFalse(pending['can_apply'])
+        self.assertNotIn('save_plan',pending)
+        p.update(new_capabilities_confirmed=True,confirmed_new_capability_ids=[x['id'] for x in p['draft']['capability_requirements'] if x['source']=='generated'],new_capability_confirmation_token=pending['components'][0]['data']['confirmation_token'])
+        ready,_=self.run_action('prepare_apply',p)
+        self.assertTrue(ready['can_apply'])
+        self.assertEqual(ready['save_plan']['execute_on'],'editor_save')
+        self.assertEqual(ready['save_plan']['existing_capability_writes'],[])
+        self.assertEqual(ready['save_plan']['new_capabilities'][0]['category_name'],'AI 生成')
+        p['draft']['capability_requirements'][1]['level_descriptions'][0]['behavior']='修改后的新能力行为'
+        stale,_=self.run_action('prepare_apply',p)
+        self.assertEqual(stale['status'],'needs_confirmation')
 
-    def test_all_delivered_request_examples_pass_input_validation(self):
-        examples = ROOT / 'dify/talent-standard-ai-assistant-examples'
-        paths = sorted(examples.glob('*.request.json'))
-        self.assertEqual(len(paths), 4)
-        for path in paths:
-            with self.subTest(path=path.name):
-                body = json.loads(path.read_text())
-                self.assertEqual(body['response_mode'], 'streaming')
-                result = execute_code('normalize', action=body['inputs']['action'], payload_json=body['inputs']['payload_json'])
-                self.assertTrue(result['valid'], result['errors_json'])
+    def test_merge_replaces_same_ability_descriptions_preserves_others(self):
+        p=ex.scoped(False)
+        source=copy.deepcopy(p['draft']);source.update(id='std1',version='7',name='原名称',mode='positions',positions=['p3'])
+        other=copy.deepcopy(p['catalog']['cap'][0]);other.update(id='cap2',name='其他能力')
+        p['catalog']['cap'].append(other)
+        source['content']['duty']=[{'n':'原职责','t':['原任务']}]
+        source['content']['cap'].append(['其他能力','L1','其他组'])
+        old=copy.deepcopy(source['capability_requirements'][0]);old.update(id='cap2',name='其他能力',required_level='L1',radar_name='其他组')
+        source['capability_requirements'].append(old)
+        source['capability_requirements'][0]['level_descriptions'][0]['behavior']='原描述'
+        p.update(operation='update',source_standard=source,update_strategy='merge')
+        value,_=self.run_action('prepare_apply',p)
+        self.assertEqual(value['status'],'ok')
+        draft=value['draft']
+        self.assertEqual(draft['name'],'原名称');self.assertEqual(draft['positions'],['p3'])
+        self.assertIn(['其他能力','L1','其他组'],draft['content']['cap'])
+        self.assertEqual(draft['capability_requirements'][1],old)
+        self.assertNotEqual(draft['capability_requirements'][0]['level_descriptions'][0]['behavior'],'原描述')
+        self.assertIn({'n':'原职责','t':['原任务']},draft['content']['duty'])
 
-    def test_fabricated_reference_quote_or_source_is_rejected(self):
-        for changes in [{'source_ids': ['missing'], 'quote': '不存在'}, {'source_ids': ['doc1'], 'quote': '不存在'}]:
-            value = confirmed()
-            value['reference_context'] = [{'id': 'doc1', 'name': '材料', 'text': '确认需求与交付目标'}]
-            model = work()
-            model['evidence_notes'][0] = note('duty', '推动客户方案交付', basis='reference', **changes)
-            result, _ = run_graph('generate_draft', value, {'work_llm': model})
-            self.assertEqual(result['status'], 'invalid')
-            self.assertIsNone(result['draft'])
+    def test_similar_positions_require_real_evidence_and_no_category_selection(self):
+        p=ex.scoped(False)
+        model={'matches':[{'position_id':'p2','reason':'实际交付职责相近','evidence':[{'field':'duties','target_quote':'组织跨团队项目交付','candidate_quote':'组织跨团队项目交付并验收'}]}],'questions':[]}
+        value,_=self.run_action('suggest_similar_positions',p,models={'similar_llm':model})
+        data=value['components'][0]['data']
+        self.assertEqual([x['id'] for x in data['candidates']],['p2'])
+        self.assertTrue(data['requires_explicit_selection'])
+        model['matches'][0]['evidence'][0]['candidate_quote']='虚构职责'
+        value,_=self.run_action('suggest_similar_positions',p,models={'similar_llm':model})
+        self.assertEqual(value['status'],'invalid')
+        value,_=self.run_action('suggest_similar_positions',p,models={'similar_llm':{'matches':[],'questions':['缺少可比较资料']}})
+        self.assertEqual(value['status'],'needs_clarification')
 
-    def test_new_attachment_returns_reusable_context(self):
-        model = {'brief': {'scenario': '企业软件销售', 'position_id': '', 'level': '未指定', 'management': '未指定'},
-                 'selected_sections': ['duty', 'exp'], 'position_confidence': 0, 'conflicts': [], 'questions': [], 'evidence_notes': []}
-        result, visited = run_graph('analyze_brief', payload(), {'brief_llm': model}, files=['file-object'], extracted=['确认需求与交付目标'])
-        self.assertIn('extract', visited)
-        self.assertEqual(result['reference_context'][0]['text'], '确认需求与交付目标')
+    def test_revision_preserves_manual_edits_and_version_gate(self):
+        p=ex.scoped(False);p['user_message']='只调整职责'
+        p['draft']['content']['exp']=['用户手工修改的经验']
+        model={'target_sections':['duty'],'content':{x:[] for x in ['duty','exp','cap','pow','pot']},'capability_requirements':[],'questions':[]}
+        model['content']['duty']=[{'n':'新职责','t':['新任务']}]
+        value,_=self.run_action('revise_draft',p,models={'revision_llm':model})
+        self.assertEqual(value['draft']['content']['exp'],['用户手工修改的经验'])
+        self.assertEqual(value['draft']['positions'],p['draft']['positions'])
+        self.assertEqual(value['proposed_draft_version'],2)
+        p['expected_draft_version']=0
+        self.invalid_before_model('revise_draft',p)
 
-    def test_no_attachment_skips_extractor(self):
-        result, visited = run_graph('generate_draft', confirmed(), {'work_llm': work()})
-        self.assertNotIn('extract', visited)
-        self.assertEqual(result['status'], 'ok')
-
-    def test_new_attachment_cannot_skip_confirmation(self):
-        with self.assertRaisesRegex(ValueError, '返回建模信息确认'):
-            run_graph('generate_draft', confirmed(), {}, files=['file-object'], extracted=['新资料'])
-
-    def test_empty_extraction_stops_before_model(self):
-        with self.assertRaisesRegex(ValueError, '未提取到有效文本'):
-            run_graph('analyze_brief', payload(), {}, files=['file-object'], extracted=[''])
-
-    def test_invalid_level_is_not_coerced_to_l3(self):
-        value = confirmed()
-        value['selected_sections'] = ['cap']
-        value['catalog']['cap'] = [{'id': 'cap-1', 'name': '团队管理', 'levels': [{'level': 'L2', 'description': '协调明确任务'}]}]
-        ctx = self.context('generate_draft', value)
-        model = work()
-        model.update(duty=[], exp=[], evidence_notes=[])
-        terms = indicators()
-        terms.update(cap=[{'id': 'cap-1', 'level': 'L9'}], evidence_notes=[note('cap', '团队管理')])
-        result = json.loads(execute_code('generate_result', context_json=ctx, work=model, indicators=terms)['result_json'])
-        self.assertEqual(result['status'], 'invalid')
-        self.assertIsNone(result['draft'])
-
-    def test_unknown_indicator_id_cannot_be_persisted(self):
-        value = confirmed()
-        value['selected_sections'] = ['pow']
-        value['catalog']['pow'] = [{'id': 'pow-1', 'name': '成就导向'}]
-        model = work()
-        model.update(duty=[], exp=[], evidence_notes=[])
-        terms = indicators()
-        terms['pow'] = [{'id': 'invented'}]
-        result, _ = run_graph('generate_draft', value, {'work_llm': model, 'indicators_llm': terms})
-        self.assertEqual(result['status'], 'invalid')
-
-    def test_ambiguous_revision_does_not_call_rewriter(self):
-        model = {'status': 'needs_clarification', 'target_sections': [], 'instruction': '', 'questions': ['请说明要调整哪个分项，以及调整方向。']}
-        result, visited = run_graph('revise_draft', revision_payload(), {'plan_llm': model})
-        self.assertEqual(result['status'], 'needs_clarification')
-        self.assertNotIn('revision_llm', visited)
-        self.assertIsNone(result['draft'])
-
-    def test_local_revision_preserves_manual_edits_and_metadata(self):
-        value = revision_payload()
-        result, _ = run_graph('revise_draft', value, {'plan_llm': plan(), 'revision_llm': revision()})
-        self.assertEqual(result['status'], 'ok')
-        for field in ['name', 'category', 'description', 'mode', 'positions', 'groups']:
-            self.assertEqual(result['draft'][field], value['draft'][field])
-        self.assertEqual(result['draft']['content']['exp'], ['用户手工编辑的经历'])
-        self.assertEqual(result['evidence_notes'][0]['item'], '用户手工编辑的经历')
-        self.assertEqual(result['change_summary'], [{'section': 'duty', 'before': 1, 'after': 1, 'added': 0, 'removed': 0, 'modified': 1}])
-        self.assertEqual(result['base_draft_version'], 3)
-        self.assertEqual(result['proposed_draft_version'], 4)
-
-    def test_revision_of_unselected_dimension_requires_clarification(self):
-        model = plan()
-        model['target_sections'] = ['cap']
-        result, visited = run_graph('revise_draft', revision_payload(), {'plan_llm': model})
-        self.assertEqual(result['status'], 'needs_clarification')
-        self.assertNotIn('revision_llm', visited)
-
-    def test_rewriter_cannot_replace_other_dimensions(self):
-        model = revision()
-        model['content']['exp'] = ['模型越界修改经历']
-        model['evidence_notes'].append(note('exp', '模型越界修改经历'))
-        result, _ = run_graph('revise_draft', revision_payload(), {'plan_llm': plan(), 'revision_llm': model})
-        self.assertEqual(result['status'], 'invalid')
-        self.assertFalse(result['can_apply'])
-
-    def test_noop_revision_never_claims_success(self):
-        model = revision()
-        model['content']['duty'] = work()['duty']
-        result, _ = run_graph('revise_draft', revision_payload(), {'plan_llm': plan(), 'revision_llm': model})
-        self.assertEqual(result['status'], 'needs_clarification')
-        self.assertIsNone(result['draft'])
-
-    def test_mismatched_revision_version_stops_before_models(self):
-        value = revision_payload()
-        value['expected_draft_version'] = 2
-        result, visited = run_graph('revise_draft', value)
-        self.assertEqual(result['status'], 'invalid')
-        self.assertNotIn('plan_llm', visited)
-
-    def test_update_candidate_keeps_original_metadata_without_merging(self):
-        value = confirmed()
-        value['operation'] = 'update'
-        value['source_standard'] = copy.deepcopy(revision_payload()['draft'])
-        value['source_standard'].update(id='std-old', version='v7')
-        result, _ = run_graph('generate_draft', value, {'work_llm': work()})
-        self.assertEqual(result['status'], 'ok')
-        self.assertEqual(result['draft']['name'], '用户自改名称')
-        self.assertEqual(result['source_standard_version'], 'v7')
-        self.assertNotEqual(result['draft']['content']['exp'], value['source_standard']['content']['exp'])
-
-    def test_model_failure_propagates_without_a_fake_draft(self):
-        with self.assertRaises(KeyError):
-            run_graph('generate_draft', confirmed(), {})
+    def test_request_examples_normalize(self):
+        files=list((ROOT/'dify/talent-standard-ai-assistant-v3/requests').glob('*.request.json'))
+        self.assertEqual(len(files),10)
+        for path in files:
+            body=json.loads(path.read_text())['inputs']
+            with self.subTest(file=path.name):
+                value=rt.normalize(body['action'],body['payload_json'])
+                self.assertTrue(value['valid'],value['errors_json'])
 
 
-if __name__ == '__main__':
-    unittest.main()
+if __name__=='__main__': unittest.main()

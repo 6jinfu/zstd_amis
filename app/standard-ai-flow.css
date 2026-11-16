@@ -397,3 +397,4 @@
 .std-ai-understanding-record { padding:14px 18px;border:1px solid var(--flow-line);border-radius:8px;background:#fff; }
 .std-ai-understanding-record>summary { cursor:pointer;font-size:14px;color:#586174; }
 .std-ai-understanding-record[open]>.std-ai-understanding { margin-top:18px; }
+.std-ai-structure-example [data-ai-structure-example] { white-space:pre-line; }

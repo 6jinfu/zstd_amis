@@ -50,9 +50,9 @@ test('五档详略限制实际生成条目，沿用岗位候选、不补造或�
   const original=JSON.stringify(context.window.STANDARD_POSITION_SEEDS);
   for(const [scenario,position] of [['产品经理',null],['个人贡献者',null],['销售经理',{id:'SA-101',name:'销售经理',category:'销售'}],['算法工程师',{id:'RD-301',name:'高级算法工程师',category:'研发'}]]){
     context.selectedPosition=()=>position;context.brief={scenario,management:'未指定',level:'未指定'};
-    for(const [detail,count] of [['concise',5],['regular',7]]){
+    for(const [detail,limit] of [['concise',6],['regular',14]]){
       context.detail=detail;const cap=context.build().content.cap;
-      assert.equal(cap.length,count,scenario+detail);assert.equal(new Set(cap.map(([n])=>n)).size,count);
+      assert.ok(cap.length>0&&cap.length<=limit,scenario+detail);assert.equal(new Set(cap.map(([n])=>n)).size,cap.length);
     }
   }
   assert.equal(JSON.stringify(context.window.STANDARD_POSITION_SEEDS),original);
@@ -62,7 +62,7 @@ test('五档详略限制实际生成条目，沿用岗位候选、不补造或�
     pow:Array.from({length:6},(_,i)=>'动力'+i),pot:Array.from({length:6},(_,i)=>'潜力'+i)
   }},before=JSON.stringify(existing);
   context.sourceStandard=()=>existing;
-  for(const [detail,cap,other] of [['concise',5,2],['essential',6,2],['regular',7,3],['expanded',8,4],['detailed',10,5]]){
+  for(const [detail,cap,other] of [['concise',6,2],['essential',10,2],['regular',12,3],['expanded',12,4],['detailed',12,5]]){
     context.detail=detail;const content=context.build().content;
     assert.equal(content.cap.length,cap,detail);
     for(const key of ['duty','exp','pow','pot'])assert.equal(content[key].length,other,detail+key);

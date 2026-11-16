@@ -1,186 +1,76 @@
-# 人才标准 AI 帮建：分阶段 Dify Workflow
+# 人才标准 AI 帮建：1127版
 
-更新：2026-10-26（修正固定插件包导致的导入依赖问题）。当前交付入口是 [`talent-standard-ai-assistant-workflow.yml`](talent-standard-ai-assistant-workflow.yml)。为区分此前已下载的文件，另提供内容完全相同的 [`talent-standard-ai-assistant-workflow-import-fix.yml`](talent-standard-ai-assistant-workflow-import-fix.yml)。旧 `talent-standard-ai-assistant-chatflow.yml` 保留供追溯，生产接入以本文和新 Workflow 为准。
+2026-11-16 更新。普通 Workflow、DSL 0.4.0；沿用原有 tongyi / qwen3.6-plus 模型配置，23节点、29连线、5个按动作执行的模型节点。未调用模型、未在目标 Dify 实例导入，不能据本文件声称已接通平台。
 
-## 1. 导入与运行
+当前导入文件：[talent-standard-ai-assistant-workflow.yml](talent-standard-ai-assistant-workflow.yml)。`workflow-import-fix.yml` 同内容，兼容旧文件名。旧版已存入 `_archive/20261026/`，不是当前接入契约。
 
-1. 在 Dify 工作室选择「导入 DSL 文件」，上传上述 `.yml`，创建 **Workflow** 应用。
-2. 文件使用 `dependencies: []`，导入时不要求下载某个固定版本的插件包。运行前，在模型供应商中确认已安装官方通义插件、存在 **`qwen3.6-plus`**，并配置百炼凭据；已有可用配置可继续使用。如果尚未安装通义插件，先在当前实例的插件市场安装兼容版本。文件不包含任何密钥，也不会安装模型服务或替你配置凭据。
-3. 五个 LLM 节点统一使用 `langgenius/tongyi/tongyi` → `qwen3.6-plus`。结构化输出开启；思考模式和联网搜索显式关闭；temperature=0.2。没有隐式备用模型或自动付费重试。
-4. 先检查画布并保存。开始节点已填入一份无附件、无岗位、仅职责和经历的示例；点击测试会真实调用模型并消耗对应额度，确认额度后再运行。
-5. 使用本文的调用样例验证三条路径，发布后再通过 `POST /v1/workflows/run` 接入业务服务。
+## 正常流程
 
-DSL 使用 `0.4.0` 格式，节点字段按 Dify **1.9.2** 官方定义核对；建议使用 1.9.2 或更新版本，并安装包含 Qwen3.6 Plus 定义的通义插件。没有获得目标 Dify 实例的版本、地址和账号，因此本次做了本地结构和节点逻辑验证，未在目标实例实际导入、发布或调用模型。低版本若报告 DSL 不兼容，应先核对版本，不要仅改版本号绕过检查。
+输入建模要求（岗位选填）→确认生成设置→五档生成偏好→检索平台能力→优先复用已有能力，无合适项才建议新能力→排序→核对可修改的1–5重要性分→生成草稿及全部实际等级描述→局部调整→确认应用范围或更新方式→明确确认新增能力→带入编辑页→保存。
 
-当前项目仍是静态原型，`serve.py` 不提供 Dify 代理接口。本交付提供可独立导入的工作流和接入契约，没有把页面伪装成已接通真实生成。
+未选择能力要求时跳过能力检索、排序和评分。若已选能力但资料不足，不把空候选当成功，返回需补资料或错误。检索未完成时绝不直接生成新能力。
 
-### 遇到 Plugin load error 时
+五档 `concise/essential/regular/expanded/detailed` 的能力上限分别6/10/14/18/20。三种描述结构为 `behavior/context_behavior/context_behavior_result`，分别对应只写行为、带上情境、包含成果；不补造能力等级，必须覆盖平台实际配置的全部等级（支持L1–L10，数量不限于五级）。
 
-旧交付文件锁定了 `langgenius/tongyi:0.2.24` 及具体包哈希，导入可能先进入该插件包的安装/元数据加载环节。2026-10-26修正版只移除了这项安装依赖，未改模型、DSL版本、节点、确认步骤或输出协议。Dify 1.9.2官方导入代码对本文件的0.4.0格式在dependencies为空时不会按旧版DSL逻辑自动补齐依赖。
+## 输入与调用
 
-请重新选择带 `import-fix` 后缀的新文件导入。若原应用画布已经创建成功，也可先检查五个LLM节点的通义供应商及Qwen3.6 Plus选择状态，不必重复创建应用。此修改消除工作流对固定插件包的安装要求，并不修复实例本身的插件服务、网络或模型凭据；若单独安装插件仍报错，需要结合Dify版本、插件名及具体加载日志继续定位。仅凭“Plugin load error / This plugin will not be installed”不能确定底层原因。
+开始节点三个变量：`action`、`payload_json`（JSON字符串，≤120000字符）、`reference_files`（可选文档数组）。每次运行只处理一个明确动作；前端及业务服务负责跨轮状态。完整请求样例在 [talent-standard-ai-assistant-v3/requests/](talent-standard-ai-assistant-v3/requests/)，全为虚构测试数据。
 
-## 2. 严格对应当前原型的步骤
+| action | phase | 返回内容 |
+|---|---|---|
+| analyze_brief | welcome/review | generation_settings，整理需求及可选附件 |
+| confirm_settings | review | generation_preferences，不调用模型 |
+| prepare_capabilities | outline | 未检索时返回业务检索请求；检索完成后返回 capability_sort |
+| confirm_sort | rank | capability_rating，建议分默认回显，不调用模型 |
+| generate_draft | compare（含能力）/outline（无能力） | draft_preview + application_scope/update_strategy |
+| revise_draft | scope | 只修改明确指定分项，其余手工修改保留 |
+| suggest_similar_positions | scope | similar_position_selection，须真实资料和明确选定ID |
+| prepare_apply | scope | new_capability_confirmation 或 editor_handoff + save_plan，不调用模型 |
 
-阶段名称直接采用 `app/standard-ai-assistant.js` 中的 `welcome / review / outline / scope`。页面中的短暂 `thinking` 只是加载状态，不作为一个业务确认步骤。
+公共字段包括 request_id、session_id、operation（new/update）、phase、draft_version、user_message、brief、enabled_sections、selected_sections、reference_context、catalog。后续动作须 settings_confirmed、preferences_confirmed 为true及合法 generation_preferences。草稿阶段须 draft、expected_draft_version；更新还须 source_standard（id/version/content及完整能力身份元数据）。
 
-| 页面步骤 | 页面行为与调用时机 | 工作流动作 |
-| --- | --- | --- |
-| 首页提交需求 `welcome` | 可选目标岗位，输入建模需求，可上传资料。没有岗位也能继续 | `analyze_brief` |
-| 确认建模信息 `review` | 选择新建或更新已有标准，确认目标岗位、岗位层级、管理范围和生成维度。有补充输入时先处理调整、再次确认 | 有调整时调用 `analyze_brief`；空输入点击「确认，继续」由代码进入 `outline` |
-| 确认内容侧重 `outline` | 选择简洁/常规、均衡/工作交付/协同沟通/团队管理，可补充业务场景，再点击「生成草稿」 | `generate_draft`，必须携带 `brief_confirmed=true` 和 `focus_confirmed=true` |
-| 草稿预览与调整 `scope` | 查看全文、局部手工编辑，或输入具体修改要求。未发送的修改文字优先提交，不能直接当作应用范围确认 | 自然语言修改调用 `revise_draft`；手工编辑由业务代码更新当前草稿 |
-| 确认应用范围 `scope` | 新建：仅当前岗位/同类岗位/暂不关联；无岗位：暂不关联；更新：保留原应用范围 | 不调用模型，由代码依据真实岗位数据确定范围 |
-| 更新已有标准 | 明确选择「直接覆盖」或「保留更新」，展示条目数量与同名能力等级变化，不预选策略 | 不调用模型，由代码复用现有合并规则 |
-| 带入编辑页并保存 | 带入仍为未保存状态，用户在编辑器确认后保存 | 不调用模型，正常业务保存 |
+`catalog` 至少包含 version、positions、categories、cap、pow、pot。业务服务只提供当前租户和权限范围内的真实数据，每类候选≤500；大词典须由业务服务先检索，不可传截断的随机候选并标为完整检索。能力 cap 项包含稳定id、name、definition、dimension、category_path及levels数组，每级含level（如L1、L3、L10）和已有描述。新能力使用平台的 ability_dimensions 与 new_capability_levels，不能让模型自定等级数量。动力和潜力只可复用。
 
-不能把 Workflow 的一个运行理解成从首页到保存的全程：**每次只完成一个 AI 动作后返回，等待用户在原页面操作。** `next_ui` 是固定业务建议，业务服务仍负责校验当前阶段后渲染，不能由模型回复决定跳步。
+### 平台能力检索
 
-用户返回修改岗位、场景、层级、管理范围或生成维度时，代码应使原确认失效，重新经过 `review → outline`。草稿阶段要求修改这些参数、范围或更新方式时，修改计划节点提示回到相应页面操作，不在正文修改分支偷偷执行。新增附件也必须回到建模信息确认。
+`prepare_capabilities` 未收到 `capability_lookup.complete=true` 时返回 `status=needs_data` 和 `service_requests[0].type=search_platform_capabilities`。这是接入请求，不是已经执行的查询。业务服务须真实检索名称、定义及工作语义，更新 catalog.cap 和 version，再携带同版本的 `capability_lookup={complete:true,request_id:...,catalog_version:...}`重调。检索失败或资料不足不得标记complete。
 
-## 3. 画布如何组织
+已有匹配返回真实ID，沿用名称和实际等级；无合适项才提出临时proposal-ID、定义、维度和未匹配原因。已有同名能力不能绕开复用而新建。歧义返回澄清问题。能力候选通过快照绑定需求、偏好、词典版本等；设置变化须重新匹配。
 
-公共入口：开始 → 页面步骤/数据校验 → 无效输入直接返回；有效输入 → 有新资料才解析 → 汇合有效上下文 → 按动作分支。
+### 排序、评分、草稿
 
-- **整理分支**：Qwen 整理/调整建模信息 → 代码校验岗位、维度及依据 → 返回确认卡。不会在这一轮产生标准草稿。
-- **生成分支**：Qwen 形成工作交付与职责逻辑 → 所选维度含能力/动力/潜力时，第二个 Qwen 节点匹配企业指标和等级 → 代码映射编辑器字段、核验依据、输出草稿。只选职责/经历时跳过第二个模型。
-- **修改分支**：Qwen 先定位修改对象与方向 → 代码检查目标是否在允许范围内 → 不明确则直接澄清；明确则由第二个 Qwen 节点改写目标分项 → 代码保留其他分项及基本信息、计算实际变化。
+将返回的 capability_bundle 原样随业务状态保存。排序确认传 sorted_capability_ids 和 sort_confirmed=true；评分确认传每项 importance_scores（1–5整数）与 ratings_confirmed=true。最终按分数降序，同分保持用户顺序。建议分不是岗位要求等级、员工得分或已验证事实。
 
-各分支最终汇合到统一 Output。全图 26 个节点、31 条连线、5 个模型节点；单次正常调用只经过1或2个模型节点，不会遍历全部模型。
+草稿保留旧编辑器 `content.cap=[[名称,要求等级,雷达图名称],...]`，另返回 `capability_requirements`，保存真实/临时ID、来源、定义、维度、各实际等级描述与重要性。生成偏好置于 generationPreferences。**当前页面及数据库尚未接此扩展**，业务服务/编辑器必须同时保存新元数据，不能只保存旧三元组后宣称描述已持久化。
 
-没有引入 Agent 自主规划、工具循环或外部检索依赖。企业候选和相关资料由业务服务随请求传入，先保障过程可复现；未来资料量大时，可以在候选准备环节增加受租户限制的检索。
+已有能力的定制等级描述只存本人才标准，不覆盖共享指标。新能力经用户确认，可将首次定义、维度及等级描述新增至指标库默认“AI 生成”类别。
 
-## 4. 开始节点的三个输入
+### 更新与应用范围
 
-| 字段 | 类型 | 规则 |
-| --- | --- | --- |
-| `action` | Select | `analyze_brief / generate_draft / revise_draft` |
-| `payload_json` | Paragraph | 将下面的业务对象序列化成 JSON 字符串，最多60000字，不是把对象直接塞入此字段 |
-| `reference_files` | File List，可选 | 最多10份新增文档，仅在整理建模信息时传入；PDF/DOCX/XLSX/CSV/TXT/MD |
+更新必须显式传 update_strategy=replace/merge，无默认。replace仅替换所选维度；merge追加新条目、同名职责任务去重、同一能力用新等级及新生成描述更新，保留未涉及能力和其他维度。原基本信息、编号和应用范围保留；合并后最多20能力。历史标准缺身份/描述元数据须先由业务服务补齐，不能按同名猜测。
 
-调用示例位于 [`talent-standard-ai-assistant-examples/`](talent-standard-ai-assistant-examples/)，均为不含密钥的完整 API 请求体：
+新建 scope_choice=position/similar/none。similar须 confirmed_position_ids，不能按类别自动全选。相似岗位节点核对duties/tasks/description真实引文；不生成岗位ID或伪造匹配概率，资料不足返回明确提示。目标岗位是否固定包含、候选默认勾选及正式相似口径仍待产品确认，本版只要求显式选择，不擅自扩展。
 
-1. `01-analyze-brief.request.json`：首页输入。
-2. `02-generate-draft.request.json`：两张确认卡都确认后生成。
-3. `03-revise-draft.request.json`：以最新手工编辑后的草稿执行局部修改。
-4. `04-update-existing.request.json`：生成已有标准的更新候选，最终策略仍由页面确认。
+### 新能力确认与最终保存
 
-文件中的企业、岗位、指标及等级解释均为测试示例，正式接入必须替换成当前租户数据。可以把 `inputs.payload_json` 解码后编辑，再重新序列化；Dify 的测试面板则直接粘贴解码后的 JSON 文本。
+prepare_apply先返回待入库清单，用户确认后回传 new_capabilities_confirmed=true、完整 confirmed_new_capability_ids、原 new_capability_confirmation_token。描述变化会使确认失效，须重新核对。
 
-### payload_json 内容
+确认后只返回save_plan，execute_on=editor_save，不执行数据库写入。业务服务在用户最终保存编辑器时重验权限、源标准版本及词典版本；复查并发新增的相同能力，使用或创建“AI 生成”真实类别、创建已确认能力、将proposal映射为正式ID并保存标准，作为一个原子业务操作，失败不留半份记录；用idempotency_key防止重复保存。existing_capability_writes始终为空。编辑阶段若变更新能力内容，重新核对确认快照，不沿用旧确认。真实平台检索/建类/创建指标/标准保存API均尚未接入，不存在虚构URL。
 
-| 字段 | 用途与约束 |
-| --- | --- |
-| `request_id / session_id` | 本次请求与业务会话标识，非空字符串，最长128。服务端负责请求去重和租户隔离 |
-| `phase` | 当前页面业务阶段；整理仅 `welcome/review`，生成仅 `outline`，修改仅 `scope` |
-| `user_message` | 本轮需求或补充修改，最长3000；整理和修改必填。生成时可放内容侧重卡补充的场景要求 |
-| `operation` | `new/update`，对应建模确认卡的「本次操作」 |
-| `brief` | `scenario / position_id / level / management`。岗位可为空；未知层级和管理范围使用「未指定」 |
-| `enabled_sections` | 当前企业启用维度，非空无重复数组 |
-| `selected_sections` | 本次生成维度，必须属于启用维度，且至少一项 |
-| `brief_confirmed / focus_confirmed` | 生成、修改必须都严格为布尔 `true`；不能用字符串或模型判断替代用户点击确认 |
-| `detail` | `concise/regular`，对应简洁/常规 |
-| `focus` | `balanced/delivery/collaboration/leadership`，对应四种内容侧重 |
-| `draft_version` | 业务会话中当前草稿的非负整数版本；首次生成通常为0 |
-| `expected_draft_version` | 仅修改需要，必须与 `draft_version` 相等且大于0 |
-| `draft` | 修改时传当前完整草稿，必须包括用户最新的手工编辑 |
-| `draft_evidence_notes` | 可选，当前草稿的依据元数据；修改后保留非目标分项的依据 |
-| `source_standard` | 更新时必填：原标准 `id/version/name/category/description/mode/positions/groups/content`。version是字符串。新建时不传 |
-| `catalog` | 当前租户合法候选：`positions/categories/cap/pow/pot`，每类最多200项。至少提供所选指标维度的候选；新建还需合法标准类别 |
-| `reference_context` | 可选，已解析的相关资料数组，每份包含 `id/name/text`。最多10份，文本总计最多40000字；仍受payload总体60000字限制 |
+## 输出及错误
 
-维度固定为 `duty/exp/cap/pow/pot`。层级固定为「未指定、基层/初级、中层/中级、高层/高级」；管理范围固定为「未指定、不带团队、带团队」，与当前原型选项完全一致。
+结束节点返回result_json、status、reply、can_apply。result_json schema_version=3.0；组件统一 `{type,version:"1.0",data:{...}}`，业务服务按type渲染，记录确认值。status包括ok、needs_confirmation、needs_data、needs_clarification、invalid。can_apply仅表示可带入编辑页，不代表已保存。
 
-候选的公共字段为 `id/name`。能力候选还必须提供非空 `levels`，其中每项含合法 `level`（L1–L5）与 `description`。模型在这些实际定义中选等级，不自动默认为L3。动力和潜力只选择指标，不生成等级。候选不足时返回待确认建议，不擅自创建新指标。
+错误返回issues并保留调用方原草稿；不自动重试付费模型，不输出半份可采用草稿。附件只在analyze_brief接受，最多10份有效文本、总计40000字符；扫描件需先OCR，后续动作新增附件须先回到设置确认。模型或提取服务报错由接入服务展示并保留原内容。
 
-`brief` 是用户最新确认的信息，不能每轮继续传首页尚未纠正的旧岗位。内容侧重卡补充文本作为本次生成要求，但不能静默覆盖已确认的岗位和管理范围；冲突应提出问题。
+## 离线验证与维护
 
-### 附件与来源缓存
-
-仅在新上传文件时传 `reference_files`。按 Dify 的文件上传 API 获取 `upload_file_id` 后，放入文件类型输入：
-
-```json
-{
-  "type": "document",
-  "transfer_method": "local_file",
-  "upload_file_id": "实际上传返回的文件ID"
-}
+```sh
+python3 dify/talent-standard-ai-assistant-v3/build.py
+python3 dify/talent-standard-ai-assistant-v3/examples.py
+python3 -m unittest discover -s tests -p test_talent_standard_workflow.py
 ```
 
-有文件时使用 Document Extractor。返回的 `reference_context` 保留逐文件文本，新增文件编号为 `file:1` 等，重名时生成新编号，不覆盖旧来源；显示名称为按顺序的「本轮附件1」等，业务服务可按上传顺序补上实际文件名。后续保存并传回 `reference_context`，不要每轮重传同一文件。
+16项离线回归执行实际DSL代码节点和分支，仅用显式替身替代模型及文档提取；覆盖检索门禁、候选身份、排序评分、实际等级、确认快照、保留更新、相似依据和手工编辑保护，10份请求可解析。不能代替目标Dify导入、插件兼容、真实模型效果与正式数据保存验证。当前未执行收费调用。
 
-普通解析针对可提取文本的文档；扫描件先OCR。空白、超长、数量超限或在错误阶段上传新附件会停止本轮执行，不能无声忽略资料后继续生成。很长的资料应由业务服务先筛选相关段落，不静默截断。
-
-## 5. 输出与编辑器映射
-
-`data.outputs` 包含 `status / reply / can_apply / result_json`。前三项便于调用方判断；完整结构以反序列化后的 `result_json` 为准，不再从自然语言或HTML注释提取数据。
-
-通用结果包含 `schema_version=2.0`、动作、请求/会话ID、当前阶段、草稿基础版本、来源标准ID/版本、状态、问题、依据及可选草稿。
-
-| 状态 | 业务服务的处理 |
-| --- | --- |
-| `needs_confirmation` | 整理分支正常返回确认卡；草稿分支则展示待确认问题。不得自动视为已确认 |
-| `ok` | 可采用的草稿/修改建议。仍然需要原型中的范围确认、更新方式选择和编辑保存 |
-| `needs_clarification` | 展示具体问题，保留当前草稿，等待补充后再次调用 |
-| `invalid` | 输入或结果校验失败，`can_apply=false`、`draft=null`，保留原草稿 |
-| Dify运行失败 | 模型、解析器或结构化输出失败会使运行失败；业务服务处理错误，不以默认草稿冒充成功 |
-
-`can_apply=true` 只表示本次内容候选通过本工作流校验，**不是保存、发布或覆盖原标准的授权**。`needs_confirmation` 中的草稿可以供用户审阅；业务服务需记录用户对问题的明确处理，不能仅因存在draft字段就采用。
-
-草稿与当前编辑器保持同形：
-
-```json
-{
-  "name": "人才标准名称",
-  "category": "当前合法类别名称",
-  "description": "标准说明",
-  "mode": "none",
-  "positions": [],
-  "groups": [],
-  "content": {
-    "duty": [{"n": "职责名称", "t": ["任务"]}],
-    "exp": ["经历要求"],
-    "cap": [["企业指标准确名称", "L3"]],
-    "pow": ["企业动力指标名称"],
-    "pot": ["企业潜力指标名称"]
-  }
-}
-```
-
-新建草稿先设为 `mode=none`；岗位识别不等于用户已经确认应用范围。页面稍后按选择把岗位ID写入 `positions`，或继续暂不关联。同类岗位必须用业务主数据展开，不能让模型列举岗位。
-
-更新已有标准时，结果保留原基本信息及范围；生成候选只包含本次选择维度的内容，其他维度为空。业务代码在用户确认 `replace/merge` 后复用 `TalentSettings.mergeContent`：覆盖仅替换所选维度；保留更新追加条目、同名职责合并任务、同名能力采用草稿等级。不能拿生成候选的空数组直接覆盖未选择维度。
-
-按当前编辑器入口，最终带入时业务代码补充 `targetId / updateStrategy / generatedSections`；新建时配置用户明确选择的范围。工作流不输出这些最终决策。
-
-局部修改结果是基于当前完整草稿的副本，只替换已定位的目标分项，保留其他内容、名称、说明、类别和范围。`change_summary` 中的 `before/after/added/removed/modified` 由代码按实际条目计算；同名职责内任务变化或同名能力等级变化计为modified，文本经历的改写计为删旧加新。完全没有变化时返回澄清，不宣称执行成功。
-
-## 6. 依据、版本和失败处理
-
-- 每条生成要求保留 `section/item/basis/source_ids/quote/confidence`。资料依据必须能在指定来源核对原文；生成建议用 `inference`，不冒充资料事实。依据数据不写入原编辑器content，业务服务另存。
-- 模型分数只是辅助判断，不是校准后的统计概率。当前低于0.65的内容需确认；岗位未指定且分数0是合法的通用标准场景。
-- Schema、岗位ID、类别、指标ID、等级、维度与数量均会校验；非法等级不强制补成L3，非法结果不自动清洗成“成功”。
-- 每次手工编辑都应由业务服务递增草稿版本。调用前固化当前版本，收到结果后再比较请求ID、草稿版本、源标准版本；不同则丢弃过期结果并提示重新生成。工作流只核对传入快照的一致性，不能知道调用期间数据库是否改变。
-- 新附件或返回建模信息后的修改应使后续确认失效。服务端应保存对话、确认值、资料上下文和草稿；普通Workflow不会替业务系统持久化会话。
-- 不向模型传全量人员档案。租户、权限、候选归属、签名文件地址、密钥及最终保存仍在业务服务中处理。
-- 使用SSE可显示「正在整理建模信息…」「正在生成人才标准…」。不要把节点名称、内部推理或虚拟百分比作为用户步骤。JSON校验完成后再整体更新预览，避免采用半份草稿。
-- 本文件关闭模型自动重试；需要重试时由业务服务明确触发，控制请求去重和费用。不会自动更换模型。
-
-## 7. 本地验证
-
-```bash
-python3 -m unittest discover -s tests -p test_talent_standard_workflow.py -v
-```
-
-测试使用当前环境已有的 PyYAML 读取实际交付DSL，逐个执行其中的Python代码节点；模型和文档解析输出使用固定样例。覆盖画布可达性、无环、分支handle、变量引用、结构化样例、确认门禁、附件缓存、指标合法性、依据来源、局部编辑保留、版本冲突和更新候选。测试不访问Dify、百炼或任何付费生成API，不能替代目标实例导入和模型实测。
-
-## 8. 官方格式依据
-
-- [Dify Workflow 与 Chatflow](https://docs.dify.ai/en/cloud/use-dify/build/workflow-chatflow)
-- [Dify LLM结构化输出](https://docs.dify.ai/en/cloud/use-dify/nodes/llm)
-- [Dify Workflow调用API](https://docs.dify.ai/en/api-reference/workflow-runs/run-workflow)
-- [Dify文档解析节点](https://docs.dify.ai/en/cloud/use-dify/nodes/doc-extractor)
-- [Dify 1.9.2 的DSL版本与导入实现](https://github.com/langgenius/dify/blob/1.9.2/api/services/app_dsl_service.py)
-- [Dify 1.9.2 的LLM节点字段](https://github.com/langgenius/dify/blob/1.9.2/api/core/workflow/nodes/llm/entities.py)
-- [官方通义插件Qwen3.6 Plus模型定义](https://github.com/langgenius/dify-official-plugins/blob/main/models/tongyi/models/llm/qwen3.6-plus.yaml)
-- [官方通义插件市场页](https://marketplace.dify.ai/plugin/langgenius/tongyi)
+维护源为v3/runtime.py和build.py；修改源后重新生成两份DSL，不手改嵌入代码。请求由examples.py生成。

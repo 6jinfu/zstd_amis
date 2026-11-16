@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: 能力分层精确使用60/80边界，缺失得分不作为低分
+ok 1 - 能力分层精确使用60/80边界，缺失得分不作为低分
+  ---
+  duration_ms: 0.360208
+  type: 'test'
+  ...
+# Subtest: 切换字段可按能力、绩效、分类、岗位精确筛选，空条件返回全部
+ok 2 - 切换字段可按能力、绩效、分类、岗位精确筛选，空条件返回全部
+  ---
+  duration_ms: 0.374375
+  type: 'test'
+  ...
+# Subtest: 姓名、部门与字段条件取交集，无结果返回空集且不改写盘点得分或落位
+ok 3 - 姓名、部门与字段条件取交集，无结果返回空集且不改写盘点得分或落位
+  ---
+  duration_ms: 0.115834
+  type: 'test'
+  ...
+# Subtest: scores include zero and 999, and reject excess precision or out-of-range values
+ok 4 - scores include zero and 999, and reject excess precision or out-of-range values
+  ---
+  duration_ms: 0.482209
+  type: 'test'
+  ...
+# Subtest: person totals retain zero and leading-zero employee IDs; unused prefilled rows are ignored
+ok 5 - person totals retain zero and leading-zero employee IDs; unused prefilled rows are ignored
+  ---
+  duration_ms: 0.870667
+  type: 'test'
+  ...
+# Subtest: performance imports a numeric score without a grade and ignores unfilled roster rows
+ok 6 - performance imports a numeric score without a grade and ignores unfilled roster rows
+  ---
+  duration_ms: 0.466166
+  type: 'test'
+  ...
+# Subtest: legacy performance grades convert exactly once and valid scores remain unchanged
+ok 7 - legacy performance grades convert exactly once and valid scores remain unchanged
+  ---
+  duration_ms: 0.108584
+  type: 'test'
+  ...
+# Subtest: duplicate project rows, mismatched names, unknown people and cached formulas are rejected
+ok 8 - duplicate project rows, mismatched names, unknown people and cached formulas are rejected
+  ---
+  duration_ms: 0.244833
+  type: 'test'
+  ...
+# Subtest: 同一人员不同项目可导入，日期和必填项目必须有效
+ok 9 - 同一人员不同项目可导入，日期和必填项目必须有效
+  ---
+  duration_ms: 0.082583
+  type: 'test'
+  ...
+# Subtest: 最新结束日期优先，同日按最后导入的记录取分，不取最高分
+ok 10 - 最新结束日期优先，同日按最后导入的记录取分，不取最高分
+  ---
+  duration_ms: 0.135166
+  type: 'test'
+  ...
+# Subtest: two through five bands preserve 100% and the 5% minimum after changes at every index
+ok 11 - two through five bands preserve 100% and the 5% minimum after changes at every index
+  ---
+  duration_ms: 0.289709
+  type: 'test'
+  ...
+# Subtest: all 25 cells have a distinct position, interpretation and suggested action; 2–5 band mappings are complete
+ok 12 - all 25 cells have a distinct position, interpretation and suggested action; 2–5 band mappings are complete
+  ---
+  duration_ms: 0.27825
+  type: 'test'
+  ...
+# Subtest: every 2–5 by 2–5 result geometry conserves the complete project total in either axis direction
+ok 13 - every 2–5 by 2–5 result geometry conserves the complete project total in either axis direction
+  ---
+  duration_ms: 8.250792
+  type: 'test'
+  ...
+# Subtest: 按真实类别绘制多图，不足三项和未知类别保留实际名称与等级
+ok 14 - 按真实类别绘制多图，不足三项和未知类别保留实际名称与等级
+  ---
+  duration_ms: 1.409041
+  type: 'test'
+  ...
+# Subtest: 五级刻度、能力名称和实际等级进入同一张雷达，修改等级只改变对应顶点
+ok 15 - 五级刻度、能力名称和实际等级进入同一张雷达，修改等级只改变对应顶点
+  ---
+  duration_ms: 1.146709
+  type: 'test'
+  ...
+# Subtest: 零至两项保留实际列表，不补造雷达维度
+ok 16 - 零至两项保留实际列表，不补造雷达维度
+  ---
+  duration_ms: 0.108709
+  type: 'test'
+  ...
+# Subtest: 20项或长名称使用编号轴和完整图例，图文内容转义且坐标有效
+ok 17 - 20项或长名称使用编号轴和完整图例，图文内容转义且坐标有效
+  ---
+  duration_ms: 0.6275
+  type: 'test'
+  ...
+# Subtest: 双视图读取直接关联及岗位额外关联，重复关系只展示一次
+ok 18 - 双视图读取直接关联及岗位额外关联，重复关系只展示一次
+  ---
+  duration_ms: 1.711709
+  type: 'test'
+  ...
+# Subtest: 共同编辑页保存完整岗位列表，移除的旧关联不会从另一视图重新出现
+ok 19 - 共同编辑页保存完整岗位列表，移除的旧关联不会从另一视图重新出现
+  ---
+  duration_ms: 1.019834
+  type: 'test'
+  ...
+# Subtest: 改为暂不关联后仅保留标准记录，不在任何岗位视图中残留
+ok 20 - 改为暂不关联后仅保留标准记录，不在任何岗位视图中残留
+  ---
+  duration_ms: 0.582
+  type: 'test'
+  ...
+# Subtest: 条件匹配不推断整岗位关联，普通内容编辑保留已有显式关系
+ok 21 - 条件匹配不推断整岗位关联，普通内容编辑保留已有显式关系
+  ---
+  duration_ms: 0.529667
+  type: 'test'
+  ...
+# Subtest: retains leading-zero IDs and zero scores; grades and optional scores are independent
+ok 22 - retains leading-zero IDs and zero scores; grades and optional scores are independent
+  ---
+  duration_ms: 0.66
+  type: 'test'
+  ...
+# Subtest: rejects unknown/mismatched people, category/name pairs, invalid levels, scores and formulas
+ok 23 - rejects unknown/mismatched people, category/name pairs, invalid levels, scores and formulas
+  ---
+  duration_ms: 1.104125
+  type: 'test'
+  ...
+# Subtest: append retains history and unimported abilities; latest valid result replaces a higher historical grade
+ok 24 - append retains history and unimported abilities; latest valid result replaces a higher historical grade
+  ---
+  duration_ms: 0.996958
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 46.186417

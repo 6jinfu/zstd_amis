@@ -1,0 +1,39 @@
+<!doctype html><html lang="zh-CN"><meta charset="UTF-8"><title>1127 导入解析回归</title><body><h1>1127 导入解析回归</h1><pre id="result">正在验证</pre>
+<script src="../app/vendor/jszip.min.js"></script><script src="../app/review-score-import.js"></script><script src="../app/standard-seeds.js"></script><script src="../app/standards-data.js"></script><script src="../app/indicator-data.js"></script><script src="../app/talent-settings-data.js"></script><script src="../app/standard-import.js"></script><script src="../app/indicator-import.js"></script><script src="../app/talent-ability-import.js"></script>
+<script>
+(async()=>{
+  const results=[],assert=(value,message)=>{if(!value)throw new Error(message);results.push('通过：'+message);};
+  async function file(name){const response=await fetch('../outputs/1127-update/fixtures/'+name+'.xlsx');return new File([await response.arrayBuffer()],name+'.xlsx');}
+  try{
+    const sheets=await ReviewScoreImport.readWorkbook(await file('standard'));
+    const data=Standards.read(),original=JSON.stringify(data);
+    const standard=StandardImport.validate(sheets,data);
+    assert(!standard.errors.length&&standard.records.length===1,'六表模板按编号关联成一套标准，示例行不导入');
+    assert(standard.records[0].content.cap[0][1]==='L10'&&standard.records[0].content.cap[0][2]==='架构核心能力','保留 L10 及能力组名称');
+    assert(original===JSON.stringify(data),'校验阶段不修改原数据');
+    const duplicate=StandardImport.validate(sheets,{...data,standards:[...data.standards,{code:'TEST1127'}]});
+    assert(duplicate.errors.some(error=>error.includes('标准编号已存在')),'已有标准编号拒绝导入');
+    const indicator=IndicatorImport.validate(await ReviewScoreImport.read(await file('indicator'),{headers:IndicatorImport.headers}));
+    assert(!indicator.errors.length&&indicator.records[0].id==='cap-management','旧版横向十级能力模板匹配已有能力');
+    assert(indicator.records[0].levels.length===10&&indicator.records[0].levels[0].behavior==='按计划执行','各级描述和行为映射正确');
+    const personRows=await ReviewScoreImport.read(await file('person'),{headers:TalentAbilityImport.headers});
+    const person=TalentAbilityImport.validate(personRows,[{id:'zhangming',employeeId:'EMP-1026',name:'张明'}]);
+    assert(!person.errors.length&&person.records[0].score===0,'人员能力六列模板可读取，0 分保留');
+    const people=[{id:'EMP-1026',name:'张明'},{id:'EMP-1088',name:'李华'}];
+    const performance=ReviewScoreImport.validate(await ReviewScoreImport.read(await file('performance'),{headers:['工号','姓名','绩效得分']}),people,'performance');
+    assert(!performance.errors.length&&performance.records[0].score===0&&performance.records[1].score===999,'三列绩效模板保留边界分数');
+    const external=ReviewScoreImport.validate(await ReviewScoreImport.read(await file('external'),{headers:['工号','姓名','测评项目名称','项目开始日期','项目结束日期','测评得分']}),people,'ability');
+    assert(!external.errors.length&&external.records.length===2,'外部测评六列模板读取日期、项目和分数');
+    const noData=await fetch('../app/templates/review-performance.xlsx');
+    const empty=ReviewScoreImport.validate(await ReviewScoreImport.read(new File([await noData.arrayBuffer()],'empty.xlsx'),{headers:['工号','姓名','绩效得分']}),people,'performance');
+    assert(empty.errors.length===1&&empty.records.length===0,'空模板不会把示例当成有效成绩');
+    for(const kind of ['ability','performance']){
+      const blob=await ReviewScoreImport.generateTemplate(kind,[{id:'0001',name:'预填人员'}]);
+      const sheets=await ReviewScoreImport.readWorkbook(new File([blob],kind+'.xlsx'));
+      const rows=Object.values(sheets)[0],person=rows.find(row=>row.number===4);
+      assert(person.cells[0]==='0001'&&person.cells[1]==='预填人员'&&!person.cells.slice(2).some(Boolean),kind+' 模板生成保留前导零并仅预填工号姓名');
+    }
+    document.getElementById('result').textContent=results.join('\n')+'\n全部通过';
+  }catch(error){document.getElementById('result').textContent=results.join('\n')+'\n失败：'+error.stack;}
+})();
+</script></body></html>

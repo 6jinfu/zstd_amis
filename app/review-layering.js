@@ -25,7 +25,7 @@
     const unique = key => [...new Set(people.map(person => person[key]))].map(item => [item, item]);
     const values = {
       ability: [['high', '高 · 80 分及以上'], ['mid', '中 · 60 至不足 80 分'], ['low', '低 · 不足 60 分']],
-      performance: [['高', '高'], ['中', '中'], ['低', '低']],
+      performance: unique('performance'),
       classification: unique('classification'), position: unique('position')
     };
     department.innerHTML = options(unique('department'));
@@ -36,7 +36,7 @@
       const rows = people.filter(person => matchesPerson(person, filters));
       table.innerHTML = rows.map(person => {
         const band = abilityBand(person.ability), scoreClass = {high:'score-hi', mid:'score-mid', low:'score-low'}[band] || '';
-        const performanceClass = person.performance === '高' ? 'tag-success' : person.performance === '低' ? 'tag-draft' : '';
+        const performanceClass = person.performance === '3' ? 'tag-success' : person.performance === '1' ? 'tag-draft' : '';
         const placementClass = person.classification === '核心人才' ? 'tag-primary' : person.classification === '重点关注' ? 'tag-danger' : ['关键人才','骨干人才'].includes(person.classification) ? 'tag-success' : '';
         return `<tr><td>${e(person.name)}</td><td>${e(person.department)}</td><td>${e(person.position)}</td><td><span class="score-cell ${scoreClass}">${band ? person.ability.toFixed(1) : '—'}</span></td><td><span class="tag ${performanceClass}">${e(person.performance)}</span></td><td><span class="tag ${placementClass}">${e(person.classification)}</span></td><td class="ops" style="justify-content:flex-end"><a class="btn-text btn-sm" href="${e(person.url)}">查看</a></td></tr>`;
       }).join('') || '<tr><td colspan="7" class="text-center muted">暂无符合条件的人员，请调整筛选条件</td></tr>';

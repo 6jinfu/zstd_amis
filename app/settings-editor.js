@@ -72,6 +72,21 @@
     }
   };
   const dimensionForm=document.querySelector('#dimension-settings');
+  const abilityForm=document.querySelector('#ability-dimensions-form'),abilityFields=document.querySelector('#ability-dimensions-fields');
+  function renderAbilityDimensions(){
+    abilityFields.innerHTML=data.abilityDimensions.map((name,index)=>`<div class="field"><label for="ability-dimension-${index}">维度 ${index+1}</label><input class="input" id="ability-dimension-${index}" value="${e(name)}" maxlength="20" required></div>`).join('');
+  }
+  renderAbilityDimensions();
+  abilityForm.onsubmit=event=>{
+    event.preventDefault();
+    const names=[...abilityFields.querySelectorAll('input')].map(input=>input.value.trim()),error=document.querySelector('#ability-dimensions-error');
+    if(names.some(name=>!name||name.length>20)){error.textContent='每个维度名称必填，最多 20 个字符';return;}
+    if(new Set(names).size!==3){error.textContent='维度名称不能重复';return;}
+    data.abilityDimensions=names;
+    if(save('能力指标维度自定义已保存')){error.textContent='';document.querySelector('#ability-dimensions-state').textContent='已保存';}
+  };
+  abilityForm.onreset=()=>{setTimeout(()=>{data=T.read();renderAbilityDimensions();document.querySelector('#ability-dimensions-error').textContent='';document.querySelector('#ability-dimensions-state').textContent='';});};
+  abilityForm.oninput=()=>{document.querySelector('#ability-dimensions-error').textContent='';document.querySelector('#ability-dimensions-state').textContent='有未保存的修改';};
   dimensionForm.innerHTML=Object.entries(T.dimensions).map(([id,label])=>`<label class="dimension-setting-row"><span>${label}</span><input type="checkbox" name="dimension" value="${id}" ${data.dimensions.includes(id)?'checked':''}><span class="dimension-setting-state">${data.dimensions.includes(id)?'已启用':'未启用'}</span></label>`).join('');
   document.querySelector('#save-dimensions').onclick=()=>{
     const dimensions=[...dimensionForm.querySelectorAll('input:checked')].map(input=>input.value);

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>360 评估监控</title>
+<link rel="stylesheet" href="review-external-monitor.css?v=sha256-b3a9b8c41eb5">
+<link rel="stylesheet" href="review-platform-monitor.css?v=sha256-65142216c4b2">
+</head>
+<body class="platform-monitor">
+<header><h1 id="project-name">基础管理者360评估</h1><button class="primary" type="button" id="copy-link">复制链接</button></header>
+<main>
+  <nav class="monitor-tabs" aria-label="评估数据"><button type="button" disabled>参与情况</button><button type="button" aria-current="page">个人数据</button><button type="button" disabled>组织数据</button><button type="button" disabled>无效评估数据</button></nav>
+  <form id="filters" class="filters">
+    <label>评估对象: <input id="name" type="search" placeholder="请输入"></label>
+    <label>对象部门: <select id="department"><option value="">全部</option></select></label>
+    <label>对象岗位: <select id="position"><option value="">全部</option></select></label>
+    <div class="actions"><button class="primary" type="submit">查询</button><button type="reset">重置</button></div>
+  </form>
+  <div class="export-actions"><button class="primary" type="button" disabled>导出⌄</button></div>
+  <div class="table-wrap"><table><thead><tr><th><input type="checkbox" id="select-all" aria-label="选择本页全部人员"></th><th>评估对象</th><th>工号</th><th>部门</th><th>岗位</th><th>专业能力与工作产出</th><th>总分</th><th>操作</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <nav class="pagination" aria-label="结果分页"><span id="total"></span><button id="previous" type="button" aria-label="上一页">‹</button><span id="page" class="current">1</span><button id="next" type="button" aria-label="下一页">›</button><label><select id="page-size" aria-label="每页条数"><option value="10">10条/页</option><option value="20">20条/页</option><option value="50">50条/页</option></select></label><label>前往 <input id="page-input" type="number" min="1" value="1" aria-label="页码"> 页</label></nav>
+</main>
+<script src="review-external-monitor.js?v=sha256-ab048b87c95c"></script>
+</body>
+</html>

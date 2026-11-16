@@ -12,6 +12,7 @@
     if(params.get('id')&&!original){$('.detail-main').innerHTML='<div class="empty-state">该标准不存在，请返回列表。</div>';$('#std-form').onsubmit=ev=>ev.preventDefault();return;}
     let draft=original?S.clone(original):{id:uid(),name:'',category:data.categories[0]||'',description:'',mode:'none',positions:[],groups:[],content:S.emptyContent()};
     if(params.has('copy')&&original){draft.id=uid();draft.name+='（副本）';draft.mode='none';draft.positions=[];draft.groups=[];}
+    if(!original||params.has('copy'))draft.code=S.nextCode(data);
     const context=S.positions.find(p=>p.id===params.get('position'));
     if(original&&!params.has('copy')&&draft.mode!=='rules'){
       draft.positions=S.positionIds(data,original);
@@ -76,7 +77,7 @@
     window.addEventListener('hashchange',()=>tab(location.hash.slice(1)));
     $('#std-title').textContent=original&&!params.has('copy')?draft.name:'新建人才标准';
     $('#std-category').innerHTML=data.categories.map(c=>`<option value="${e(c)}">${e(c)}</option>`).join('');
-    [['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;if(k==='name')renderCapabilityChart();changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
+    [['code','std-code'],['name','std-name'],['category','std-category'],['description','std-description']].forEach(([k,id])=>{const input=$('#'+id);input.value=draft[k]||'';input.addEventListener('input',()=>{draft[k]=input.value;if(k==='name')renderCapabilityChart();changed();input.removeAttribute('aria-invalid');const err=$('#'+id+'-error');if(err)err.textContent='';});});
     document.querySelectorAll('[name=mode]').forEach(input=>{input.checked=input.value===draft.mode;input.onchange=()=>{draft.mode=input.value;scopeModeChanged=true;changed();renderScope();};});
     if(aiImported){dirty=true;$('#std-save-state').textContent='AI 生成内容待确认';}
     const values=field=>field==='critical'?['是','否']:field==='position'?[...new Set([...S.positions.map(p=>p.name),...S.people.map(p=>p.position)])]:field==='category'?[...new Set(S.positions.map(p=>p.category))]:[...new Set(S.people.map(p=>p.department))];
@@ -110,12 +111,12 @@
     function capabilityEditor(){
       const items=draft.content.cap;
       if(!items.length)return '<div class="std-cap-empty">尚未配置能力要求，请先选择能力并设置要求等级。</div>';
-      return `<div class="std-cap-layout"><div class="std-cap-visual" data-std-cap-chart></div><div class="std-cap-requirements"><div class="std-cap-list-head"><span>能力项</span><span>要求等级 · ${items.length} 项</span></div><div class="std-cap-items">${items.map(([name,level],i)=>`<div class="std-cap-row"><label for="std-cap-level-${i}">${e(name)}</label><select class="select" id="std-cap-level-${i}" aria-label="${e(name)}要求等级" data-cap-level="${i}">${[1,2,3,4,5].map(n=>`<option ${level==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>${button('×',`data-remove-content="cap,${i}" aria-label="移除${e(name)}"`,'btn-text')}</div>`).join('')}</div></div></div>`;
+      return `<div class="std-cap-layout"><div class="std-cap-visual" data-std-cap-chart></div><div class="std-cap-requirements"><div class="std-cap-list-head"><span>能力项</span><span>要求等级 · ${items.length} 项</span></div><div class="std-cap-items">${items.map(([name,level],i)=>`<div class="std-cap-row"><label for="std-cap-level-${i}">${e(name)}</label><select class="select" id="std-cap-level-${i}" aria-label="${e(name)}要求等级" data-cap-level="${i}">${Array.from({length:10},(_,i)=>i+1).map(n=>`<option ${level==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>${button('×',`data-remove-content="cap,${i}" aria-label="移除${e(name)}"`,'btn-text')}</div>`).join('')}</div></div></div>`;
     }
     function renderCapabilityChart(){
       const host=$('[data-std-cap-chart]');if(!host)return;
       const items=draft.content.cap;
-      host.innerHTML=items.length>=3?window.StandardUI.capabilityRadar(items,(draft.name||'人才标准').replace(/标准$/,'')+'能力雷达图'):'<div class="std-cap-empty">至少选择 3 项能力后展示雷达图，当前要求可在右侧编辑。</div>';
+      host.innerHTML=window.StandardUI.capabilityRadarGroups(items);
     }
     function renderContent(){const c=draft.content;
       $('#std-content-editor').innerHTML=`<div class="std-block" data-content-section="duty"><div class="std-block-head"><h3>职责任务</h3>${button('新增职责','data-add-duty-std')}</div>${c.duty.map((d,i)=>`<div class="std-duty"><div class="std-text-row"><textarea class="input" aria-label="职责 ${i+1}" data-duty-std="${i}" placeholder="填写职责">${e(d.n)}</textarea>${button('移除',`data-remove-duty-std="${i}"`,'btn-text danger')}</div>${d.t.map((t,j)=>`<div class="std-text-row std-task"><textarea class="input" aria-label="职责 ${i+1} 的任务 ${j+1}" data-task-std="${i},${j}" placeholder="填写任务">${e(t)}</textarea>${button('×',`data-remove-task-std="${i},${j}" aria-label="移除任务"`,'btn-text')}</div>`).join('')}${button('添加任务',`data-add-task-std="${i}"`,'btn-text std-task')}</div>`).join('')||'<p class="text-sm muted">尚未配置职责任务</p>'}</div>
@@ -137,7 +138,8 @@
       changed();renderContent();
     };
     $('#std-form').onsubmit=ev=>{ev.preventDefault();let invalid=false;
-      [['name','std-name','basic','请输入标准名称']].forEach(([key,id,section,msg])=>{draft[key]=draft[key].trim();if(!draft[key]){$('#'+id+'-error').textContent=msg;$('#'+id).setAttribute('aria-invalid','true');if(!invalid){tab(section);$('#'+id).focus();}invalid=true;}});
+      [['code','std-code','basic','请输入标准编号'],['name','std-name','basic','请输入标准名称']].forEach(([key,id,section,msg])=>{draft[key]=draft[key].trim();if(!draft[key]){$('#'+id+'-error').textContent=msg;$('#'+id).setAttribute('aria-invalid','true');if(!invalid){tab(section);$('#'+id).focus();}invalid=true;}});
+      if(draft.code.length>20||data.standards.some(item=>item.id!==draft.id&&item.code===draft.code)){tab('basic');$('#std-code-error').textContent=draft.code.length>20?'标准编号最多 20 个字符':'标准编号已存在';$('#std-code').focus();return;}
       if(invalid)return;
       if(!draft.category){tab('basic');showToast('请选择类别');return;}
       const scopeInvalid=draft.mode==='positions'&&!draft.positions.length || draft.mode==='rules'&&(!draft.groups.length||draft.groups.some(g=>!g.length||g.some(r=>!r.values.length)));

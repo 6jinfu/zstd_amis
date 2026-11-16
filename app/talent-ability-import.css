@@ -1,0 +1,11 @@
+.talent-ability-import.ui-dialog { width: 920px; }
+.talent-ability-import h4 { margin: 0 0 12px; font-size: 14px; font-weight: 600; }
+.talent-ability-import p,.talent-ability-import li { font-size: 14px; line-height: 1.7; }
+.talent-ability-import p { margin: 0 0 16px; }
+.talent-ability-import .tai-step { margin-bottom: 28px; }
+.talent-ability-import [data-tai-status] { margin: 12px 0 0; overflow-wrap: anywhere; }
+.talent-ability-import .table-wrap { max-height: 360px; overflow: auto; }
+.talent-ability-import .t { min-width: 790px; }
+.talent-ability-import .t th { position: sticky; top: 0; z-index: 1; }
+.talent-ability-import .t td { white-space: normal; overflow-wrap: anywhere; }
+.talent-ability-import [data-tai-result] .t th:first-child { min-width: 110px; }

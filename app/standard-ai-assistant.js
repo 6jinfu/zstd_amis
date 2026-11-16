@@ -7,16 +7,16 @@
   const productContent={duty:[{n:'负责产品规划与需求管理',t:['结合业务目标完成需求分析与优先级判断','输出清晰的产品方案并推动评审']},{n:'推动产品交付与持续优化',t:['协同研发、设计和运营推进版本落地','跟踪核心数据与用户反馈并持续迭代']}],exp:['本科及以上，产品、计算机或相关专业优先','2 年以上互联网或企业软件产品经验','具备从需求分析到产品交付的完整项目经验'],cap:[['需求分析','L3'],['产品规划','L3'],['数据分析','L3'],['跨部门沟通','L3'],['项目管理','L3'],['市场洞察','L3'],['客户导向','L3']],pow:['成就导向','协作共赢','创新探索'],pot:['学习敏锐','复杂决策','跨界整合']};
   const commonContent={duty:[{n:'围绕岗位目标完成专业工作交付',t:['理解任务目标并制定执行计划','按质量和时间要求完成工作成果']},{n:'参与团队协作与持续改进',t:['主动同步进展、问题和风险','沉淀经验并参与知识共享']}],exp:['具备与岗位相关的专业学习或实践经历','能够独立承担职责范围内的工作任务'],cap:[['目标执行','L3'],['问题解决','L3'],['跨部门沟通','L3'],['持续学习','L3'],['协同推进','L3'],['专业知识整合','L3'],['自我认知','L2']],pow:['成就导向','协作共赢'],pot:['学习敏锐','坚韧抗压']};
   const detailLevels=[
-    {value:'concise',label:'简洁',description:'聚焦核心职责与要求，便于快速审阅。',limit:{duty:2,exp:2,cap:5,pow:2,pot:2}},
-    {value:'essential',label:'精要',description:'保留核心内容，适当补充相关能力。',limit:{duty:2,exp:2,cap:6,pow:2,pot:2}},
-    {value:'regular',label:'适中',description:'兼顾阅读效率与职责、经历和能力的覆盖。',limit:{duty:3,exp:3,cap:7,pow:3,pot:3}},
-    {value:'expanded',label:'充实',description:'扩展职责与能力覆盖，保留更多相关要求。',limit:{duty:4,exp:4,cap:8,pow:4,pot:4}},
-    {value:'detailed',label:'详细',description:'更充分地展开可用内容，便于逐项审阅和调整。',limit:{duty:5,exp:5,cap:10,pow:5,pot:5}}
+    {value:'concise',label:'简洁',description:'聚焦核心要求，目标生成 1–2 张能力雷达图。',limit:{duty:2,exp:2,cap:6,pow:2,pot:2}},
+    {value:'essential',label:'精要',description:'适当补充相关能力，目标生成 1–2 张能力雷达图。',limit:{duty:2,exp:2,cap:10,pow:2,pot:2}},
+    {value:'regular',label:'适中',description:'兼顾覆盖与阅读效率，目标生成 2–3 张能力雷达图。',limit:{duty:3,exp:3,cap:14,pow:3,pot:3}},
+    {value:'expanded',label:'充实',description:'扩展相关能力，目标生成 2–3 张能力雷达图。',limit:{duty:4,exp:4,cap:18,pow:4,pot:4}},
+    {value:'detailed',label:'详细',description:'充分展开相关能力，目标生成 3 张及以上能力雷达图。',limit:{duty:5,exp:5,cap:20,pow:5,pot:5}}
   ];
   const descriptionStructures=[
-    {value:'behavior',label:'只写行为',description:'直接说明需要表现出的行为。',example:'主动澄清各方诉求，协调解决方案。'},
-    {value:'context_behavior',label:'带上情境',description:'先交代工作情境，再说明应该如何行动。',example:'项目协作出现分歧时，主动澄清各方诉求，协调解决方案。'},
-    {value:'context_behavior_result',label:'包含成果',description:'在情境和行动之外，进一步说明期望达成的结果。',example:'项目协作出现分歧时，主动澄清各方诉求，协调解决方案，推动各方形成一致的行动安排。'}
+    {value:'behavior',label:'只写行为',description:'各能力已配置的每个等级分别描述行为，体现等级差异。',example:'L1：在指导下同步问题。\nL3：主动澄清诉求并协调方案。\nL5：推动多方建立协作机制。'},
+    {value:'context_behavior',label:'带上情境',description:'各等级分别描述工作情境与对应行为。',example:'L1：任务交接时，在指导下同步问题。\nL3：项目出现分歧时，主动澄清诉求并协调方案。\nL5：跨团队协作复杂时，推动建立协作机制。'},
+    {value:'context_behavior_result',label:'包含成果',description:'各等级分别描述情境、行为及期望达成的结果。',example:'L1：任务交接时，在指导下同步问题，确保信息传达。\nL3：项目出现分歧时，澄清诉求并协调方案，推动行动一致。\nL5：跨团队协作复杂时，建立协作机制，减少反复沟通。'}
   ];
   const T=window.TalentSettings,defaultSections=Object.keys(T.dimensions),sectionLabels=T.dimensions;
   let confirmedBrief=null;
@@ -26,7 +26,7 @@
   let priorityItems=[],rankedCapabilities=[],capabilityScores=Object.create(null),comparisonConfirmed=false,priorityPhase='',priorityStep=0,draggedCapability=null;
 
   positionSelect.innerHTML='<option value="">请选择岗位</option>'+S.positions.map(item=>`<option value="${e(item.id)}">${e(item.name)}</option>`).join('');
-  function welcomeMarkup(){return '<div class="std-ai-welcome" id="std-ai-welcome"><h4>你好！我是AI帮建助手～</h4><div class="std-ai-quick"><button type="button" data-ai-quick="企业培训平台的初级销售经理建模">企业培训平台的初级销售经理建模</button><button type="button" data-ai-quick="个人贡献者能力建模">个人贡献者能力建模</button><button type="button" data-ai-quick="入职三年的产品经理的能力建模">入职三年的产品经理的能力建模</button></div></div>';}
+  function welcomeMarkup(){return '<div class="std-ai-welcome" id="std-ai-welcome"><h4>你好！我是AI帮建助手～</h4><div class="std-ai-quick"><button type="button" data-ai-quick="重点梳理核心职责和完成工作所需的能力">重点梳理核心职责和完成工作所需的能力</button><button type="button" data-ai-quick="结合日常工作任务，明确需要具备的经验和能力">结合日常工作任务，明确需要具备的经验和能力</button><button type="button" data-ai-quick="围绕独立完成工作和跨团队协作，制定人才标准">围绕独立完成工作和跨团队协作，制定人才标准</button></div></div>';}
   function composerEnabled(){return stage==='welcome'||(stage==='thinking'&&thinkingTarget!=='rank');}
   function setStage(next){
     stage=next;chat.classList.toggle('conversation-mode',next!=='welcome');chat.classList.toggle('thinking-mode',next==='thinking'&&thinkingTarget!=='rank');chat.classList.toggle('preview-mode',next==='scope');drawer.classList.toggle('flow-active',next!=='welcome');positionSelect.disabled=next!=='welcome';
@@ -241,7 +241,7 @@
   messages.addEventListener('keydown',event=>{const handle=event.target.closest('[data-ai-drag]');if(handle&&stage==='rank'&&['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();moveCapability(handle.dataset.aiDrag,priorityItems.findIndex(item=>item[0]===handle.dataset.aiDrag)+(event.key==='ArrowUp'?-1:1));}});
   messages.addEventListener('click',event=>{const move=event.target.closest('[data-ai-move]');if(move){const name=move.closest('[data-ai-priority-item]').dataset.aiPriorityItem;moveCapability(name,priorityItems.findIndex(item=>item[0]===name)+Number(move.dataset.aiMove));}if(event.target.closest('[data-ai-priority-confirm]'))confirmPriority();});
   messages.addEventListener('change',event=>{const name=event.target.dataset.aiScore;if(stage==='compare'&&name){capabilityScores[name]=Number(event.target.value);messages.querySelector('[data-ai-priority-feedback]').textContent=`已评分 ${Object.keys(capabilityScores).length} / ${priorityItems.length} 项`;messages.querySelector('[data-ai-priority-error]').textContent='';}});
-  function capabilityPreview(items){return window.StandardUI.capabilityRadar(items,(sourceStandard()?.name||result.name).replace(/标准$/,'')+'能力雷达图');}
+  function capabilityPreview(items){return window.StandardUI.capabilityRadarGroups(items);}
   function previewMarkup(){
     const content=result.content;
     const rows=generatedSections.map(key=>`<details class="std-ai-draft-section" open><summary><span>${sectionLabels[key]}</span><span>${content[key].length} 项</span></summary>${key==='cap'?capabilityPreview(content[key]):`<ul>${content[key].map(item=>`<li>${key==='duty'?`<strong>${e(item.n)}</strong><ul>${item.t.map(t=>`<li>${e(t)}</li>`).join('')}</ul>`:e(item)}</li>`).join('')||'<li>暂无内容</li>'}</ul>`}<button class="btn-text" type="button" data-ai-section-edit="${key}">编辑${sectionLabels[key]}</button></details>`).join('');

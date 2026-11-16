@@ -45,11 +45,12 @@
   .catmgr-row .cmr-edit-input { flex:1; }
 </style>
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="talent-ability-import.css?v=sha256-92fc4510c037">
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="vocabulary">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-00568d9a9b00"></script>
+<script src="navigation.js?v=sha256-6d9492ea338d"></script>
   <div class="body">
     <main class="content">
       <div class="breadcrumb">人才标准<span class="sep">/</span>定标 · 标准建模<span class="sep">/</span><span class="cur">指标库</span></div>
@@ -72,7 +73,7 @@
               </div>
               <div class="cat-main">
                 <div class="filter-bar" data-filter-bar><div class="field"><label>名称</label><input class="input" placeholder="搜索" data-cap-search></div><div class="actions"><button class="btn btn-primary" data-cap-query>查询</button><button class="btn btn-secondary" data-cap-reset>重置</button></div></div>
-                <div class="flex between center mb-md"><button class="btn btn-primary" data-open="drawer-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建能力</button></div>
+                <div class="flex between center mb-md"><div class="flex gap-sm"><button class="btn btn-primary" data-open="drawer-cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>新建能力</button><button class="btn btn-secondary" type="button" data-indicator-import>导入能力</button></div></div>
                 <div class="table-wrap"><table class="t" id="cap-table">
                   <thead><tr><th>名称</th><th>类别</th><th>描述</th><th style="text-align:right">操作</th></tr></thead>
                   <tbody data-cap-demo-body></tbody>
@@ -261,7 +262,7 @@
       <section class="ability-form-section">
         <h4>基本信息</h4>
         <div class="ability-basic-form">
-          <div class="ability-form-row"><label for="ability-name">名称</label><input class="input" id="ability-name" value="系统架构" autocomplete="off" spellcheck="false"></div>
+          <div class="ability-form-row"><label for="ability-name">名称</label><input class="input" id="ability-name" maxlength="20" required value="系统架构" autocomplete="off" spellcheck="false"></div>
           <div class="ability-form-row"><label for="ability-category"><span class="req">*</span>类别</label><select class="select" id="ability-category" required><option>通用能力</option><option selected>专业能力</option><option>领导力</option></select></div>
           <div class="ability-form-row"><label for="ability-dimension"><span class="req">*</span>维度</label><select class="select" id="ability-dimension" required><option selected>知识</option><option>技能</option><option>行为</option></select></div>
           <div class="ability-form-row ability-form-row-top"><label for="ability-definition">定义</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-definition" rows="4" maxlength="1000">能够从业务目标与技术约束出发，完成系统结构设计与关键技术决策。</textarea><span class="ability-char-count" data-count-for="ability-definition">36/1000</span></div></div>
@@ -283,8 +284,8 @@
             <button class="ability-level-tab" type="button" role="tab" aria-selected="false" data-level="10" data-description="" data-behavior="">等级十</button>
           </div>
           <div class="ability-level-fields" role="tabpanel">
-            <div class="ability-form-row ability-form-row-top"><label for="ability-level-description">分级描述</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-description" rows="5" maxlength="1000">了解系统架构的基础概念与常用模式。</textarea><span class="ability-char-count" data-count-for="ability-level-description">18/1000</span></div></div>
-            <div class="ability-form-row ability-form-row-top"><label for="ability-level-behavior">行为表现</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-behavior" rows="5" maxlength="1000">在指导下完成单一模块的结构设计，并按既定规范输出文档。</textarea><span class="ability-char-count" data-count-for="ability-level-behavior">27/1000</span></div></div>
+            <div class="ability-form-row ability-form-row-top"><label for="ability-level-description">分级描述</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-description" rows="5" maxlength="2000">了解系统架构的基础概念与常用模式。</textarea><span class="ability-char-count" data-count-for="ability-level-description">18/1000</span></div></div>
+            <div class="ability-form-row ability-form-row-top"><label for="ability-level-behavior">行为表现</label><div class="ability-textarea-wrap"><textarea class="input" id="ability-level-behavior" rows="5" maxlength="2000">在指导下完成单一模块的结构设计，并按既定规范输出文档。</textarea><span class="ability-char-count" data-count-for="ability-level-behavior">27/1000</span></div></div>
           </div>
         </div>
       </section>
@@ -297,8 +298,13 @@
 <div class="drawer" id="drawer-trait"><div class="m-head"><h3>查看词条</h3><button class="icon-close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="m-body"><div class="field"><label>名称</label><input class="input" value="成就结果" disabled></div><div class="field"><label>类别</label><select class="select" disabled><option>成就与发展</option><option>关系与利他</option><option>价值与意义</option><option>安全与平衡</option></select></div><div class="field"><label>描述</label><textarea class="input" rows="3" disabled>追求把事情做成、达成结果与可衡量成就的倾向。</textarea></div></div><div class="m-foot"><button class="btn btn-primary" data-close>关闭</button></div></div>
 
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
+<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="talent-settings-data.js?v=sha256-efee97b61308"></script>
+<script src="import-dialog.js?v=sha256-42fb803c632a"></script>
+<script src="indicator-import.js?v=sha256-77a682d00a81"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
-<script src="indicator-data.js?v=sha256-8919879a24e3"></script>
+<script src="indicator-data.js?v=sha256-1e2517327dd3"></script>
 <script>
   // 能力指标演示数据：类别树与选择能力指标组件共用同一套层级。
   (function () {
@@ -338,7 +344,7 @@
       var query = (tree.querySelector('[data-cap-tree-search]').value || '').trim().toLowerCase();
       tree.querySelector('[data-cap-demo-tree]').innerHTML = '<div class="cat-tree-item cap-demo-row ' + (active === 'all' ? 'active' : '') + '" style="--tree-depth:0" data-cat="全部" data-descendants="' + UI.escape((demo.items.cap || []).map(function (item) { return categoryNames.get(item.categoryId) || item.categoryId; }).join(',')) + '" role="treeitem" tabindex="0" aria-level="1" aria-expanded="' + String(rootExpanded) + '" aria-selected="' + String(active === 'all') + '" title="全部">' + arrow(rootExpanded, true) + '<span class="cap-demo-label">全部</span></div>' + (rootExpanded ? '<div class="cap-demo-children" role="group">' + categories.map(function (node) { return row(node, 1, query); }).join('') + '</div>' : '');
     }
-    body.innerHTML = (demo.items.cap || []).map(function (item) { var categoryName = categoryNames.get(item.categoryId) || item.categoryId; return '<tr data-cat="' + UI.escape(categoryName) + '"><td><b>' + UI.escape(item.name) + '</b></td><td>' + UI.escape(categoryName) + '</td><td class="muted">' + UI.escape(item.description) + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>'; }).join('');
+    body.innerHTML = (demo.items.cap || []).map(function (item) { var categoryName = categoryNames.get(item.categoryId) || item.categoryId; return '<tr data-indicator-id="' + UI.escape(item.id) + '" data-cat="' + UI.escape(categoryName) + '"><td><b>' + UI.escape(item.name) + '</b></td><td>' + UI.escape(categoryName) + '</td><td class="muted">' + UI.escape(item.description) + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm" data-open="drawer-cap">编辑</button><button class="btn-text btn-sm danger">删除</button></td></tr>'; }).join('');
     var managerList = document.querySelector('#drawer-catmgr-cap [data-catmgr-list]');
     if (managerList) managerList.innerHTML = Array.from(categoryNames.entries()).map(function (entry) { return '<div class="catmgr-row"><span class="cmr-name">' + UI.escape(entry[1]) + '</span><span class="cmr-count">' + countFor(entry[0]) + ' 条</span><span class="catmgr-ops"><button class="btn-text btn-sm" data-catmgr-edit>编辑</button><button class="btn-text btn-sm danger" data-catmgr-del>删除</button></span></div>'; }).join('');
     var categorySelect = document.getElementById('ability-category');
@@ -504,11 +510,32 @@
   (function () {
     var form = document.getElementById('ability-editor-form'), tabs = Array.from(document.querySelectorAll('.ability-level-tab')), description = document.getElementById('ability-level-description'), behavior = document.getElementById('ability-level-behavior');
     if (!form || !tabs.length) return;
-    function updateCount(input){var count=document.querySelector('[data-count-for="'+input.id+'"]');if(count)count.textContent=input.value.length+'/1000'}
+    function updateCount(input){var count=document.querySelector('[data-count-for="'+input.id+'"]');if(count)count.textContent=input.value.length+'/'+input.maxLength}
     function storeActive(){var active=document.querySelector('.ability-level-tab.active');if(active){active.dataset.description=description.value;active.dataset.behavior=behavior.value}}
     tabs.forEach(function(tab){tab.addEventListener('click',function(){storeActive();tabs.forEach(function(item){item.classList.remove('active');item.setAttribute('aria-selected','false')});tab.classList.add('active');tab.setAttribute('aria-selected','true');description.value=tab.dataset.description||'';behavior.value=tab.dataset.behavior||'';updateCount(description);updateCount(behavior)})});
     form.querySelectorAll('textarea[maxlength]').forEach(function(input){updateCount(input);input.addEventListener('input',function(){updateCount(input)})});
-    form.addEventListener('submit',function(event){event.preventDefault();storeActive();closeAllOverlays();showToast('能力已保存')});
+    var editingId='',dimension=document.getElementById('ability-dimension'),category=document.getElementById('ability-category'),name=document.getElementById('ability-name'),definition=document.getElementById('ability-definition');
+    var categoryOptions=[];
+    function categoryList(nodes,parent){nodes.forEach(function(node){var path=parent.concat(node.name);categoryOptions.push({id:node.id,path:path.join('.')});categoryList(node.children||[],path);});}
+    categoryList(IndicatorDemo.categories,[]);
+    category.innerHTML=categoryOptions.map(function(item){return '<option value="'+UI.escape(item.id)+'">'+UI.escape(item.path)+'</option>';}).join('');
+    dimension.innerHTML=TalentSettings.read().abilityDimensions.map(function(value){return '<option>'+UI.escape(value)+'</option>';}).join('');
+    document.addEventListener('click',function(event){
+      if(!event.target.closest('[data-open="drawer-cap"]'))return;
+      var id=event.target.closest('[data-indicator-id]')?.dataset.indicatorId,item=IndicatorDemo.items.cap.find(function(item){return item.id===id;});
+      editingId=item?.id||'';name.value=item?.name||'';definition.value=item?.description||'';category.value=item?.categoryId||categoryOptions[0].id;dimension.value=item?.dimension||TalentSettings.read().abilityDimensions[0];
+      tabs.forEach(function(tab,index){var level=item?.levels?.find(function(level){return level.level===index+1;});tab.dataset.description=level?.description||'';tab.dataset.behavior=level?.behavior||'';});
+      tabs.forEach(function(tab,index){tab.classList.toggle('active',index===0);tab.setAttribute('aria-selected',String(index===0));});description.value=tabs[0].dataset.description;behavior.value=tabs[0].dataset.behavior;
+      form.querySelectorAll('textarea[maxlength]').forEach(updateCount);
+    });
+    form.addEventListener('submit',function(event){
+      event.preventDefault();storeActive();
+      if(IndicatorDemo.items.cap.some(function(item){return item.id!==editingId&&item.name===name.value.trim()&&item.categoryId===category.value;})){showToast('同一类别下能力名称不能重复');return;}
+      var item={id:editingId||'cap-'+crypto.randomUUID(),name:name.value.trim(),categoryId:category.value,description:definition.value,dimension:dimension.value,dimensionIndex:TalentSettings.read().abilityDimensions.indexOf(dimension.value),levels:tabs.map(function(tab){return {level:Number(tab.dataset.level),description:tab.dataset.description,behavior:tab.dataset.behavior};})};
+      var items=IndicatorDemo.items.cap.map(function(old){return old.id===editingId?item:old;});if(!editingId)items.push(item);
+      try{localStorage.setItem('talent-indicators-v1',JSON.stringify({categories:IndicatorDemo.categories,items:items}));}catch(error){showToast('保存失败，请检查浏览器存储空间');return;}
+      closeAllOverlays();showToast('能力已保存');location.reload();
+    });
   })();
 </script>
 </body>

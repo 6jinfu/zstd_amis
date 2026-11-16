@@ -6,14 +6,15 @@
 <title>人才标准 · 人才发展</title>
 <link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
 <link rel="stylesheet" href="standards.css?v=sha256-37245495b13f">
-  <link rel="stylesheet" href="standard-ai-flow.css?v=sha256-ee862a610a01">
-<link rel="stylesheet" href="standard-radar.css?v=sha256-947cd8f77b28">
+  <link rel="stylesheet" href="standard-ai-flow.css?v=sha256-eb88c9a7a04a">
+<link rel="stylesheet" href="standard-radar.css?v=sha256-a2dfd2d7b245">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
+<link rel="stylesheet" href="talent-ability-import.css?v=sha256-92fc4510c037">
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="standards">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-00568d9a9b00"></script>
+<script src="navigation.js?v=sha256-6d9492ea338d"></script>
   <div class="body">
     <main class="content" data-standard-list>
 <nav class="tab-btns std-view-switch" aria-label="人才标准查看方式" data-list-header><a class="tab-btn" href="positions.html">按岗位查看</a><a class="tab-btn active" href="standards.html" aria-current="page">按标准查看</a></nav>
@@ -27,7 +28,7 @@
    <div class="field"><label for="std-search">标准名称</label><input id="std-search" class="input" type="search" placeholder="请输入标准名称"></div>
    <div class="actions"><button class="btn btn-primary" type="submit">查询</button><button class="btn btn-secondary" type="reset">重置</button></div>
   </form>
-  <div class="flex between center mb-md"><div class="std-list-actions"><a class="btn btn-primary" href="standard-detail.html">新建人才标准</a><button class="btn btn-secondary" id="std-ai-open" type="button" data-open="std-ai-drawer"><svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".5"/><path d="M3.957 10.513a.038.038 0 0 0 .026.026l.74.22c.037.01.037.062 0 .072l-.74.22a.038.038 0 0 0-.026.026l-.22.74c-.01.037-.062.037-.073 0l-.219-.74a.038.038 0 0 0-.026-.026l-.74-.22c-.037-.01-.037-.062 0-.073l.74-.22a.038.038 0 0 0 .026-.025l.22-.74c.01-.037.062-.037.073 0l.219.74Z" opacity=".2"/></svg>AI帮建</button></div></div>
+  <div class="flex between center mb-md"><div class="std-list-actions"><a class="btn btn-primary" href="standard-detail.html">新建人才标准</a><button class="btn btn-secondary" id="std-ai-open" type="button" data-open="std-ai-drawer"><svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".5"/><path d="M3.957 10.513a.038.038 0 0 0 .026.026l.74.22c.037.01.037.062 0 .072l-.74.22a.038.038 0 0 0-.026.026l-.22.74c-.01.037-.062.037-.073 0l-.219-.74a.038.038 0 0 0-.026-.026l-.74-.22c-.037-.01-.037-.062 0-.073l.74-.22a.038.038 0 0 0 .026-.025l.22-.74c.01-.037.062-.037.073 0l.219.74Z" opacity=".2"/></svg>AI帮建</button><button class="btn btn-secondary" type="button" data-standard-import>导入人才标准</button></div></div>
   <div class="card"><div class="table-wrap"><table class="t" data-native-sticky><thead><tr><th>标准名称</th><th>关联岗位</th><th>操作</th></tr></thead><tbody id="std-rows"></tbody></table></div>
   <div class="pagination"><div class="pg-info" id="std-count"></div><div class="pg-controls"><button class="pg-btn" id="std-prev">上一页</button><span id="std-page"></span><button class="pg-btn" id="std-next">下一页</button></div></div>
  </div></section>
@@ -62,9 +63,9 @@
 
       <div class="std-ai-quick">
 
-       <button type="button" data-ai-quick="企业培训平台的初级销售经理建模">企业培训平台的初级销售经理建模</button>
-       <button type="button" data-ai-quick="个人贡献者能力建模">个人贡献者能力建模</button>
-       <button type="button" data-ai-quick="入职三年的产品经理的能力建模">入职三年的产品经理的能力建模</button>
+       <button type="button" data-ai-quick="重点梳理核心职责和完成工作所需的能力">重点梳理核心职责和完成工作所需的能力</button>
+       <button type="button" data-ai-quick="结合日常工作任务，明确需要具备的经验和能力">结合日常工作任务，明确需要具备的经验和能力</button>
+       <button type="button" data-ai-quick="围绕独立完成工作和跨团队协作，制定人才标准">围绕独立完成工作和跨团队协作，制定人才标准</button>
       </div>
      </div>
     </div>
@@ -84,11 +85,15 @@
 </aside>
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
-<script src="talent-settings-data.js?v=sha256-9ac74d26e90d"></script>
+<script src="talent-settings-data.js?v=sha256-efee97b61308"></script>
 <script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
-<script src="standards-data.js?v=sha256-743dfa61e18c"></script>
-<script src="indicator-data.js?v=sha256-8919879a24e3"></script>
-<script src="standard-ui.js?v=sha256-6a79171112e4"></script>
+<script src="standards-data.js?v=sha256-a1d6a94f30fb"></script>
+<script src="indicator-data.js?v=sha256-1e2517327dd3"></script>
+<script src="standard-ui.js?v=sha256-fff5616e15f1"></script>
+ <script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
+<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="import-dialog.js?v=sha256-42fb803c632a"></script>
+<script src="standard-import.js?v=sha256-8f0b5cb3ada8"></script>
  <script src="standard-list.js?v=sha256-cfdd72830858"></script>
-  <script src="standard-ai-assistant.js?v=sha256-45732fa3ec8e"></script>
+  <script src="standard-ai-assistant.js?v=sha256-b4b94b975390"></script>
 </body></html>
