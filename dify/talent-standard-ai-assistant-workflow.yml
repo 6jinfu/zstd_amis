@@ -1362,9 +1362,9 @@ workflow:
           \    draft.update(content=content,capability_requirements=requirements,\n                 generationPreferences={'detail':ctx['generation_preferences']['detail'],**({'descriptionStructure':ctx['generation_preferences']['description_structure']}\
           \ if ordered else {})})\n    content_errors(ctx,draft)\n    return result(ctx,'ok','标准草稿已生成，请审阅、修改并确认应用范围。',\n \
           \       [component('draft_preview',{'draft':draft}),component('update_strategy',{'options':['replace','merge'],'default':None})\n\
-          \         if ctx['operation']=='update' else component('application_scope',{'options':['position','similar','none']\
-          \ if ctx['brief'].get('position_id') else ['none']})],\n        draft=draft,next_ui='scope',proposed_draft_version=ctx.get('draft_version',0)+1)\n\
-          \ndef main(context_json, model):\n    ctx=json.loads(context_json)\n    try:\n        return draft_result(ctx, model)\n\
+          \         if ctx['operation']=='update' else component('application_scope',{'options':['position','none'] if ctx['brief'].get('position_id')\
+          \ else ['none']})],\n        draft=draft,next_ui='scope',proposed_draft_version=ctx.get('draft_version',0)+1)\n\n\
+          def main(context_json, model):\n    ctx=json.loads(context_json)\n    try:\n        return draft_result(ctx, model)\n\
           \    except (ValueError,TypeError,KeyError) as error:\n        return result(ctx,'invalid','本轮未采用结果，原内容保留。',issues=[str(error)])"
         variables:
         - variable: context_json

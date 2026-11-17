@@ -115,6 +115,8 @@ class WorkflowContracts(unittest.TestCase):
         self.assertEqual(result['status'],'ok')
         self.assertEqual(result['draft']['capability_requirements'],[])
         self.assertEqual(result['draft']['content']['cap'],[])
+        scope=next(item for item in result['components'] if item['type']=='application_scope')
+        self.assertEqual(scope['data']['options'],['position','none'])
 
     def test_draft_actual_levels_and_missing_level_rejected(self):
         p=ex.prepared();model=ex.draft_model(p)

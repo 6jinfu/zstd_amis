@@ -49,7 +49,7 @@
 
 更新必须显式传 update_strategy=replace/merge，无默认。replace仅替换所选维度；merge追加新条目、同名职责任务去重、同一能力用新等级及新生成描述更新，保留未涉及能力和其他维度。原基本信息、编号和应用范围保留；合并后最多20能力。历史标准缺身份/描述元数据须先由业务服务补齐，不能按同名猜测。
 
-新建 scope_choice=position/similar/none。similar须 confirmed_position_ids，不能按类别自动全选。相似岗位节点核对duties/tasks/description真实引文；不生成岗位ID或伪造匹配概率，资料不足返回明确提示。目标岗位是否固定包含、候选默认勾选及正式相似口径仍待产品确认，本版只要求显式选择，不擅自扩展。
+2026-11-17：新建应用范围组件暂只返回 position/none；未指定岗位时只返回 none。similar 及相似岗位节点保留供后续恢复，当前页面不展示或调用。恢复时 similar 须 confirmed_position_ids，不能按类别自动全选；相似岗位节点核对duties/tasks/description真实引文，资料不足返回提示。正式相似口径等细节仍待确认。
 
 ### 新能力确认与最终保存
 

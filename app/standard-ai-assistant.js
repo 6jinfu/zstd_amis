@@ -308,10 +308,10 @@
     render();
   }
   function scopeCard(){
-    const position=selectedPosition(),samePositions=position?S.positions.filter(item=>item.category===position.category):[];
+    const position=selectedPosition();
     const option=(value,title,description)=>`<label class="std-ai-flow-choice"><input type="radio" name="std-ai-scope" value="${value}" ${scope===value?'checked':''} data-ai-scope="${value}"><span><strong>${title}${value==='position'?'<em>推荐</em>':''}</strong><small>${e(description)}</small></span></label>`;
     const existing=sourceStandard();
-    const choices=existing?option('original','保留原应用范围',S.applicableObjectLabel(S.read(),existing)):position?`${option('position','仅当前岗位',position.name)}${option('category','同类岗位',`${position.category}类 · ${samePositions.length} 个岗位`)}${option('none','暂不关联','先完善标准内容，稍后设置')}`:option('none','暂不关联岗位','可先确认标准内容，进入新建页后再设置');
+    const choices=existing?option('original','保留原应用范围',S.applicableObjectLabel(S.read(),existing)):position?`${option('position','仅当前岗位',position.name)}${option('none','暂不关联','先完善标准内容，稍后设置')}`:option('none','暂不关联岗位','可先确认标准内容，进入新建页后再设置');
     return `<footer class="std-ai-confirm-dock"><div class="std-ai-elicitation"><header><strong>请选择标准应用范围</strong></header><fieldset><legend class="sr-only">应用范围</legend>${choices}</fieldset><label class="sr-only" for="std-ai-followup">输入需要调整的内容</label><textarea id="std-ai-followup" rows="1" maxlength="1200" placeholder="有问题或者需要调整的，可以直接告诉我"></textarea><p class="std-ai-thread-input-error" data-ai-followup-error aria-live="polite"></p><div class="std-ai-elicitation-footer"><p class="std-ai-flow-scope-context" data-ai-scope-context aria-live="polite"></p><button type="button" class="std-ai-flow-primary" data-ai-confirm-scope>确 认</button></div></div></footer>`;
   }
   function scopeFooter(){return `<footer class="std-ai-artifact-footer"><button type="button" class="std-ai-flow-secondary" data-ai-edit-brief>修改建模信息</button><button type="button" class="std-ai-flow-primary" data-ai-confirm-scope>${sourceId?'确认更新方式':'带入新建页'}</button></footer>`;}

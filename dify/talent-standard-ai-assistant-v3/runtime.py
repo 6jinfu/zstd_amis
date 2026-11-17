@@ -371,7 +371,7 @@ def draft_result(ctx, model):
     content_errors(ctx,draft)
     return result(ctx,'ok','标准草稿已生成，请审阅、修改并确认应用范围。',
         [component('draft_preview',{'draft':draft}),component('update_strategy',{'options':['replace','merge'],'default':None})
-         if ctx['operation']=='update' else component('application_scope',{'options':['position','similar','none'] if ctx['brief'].get('position_id') else ['none']})],
+         if ctx['operation']=='update' else component('application_scope',{'options':['position','none'] if ctx['brief'].get('position_id') else ['none']})],
         draft=draft,next_ui='scope',proposed_draft_version=ctx.get('draft_version',0)+1)
 
 
