@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<fragment mode=\"keyword\" keyword=\"从关键岗位/岗位列表视角|增加基本信息、应用范围分区|按标准展示和进入详情\"><excerpt top-block-id=\"BEAPdPjoMov3yLxpjBAc4mKvnYg\"><table id=\"BEAPdPjoMov3yLxpjBAc4mKvnYg\"><tbody><tr><td><p id=\"AI0kdpsm5oiPy0xxv2LcfHSDnuO\">F03</p></td><td><p id=\"Q1QedZO2jo9PpFx8gKvcn1Gdnje\">人才标准列表</p></td><td><p id=\"AJJFddI7xoEqinx3ZAIcKBGRnFf\">重构</p></td><td><p id=\"P7NedIGNqotrlJxRJ88cBbA0n3J\">从关键岗位/岗位列表视角调整为独立的人才标准列表</p></td><td><p id=\"Tok2dV8T3ox1dHxcDuzcYS8unRb\">按标准展示和进入详情；名称查询、分页及岗位关联展示的一致性</p></td><td><p id=\"LbSBdLri2otcOnxVXDpcioFdnQb\">明确；查询等随列表改造回归</p></td></tr><tr><td><p id=\"WrSGdIBLMoQdScxqp0Rc99EGnme\">F06</p></td><td><p id=\"OKB6dGTLwopPpdxRFXxcToxinyf\">人才标准→新建/编辑</p></td><td><p id=\"GfepdHWq4oQU8qx0GMpcuiT0n6p\">调整</p></td><td><p id=\"L1M1dXp0do1hICxeuiMciZgRnvg\">增加基本信息、应用范围分区；名称50字、说明1000字；说明本期仅记录</p></td><td><p id=\"CzgHddY6ToptdLxKwqEcK9kIn9i\">字段保存回显、长度临界与超限、分区切换内容保留</p></td><td><p id=\"HKZGdhR66on0s1xP8YMcw5EYnnc\">明确；必填、重名、字数口径见Q19</p></td></tr></tbody></table></excerpt></fragment>",
+      "document_id": "HTUgdK0sooVXjtx8E6lcUZccnKc",
+      "revision_id": 1331
+    }
+  },
+  "_notice": {
+    "skills": {
+      "command": "lark-cli update",
+      "current": "1.0.88",
+      "message": "lark-cli skills 1.0.88 out of sync with binary 1.0.97, run: lark-cli update",
+      "target": "1.0.97"
+    },
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.97",
+      "latest": "1.0.99",
+      "message": "lark-cli 1.0.99 available, current 1.0.97, run: lark-cli update"
+    }
+  }
+}

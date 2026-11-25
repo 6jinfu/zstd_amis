@@ -1,0 +1,1217 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "销售部经理" [level=1]
+      - generic: 1424 · 岗位
+      - generic: 关键岗位
+    - main:
+      - navigation
+      - navigation:
+        - generic: 岗位信息
+        - generic: 岗位标准
+        - generic: 学习方案
+      - generic: "2"
+      - text: 岗位标准
+      - generic: 职责任务
+      - button "新增职责"
+      - generic: "*"
+      - textbox "请输入职责名称"
+      - button "新增任务"
+      - button "删除"
+      - table:
+        - rowgroup:
+          - row "任务项 任务名称 操作":
+            - columnheader "任务项":
+              - generic: 任务项
+            - columnheader "任务名称":
+              - generic: 任务名称
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "1 根据公司经营目标制定部门销售目标、预算和行动计划； 删除":
+            - cell "1":
+              - generic: "1"
+            - cell "根据公司经营目标制定部门销售目标、预算和行动计划；":
+              - textbox "请输入任务名称"
+            - cell "删除":
+              - button "删除"
+          - row "2 分解到人员、区域及客户，跟踪完成情况并及时调整。 删除":
+            - cell "2":
+              - generic: "2"
+            - cell "分解到人员、区域及客户，跟踪完成情况并及时调整。":
+              - textbox "请输入任务名称"
+            - cell "删除":
+              - button "删除"
+          - row "3 制定客户开发策略，组织新客户拓展；维护重点客户，识别需求，推进续约、复购及业务增长。 删除":
+            - cell "3":
+              - generic: "3"
+            - cell "制定客户开发策略，组织新客户拓展；维护重点客户，识别需求，推进续约、复购及业务增长。":
+              - textbox "请输入任务名称"
+            - cell "删除":
+              - button "删除"
+      - generic: "*"
+      - textbox "请输入职责名称"
+      - button "新增任务"
+      - button "删除"
+      - table:
+        - rowgroup:
+          - row "任务项 任务名称 操作":
+            - columnheader "任务项":
+              - generic: 任务项
+            - columnheader "任务名称":
+              - generic: 任务名称
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "1 负责人员配置、目标分配、绩效评价和销售辅导； 删除":
+            - cell "1":
+              - generic: "1"
+            - cell "负责人员配置、目标分配、绩效评价和销售辅导；":
+              - textbox "请输入任务名称"
+            - cell "删除":
+              - button "删除"
+          - row "2 培养骨干，提升团队销售能力与协作效率。 删除":
+            - cell "2":
+              - generic: "2"
+            - cell "培养骨干，提升团队销售能力与协作效率。":
+              - textbox "请输入任务名称"
+            - cell "删除":
+              - button "删除"
+      - generic: 经历经验
+      - button "添加经历"
+      - generic: 经历 1
+      - textbox "请输入经历要求"
+      - button:
+      - generic: 经历 2
+      - textbox "请输入经历要求"
+      - button:
+      - generic: 能力要求
+      - generic: 每个能力只对应一项能力范围；每组最多20项，同一项能力内项不可重复。
+      - button "新增能力组"
+      - generic: "*"
+      - textbox "请输入能力组名称"
+      - generic: 4/20 项
+      - button "删除"
+      - table:
+        - rowgroup:
+          - row "能力项 能力名称 类别 等级 操作":
+            - columnheader "能力项":
+              - generic: 能力项
+            - columnheader "能力名称":
+              - generic: 能力名称
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "等级":
+              - generic: 等级
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "1 市场拓展能力 销售簇 2 删除":
+            - cell "1":
+              - generic: "1"
+            - cell "市场拓展能力":
+              - generic: 市场拓展能力
+            - cell "销售簇":
+              - generic: 销售簇
+            - cell "2":
+              - generic: "2"
+            - cell "删除":
+              - button "删除"
+          - row "2 渠道规划建设能力 销售簇 3 删除":
+            - cell "2":
+              - generic: "2"
+            - cell "渠道规划建设能力":
+              - generic: 渠道规划建设能力
+            - cell "销售簇":
+              - generic: 销售簇
+            - cell "3":
+              - generic: "3"
+            - cell "删除":
+              - button "删除"
+          - row "3 渠道管理支持能力 销售簇 2 删除":
+            - cell "3":
+              - generic: "3"
+            - cell "渠道管理支持能力":
+              - generic: 渠道管理支持能力
+            - cell "销售簇":
+              - generic: 销售簇
+            - cell "2":
+              - generic: "2"
+            - cell "删除":
+              - button "删除"
+          - row "4 客户关系建立与维护能力 销售簇 2 删除":
+            - cell "4":
+              - generic: "4"
+            - cell "客户关系建立与维护能力":
+              - generic: 客户关系建立与维护能力
+            - cell "销售簇":
+              - generic: 销售簇
+            - cell "2":
+              - generic: "2"
+            - cell "删除":
+              - button "删除"
+      - button "选择能力" [active]
+      - generic: 动力要求
+      - button "选择动力"
+      - table:
+        - rowgroup:
+          - row "动力项 动力名称 类别 操作":
+            - columnheader "动力项":
+              - generic: 动力项
+            - columnheader "动力名称":
+              - generic: 动力名称
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "1 专业理论 过程 删除":
+            - cell "1":
+              - generic: "1"
+            - cell "专业理论":
+              - generic: 专业理论
+            - cell "过程":
+              - generic: 过程
+            - cell "删除":
+              - button "删除"
+          - row "2 学习成长 自我 删除":
+            - cell "2":
+              - generic: "2"
+            - cell "学习成长":
+              - generic: 学习成长
+            - cell "自我":
+              - generic: 自我
+            - cell "删除":
+              - button "删除"
+          - row "3 影响说服 他人 删除":
+            - cell "3":
+              - generic: "3"
+            - cell "影响说服":
+              - generic: 影响说服
+            - cell "他人":
+              - generic: 他人
+            - cell "删除":
+              - button "删除"
+      - generic: 潜力要求
+      - button "选择潜力"
+      - table:
+        - rowgroup:
+          - row "潜力项 潜力名称 类别 操作":
+            - columnheader "潜力项":
+              - generic: 潜力项
+            - columnheader "潜力名称":
+              - generic: 潜力名称
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "1 信任性 人际互动 删除":
+            - cell "1":
+              - generic: "1"
+            - cell "信任性":
+              - generic: 信任性
+            - cell "人际互动":
+              - generic: 人际互动
+            - cell "删除":
+              - button "删除"
+          - row "2 乐观性 自我情绪 删除":
+            - cell "2":
+              - generic: "2"
+            - cell "乐观性":
+              - generic: 乐观性
+            - cell "自我情绪":
+              - generic: 自我情绪
+            - cell "删除":
+              - button "删除"
+          - row "3 亲和性 人际互动 删除":
+            - cell "3":
+              - generic: "3"
+            - cell "亲和性":
+              - generic: 亲和性
+            - cell "人际互动":
+              - generic: 人际互动
+            - cell "删除":
+              - button "删除"
+          - row "4 外向性 人际互动 删除":
+            - cell "4":
+              - generic: "4"
+            - cell "外向性":
+              - generic: 外向性
+            - cell "人际互动":
+              - generic: 人际互动
+            - cell "删除":
+              - button "删除"
+      - button "取 消"
+      - button "保 存"
+    - generic: 选择能力
+    - button "Close":
+    - generic: 能力类别
+    - textbox "搜索"
+    - generic: 全部
+    - generic: 技能
+    - generic: 素养
+    - generic: 知识
+    - textbox "能力名称"
+    - button "查 询"
+    - table:
+      - rowgroup:
+        - row "能力名称 类别 等级":
+          - columnheader:
+            - checkbox
+          - columnheader "能力名称":
+            - generic: 能力名称
+          - columnheader "类别":
+            - generic: 类别
+          - columnheader "等级":
+            - generic: 等级
+    - table:
+      - rowgroup:
+        - row "开放平台与系统集成 行业知识 1":
+          - cell:
+            - checkbox
+          - cell "开放平台与系统集成":
+            - generic: 开放平台与系统集成
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "1":
+            - generic: "1"
+        - row "开放平台与系统集成 行业知识 2":
+          - cell:
+            - checkbox
+          - cell "开放平台与系统集成":
+            - generic: 开放平台与系统集成
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "2":
+            - generic: "2"
+        - row "开放平台与系统集成 行业知识 3":
+          - cell:
+            - checkbox
+          - cell "开放平台与系统集成":
+            - generic: 开放平台与系统集成
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "3":
+            - generic: "3"
+        - row "开放平台与系统集成 行业知识 4":
+          - cell:
+            - checkbox
+          - cell "开放平台与系统集成":
+            - generic: 开放平台与系统集成
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "4":
+            - generic: "4"
+        - row "开放平台与系统集成 行业知识 5":
+          - cell:
+            - checkbox
+          - cell "开放平台与系统集成":
+            - generic: 开放平台与系统集成
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "5":
+            - generic: "5"
+        - row "AI与大数据应用 行业知识 1":
+          - cell:
+            - checkbox
+          - cell "AI与大数据应用":
+            - generic: AI与大数据应用
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "1":
+            - generic: "1"
+        - row "AI与大数据应用 行业知识 2":
+          - cell:
+            - checkbox
+          - cell "AI与大数据应用":
+            - generic: AI与大数据应用
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "2":
+            - generic: "2"
+        - row "AI与大数据应用 行业知识 3":
+          - cell:
+            - checkbox
+          - cell "AI与大数据应用":
+            - generic: AI与大数据应用
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "3":
+            - generic: "3"
+        - row "AI与大数据应用 行业知识 4":
+          - cell:
+            - checkbox
+          - cell "AI与大数据应用":
+            - generic: AI与大数据应用
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "4":
+            - generic: "4"
+        - row "AI与大数据应用 行业知识 5":
+          - cell:
+            - checkbox
+          - cell "AI与大数据应用":
+            - generic: AI与大数据应用
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "5":
+            - generic: "5"
+        - row "B2B SaaS 行业知识 1":
+          - cell:
+            - checkbox
+          - cell "B2B SaaS":
+            - generic: B2B SaaS
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "1":
+            - generic: "1"
+        - row "B2B SaaS 行业知识 2":
+          - cell:
+            - checkbox
+          - cell "B2B SaaS":
+            - generic: B2B SaaS
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "2":
+            - generic: "2"
+        - row "B2B SaaS 行业知识 3":
+          - cell:
+            - checkbox
+          - cell "B2B SaaS":
+            - generic: B2B SaaS
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "3":
+            - generic: "3"
+        - row "B2B SaaS 行业知识 4":
+          - cell:
+            - checkbox
+          - cell "B2B SaaS":
+            - generic: B2B SaaS
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "4":
+            - generic: "4"
+        - row "B2B SaaS 行业知识 5":
+          - cell:
+            - checkbox
+          - cell "B2B SaaS":
+            - generic: B2B SaaS
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "5":
+            - generic: "5"
+        - row "企业培训与在线教育 行业知识 1":
+          - cell:
+            - checkbox
+          - cell "企业培训与在线教育":
+            - generic: 企业培训与在线教育
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "1":
+            - generic: "1"
+        - row "企业培训与在线教育 行业知识 2":
+          - cell:
+            - checkbox
+          - cell "企业培训与在线教育":
+            - generic: 企业培训与在线教育
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "2":
+            - generic: "2"
+        - row "企业培训与在线教育 行业知识 3":
+          - cell:
+            - checkbox
+          - cell "企业培训与在线教育":
+            - generic: 企业培训与在线教育
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "3":
+            - generic: "3"
+        - row "企业培训与在线教育 行业知识 4":
+          - cell:
+            - checkbox
+          - cell "企业培训与在线教育":
+            - generic: 企业培训与在线教育
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "4":
+            - generic: "4"
+        - row "企业培训与在线教育 行业知识 5":
+          - cell:
+            - checkbox
+          - cell "企业培训与在线教育":
+            - generic: 企业培训与在线教育
+          - cell "行业知识":
+            - generic: 行业知识
+          - cell "5":
+            - generic: "5"
+        - row "文字表达能力 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "文字表达能力":
+            - generic: 文字表达能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "文字表达能力 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "文字表达能力":
+            - generic: 文字表达能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "文字表达能力 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "文字表达能力":
+            - generic: 文字表达能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "文字表达能力 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "文字表达能力":
+            - generic: 文字表达能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "文字表达能力 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "文字表达能力":
+            - generic: 文字表达能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "问题解决能力 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "问题解决能力":
+            - generic: 问题解决能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "问题解决能力 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "问题解决能力":
+            - generic: 问题解决能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "问题解决能力 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "问题解决能力":
+            - generic: 问题解决能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "问题解决能力 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "问题解决能力":
+            - generic: 问题解决能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "问题解决能力 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "问题解决能力":
+            - generic: 问题解决能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "抗压与执行力 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "抗压与执行力":
+            - generic: 抗压与执行力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "抗压与执行力 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "抗压与执行力":
+            - generic: 抗压与执行力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "抗压与执行力 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "抗压与执行力":
+            - generic: 抗压与执行力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "抗压与执行力 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "抗压与执行力":
+            - generic: 抗压与执行力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "抗压与执行力 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "抗压与执行力":
+            - generic: 抗压与执行力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "学习与创新能力 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "学习与创新能力":
+            - generic: 学习与创新能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "学习与创新能力 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "学习与创新能力":
+            - generic: 学习与创新能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "学习与创新能力 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "学习与创新能力":
+            - generic: 学习与创新能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "学习与创新能力 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "学习与创新能力":
+            - generic: 学习与创新能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "学习与创新能力 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "学习与创新能力":
+            - generic: 学习与创新能力
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "客户服务意识 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "客户服务意识":
+            - generic: 客户服务意识
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "客户服务意识 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "客户服务意识":
+            - generic: 客户服务意识
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "客户服务意识 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "客户服务意识":
+            - generic: 客户服务意识
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "客户服务意识 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "客户服务意识":
+            - generic: 客户服务意识
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "客户服务意识 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "客户服务意识":
+            - generic: 客户服务意识
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "团队管理 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "团队管理":
+            - generic: 团队管理
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "团队管理 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "团队管理":
+            - generic: 团队管理
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "团队管理 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "团队管理":
+            - generic: 团队管理
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "团队管理 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "团队管理":
+            - generic: 团队管理
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "团队管理 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "团队管理":
+            - generic: 团队管理
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "沟通与协调 通用素养 1":
+          - cell:
+            - checkbox
+          - cell "沟通与协调":
+            - generic: 沟通与协调
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "1":
+            - generic: "1"
+        - row "沟通与协调 通用素养 2":
+          - cell:
+            - checkbox
+          - cell "沟通与协调":
+            - generic: 沟通与协调
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "2":
+            - generic: "2"
+        - row "沟通与协调 通用素养 3":
+          - cell:
+            - checkbox
+          - cell "沟通与协调":
+            - generic: 沟通与协调
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "3":
+            - generic: "3"
+        - row "沟通与协调 通用素养 4":
+          - cell:
+            - checkbox
+          - cell "沟通与协调":
+            - generic: 沟通与协调
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "4":
+            - generic: "4"
+        - row "沟通与协调 通用素养 5":
+          - cell:
+            - checkbox
+          - cell "沟通与协调":
+            - generic: 沟通与协调
+          - cell "通用素养":
+            - generic: 通用素养
+          - cell "5":
+            - generic: "5"
+        - row "项目管理 产品能力 1":
+          - cell:
+            - checkbox
+          - cell "项目管理":
+            - generic: 项目管理
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "1":
+            - generic: "1"
+        - row "项目管理 产品能力 2":
+          - cell:
+            - checkbox
+          - cell "项目管理":
+            - generic: 项目管理
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "2":
+            - generic: "2"
+        - row "项目管理 产品能力 3":
+          - cell:
+            - checkbox
+          - cell "项目管理":
+            - generic: 项目管理
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "3":
+            - generic: "3"
+        - row "项目管理 产品能力 4":
+          - cell:
+            - checkbox
+          - cell "项目管理":
+            - generic: 项目管理
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "4":
+            - generic: "4"
+        - row "项目管理 产品能力 5":
+          - cell:
+            - checkbox
+          - cell "项目管理":
+            - generic: 项目管理
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "5":
+            - generic: "5"
+        - row "数据分析 产品能力 1":
+          - cell:
+            - checkbox
+          - cell "数据分析":
+            - generic: 数据分析
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "1":
+            - generic: "1"
+        - row "数据分析 产品能力 2":
+          - cell:
+            - checkbox
+          - cell "数据分析":
+            - generic: 数据分析
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "2":
+            - generic: "2"
+        - row "数据分析 产品能力 3":
+          - cell:
+            - checkbox
+          - cell "数据分析":
+            - generic: 数据分析
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "3":
+            - generic: "3"
+        - row "数据分析 产品能力 4":
+          - cell:
+            - checkbox
+          - cell "数据分析":
+            - generic: 数据分析
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "4":
+            - generic: "4"
+        - row "数据分析 产品能力 5":
+          - cell:
+            - checkbox
+          - cell "数据分析":
+            - generic: 数据分析
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "5":
+            - generic: "5"
+        - row "产品设计与规划 产品能力 1":
+          - cell:
+            - checkbox
+          - cell "产品设计与规划":
+            - generic: 产品设计与规划
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "1":
+            - generic: "1"
+        - row "产品设计与规划 产品能力 2":
+          - cell:
+            - checkbox
+          - cell "产品设计与规划":
+            - generic: 产品设计与规划
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "2":
+            - generic: "2"
+        - row "产品设计与规划 产品能力 3":
+          - cell:
+            - checkbox
+          - cell "产品设计与规划":
+            - generic: 产品设计与规划
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "3":
+            - generic: "3"
+        - row "产品设计与规划 产品能力 4":
+          - cell:
+            - checkbox
+          - cell "产品设计与规划":
+            - generic: 产品设计与规划
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "4":
+            - generic: "4"
+        - row "产品设计与规划 产品能力 5":
+          - cell:
+            - checkbox
+          - cell "产品设计与规划":
+            - generic: 产品设计与规划
+          - cell "产品能力":
+            - generic: 产品能力
+          - cell "5":
+            - generic: "5"
+        - row "性能与安全测试 测试能力 1":
+          - cell:
+            - checkbox
+          - cell "性能与安全测试":
+            - generic: 性能与安全测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "1":
+            - generic: "1"
+        - row "性能与安全测试 测试能力 2":
+          - cell:
+            - checkbox
+          - cell "性能与安全测试":
+            - generic: 性能与安全测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "2":
+            - generic: "2"
+        - row "性能与安全测试 测试能力 3":
+          - cell:
+            - checkbox
+          - cell "性能与安全测试":
+            - generic: 性能与安全测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "3":
+            - generic: "3"
+        - row "性能与安全测试 测试能力 4":
+          - cell:
+            - checkbox
+          - cell "性能与安全测试":
+            - generic: 性能与安全测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "4":
+            - generic: "4"
+        - row "性能与安全测试 测试能力 5":
+          - cell:
+            - checkbox
+          - cell "性能与安全测试":
+            - generic: 性能与安全测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "5":
+            - generic: "5"
+        - row "自动化测试 测试能力 1":
+          - cell:
+            - checkbox
+          - cell "自动化测试":
+            - generic: 自动化测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "1":
+            - generic: "1"
+        - row "自动化测试 测试能力 2":
+          - cell:
+            - checkbox
+          - cell "自动化测试":
+            - generic: 自动化测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "2":
+            - generic: "2"
+        - row "自动化测试 测试能力 3":
+          - cell:
+            - checkbox
+          - cell "自动化测试":
+            - generic: 自动化测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "3":
+            - generic: "3"
+        - row "自动化测试 测试能力 4":
+          - cell:
+            - checkbox
+          - cell "自动化测试":
+            - generic: 自动化测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "4":
+            - generic: "4"
+        - row "自动化测试 测试能力 5":
+          - cell:
+            - checkbox
+          - cell "自动化测试":
+            - generic: 自动化测试
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "5":
+            - generic: "5"
+        - row "测试理论与方法 测试能力 1":
+          - cell:
+            - checkbox
+          - cell "测试理论与方法":
+            - generic: 测试理论与方法
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "1":
+            - generic: "1"
+        - row "测试理论与方法 测试能力 2":
+          - cell:
+            - checkbox
+          - cell "测试理论与方法":
+            - generic: 测试理论与方法
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "2":
+            - generic: "2"
+        - row "测试理论与方法 测试能力 3":
+          - cell:
+            - checkbox
+          - cell "测试理论与方法":
+            - generic: 测试理论与方法
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "3":
+            - generic: "3"
+        - row "测试理论与方法 测试能力 4":
+          - cell:
+            - checkbox
+          - cell "测试理论与方法":
+            - generic: 测试理论与方法
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "4":
+            - generic: "4"
+        - row "测试理论与方法 测试能力 5":
+          - cell:
+            - checkbox
+          - cell "测试理论与方法":
+            - generic: 测试理论与方法
+          - cell "测试能力":
+            - generic: 测试能力
+          - cell "5":
+            - generic: "5"
+        - row "分布式架构设计 开发能力 1":
+          - cell:
+            - checkbox
+          - cell "分布式架构设计":
+            - generic: 分布式架构设计
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "1":
+            - generic: "1"
+        - row "分布式架构设计 开发能力 2":
+          - cell:
+            - checkbox
+          - cell "分布式架构设计":
+            - generic: 分布式架构设计
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "2":
+            - generic: "2"
+        - row "分布式架构设计 开发能力 3":
+          - cell:
+            - checkbox
+          - cell "分布式架构设计":
+            - generic: 分布式架构设计
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "3":
+            - generic: "3"
+        - row "分布式架构设计 开发能力 4":
+          - cell:
+            - checkbox
+          - cell "分布式架构设计":
+            - generic: 分布式架构设计
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "4":
+            - generic: "4"
+        - row "分布式架构设计 开发能力 5":
+          - cell:
+            - checkbox
+          - cell "分布式架构设计":
+            - generic: 分布式架构设计
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "5":
+            - generic: "5"
+        - row "数据库技术 开发能力 1":
+          - cell:
+            - checkbox
+          - cell "数据库技术":
+            - generic: 数据库技术
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "1":
+            - generic: "1"
+        - row "数据库技术 开发能力 2":
+          - cell:
+            - checkbox
+          - cell "数据库技术":
+            - generic: 数据库技术
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "2":
+            - generic: "2"
+        - row "数据库技术 开发能力 3":
+          - cell:
+            - checkbox
+          - cell "数据库技术":
+            - generic: 数据库技术
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "3":
+            - generic: "3"
+        - row "数据库技术 开发能力 4":
+          - cell:
+            - checkbox
+          - cell "数据库技术":
+            - generic: 数据库技术
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "4":
+            - generic: "4"
+        - row "数据库技术 开发能力 5":
+          - cell:
+            - checkbox
+          - cell "数据库技术":
+            - generic: 数据库技术
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "5":
+            - generic: "5"
+        - row "AI应用开发 开发能力 1":
+          - cell:
+            - checkbox
+          - cell "AI应用开发":
+            - generic: AI应用开发
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "1":
+            - generic: "1"
+        - row "AI应用开发 开发能力 2":
+          - cell:
+            - checkbox
+          - cell "AI应用开发":
+            - generic: AI应用开发
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "2":
+            - generic: "2"
+        - row "AI应用开发 开发能力 3":
+          - cell:
+            - checkbox
+          - cell "AI应用开发":
+            - generic: AI应用开发
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "3":
+            - generic: "3"
+        - row "AI应用开发 开发能力 4":
+          - cell:
+            - checkbox
+          - cell "AI应用开发":
+            - generic: AI应用开发
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "4":
+            - generic: "4"
+        - row "AI应用开发 开发能力 5":
+          - cell:
+            - checkbox
+          - cell "AI应用开发":
+            - generic: AI应用开发
+          - cell "开发能力":
+            - generic: 开发能力
+          - cell "5":
+            - generic: "5"
+    - text: 已选 4 项
+    - button "清空"
+    - generic: 共 171 条
+    - list:
+      - text: .
+      - listitem: "1"
+      - listitem: "2"
+      - listitem: "3"
+      - listitem: "9"
+      - text: .
+    - generic "20 条/页":
+      - textbox
+      - generic: 20 条/页
+    - generic: 前往
+    - spinbutton
+    - button "取 消"
+    - button "确 定"

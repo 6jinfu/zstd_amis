@@ -1,0 +1,269 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 评鉴工具
+        - generic: 人才盘点
+    - main:
+      - generic: 盘点类别
+      - checkbox "包含子类" [checked]
+      - generic: 包含子类
+      - button:
+      - textbox "搜索类别"
+      - generic: 年度盘点
+      - generic: 季度盘点
+      - generic: 月度盘点
+      - button "收起左侧树":
+      - generic: "项目名 :"
+      - textbox "搜索"
+      - generic: "状态 :"
+      - generic "全部":
+        - textbox
+        - generic: 全部
+      - button "查 询"
+      - button "重 置"
+      - button "创建盘点项目"
+      - table:
+        - rowgroup:
+          - row "项目名 类别 人数 项目周期 状态 创建人 创建时间 操作":
+            - columnheader "项目名":
+              - generic: 项目名
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "人数":
+              - generic: 人数
+            - columnheader "项目周期":
+              - generic: 项目周期
+            - columnheader "状态":
+              - generic: 状态
+            - columnheader "创建人":
+              - generic: 创建人
+            - columnheader "创建时间":
+              - generic: 创建时间
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "测试2 年度盘点 4 2026-10-28 ~ 2026-10-29 进行中 王瑜 2026-10-28 进入校准":
+            - cell "测试2":
+              - button "测试2":
+                - generic: 测试2
+            - cell "年度盘点":
+              - generic: 年度盘点
+            - cell "4":
+              - generic: "4"
+            - cell "2026-10-28 ~ 2026-10-29":
+              - generic: 2026-10-28 ~ 2026-10-29
+            - cell "进行中":
+              - generic: 进行中
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "2026-10-28":
+              - generic: 2026-10-28
+            - cell "进入校准":
+              - button "进入校准"
+          - row "测试 年度盘点 9 2026-10-27 ~ 2027-01-01 进行中 王瑜 2026-10-28 进入校准":
+            - cell "测试":
+              - button "测试":
+                - generic: 测试
+            - cell "年度盘点":
+              - generic: 年度盘点
+            - cell "9":
+              - generic: "9"
+            - cell "2026-10-27 ~ 2027-01-01":
+              - generic: 2026-10-27 ~ 2027-01-01
+            - cell "进行中":
+              - generic: 进行中
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "2026-10-28":
+              - generic: 2026-10-28
+            - cell "进入校准":
+              - button "进入校准"
+          - row "人力行政部盘点 季度盘点 6 2026-10-28 ~ 2026-12-31 进行中 王瑜 2026-10-27 进入校准":
+            - cell "人力行政部盘点":
+              - button "人力行政部盘点":
+                - generic: 人力行政部盘点
+            - cell "季度盘点":
+              - generic: 季度盘点
+            - cell "6":
+              - generic: "6"
+            - cell "2026-10-28 ~ 2026-12-31":
+              - generic: 2026-10-28 ~ 2026-12-31
+            - cell "进行中":
+              - generic: 进行中
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "2026-10-27":
+              - generic: 2026-10-27
+            - cell "进入校准":
+              - button "进入校准"
+          - row "人才盘点测评 年度盘点 20 2026-10-24 ~ 2026-10-31 草稿 郑建平 2026-10-23 编辑 删除":
+            - cell "人才盘点测评":
+              - button "人才盘点测评":
+                - generic: 人才盘点测评
+            - cell "年度盘点":
+              - generic: 年度盘点
+            - cell "20":
+              - generic: "20"
+            - cell "2026-10-24 ~ 2026-10-31":
+              - generic: 2026-10-24 ~ 2026-10-31
+            - cell "草稿":
+              - generic: 草稿
+            - cell "郑建平":
+              - generic: 郑建平
+            - cell "2026-10-23":
+              - generic: 2026-10-23
+            - cell "编辑 删除":
+              - button "编辑"
+              - button "删除"
+          - row "测试项目 月度盘点 4 2026-10-21 ~ 2026-10-29 进行中 谢军兴 2026-10-21 进入校准":
+            - cell "测试项目":
+              - button "测试项目":
+                - generic: 测试项目
+            - cell "月度盘点":
+              - generic: 月度盘点
+            - cell "4":
+              - generic: "4"
+            - cell "2026-10-21 ~ 2026-10-29":
+              - generic: 2026-10-21 ~ 2026-10-29
+            - cell "进行中":
+              - generic: 进行中
+            - cell "谢军兴":
+              - generic: 谢军兴
+            - cell "2026-10-21":
+              - generic: 2026-10-21
+            - cell "进入校准":
+              - button "进入校准"
+          - row "项目经理盘点 季度盘点 20 2026-09-23 ~ 2026-09-30 进行中 吕江荣 2026-09-23 进入校准":
+            - cell "项目经理盘点":
+              - button "项目经理盘点":
+                - generic: 项目经理盘点
+            - cell "季度盘点":
+              - generic: 季度盘点
+            - cell "20":
+              - generic: "20"
+            - cell "2026-09-23 ~ 2026-09-30":
+              - generic: 2026-09-23 ~ 2026-09-30
+            - cell "进行中":
+              - generic: 进行中
+            - cell "吕江荣":
+              - generic: 吕江荣
+            - cell "2026-09-23":
+              - generic: 2026-09-23
+            - cell "进入校准":
+              - button "进入校准"
+          - row "2026三季度人才盘点 季度盘点 23 2026-10-01 ~ 2026-10-31 草稿 刘凯文 2026-09-17 编辑 删除":
+            - cell "2026三季度人才盘点":
+              - button "2026三季度人才盘点":
+                - generic: 2026三季度人才盘点
+            - cell "季度盘点":
+              - generic: 季度盘点
+            - cell "23":
+              - generic: "23"
+            - cell "2026-10-01 ~ 2026-10-31":
+              - generic: 2026-10-01 ~ 2026-10-31
+            - cell "草稿":
+              - generic: 草稿
+            - cell "刘凯文":
+              - generic: 刘凯文
+            - cell "2026-09-17":
+              - generic: 2026-09-17
+            - cell "编辑 删除":
+              - button "编辑"
+              - button "删除"
+          - row "2026年人才盘点 年度盘点 1 2026-09-17 ~ 2026-09-18 进行中 王俊涛 2026-09-17 进入校准":
+            - cell "2026年人才盘点":
+              - button "2026年人才盘点":
+                - generic: 2026年人才盘点
+            - cell "年度盘点":
+              - generic: 年度盘点
+            - cell "1":
+              - generic: "1"
+            - cell "2026-09-17 ~ 2026-09-18":
+              - generic: 2026-09-17 ~ 2026-09-18
+            - cell "进行中":
+              - generic: 进行中
+            - cell "王俊涛":
+              - generic: 王俊涛
+            - cell "2026-09-17":
+              - generic: 2026-09-17
+            - cell "进入校准":
+              - button "进入校准"
+          - row "人才盘点 2026 年度产品部 年度盘点 15 2026-09-14 ~ 2026-09-18 进行中 刘金富 2026-09-14 进入校准":
+            - cell "人才盘点 2026 年度产品部":
+              - button "人才盘点 2026 年度产品部":
+                - generic: 人才盘点 2026 年度产品部
+            - cell "年度盘点":
+              - generic: 年度盘点
+            - cell "15":
+              - generic: "15"
+            - cell "2026-09-14 ~ 2026-09-18":
+              - generic: 2026-09-14 ~ 2026-09-18
+            - cell "进行中":
+              - generic: 进行中
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-09-14":
+              - generic: 2026-09-14
+            - cell "进入校准":
+              - button "进入校准"
+          - row "产品运营部三季度人才盘点 季度盘点 15 2026-09-10 ~ 2026-09-24 进行中 刘金富 2026-09-11 进入校准":
+            - cell "产品运营部三季度人才盘点":
+              - button "产品运营部三季度人才盘点":
+                - generic: 产品运营部三季度人才盘点
+            - cell "季度盘点":
+              - generic: 季度盘点
+            - cell "15":
+              - generic: "15"
+            - cell "2026-09-10 ~ 2026-09-24":
+              - generic: 2026-09-10 ~ 2026-09-24
+            - cell "进行中":
+              - generic: 进行中
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-09-11":
+              - generic: 2026-09-11
+            - cell "进入校准":
+              - button "进入校准"
+      - generic: 共 11 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

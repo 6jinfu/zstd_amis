@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<fragment mode=\"section\" requested-start=\"AD2Dd4M6SoBGG8x2Y2FcAHB5ngb\"><h2 id=\"AD2Dd4M6SoBGG8x2Y2FcAHB5ngb\">三、更新记录</h2><h4 id=\"doxcnzyyMpSqyJsLW72QEog5zYg\">1109人才标准更新为如下内容</h4><ul><li id=\"doxcnA52zXtDuQ56oYxgcADXYje\">人才标准增加“按岗位查看”和“按标准查看”两种查看方式，岗位和标准支持多对多关联。</li><li id=\"doxcnf16sC9MJ34LnGMuXpLY35g\">按岗位查看：沿用原有岗位列表，点击“适用标准”读取该岗位关联的全部人才标准，支持编辑已有标准和新建人才标准。</li><li id=\"doxcnavERgIzdI34fteis6tWI4e\">按标准查看：以单个人才标准为中心，展示其关联的全部岗位，编辑时可以增加或调整关联岗位。</li><li id=\"doxcn0T1rxSxJInedCcsUwQMuWf\">两种查看方式共用同一套新建、编辑页面。从岗位入口新建时默认关联当前岗位，可以增加其他岗位、移除当前岗位或选择暂不关联。</li><li id=\"doxcnzvsCO51j1qhrBp21oXFTSe\">选择“暂不关联”并保存后，该标准不在对应岗位的适用标准中展示，需要到“按标准查看”列表中查看。</li></ul><h4 id=\"I5DedV9fmogbZrxlQ71ccl5Kn7b\"> 1105评鉴与盘点更新为如下内容</h4><p id=\"Mp1TdDvKgow0vlxRcUjcUW9RnXc\">当前人员的评估记录和盘点记录，暂时只有 360 评估的记录，此处按照人员查看其评估盘点的</p><ul><li id=\"JXNOd4SP9oe2fRxGoTtczEqCnmu\">评鉴记录：按照人员查看胜任力评估项目，点击查看报告，跳转到此项目报告页面</li><li id=\"QnI2dw1CHon6NCxRAqJct7BZnsc\">盘点记录：按照人员查看盘点项目记录，此处呈现其盘点结果和绩效数据</li></ul><p id=\"AZjcdOp0RoHaJ4xBQkbcIqXTnZg\"></p></fragment>",
+      "document_id": "HTUgdK0sooVXjtx8E6lcUZccnKc",
+      "revision_id": 1339
+    }
+  },
+  "_notice": {
+    "skills": {
+      "command": "lark-cli update",
+      "current": "1.0.88",
+      "message": "lark-cli skills 1.0.88 out of sync with binary 1.0.97, run: lark-cli update",
+      "target": "1.0.97"
+    },
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.97",
+      "latest": "1.0.99",
+      "message": "lark-cli 1.0.99 available, current 1.0.97, run: lark-cli update"
+    }
+  }
+}

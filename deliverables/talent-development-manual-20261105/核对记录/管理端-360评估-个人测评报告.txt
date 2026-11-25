@@ -1,0 +1,438 @@
+- generic: 个人测评报告
+- button "导出PDF"
+- generic: 人力行政部 胜任力测评
+- generic: 姓名：陈梦蝶
+- generic: 工号：4131
+- generic: 岗位：运营顾问
+- generic: 部门：界面焕新颜.总部.营销中心.苏皖大区.S49
+- generic: 报告生成时间：2026.11.5
+- generic: 计算说明
+- generic: 计算各题目得分：
+- text: 1、当同一个角色下存在多个评估人时，会先对其取平均、作为这个角色的最终打分
+- text: 2、再根据各个角色的最终打分与权重进行加权计算，得到每个题目的总得分
+- text: 3、例如上级（50%）打分4分，自评（50%）打分3分，则该题目总得分=4*50%+3*50%=3.5
+- generic: 计算各维度得分：
+- text: 1、根据刚刚算出的每个题目的得分，每个维度下的题目得分取平均，作为各维度的最终得分
+- text: 2、例如某维度下存在3个题目，得分分别为3、4、5，则该维度得分=(3+4+5)/3=4
+- generic: 计算最终总分：
+- generic: 根据算出的各个维度的得分，将各维度的得分相加取平均，即可得出最终总分
+- generic: 其他：
+- text: 1、当单独查看各角色的题目得分、维度得分时，算法与上一致，只是无需进行加权计算操作
+- text: 2、系统会自动计算所属部门以及本项目内所有评估对象的平均分、并予以排名
+- text: 3、除自评外其他的角色会会统一归为他评，他评得分=其他角色的得分加权计算，会减去自评权重后进行同比放大
+- generic: 综合结果
+- table:
+  - rowgroup:
+    - row "所属部门 个人总分 部门均分 部门排名 全员均分 全员排名":
+      - columnheader "所属部门":
+        - generic: 所属部门
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "部门均分":
+        - generic: 部门均分
+      - columnheader "部门排名":
+        - generic: 部门排名
+      - columnheader "全员均分":
+        - generic: 全员均分
+      - columnheader "全员排名":
+        - generic: 全员排名
+- table:
+  - rowgroup:
+    - row "界面焕新颜.总部.营销中心.苏皖大区.S49 1.97 1.55 1/3 1.55 1/3":
+      - cell "界面焕新颜.总部.营销中心.苏皖大区.S49":
+        - generic: 界面焕新颜.总部.营销中心.苏皖大区.S49
+      - cell "1.97":
+        - generic: "1.97"
+      - cell "1.55":
+        - generic: "1.55"
+      - cell "1/3":
+        - generic: 1/3
+      - cell "1.55":
+        - generic: "1.55"
+      - cell "1/3":
+        - generic: 1/3
+- table:
+  - rowgroup:
+    - row "角色权重 下发总数 填写总数 填写率 总分":
+      - columnheader
+      - columnheader "角色权重":
+        - generic: 角色权重
+      - columnheader "下发总数":
+        - generic: 下发总数
+      - columnheader "填写总数":
+        - generic: 填写总数
+      - columnheader "填写率":
+        - generic: 填写率
+      - columnheader "总分":
+        - generic: 总分
+- table:
+  - rowgroup:
+    - row "自评 10% 1 1 100.00% 5":
+      - cell "自评":
+        - generic: 自评
+      - cell "10%":
+        - generic: 10%
+      - cell "1":
+        - generic: "1"
+      - cell "1":
+        - generic: "1"
+      - cell "100.00%":
+        - generic: 100.00%
+      - cell "5":
+        - generic: "5"
+    - row "上级 40% 1 1 100.00% 3.67":
+      - cell "上级":
+        - generic: 上级
+      - cell "40%":
+        - generic: 40%
+      - cell "1":
+        - generic: "1"
+      - cell "1":
+        - generic: "1"
+      - cell "100.00%":
+        - generic: 100.00%
+      - cell "3.67":
+        - generic: "3.67"
+- generic: 维度分析
+- table:
+  - rowgroup:
+    - row "上级 下级 平级 自评 个人总分 部门均分 全员均分":
+      - columnheader
+      - columnheader "上级":
+        - generic: 上级
+      - columnheader "下级":
+        - generic: 下级
+      - columnheader "平级":
+        - generic: 平级
+      - columnheader "自评":
+        - generic: 自评
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "部门均分":
+        - generic: 部门均分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup:
+    - row "识人用人能力 5 0 0 5 2.5 1.77 1.77":
+      - cell "识人用人能力":
+        - generic: 识人用人能力
+      - cell "5":
+        - generic: "5"
+      - cell "0":
+        - generic: "0"
+      - cell "0":
+        - generic: "0"
+      - cell "5":
+        - generic: "5"
+      - cell "2.5":
+        - generic: "2.5"
+      - cell "1.77":
+        - generic: "1.77"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "绩效导向能力 4 0 0 5 2.1 1.77 1.77":
+      - cell "绩效导向能力":
+        - generic: 绩效导向能力
+      - cell "4":
+        - generic: "4"
+      - cell "0":
+        - generic: "0"
+      - cell "0":
+        - generic: "0"
+      - cell "5":
+        - generic: "5"
+      - cell "2.1":
+        - generic: "2.1"
+      - cell "1.77":
+        - generic: "1.77"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "员工关系管理能力 2 0 0 5 1.3 1.1 1.1":
+      - cell "员工关系管理能力":
+        - generic: 员工关系管理能力
+      - cell "2":
+        - generic: "2"
+      - cell "0":
+        - generic: "0"
+      - cell "0":
+        - generic: "0"
+      - cell "5":
+        - generic: "5"
+      - cell "1.3":
+        - generic: "1.3"
+      - cell "1.1":
+        - generic: "1.1"
+      - cell "1.1":
+        - generic: "1.1"
+- generic: 题目得分
+- generic: 识人用人能力
+- table:
+  - rowgroup:
+    - columnheader "题目"
+    - columnheader "上级"
+    - columnheader "下级"
+    - columnheader "平级"
+    - columnheader "自评"
+    - columnheader "个人总分"
+    - columnheader "部门均分"
+    - columnheader "全员均分"
+  - row "1.你好 5 0 0 5 2.5 1.77 1.77":
+    - cell "1.你好"
+    - cell "5"
+    - cell "0"
+    - cell "0"
+    - cell "5"
+    - cell "2.5"
+    - cell "1.77"
+    - cell "1.77"
+- generic: 绩效导向能力
+- table:
+  - rowgroup:
+    - columnheader "题目"
+    - columnheader "上级"
+    - columnheader "下级"
+    - columnheader "平级"
+    - columnheader "自评"
+    - columnheader "个人总分"
+    - columnheader "部门均分"
+    - columnheader "全员均分"
+  - row "1.我好 3 0 0 5 1.7 1.77 1.77":
+    - cell "1.我好"
+    - cell "3"
+    - cell "0"
+    - cell "0"
+    - cell "5"
+    - cell "1.7"
+    - cell "1.77"
+    - cell "1.77"
+  - row "2.标题 5 0 0 5 2.5 1.77 1.77":
+    - cell "2.标题"
+    - cell "5"
+    - cell "0"
+    - cell "0"
+    - cell "5"
+    - cell "2.5"
+    - cell "1.77"
+    - cell "1.77"
+- generic: 员工关系管理能力
+- table:
+  - rowgroup:
+    - columnheader "题目"
+    - columnheader "上级"
+    - columnheader "下级"
+    - columnheader "平级"
+    - columnheader "自评"
+    - columnheader "个人总分"
+    - columnheader "部门均分"
+    - columnheader "全员均分"
+  - row "1.他好 2 0 0 5 1.3 1.1 1.1":
+    - cell "1.他好"
+    - cell "2"
+    - cell "0"
+    - cell "0"
+    - cell "5"
+    - cell "1.3"
+    - cell "1.1"
+    - cell "1.1"
+- generic: 自我认知差异
+- generic: 他评高
+- generic: 他评低
+- generic: 潜能区
+- generic: 优势共识区
+- generic: 绩效导向能力
+- generic: 识人用人能力
+- generic: 待发展共识区
+- generic: 盲区
+- generic: 员工关系管理能力
+- generic: 自评低
+- generic: 自评高
+- generic: 待发展共识区
+- table:
+  - rowgroup:
+    - row "自评分 他评分 差值 个人总分 全员均分":
+      - columnheader
+      - columnheader "自评分":
+        - generic: 自评分
+      - columnheader "他评分":
+        - generic: 他评分
+      - columnheader "差值":
+        - generic: 差值
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup
+- generic: 暂无数据
+- generic: 盲区
+- table:
+  - rowgroup:
+    - row "自评分 他评分 差值 个人总分 全员均分":
+      - columnheader
+      - columnheader "自评分":
+        - generic: 自评分
+      - columnheader "他评分":
+        - generic: 他评分
+      - columnheader "差值":
+        - generic: 差值
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup:
+    - row "员工关系管理能力 5 0.89 -4.11 1.3 1.1":
+      - cell "员工关系管理能力":
+        - generic: 员工关系管理能力
+      - cell "5":
+        - generic: "5"
+      - cell "0.89":
+        - generic: "0.89"
+      - cell "-4.11":
+        - generic: "-4.11"
+      - cell "1.3":
+        - generic: "1.3"
+      - cell "1.1":
+        - generic: "1.1"
+- generic: 潜能区
+- table:
+  - rowgroup:
+    - row "自评分 他评分 差值 个人总分 全员均分":
+      - columnheader
+      - columnheader "自评分":
+        - generic: 自评分
+      - columnheader "他评分":
+        - generic: 他评分
+      - columnheader "差值":
+        - generic: 差值
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup
+- generic: 暂无数据
+- generic: 优势共识区
+- table:
+  - rowgroup:
+    - row "自评分 他评分 差值 个人总分 全员均分":
+      - columnheader
+      - columnheader "自评分":
+        - generic: 自评分
+      - columnheader "他评分":
+        - generic: 他评分
+      - columnheader "差值":
+        - generic: 差值
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup:
+    - row "绩效导向能力 5 1.78 -3.22 2.1 1.77":
+      - cell "绩效导向能力":
+        - generic: 绩效导向能力
+      - cell "5":
+        - generic: "5"
+      - cell "1.78":
+        - generic: "1.78"
+      - cell "-3.22":
+        - generic: "-3.22"
+      - cell "2.1":
+        - generic: "2.1"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "识人用人能力 5 2.22 -2.78 2.5 1.77":
+      - cell "识人用人能力":
+        - generic: 识人用人能力
+      - cell "5":
+        - generic: "5"
+      - cell "2.22":
+        - generic: "2.22"
+      - cell "-2.78":
+        - generic: "-2.78"
+      - cell "2.5":
+        - generic: "2.5"
+      - cell "1.77":
+        - generic: "1.77"
+- generic: 差异明细
+- table:
+  - rowgroup:
+    - row "维度 题目 自评分 他评分 差值 个人总分 全员均分":
+      - columnheader "维度":
+        - generic: 维度
+      - columnheader "题目":
+        - generic: 题目
+      - columnheader "自评分":
+        - generic: 自评分
+      - columnheader "他评分":
+        - generic: 他评分
+      - columnheader "差值":
+        - generic: 差值
+      - columnheader "个人总分":
+        - generic: 个人总分
+      - columnheader "全员均分":
+        - generic: 全员均分
+- table:
+  - rowgroup:
+    - row "识人用人能力 1.你好 5 2.22 -2.78 2.5 1.77":
+      - cell "识人用人能力":
+        - generic: 识人用人能力
+      - cell "1.你好":
+        - generic: 1.你好
+      - cell "5":
+        - generic: "5"
+      - cell "2.22":
+        - generic: "2.22"
+      - cell "-2.78":
+        - generic: "-2.78"
+      - cell "2.5":
+        - generic: "2.5"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "绩效导向能力 1.我好 5 1.33 -3.67 1.7 1.77":
+      - cell "绩效导向能力":
+        - generic: 绩效导向能力
+      - cell "1.我好":
+        - generic: 1.我好
+      - cell "5":
+        - generic: "5"
+      - cell "1.33":
+        - generic: "1.33"
+      - cell "-3.67":
+        - generic: "-3.67"
+      - cell "1.7":
+        - generic: "1.7"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "绩效导向能力 2.标题 5 2.22 -2.78 2.5 1.77":
+      - cell "绩效导向能力":
+        - generic: 绩效导向能力
+      - cell "2.标题":
+        - generic: 2.标题
+      - cell "5":
+        - generic: "5"
+      - cell "2.22":
+        - generic: "2.22"
+      - cell "-2.78":
+        - generic: "-2.78"
+      - cell "2.5":
+        - generic: "2.5"
+      - cell "1.77":
+        - generic: "1.77"
+    - row "员工关系管理能力 1.他好 5 0.89 -4.11 1.3 1.1":
+      - cell "员工关系管理能力":
+        - generic: 员工关系管理能力
+      - cell "1.他好":
+        - generic: 1.他好
+      - cell "5":
+        - generic: "5"
+      - cell "0.89":
+        - generic: "0.89"
+      - cell "-4.11":
+        - generic: "-4.11"
+      - cell "1.3":
+        - generic: "1.3"
+      - cell "1.1":
+        - generic: "1.1"

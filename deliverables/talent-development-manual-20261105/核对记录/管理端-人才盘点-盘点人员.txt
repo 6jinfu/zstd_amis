@@ -1,0 +1,203 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点测评" [level=1]
+      - generic: 年度盘点 · 2026-10-24 ~ 2026-10-31
+    - main:
+      - navigation:
+        - generic: 基本信息
+        - generic: 盘点人员
+        - generic: 盘点活动
+        - generic: 盘点规则设置
+      - generic: 工号/姓名
+      - textbox "请输入"
+      - generic: 部门
+      - textbox "请选择"
+      - button "查 询"
+      - button "重 置"
+      - button "添加人员"
+      - generic: 已选 20 人
+      - table:
+        - rowgroup:
+          - row "工号 姓名 部门 岗位 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "工号":
+              - generic: 工号
+            - columnheader "姓名":
+              - generic: 姓名
+            - columnheader "部门":
+              - generic: 部门
+            - columnheader "岗位":
+              - generic: 岗位
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "000000 平台运营专员 平台运营部 移除":
+            - cell:
+              - checkbox
+            - cell "000000":
+              - generic: "000000"
+            - cell "平台运营专员":
+              - generic: 平台运营专员
+            - cell "平台运营部":
+              - generic: 平台运营部
+            - cell
+            - cell "移除":
+              - button "移除"
+          - row "0007 沈燕 营销服务部 管理者岗 移除":
+            - cell:
+              - checkbox
+            - cell "0007":
+              - generic: "0007"
+            - cell "沈燕":
+              - generic: 沈燕
+            - cell "营销服务部":
+              - generic: 营销服务部
+            - cell "管理者岗":
+              - generic: 管理者岗
+            - cell "移除":
+              - button "移除"
+          - row "00077 李佩佩 常州时代光华 移除":
+            - cell:
+              - checkbox
+            - cell "00077":
+              - generic: "00077"
+            - cell "李佩佩":
+              - generic: 李佩佩
+            - cell "常州时代光华":
+              - generic: 常州时代光华
+            - cell
+            - cell "移除":
+              - button "移除"
+          - row "00099 李枘澹 常州时代光华 移除":
+            - cell:
+              - checkbox
+            - cell "00099":
+              - generic: "00099"
+            - cell "李枘澹":
+              - generic: 李枘澹
+            - cell "常州时代光华":
+              - generic: 常州时代光华
+            - cell
+            - cell "移除":
+              - button "移除"
+          - row "0011 欧阳爱璐 财务部 结算经理 移除":
+            - cell:
+              - checkbox
+            - cell "0011":
+              - generic: "0011"
+            - cell "欧阳爱璐":
+              - generic: 欧阳爱璐
+            - cell "财务部":
+              - generic: 财务部
+            - cell "结算经理":
+              - generic: 结算经理
+            - cell "移除":
+              - button "移除"
+          - row "0014 王彩霞 河南特区 财务人事行政 移除":
+            - cell:
+              - checkbox
+            - cell "0014":
+              - generic: "0014"
+            - cell "王彩霞":
+              - generic: 王彩霞
+            - cell "河南特区":
+              - generic: 河南特区
+            - cell "财务人事行政":
+              - generic: 财务人事行政
+            - cell "移除":
+              - button "移除"
+          - row "0023 杜礼洋 郑州销售部 销售顾问 移除":
+            - cell:
+              - checkbox
+            - cell "0023":
+              - generic: "0023"
+            - cell "杜礼洋":
+              - generic: 杜礼洋
+            - cell "郑州销售部":
+              - generic: 郑州销售部
+            - cell "销售顾问":
+              - generic: 销售顾问
+            - cell "移除":
+              - button "移除"
+          - row "006006006 刘涛 媒体与品牌运营部 移除":
+            - cell:
+              - checkbox
+            - cell "006006006":
+              - generic: "006006006"
+            - cell "刘涛":
+              - generic: 刘涛
+            - cell "媒体与品牌运营部":
+              - generic: 媒体与品牌运营部
+            - cell
+            - cell "移除":
+              - button "移除"
+          - row "007 张海婴 哈尔滨德润 移除":
+            - cell:
+              - checkbox
+            - cell "007":
+              - generic: "007"
+            - cell "张海婴":
+              - generic: 张海婴
+            - cell "哈尔滨德润":
+              - generic: 哈尔滨德润
+            - cell
+            - cell "移除":
+              - button "移除"
+          - row "0088 王北颖 常州时代光华 移除":
+            - cell:
+              - checkbox
+            - cell "0088":
+              - generic: "0088"
+            - cell "王北颖":
+              - generic: 王北颖
+            - cell "常州时代光华":
+              - generic: 常州时代光华
+            - cell
+            - cell "移除":
+              - button "移除"
+      - generic: 共 20 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton
+      - button "取 消"
+      - button "保 存"

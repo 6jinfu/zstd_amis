@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1730" height="872" viewBox="0 0 1730 872">
+<rect x="1187" y="151" width="525" height="45" rx="4" fill="none" stroke="#E03232" stroke-width="3"/>
+<rect x="1187" y="233" width="525" height="216" rx="4" fill="none" stroke="#E03232" stroke-width="3"/>
+<rect x="1635" y="815" width="78" height="44" rx="4" fill="none" stroke="#E03232" stroke-width="3"/>
+<path d="M 1160 173 L 1181 173" fill="none" stroke="#E03232" stroke-width="3"/>
+<polygon points="1181.00,173.00 1172.34,178.00 1172.34,168.00" fill="#E03232"/>
+<path d="M 1160 340 L 1181 340" fill="none" stroke="#E03232" stroke-width="3"/>
+<polygon points="1181.00,340.00 1172.34,345.00 1172.34,335.00" fill="#E03232"/>
+<path d="M 1626 788 L 1667 809" fill="none" stroke="#E03232" stroke-width="3"/>
+<polygon points="1667.00,809.00 1657.01,809.50 1661.57,800.60" fill="#E03232"/>
+<circle cx="1140" cy="173" r="18" fill="#E03232"/><text x="1140" y="173" font-family="Arial,sans-serif" font-size="23" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="white">1</text>
+<circle cx="1140" cy="340" r="18" fill="#E03232"/><text x="1140" y="340" font-family="Arial,sans-serif" font-size="23" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="white">2</text>
+<circle cx="1612" cy="774" r="18" fill="#E03232"/><text x="1612" y="774" font-family="Arial,sans-serif" font-size="23" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="white">3</text>
+</svg>

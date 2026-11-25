@@ -1,0 +1,54 @@
+- generic: 问卷编辑注：张三 工号、李四 工号为样例数据，真实场景会显示对应的评估对象姓名
+- button "返回"
+- button "预览"
+- button "保存编辑"
+- main:
+  - complementary:
+    - generic: 维度
+    - text: 1. 默认维度
+    - paragraph: 题目数量：1
+    - text:   
+    - button " 单选题":
+      - generic: 
+      - text: 单选题
+    - button " 多选题":
+      - generic: 
+      - text: 多选题
+    - button " 打分题":
+      - generic: 
+      - text: 打分题
+    - button " 问答题":
+      - generic: 
+      - text: 问答题
+    - text: 
+    - button " 新增维度":
+      - generic: 
+      - text: 新增维度
+  - main:
+    - paragraph: 问卷标题
+    - paragraph
+    - generic: 默认维度题目数量：1
+    - paragraph:
+      - text: 【打分题】
+      - generic: "*"
+      - text: 1、标题
+    - generic: 张三 工号
+    - slider "slider between 0 and 10":
+      - spinbutton: "0"
+      - generic: "0"
+      - generic: "2"
+      - generic: "4"
+      - generic: "6"
+      - generic: "8"
+      - generic: "10"
+    - generic: 李四 工号
+    - slider "slider between 0 and 10":
+      - spinbutton: "0"
+      - generic: "0"
+      - generic: "2"
+      - generic: "4"
+      - generic: "6"
+      - generic: "8"
+      - generic: "10"
+    - paragraph: 注：勾选“填入最大或最小值时，需填写理由”后，学员端则不再支持导入评估功能
+  - text: 

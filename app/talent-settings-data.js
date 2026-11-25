@@ -14,7 +14,7 @@
     };
   }
   function write(value) { localStorage.setItem(key, JSON.stringify(value)); }
-  function enabled() { return Object.keys(dimensions).filter(id => read().dimensions.includes(id)); }
+  function enabled() { return Object.keys(dimensions); }
   function mergeContent(previous, incoming, selected, strategy) {
     const content = JSON.parse(JSON.stringify(previous));
     selected.forEach(key => {

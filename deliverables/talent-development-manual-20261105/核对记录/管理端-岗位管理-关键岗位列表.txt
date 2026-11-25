@@ -1,0 +1,215 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 组织结构
+        - generic: 关键岗位分析
+        - generic: 岗位管理
+        - generic: 指标库
+    - main:
+      - generic: 关键岗位
+      - generic: 全部岗位
+      - generic: 岗位类别
+      - checkbox "包含子类" [checked]
+      - generic: 包含子类
+      - button:
+      - textbox "搜索类别"
+      - generic: 全部
+      - generic: 研发中心
+      - generic: 岗位
+      - generic: 营运类
+      - generic: 其它
+      - button "收起左侧树":
+      - generic: "岗位名 / 编号 :"
+      - textbox "搜索"
+      - button "查 询"
+      - button "重 置"
+      - button "添加关键岗位"
+      - table:
+        - rowgroup:
+          - row "岗位编号 岗位名称 岗位类别 关键岗位 操作":
+            - columnheader "岗位编号":
+              - generic: 岗位编号
+            - columnheader "岗位名称":
+              - generic: 岗位名称
+            - columnheader "岗位类别":
+              - generic: 岗位类别
+            - columnheader "关键岗位":
+              - generic: 关键岗位
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "1424 销售部经理 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "1424":
+              - generic: "1424"
+            - cell "销售部经理":
+              - generic: 销售部经理
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "1418 培训项目经理 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "1418":
+              - generic: "1418"
+            - cell "培训项目经理":
+              - generic: 培训项目经理
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "1401 董事长 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "1401":
+              - generic: "1401"
+            - cell "董事长":
+              - generic: 董事长
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "198 资深销售顾问 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "198":
+              - generic: "198"
+            - cell "资深销售顾问":
+              - generic: 资深销售顾问
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "196 见习销售经理 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "196":
+              - generic: "196"
+            - cell "见习销售经理":
+              - generic: 见习销售经理
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "182 销售总监助理 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "182":
+              - generic: "182"
+            - cell "销售总监助理":
+              - generic: 销售总监助理
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "117 销售顾问 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "117":
+              - generic: "117"
+            - cell "销售顾问":
+              - generic: 销售顾问
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "537 副总裁 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "537":
+              - generic: "537"
+            - cell "副总裁":
+              - generic: 副总裁
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "2626 平台运营部负责人 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "2626":
+              - generic: "2626"
+            - cell "平台运营部负责人":
+              - generic: 平台运营部负责人
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+          - row "2624 高级产品顾问 岗位 关键 编辑 岗位标准 学习方案":
+            - cell "2624":
+              - generic: "2624"
+            - cell "高级产品顾问":
+              - generic: 高级产品顾问
+            - cell "岗位":
+              - generic: 岗位
+            - cell "关键":
+              - generic: 关键
+            - cell "编辑 岗位标准 学习方案":
+              - button "编辑"
+              - button "岗位标准"
+              - button "学习方案"
+      - generic: 共 36 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - listitem: "3"
+        - listitem: "4"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

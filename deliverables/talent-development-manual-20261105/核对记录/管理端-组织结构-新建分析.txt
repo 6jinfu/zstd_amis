@@ -1,0 +1,293 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "组织结构分析" [level=1]
+      - generic: 生成新版本草稿 · 确认生效后替换当前生效版，旧版自动存档
+    - main:
+      - generic: "1"
+      - generic: 组织范围
+      - generic: "2"
+      - generic: 说明材料
+      - generic: "3"
+      - generic: 生成
+      - generic: 部门
+      - checkbox "包含子类" [checked]
+      - generic: 包含子类
+      - textbox "搜索"
+      - generic: 界面焕新颜
+      - generic: 总部
+      - generic: 合作伙伴
+      - textbox "请输入关键字"
+      - button "查 询"
+      - text: 待选区(
+      - generic: "138"
+      - text: )
+      - table:
+        - rowgroup:
+          - row "岗位名称 所属部门 人数":
+            - columnheader:
+              - checkbox
+            - columnheader "岗位名称":
+              - generic: 岗位名称
+            - columnheader "所属部门":
+              - generic: 所属部门
+            - columnheader "人数":
+              - generic: 人数
+      - table:
+        - rowgroup:
+          - row "架构师 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "架构师":
+              - generic: 架构师
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "总监 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "总监":
+              - generic: 总监
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "IOS开发工程师 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "IOS开发工程师":
+              - generic: IOS开发工程师
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "培训主管 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "培训主管":
+              - generic: 培训主管
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "平面设计师 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "平面设计师":
+              - generic: 平面设计师
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "后端开发工程师 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "后端开发工程师":
+              - generic: 后端开发工程师
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "项目经理 界面焕新颜 3":
+            - cell:
+              - checkbox
+            - cell "项目经理":
+              - generic: 项目经理
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "3":
+              - generic: "3"
+          - row "课程策划 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "课程策划":
+              - generic: 课程策划
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "渠道支持专员 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "渠道支持专员":
+              - generic: 渠道支持专员
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "会计助理实习生 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "会计助理实习生":
+              - generic: 会计助理实习生
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "AI大模型应用测试开发工程师 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "AI大模型应用测试开发工程师":
+              - generic: AI大模型应用测试开发工程师
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "人事主管 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "人事主管":
+              - generic: 人事主管
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "产品运营策划 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "产品运营策划":
+              - generic: 产品运营策划
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "大区销售助理 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "大区销售助理":
+              - generic: 大区销售助理
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "培训运营策划专员 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "培训运营策划专员":
+              - generic: 培训运营策划专员
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "综合岗 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "综合岗":
+              - generic: 综合岗
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "销售顾问 界面焕新颜 31":
+            - cell:
+              - checkbox
+            - cell "销售顾问":
+              - generic: 销售顾问
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "31":
+              - generic: "31"
+          - row "业务助理 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "业务助理":
+              - generic: 业务助理
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "运营专员 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "运营专员":
+              - generic: 运营专员
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+          - row "平台运营 界面焕新颜 1":
+            - cell:
+              - checkbox
+            - cell "平台运营":
+              - generic: 平台运营
+            - cell "界面焕新颜":
+              - generic: 界面焕新颜
+            - cell "1":
+              - generic: "1"
+      - generic "20条/页":
+        - textbox
+        - generic: 20条/页
+      - text: .
+      - spinbutton
+      - generic: /
+      - generic: "7"
+      - text: .
+      - button "移入" [disabled]:
+        - generic: 移入
+      - button "移出" [disabled]:
+        - generic: 移出
+      - button "本页":
+        - generic: 本页
+      - button "本页" [disabled]:
+        - generic: 本页
+      - text: 已选岗位(
+      - generic: "0"
+      - text: )
+      - table:
+        - rowgroup:
+          - row "岗位名称 所属部门 人数":
+            - columnheader:
+              - checkbox
+            - columnheader "岗位名称":
+              - generic: 岗位名称
+            - columnheader "所属部门":
+              - generic: 所属部门
+            - columnheader "人数":
+              - generic: 人数
+      - table:
+        - rowgroup:
+          - row "暂无数据 暂无数据":
+            - cell "暂无数据 暂无数据":
+              - img "暂无数据"
+              - generic: 暂无数据
+      - generic "20条/页":
+        - textbox
+        - generic: 20条/页
+      - text: .
+      - spinbutton
+      - generic: /
+      - generic: "0"
+      - text: .
+      - button "下一步"

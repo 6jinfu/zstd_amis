@@ -14,7 +14,6 @@
   .review-import-drawer .review-import-step h4{margin:0 0 12px;font-size:14px;font-weight:600;line-height:22px}
   .review-import-drawer .review-import-step p{margin:0 0 16px;font-size:14px;line-height:1.7}
   .review-import-drawer [data-score-status]{margin:16px 0;line-height:1.7;overflow-wrap:anywhere}
-  .review-import-drawer [data-score-preview]{margin-top:16px}
   .review-import-drawer label.btn{display:inline-flex;cursor:pointer}
   .review-rule-panel .grid-copy-input{resize:none;overflow:hidden;white-space:normal;word-break:keep-all;overflow-wrap:normal;line-height:20px}
   .review-ability-table{margin-top:16px}
@@ -50,7 +49,7 @@
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-6d9492ea338d"></script>
+<script src="navigation.js?v=sha256-1101210ed928"></script>
   <div class="body">
     <main class="content">
       <div data-wizard data-review-wizard data-free-navigation>
@@ -161,7 +160,6 @@
     <section class="review-import-step"><h4>第一步：下载模板并填写</h4><p>请先下载导入模板，按照模板中的说明填写工号、姓名和绩效得分。</p><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button></section>
     <section class="review-import-step"><h4>第二步：上传绩效数据</h4><p>支持 .xlsx，文件不超过 5 MB。绩效得分为 0–999，最多两位小数。</p><label class="btn btn-primary" for="review-performance-file">上传绩效数据</label><input id="review-performance-file" data-score-file type="file" accept=".xlsx" hidden></section>
     <p id="review-performance-file-name" data-score-status role="status" aria-live="polite"></p>
-    <div class="table-wrap" data-score-preview hidden><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>绩效得分</th></tr></thead><tbody></tbody></table></div>
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
@@ -171,7 +169,6 @@
     <section class="review-import-step"><h4>第一步：下载模板并填写</h4><p>请填写工号、姓名、测评项目名称、项目起止日期和测评得分。模板带入当前盘点人员的工号和姓名。</p><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button></section>
     <section class="review-import-step"><h4>第二步：上传测评结果</h4><p>支持 .xlsx，文件不超过 5 MB。测评得分为 0–999，最多两位小数，0 分有效。</p><label class="btn btn-primary" for="review-ability-file">上传测评结果</label><input id="review-ability-file" data-score-file type="file" accept=".xlsx" hidden></section>
               <p data-score-status role="status" aria-live="polite"></p>
-              <div class="table-wrap review-ability-table" data-score-preview hidden><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>测评项目名称</th><th>项目开始日期</th><th>项目结束日期</th><th>测评得分</th></tr></thead><tbody></tbody></table></div>
   </div>
   <div class="m-foot"><button class="btn btn-secondary" type="button" data-close>关闭</button></div>
 </div>
@@ -195,7 +192,7 @@
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
 <script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
-<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="review-score-import.js?v=sha256-aeeebcceac9c"></script>
 <script src="review-grid-content.js?v=sha256-51d1cba155f7"></script>
 <script src="review-distribution.js?v=sha256-6aeefae910be"></script>
 <script src="review-project-monitor.js?v=sha256-bbd769be9446"></script>

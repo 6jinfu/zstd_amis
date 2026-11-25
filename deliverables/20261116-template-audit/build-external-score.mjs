@@ -1,0 +1,10 @@
+import {Workbook, SpreadsheetFile} from '@oai/artifact-tool';
+const book=Workbook.create(), sheet=book.worksheets.add('测评结果');
+sheet.getRange('A1:A6').values=[['第三方测评结果导入模板'],['每行填写一名人员在一个项目中的结果。'],['项目名称和起止日期为第三方测评信息，无需关联平台项目。'],['工号、姓名须与本次盘点人员一致，工号以文本填写。'],['日期填写 YYYY-MM-DD，开始日期不能晚于结束日期。'],['能力得分为0–999，最多两位小数；第8行为示例，不参与导入。']];
+sheet.getRange('A7:F8').values=[['工号','姓名','项目名称','项目开始日期','项目结束日期','能力得分'],['EMP-0000','示例姓名','外部测评示例','2026-01-01','2026-01-31',88]];
+sheet.getRange('A7:F7').format.font.bold=true;
+sheet.getRange('A7:F7').format.fill='#E8F0FA';
+sheet.getRange('A:F').format.columnWidth=20;
+sheet.getRange('A:A').numberFormat='@';
+sheet.freezePanes.freezeRows(7);
+await (await SpreadsheetFile.exportXlsx(book)).save('app/templates/review-external-ability-score.xlsx');

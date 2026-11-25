@@ -86,22 +86,7 @@
     mount(root, personSelector) {
       let records = [];
       const status = root.querySelector('[data-ability-status]'), input = root.querySelector('[data-ability-file]');
-      const preview = root.querySelector('[data-ability-preview]');
-      function renderPreview() {
-        if (!preview) return;
-        const body = preview.querySelector('tbody');
-        body.replaceChildren();
-        records.forEach(record => {
-          const row = document.createElement('tr');
-          [record.employeeId, record.name, record.indicatorName, record.score ?? '—', record.level || '—', record.measured, record.source || '线下导入'].forEach(value => {
-            const cell = document.createElement('td');
-            cell.textContent = value;
-            row.appendChild(cell);
-          });
-          body.appendChild(row);
-        });
-        preview.hidden = !records.length;
-      }
+      const errorOutput = document.createElement('div'); errorOutput.hidden = true; status.after(errorOutput);
       const people = () => [...document.querySelectorAll(personSelector)].map(row => ({ id: row.cells[1]?.textContent.trim(), name: row.cells[2]?.textContent.trim() })).filter(person => person.id && person.name);
       root.querySelector('[data-ability-template]').addEventListener('click', async () => {
         const selected = people();
@@ -111,15 +96,13 @@
       });
       input.addEventListener('change', async () => {
         if (!input.files[0]) return;
-        records = [];
-        renderPreview();
+        errorOutput.hidden = true;
         try {
           const result = validate(await readFile(input.files[0]), people());
-          if (result.errors.length) { status.textContent = `校验未通过：${result.errors.slice(0, 5).join('；')}${result.errors.length > 5 ? `；另有 ${result.errors.length - 5} 处错误` : ''}`; return; }
+          if (result.errors.length) { status.textContent = `校验未通过，共 ${result.errors.length} 处错误，请下载报错 Excel。`; ReviewScoreImport.showErrors(errorOutput, result.errors); return; }
           records = result.records;
-          renderPreview();
-          status.textContent = `已校验 ${records.length} 条能力数据，覆盖 ${new Set(records.map(record => record.employeeId)).size} 人。`;
-        } catch (error) { status.textContent = `无法读取文件：${error.message}`; }
+          status.textContent = `已导入 ${records.length} 条能力数据，覆盖 ${new Set(records.map(record => record.employeeId)).size} 人。`;
+        } catch (error) { status.textContent = '校验未通过，请下载报错 Excel。'; ReviewScoreImport.showErrors(errorOutput, [error.message]); }
         finally { input.value = ''; }
       });
       return { getRecords: () => records.slice() };

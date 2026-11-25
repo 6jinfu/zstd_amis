@@ -1,0 +1,79 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading [level=1]
+    - main:
+      - img "樊峪东"
+      - generic: 樊峪东
+      - generic: 女
+      - generic: 部门
+      - generic: 产品运营部
+      - generic: 岗位
+      - generic: UI设计师
+      - navigation:
+        - generic: 综合能力
+        - generic: 盘点九宫格
+      - generic: 最新盘点落位
+      - generic: 人才盘点 2026 年度产品部
+      - generic: 进行中
+      - generic: 2026-09-18 结束
+      - generic: 落位
+      - generic: 高潜
+      - generic: 能力得分
+      - generic: "4.33"
+      - generic: 能力
+      - generic: 高
+      - generic: 绩效
+      - generic: 高
+      - generic: 绩效
+      - generic: 高
+      - generic: 中
+      - generic: 低
+      - generic: 中坚
+      - generic: 高绩效 · 中低能力
+      - generic: 高绩效 · 中高能力
+      - generic: 高潜
+      - generic: 胜任
+      - generic: 中绩效 · 中低能力
+      - generic: 中绩效 · 中高能力
+      - generic: 骨干
+      - generic: 待发展
+      - generic: 低绩效 · 中低能力
+      - generic: 低绩效 · 中高能力
+      - generic: 胜任
+      - generic: 低
+      - generic: 中低
+      - generic: 中高
+      - generic: 高
+      - generic: 能力

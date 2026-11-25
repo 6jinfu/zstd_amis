@@ -1,0 +1,68 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点 2026 年度产品部" [level=1]
+      - generic: 年度盘点 · 2026-09-14 ~ 2026-09-18
+      - generic: 进行中
+      - button "结束项目"
+    - main:
+      - navigation:
+        - generic: 概览
+        - generic: 盘点活动
+        - generic: 盘点结果
+        - generic: 盘点校准
+        - generic: 人才池
+      - generic: 项目人才池
+      - button "新建人才池"
+      - generic: "人才池名称 :"
+      - textbox "搜索"
+      - button "查 询"
+      - button "重 置"
+      - table:
+        - rowgroup:
+          - row "人才池名称 期望人数 实际人数 操作":
+            - columnheader "人才池名称":
+              - generic: 人才池名称
+            - columnheader "期望人数":
+              - generic: 期望人数
+            - columnheader "实际人数":
+              - generic: 实际人数
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "empty 暂无数据":
+            - cell "empty 暂无数据":
+              - img "empty"
+              - generic: 暂无数据

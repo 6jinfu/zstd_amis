@@ -1,0 +1,1150 @@
+[
+  {
+    "figure": "1.1-1",
+    "file": "管理端-组织结构-综合视图.jpg",
+    "caption": "组织结构：查看当前分析汇总与岗位族分布",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "2416265d9011c833c656f702908dd0ff90c54075feb4f580280287452f47ee77",
+    "lark_image_block_id": "doxcn1Jn1lWR7X5hVJ2LmSvFBJL",
+    "lark_caption_block_id": "doxcnbw5tdXIgGdfX2p28YQdvCg",
+    "lark_image_token": "IlNobLVJ4oH3WSxh8a0cAOS9nXc",
+    "cloud_synced_sha256": "2416265d9011c833c656f702908dd0ff90c54075feb4f580280287452f47ee77",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "2416265d9011c833c656f702908dd0ff90c54075feb4f580280287452f47ee77"
+  },
+  {
+    "figure": "1.1-2",
+    "file": "管理端-组织结构-新建分析.jpg",
+    "caption": "组织范围：筛选岗位并移入已选区",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "21af265a4410aa1dd98f0f79ffca00b2ff8571c5ccd96ab45e9e87d351909557",
+    "lark_image_block_id": "doxcnCyXhrNn5SU106evotvdlIg",
+    "lark_caption_block_id": "doxcnOgC4KpHJj0DniK0nrguqub",
+    "lark_image_token": "PHrlbCUs6oxML6xTC8acfrNRn8e",
+    "cloud_synced_sha256": "21af265a4410aa1dd98f0f79ffca00b2ff8571c5ccd96ab45e9e87d351909557",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "21af265a4410aa1dd98f0f79ffca00b2ff8571c5ccd96ab45e9e87d351909557"
+  },
+  {
+    "figure": "1.1-3",
+    "file": "管理端-组织结构-说明材料.jpg",
+    "caption": "说明材料：查看文件上传入口与数量、大小要求",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1338f95348eaed768d4138df0533deb093fc1f802b480a1b3c98e1f14c73f9bf",
+    "lark_image_block_id": "doxcnA1A5hekHuOdWKmzlGWMR0d",
+    "lark_caption_block_id": "doxcnQhFGBRpsOED9r5zBX6BXIb",
+    "lark_image_token": "MErxbPzJ1oRuXnxv833cDInvnDd",
+    "cloud_synced_sha256": "1338f95348eaed768d4138df0533deb093fc1f802b480a1b3c98e1f14c73f9bf",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "1338f95348eaed768d4138df0533deb093fc1f802b480a1b3c98e1f14c73f9bf"
+  },
+  {
+    "figure": "1.1-4",
+    "file": "管理端-组织结构-历史分析.jpg",
+    "caption": "历史分析：区分当前生效版本与已存档记录",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "96852517c5d5db7e9181d963f17bc6a50c648c447f4e769306ef28e08bba6d4e",
+    "lark_image_block_id": "doxcnGoL4Av5QhOEdXID7YpUS4c",
+    "lark_caption_block_id": "doxcnGnPj307NpA1CmBVsEts7lf",
+    "lark_image_token": "YXqAbNWr8oYp6RxokAHcLHyPnye",
+    "cloud_synced_sha256": "96852517c5d5db7e9181d963f17bc6a50c648c447f4e769306ef28e08bba6d4e",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "96852517c5d5db7e9181d963f17bc6a50c648c447f4e769306ef28e08bba6d4e"
+  },
+  {
+    "figure": "1.2-1",
+    "file": "管理端-关键岗位分析-项目列表.jpg",
+    "caption": "关键岗位分析：查询已有项目与完成状态",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "bb051d194070f44ff418a00cc0dd522acc47f7aad1fd817a915e4ce5b8a70307",
+    "lark_image_block_id": "doxcncSjki4deQS1cEwpbjogamg",
+    "lark_caption_block_id": "doxcnMi9IQj3EnIFtiFiid3vOgh",
+    "lark_image_token": "ZP4xbf7RUoKDO4x48XIcKT3dnEe",
+    "cloud_synced_sha256": "bb051d194070f44ff418a00cc0dd522acc47f7aad1fd817a915e4ce5b8a70307",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "bb051d194070f44ff418a00cc0dd522acc47f7aad1fd817a915e4ce5b8a70307"
+  },
+  {
+    "figure": "1.2-2",
+    "file": "管理端-关键岗位分析-新建配置.jpg",
+    "caption": "新建分析：填写项目资料并选择组织结构版本",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1cc5897325e3b28e6e8e856a3a68954f3387c9eb3f36d01653069cf9ecda941e",
+    "lark_image_block_id": "doxcnfoylvnPQMmB8p0VhEcno7c",
+    "lark_caption_block_id": "doxcnQ7uObj0GpudFIAlxfDIsog",
+    "lark_image_token": "H15HbBn1Focladxy1KWcucrqnze",
+    "cloud_synced_sha256": "1cc5897325e3b28e6e8e856a3a68954f3387c9eb3f36d01653069cf9ecda941e",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "1cc5897325e3b28e6e8e856a3a68954f3387c9eb3f36d01653069cf9ecda941e"
+  },
+  {
+    "figure": "1.2-3",
+    "file": "管理端-关键岗位分析-分析结果.jpg",
+    "caption": "分析结果：切换视角并查看岗位清单",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1ba6fdeb9de923d934d3b072e07e3c5c0df6f20bde77df5a8b05ef31f5fea7d2",
+    "lark_image_block_id": "doxcnqphTZPrpRfUR5Xbzcg1gXd",
+    "lark_caption_block_id": "doxcngD7iiHipHzXkB98FsN4tSe",
+    "lark_image_token": "I5fublUnQorJymxwGTzcIbTQnpb",
+    "cloud_synced_sha256": "1ba6fdeb9de923d934d3b072e07e3c5c0df6f20bde77df5a8b05ef31f5fea7d2",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "1ba6fdeb9de923d934d3b072e07e3c5c0df6f20bde77df5a8b05ef31f5fea7d2"
+  },
+  {
+    "figure": "1.2-4",
+    "file": "管理端-关键岗位分析-查看依据.jpg",
+    "caption": "查看依据：核对各视角得分与关键岗位建议",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "99af4e4750bd6446db1b8b3f1d67d0cb2ef920ea9151b6d0a84305523302b2e7",
+    "lark_image_block_id": "doxcnn6u939EVeoN4DChNdYKCNh",
+    "lark_caption_block_id": "doxcnvTqleeBemg6VHQzCn23S2f",
+    "lark_image_token": "GLGMbWOt9oKKNJxATPMcFODOn9f",
+    "cloud_synced_sha256": "99af4e4750bd6446db1b8b3f1d67d0cb2ef920ea9151b6d0a84305523302b2e7",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "99af4e4750bd6446db1b8b3f1d67d0cb2ef920ea9151b6d0a84305523302b2e7"
+  },
+  {
+    "figure": "1.3-1",
+    "file": "管理端-人才标准-按岗位查看.jpg",
+    "caption": "按岗位查看：查询岗位并进入适用标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "d6f0b90b82ae7035ab2d17429203d4970c059304698f97786fdb8d3e97628fbb",
+    "lark_image_block_id": "doxcno6y8YPjPXGDRIacFjp0gud",
+    "lark_caption_block_id": "doxcnfh3BmQkI8IHH6VFBBAKSvQ",
+    "lark_image_token": "EOsNb5HqZotaH0xJcYsczVVInbg",
+    "cloud_synced_sha256": "d6f0b90b82ae7035ab2d17429203d4970c059304698f97786fdb8d3e97628fbb",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "6a01811fa04ae501e96b870b38353d09bf45d4682526ac63feb00f036cd66c35",
+    "raw_file": "核对记录/原始截图/管理端-人才标准-按岗位查看-20261117.png"
+  },
+  {
+    "figure": "1.3-2",
+    "file": "管理端-岗位管理-编辑基本信息.jpg",
+    "caption": "岗位信息：维护编号、名称、类别和关键岗位标记",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9eef94d756783ea7ff34d1ad9208d93fd8f9bcd096b657a5832be5d89e451779",
+    "lark_image_block_id": "doxcnYMJQTT6d5IqNp35W0piWBf",
+    "lark_caption_block_id": "doxcnFDqeOIsdPiIyoT6zk9cpUg",
+    "lark_image_token": "Dh8Gb185koqGUQxPp3PcXoSJnRd",
+    "cloud_synced_sha256": "9eef94d756783ea7ff34d1ad9208d93fd8f9bcd096b657a5832be5d89e451779",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "9eef94d756783ea7ff34d1ad9208d93fd8f9bcd096b657a5832be5d89e451779"
+  },
+  {
+    "figure": "1.4-1",
+    "file": "管理端-岗位标准-职责任务与经历.jpg",
+    "caption": "职责任务：按职责组织任务",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "8a83b05eb693bb60a59fc734564e393b65be40264725b37cc52497c41173de86",
+    "lark_image_block_id": "doxcnUiHqmw6j6BkVHJV6qJ12V6",
+    "lark_caption_block_id": "doxcnsoPfdY7zXQIkus87qwzh6C",
+    "lark_image_token": "T4Enb0DXqonDNsxvh7PcVsSinLf",
+    "cloud_synced_sha256": "8a83b05eb693bb60a59fc734564e393b65be40264725b37cc52497c41173de86",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "11ec6ee9d12008b755d7af148c4cdef2fb6a9544db60dbf6a412ca43b9655bd2",
+    "raw_file": "核对记录/原始截图/管理端-岗位标准-职责任务与经历-20261117.png"
+  },
+  {
+    "figure": "1.4-2",
+    "file": "管理端-岗位标准-选择能力.jpg",
+    "caption": "选择能力：按名称、类别和等级核对候选指标",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "55ff58821747e109b9fe7a93210799e3b18f0818b50d84203c33f178ec3aab8c",
+    "lark_image_block_id": "doxcn7EhKlaVwi0cweqyDWjRrYd",
+    "lark_caption_block_id": "doxcnKBEnkceeKPvvwZYPq0wsEG",
+    "lark_image_token": "XnbZbMRwhoUFQVxaXnVcosnqnvY",
+    "cloud_synced_sha256": "55ff58821747e109b9fe7a93210799e3b18f0818b50d84203c33f178ec3aab8c",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "0b1169a1db027a1d40d49c9d319b844e424e7f156061d3e0ac01c18d8e52e725",
+    "annotation_layer": "核对记录/标注层/管理端-岗位标准-选择能力.svg",
+    "raw_file": "核对记录/原始截图/管理端-岗位标准-选择能力-20261117.png"
+  },
+  {
+    "figure": "1.5-1",
+    "file": "管理端-学习方案-添加课程.jpg",
+    "caption": "添加课程：查询课程并设置必修或选修",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "f03a675e7cd13fd3a328c49e7939587ff6c9817ac33eba5259aec3b2807fdb07",
+    "lark_image_block_id": "doxcnrwG3YAF7e13h4XXlQPovIc",
+    "lark_caption_block_id": "doxcnNZRtuXwwF2VwYPj1DQBFxe",
+    "lark_image_token": "LK7fbQnvvov0uRx5K0ecuVLqnvZ",
+    "cloud_synced_sha256": "f03a675e7cd13fd3a328c49e7939587ff6c9817ac33eba5259aec3b2807fdb07",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "f03a675e7cd13fd3a328c49e7939587ff6c9817ac33eba5259aec3b2807fdb07"
+  },
+  {
+    "figure": "1.5-2",
+    "file": "管理端-学习方案-添加任务.jpg",
+    "caption": "添加任务：说明行动计划与完成标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1209eb7a5739062e5ed899bbdc84288018f7663391ce9f1c0a876f08211330f9",
+    "lark_image_block_id": "doxcnNkBpF3aRacwkT8WytbolUg",
+    "lark_caption_block_id": "doxcn37XHdjbT9gVpIb3a30K6Tf",
+    "lark_image_token": "J80ebkLd7oh0rOxpG0rcqK3Tngh",
+    "cloud_synced_sha256": "1209eb7a5739062e5ed899bbdc84288018f7663391ce9f1c0a876f08211330f9",
+    "last_verified_revision": 36,
+    "annotated": true,
+    "raw_sha256": "7272ca24afc8bbc8a588d34e1c3669d71b908fedf773b5c09a7fd777f1b6ae57",
+    "annotation_layer": "核对记录/标注层/管理端-学习方案-添加任务.svg"
+  },
+  {
+    "figure": "1.5-3",
+    "file": "管理端-学习方案-资源配置.jpg",
+    "caption": "学习方案：检查课程、任务和项目后保存",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "83852720c3744cbd3a0fba5fcf28cf8862238cb676c53b7ada60f65f863e49a7",
+    "lark_image_block_id": "doxcnnvEAI8Kwy1oueCA7lhuVSb",
+    "lark_caption_block_id": "doxcnM7KwShu5nKhlPMo3qgZ1Fe",
+    "lark_image_token": "NMPjbDbtaoQgfNxf58zcR6UEnag",
+    "cloud_synced_sha256": "83852720c3744cbd3a0fba5fcf28cf8862238cb676c53b7ada60f65f863e49a7",
+    "last_verified_revision": 36,
+    "annotated": true,
+    "raw_sha256": "4f426378b37b3eadc981abb3d0f11996d0f7fe355e238ebe23ab61f5148d63f5",
+    "annotation_layer": "核对记录/标注层/管理端-学习方案-资源配置.svg"
+  },
+  {
+    "figure": "1.6-1",
+    "file": "管理端-指标库-能力指标列表.jpg",
+    "caption": "能力指标：查询名称、类别与等级",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "c27e2ce9c83c34ccd8c2890c8bcc969b5772fb3f8eae1ac41509e56e55ba9ba7",
+    "lark_image_block_id": "doxcnrJ7JWPMUIlZtp2jyNRWOXc",
+    "lark_caption_block_id": "doxcnwjdc2e1WVwFoHIJ2qMCSmc",
+    "lark_image_token": "VH8IbNOn1oLvNLxjImUcTgeUn9e",
+    "cloud_synced_sha256": "c27e2ce9c83c34ccd8c2890c8bcc969b5772fb3f8eae1ac41509e56e55ba9ba7",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "c27e2ce9c83c34ccd8c2890c8bcc969b5772fb3f8eae1ac41509e56e55ba9ba7"
+  },
+  {
+    "figure": "1.6-2",
+    "file": "管理端-指标库-新建能力.jpg",
+    "caption": "新建能力：维护定义、分级描述和行为表现",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "c815355c3cb0895eb1ed91782b4f29a30080eab85a021e5bebbccc228029e701",
+    "lark_image_block_id": "doxcnXOT6RAbO9wiJ0L5PpNOE5C",
+    "lark_caption_block_id": "doxcntP23LeyJ9FpYUTjUutM1IB",
+    "lark_image_token": "TIVtbmP45osydQx1wFtc1nLvnOc",
+    "cloud_synced_sha256": "c815355c3cb0895eb1ed91782b4f29a30080eab85a021e5bebbccc228029e701",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "c815355c3cb0895eb1ed91782b4f29a30080eab85a021e5bebbccc228029e701"
+  },
+  {
+    "figure": "1.6-2（续）",
+    "file": "管理端-指标库-新建能力-等级配置.jpg",
+    "caption": "等级配置：维护分级描述、行为表现并添加等级",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9b1f4422b82205e1cc70f5370ec81402b9e05e599443c0bfc63203afa8a52a62",
+    "lark_image_block_id": "doxcn9pnvQVs3LlRVWaNq2vPVbb",
+    "lark_caption_block_id": "doxcnCkJIFl23X1vIrykiJggYjf",
+    "lark_image_token": "FvfYbQvYKoLsEwxirn3cPyeMnyd",
+    "cloud_synced_sha256": "9b1f4422b82205e1cc70f5370ec81402b9e05e599443c0bfc63203afa8a52a62",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "9b1f4422b82205e1cc70f5370ec81402b9e05e599443c0bfc63203afa8a52a62"
+  },
+  {
+    "figure": "1.6-3",
+    "file": "管理端-指标库-动力指标列表.jpg",
+    "caption": "动力指标：按类别查看指标描述",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "feaf15c39c5e80c2a194ef92207a009f605ee0af99b92b0b60283ccf1b8e9312",
+    "lark_image_block_id": "doxcn919pFMtf9gev4Beo0KIDEc",
+    "lark_caption_block_id": "doxcnu9UOc2UjPLchpwXgxd35Zb",
+    "lark_image_token": "Ag7kbURRboeOp4xBjbic6g86n5g",
+    "cloud_synced_sha256": "feaf15c39c5e80c2a194ef92207a009f605ee0af99b92b0b60283ccf1b8e9312",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "feaf15c39c5e80c2a194ef92207a009f605ee0af99b92b0b60283ccf1b8e9312"
+  },
+  {
+    "figure": "1.6-4",
+    "file": "管理端-指标库-动力指标详情.jpg",
+    "caption": "指标详情：核对名称、类别与具体含义",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "f1288e4fd1f0a3744d605b2720a5aff5e4e56e8846ca48bae7dc1e8508e8077a",
+    "lark_image_block_id": "doxcnZL07oFYsRsr1NspshIHLjd",
+    "lark_caption_block_id": "doxcnvbolyyBeLcFFEO35dbxjAe",
+    "lark_image_token": "ZkYubHp1Dok9vzxegdwcP0AVn6e",
+    "cloud_synced_sha256": "f1288e4fd1f0a3744d605b2720a5aff5e4e56e8846ca48bae7dc1e8508e8077a",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "f1288e4fd1f0a3744d605b2720a5aff5e4e56e8846ca48bae7dc1e8508e8077a"
+  },
+  {
+    "figure": "1.6-5",
+    "file": "管理端-指标库-潜力指标列表.jpg",
+    "caption": "潜力指标：查看不同类别的潜力特征",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1285820dcb95f9557332d775bbeefefd49d857486b8d19dedda69efa582849a3",
+    "lark_image_block_id": "doxcnMXxPxCGCvuQZ2hU5TerPDg",
+    "lark_caption_block_id": "doxcnVhhcbKBeNDBMK35R31P14d",
+    "lark_image_token": "K8PtbcSNioo1J8x5wZZcsOIpnTh",
+    "cloud_synced_sha256": "1285820dcb95f9557332d775bbeefefd49d857486b8d19dedda69efa582849a3",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "1285820dcb95f9557332d775bbeefefd49d857486b8d19dedda69efa582849a3"
+  },
+  {
+    "figure": "2.1-1",
+    "file": "管理端-360评估-项目列表.jpg",
+    "caption": "360评估：查看完成率、状态和项目操作入口",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "badfa6e1b84ec5e54cd9aca1be4c9014ddb147a2eefc1d9ed05d52eb10447e62",
+    "lark_image_block_id": "doxcneKjM4OWLw54jivPydRQgXt",
+    "lark_caption_block_id": "doxcnLa8rgIz4HM4FKTZG3mgeeb",
+    "lark_image_token": "UCZnbwVGrot5IdxQfJuciuIRnSc",
+    "cloud_synced_sha256": "badfa6e1b84ec5e54cd9aca1be4c9014ddb147a2eefc1d9ed05d52eb10447e62",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "badfa6e1b84ec5e54cd9aca1be4c9014ddb147a2eefc1d9ed05d52eb10447e62"
+  },
+  {
+    "figure": "2.1-2",
+    "file": "管理端-360评估-问卷编辑.jpg",
+    "caption": "问卷编辑：按维度组织题目，并预览评估对象的填写形式",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "6674a22070352efc7a8ec47ba8a785415eaa113ec793938c068d0e6fe2547b3c",
+    "lark_image_block_id": "doxcnyQSYcjdQejATvOMFKAElwg",
+    "lark_caption_block_id": "doxcnbbwV4RXTaWEoeBenEqHqdf",
+    "lark_image_token": "ERbcbvevuo2m1Ixek1ycCh3gnoT",
+    "cloud_synced_sha256": "6674a22070352efc7a8ec47ba8a785415eaa113ec793938c068d0e6fe2547b3c",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "6674a22070352efc7a8ec47ba8a785415eaa113ec793938c068d0e6fe2547b3c"
+  },
+  {
+    "figure": "2.1-3",
+    "file": "管理端-360评估-添加打分题.jpg",
+    "caption": "打分题：设置题目、分值范围与填写理由条件",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "c14d56a2c8bc59a5368d04a4a346e33ab1f77ba95f1f2f8184f8b5d87bc7746e",
+    "lark_image_block_id": "doxcnwAMXqiSOpexrDjh4bN4osg",
+    "lark_caption_block_id": "doxcnPp0pTBYTvrUZ71DK8nLVnc",
+    "lark_image_token": "Baocb595po86h8x40CJc9Vg6nNd",
+    "cloud_synced_sha256": "c14d56a2c8bc59a5368d04a4a346e33ab1f77ba95f1f2f8184f8b5d87bc7746e",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "c14d56a2c8bc59a5368d04a4a346e33ab1f77ba95f1f2f8184f8b5d87bc7746e"
+  },
+  {
+    "figure": "2.1-4",
+    "file": "管理端-360评估-设置评估角色.jpg",
+    "caption": "评估角色：核对默认权重、角色人员和角色说明",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9afc1a0539362c8f62933a9451f0ef18992ce8e28dc7c0c8fed8029b54b1f322",
+    "lark_image_block_id": "doxcnY94DUEoYp9LeTcfNHkxrhg",
+    "lark_caption_block_id": "doxcnqP8S9z0IfIg7cIxvNWmpxd",
+    "lark_image_token": "Z34ibnFkto8cTZx1WCHctDggnSc",
+    "cloud_synced_sha256": "9afc1a0539362c8f62933a9451f0ef18992ce8e28dc7c0c8fed8029b54b1f322",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "9afc1a0539362c8f62933a9451f0ef18992ce8e28dc7c0c8fed8029b54b1f322"
+  },
+  {
+    "figure": "2.1-5",
+    "file": "管理端-360评估-配置评估关系.jpg",
+    "caption": "评估关系：核对每位对象的角色、权重与评估人",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9c73083b7ef5f209ac97bd9d407d3751ff857acaea6a837392196bcf2dcfb822",
+    "lark_image_block_id": "doxcnioVFOxpvwquVwFKwwRYQad",
+    "lark_caption_block_id": "doxcnaSujWwXoreibbDLuyLpsjg",
+    "lark_image_token": "Dyi0bbwJqoEsQUxZmDJclpHIn2e",
+    "cloud_synced_sha256": "9c73083b7ef5f209ac97bd9d407d3751ff857acaea6a837392196bcf2dcfb822",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "9c73083b7ef5f209ac97bd9d407d3751ff857acaea6a837392196bcf2dcfb822"
+  },
+  {
+    "figure": "2.1-6",
+    "file": "管理端-360评估-项目设置.jpg",
+    "caption": "项目设置：核对开放方式、关联问卷和报告可见设置",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "24dbb62da28902357975f655cd017dbac796b71f60007979e2563c37cee49df7",
+    "lark_image_block_id": "doxcn5hc3c0T4xQozPDr5k10wDf",
+    "lark_caption_block_id": "doxcnh55S62onq67Q3Hm6nLn85L",
+    "lark_image_token": "YALgbNwpxoOiD0xnR5IcHUJinub",
+    "cloud_synced_sha256": "24dbb62da28902357975f655cd017dbac796b71f60007979e2563c37cee49df7",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "24dbb62da28902357975f655cd017dbac796b71f60007979e2563c37cee49df7"
+  },
+  {
+    "figure": "2.1-6（续）",
+    "file": "管理端-360评估-项目设置-报告与关联项目.jpg",
+    "caption": "统计与其它设置：设置报告可见及关联混合培训项目",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "26a2ac8b18f624d125d182369b9803310fe6c2cbee84ea8149e522a8710f4ce6",
+    "lark_image_block_id": "doxcnhkMwAce0gmHwS1NNhhmkug",
+    "lark_caption_block_id": "doxcnIHWeijR4qvKFASnlz0wZid",
+    "lark_image_token": "LkW3bvIwkoWnbPx7UHacuIAnnvN",
+    "cloud_synced_sha256": "26a2ac8b18f624d125d182369b9803310fe6c2cbee84ea8149e522a8710f4ce6",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "26a2ac8b18f624d125d182369b9803310fe6c2cbee84ea8149e522a8710f4ce6"
+  },
+  {
+    "figure": "2.1-7",
+    "file": "管理端-360评估-参与情况统计.jpg",
+    "caption": "参与情况：查看问卷完成数量并筛选填写明细",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "cd9bfd6a3d66f732494fa33ca523b987ed27128085e113229db4d95233ffd719",
+    "lark_image_block_id": "doxcn7z4KRZKzNtLmR6NUKFmV2e",
+    "lark_caption_block_id": "doxcntTEO1KwMzFfSj5mOI0BSId",
+    "lark_image_token": "RY1Zb8xU8oPDmRxFV9pcVowTnCg",
+    "cloud_synced_sha256": "cd9bfd6a3d66f732494fa33ca523b987ed27128085e113229db4d95233ffd719",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "cd9bfd6a3d66f732494fa33ca523b987ed27128085e113229db4d95233ffd719"
+  },
+  {
+    "figure": "2.1-8",
+    "file": "管理端-360评估-个人数据统计.jpg",
+    "caption": "个人数据：查看维度结果并进入个人报告",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "e8ab3cd6bdfe9c32c54ad74e19a1e4ab879428e6b80bd846d03cfd6a77083758",
+    "lark_image_block_id": "doxcngZrPpm9p3GxSourkwfoBrh",
+    "lark_caption_block_id": "doxcnovf34EqmSJLC4US5hCEQvd",
+    "lark_image_token": "PgLfbKP5PogoGzxybgqctftfncg",
+    "cloud_synced_sha256": "e8ab3cd6bdfe9c32c54ad74e19a1e4ab879428e6b80bd846d03cfd6a77083758",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "e8ab3cd6bdfe9c32c54ad74e19a1e4ab879428e6b80bd846d03cfd6a77083758"
+  },
+  {
+    "figure": "2.1-9",
+    "file": "管理端-360评估-个人测评报告.jpg",
+    "caption": "个人报告：查看得分说明、综合结果与后续分析",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9f8d108aa8dca07acca1163738095a1678689f56545b9c0cbcd94335e4e8816f",
+    "lark_image_block_id": "doxcnhsoH68SZ7vOwRdJYbIx2ib",
+    "lark_caption_block_id": "doxcnpjb8oe3X9iWTVNGIRWPsMh",
+    "lark_image_token": "Zxs1bke8SovsM5x9oqscFjkBnqc",
+    "cloud_synced_sha256": "9f8d108aa8dca07acca1163738095a1678689f56545b9c0cbcd94335e4e8816f",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "9f8d108aa8dca07acca1163738095a1678689f56545b9c0cbcd94335e4e8816f"
+  },
+  {
+    "figure": "2.1-10",
+    "file": "管理端-360评估-组织数据统计.jpg",
+    "caption": "组织数据：按部门层级和对象部门查询",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "981e6e7e8e9e76e18226f70f523ddc5b4b82044a1cc7a22b41d39c05b6b2f253",
+    "lark_image_block_id": "doxcnW43ai8QmozASn9NLZTzX7g",
+    "lark_caption_block_id": "doxcnnU4BwR2gJn2wKQPyb16YP6",
+    "lark_image_token": "KwPPbvIVcoUSkKx448Zc9a9bnTd",
+    "cloud_synced_sha256": "981e6e7e8e9e76e18226f70f523ddc5b4b82044a1cc7a22b41d39c05b6b2f253",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "981e6e7e8e9e76e18226f70f523ddc5b4b82044a1cc7a22b41d39c05b6b2f253"
+  },
+  {
+    "figure": "2.2-1",
+    "file": "管理端-人才盘点-项目列表.jpg",
+    "caption": "人才盘点：查询草稿和进行中的盘点项目",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "639f94f3998ae2199ab00c8cbe8536497b589a4dce192e916094ed59d5f12d3b",
+    "lark_image_block_id": "doxcn0qVC9N1vduviIlrHOCTMCh",
+    "lark_caption_block_id": "doxcnU9OZsqVINfNTUD1AKwl65g",
+    "lark_image_token": "VVAAbwcp1on7g5x03jycneupnAf",
+    "cloud_synced_sha256": "639f94f3998ae2199ab00c8cbe8536497b589a4dce192e916094ed59d5f12d3b",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "639f94f3998ae2199ab00c8cbe8536497b589a4dce192e916094ed59d5f12d3b"
+  },
+  {
+    "figure": "2.2-2",
+    "file": "管理端-人才盘点-基本信息.jpg",
+    "caption": "基本信息：设置盘点时间、目标与自动结束选项",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "304225aa9a6277cbedf4ea8acabaa81cb4aff85047a546a31878a49acd419352",
+    "lark_image_block_id": "doxcnn1MvgyBwz5EVi8tP7eUfte",
+    "lark_caption_block_id": "doxcnxyKFNar85xHZn7RkcsogBg",
+    "lark_image_token": "CZ6cbyOcloXSxrx8NTmcc8FUn7c",
+    "cloud_synced_sha256": "304225aa9a6277cbedf4ea8acabaa81cb4aff85047a546a31878a49acd419352",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "304225aa9a6277cbedf4ea8acabaa81cb4aff85047a546a31878a49acd419352"
+  },
+  {
+    "figure": "2.2-3",
+    "file": "管理端-人才盘点-盘点人员.jpg",
+    "caption": "盘点人员：核对本项目纳入人员与所属岗位",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "540e1b4e80f8d415eda712e40fc2bad2b0bc4f514ee41df56da3a2df4bc04ee4",
+    "lark_image_block_id": "doxcnIaYhCnEIusuW51KJyUluyg",
+    "lark_caption_block_id": "doxcnKFORnZXRqzCYXKlMk10pie",
+    "lark_image_token": "OdSSbME5koqINGx2ONNc93C0nKh",
+    "cloud_synced_sha256": "540e1b4e80f8d415eda712e40fc2bad2b0bc4f514ee41df56da3a2df4bc04ee4",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "540e1b4e80f8d415eda712e40fc2bad2b0bc4f514ee41df56da3a2df4bc04ee4"
+  },
+  {
+    "figure": "2.2-4",
+    "file": "管理端-人才盘点-盘点活动.jpg",
+    "caption": "盘点活动：关联测评项目并查看绩效导入入口",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "16fa125bb57975604b11f41c98dcc6aacbb6df95ef89338ab084e60c374fd642",
+    "lark_image_block_id": "doxcnmkoFQ68LE7plQhK3am75Tc",
+    "lark_caption_block_id": "doxcn4M0RqmkpPEXVB53aUHFc1m",
+    "lark_image_token": "HIxlbetj7oQ01fxpGpzc9xuVnXc",
+    "cloud_synced_sha256": "16fa125bb57975604b11f41c98dcc6aacbb6df95ef89338ab084e60c374fd642",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "16fa125bb57975604b11f41c98dcc6aacbb6df95ef89338ab084e60c374fd642"
+  },
+  {
+    "figure": "2.2-5",
+    "file": "管理端-人才盘点-规则设置.jpg",
+    "caption": "盘点规则：配置能力分档、绩效轴与宫格名称",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "3e29c4b2504c76dfa835828b6baed89a38c7ba82a228be6c3d82adb6c06f1e58",
+    "lark_image_block_id": "doxcnoODpkak0q9sdzCTWL06cDh",
+    "lark_caption_block_id": "doxcnj8cLRV9o7HADrkmy8sdRWd",
+    "lark_image_token": "BIROb91GioJLOYxxB6rcnrhVnjc",
+    "cloud_synced_sha256": "3e29c4b2504c76dfa835828b6baed89a38c7ba82a228be6c3d82adb6c06f1e58",
+    "last_verified_revision": 36,
+    "annotated": true,
+    "raw_sha256": "3eef519ee37f88c3f21d6fbe703e340ac5950901e24e4095bb10fcefd2f6bddb",
+    "annotation_layer": "核对记录/标注层/管理端-人才盘点-规则设置.svg"
+  },
+  {
+    "figure": "2.2-6",
+    "file": "管理端-人才盘点-项目概览.jpg",
+    "caption": "项目概览：核对人数、时间和自动结束配置",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "a2ac701eec90a794711175f891c628a20d4beeb9ceaf8338f4b71bc5f4659b83",
+    "lark_image_block_id": "doxcnHpJWtjEFqQJ6M5aQ0PCu5e",
+    "lark_caption_block_id": "doxcns2gvV4OouvcwCj7sBVmfLh",
+    "lark_image_token": "H0Xzb1HcHo9DvTxjzEWcj8tPnGS",
+    "cloud_synced_sha256": "a2ac701eec90a794711175f891c628a20d4beeb9ceaf8338f4b71bc5f4659b83",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "a2ac701eec90a794711175f891c628a20d4beeb9ceaf8338f4b71bc5f4659b83"
+  },
+  {
+    "figure": "2.2-7",
+    "file": "管理端-人才盘点-宫格结果.jpg",
+    "caption": "盘点结果：按宫格落位查看人员清单",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "cdacecc90178c175ac7cac1b3012b4dc576d4246090a0aa06dcb93697e48e071",
+    "lark_image_block_id": "doxcniHglX1t4W2S7sC25H0uIke",
+    "lark_caption_block_id": "doxcnf3FE2UjEMhLyD4of5fkOdc",
+    "lark_image_token": "VeoHb412uo8yMzxYf8bcToornTd",
+    "cloud_synced_sha256": "cdacecc90178c175ac7cac1b3012b4dc576d4246090a0aa06dcb93697e48e071",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_sha256": "70d17803f3fc5dcf92d567bc921cf5e9fa2d86815179507b5023aa0bf6014fa8",
+    "raw_file": "核对记录/原始截图/管理端-人才盘点-宫格结果-20261117.png"
+  },
+  {
+    "figure": "2.2-8",
+    "file": "管理端-人才盘点-宫格校准.jpg",
+    "caption": "盘点校准：追溯校准前后落位及操作记录",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "54711dcf7be0cd4b13d9ceb915e70f3eec8e695c4ef9ada15ab714aa410eaef1",
+    "lark_image_block_id": "doxcnrVDi5uqsvbg65HWvzx4kYc",
+    "lark_caption_block_id": "doxcnhMq3OTwEOtTksbLMsceDuj",
+    "lark_image_token": "OvI8bAcF9oBnftxa8vPchaYrnQf",
+    "cloud_synced_sha256": "54711dcf7be0cd4b13d9ceb915e70f3eec8e695c4ef9ada15ab714aa410eaef1",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "54711dcf7be0cd4b13d9ceb915e70f3eec8e695c4ef9ada15ab714aa410eaef1"
+  },
+  {
+    "figure": "2.2-9",
+    "file": "管理端-人才盘点-新建人才池.jpg",
+    "caption": "项目人才池：核对已带入的来源项目并设置期望人数",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "a83da967c2736e81fd0fff938c7aa742621b5b96e31da77bdc9a09dd5ce5e1ff",
+    "lark_image_block_id": "doxcnCWLQd0OeAWTXgPrbVrltXb",
+    "lark_caption_block_id": "doxcngR7TR7z515M5b0oiyAshfd",
+    "lark_image_token": "B6D7bduo4oilMRxNuOhcSkK1nbd",
+    "cloud_synced_sha256": "a83da967c2736e81fd0fff938c7aa742621b5b96e31da77bdc9a09dd5ce5e1ff",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "a83da967c2736e81fd0fff938c7aa742621b5b96e31da77bdc9a09dd5ce5e1ff"
+  },
+  {
+    "figure": "3.1-1",
+    "file": "管理端-岗位地图-地图总览.jpg",
+    "caption": "岗位地图：按职级序列查看岗位与发展通道",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "81db15e4f06b0e49ebc035124f843df7978d77239fdd90a06e6410d9dcad445a",
+    "lark_image_block_id": "doxcnqj7tziN0j6Zg0x0xcKUEUc",
+    "lark_caption_block_id": "doxcnjH0krBIlPeFC4XXt56Tjob",
+    "lark_image_token": "PKO4bnZAeo6LaqxznC5cmSsVnnf",
+    "cloud_synced_sha256": "81db15e4f06b0e49ebc035124f843df7978d77239fdd90a06e6410d9dcad445a",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "81db15e4f06b0e49ebc035124f843df7978d77239fdd90a06e6410d9dcad445a"
+  },
+  {
+    "figure": "3.2-1",
+    "file": "管理端-岗位地图-新增地图.jpg",
+    "caption": "新增岗位地图：填写通道名称与排序",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "442990a4c75b1229b2eaae5370714b5b5eafdad1417fbaad546349228732b9d5",
+    "lark_image_block_id": "doxcn5VCa8fg0AhCXfHAdOjfX4f",
+    "lark_caption_block_id": "doxcnBAQh8WsOLt2t8Nu3Ax8BPe",
+    "lark_image_token": "ZDNjbcc8io49R5xfXOYcGJ9Yn2g",
+    "cloud_synced_sha256": "442990a4c75b1229b2eaae5370714b5b5eafdad1417fbaad546349228732b9d5",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "442990a4c75b1229b2eaae5370714b5b5eafdad1417fbaad546349228732b9d5"
+  },
+  {
+    "figure": "3.2-2",
+    "file": "管理端-岗位地图-配置节点岗位.jpg",
+    "caption": "配置节点：选择岗位并核对已选数量",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "013730f8b82257a14795ccd584ca22453afec29f7e09eeabe8cce211162fbae2",
+    "lark_image_block_id": "doxcnFGfNzYBG1jqvtvHTbYwMMe",
+    "lark_caption_block_id": "doxcndytmqUmoL4Rwa4xJ7EZVqg",
+    "lark_image_token": "BU7jbCW8IomVoZx7M3FcdtLpn94",
+    "cloud_synced_sha256": "013730f8b82257a14795ccd584ca22453afec29f7e09eeabe8cce211162fbae2",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "013730f8b82257a14795ccd584ca22453afec29f7e09eeabe8cce211162fbae2"
+  },
+  {
+    "figure": "4.1-1",
+    "file": "管理端-人才中心-人才库.jpg",
+    "caption": "人才库：按部门和姓名查询人员",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "19648fee0ed92d3f02b3a0b1ea4091e19e427fee90036d0055c7ccf4574490a1",
+    "lark_image_block_id": "doxcn0L7bFeUWw83w2dgVSTDQZd",
+    "lark_caption_block_id": "doxcnWEUsc84Ijr5UREe1OxxUpg",
+    "lark_image_token": "KedEbIRpOoFwgSxHXu7cuL3Enlf",
+    "cloud_synced_sha256": "19648fee0ed92d3f02b3a0b1ea4091e19e427fee90036d0055c7ccf4574490a1",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "19648fee0ed92d3f02b3a0b1ea4091e19e427fee90036d0055c7ccf4574490a1"
+  },
+  {
+    "figure": "4.2-1",
+    "file": "管理端-人才中心-档案概览.jpg",
+    "caption": "人才档案：查看基本信息与盘点、评鉴概览",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "d11e4c43c6e9206fcfc374278aa5c5df8baa60d84fd20c76cf09fb86b2a45d6a",
+    "lark_image_block_id": "doxcnbpyBrvIENREkyhJoKIVKld",
+    "lark_caption_block_id": "doxcnBGGELFjMRtPeayWgdsh3Te",
+    "lark_image_token": "VMXzbvUGLoPZPtx7m4qcFQYbnRe",
+    "cloud_synced_sha256": "d11e4c43c6e9206fcfc374278aa5c5df8baa60d84fd20c76cf09fb86b2a45d6a",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "09aa0de57f1198b35ab938767d036a11a54ba7f4d7a9d3b53299d1e639ae4ea0",
+    "raw_file": "核对记录/原始截图/管理端-人才中心-档案概览-20261117.png"
+  },
+  {
+    "figure": "4.3-1",
+    "file": "管理端-人才中心-人才对比.jpg",
+    "caption": "人才对比：横向核对人员的岗位与盘点信息",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "c6b733fb78f82a6c0e81ed5ecac72cabf37130f6c1c3c76bd666a7ed20c10743",
+    "lark_image_block_id": "doxcnYbfBhD8kDQvp9j3USqQN2b",
+    "lark_caption_block_id": "doxcnH6EDHQCI9VAnccQ4mD8Ylf",
+    "lark_image_token": "QOPgboRmSohH25xqLIPcUXmEn8e",
+    "cloud_synced_sha256": "c6b733fb78f82a6c0e81ed5ecac72cabf37130f6c1c3c76bd666a7ed20c10743",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "c6b733fb78f82a6c0e81ed5ecac72cabf37130f6c1c3c76bd666a7ed20c10743"
+  },
+  {
+    "figure": "4.4-1",
+    "file": "管理端-人才中心-人才池列表.jpg",
+    "caption": "人才池：查看来源项目、创建人和人数",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "5f9d3953542dd73ced0b14b97d56cfd36193665acf4adb097d36af005d7963ab",
+    "lark_image_block_id": "doxcnsB3xqHpcDFbQM0p05SA43b",
+    "lark_caption_block_id": "doxcnS71mBu2ozLtvnCalFY1Cmg",
+    "lark_image_token": "DdCabTKV1oJfMuxlzDWc8X0EnfO",
+    "cloud_synced_sha256": "5f9d3953542dd73ced0b14b97d56cfd36193665acf4adb097d36af005d7963ab",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "5f9d3953542dd73ced0b14b97d56cfd36193665acf4adb097d36af005d7963ab"
+  },
+  {
+    "figure": "4.4-2",
+    "file": "管理端-人才中心-新建人才池.jpg",
+    "caption": "新建人才池：选择来源并设置期望人数",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "fc32c9cee2db952be6b980ad2913be22364f4d11481ceda0f4c3a481b8df1169",
+    "lark_image_block_id": "doxcnjK8Vob0eP2Tmp2gripx8Rg",
+    "lark_caption_block_id": "doxcn26TwQjM66zVWp3bTeX1Swb",
+    "lark_image_token": "NgjPbG7tLovEVtxB2nDc86kinOh",
+    "cloud_synced_sha256": "fc32c9cee2db952be6b980ad2913be22364f4d11481ceda0f4c3a481b8df1169",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "7efd1035ed07a3605522228245879b52d613d651661548b7bb1837e721d17759",
+    "raw_file": "核对记录/原始截图/管理端-人才中心-新建人才池-20261117.png"
+  },
+  {
+    "figure": "5.1-1",
+    "file": "管理端-系统设置-职级管理-新版.jpg",
+    "caption": "职级管理：查看序列和下属职级",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "f8f5001d0bd3e63ef584344dd5fdcd59621cfa1b6756071f4aae7197452525cb",
+    "lark_image_block_id": "doxcnvjvkf94oDeH0kMxlw46vHc",
+    "lark_caption_block_id": "doxcncbNZdxJoxbMzgoDHjzQvzb",
+    "lark_image_token": "LPYxbJUZooTrCGxN4y5cNX3cn2f",
+    "cloud_synced_sha256": "f8f5001d0bd3e63ef584344dd5fdcd59621cfa1b6756071f4aae7197452525cb",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "0d60d024ff70cc71314d66e6be20c83220e25ac152324f998d80be47f021ac31",
+    "raw_file": "核对记录/原始截图/管理端-系统设置-职级管理-新版-20261117.png"
+  },
+  {
+    "figure": "5.1-2",
+    "file": "管理端-系统设置-新增职级序列-新版.jpg",
+    "caption": "新增职级序列：填写序列名称",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "a251c96b844c5f156f8a0560564b241dba491ced8f6258d3dc953e72bd0ad5de",
+    "lark_image_block_id": "doxcnu4ULyhEbk0LdByiNK7xgLd",
+    "lark_caption_block_id": "doxcnb6HuMA9pqZ7XeNfxkr9QSe",
+    "lark_image_token": "L73EbpRyao6Qa8xF6yockXt0ntg",
+    "cloud_synced_sha256": "a251c96b844c5f156f8a0560564b241dba491ced8f6258d3dc953e72bd0ad5de",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_sha256": "3275294aae6d3c78bc2da031335e0f151f5c52cbce537110925a189a369047c2",
+    "raw_file": "核对记录/原始截图/管理端-系统设置-新增职级序列-新版-20261117.png"
+  },
+  {
+    "figure": "5.2-1",
+    "file": "管理端-系统设置-功能设置.jpg",
+    "caption": "功能设置：配置学员端相关功能的显示项",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "17b707eee2ec586d7d52c7817edba329b7837ece0f0e0aac6b8ebe44adb1b54b",
+    "lark_image_block_id": "doxcnwwEafcfGDyUYlukosCHTSh",
+    "lark_caption_block_id": "doxcnPVNXPVk5762P6GZWntLlUe",
+    "lark_image_token": "E5o1bNNzGoIQ6ZxNoTxctbpcnbb",
+    "cloud_synced_sha256": "17b707eee2ec586d7d52c7817edba329b7837ece0f0e0aac6b8ebe44adb1b54b",
+    "last_verified_revision": 36,
+    "annotated": false,
+    "raw_sha256": "17b707eee2ec586d7d52c7817edba329b7837ece0f0e0aac6b8ebe44adb1b54b"
+  },
+  {
+    "figure": "1.4-3",
+    "file": "管理端-人才标准-按岗位查看.jpg",
+    "caption": "按岗位查看：进入岗位的适用标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "d6f0b90b82ae7035ab2d17429203d4970c059304698f97786fdb8d3e97628fbb",
+    "lark_image_block_id": "doxcnqHrA9VuTQPz91xWvQemNZe",
+    "lark_caption_block_id": "doxcnXQIaPTRoTFgI8CsOxeYFbh",
+    "lark_image_token": "I4VJbIGHMocNlWxh56qcv3DLnvd",
+    "cloud_synced_sha256": "d6f0b90b82ae7035ab2d17429203d4970c059304698f97786fdb8d3e97628fbb",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才标准-按岗位查看-20261117.png",
+    "raw_sha256": "6a01811fa04ae501e96b870b38353d09bf45d4682526ac63feb00f036cd66c35"
+  },
+  {
+    "figure": "1.4-4",
+    "file": "管理端-人才标准-按标准查看.jpg",
+    "caption": "按标准查看：按类别查询或新建人才标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "3fd725b118db2d2bebab37ca316509377be9b39bafc43c25f202e083cf357da0",
+    "lark_image_block_id": "doxcnmDWcKnE8gYqNYdA27tMeyc",
+    "lark_caption_block_id": "doxcnjynG4WPrcBreG4RwwB8MLg",
+    "lark_image_token": "BajTbYuTcoaZfbxSigxcfwPtnEc",
+    "cloud_synced_sha256": "3fd725b118db2d2bebab37ca316509377be9b39bafc43c25f202e083cf357da0",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才标准-按标准查看-20261117.png",
+    "raw_sha256": "7ea6b15cc5389d3161884654914fc8be5991481f1dae0ed789fa45af0b605ba1"
+  },
+  {
+    "figure": "1.4-5",
+    "file": "管理端-人才标准-应用范围.jpg",
+    "caption": "应用范围：选择指定岗位或暂不关联",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "f6491e881522aabe9e54e71f4126631257260f7e505e0a49a1cec3f00379a566",
+    "lark_image_block_id": "doxcnTXTTTaRBk3Fq9cPi8830th",
+    "lark_caption_block_id": "doxcnnnuUN4w6EftcE1Ca7idwsh",
+    "lark_image_token": "BVCVb5soeoid9wxVcXjc4Viwnff",
+    "cloud_synced_sha256": "f6491e881522aabe9e54e71f4126631257260f7e505e0a49a1cec3f00379a566",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才标准-应用范围-20261117.png",
+    "raw_sha256": "fce4664f849c120357c22d66ab1b6b11f7253d71bbdaefdd1d1f4faff47ab121"
+  },
+  {
+    "figure": "2.1-11",
+    "file": "管理端-360评估-AI帮建.jpg",
+    "caption": "AI 帮建：选择人才标准并设置题型和数量",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "55642db66bd9aee32936e28e78f591ba09c647d46c287fec244bcfb25b639ca4",
+    "lark_image_block_id": "doxcnskzKXlH1677jt5svcUP3Pg",
+    "lark_caption_block_id": "doxcn82w6VsdRoWvnWRkfmToZHN",
+    "lark_image_token": "JoIjbUGc0o36FUxQs8jcUSLAnMh",
+    "cloud_synced_sha256": "55642db66bd9aee32936e28e78f591ba09c647d46c287fec244bcfb25b639ca4",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-360评估-AI帮建-20261117.png",
+    "raw_sha256": "2209c6e4b31d58071bd4a701d7b7fb5cbe0cdd7d0a85bb66799afacc085ccff2"
+  },
+  {
+    "figure": "2.1-12",
+    "file": "管理端-360评估-选择人才标准.jpg",
+    "caption": "选择人才标准：按类别或名称查找标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "9cbb760881b0012a629258b3e060ca381d10ccad7d12d846dd94018a002e7acb",
+    "lark_image_block_id": "doxcnA8jqfW21Azc6NAoMfrMloc",
+    "lark_caption_block_id": "doxcnk6V5IOJgv89nXUaMqehKQc",
+    "lark_image_token": "UfO9blvthoAhHcxDAm8cE0Hpnwd",
+    "cloud_synced_sha256": "9cbb760881b0012a629258b3e060ca381d10ccad7d12d846dd94018a002e7acb",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-360评估-选择人才标准-20261117.png",
+    "raw_sha256": "e9a1913803fc181e6d7ddecb08cdc51ccab5e16b810ef7072ea3eaef046894f0"
+  },
+  {
+    "figure": "4.2-2",
+    "file": "管理端-人才中心-标准与差距.jpg",
+    "caption": "标准与差距：选择比较目标和采用标准",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "3593e8c71ee4058a0fda2ef5b203deac63d743ba878cf6231ab176a865993e26",
+    "lark_image_block_id": "doxcnXyKgNy6mhDCHWmPuuN3tSd",
+    "lark_caption_block_id": "doxcnS87P6hhan5FefYN8Il33ff",
+    "lark_image_token": "UCgGbO4b4oLdQVxWrZ6c20oXneb",
+    "cloud_synced_sha256": "3593e8c71ee4058a0fda2ef5b203deac63d743ba878cf6231ab176a865993e26",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才中心-标准与差距-20261117.png",
+    "raw_sha256": "7ef361a68c38cfa9cd2626a62c0af784a0928d184c2fcbef0a9289b352c1a0e2"
+  },
+  {
+    "figure": "4.2-2（续）",
+    "file": "管理端-人才中心-标准比较明细.jpg",
+    "caption": "标准比较明细：查看有效证据和状态",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "1921349a0eac2e8f4116b89c365ca912ab552c5bd5684085f681bbffbc7fd8c5",
+    "lark_image_block_id": "doxcnpamIrRTelsjILzXkR6NcWb",
+    "lark_caption_block_id": "doxcnQmPFrlkZJ4BH05ULffv1ff",
+    "lark_image_token": "HB1Mb2pjRoGU8IxtlG0cxb8Lnlg",
+    "cloud_synced_sha256": "1921349a0eac2e8f4116b89c365ca912ab552c5bd5684085f681bbffbc7fd8c5",
+    "last_verified_revision": 123,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才中心-标准比较明细-20261117.png",
+    "raw_sha256": "21c04a532777f2aacc16f74fe6e66539b407368eb4a7ecc507d42045d99b91f5"
+  },
+  {
+    "figure": "4.2-3",
+    "file": "管理端-人才中心-评鉴与盘点.jpg",
+    "caption": "评鉴与盘点：查看个人评鉴及盘点记录",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "12b477f54ef2d7aa939deab9328c86893965e6693ab81562a04eca55ae4a9181",
+    "lark_image_block_id": "doxcnR3mwcWxfAqiAQPGIGYribc",
+    "lark_caption_block_id": "doxcnKIlJVRuoR68JDSRq3UvCAd",
+    "lark_image_token": "KMj1b9XJXohHPSxk2iEcMWmkn9P",
+    "cloud_synced_sha256": "12b477f54ef2d7aa939deab9328c86893965e6693ab81562a04eca55ae4a9181",
+    "last_verified_revision": 123,
+    "annotated": false,
+    "raw_file": "核对记录/原始截图/管理端-人才中心-评鉴与盘点-20261117.png",
+    "raw_sha256": "6892e9d352921000b939acb33fe89872fd43b012bb35311fe5fb4d61f8f369ce"
+  },
+  {
+    "figure": "2.2-10",
+    "file": "管理端-人才盘点-项目人才池列表.jpg",
+    "caption": "项目人才池：查看人数并进入组建",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "c5a6678e60bcf87051464124f63873dd6132354ce0e5cf22090079b828ccd61d",
+    "lark_image_block_id": "doxcnP90gR7sKnzsaFn5iwuK4Bb",
+    "lark_caption_block_id": "doxcnHqWK9QR1ue4wGn3WgSIXsg",
+    "lark_image_token": "Sqg1bAW8EoiQz1xVp2jcfuCenfF",
+    "cloud_synced_sha256": "c5a6678e60bcf87051464124f63873dd6132354ce0e5cf22090079b828ccd61d",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才盘点-项目人才池列表-20261117.png",
+    "raw_sha256": "e680aeb9ce172c82d81b90a7d9f6cd9038584279958aa908ffafcacbcdbd61ff"
+  },
+  {
+    "figure": "2.2-11",
+    "file": "管理端-人才盘点-组建人才池.jpg",
+    "caption": "组建人才池：按盘点维度筛选人员",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "b6c7e1cbb04e7b2041dc4a68be4e89a9aeba6780e70450a3283441de11d02e22",
+    "lark_image_block_id": "doxcn07BMqoW6KjVWHln5bsV3ed",
+    "lark_caption_block_id": "doxcnIgZ0N2poHCMRyTZUnlmQNh",
+    "lark_image_token": "LsCnbfuuloDKZ6xLEt8cByYqnYe",
+    "cloud_synced_sha256": "b6c7e1cbb04e7b2041dc4a68be4e89a9aeba6780e70450a3283441de11d02e22",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才盘点-组建人才池-20261117.png",
+    "raw_sha256": "b0ea502802f41ee36051ccd5e39cc75a7ba96491da0a6da3c4355e1245f72a63"
+  },
+  {
+    "figure": "2.2-11（续）",
+    "file": "管理端-人才盘点-绩效分层.jpg",
+    "caption": "选择绩效后查看对应分层",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "fc6c56ddd97226228096ee33dcbc4d7e0333ff0d87019bfab67d52d9795a4c50",
+    "lark_image_block_id": "doxcnH8W0gEGNveJ6lxXgMkgzpc",
+    "lark_caption_block_id": "doxcnwW8A7QvgKtSC0Cu0L0leug",
+    "lark_image_token": "UOfMb1A06oml6Rx45Cxct1OpnHe",
+    "cloud_synced_sha256": "fc6c56ddd97226228096ee33dcbc4d7e0333ff0d87019bfab67d52d9795a4c50",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-人才盘点-绩效分层-20261117.png",
+    "raw_sha256": "4a001b4532667cc5a204306be3e2c3f009b468a48a86ddb78c43827d9dd7dee4"
+  },
+  {
+    "figure": "2.1-13",
+    "file": "管理端-360评估-确认评估能力.jpg",
+    "caption": "确认评估内容：勾选本次生成使用的能力",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "4b01fd826ce8d39d219174f9efd4e54984a66382a9128e58923a60c1f686329c",
+    "lark_image_block_id": "doxcn2MpTkegiA4q3QcYEj0P0Id",
+    "lark_caption_block_id": "doxcnLtUvoHK9N8kOGOaiuJuveg",
+    "lark_image_token": "ZWbPbiaRRoLVL5xukcjcGU2Onre",
+    "cloud_synced_sha256": "4b01fd826ce8d39d219174f9efd4e54984a66382a9128e58923a60c1f686329c",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-360评估-确认评估能力-20261117.png",
+    "raw_sha256": "5c08f322edfb7597de2dbba100167668b056cb2d239d0258cc98751e32aee32b"
+  },
+  {
+    "figure": "2.1-14",
+    "file": "管理端-360评估-生成题本.jpg",
+    "caption": "生成题本：核对内容并点击创建问卷",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "2f6ac2e381bdcb8b0c18f082e84bbf6cd2177b9b8278cd7b96e6b7bf62f9ee57",
+    "lark_image_block_id": "doxcnpVnATybAPJRFZVMERHN58j",
+    "lark_caption_block_id": "doxcn1taWu08s6Iep45oXrJb4Xc",
+    "lark_image_token": "G77PbOrquoiAJcxIHg8cFIAKnAd",
+    "cloud_synced_sha256": "2f6ac2e381bdcb8b0c18f082e84bbf6cd2177b9b8278cd7b96e6b7bf62f9ee57",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-360评估-生成题本-20261117.png",
+    "raw_sha256": "ef50670c2b84b94513c63cc43215c883f2390092a051bf86ce2b8f64297f3672"
+  },
+  {
+    "figure": "2.1-15",
+    "file": "管理端-360评估-AI题本编辑.jpg",
+    "caption": "问卷编辑：查看带入的能力维度与题目",
+    "size": [
+      1730,
+      872
+    ],
+    "sha256": "764f267d828bb65ea69db8e2b9bd2d994a7cbd3f9a176ea9caa28b471d9e1e68",
+    "lark_image_block_id": "doxcn1Q45Ofa0TbxQ7fjLaJuCxg",
+    "lark_caption_block_id": "doxcnswnf0ymZJXE6BXCt7hSVbg",
+    "lark_image_token": "XpUPbpq4hoHr8UxmQfIcOoO5ncf",
+    "cloud_synced_sha256": "764f267d828bb65ea69db8e2b9bd2d994a7cbd3f9a176ea9caa28b471d9e1e68",
+    "last_verified_revision": 131,
+    "annotated": true,
+    "raw_file": "核对记录/原始截图/管理端-360评估-AI题本编辑-20261117.png",
+    "raw_sha256": "2676b255ea935f5e6ae9c9140b48024d8454b2c12d7b70956100b9276cc2543f"
+  }
+]

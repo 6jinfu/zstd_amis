@@ -1,0 +1,300 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - main:
+      - generic: 职级序列
+      - textbox "输入关键字搜索"
+      - generic: 研发序列
+      - generic: 销售序列
+      - button "收起左侧树":
+      - button "新增岗位地图"
+      - textbox "请输入岗位名称"
+      - button "搜 索"
+      - generic: G
+      - generic: 研发总监
+      - generic: 总裁特助
+      - generic: 总工程师
+      - generic: TBU销售总监
+      - generic: 技术总监
+      - generic: A
+      - generic: Java架构师
+      - generic: 证券事务代表
+      - generic: 主任工程师
+      - generic: 主管
+      - generic: 研发组长
+      - generic: B
+      - generic: 研发经理
+      - generic: 培训项目经理
+      - generic: 高级工程师
+      - generic: 销售专员
+      - generic: "+1"
+      - generic: Java开发工程师
+      - generic: C
+      - generic: 研发工程师
+      - generic: 人事行政
+      - generic: 工程师
+      - button "+" [active]:
+        - generic: +
+      - generic: 初级Java开发工程师
+      - generic: D
+      - generic: Java实习生
+      - generic: 内容策划主管
+      - generic: "+1"
+      - generic: 助理工程师
+      - button "+":
+        - generic: +
+      - generic: 实习生
+      - generic: 职级/通道
+      - generic: 上海研发序列
+      - button:
+      - button:
+      - generic: 广州研发序列
+      - button:
+      - button:
+      - generic: 芯片研发序列
+      - button:
+      - button:
+      - generic: TBU
+      - button:
+      - button:
+      - generic: 郑州研发
+      - button:
+      - button:
+    - generic: 选择岗位
+    - button "Close":
+    - generic: 岗位类别
+    - checkbox "包含子类" [checked]
+    - generic: 包含子类
+    - textbox "搜索"
+    - generic: 全部
+    - generic: 研发中心
+    - generic: 岗位
+    - generic: 营运类
+    - generic: 其它
+    - textbox "搜索岗位名称"
+    - button "查 询"
+    - text: 待选区(
+    - generic: "1557"
+    - text: )
+    - table:
+      - rowgroup:
+        - row "岗位编号 岗位名称 岗位类别":
+          - columnheader "岗位编号":
+            - generic: 岗位编号
+          - columnheader "岗位名称":
+            - generic: 岗位名称
+          - columnheader "岗位类别":
+            - generic: 岗位类别
+    - table:
+      - rowgroup:
+        - row "1442 出纳兼行政人事 岗位":
+          - cell "1442":
+            - generic: "1442"
+          - cell "出纳兼行政人事":
+            - generic: 出纳兼行政人事
+          - cell "岗位":
+            - generic: 岗位
+        - row "1438 出纳兼行政人事 岗位":
+          - cell "1438":
+            - generic: "1438"
+          - cell "出纳兼行政人事":
+            - generic: 出纳兼行政人事
+          - cell "岗位":
+            - generic: 岗位
+        - row "1431 电视编导 岗位":
+          - cell "1431":
+            - generic: "1431"
+          - cell "电视编导":
+            - generic: 电视编导
+          - cell "岗位":
+            - generic: 岗位
+        - row "1432 应用实施顾问 岗位":
+          - cell "1432":
+            - generic: "1432"
+          - cell "应用实施顾问":
+            - generic: 应用实施顾问
+          - cell "岗位":
+            - generic: 岗位
+        - row "1435 内容策划主管 岗位":
+          - cell "1435":
+            - generic: "1435"
+          - cell "内容策划主管":
+            - generic: 内容策划主管
+          - cell "岗位":
+            - generic: 岗位
+        - row "1437 网页设计 岗位":
+          - cell "1437":
+            - generic: "1437"
+          - cell "网页设计":
+            - generic: 网页设计
+          - cell "岗位":
+            - generic: 岗位
+        - row "1440 销售助理兼行政人事 岗位":
+          - cell "1440":
+            - generic: "1440"
+          - cell "销售助理兼行政人事":
+            - generic: 销售助理兼行政人事
+          - cell "岗位":
+            - generic: 岗位
+        - row "1427 顾问 岗位":
+          - cell "1427":
+            - generic: "1427"
+          - cell "顾问":
+            - generic: 顾问
+          - cell "岗位":
+            - generic: 岗位
+        - row "1428 企业大学副校长 岗位":
+          - cell "1428":
+            - generic: "1428"
+          - cell "企业大学副校长":
+            - generic: 企业大学副校长
+          - cell "岗位":
+            - generic: 岗位
+        - row "1429 人事行政 岗位":
+          - cell "1429":
+            - generic: "1429"
+          - cell "人事行政":
+            - generic: 人事行政
+          - cell "岗位":
+            - generic: 岗位
+        - row "1420 内训主管 岗位":
+          - cell "1420":
+            - generic: "1420"
+          - cell "内训主管":
+            - generic: 内训主管
+          - cell "岗位":
+            - generic: 岗位
+        - row "1422 销售总监 岗位":
+          - cell "1422":
+            - generic: "1422"
+          - cell "销售总监":
+            - generic: 销售总监
+          - cell "岗位":
+            - generic: 岗位
+        - row "1423 副总经理 岗位":
+          - cell "1423":
+            - generic: "1423"
+          - cell "副总经理":
+            - generic: 副总经理
+          - cell "岗位":
+            - generic: 岗位
+        - row "1424 销售部经理 岗位":
+          - cell "1424":
+            - generic: "1424"
+          - cell "销售部经理":
+            - generic: 销售部经理
+          - cell "岗位":
+            - generic: 岗位
+        - row "1425 咨询内训部总监 岗位":
+          - cell "1425":
+            - generic: "1425"
+          - cell "咨询内训部总监":
+            - generic: 咨询内训部总监
+          - cell "岗位":
+            - generic: 岗位
+        - row "1426 综合部职员 岗位":
+          - cell "1426":
+            - generic: "1426"
+          - cell "综合部职员":
+            - generic: 综合部职员
+          - cell "岗位":
+            - generic: 岗位
+        - row "1416 咨询公司副总 岗位":
+          - cell "1416":
+            - generic: "1416"
+          - cell "咨询公司副总":
+            - generic: 咨询公司副总
+          - cell "岗位":
+            - generic: 岗位
+        - row "1418 培训项目经理 岗位":
+          - cell "1418":
+            - generic: "1418"
+          - cell "培训项目经理":
+            - generic: 培训项目经理
+          - cell "岗位":
+            - generic: 岗位
+        - row "1892 证券事务代表 岗位":
+          - cell "1892":
+            - generic: "1892"
+          - cell "证券事务代表":
+            - generic: 证券事务代表
+          - cell "岗位":
+            - generic: 岗位
+        - row "1893 资本运营部总经理（虚拟） 岗位":
+          - cell "1893":
+            - generic: "1893"
+          - cell "资本运营部总经理（虚拟）":
+            - generic: 资本运营部总经理（虚拟）
+          - cell "岗位":
+            - generic: 岗位
+    - generic "20条/页":
+      - textbox
+      - generic: 20条/页
+    - text: .
+    - spinbutton
+    - generic: /
+    - generic: "78"
+    - text: .
+    - button "移入" [disabled]:
+      - generic: 移入
+    - button "移出" [disabled]:
+      - generic: 移出
+    - text: 已选择(
+    - generic: "0"
+    - generic: /
+    - generic: "1"
+    - text: )
+    - table:
+      - rowgroup:
+        - row "岗位编号 岗位名称 岗位类别":
+          - columnheader "岗位编号":
+            - generic: 岗位编号
+          - columnheader "岗位名称":
+            - generic: 岗位名称
+          - columnheader "岗位类别":
+            - generic: 岗位类别
+    - table:
+      - rowgroup:
+        - row "暂无数据 暂无数据":
+          - cell "暂无数据 暂无数据":
+            - img "暂无数据"
+            - generic: 暂无数据
+    - generic "20条/页":
+      - textbox
+      - generic: 20条/页
+    - text: .
+    - spinbutton
+    - generic: /
+    - generic: "0"
+    - text: .
+    - button "取 消"
+    - button "确 定"

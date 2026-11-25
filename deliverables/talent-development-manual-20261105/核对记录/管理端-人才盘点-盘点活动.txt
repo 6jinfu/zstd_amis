@@ -1,0 +1,90 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点测评" [level=1]
+      - generic: 年度盘点 · 2026-10-24 ~ 2026-10-31
+    - main:
+      - navigation:
+        - generic: 基本信息
+        - generic: 盘点人员
+        - generic: 盘点活动
+        - generic: 盘点规则设置
+      - heading "盘点活动" [level=3]
+      - generic: 配置本次盘点使用的项目和绩效数据
+      - generic: 项目数据
+      - generic: 绩效数据
+      - button "添加测评项目"
+      - generic: 已选 0 个
+      - table:
+        - rowgroup:
+          - row "项目名称 类型 关联时间 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "项目名称":
+              - generic: 项目名称
+            - columnheader "类型":
+              - generic: 类型
+            - columnheader "关联时间":
+              - generic: 关联时间
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "empty 暂无数据":
+            - cell "empty 暂无数据":
+              - img "empty"
+              - generic: 暂无数据
+      - generic: 导入绩效等级
+      - generic: 绩效等级仅支持低、中、高，上传后按工号匹配盘点人员。
+      - button "下载模板"
+      - button "上传绩效数据"
+      - table:
+        - rowgroup:
+          - row "工号 姓名 部门 岗位 绩效等级":
+            - columnheader "工号":
+              - generic: 工号
+            - columnheader "姓名":
+              - generic: 姓名
+            - columnheader "部门":
+              - generic: 部门
+            - columnheader "岗位":
+              - generic: 岗位
+            - columnheader "绩效等级":
+              - generic: 绩效等级
+        - rowgroup:
+          - row "empty 暂无数据":
+            - cell "empty 暂无数据":
+              - img "empty"
+              - generic: 暂无数据
+      - button "取 消"
+      - button "保 存"

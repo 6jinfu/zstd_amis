@@ -1,0 +1,31 @@
+{
+  "image_references": 52,
+  "unique_images": 52,
+  "dimensions": [
+    1730,
+    872
+  ],
+  "missing": [],
+  "unexpanded_markers": false,
+  "ia_writer_preview": "verified",
+  "preview_image_size": [
+    1920,
+    990
+  ],
+  "figure_1.2-4_retake": {
+    "verified": true,
+    "complete_drawer": true,
+    "sha256": "99af4e4750bd6446db1b8b3f1d67d0cb2ef920ea9151b6d0a84305523302b2e7"
+  },
+  "figure_1.6-4_retake": {
+    "verified": true,
+    "complete_drawer": true,
+    "sha256": "f1288e4fd1f0a3744d605b2720a5aff5e4e56e8846ca48bae7dc1e8508e8077a"
+  },
+  "drawer_images_reviewed": 14,
+  "annotated_images": 4,
+  "added_continuations": [
+    "1.6-2（续）",
+    "2.1-6（续）"
+  ]
+}

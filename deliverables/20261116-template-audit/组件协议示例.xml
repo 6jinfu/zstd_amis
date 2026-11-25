@@ -1,0 +1,10 @@
+<p>组件协议示例（供前后端与工作流对齐，字段命名尚未定版）：</p>
+<pre lang="json"><code>{
+  "type": "capability_rating",
+  "version": "1.0",
+  "items": [
+    {"ability_id": "cap-communication", "name": "沟通", "radar_name": "通用能力", "suggested_score": 4}
+  ],
+  "score_range": {"min": 1, "max": 5}
+}</code></pre>
+<p>此示例表示展示能力重要性评分组件及可修改的建议初始分；前端回传用户确认的实际分数和能力标识。排序、生成设置、范围确认等使用各自明确的type和对应字段，不能只依赖文字回答。该JSON是待评审协议示例，不代表现有工作流已输出。</p>

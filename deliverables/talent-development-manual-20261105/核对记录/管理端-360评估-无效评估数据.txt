@@ -1,0 +1,92 @@
+- generic: 人力行政部 胜任力测评
+- button "复制链接"
+- generic: 参与情况
+- generic: 个人数据
+- generic: 组织数据
+- generic: 无效评估数据
+- generic: "评估对象:"
+- textbox "请输入"
+- generic: "对象部门:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "对象岗位:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "评估角色:"
+- textbox "请选择": 全部
+- generic: 
+- generic: "评估人:"
+- textbox "请输入"
+- generic: "评估人部门:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "评估人岗位:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "耗时(分):"
+- textbox
+- text: "-"
+- textbox
+- generic: "极端选项占比:"
+- textbox
+- generic: "%"
+- text: "-"
+- textbox
+- generic: "%"
+- button "查 询"
+- button "重 置"
+- generic: 
+- button "导出 ":
+  - text: 导出
+  - generic: 
+- generic:         
+- table:
+  - rowgroup:
+    - row "评估角色 评估人 工号 部门 岗位 打分总和  耗时  极端选项占比 ":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "评估角色":
+        - generic: 评估角色
+      - columnheader "评估人":
+        - generic: 评估人
+      - columnheader "工号":
+        - generic: 工号
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "岗位":
+        - generic: 岗位
+      - columnheader "打分总和 ":
+        - text: 打分总和
+        - generic: 
+      - columnheader "耗时 ":
+        - text: 耗时
+        - generic: 
+      - columnheader "极端选项占比 ":
+        - text: 极端选项占比
+        - generic: 
+- table:
+  - rowgroup
+- generic: 暂无数据
+- table:
+  - rowgroup:
+    - row "评估对象 工号 部门 岗位":
+      - columnheader "评估对象":
+        - generic: 评估对象
+      - columnheader "工号":
+        - generic: 工号
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "岗位":
+        - generic: 岗位
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+- table:
+  - rowgroup

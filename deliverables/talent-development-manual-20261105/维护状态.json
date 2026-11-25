@@ -1,0 +1,30 @@
+{
+  "updated": "2026-11-17",
+  "online_system": "https://tbcnp.21tb.com/rtr-admin-frontend/appIframe?appCode=m_aiApp_talent",
+  "published_local": "人才发展管理端操作手册.md",
+  "review_draft": "新版人才发展操作手册_待确认.md",
+  "human_checklist": "人工核验清单.md",
+  "text_revision_pending_user_confirmation": true,
+  "lark": {
+    "title": "新版人才发展操作手册",
+    "document_id": "MucfdKWKpodXFWxdoDhc86Usnbe",
+    "url": "https://shuiiiiqqq.feishu.cn/docx/MucfdKWKpodXFWxdoDhc86Usnbe",
+    "folder": "Jeff 的操作手册",
+    "folder_token": "L2zefWAQul0IKvdcGtTcP1g5nUe",
+    "last_verified_revision": 170
+  },
+  "images": {
+    "total": 66,
+    "annotated": 24,
+    "dimensions": [
+      1730,
+      872
+    ],
+    "index": "核对记录/配图元数据.json",
+    "originals": "核对记录/原始截图/",
+    "annotation_layers": "核对记录/标注层/"
+  },
+  "package": "../人才发展管理端操作手册_20261105.zip",
+  "latest_cloud_verification": "核对记录/1113期增量/20261117-术语修正回读.json",
+  "iteration_pending": "图 1.3-2 和学习方案部分旧截图仍含旧版界面，平台登录失效，待重新登录后重拍。"
+}

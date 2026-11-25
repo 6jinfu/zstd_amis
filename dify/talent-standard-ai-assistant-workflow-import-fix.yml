@@ -1123,6 +1123,8 @@ workflow:
 
             capabilities必须恰好覆盖capability_bundle.items，不新增、替换或漏掉已确认能力。要求等级只能来自该能力levels。
 
+            逐项对照catalog.cap中该能力各已配置等级的指标描述，结合岗位职责和管理员确认的排序、重要性评分，选择符合岗位要求的等级；不要默认选择L1或仅因列表顺序选择第一级，重要性评分也不直接等同于等级。新能力按其实际配置等级及生成的等级描述判断。信息不足时提出questions，不猜测等级。
+
             为每项能力的全部已配置等级按原顺序生成level_descriptions，不统一假设五级。每级简洁且具体，体现复杂度、独立性或影响范围差异。behavior模式只填behavior，context/outcome为空；context_behavior填写context和behavior，outcome为空；context_behavior_result三项均填写。
 
             按选择结构写岗位要求建议，不把建议声称为词典官方原文。已有词条的定制描述只属于本标准；新能力初始定义、维度及等级描述待用户确认后可入库。

@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<fragment mode=\"keyword\" keyword=\"两种查看方式共用新建|双视角切换|增加“按岗位查看 / 按标准查看”|暂不关联后仅在按标准查看\"><excerpt top-block-id=\"BEAPdPjoMov3yLxpjBAc4mKvnYg\"><table id=\"BEAPdPjoMov3yLxpjBAc4mKvnYg\"><tbody><tr><td><p id=\"AI0kdpsm5oiPy0xxv2LcfHSDnuO\">F03</p></td><td><p id=\"Q1QedZO2jo9PpFx8gKvcn1Gdnje\">人才标准列表</p></td><td><p id=\"AJJFddI7xoEqinx3ZAIcKBGRnFf\">重构</p></td><td><p id=\"doxcnCtCoUj1stgPKpihT6v04Jb\">增加“按岗位查看 / 按标准查看”；岗位视角沿用原列表并读取该岗位关联的全部标准，标准视角展示该标准关联的全部岗位</p></td><td><p id=\"doxcnqrDowHq4i9UMfHexa2vIrh\">双视角切换、查询与分页；同岗位多标准、同标准多岗位的展示一致；两种入口进入同一标准编辑页</p></td><td><p id=\"LbSBdLri2otcOnxVXDpcioFdnQb\">明确；查询等随列表改造回归</p></td></tr><tr><td><p id=\"WrSGdIBLMoQdScxqp0Rc99EGnme\">F06</p></td><td><p id=\"OKB6dGTLwopPpdxRFXxcToxinyf\">人才标准→新建/编辑</p></td><td><p id=\"GfepdHWq4oQU8qx0GMpcuiT0n6p\">调整</p></td><td><p id=\"doxcn2J1kPezDXgBf1cGIkulSjg\">两种查看方式共用新建、编辑页面；保留基本信息、应用范围分区；名称50字、说明1000字，说明本期仅记录；从岗位新建默认关联当前岗位，可调整关联或暂不关联</p></td><td><p id=\"doxcnGuA2kSb8gIFJWv44mzJBEe\">字段保存回显、长度临界与超限、分区切换内容保留；岗位入口默认关联、增加或移除关联；暂不关联后仅在按标准查看列表展示</p></td><td><p id=\"HKZGdhR66on0s1xP8YMcw5EYnnc\">明确；必填、重名、字数口径见Q19</p></td></tr></tbody></table></excerpt></fragment>",
+      "document_id": "HTUgdK0sooVXjtx8E6lcUZccnKc",
+      "revision_id": 1336
+    }
+  },
+  "_notice": {
+    "skills": {
+      "command": "lark-cli update",
+      "current": "1.0.88",
+      "message": "lark-cli skills 1.0.88 out of sync with binary 1.0.97, run: lark-cli update",
+      "target": "1.0.97"
+    },
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.97",
+      "latest": "1.0.99",
+      "message": "lark-cli 1.0.99 available, current 1.0.97, run: lark-cli update"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 职级管理
+        - generic: 功能设置
+    - main:
+      - heading "职级管理" [level=2]
+      - paragraph: 维护岗位地图使用的职级序列与各等级职级，支持职等设置、行列排序。
+      - button "新增职级序列" [active]
+      - button "编 辑"
+      - table:
+        - rowgroup:
+          - row "等级 研发序列 销售序列":
+            - columnheader "等级":
+              - generic: 等级
+            - columnheader "研发序列":
+              - generic: 研发序列
+              - button:
+              - button:
+            - columnheader "销售序列":
+              - generic: 销售序列
+              - button:
+              - button:
+        - rowgroup:
+          - row "5 G G":
+            - cell "5":
+              - generic: "5"
+            - cell "G":
+              - generic: G
+            - cell "G":
+              - generic: G
+          - row "4 A A":
+            - cell "4":
+              - generic: "4"
+            - cell "A":
+              - generic: A
+            - cell "A":
+              - generic: A
+          - row "3 B B":
+            - cell "3":
+              - generic: "3"
+            - cell "B":
+              - generic: B
+            - cell "B":
+              - generic: B
+          - row "2 C C":
+            - cell "2":
+              - generic: "2"
+            - cell "C":
+              - generic: C
+            - cell "C":
+              - generic: C
+          - row "1 D D":
+            - cell "1":
+              - generic: "1"
+            - cell "D":
+              - generic: D
+            - cell "D":
+              - generic: D
+    - generic: 新增职级序列
+    - button "Close":
+    - strong:
+    - text: 序列名称
+    - textbox "请输入序列名称，如 技术序列"
+    - button "取 消"
+    - button "保 存"

@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<title id=\"KFoSdtRdXoQ91LxYlorccu67nVh\">人才发展 1112 期迭代点</title><p id=\"A7mudS8qIowGn1xqa3CcuggEnah\"></p>",
+      "document_id": "KFoSdtRdXoQ91LxYlorccu67nVh",
+      "revision_id": 8
+    }
+  },
+  "_notice": {
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.99",
+      "latest": "1.0.100",
+      "message": "lark-cli 1.0.100 available, current 1.0.99, run: lark-cli update"
+    }
+  }
+}

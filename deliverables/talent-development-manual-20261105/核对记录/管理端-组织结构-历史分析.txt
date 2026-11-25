@@ -1,0 +1,228 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 组织结构
+        - generic: 关键岗位分析
+        - generic: 岗位管理
+        - generic: 指标库
+    - main:
+      - button "新建分析"
+      - button "历史分析" [active]
+      - button "了解分析方法"
+      - generic: 序列数
+      - generic: "5"
+      - generic: 技术研发序列 · 产品运营序列 · 市场营销序列 · 职能支持序列 · 综合管理序列
+      - generic: 层级数
+      - generic: "5"
+      - generic: 助理/实习生 · 专员/初级 · 主管/中级 · 经理/高级 · 总监/专家
+      - generic: 岗位族（组）
+      - generic: "20"
+      - generic: 覆盖岗位 / 人数
+      - generic: 138 / 441
+      - heading "组织结构分析建议" [level=3]
+      - generic: 2026-10-29 14:21
+      - radio "综合视图" [checked]
+      - generic: 综合视图
+      - radio "岗位评价法视图"
+      - generic: 岗位评价法视图
+      - radio "结构分析法视图"
+      - generic: 结构分析法视图
+      - generic: 技术研发序列
+      - generic: 负责软件架构设计与核心代码开发
+      - generic: 产品运营序列
+      - generic: 负责产品规划策划及全生命周期运营
+      - generic: 市场营销序列
+      - generic: 负责市场拓展销售转化及客户服务
+      - generic: 职能支持序列
+      - generic: 负责人力资源财务行政等后台支持
+      - generic: 综合管理序列
+      - generic: 负责团队战略规划组织管理与决策
+      - generic: 总监/专家
+      - generic: 规划整体战略引领创新承担最终责任
+      - generic: 技术研发序列·总监/专家
+      - generic: 2 岗
+      - generic: 2 人
+      - generic: 暂无岗位
+      - generic: 暂无岗位
+      - generic: 暂无岗位
+      - generic: 综合管理序列·总监/专家
+      - generic: 13 岗
+      - generic: 18 人
+      - generic: 经理/高级
+      - generic: 统筹部门业务制定策略并对结果负责
+      - generic: 技术研发序列·经理/高级
+      - generic: 4 岗
+      - generic: 5 人
+      - generic: 产品运营序列·经理/高级
+      - generic: 8 岗
+      - generic: 9 人
+      - generic: 市场营销序列·经理/高级
+      - generic: 1 岗
+      - generic: 1 人
+      - generic: 职能支持序列·经理/高级
+      - generic: 3 岗
+      - generic: 3 人
+      - generic: 综合管理序列·经理/高级
+      - generic: 7 岗
+      - generic: 13 人
+      - generic: 主管/中级
+      - generic: 负责模块工作协调资源解决复杂问题
+      - generic: 技术研发序列·主管/中级
+      - generic: 8 岗
+      - generic: 47 人
+      - generic: 产品运营序列·主管/中级
+      - generic: 9 岗
+      - generic: 17 人
+      - generic: 市场营销序列·主管/中级
+      - generic: 7 岗
+      - generic: 34 人
+      - generic: 职能支持序列·主管/中级
+      - generic: 8 岗
+      - generic: 12 人
+      - generic: 综合管理序列·主管/中级
+      - generic: 6 岗
+      - generic: 48 人
+      - generic: 专员/初级
+      - generic: 独立执行常规任务具备基本专业技能
+      - generic: 技术研发序列·专员/初级
+      - generic: 11 岗
+      - generic: 20 人
+      - generic: 产品运营序列·专员/初级
+      - generic: 14 岗
+      - generic: 76 人
+      - generic: 市场营销序列·专员/初级
+      - generic: 15 岗
+      - generic: 95 人
+      - generic: 职能支持序列·专员/初级
+      - generic: 12 岗
+      - generic: 25 人
+      - generic: 暂无岗位
+      - generic: 助理/实习生
+      - generic: 在指导下完成基础辅助性工作任务
+      - generic: 技术研发序列·助理/实习生
+      - generic: 2 岗
+      - generic: 6 人
+      - generic: 产品运营序列·助理/实习生
+      - generic: 2 岗
+      - generic: 3 人
+      - generic: 暂无岗位
+      - generic: 职能支持序列·助理/实习生
+      - generic: 5 岗
+      - generic: 6 人
+      - generic: 综合管理序列·助理/实习生
+      - generic: 1 岗
+      - generic: 1 人
+    - generic: 历史分析
+    - button "Close":
+    - generic: 组织结构分析建议
+    - generic: 生效中
+    - generic: 操作人
+    - generic: 刘金富
+    - generic: 创建于
+    - generic: 2026-10-29
+    - generic: 规格
+    - generic: 5 序列 × 5 层级 · 25 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 刘金富
+    - generic: 创建于
+    - generic: 2026-10-29
+    - generic: 规格
+    - generic: 5 序列 × 5 层级 · 25 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 王瑜
+    - generic: 创建于
+    - generic: 2026-10-27
+    - generic: 规格
+    - generic: 3 序列 × 3 层级 · 9 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 刘金富
+    - generic: 创建于
+    - generic: 2026-10-22
+    - generic: 规格
+    - generic: 5 序列 × 5 层级 · 25 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 谢军兴
+    - generic: 创建于
+    - generic: 2026-10-20
+    - generic: 规格
+    - generic: 3 序列 × 3 层级 · 9 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 孔云芳
+    - generic: 创建于
+    - generic: 2026-10-20
+    - generic: 规格
+    - generic: 3 序列 × 3 层级 · 9 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 谢军兴
+    - generic: 创建于
+    - generic: 2026-10-19
+    - generic: 规格
+    - generic: 4 序列 × 4 层级 · 16 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 张俊培
+    - generic: 创建于
+    - generic: 2026-10-16
+    - generic: 规格
+    - generic: 3 序列 × 3 层级 · 9 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 高鹏
+    - generic: 创建于
+    - generic: 2026-09-28
+    - generic: 规格
+    - generic: 5 序列 × 5 层级 · 25 岗位族
+    - generic: 组织结构分析建议
+    - generic: 已存档
+    - generic: 操作人
+    - generic: 刘金富
+    - generic: 创建于
+    - generic: 2026-09-18
+    - generic: 规格
+    - generic: 3 序列 × 4 层级 · 12 岗位族
+    - button "展示更多"

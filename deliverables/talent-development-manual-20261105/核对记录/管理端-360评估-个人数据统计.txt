@@ -1,0 +1,214 @@
+- generic: 人力行政部 胜任力测评
+- button "复制链接"
+- generic: 参与情况
+- generic: 个人数据
+- generic: 组织数据
+- generic: 无效评估数据
+- generic: "评估对象:"
+- textbox "请输入"
+- generic: "对象部门:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "对象岗位:"
+- combobox:
+  - 'generic "icon: down"':
+- button "查 询"
+- button "重 置"
+- button "导 出 ":
+  - text: 导 出
+  - generic: 
+- table:
+  - rowgroup:
+    - row "识人用人能力 绩效导向能力 员工关系管理能力 总分":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "识人用人能力":
+        - generic: 识人用人能力
+      - columnheader "绩效导向能力":
+        - generic: 绩效导向能力
+      - columnheader "员工关系管理能力":
+        - generic: 员工关系管理能力
+      - columnheader "总分":
+        - generic: 总分
+      - columnheader
+- table:
+  - rowgroup:
+    - row "2.5 2.1 1.3 1.97":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "2.5":
+        - generic: "2.5"
+      - cell "2.1":
+        - generic: "2.1"
+      - cell "1.3":
+        - generic: "1.3"
+      - cell "1.97":
+        - generic: "1.97"
+      - cell
+    - row "1.6 1.4 1.2 1.4":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "1.6":
+        - generic: "1.6"
+      - cell "1.4":
+        - generic: "1.4"
+      - cell "1.2":
+        - generic: "1.2"
+      - cell "1.4":
+        - generic: "1.4"
+      - cell
+    - row "1.2 1.8 0.8 1.27":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "1.2":
+        - generic: "1.2"
+      - cell "1.8":
+        - generic: "1.8"
+      - cell "0.8":
+        - generic: "0.8"
+      - cell "1.27":
+        - generic: "1.27"
+      - cell
+- table:
+  - rowgroup:
+    - row "评估对象 工号 部门 岗位":
+      - columnheader:
+        - checkbox
+      - columnheader "评估对象":
+        - generic: 评估对象
+      - columnheader "工号":
+        - generic: 工号
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "岗位":
+        - generic: 岗位
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+- table:
+  - rowgroup:
+    - row "陈梦蝶 4131 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陈梦蝶":
+        - generic: 陈梦蝶
+      - cell "4131":
+        - generic: "4131"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "陆梦瑶 4433 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陆梦瑶":
+        - generic: 陆梦瑶
+      - cell "4433":
+        - generic: "4433"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "姚丽君 4132 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "姚丽君":
+        - generic: 姚丽君
+      - cell "4132":
+        - generic: "4132"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+- table:
+  - rowgroup:
+    - row "操作":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "查看":
+        - button "查看"
+    - row "查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "查看":
+        - button "查看"
+    - row "查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "查看":
+        - button "查看"
+- button "" [disabled]:
+  - generic: 
+- list:
+  - listitem: "1"
+- button "" [disabled]:
+  - generic: 
+- textbox "请选择": 10条/页
+- generic: 
+- text: 前往
+- spinbutton: "1"
+- text: 页

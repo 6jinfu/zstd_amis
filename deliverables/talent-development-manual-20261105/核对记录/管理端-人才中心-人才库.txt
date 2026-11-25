@@ -1,0 +1,301 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 人才库
+        - generic: 人才池
+    - main:
+      - generic: 所属部门
+      - checkbox "包含子类" [checked]
+      - generic: 包含子类
+      - textbox "搜索部门"
+      - generic: 界面焕新颜
+      - generic: 总部
+      - generic: 合作伙伴
+      - button "收起左侧树":
+      - generic: "姓名 :"
+      - textbox "搜索姓名 / 工号"
+      - button "查 询"
+      - button "重 置"
+      - button "对比（0 / 5）" [disabled]
+      - table:
+        - rowgroup:
+          - row "姓名 性别 学历 现岗位 部门 关键岗位 人才分类 绩效 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "姓名":
+              - generic: 姓名
+            - columnheader "性别":
+              - generic: 性别
+            - columnheader "学历":
+              - generic: 学历
+            - columnheader "现岗位":
+              - generic: 现岗位
+            - columnheader "部门":
+              - generic: 部门
+            - columnheader "关键岗位":
+              - generic: 关键岗位
+            - columnheader "人才分类":
+              - generic: 人才分类
+            - columnheader "绩效":
+              - generic: 绩效
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "吴焰基 - - IOS开发工程师 研发一部 - - 低 查看":
+            - cell:
+              - checkbox
+            - cell "吴焰基":
+              - button "吴焰基"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "IOS开发工程师":
+              - generic: IOS开发工程师
+            - cell "研发一部":
+              - generic: 研发一部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "低":
+              - generic: 低
+            - cell "查看":
+              - button "查看"
+          - row "樊峪东 - - UI设计师 产品运营部 - 高潜 高 查看":
+            - cell:
+              - checkbox
+            - cell "樊峪东":
+              - button "樊峪东"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "UI设计师":
+              - generic: UI设计师
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "高潜":
+              - generic: 高潜
+            - cell "高":
+              - generic: 高
+            - cell "查看":
+              - button "查看"
+          - row "王翠苹 - - 平台运营部负责人 平台运营部 关键 - - 查看":
+            - cell:
+              - checkbox
+            - cell "王翠苹":
+              - button "王翠苹"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "平台运营部负责人":
+              - generic: 平台运营部负责人
+            - cell "平台运营部":
+              - generic: 平台运营部
+            - cell "关键":
+              - generic: 关键
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "查看":
+              - button "查看"
+          - row "张利国 - - - C1-公共服务TBU - - - 查看":
+            - cell:
+              - checkbox
+            - cell "张利国":
+              - button "张利国"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "C1-公共服务TBU":
+              - generic: C1-公共服务TBU
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "查看":
+              - button "查看"
+          - row "周尊婵 - - 管理者岗 产品运营部 - - - 查看":
+            - cell:
+              - checkbox
+            - cell "周尊婵":
+              - button "周尊婵"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "管理者岗":
+              - generic: 管理者岗
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "查看":
+              - button "查看"
+          - row "张静琼 - - 测试工程师 运营支持部 - - 高 查看":
+            - cell:
+              - checkbox
+            - cell "张静琼":
+              - button "张静琼"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "测试工程师":
+              - generic: 测试工程师
+            - cell "运营支持部":
+              - generic: 运营支持部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "高":
+              - generic: 高
+            - cell "查看":
+              - button "查看"
+          - row "刘涛 - - - 媒体与品牌运营部 - - - 查看":
+            - cell:
+              - checkbox
+            - cell "刘涛":
+              - button "刘涛"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "媒体与品牌运营部":
+              - generic: 媒体与品牌运营部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "查看":
+              - button "查看"
+          - row "王海洋 - - Java开发工程师 研发二部 - 核心 高 查看":
+            - cell:
+              - checkbox
+            - cell "王海洋":
+              - button "王海洋"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "Java开发工程师":
+              - generic: Java开发工程师
+            - cell "研发二部":
+              - generic: 研发二部
+            - cell "-":
+              - generic: "-"
+            - cell "核心":
+              - generic: 核心
+            - cell "高":
+              - generic: 高
+            - cell "查看":
+              - button "查看"
+          - row "魏燕燕 - - 产品经理 产品运营部 - 胜任 中 查看":
+            - cell:
+              - checkbox
+            - cell "魏燕燕":
+              - button "魏燕燕"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "产品经理":
+              - generic: 产品经理
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "胜任":
+              - generic: 胜任
+            - cell "中":
+              - generic: 中
+            - cell "查看":
+              - button "查看"
+          - row "欧阳爱璐 - - 结算经理 财务部 关键 - - 查看":
+            - cell:
+              - checkbox
+            - cell "欧阳爱璐":
+              - button "欧阳爱璐"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "结算经理":
+              - generic: 结算经理
+            - cell "财务部":
+              - generic: 财务部
+            - cell "关键":
+              - generic: 关键
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "查看":
+              - button "查看"
+      - generic: 共 66 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - listitem: "3"
+        - listitem: "4"
+        - listitem: "5"
+        - listitem: "6"
+        - listitem: "7"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

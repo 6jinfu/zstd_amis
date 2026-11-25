@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "document": {
+      "content": "<fragment mode=\"section\" requested-start=\"FYuIdbUX2otyiOx2ibyczQR7nke\"><h2 id=\"FYuIdbUX2otyiOx2ibyczQR7nke\">人才标准</h2><h3 id=\"OSnfdgQNFo0UPgxAYvqcOJtxnLe\">人才标准列表</h3><p id=\"RvTBdhN98oAbUaxgkcEcodG0nVq\">人才标准页面重构，由之前关键岗位、岗位 list 改成人才标准列表</p><p id=\"WPbndVsqJoaACTxK494c9kI1nEh\">人才标准默认类别</p><p id=\"Irtvd06faoeK2nxebaWcIRT5nbh\" text-indent=\"1\">通用标准、岗位序列标准、职级标准、专项标准</p><p id=\"DxsZdc4FJolyucxFFXjcqUvMnSb\">老数据兼容：</p><p id=\"CbvLdIaU0oAzXCxWAcxcxnzznee\"><b><span background-color=\"rgba(255,246,122,0.8)\" text-color=\"rgb(216,57,49)\">之前一岗一标的数据默认呈现到岗位序列标准中</span></b></p><img id=\"X5UtdcPpEoEmFUxWmYocfrNEn7d\" name=\"mac_1793167537083.png\" alt=\"图片展示的是人才标准列表页面。页面左侧有“人才标准”“评价中心”等导航栏。右侧上方有“搜索标准名称”“搜索标准类型”输入框及“搜索”“重置”按钮。中部显示人才标准列表，包括通用标准、岗位序列标准、职级标准、专项标准等类别，如高级算法工程师标准、销售经理标准等，每条标准有“编辑”“学习方案”“复制”“删除”操作选项。该图与文档中“人才标准列表”内容对应，直观呈现了人才标准页面重构后的样式。\" height=\"961\" mime=\"image/png\" scale=\"1.000000\" src=\"YrbYb4d9wowOtHxDJNGcUjnunvf\" width=\"1389\"/><h3 id=\"SlQcdWnY1oCMgIxXlWUcCxK9n1e\">人才标准新建</h3><h4 id=\"XRuUdbgVBolSmixmug0cX2i6nDg\">人才标准基本信息</h4><p id=\"GSxTd6YUqoDMVJxkD3IcKBecngd\">增加基本信息与应用范围 tab，标准和岗位由一对一的关系改造成多对多的关系。</p><p id=\"InPXdoxXaoNsKtxTSbecYgo0nCf\">标准名称：50字</p><p id=\"TTWmdjmWAogM6Fxg1g8cNJiknPe\">标准说明：1000字，暂时也没有体现的地方，仅做记录</p><img id=\"O7C0d7ybzoxIgmxWsCicSRb1nad\" name=\"image.png\" alt=\"图片展示的是人才标准编辑页面。页面左侧有“人才标准”“人才中心”“发展中心”等导航栏，其中“人才标准”被红色框突出显示。右侧是人才标准编辑区域，包含基本信息、关键岗位分析、人才画像、指标库等板块，当前处于“基本信息”板块，可输入标准名称、类别、标准说明等内容。该图片与文档中“进入标准编辑页”内容相关，直观呈现了编辑人才标准时的界面情况。\" height=\"926\" mime=\"image/png\" scale=\"1.000000\" src=\"EqWQb0N0Wo2SL0xZg7vcsxvQn8g\" width=\"1356\"/><h4 id=\"EGu4dYpqOoSZe0xRoCRcprNGnsc\">人才标准应用范围</h4><p id=\"TXhid1assoOOrWxJpZTcxqjpn6n\">暂时有指定岗位和暂不关联两个选项</p><ul><li id=\"DXy9dgwYYoAw3Kxtu10cwgDnnZ3\">指定岗位，可以选择1 个或多个岗位，上限 100</li><li id=\"Xsb6d2J8zopKN9xAWWZc2EMgnO1\">暂不关联：仅建立标准不关联岗位</li></ul><img id=\"ZhOCdSDyYoOfvmxXr7GcELZKnsc\" name=\"mac_1793167683283.png\" alt=\"图片展示的是人才标准应用范围设置界面。左侧导航栏有组织结构、人才中心等选项，当前选中“人才标准”。右侧显示“新建人才标准”页面，应用范围处有“指定岗位”“按条件匹配”“暂不关联”三个选项，其中“暂不关联”被蓝色边框突出显示。该图片与文档中“人才标准应用范围”部分内容对应，直观呈现了应用范围设置的操作界面及暂不关联选项。\" height=\"956\" mime=\"image/png\" scale=\"1.000000\" src=\"EejhbE9DIoDySnxQUeBcern3ndg\" width=\"1368\"/><h3 id=\"NmDsdZQSKoM0abxAb31cGOxCnff\"><span background-color=\"rgba(255,246,122,0.8)\" text-color=\"rgb(216,57,49)\">人才标准 AI 帮建（待定）</span></h3><p id=\"Xz6idAntMonyYNxSrg4cuWIQnB8\">详见工作流</p><img id=\"B8EsdFcvbo8uEMxXPZBcCaCqnmh\" name=\"mac_1793167945634.png\" alt=\"该图片为管理端人才标准相关的AI帮建功能页面，页面顶部显示“你好！我是AI帮建助手~”，下方列出了企业培训平台的初级销售经理能力建模、个人职发展能力建模、入职三年的产品经理的能力建模三类可选的AI生成选项，页面底部设有“请选择岗位”的下拉选择框，该页面对应文档中人才标准AI帮建的相关内容，用于协助完成人才标准的创建相关操作。\" height=\"955\" mime=\"image/png\" scale=\"1.000000\" src=\"X3rKb1rG1ox1uLxfcOeciusin0e\" width=\"1371\"/><h4 id=\"S4NedTmh9oZJxIxWXvkcNneAnwe\">人才标准修改</h4><ul><li id=\"VQiJdPR6ooTqtoxZpqdcOwHonOe\">此处的单个标记有相应的规范，建议直接完成相关功能</li><li id=\"QfCKdptOFoOSxcxvpJLcZLO3nHf\">修改建模信息按钮去掉——因为触发 token 上限了，所以暂时没改设计</li></ul><img id=\"BBIxdSO2UogCevxGCZEcZTernIc\" name=\"mac_1793168093393.png\" alt=\"图片展示的是人才标准编辑页面。左侧为组织结构导航栏，可选择不同类别。右侧是人才标准编辑区域，有“人才标准建模”和“人才标准预览”两个部分。建模部分有“编辑职责任务”“编辑经验经历”“编辑能力要求”等选项，当前“编辑经验经历”被红色框突出显示。预览部分展示了职责任务、经验经历、能力要求等内容。该图片与上下文介绍的人才标准修改及编辑流程相关，直观呈现了编辑页面的界面和部分功能选项。\" height=\"966\" mime=\"image/png\" scale=\"1.000000\" src=\"ShXebuGmook93Bxw3bacFlcvnYe\" width=\"1391\"/><h4 id=\"B1Rxd40PqoG9ruxYVUlcrSdynTf\">生成草稿后</h4><p id=\"O7Igd0PeLoWYsJxJtS7cGPxlnQg\">生成草稿后，点击确认或点击带入新建页均进入人才标准编辑页面</p><img id=\"Xks0dkW94oIs8yx2OVYc40ZLnUb\" name=\"mac_1793168189226.png\" alt=\"图片展示的是人才标准编辑页面。左侧为导航栏，有人才标准、人才标准应用范围等选项。中间上方有“人才标准帮建”“标准待确认”按钮，下方是标准名称、标准说明等编辑区域。右侧是人才标准预览，有广度分析、深度分析等内容。页面底部有“暂不关联岗位”“已选择暂不关联岗位”提示，以及“确认”“带入新建页”按钮，其中“确认”按钮被红色框突出显示。该图与上下文介绍的人才标准修改及生成草稿后进入编辑页面的内容相关。\" height=\"929\" mime=\"image/png\" scale=\"1.000000\" src=\"XxZBbvuA5onfJXx4In0cM98enQe\" width=\"1371\"/><h4 id=\"GO76dtdWHoHO10xj9V0cZoignub\">进入标准编辑页</h4><img id=\"SzkrdF0dQodLFZxEDp6c7pjXnAc\" name=\"mac_1793168236270.png\" alt=\"这是管理端“新建人才标准”页面，处于人才标准相关功能流程的标准编辑环节。页面左侧是功能导航栏，包含人才标准、评鉴中心、发展中心、人才中心等选项，当前选中“人才标准”，下方呈现“基本信息”“应用范围”等人才标准的相关设置入口。页面右侧为核心编辑区域，标题标注“新建人才标准”，包含需填写的标准名称、标准说明，以及已选的“类别·通用标准”“人才标准草稿”等信息，页面右下角有取消、保存的操作按钮，右上角还有“AI生成内容确认”的提示，符合人才标准编辑的操作场景。\" height=\"945\" mime=\"image/png\" scale=\"1.000000\" src=\"WfFQbN7svorPmQxcwFBcdnRcnBf\" width=\"1363\"/></fragment>",
+      "document_id": "HTUgdK0sooVXjtx8E6lcUZccnKc",
+      "revision_id": 1329
+    }
+  },
+  "_notice": {
+    "skills": {
+      "command": "lark-cli update",
+      "current": "1.0.88",
+      "message": "lark-cli skills 1.0.88 out of sync with binary 1.0.97, run: lark-cli update",
+      "target": "1.0.97"
+    },
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.97",
+      "latest": "1.0.99",
+      "message": "lark-cli 1.0.99 available, current 1.0.97, run: lark-cli update"
+    }
+  }
+}

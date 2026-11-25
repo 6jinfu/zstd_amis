@@ -1,0 +1,91 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - main:
+      - generic: 职级序列
+      - textbox "输入关键字搜索"
+      - generic: 研发序列
+      - generic: 销售序列
+      - button "收起左侧树":
+      - button "新增岗位地图"
+      - textbox "请输入岗位名称"
+      - button "搜 索"
+      - generic: G
+      - generic: 研发总监
+      - generic: 总裁特助
+      - generic: 总工程师
+      - generic: TBU销售总监
+      - generic: 技术总监
+      - generic: A
+      - generic: Java架构师
+      - generic: 证券事务代表
+      - generic: 主任工程师
+      - generic: 主管
+      - generic: 研发组长
+      - generic: B
+      - generic: 研发经理
+      - generic: 培训项目经理
+      - generic: 高级工程师
+      - generic: 销售专员
+      - generic: "+1"
+      - generic: Java开发工程师
+      - generic: C
+      - generic: 研发工程师
+      - generic: 人事行政
+      - generic: 工程师
+      - button "+":
+        - generic: +
+      - generic: 初级Java开发工程师
+      - generic: D
+      - generic: Java实习生
+      - generic: 内容策划主管
+      - generic: "+1"
+      - generic: 助理工程师
+      - button "+":
+        - generic: +
+      - generic: 实习生
+      - generic: 职级/通道
+      - generic: 上海研发序列
+      - button:
+      - button:
+      - generic: 广州研发序列
+      - button:
+      - button:
+      - generic: 芯片研发序列
+      - button:
+      - button:
+      - generic: TBU
+      - button:
+      - button:
+      - generic: 郑州研发
+      - button:
+      - button:

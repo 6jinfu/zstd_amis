@@ -1,0 +1,48 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "组织结构分析" [level=1]
+      - generic: 生成新版本草稿 · 确认生效后替换当前生效版，旧版自动存档
+    - main:
+      - generic: 组织范围
+      - generic: "2"
+      - generic: 说明材料
+      - generic: "3"
+      - generic: 生成
+      - text: . . . .
+      - paragraph: 点击或拖拽上传职责说明书 / 组织文件（doc · pdf · xls）
+      - paragraph: 最多 10 个文件，单个不超过 100MB
+      - button "点击或拖拽上传职责说明书 / 组织文件（doc · pdf · xls） 最多 10 个文件，单个不超过 100MB"
+      - button "上一步"
+      - button "下一步" [active]

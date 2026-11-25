@@ -1,0 +1,65 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "新增盘点项目" [level=1]
+    - main:
+      - navigation:
+        - generic: 基本信息
+        - generic: 盘点人员
+        - generic: 盘点活动
+        - generic: 盘点规则设置
+      - heading "人才盘点基本信息" [level=3]
+      - generic: 带 * 为必填项
+      - strong:
+      - text: 项目名称
+      - textbox
+      - generic: 0/200
+      - strong:
+      - text: 盘点类别
+      - textbox "请选择"
+      - strong:
+      - text: 计划开始时间
+      - textbox "请选择日期"
+      - strong:
+      - text: 计划结束时间
+      - textbox "请选择日期"
+      - generic: 盘点目标
+      - textbox
+      - generic: 0/2000
+      - switch
+      - generic: 自动结束项目
+      - generic: 到达计划结束时间后自动锁定盘点结果和校准任务
+      - button "取 消"
+      - button "保存草稿"
+      - button "下一步"

@@ -1,0 +1,13 @@
+{
+  "status": "waiting_for_user_review",
+  "draft": "新版人才发展操作手册_待确认.md",
+  "human_checks": "人工核验清单.md",
+  "characters": 10276,
+  "images": 52,
+  "captions": 52,
+  "lark_document": "https://shuiiiiqqq.feishu.cn/docx/MucfdKWKpodXFWxdoDhc86Usnbe",
+  "original_sha256": "a481c390c565ecfbf05ec8a4eb0e7a3cb1a51a952d4a00f952f0b7e77ce4c356",
+  "formal_text_revision_applied": false,
+  "lark_text_revision_applied": false,
+  "picture_updates_applied": true
+}

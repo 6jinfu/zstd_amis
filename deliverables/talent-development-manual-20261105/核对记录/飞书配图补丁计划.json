@@ -1,0 +1,74 @@
+[
+  {
+    "figure": "1.4-2",
+    "file": "管理端-岗位标准-选择能力.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 1.4-2　选择能力：按名称、类别和等级核对候选指标",
+    "keyword": "图 1.4-2",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/01.xml"
+  },
+  {
+    "figure": "1.5-1",
+    "file": "管理端-学习方案-添加课程.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 1.5-1　添加课程：查询课程并设置必修或选修",
+    "keyword": "图 1.5-1",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/02.xml"
+  },
+  {
+    "figure": "1.5-2",
+    "file": "管理端-学习方案-添加任务.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 1.5-2　添加任务：说明行动计划与完成标准",
+    "keyword": "图 1.5-2",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/03.xml"
+  },
+  {
+    "figure": "1.5-3",
+    "file": "管理端-学习方案-资源配置.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 1.5-3　学习方案：检查课程、任务和项目后保存",
+    "keyword": "图 1.5-3",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/04.xml"
+  },
+  {
+    "figure": "1.6-2",
+    "file": "管理端-指标库-新建能力.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 1.6-2　新建能力：维护定义、分级描述和行为表现",
+    "keyword": "图 1.6-2",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/05.xml"
+  },
+  {
+    "figure": "1.6-2（续）",
+    "file": "管理端-指标库-新建能力-等级配置.jpg",
+    "kind": "insert",
+    "anchor_caption": "图 1.6-2　新建能力：维护定义、分级描述和行为表现",
+    "keyword": "图 1.6-2",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/06.xml"
+  },
+  {
+    "figure": "2.1-6",
+    "file": "管理端-360评估-项目设置.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 2.1-6　项目设置：核对开放方式、关联问卷和报告可见设置",
+    "keyword": "图 2.1-6",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/07.xml"
+  },
+  {
+    "figure": "2.1-6（续）",
+    "file": "管理端-360评估-项目设置-报告与关联项目.jpg",
+    "kind": "insert",
+    "anchor_caption": "图 2.1-6　项目设置：核对开放方式、关联问卷和报告可见设置",
+    "keyword": "图 2.1-6",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/08.xml"
+  },
+  {
+    "figure": "2.2-5",
+    "file": "管理端-人才盘点-规则设置.jpg",
+    "kind": "replace",
+    "anchor_caption": "图 2.2-5　盘点规则：配置能力分档、绩效轴与宫格名称",
+    "keyword": "图 2.2-5",
+    "content_path": "deliverables/talent-development-manual-20261105/核对记录/飞书配图补丁/09.xml"
+  }
+]

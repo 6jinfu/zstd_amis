@@ -1,0 +1,191 @@
+- complementary:
+  - generic: 4D
+  - navigation:
+    - button "BD":
+      - generic: BD
+    - button "OD":
+      - generic: OD
+    - button "TD":
+      - generic: TD
+    - button "LD":
+      - generic: LD
+    - button "全部应用":
+      - generic: 全部应用
+  - 'button "图标: menu-unfold"':
+    - 'generic "图标: menu-unfold"':
+- main:
+  - list:
+    - paragraph: 人才发展
+    - 'generic "图标: close"':
+  - textbox "搜索应用"
+  - 'generic "图标: swap"':
+  - link "切换学员":
+    - /url: /rtr/html/desktop/desktop.index.do
+  - generic: 刘金富
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "销售部经理" [level=1]
+      - generic: 1424 · 岗位
+      - generic: 关键岗位
+    - main:
+      - navigation:
+        - generic: 岗位信息
+        - generic: 岗位标准
+        - generic: 学习方案
+      - generic: "3"
+      - text: 学习方案
+      - button "添加课程"
+      - button "添加任务" [active]
+      - button "添加学习项目":
+        - text: 添加学习项目
+      - table:
+        - rowgroup:
+          - row "类型 名称 学习类型 状态 操作":
+            - columnheader
+            - columnheader:
+              - checkbox
+            - columnheader "类型":
+              - generic: 类型
+            - columnheader "名称":
+              - generic: 名称
+            - columnheader "学习类型":
+              - generic: 学习类型
+            - columnheader "状态":
+              - generic: 状态
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "线上课程 扣子2.0入门与智能体开发实战 必修 - 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "线上课程":
+              - generic: 线上课程
+            - cell "扣子2.0入门与智能体开发实战":
+              - generic: 扣子2.0入门与智能体开发实战
+            - cell "必修":
+              - generic "必修":
+                - textbox
+                - generic: 必修
+            - cell "-":
+              - generic: "-"
+            - cell "删除":
+              - button "删除"
+          - row "线上课程 可编程序控制器技术的应用 必修 - 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "线上课程":
+              - generic: 线上课程
+            - cell "可编程序控制器技术的应用":
+              - generic: 可编程序控制器技术的应用
+            - cell "必修":
+              - generic "必修":
+                - textbox
+                - generic: 必修
+            - cell "-":
+              - generic: "-"
+            - cell "删除":
+              - button "删除"
+          - row "线上课程 透视设备生命线：数据采集掘金与治理破局之道 必修 - 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "线上课程":
+              - generic: 线上课程
+            - cell "透视设备生命线：数据采集掘金与治理破局之道":
+              - generic: 透视设备生命线：数据采集掘金与治理破局之道
+            - cell "必修":
+              - generic "必修":
+                - textbox
+                - generic: 必修
+            - cell "-":
+              - generic: "-"
+            - cell "删除":
+              - button "删除"
+          - row "线上课程 指标为锚，智能驭变：构建卓越设备管理目标体系 必修 - 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "线上课程":
+              - generic: 线上课程
+            - cell "指标为锚，智能驭变：构建卓越设备管理目标体系":
+              - generic: 指标为锚，智能驭变：构建卓越设备管理目标体系
+            - cell "必修":
+              - generic "必修":
+                - textbox
+                - generic: 必修
+            - cell "-":
+              - generic: "-"
+            - cell "删除":
+              - button "删除"
+          - row "项目 测试 - 进行中 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "项目":
+              - generic: 项目
+            - cell "测试":
+              - generic: 测试
+            - cell "-":
+              - generic: "-"
+            - cell "进行中":
+              - generic: 进行中
+            - cell "删除":
+              - button "删除"
+          - row "项目 122 - 草稿 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "项目":
+              - generic: 项目
+            - cell "122":
+              - generic: "122"
+            - cell "-":
+              - generic: "-"
+            - cell "草稿":
+              - generic: 草稿
+            - cell "删除":
+              - button "删除"
+          - row "任务 测试 - - 编辑 删除":
+            - cell:
+            - cell:
+              - checkbox
+            - cell "任务":
+              - generic: 任务
+            - cell "测试":
+              - generic: 测试
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "编辑 删除":
+              - button "编辑"
+              - button "删除"
+      - button "取 消"
+      - button "保 存"
+    - generic: 添加任务
+    - button "Close":
+    - strong:
+    - text: 任务名称
+    - textbox "请输入任务名称"
+    - generic: 0/50
+    - generic: 行动计划
+    - textbox "请输入行动计划"
+    - generic: 0/2000
+    - generic: 完成标准
+    - textbox "请输入完成标准"
+    - generic: 0/2000
+    - button "取 消"
+    - button "确 定"

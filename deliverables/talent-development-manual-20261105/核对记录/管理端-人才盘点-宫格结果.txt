@@ -1,0 +1,305 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点 2026 年度产品部" [level=1]
+      - generic: 年度盘点 · 2026-09-14 ~ 2026-09-18
+      - generic: 进行中
+      - button "结束项目"
+    - main:
+      - navigation:
+        - generic: 概览
+        - generic: 盘点活动
+        - generic: 盘点结果
+        - generic: 盘点校准
+        - generic: 人才池
+      - text: 人才九宫格
+      - generic: 点击宫格按落位筛选人员
+      - generic: 能力区间
+      - generic: 高
+      - generic: 前 20%
+      - generic: 中高
+      - generic: 60%–80%
+      - generic: 中低
+      - generic: 40%–60%
+      - generic: 低
+      - generic: 0%–40%
+      - generic: 绩效
+      - generic: 高
+      - generic: 中
+      - generic: 低
+      - radio
+      - generic: 中坚
+      - generic: "0"
+      - radio
+      - generic: 高绩效 · 中低能力
+      - generic: "0"
+      - radio
+      - generic: 高绩效 · 中高能力
+      - generic: "0"
+      - radio
+      - generic: 高潜
+      - generic: "4"
+      - radio
+      - generic: 胜任
+      - generic: "0"
+      - radio
+      - generic: 中绩效 · 中低能力
+      - generic: "0"
+      - radio
+      - generic: 中绩效 · 中高能力
+      - generic: "0"
+      - radio
+      - generic: 骨干
+      - generic: "3"
+      - radio
+      - generic: 待发展
+      - generic: "0"
+      - radio
+      - generic: 低绩效 · 中低能力
+      - generic: "0"
+      - radio
+      - generic: 低绩效 · 中高能力
+      - generic: "0"
+      - radio
+      - generic: 胜任
+      - generic: "1"
+      - generic: 低
+      - generic: 中低
+      - generic: 中高
+      - generic: 高
+      - generic: 能力
+      - generic: 人员清单
+      - textbox "请输入工号/姓名"
+      - button "查 询"
+      - table:
+        - rowgroup:
+          - row "姓名 部门 岗位 能力得分 能力 绩效 落位 操作":
+            - columnheader "姓名":
+              - generic: 姓名
+            - columnheader "部门":
+              - generic: 部门
+            - columnheader "岗位":
+              - generic: 岗位
+            - columnheader "能力得分":
+              - generic: 能力得分
+            - columnheader "能力":
+              - generic: 能力
+            - columnheader "绩效":
+              - generic: 绩效
+            - columnheader "落位":
+              - generic: 落位
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "周尊婵 产品运营部 管理者岗 - - 高 高潜 查看人才":
+            - cell "周尊婵":
+              - generic: 周尊婵
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "管理者岗":
+              - generic: 管理者岗
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "高":
+              - generic: 高
+            - cell "高潜":
+              - generic: 高潜
+            - cell "查看人才":
+              - button "查看人才"
+          - row "testAccess 产品运营部 - - - 低 - 查看人才":
+            - cell "testAccess":
+              - generic: testAccess
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "低":
+              - generic: 低
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "jzh1 产品运营部 - - - 低 - 查看人才":
+            - cell "jzh1":
+              - generic: jzh1
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "低":
+              - generic: 低
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "郑星孺 产品运营部 产品运营实习生 - - 中 - 查看人才":
+            - cell "郑星孺":
+              - generic: 郑星孺
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "产品运营实习生":
+              - generic: 产品运营实习生
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "中":
+              - generic: 中
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "唐佳宁 产品运营部 AI产品实习生 - - 低 - 查看人才":
+            - cell "唐佳宁":
+              - generic: 唐佳宁
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "AI产品实习生":
+              - generic: AI产品实习生
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "低":
+              - generic: 低
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "jzh 产品运营部 - - - 中 - 查看人才":
+            - cell "jzh":
+              - generic: jzh
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "中":
+              - generic: 中
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "刘金富 产品运营部 产品经理 - - 低 - 查看人才":
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "产品经理":
+              - generic: 产品经理
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "低":
+              - generic: 低
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "高源 产品运营部 AI高级产品经理 - - 中 - 查看人才":
+            - cell "高源":
+              - generic: 高源
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "AI高级产品经理":
+              - generic: AI高级产品经理
+            - cell "-":
+              - generic: "-"
+            - cell "-":
+              - generic: "-"
+            - cell "中":
+              - generic: 中
+            - cell "-":
+              - generic: "-"
+            - cell "查看人才":
+              - button "查看人才"
+          - row "江志海 产品运营部 产品经理 4.33 高 中 高潜 查看人才":
+            - cell "江志海":
+              - generic: 江志海
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "产品经理":
+              - generic: 产品经理
+            - cell "4.33":
+              - generic: "4.33"
+            - cell "高":
+              - generic: 高
+            - cell "中":
+              - generic: 中
+            - cell "高潜":
+              - generic: 高潜
+            - cell "查看人才":
+              - button "查看人才"
+          - row "魏燕燕 产品运营部 产品经理 4.33 高 中 骨干 查看人才":
+            - cell "魏燕燕":
+              - generic: 魏燕燕
+            - cell "产品运营部":
+              - generic: 产品运营部
+            - cell "产品经理":
+              - generic: 产品经理
+            - cell "4.33":
+              - generic: "4.33"
+            - cell "高":
+              - generic: 高
+            - cell "中":
+              - generic: 中
+            - cell "骨干":
+              - generic: 骨干
+            - cell "查看人才":
+              - button "查看人才"
+      - generic: 共 15 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

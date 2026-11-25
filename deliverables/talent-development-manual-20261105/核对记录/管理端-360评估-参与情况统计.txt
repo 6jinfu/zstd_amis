@@ -1,0 +1,544 @@
+- generic: 人力行政部 胜任力测评
+- button "复制链接"
+- generic: 参与情况
+- generic: 个人数据
+- generic: 组织数据
+- generic: 无效评估数据
+- generic: 问卷填写情况
+- generic: 未填写
+- generic: 已填写
+- table:
+  - rowgroup:
+    - columnheader
+    - columnheader "自评"
+    - columnheader "上级"
+  - row "下发问卷总数 3 3":
+    - rowheader "下发问卷总数"
+    - cell "3"
+    - cell "3"
+  - row "已填写问卷数量 1 3":
+    - rowheader "已填写问卷数量"
+    - cell "1"
+    - cell "3"
+  - row "未填写问卷数量 2 0":
+    - rowheader "未填写问卷数量"
+    - cell "2"
+    - cell "0"
+- generic: "评估对象:"
+- textbox "请输入"
+- generic: "对象部门:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "对象岗位:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "评估角色:"
+- textbox "请选择": 全部
+- generic: 
+- button "查 询"
+- button "重 置"
+- generic: 
+- generic: "状态:"
+- textbox "请选择": 全部
+- generic: 
+- generic: "评估人:"
+- textbox "请输入"
+- generic: "评估人部门:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "评估人岗位:"
+- combobox:
+  - 'generic "icon: down"':
+- generic: "耗时(分):"
+- textbox
+- text: "-"
+- textbox
+- generic: "极端选项占比:"
+- textbox
+- generic: "%"
+- text: "-"
+- textbox
+- generic: "%"
+- button "导出 ":
+  - text: 导出
+  - generic: 
+- button "标记 ":
+  - text: 标记
+  - generic: 
+- button "提醒参加 ":
+  - text: 提醒参加
+  - generic: 
+- button "重新下发"
+- generic:         
+- table:
+  - rowgroup:
+    - row "评估角色 评估人 工号 部门 岗位 状态  打分总和  耗时  极端选项占比 ":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "评估角色":
+        - generic: 评估角色
+      - columnheader "评估人":
+        - generic: 评估人
+      - columnheader "工号":
+        - generic: 工号
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "岗位":
+        - generic: 岗位
+      - columnheader "状态 ":
+        - text: 状态
+        - generic: 
+      - columnheader "打分总和 ":
+        - text: 打分总和
+        - generic: 
+      - columnheader "耗时 ":
+        - text: 耗时
+        - generic: 
+      - columnheader "极端选项占比 ":
+        - text: 极端选项占比
+        - generic: 
+      - columnheader
+- table:
+  - rowgroup:
+    - row "上级 王瑜 0696 S49 管理者岗 填写有效 14 34秒 33%":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "上级":
+        - generic: 上级
+      - cell "王瑜":
+        - generic: 王瑜
+      - cell "0696":
+        - generic: "0696"
+      - cell "S49":
+        - generic: S49
+      - cell "管理者岗":
+        - generic: 管理者岗
+      - cell "填写有效":
+        - generic: 填写有效
+      - cell "14":
+        - generic: "14"
+      - cell "34秒":
+        - generic: 34秒
+      - cell "33%":
+        - generic: 33%
+      - cell
+    - row "上级 王瑜 0696 S49 管理者岗 填写有效 14 34秒 0%":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "上级":
+        - generic: 上级
+      - cell "王瑜":
+        - generic: 王瑜
+      - cell "0696":
+        - generic: "0696"
+      - cell "S49":
+        - generic: S49
+      - cell "管理者岗":
+        - generic: 管理者岗
+      - cell "填写有效":
+        - generic: 填写有效
+      - cell "14":
+        - generic: "14"
+      - cell "34秒":
+        - generic: 34秒
+      - cell "0%":
+        - generic: 0%
+      - cell
+    - row "上级 王瑜 0696 S49 管理者岗 填写有效 15 34秒 33%":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "上级":
+        - generic: 上级
+      - cell "王瑜":
+        - generic: 王瑜
+      - cell "0696":
+        - generic: "0696"
+      - cell "S49":
+        - generic: S49
+      - cell "管理者岗":
+        - generic: 管理者岗
+      - cell "填写有效":
+        - generic: 填写有效
+      - cell "15":
+        - generic: "15"
+      - cell "34秒":
+        - generic: 34秒
+      - cell "33%":
+        - generic: 33%
+      - cell
+    - row "自评 陈梦蝶 4131 S49 运营顾问 填写有效 20 10秒 100%":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "自评":
+        - generic: 自评
+      - cell "陈梦蝶":
+        - generic: 陈梦蝶
+      - cell "4131":
+        - generic: "4131"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell "填写有效":
+        - generic: 填写有效
+      - cell "20":
+        - generic: "20"
+      - cell "10秒":
+        - generic: 10秒
+      - cell "100%":
+        - generic: 100%
+      - cell
+    - row "自评 姚丽君 4132 S49 运营顾问 未填写 0 -- --":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "自评":
+        - generic: 自评
+      - cell "姚丽君":
+        - generic: 姚丽君
+      - cell "4132":
+        - generic: "4132"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell "未填写":
+        - generic: 未填写
+      - cell "0":
+        - generic: "0"
+      - cell "--":
+        - generic: "--"
+      - cell "--":
+        - generic: "--"
+      - cell
+    - row "自评 陆梦瑶 4433 S49 运营顾问 未填写 0 -- --":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "自评":
+        - generic: 自评
+      - cell "陆梦瑶":
+        - generic: 陆梦瑶
+      - cell "4433":
+        - generic: "4433"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell "未填写":
+        - generic: 未填写
+      - cell "0":
+        - generic: "0"
+      - cell "--":
+        - generic: "--"
+      - cell "--":
+        - generic: "--"
+      - cell
+- table:
+  - rowgroup:
+    - row "评估对象 工号 部门 岗位":
+      - columnheader:
+        - checkbox
+      - columnheader "评估对象":
+        - generic: 评估对象
+      - columnheader "工号":
+        - generic: 工号
+      - columnheader "部门":
+        - generic: 部门
+      - columnheader "岗位":
+        - generic: 岗位
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+- table:
+  - rowgroup:
+    - row "姚丽君 4132 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "姚丽君":
+        - generic: 姚丽君
+      - cell "4132":
+        - generic: "4132"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "陆梦瑶 4433 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陆梦瑶":
+        - generic: 陆梦瑶
+      - cell "4433":
+        - generic: "4433"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "陈梦蝶 4131 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陈梦蝶":
+        - generic: 陈梦蝶
+      - cell "4131":
+        - generic: "4131"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "陈梦蝶 4131 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陈梦蝶":
+        - generic: 陈梦蝶
+      - cell "4131":
+        - generic: "4131"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "姚丽君 4132 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "姚丽君":
+        - generic: 姚丽君
+      - cell "4132":
+        - generic: "4132"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+    - row "陆梦瑶 4433 S49 运营顾问":
+      - cell:
+        - checkbox
+      - cell "陆梦瑶":
+        - generic: 陆梦瑶
+      - cell "4433":
+        - generic: "4433"
+      - cell "S49":
+        - generic: S49
+      - cell "运营顾问":
+        - generic: 运营顾问
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+- table:
+  - rowgroup:
+    - row "操作":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup:
+    - row "标记无效 查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "标记无效 查看":
+        - button "标记无效"
+        - button "查看"
+    - row "标记无效 查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "标记无效 查看":
+        - button "标记无效"
+        - button "查看"
+    - row "标记无效 查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "标记无效 查看":
+        - button "标记无效"
+        - button "查看"
+    - row "标记无效 查看":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "标记无效 查看":
+        - button "标记无效"
+        - button "查看"
+    - row "催办":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "催办":
+        - button "催办"
+    - row "催办":
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell
+      - cell "催办":
+        - button "催办"
+- button "" [disabled]:
+  - generic: 
+- list:
+  - listitem: "1"
+- button "" [disabled]:
+  - generic: 
+- textbox "请选择": 10条/页
+- generic: 
+- text: 前往
+- spinbutton: "1"
+- text: 页

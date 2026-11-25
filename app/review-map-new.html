@@ -53,7 +53,7 @@
 </head>
 <body data-module="assess" data-page="review-projects">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-6d9492ea338d"></script>
+<script src="navigation.js?v=sha256-1101210ed928"></script>
   <div class="body">
     <main class="content content-medium">
       <div data-wizard data-review-wizard data-free-navigation>
@@ -85,7 +85,7 @@
             <div class="section-toolbar compact"><h2>盘点数据</h2></div>
             <div class="tab-btns"><button class="tab-btn active" type="button" data-tab="people-data">人员数据</button><button class="tab-btn" type="button" data-tab="performance-data">绩效数据</button><button class="tab-btn" type="button" data-tab="ability-data">能力数据</button><button class="tab-btn" type="button" data-tab="motivation-data">动力数据</button><button class="tab-btn" type="button" data-tab="potential-data">潜力数据</button></div>
             <div class="tab-panel show" data-tab="people-data"><div class="map-source-head"><h3>人员数据</h3><span class="tag tag-done">35 人</span></div><div class="table-wrap"><table class="t"><thead><tr><th>字段类型</th><th>字段</th><th>有效人数</th><th>分析用途</th></tr></thead><tbody><tr><td><b>人员标识</b></td><td>工号、姓名</td><td>35</td><td><span class="muted">匹配，不参与统计</span></td></tr><tr><td><b>组织岗位</b></td><td>部门、现岗位、序列、层级、关键岗位</td><td>35</td><td>分组与交叉分析</td></tr><tr><td><b>人员属性</b></td><td>性别、学历、司龄</td><td>34</td><td>构成与关系分析</td></tr></tbody></table></div></div>
-            <div class="tab-panel" data-tab="performance-data" data-score-import="performance"><div class="map-source-head"><h3>绩效数据</h3><div class="flex gap-sm"><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button><label class="btn btn-primary" for="map-performance-file">导入绩效数据</label><input id="map-performance-file" data-score-file type="file" accept=".xlsx" hidden></div></div><p>模板字段：工号、姓名、绩效得分。得分为 0–999，最多两位小数。</p><p data-score-status role="status">尚未导入绩效数据</p><div class="table-wrap" data-score-preview hidden><table class="t"><thead><tr><th>工号</th><th>姓名</th><th>绩效得分</th></tr></thead><tbody></tbody></table></div></div>
+            <div class="tab-panel" data-tab="performance-data" data-score-import="performance"><div class="map-source-head"><h3>绩效数据</h3><div class="flex gap-sm"><button class="btn btn-secondary" type="button" data-score-template>下载导入模板</button><label class="btn btn-primary" for="map-performance-file">导入绩效数据</label><input id="map-performance-file" data-score-file type="file" accept=".xlsx" hidden></div></div><p>模板字段：工号、姓名、绩效得分。得分为 0–999，最多两位小数。</p><p data-score-status role="status">尚未导入绩效数据</p></div>
             <div class="tab-panel" data-tab="ability-data" data-ability-import><div class="map-source-head"><div><h3>能力数据</h3><p>可选择测评项目或上传能力数据；模板带入本次盘点人员。</p></div><div class="flex gap-sm"><button class="btn btn-secondary" type="button" data-ability-template>下载模板</button><label class="btn btn-secondary" for="map-ability-file">上传能力数据</label><input id="map-ability-file" data-ability-file type="file" accept=".xlsx" hidden><button class="btn btn-primary" type="button" data-open="drawer-map-assessment">选择能力项目</button></div></div><p>当前可校验文件，暂不写入人才档案或盘点结果。</p><p data-ability-status role="status" aria-live="polite"></p><div class="table-wrap"><table class="t"><thead><tr><th>来源项目</th><th>能力字段</th><th>覆盖人数</th><th>结束时间</th></tr></thead><tbody><tr><td><b>管理者通用能力 360</b></td><td>沟通、问题分析、团队管理</td><td>35</td><td>2026-07-26</td></tr><tr><td><b>研发专业能力认证</b></td><td>系统架构</td><td>28</td><td>2026-07-20</td></tr></tbody></table></div></div>
             <div class="tab-panel" data-tab="motivation-data"><div class="map-source-head"><div><h3>动力数据</h3><p>字段来自指标库固定动力词典，只读取已有专家测评的有效结果。</p></div><button class="btn btn-primary" type="button" data-open="drawer-map-assessment">选择动力项目</button></div><div class="table-wrap"><table class="t"><thead><tr><th>来源项目</th><th>动力字段</th><th>覆盖人数</th><th>结束时间</th></tr></thead><tbody><tr><td><b>工作动力测评</b></td><td>成就结果、学习成长、创新变化、责任担当</td><td>31</td><td>2026-07-18</td></tr></tbody></table></div></div>
             <div class="tab-panel" data-tab="potential-data"><div class="map-source-head"><div><h3>潜力数据</h3><p>字段来自指标库固定潜力词典，只读取已有专家测评的有效结果。</p></div><button class="btn btn-primary" type="button" data-open="drawer-map-assessment">选择潜力项目</button></div><div class="table-wrap"><table class="t"><thead><tr><th>来源项目</th><th>潜力字段</th><th>覆盖人数</th><th>结束时间</th></tr></thead><tbody><tr><td><b>管理潜力测评</b></td><td>分析性、前瞻性、影响性、坚韧性</td><td>32</td><td>2026-07-22</td></tr></tbody></table></div></div>
@@ -129,9 +129,9 @@
 <script src="ui/components.js?v=sha256-4b68ac070758"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
 <script src="vendor/jszip.min.js?v=sha256-acc7e41455a8"></script>
-<script src="review-score-import.js?v=sha256-02a9e50e0e31"></script>
+<script src="review-score-import.js?v=sha256-aeeebcceac9c"></script>
 <script src="indicator-data.js?v=sha256-1e2517327dd3"></script>
-<script src="review-ability-import.js?v=sha256-e6af4d930d57"></script>
+<script src="review-ability-import.js?v=sha256-16032484db43"></script>
 <script>
 (function(){
   ReviewScoreImport.mount(document.querySelector('[data-score-import="performance"]'), '#map-people-form tbody tr', 'performance');

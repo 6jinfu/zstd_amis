@@ -137,12 +137,40 @@
     });
     target.hidden = !records.length;
   }
+  async function errorWorkbook(errors) {
+    const zip = new JSZip();
+    const escape = value => String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const rows = [['行号', '错误说明'], ...errors.map(error => typeof error === 'string' ? ['', error] : [error.row, error.message])];
+    const sheet = rows.map((row, i) => `<row r="${i + 1}">${row.map((value, j) => `<c r="${String.fromCharCode(65 + j)}${i + 1}" t="inlineStr"><is><t xml:space="preserve">${escape(value)}</t></is></c>`).join('')}</row>`).join('');
+    zip.file('[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>');
+    zip.file('_rels/.rels', '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>');
+    zip.file('xl/workbook.xml', '<?xml version="1.0" encoding="UTF-8"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="错误说明" sheetId="1" r:id="rId1"/></sheets></workbook>');
+    zip.file('xl/_rels/workbook.xml.rels', '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>');
+    zip.file('xl/worksheets/sheet1.xml', `<?xml version="1.0" encoding="UTF-8"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>${sheet}</sheetData></worksheet>`);
+    return zip.generateAsync({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  }
+  function showErrors(container, errors) {
+    container.replaceChildren();
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'btn btn-secondary'; button.textContent = '下载报错 Excel';
+    button.onclick = async () => {
+      button.disabled = true;
+      try {
+        const url = URL.createObjectURL(await errorWorkbook(errors)), link = document.createElement('a');
+        link.href = url; link.download = '导入报错.xlsx'; link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      } catch { showToast('报错文件生成失败，请重试'); }
+      finally { button.disabled = false; }
+    };
+    container.append(button);
+    container.hidden = false;
+  }
   window.ReviewScoreImport = {
-    validScore, performanceScore, latestScores, validate, read, readWorkbook, dataRows,
+    validScore, performanceScore, latestScores, validate, read, readWorkbook, dataRows, errorWorkbook, showErrors,
     generateTemplate: (kind, people) => template(configs[kind], people),
     mount(root, personSelector, kind, onImport) {
       const config = configs[kind], input = root.querySelector('[data-score-file]'), status = root.querySelector('[data-score-status]');
-      const preview = root.querySelector('[data-score-preview]');
+      const errorOutput = document.createElement('div'); errorOutput.hidden = true; status.after(errorOutput);
       let records = [], reading = false;
       const people = () => [...document.querySelectorAll(personSelector)].map(row => ({ id: row.cells[1].textContent.trim(), name: row.cells[2].textContent.trim(), department:row.cells[3].textContent.trim(), position:row.cells[4].textContent.trim() }));
       root.querySelector('[data-score-template]').addEventListener('click', async () => {
@@ -160,19 +188,18 @@
         const file = input.files[0];
         if (!file || reading) return;
         reading = true;
-        preview.hidden = true;
+        errorOutput.hidden = true;
         try {
           const result = validate(await read(file, config), people(), kind);
-          if (result.errors.length) { status.textContent = `校验未通过：${result.errors.slice(0, 5).join('；')}${result.errors.length > 5 ? `；另有 ${result.errors.length - 5} 处错误` : ''}`; return; }
+          if (result.errors.length) { status.textContent = `校验未通过，共 ${result.errors.length} 处错误，请下载报错 Excel。`; showErrors(errorOutput, result.errors); return; }
           records = result.records;
           if(kind==='ability'&&onImport){const byId=new Map(people().map(person=>[person.id,person]));onImport(records.map(record=>({...record,department:byId.get(record.employeeId)?.department||'',position:byId.get(record.employeeId)?.position||''})));}
-          render(preview, records, kind);
           if (kind === 'performance') {
             const table = document.querySelector('[data-performance-results]');
             render(table, records, kind);
           }
-          status.textContent = `已校验 ${records.length} 条${config.title}，覆盖 ${new Set(records.map(record=>record.employeeId)).size} 人。`;
-        } catch (error) { status.textContent = `无法读取文件：${error.message}`; }
+          status.textContent = `已导入 ${records.length} 条${config.title}，覆盖 ${new Set(records.map(record=>record.employeeId)).size} 人。`;
+        } catch (error) { status.textContent = '校验未通过，请下载报错 Excel。'; showErrors(errorOutput, [error.message]); }
         finally { input.value = ''; reading = false; }
       });
       return { getRecords: () => records.slice() };

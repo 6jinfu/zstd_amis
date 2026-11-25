@@ -1,0 +1,309 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "时代光华" [level=1]
+      - generic: 2026-11-02 10:22:32
+      - button "去岗位管理配置"
+    - main:
+      - generic: 分析岗位族
+      - generic: "9"
+      - generic: 覆盖 138 岗位 / 441 人
+      - generic: 关键（建议培养）
+      - generic: "2"
+      - generic: 营销运营序列·战略管理层 / 技术研发序列·战略管理层
+      - generic: 已标记关键岗位
+      - generic: "11"
+      - generic: 分析结果累计 + 手动补充
+      - generic: 待校准
+      - generic: "10"
+      - generic: 多视角结论有差异
+      - radio "经济视角 E（需求 × 供给）" [checked]
+      - generic: 经济视角 E（需求 × 供给）
+      - radio "能力视角 A（ART × 时间成本）"
+      - generic: 能力视角 A（ART × 时间成本）
+      - radio "综合（供需比 × ART）"
+      - generic: 综合（供需比 × ART）
+      - generic: 建议关键（培养）
+      - generic: 非关键（招聘 / 一般）
+      - generic: 气泡大小 = 人数 · 点气泡看岗位族下岗位
+      - generic: 2个岗位族需求高、供给少，建议优先培养
+      - generic: 营销运营序列·战略管理层、技术研发序列·战略管理层达到当前关键阈值。
+      - generic: 岗位清单（138）
+      - button "批量标记关键" [disabled]
+      - button "批量取消关键" [disabled]
+      - button "批量标记非关键" [disabled]
+      - button "批量取消非关键" [disabled]
+      - table:
+        - rowgroup:
+          - row "岗位 所在组 关键系数 象限（经济） AI 建议 人工标记 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "岗位":
+              - generic: 岗位
+            - columnheader "所在组":
+              - generic: 所在组
+            - columnheader "关键系数":
+              - generic: 关键系数
+            - columnheader "象限（经济）":
+              - generic: 象限（经济）
+            - columnheader "AI 建议":
+              - generic: AI 建议
+            - columnheader "人工标记":
+              - generic: 人工标记
+            - columnheader "操作":
+              - generic: 操作
+        - rowgroup:
+          - row "平台运营部负责人 营销运营序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "平台运营部负责人":
+              - generic: 平台运营部负责人
+            - cell "营销运营序列·战略管理层":
+              - generic: 营销运营序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据" [active]
+          - row "董事、董事会秘书兼副总裁 职能管理序列·战略管理层 0.94 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "董事、董事会秘书兼副总裁":
+              - generic: 董事、董事会秘书兼副总裁
+            - cell "职能管理序列·战略管理层":
+              - generic: 职能管理序列·战略管理层
+            - cell "0.94":
+              - generic: "0.94"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "东部大区总经理 职能管理序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "东部大区总经理":
+              - generic: 东部大区总经理
+            - cell "职能管理序列·战略管理层":
+              - generic: 职能管理序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "首席运营官 职能管理序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "首席运营官":
+              - generic: 首席运营官
+            - cell "职能管理序列·战略管理层":
+              - generic: 职能管理序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "事业部总经理 职能管理序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "事业部总经理":
+              - generic: 事业部总经理
+            - cell "职能管理序列·战略管理层":
+              - generic: 职能管理序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "事业部总经理 职能管理序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "事业部总经理":
+              - generic: 事业部总经理
+            - cell "职能管理序列·战略管理层":
+              - generic: 职能管理序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "Java架构师 技术研发序列·战略管理层 0.96 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "Java架构师":
+              - generic: Java架构师
+            - cell "技术研发序列·战略管理层":
+              - generic: 技术研发序列·战略管理层
+            - cell "0.96":
+              - generic: "0.96"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "云服务部兼平台定制事业部负责人 技术研发序列·战略管理层 0.97 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "云服务部兼平台定制事业部负责人":
+              - generic: 云服务部兼平台定制事业部负责人
+            - cell "技术研发序列·战略管理层":
+              - generic: 技术研发序列·战略管理层
+            - cell "0.97":
+              - generic: "0.97"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "研发总监 技术研发序列·战略管理层 1.00 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "研发总监":
+              - generic: 研发总监
+            - cell "技术研发序列·战略管理层":
+              - generic: 技术研发序列·战略管理层
+            - cell "1.00":
+              - generic: "1.00"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+          - row "数字化能力建设事业部总监 技术研发序列·战略管理层 1.00 需求高 · 供给少 建议关键 - 查看依据":
+            - cell:
+              - checkbox
+            - cell "数字化能力建设事业部总监":
+              - generic: 数字化能力建设事业部总监
+            - cell "技术研发序列·战略管理层":
+              - generic: 技术研发序列·战略管理层
+            - cell "1.00":
+              - generic: "1.00"
+            - cell "需求高 · 供给少":
+              - generic: 需求高 · 供给少
+            - cell "建议关键":
+              - generic: 建议关键
+            - cell "-":
+              - generic: "-"
+            - cell "查看依据":
+              - button "查看依据"
+      - generic: 共 138 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - listitem: "3"
+        - listitem: "14"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton
+    - generic: 平台运营部负责人
+    - generic: 营销运营序列·战略管理层 · 关键系数 0.97
+    - button "Close":
+    - generic: 各视角得分（AI 计算 · 仅供参考）
+    - generic: 需求 N
+    - generic: "1"
+    - generic: 供给 S
+    - generic: "0"
+    - generic: ART 能力
+    - generic: 2.875 / 3
+    - generic: 时间成本
+    - generic: 3 / 3
+    - generic: 各视角结论
+    - table:
+      - rowgroup:
+        - row "视角 结论 系数":
+          - columnheader "视角":
+            - generic: 视角
+          - columnheader "结论":
+            - generic: 结论
+          - columnheader "系数":
+            - generic: 系数
+      - rowgroup:
+        - row "经济 E 需求高 · 供给少 1.00":
+          - cell "经济 E":
+            - generic: 经济 E
+          - cell "需求高 · 供给少":
+            - generic: 需求高 · 供给少
+          - cell "1.00":
+            - generic: "1.00"
+        - row "能力 A 能力高 · 时间成本高 0.94":
+          - cell "能力 A":
+            - generic: 能力 A
+          - cell "能力高 · 时间成本高":
+            - generic: 能力高 · 时间成本高
+          - cell "0.94":
+            - generic: "0.94"
+    - generic: 关键系数（加权）
+    - generic: 0.97 · 关键
+    - generic: 需求高、供给少；能力高、时间成本高。综合关键系数达到阈值，建议优先培养。

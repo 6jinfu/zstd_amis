@@ -1,0 +1,302 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 组织结构
+        - generic: 关键岗位分析
+        - generic: 岗位管理
+        - generic: 指标库
+    - main:
+      - generic: 类别
+      - checkbox "包含子类" [checked]
+      - generic: 包含子类
+      - button:
+      - textbox "搜索类别"
+      - generic: 管理类岗位
+      - generic: 专业技术/研发类岗位
+      - generic: 核心业务运营
+      - generic: 销售业务
+      - button "收起左侧树":
+      - generic: "项目名 :"
+      - textbox "搜索项目名"
+      - generic: "状态 :"
+      - generic "全部":
+        - textbox
+        - generic: 全部
+      - button "查 询"
+      - button "重 置"
+      - button "新建分析"
+      - table:
+        - rowgroup:
+          - row "项目名 类别 引用组织结构 分析范围 所用视角 关键岗位数 状态 完成时间 操作":
+            - columnheader "项目名":
+              - generic: 项目名
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "引用组织结构":
+              - generic: 引用组织结构
+            - columnheader "分析范围":
+              - generic: 分析范围
+            - columnheader "所用视角":
+              - generic: 所用视角
+            - columnheader "关键岗位数":
+              - generic: 关键岗位数
+            - columnheader "状态":
+              - generic: 状态
+            - columnheader "完成时间":
+              - generic: 完成时间
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "时代光华 专业技术/研发类岗位 组织结构分析建议 具体岗位 经济 + 能力 11 已完成 2026-11-02 10:22:32 查看结果 编辑 删除":
+            - cell "时代光华":
+              - button "时代光华"
+            - cell "专业技术/研发类岗位":
+              - generic: 专业技术/研发类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "11":
+              - generic: "11"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-11-02 10:22:32":
+              - generic: 2026-11-02 10:22:32
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "人力岗位 管理类岗位 组织结构分析建议 具体岗位 经济 + 能力 1 已完成 2026-10-27 10:34:10 查看结果 编辑 删除":
+            - cell "人力岗位":
+              - button "人力岗位"
+            - cell "管理类岗位":
+              - generic: 管理类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "1":
+              - generic: "1"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-27 10:34:10":
+              - generic: 2026-10-27 10:34:10
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "销售人员 管理类岗位 组织结构分析建议 具体岗位 经济 + 能力 3 已完成 2026-10-27 09:18:04 查看结果 编辑 删除":
+            - cell "销售人员":
+              - button "销售人员"
+            - cell "管理类岗位":
+              - generic: 管理类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "3":
+              - generic: "3"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-27 09:18:04":
+              - generic: 2026-10-27 09:18:04
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "专业技术岗位 专业技术/研发类岗位 组织结构分析建议 具体岗位 经济 + 能力 12 已完成 2026-10-20 18:30:57 查看结果 编辑 删除":
+            - cell "专业技术岗位":
+              - button "专业技术岗位"
+            - cell "专业技术/研发类岗位":
+              - generic: 专业技术/研发类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "12":
+              - generic: "12"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-20 18:30:57":
+              - generic: 2026-10-20 18:30:57
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "服务岗 核心业务运营 组织结构分析建议 具体岗位 经济 + 能力 14 已完成 2026-10-20 10:38:22 查看结果 编辑 删除":
+            - cell "服务岗":
+              - button "服务岗"
+            - cell "核心业务运营":
+              - generic: 核心业务运营
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "14":
+              - generic: "14"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-20 10:38:22":
+              - generic: 2026-10-20 10:38:22
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "时代光华研发中心关键岗位分析 专业技术/研发类岗位 组织结构分析建议 具体岗位 经济 + 能力 16 已完成 2026-10-13 16:26:23 查看结果 编辑 删除":
+            - cell "时代光华研发中心关键岗位分析":
+              - button "时代光华研发中心关键岗位分析"
+            - cell "专业技术/研发类岗位":
+              - generic: 专业技术/研发类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "16":
+              - generic: "16"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-13 16:26:23":
+              - generic: 2026-10-13 16:26:23
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "时代光华关键岗位 2026.11 核心业务运营 组织结构分析建议 具体岗位 经济 + 能力 17 已完成 2026-10-09 16:10:47 查看结果 编辑 删除":
+            - cell "时代光华关键岗位 2026.11":
+              - button "时代光华关键岗位 2026.11"
+            - cell "核心业务运营":
+              - generic: 核心业务运营
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "17":
+              - generic: "17"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-10-09 16:10:47":
+              - generic: 2026-10-09 16:10:47
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "研发中心关键岗位分析 专业技术/研发类岗位 组织结构分析建议 具体岗位 经济 + 能力 6 已完成 2026-09-23 17:00:42 查看结果 编辑 删除":
+            - cell "研发中心关键岗位分析":
+              - button "研发中心关键岗位分析"
+            - cell "专业技术/研发类岗位":
+              - generic: 专业技术/研发类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "6":
+              - generic: "6"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-09-23 17:00:42":
+              - generic: 2026-09-23 17:00:42
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "运营岗位 管理类岗位 组织结构分析建议 具体岗位 经济 + 能力 5 已完成 2026-09-21 10:09:37 查看结果 编辑 删除":
+            - cell "运营岗位":
+              - button "运营岗位"
+            - cell "管理类岗位":
+              - generic: 管理类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "5":
+              - generic: "5"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-09-21 10:09:37":
+              - generic: 2026-09-21 10:09:37
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+          - row "研发中心关键岗位 专业技术/研发类岗位 组织结构分析建议 具体岗位 经济 + 能力 6 已完成 2026-09-20 10:27:13 查看结果 编辑 删除":
+            - cell "研发中心关键岗位":
+              - button "研发中心关键岗位"
+            - cell "专业技术/研发类岗位":
+              - generic: 专业技术/研发类岗位
+            - cell "组织结构分析建议":
+              - generic: 组织结构分析建议
+            - cell "具体岗位":
+              - generic: 具体岗位
+            - cell "经济 + 能力":
+              - generic: 经济 + 能力
+            - cell "6":
+              - generic: "6"
+            - cell "已完成":
+              - generic: 已完成
+            - cell "2026-09-20 10:27:13":
+              - generic: 2026-09-20 10:27:13
+            - cell "查看结果 编辑 删除":
+              - button "查看结果"
+              - button "编辑"
+              - button "删除"
+      - generic: 共 13 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

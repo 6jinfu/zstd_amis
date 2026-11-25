@@ -1,0 +1,134 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点测评" [level=1]
+      - generic: 年度盘点 · 2026-10-24 ~ 2026-10-31
+    - main:
+      - navigation:
+        - generic: 基本信息
+        - generic: 盘点人员
+        - generic: 盘点活动
+        - generic: 盘点规则设置
+      - heading "盘点规则设置" [level=3]
+      - generic: 九宫格
+      - generic: 横纵轴
+      - generic: 横轴
+      - generic "能力":
+        - textbox
+        - generic: 能力
+      - button "交 换"
+      - generic: 纵轴
+      - generic "绩效":
+        - textbox
+        - generic: 绩效
+      - generic: 能力区间数
+      - radio "2"
+      - generic: "2"
+      - radio "3" [checked]
+      - generic: "3"
+      - radio "4"
+      - generic: "4"
+      - radio "5"
+      - generic: "5"
+      - group "绩效区间数固定为 3 档":
+        - generic: 绩效区间数
+        - generic: 固定 3 档
+        - generic: 低
+        - generic: 中
+        - generic: 高
+      - generic: 3 × 3
+      - generic: 共 9 格
+      - generic: 分档规则
+      - generic: 能力排名分档
+      - generic: 按能力得分从高到低排序，调整各档选取的人员占比。
+      - button "恢复默认"
+      - generic: TOP
+      - generic: 高档选取范围
+      - generic: 能力排名 20%
+      - generic: 约 4 人
+      - generic "按能力排名从高到低的人员分档占比":
+        - generic: 高档 20%
+        - generic: 中档 20%
+        - generic: 低档 60%
+      - generic: 排名最前
+      - generic: 100%
+      - generic: 高档占比
+      - generic: 前 20%
+      - button "−"
+      - spinbutton
+      - generic: "%"
+      - button "+"
+      - generic: 约 4 人
+      - generic: 中档占比
+      - generic: 20%–40%
+      - button "−"
+      - spinbutton
+      - generic: "%"
+      - button "+"
+      - generic: 约 4 人
+      - generic: 低档占比
+      - generic: 40%–100%
+      - button "−"
+      - spinbutton
+      - generic: "%"
+      - button "+"
+      - generic: 约 12 人
+      - generic: 高档 20%，中档 20%，低档 60%
+      - generic: 合计 100%
+      - generic: 绩效分档
+      - generic: 绩效沿用导入数据中的低、中、高等级，无需设置占比。
+      - generic: 低
+      - generic: 中
+      - generic: 高
+      - text: 宫格名称
+      - generic: 名称可编辑
+      - generic: 绩效
+      - generic: 高
+      - generic: 中
+      - generic: 低
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - textbox "格名"
+      - generic: 低
+      - generic: 中
+      - generic: 高
+      - generic: 能力
+      - button "取 消"
+      - button "保 存"

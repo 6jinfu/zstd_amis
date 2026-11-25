@@ -1,0 +1,30 @@
+<h3>人才标准列表</h3>
+<p>人才标准增加“按岗位查看”和“按标准查看”两种查看方式，岗位和标准由一对一改为多对多。</p>
+<h4>按岗位查看</h4>
+<p>沿用原有岗位列表，保留关键岗位、全部岗位切换，以及岗位类别、岗位名 / 编号查询。</p>
+<p>点击岗位的“适用标准”，读取该岗位关联的全部人才标准。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/01-按岗位查看.png" width="1642" height="865" name="01-按岗位查看.png"/>
+<p>适用标准页面可以编辑已有标准、进入学习方案，也可以添加关联或新建人才标准。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/02-岗位适用标准.png" width="1642" height="865" name="02-岗位适用标准.png"/>
+<h4>按标准查看</h4>
+<p>以单个人才标准为中心展示，关联岗位列展示该标准关联的全部岗位。</p>
+<p>编辑时读取该标准已关联的全部岗位，可以继续增加关联岗位，也可以调整已有的关联关系。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/03-按标准查看.png" width="1642" height="865" name="03-按标准查看.png"/>
+<p>人才标准默认类别</p>
+<p text-indent="1">通用标准、岗位序列标准、职级标准、专项标准</p>
+<p>老数据兼容：</p>
+<p><b><span background-color="light-yellow" text-color="red">之前一岗一标的数据默认呈现到岗位序列标准中</span></b></p>
+<h3>人才标准新建与编辑</h3>
+<h4>人才标准基本信息</h4>
+<p>两种查看方式共用同一套新建、编辑页面，默认进入基本信息。基本信息、应用范围和标准内容保持一致。</p>
+<p>标准名称：50字</p>
+<p>标准说明：1000字，暂时也没有体现的地方，仅做记录</p>
+<p>在同一标准下维护职责任务、经历经验、能力要求、动力要求、潜力要求及学习方案。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/04-共用新建编辑页.png" width="1642" height="865" name="04-共用新建编辑页.png"/>
+<h4>人才标准应用范围</h4>
+<p>暂时有指定岗位和暂不关联两个选项</p>
+<ul><li>指定岗位，可以选择1 个或多个岗位，上限 100</li><li>暂不关联：仅建立标准不关联岗位</li></ul>
+<p>从岗位入口新建时，默认关联当前岗位。可以继续增加其他岗位，也可以移除当前岗位，不锁定关联关系。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/05-默认关联岗位.png" width="1642" height="865" name="05-默认关联岗位.png"/>
+<p>从岗位入口新建后，如果改为“暂不关联”并保存，该标准不在对应岗位的适用标准中展示，需要到“按标准查看”列表中查看。</p>
+<img path="@./deliverables/talent-standard-update-20261109/images/06-暂不关联.png" width="1642" height="865" name="06-暂不关联.png"/>

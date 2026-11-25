@@ -1,0 +1,377 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 评鉴工具
+        - generic: 人才盘点
+    - navigation:
+      - generic: 360评估
+    - main:
+      - generic: "项目编号/名称 :"
+      - textbox "请输入"
+      - button "查 询"
+      - button "重 置"
+      - button "新 增"
+      - button "添加授权" [disabled]
+      - button "移除授权" [disabled]
+      - button "导出已选项" [disabled]
+      - button "导出当前结果"
+      - table:
+        - rowgroup:
+          - row "项目编号 项目名称 创建人 完成率 状态 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "项目编号":
+              - generic: 项目编号
+            - columnheader "项目名称":
+              - generic: 项目名称
+            - columnheader "创建人":
+              - generic: 创建人
+            - columnheader "完成率":
+              - text: 完成率
+            - columnheader "状态":
+              - generic: 状态
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "202610272311545 人力行政部 胜任力测评 王瑜 67% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610272311545":
+              - generic: "202610272311545"
+            - cell "人力行政部 胜任力测评":
+              - button "人力行政部 胜任力测评"
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "67%":
+              - generic: 67%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610214910322 项目部 26 年季度评估 谢军兴 100% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610214910322":
+              - generic: "202610214910322"
+            - cell "项目部 26 年季度评估":
+              - button "项目部 26 年季度评估"
+            - cell "谢军兴":
+              - generic: 谢军兴
+            - cell "100%":
+              - generic: 100%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610272611117 人力行政部 王瑜 0% 停止 开启 项目设置 宣传设置 统计 删除":
+            - cell:
+              - checkbox
+            - cell "202610272611117":
+              - generic: "202610272611117"
+            - cell "人力行政部":
+              - button "人力行政部"
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "0%":
+              - generic: 0%
+            - cell "停止":
+              - generic: 停止
+            - cell "开启 项目设置 宣传设置 统计 删除":
+              - button "开启"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "删除"
+          - row "202609110123242 产品运营部 2026 三季度评估 刘金富 82% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202609110123242":
+              - generic: "202609110123242"
+            - cell "产品运营部 2026 三季度评估":
+              - button "产品运营部 2026 三季度评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "82%":
+              - generic: 82%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610135216268 产品运营部 2026 第四季度评估 刘金富 0% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610135216268":
+              - generic: "202610135216268"
+            - cell "产品运营部 2026 第四季度评估":
+              - button "产品运营部 2026 第四季度评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "0%":
+              - generic: 0%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202609110022257 项目管理能力、产品设计分析能力的360 评估 刘金富 100% 停止 开启 项目设置 宣传设置 统计 删除":
+            - cell:
+              - checkbox
+            - cell "202609110022257":
+              - generic: "202609110022257"
+            - cell "项目管理能力、产品设计分析能力的360 评估":
+              - button "项目管理能力、产品设计分析能力的360 评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "100%":
+              - generic: 100%
+            - cell "停止":
+              - generic: 停止
+            - cell "开启 项目设置 宣传设置 统计 删除":
+              - button "开启"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "删除"
+      - generic: 共 6 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton
+    - iframe [active]:
+      - generic: 编辑项目
+      - generic: 
+      - main:
+        - generic: 
+        - text: 设置评估角色
+        - generic: "2"
+        - text: 配置评估关系
+        - generic: 问卷：
+        - generic: 人力行政部 胜任力测评
+        - button "编辑"
+        - generic: 说明：
+        - generic: 1、您在当前页面设置的评价关系、角色权重以及使用问卷，将会直接影响到最终的问卷下发逻辑，请确保设置无误，每一个被评估人的评价权重之和均必须为100% 2、您可以为不同的被评估对象设置不同的角色、权重与评估人，但为了最终的统计效果，请尽量保证评估角色的权重数值是统一的，否则会影响最终的统计口径 3、项目发布后，您可以添加新的评估对象、并可以移除尚未填写的评估人，但无法删除整个评估对象，且问卷内只能新增不能减少题目，发布前请仔细核对 4、本人仅可添加为自评角色，将本人添加为其他角色将会自动移除
+        - main:
+          - generic: 评估对象：
+          - textbox "请输入名称或工号"
+          - generic: 对象部门：
+          - combobox:
+            - 'generic "icon: down"':
+          - generic: 对象岗位：
+          - combobox:
+            - 'generic "icon: down"':
+          - generic: 评估角色：
+          - textbox "请选择"
+          - generic: 
+          - button "查 询"
+          - button "重 置"
+          - button " 新增":
+            - generic: 
+            - text: 新增
+          - button "导入"
+          - button "修改权重"
+          - button "同步评估角色"
+          - table:
+            - rowgroup:
+              - row "评估对象 工号 部门 岗位 评估角色 评估权重 评估人 操作":
+                - columnheader:
+                  - checkbox
+                - columnheader "评估对象":
+                  - generic: 评估对象
+                - columnheader "工号":
+                  - generic: 工号
+                - columnheader "部门":
+                  - generic: 部门
+                - columnheader "岗位":
+                  - generic: 岗位
+                - columnheader "评估角色":
+                  - generic: 评估角色
+                - columnheader "评估权重":
+                  - generic: 评估权重
+                - columnheader "评估人":
+                  - generic: 评估人
+                - columnheader "操作":
+                  - generic: 操作
+          - table:
+            - rowgroup:
+              - row "陆梦瑶 4433 S49 运营顾问 自评 10 陆梦瑶 编辑":
+                - cell:
+                  - checkbox
+                - cell "陆梦瑶":
+                  - generic: 陆梦瑶
+                - cell "4433":
+                  - generic: "4433"
+                - cell "S49":
+                  - generic: S49
+                - cell "运营顾问":
+                  - generic: 运营顾问
+                - cell "自评":
+                  - generic: 自评
+                - cell "10":
+                  - generic: "10"
+                - cell "陆梦瑶":
+                  - generic: 陆梦瑶
+                - cell "编辑":
+                  - button "编辑"
+              - row "上级 40 王瑜":
+                - cell "上级":
+                  - generic: 上级
+                - cell "40":
+                  - generic: "40"
+                - cell "王瑜":
+                  - generic: 王瑜
+              - row "下级 20":
+                - cell "下级":
+                  - generic: 下级
+                - cell "20":
+                  - generic: "20"
+                - cell
+              - row "平级 30":
+                - cell "平级":
+                  - generic: 平级
+                - cell "30":
+                  - generic: "30"
+                - cell
+              - row "陈梦蝶 4131 S49 运营顾问 自评 10 陈梦蝶 编辑":
+                - cell:
+                  - checkbox
+                - cell "陈梦蝶":
+                  - generic: 陈梦蝶
+                - cell "4131":
+                  - generic: "4131"
+                - cell "S49":
+                  - generic: S49
+                - cell "运营顾问":
+                  - generic: 运营顾问
+                - cell "自评":
+                  - generic: 自评
+                - cell "10":
+                  - generic: "10"
+                - cell "陈梦蝶":
+                  - generic: 陈梦蝶
+                - cell "编辑":
+                  - button "编辑"
+              - row "上级 40 王瑜":
+                - cell "上级":
+                  - generic: 上级
+                - cell "40":
+                  - generic: "40"
+                - cell "王瑜":
+                  - generic: 王瑜
+              - row "下级 20":
+                - cell "下级":
+                  - generic: 下级
+                - cell "20":
+                  - generic: "20"
+                - cell
+              - row "平级 30":
+                - cell "平级":
+                  - generic: 平级
+                - cell "30":
+                  - generic: "30"
+                - cell
+              - row "姚丽君 4132 S49 运营顾问 自评 10 姚丽君 编辑":
+                - cell:
+                  - checkbox
+                - cell "姚丽君":
+                  - generic: 姚丽君
+                - cell "4132":
+                  - generic: "4132"
+                - cell "S49":
+                  - generic: S49
+                - cell "运营顾问":
+                  - generic: 运营顾问
+                - cell "自评":
+                  - generic: 自评
+                - cell "10":
+                  - generic: "10"
+                - cell "姚丽君":
+                  - generic: 姚丽君
+                - cell "编辑":
+                  - button "编辑"
+              - row "上级 40 王瑜":
+                - cell "上级":
+                  - generic: 上级
+                - cell "40":
+                  - generic: "40"
+                - cell "王瑜":
+                  - generic: 王瑜
+              - row "下级 20":
+                - cell "下级":
+                  - generic: 下级
+                - cell "20":
+                  - generic: "20"
+                - cell
+              - row "平级 30":
+                - cell "平级":
+                  - generic: 平级
+                - cell "30":
+                  - generic: "30"
+                - cell
+          - button "" [disabled]:
+            - generic: 
+          - list:
+            - listitem: "1"
+          - button "" [disabled]:
+            - generic: 
+          - textbox "请选择"
+          - generic: 
+          - generic: 共 3 条
+          - text: 前往
+          - spinbutton
+          - text: 页
+        - button "取消"
+        - button "上一步"
+        - button "保 存"
+        - text:      

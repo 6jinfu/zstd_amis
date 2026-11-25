@@ -1,0 +1,47 @@
+- generic: 人力行政部 胜任力测评
+- button "复制链接"
+- generic: 参与情况
+- generic: 个人数据
+- generic: 组织数据
+- generic: 无效评估数据
+- generic: "部门层级:"
+- textbox "请选择": 最子级部门
+- generic: 
+- generic: "对象部门:"
+- textbox "请输入"
+- button "查 询"
+- button "重 置"
+- button "导 出"
+- generic:   
+- table:
+  - rowgroup:
+    - row "总分":
+      - columnheader
+      - columnheader
+      - columnheader "总分":
+        - generic: 总分
+      - columnheader
+- table:
+  - rowgroup
+- generic: 暂无数据
+- table:
+  - rowgroup:
+    - row "部门名称":
+      - columnheader:
+        - checkbox [disabled]
+      - columnheader "部门名称":
+        - generic: 部门名称
+      - columnheader
+      - columnheader
+- table:
+  - rowgroup
+- table:
+  - rowgroup:
+    - row "操作":
+      - columnheader
+      - columnheader
+      - columnheader
+      - columnheader "操作":
+        - generic: 操作
+- table:
+  - rowgroup

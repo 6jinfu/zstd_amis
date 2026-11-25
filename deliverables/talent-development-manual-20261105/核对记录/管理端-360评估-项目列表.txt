@@ -1,0 +1,191 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 评鉴工具
+        - generic: 人才盘点
+    - navigation:
+      - generic: 360评估
+    - main:
+      - generic: "项目编号/名称 :"
+      - textbox "请输入"
+      - button "查 询"
+      - button "重 置"
+      - button "新 增"
+      - button "添加授权" [disabled]
+      - button "移除授权" [disabled]
+      - button "导出已选项" [disabled]
+      - button "导出当前结果"
+      - table:
+        - rowgroup:
+          - row "项目编号 项目名称 创建人 完成率 状态 操作":
+            - columnheader:
+              - checkbox
+            - columnheader "项目编号":
+              - generic: 项目编号
+            - columnheader "项目名称":
+              - generic: 项目名称
+            - columnheader "创建人":
+              - generic: 创建人
+            - columnheader "完成率":
+              - text: 完成率
+            - columnheader "状态":
+              - generic: 状态
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "202610272311545 人力行政部 胜任力测评 王瑜 67% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610272311545":
+              - generic: "202610272311545"
+            - cell "人力行政部 胜任力测评":
+              - button "人力行政部 胜任力测评"
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "67%":
+              - generic: 67%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610214910322 项目部 26 年季度评估 谢军兴 100% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610214910322":
+              - generic: "202610214910322"
+            - cell "项目部 26 年季度评估":
+              - button "项目部 26 年季度评估"
+            - cell "谢军兴":
+              - generic: 谢军兴
+            - cell "100%":
+              - generic: 100%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610272611117 人力行政部 王瑜 0% 停止 开启 项目设置 宣传设置 统计 删除":
+            - cell:
+              - checkbox
+            - cell "202610272611117":
+              - generic: "202610272611117"
+            - cell "人力行政部":
+              - button "人力行政部"
+            - cell "王瑜":
+              - generic: 王瑜
+            - cell "0%":
+              - generic: 0%
+            - cell "停止":
+              - generic: 停止
+            - cell "开启 项目设置 宣传设置 统计 删除":
+              - button "开启"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "删除"
+          - row "202609110123242 产品运营部 2026 三季度评估 刘金富 82% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202609110123242":
+              - generic: "202609110123242"
+            - cell "产品运营部 2026 三季度评估":
+              - button "产品运营部 2026 三季度评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "82%":
+              - generic: 82%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202610135216268 产品运营部 2026 第四季度评估 刘金富 0% 开启 关闭 项目设置 宣传设置 统计 复制":
+            - cell:
+              - checkbox
+            - cell "202610135216268":
+              - generic: "202610135216268"
+            - cell "产品运营部 2026 第四季度评估":
+              - button "产品运营部 2026 第四季度评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "0%":
+              - generic: 0%
+            - cell "开启":
+              - generic: 开启
+            - cell "关闭 项目设置 宣传设置 统计 复制":
+              - button "关闭"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "复制"
+          - row "202609110022257 项目管理能力、产品设计分析能力的360 评估 刘金富 100% 停止 开启 项目设置 宣传设置 统计 删除":
+            - cell:
+              - checkbox
+            - cell "202609110022257":
+              - generic: "202609110022257"
+            - cell "项目管理能力、产品设计分析能力的360 评估":
+              - button "项目管理能力、产品设计分析能力的360 评估"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "100%":
+              - generic: 100%
+            - cell "停止":
+              - generic: 停止
+            - cell "开启 项目设置 宣传设置 统计 删除":
+              - button "开启"
+              - button "项目设置"
+              - button "宣传设置"
+              - button "统计"
+              - button "删除"
+      - generic: 共 6 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

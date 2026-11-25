@@ -1,0 +1,125 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - button:
+      - heading "人才盘点 2026 年度产品部" [level=1]
+      - generic: 年度盘点 · 2026-09-14 ~ 2026-09-18
+      - generic: 进行中
+      - button "结束项目"
+    - main:
+      - navigation:
+        - generic: 概览
+        - generic: 盘点活动
+        - generic: 盘点结果
+        - generic: 盘点校准
+        - generic: 人才池
+      - generic: 校准记录
+      - button "创建校准任务"
+      - table:
+        - rowgroup:
+          - row "校准任务名称 校准人员 校准前落位 校准后落位 操作人 时间":
+            - columnheader "校准任务名称":
+              - generic: 校准任务名称
+            - columnheader "校准人员":
+              - generic: 校准人员
+            - columnheader "校准前落位":
+              - generic: 校准前落位
+            - columnheader "校准后落位":
+              - generic: 校准后落位
+            - columnheader "操作人":
+              - generic: 操作人
+            - columnheader "时间":
+              - generic: 时间
+        - rowgroup:
+          - row "2026 线下复盘会 周尊婵 - 高潜 刘金富 2026-10-13 17:12:02":
+            - cell "2026 线下复盘会":
+              - generic: 2026 线下复盘会
+            - cell "周尊婵":
+              - generic: 周尊婵
+            - cell "-":
+              - generic: "-"
+            - cell "高潜":
+              - generic: 高潜
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-10-13 17:12:02":
+              - generic: 2026-10-13 17:12:02
+          - row "2026 线下复盘会 王仔强 高绩效 · 中高能力 高潜 刘金富 2026-10-13 17:12:02":
+            - cell "2026 线下复盘会":
+              - generic: 2026 线下复盘会
+            - cell "王仔强":
+              - generic: 王仔强
+            - cell "高绩效 · 中高能力":
+              - generic: 高绩效 · 中高能力
+            - cell "高潜":
+              - generic: 高潜
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-10-13 17:12:02":
+              - generic: 2026-10-13 17:12:02
+          - row "2026 线下复盘会 江志海 骨干 高潜 刘金富 2026-10-13 17:12:02":
+            - cell "2026 线下复盘会":
+              - generic: 2026 线下复盘会
+            - cell "江志海":
+              - generic: 江志海
+            - cell "骨干":
+              - generic: 骨干
+            - cell "高潜":
+              - generic: 高潜
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-10-13 17:12:02":
+              - generic: 2026-10-13 17:12:02
+          - row "2026年产品部线下会议沟通校准 王仔强 骨干 高绩效 · 中高能力 刘金富 2026-09-21 14:07:08":
+            - cell "2026年产品部线下会议沟通校准":
+              - generic: 2026年产品部线下会议沟通校准
+            - cell "王仔强":
+              - generic: 王仔强
+            - cell "骨干":
+              - generic: 骨干
+            - cell "高绩效 · 中高能力":
+              - generic: 高绩效 · 中高能力
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-09-21 14:07:08":
+              - generic: 2026-09-21 14:07:08
+      - generic: 共 4 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton

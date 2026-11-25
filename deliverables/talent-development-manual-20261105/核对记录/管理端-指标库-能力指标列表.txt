@@ -1,0 +1,236 @@
+- complementary:
+  - menu:
+    - menuitem "业务发展（BD）":
+      - generic "业务发展（BD）"
+    - menuitem "全部应用":
+      - generic "全部应用"
+    - menuitem "组织发展（OD）":
+      - generic "组织发展（OD）"
+    - menuitem "人才发展（TD）":
+      - generic "人才发展（TD）"
+    - menuitem "学习发展（LD）":
+      - generic "学习发展（LD）"
+- 'generic "图标: menu-unfold"':
+- list:
+  - paragraph: 人才发展
+  - 'generic "图标: close"':
+- textbox "搜索应用"
+- 'generic "图标: swap"':
+- link "切换学员":
+  - /url: /rtr/html/desktop/desktop.index.do
+- generic: 刘金富
+- main:
+  - iframe [active]:
+    - complementary:
+      - navigation:
+        - generic: 人才标准
+        - generic: 评鉴中心
+        - generic: 发展中心
+        - generic: 人才中心
+        - generic: 系统设置
+      - button "帮助中心":
+        - text: 帮助中心
+    - banner:
+      - navigation:
+        - generic: 组织结构
+        - generic: 关键岗位分析
+        - generic: 岗位管理
+        - generic: 指标库
+    - navigation:
+      - generic: 能力
+      - generic: 动力
+      - generic: 潜力
+    - main:
+      - generic: 类别
+      - button:
+      - textbox "搜索类别"
+      - generic: 全部
+      - generic: 技能
+      - generic: 素养
+      - generic: 知识
+      - button "收起左侧树":
+      - generic: "名称 :"
+      - textbox "搜索"
+      - button "查 询"
+      - button "重 置"
+      - button "新建能力"
+      - table:
+        - rowgroup:
+          - row "名称 类别 等级 创建人 创建时间 操作":
+            - columnheader "名称":
+              - generic: 名称
+            - columnheader "类别":
+              - generic: 类别
+            - columnheader "等级":
+              - generic: 等级
+            - columnheader "创建人":
+              - generic: 创建人
+            - columnheader "创建时间":
+              - generic: 创建时间
+            - columnheader "操作":
+              - generic: 操作
+      - table:
+        - rowgroup:
+          - row "开放平台与系统集成 行业知识 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "开放平台与系统集成":
+              - generic: 开放平台与系统集成
+            - cell "行业知识":
+              - generic: 行业知识
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "AI与大数据应用 行业知识 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "AI与大数据应用":
+              - generic: AI与大数据应用
+            - cell "行业知识":
+              - generic: 行业知识
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "B2B SaaS 行业知识 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "B2B SaaS":
+              - generic: B2B SaaS
+            - cell "行业知识":
+              - generic: 行业知识
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "企业培训与在线教育 行业知识 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "企业培训与在线教育":
+              - generic: 企业培训与在线教育
+            - cell "行业知识":
+              - generic: 行业知识
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "文字表达能力 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "文字表达能力":
+              - generic: 文字表达能力
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "问题解决能力 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "问题解决能力":
+              - generic: 问题解决能力
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "抗压与执行力 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "抗压与执行力":
+              - generic: 抗压与执行力
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "学习与创新能力 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "学习与创新能力":
+              - generic: 学习与创新能力
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "客户服务意识 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "客户服务意识":
+              - generic: 客户服务意识
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+          - row "团队管理 通用素养 5 刘金富 2026-06-08 13:40:34 编辑 复制 删除":
+            - cell "团队管理":
+              - generic: 团队管理
+            - cell "通用素养":
+              - generic: 通用素养
+            - cell "5":
+              - generic: "5"
+            - cell "刘金富":
+              - generic: 刘金富
+            - cell "2026-06-08 13:40:34":
+              - generic: 2026-06-08 13:40:34
+            - cell "编辑 复制 删除":
+              - button "编辑"
+              - button "复制"
+              - button "删除"
+      - generic: 共 171 条
+      - list:
+        - text: .
+        - listitem: "1"
+        - listitem: "2"
+        - listitem: "3"
+        - listitem: "18"
+        - text: .
+      - generic "10 条/页":
+        - textbox
+        - generic: 10 条/页
+      - generic: 前往
+      - spinbutton
