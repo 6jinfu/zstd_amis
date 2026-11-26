@@ -43,8 +43,19 @@
       {id:'std-advertising',name:'亚马逊广告专业标准',category:'专业序列',description:'参考广告专业序列资料建立的标准示例，标准内容待配置。',mode:'none',positions:[],groups:[],content:emptyContent(),updated:'2026-09-07'}
     ],links:{},excluded:{},selected:{}};
   }
+  const allDimensions = ['duty','exp','cap','pow','pot'];
+  function dimensionsOf(s) {
+    return Array.isArray(s?.enabledDimensions) && s.enabledDimensions.length
+      ? allDimensions.filter(k => s.enabledDimensions.includes(k))
+      : [...allDimensions];
+  }
+  function hasDimension(s, dim) {
+    return dimensionsOf(s).includes(dim);
+  }
   function read() {
-    const raw=localStorage.getItem(key), data=raw ? JSON.parse(raw) : initial();
+    let parsed = null;
+    try { const raw = localStorage.getItem(key); if (raw) parsed = JSON.parse(raw); } catch {}
+    const data = parsed || initial();
     let migrated=false;
     (data.standards||[]).forEach(s=>{if(!s.code){s.code=nextCode(data);migrated=true;}});
     (data.standards||[]).forEach(s=>{if(legacyCategoryMap[s.category]){s.category=legacyCategoryMap[s.category];migrated=true;}if(s.id==='std-collaboration'&&s.category==='研发序列'){s.category='通用标准';migrated=true;}});
@@ -106,5 +117,5 @@
     const p=positions.find(p=>p.name===person.position);
     return data.standards.filter(s=>match(s,person)===true || (p&&(data.links[p.id]||[]).includes(s.id)));
   }
-  window.Standards={key,positions,people,modes,fields,clone,emptyContent,nextCode,read,write,match,summary,countApplicable,applicableObjectLabel,positionIds,setStandard,associated,forPerson};
+  window.Standards={key,positions,people,modes,fields,allDimensions,dimensionsOf,hasDimension,clone,emptyContent,nextCode,read,write,match,summary,countApplicable,applicableObjectLabel,positionIds,setStandard,associated,forPerson};
 })();

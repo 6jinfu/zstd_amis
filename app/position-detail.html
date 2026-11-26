@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>岗位详情 · 高级算法工程师</title>
-<link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
-<link rel="stylesheet" href="standards.css?v=sha256-37245495b13f">
+<link rel="stylesheet" href="styles.css?v=sha256-3f5de2ce266f">
+<link rel="stylesheet" href="standards.css?v=sha256-2cc714d7451e">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="standard" data-page="positions">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-1101210ed928"></script>
+<script src="navigation.js?v=sha256-aab58ca981b1"></script>
   <div class="body">
     <main class="content">
       <div class="breadcrumb"><a href="standards.html" style="color:var(--neutral-400)">人才标准</a><span class="sep">/</span><span class="cur">岗位详情</span></div>
@@ -58,30 +58,10 @@
             <div id="position-standard-links"></div>
           </section>
 
-          <!-- ③ 学习方案 -->
+          <!-- ③ 学习方案（按岗位+标准独立配置） -->
           <section data-section="plan" class="card card-pad d-section">
-            <div class="flex between center mb-md">
-              <div>
-                <div class="sect-title" style="margin:0"><span class="idx">3</span>学习方案</div>
-              </div>
-              <button class="btn btn-primary" id="ai-course-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><path d="M19 14l.7 2L22 17l-2.3.7L19 20l-.7-2L16 17l2.3-.7z"/></svg>推荐学习资源</button>
-            </div>
-            <div class="flex gap-sm mb-md">
-              <button class="btn btn-secondary" data-picker="课程">添加课程</button>
-              <button class="btn btn-secondary" data-picker="项目">添加项目</button>
-              <button class="btn btn-secondary" data-picker="前测">添加前测</button>
-              <button class="btn btn-secondary" data-picker="后测">添加后测</button>
-            </div>
-            <div class="table-wrap"><table class="t" id="plan-table">
-              <thead><tr><th style="width:90px">类型</th><th>名称</th><th>来源 / 周期</th><th style="text-align:right">操作</th></tr></thead>
-              <tbody>
-                <tr><td><span class="tag tag-primary">课程</span></td><td>分布式系统设计</td><td class="muted">培训平台 · 24 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
-                <tr><td><span class="tag tag-primary">课程</span></td><td>高并发架构实战</td><td class="muted">培训平台 · 16 课时</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
-                <tr><td><span class="tag tag-success">项目</span></td><td>架构师加速营（第 3 期）</td><td class="muted">培训项目 · 3 个月</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
-                <tr><td><span class="tag tag-warning">前测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养开始前</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
-                <tr><td><span class="tag tag-warning">后测</span></td><td>系统架构认证</td><td class="muted">认证考试 · 培养结束后</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>
-              </tbody>
-            </table></div>
+            <div class="std-heading"><h2>学习方案</h2></div>
+            <div id="position-plan-standards"></div>
           </section>
 
         </div>
@@ -89,8 +69,7 @@
 
       <div class="detail-foot">
         <div class="flex gap-sm">
-          <a class="btn btn-secondary" href="positions.html">取消</a>
-          <button class="btn btn-primary" id="save-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>保存</button>
+          <a class="btn btn-secondary" href="positions.html">返回岗位列表</a>
         </div>
       </div>
     </main>
@@ -98,8 +77,8 @@
 </div>
 
 <script src="standard-seeds.js?v=sha256-074d6e888ad6"></script>
-<script src="standards-data.js?v=sha256-a1d6a94f30fb"></script>
-<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="standards-data.js?v=sha256-11bf1d98b444"></script>
+<script src="ui/components.js?v=sha256-5ad06c0ffb2e"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
 <script>
   // 同一详情骨架按案例切换业务数据；销售岗位通过 ?case=sales 进入。
@@ -123,12 +102,10 @@
     document.querySelector('.detail-bar .text-sm').textContent = demo.code + ' · ' + demo.level;
     var fields = document.querySelectorAll('[data-section="info"] input.input');
     if (fields.length >= 3) { fields[0].value = demo.code; fields[1].value = demo.name; fields[2].value = demo.category; }
-    var tbody = document.querySelector('#plan-table tbody');
-    if (tbody) tbody.innerHTML = demo.plan.map(function (r) { return '<tr><td><span class="tag ' + r[1] + '">' + r[0] + '</span></td><td>' + r[2] + '</td><td class="muted">' + r[3] + '</td><td class="ops" style="justify-content:flex-end"><button class="btn-text btn-sm danger" data-del-row>移除</button></td></tr>'; }).join('');
   })();
 </script>
 
-<script src="standard-ui.js?v=sha256-fff5616e15f1"></script>
-<script src="standard-references.js?v=sha256-bad2668741aa"></script>
+<script src="standard-ui.js?v=sha256-6918263c2685"></script>
+<script src="standard-references.js?v=sha256-c122d3de62c8"></script>
 </body>
 </html>

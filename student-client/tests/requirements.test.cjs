@@ -66,7 +66,7 @@ test('多套标准保留各自标识与选择，不自动合并要求', () => {
   assert.ok(!R.render(standards[1]).includes('L3'));
 });
 
-test('岗位演示数据覆盖全部节点，五类内容完整且没有测试占位', () => {
+test('岗位演示数据覆盖全部节点，启用维度内容完整且支持无等级指标与标准模板裁剪', () => {
   vm.runInContext(fs.readFileSync(path.join(root,'requirements-data.js'),'utf8'),context);
   const data = context.window.LearnerRequirementsData;
   const provenance = JSON.parse(fs.readFileSync(path.join(root,'mobile/provenance.json'),'utf8'));
@@ -80,32 +80,48 @@ test('岗位演示数据覆盖全部节点，五类内容完整且没有测试�
       assert.ok(!ids.has(standard.id));
       ids.add(standard.id);
       assert.ok(!/测试数据|请忽略|待补充|占位/.test(JSON.stringify(standard)));
-      for (const key of ['duty','exp','cap','pow','pot']) assert.ok(standard.content[key].length,position.name+' '+key);
-      assert.ok(standard.content.duty.every(item=>item.n&&item.t.length));
+      const dims = R.dimensionsOf(standard);
+      assert.ok(dims.length >= 1);
+      for (const key of dims) assert.ok(standard.content[key].length,position.name+' '+key);
+      if (dims.includes('duty')) assert.ok(standard.content.duty.every(item=>item.n&&item.t.length));
       assert.ok(standard.content.cap.length<=20);
-      assert.ok(standard.content.cap.every(([name,level])=>name&&/^L[1-5]$/.test(level)));
+      assert.ok(standard.content.cap.every(([name,level])=>name&&(/^L(?:10|[1-9])$/.test(level)||level==='不分级')));
     }
   });
   assert.equal(count,14);
   assert.equal(data.forPosition('08').length,2);
   assert.equal(data.forPosition('03').length,2);
   assert.equal(data.forPosition('unrelated'),null);
+
+  const [core,growth] = data.forPosition('08');
+  const coreHtml = R.render(core);
+  assert.ok(coreHtml.includes('<svg'), '分级能力>=3时保留雷达图');
+  assert.ok(coreHtml.includes('项目立项规范') && coreHtml.includes('不分级'), '无等级指标单独展示不分级');
+  const growthHtml = R.render(growth);
+  assert.ok(!growthHtml.includes('职责任务') && !growthHtml.includes('经历经验'), '三维度标准模板不渲染未启用维度');
+  assert.ok(growthHtml.includes('能力要求') && growthHtml.includes('动力要求') && growthHtml.includes('潜力要求'));
+  assert.ok(growthHtml.includes('req-trait-card'), '动力与潜力展示特质释义卡片');
 });
 
-test('整套标准的学习方案独立，课程筛选不混入其他方案', () => {
+test('整套标准的学习方案独立，支持阶段分组、资源关联能力标签与按能力筛选', () => {
   const [core,growth] = context.window.LearnerRequirementsData.forPosition('08');
   const before = JSON.stringify([core,growth]);
   const corePlan = R.renderPlan(core), growthPlan = R.renderPlan(growth);
+  assert.ok(corePlan.includes('阶段一：核心专业方法筑基'));
   assert.ok(corePlan.includes('完成用户访谈与需求改进提案'));
   assert.ok(corePlan.includes('进入项目'));
+  assert.ok(corePlan.includes('req-res-cap'));
   assert.ok(!growthPlan.includes('完成用户访谈与需求改进提案'));
   assert.ok(growthPlan.includes('完成转化漏斗分析与增长实验'));
-  assert.ok(growthPlan.includes('暂无关联项目'));
   const optional = R.renderPlan(growth,'optional','../');
-  assert.equal((optional.match(/class="standard-course"/g)||[]).length,1);
+  assert.ok((optional.match(/<article class="standard-course"/g)||[]).length===1);
   assert.ok(optional.includes('内容营销，实现新零售突破的关键环节'));
   assert.ok(!optional.includes('大数据在数字化营销场景的应用'));
   assert.ok(optional.includes('src="../mobile/assets/'));
+  const byCap = R.renderPlan(core,{type:'all',capability:'项目立项规范'});
+  assert.ok(byCap.includes('项目管理课程精讲(上)'));
+  assert.ok(byCap.includes('完成版本立项材料合规自检与同行评审'));
+  assert.ok(!byCap.includes('战略评估：阶段评估，敏捷迭代'));
   assert.equal(JSON.stringify([core,growth]),before);
   assert.ok(R.renderPlan({}).includes('该标准尚未配置学习方案'));
 });

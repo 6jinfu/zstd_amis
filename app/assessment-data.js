@@ -1,9 +1,10 @@
 (function () {
   const key='talent-assessment-drafts-v1';
-  const read=()=>JSON.parse(localStorage.getItem(key)||'[]');
+  const read=()=>{try{return JSON.parse(localStorage.getItem(key)||'[]');}catch{return [];}};
   const write=value=>localStorage.setItem(key,JSON.stringify(value));
   function resolve(standard) {
     const S=window.Standards,data=S.read();
+    if(typeof S.hasDimension==='function'&&!S.hasDimension(standard,'cap'))return {label:'该标准未启用“能力要求”维度，无法创建 360 评估',message:'该标准未启用“能力要求”维度，无法创建 360 评估',people:[],unknown:[],valid:false};
     const positions=S.positions.filter(p=>S.associated(data,p.id).some(s=>s.id===standard.id));
     const applicable=S.people.filter(person=>S.forPerson(data,person).some(s=>s.id===standard.id));
     const unknown=S.people.filter(person=>S.match(standard,person)===null);
@@ -22,12 +23,19 @@
       '系统架构':['能说明设计方案与业务目标、技术约束的对应关系','能识别关键依赖和潜在风险，并提出处理方案','能结合实施反馈检查和调整设计方案'],
       '技术选型':['能明确技术选择需要满足的业务条件和约束','能比较候选方案的适用性并说明取舍依据','能通过验证结果检查选型是否满足需求']
     };
-    return abilities.flatMap(ability=>Object.keys(types).flatMap(type=>Array.from({length:counts[type]||0},(_,index)=>{
-      const behavior=[...(behaviors[ability]||[`能运用“${ability}”完成职责范围内的任务`,`遇到“${ability}”相关问题时能主动采取行动并跟进结果`,`能结合反馈改进“${ability}”相关的工作方式`]),`能在任务条件变化时调整“${ability}”相关的行动方案`,`能向他人分享“${ability}”相关的实践经验`][index];
-      const text=type==='essay'?`请结合${scenario||'实际工作'}中${situations[index]}的情境，描述一个体现“${ability}”的具体案例，说明情境、行动和可观察的结果。`:type==='multi'?`${context}在${situations[index]}时，该人员在“${ability}”方面有哪些可观察的行为？请选择符合实际的选项。`:type==='score'?`${context}请对“${behavior}”的表现进行评分。`:`${context}对“${behavior}”的表现，以下哪项描述最符合实际？`;
-      const options=type==='single'?['很少表现出这一行为','在提醒或支持下表现出这一行为','能够独立、稳定地表现出这一行为','能够主动改进并帮助他人做到','缺少观察，无法判断']:type==='multi'?[...(behaviors[ability]||[behavior,'能主动同步问题与处理进展','能结合反馈改进工作方法']),'尚未观察到相关行为']:[];
-      return {id:'q-'+Math.random().toString(36).slice(2,10),ability,type,text,options};
-    })));
+    return abilities.flatMap(ability=>{
+      const def = (window.IndicatorDemo?.definitionOf?.(ability) || '').replace(/[。；;]+$/,'');
+      const customBehaviors = def
+        ? [`能达到“${ability}”的定义要求（${def}）`, `遇到与“${ability}”相关的实际问题时，能按规范独立完成处理并跟进结果`, `能结合反馈持续改进“${ability}”相关的工作表现`]
+        : [`能运用“${ability}”完成职责范围内的任务`,`遇到“${ability}”相关问题时能主动采取行动并跟进结果`,`能结合反馈改进“${ability}”相关的工作方式`];
+      const pool = behaviors[ability] || customBehaviors;
+      return Object.keys(types).flatMap(type=>Array.from({length:counts[type]||0},(_,index)=>{
+        const behavior=[...pool,`能在任务条件变化时调整“${ability}”相关的行动方案`,`能向他人分享“${ability}”相关的实践经验`][index];
+        const text=type==='essay'?`请结合${scenario||'实际工作'}中${situations[index]}的情境，描述一个体现“${ability}”的具体案例，说明情境、行动和可观察的结果。`:type==='multi'?`${context}在${situations[index]}时，该人员在“${ability}”方面有哪些可观察的行为？请选择符合实际的选项。`:type==='score'?`${context}请对“${behavior}”的表现进行评分。`:`${context}对“${behavior}”的表现，以下哪项描述最符合实际？`;
+        const options=type==='single'?['很少表现出这一行为','在提醒或支持下表现出这一行为','能够独立、稳定地表现出这一行为','能够主动改进并帮助他人做到','缺少观察，无法判断']:type==='multi'?[...(behaviors[ability]||[behavior,'能主动同步问题与处理进展','能结合反馈改进工作方法']),'尚未观察到相关行为']:[];
+        return {id:'q-'+Math.random().toString(36).slice(2,10),ability,type,text,options};
+      }));
+    });
   }
   function questionMarkup(question,index,escape,interactive=false) {
     const type=question.type||'score',options=question.options||[];

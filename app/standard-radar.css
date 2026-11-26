@@ -16,3 +16,6 @@
 .std-radar-group + .std-radar-group { margin-top:24px; }
 .std-radar-group h4 { margin:0;font-size:14px;font-weight:500;line-height:22px; }
 .std-radar-group ul { margin:12px 0;padding-left:22px; }
+.std-radar-ungraded { display:grid;gap:6px;margin:10px 0 4px;padding:10px 12px;list-style:none;border:1px solid #e5e8ef;border-radius:8px;background:#f8fafc; }
+.std-radar-ungraded li { display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;color:#344054; }
+.std-radar-ungraded .std-radar-level-value { color:#667085; }

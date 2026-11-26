@@ -25,7 +25,12 @@
       $('#std-categories').innerHTML=all+categoryHtml;
       const rows=data.standards.filter(s=>(!categories||categories.has(s.category))&&(!search||s.name.toLowerCase().includes(search)));
       page=Math.min(page,Math.max(1,Math.ceil(rows.length/10)));
-      $('#std-rows').innerHTML=rows.slice((page-1)*10,page*10).map(s=>`<tr><td><a class="std-table-name" href="standard-detail.html?id=${e(s.id)}">${e(s.name)}</a></td><td class="std-object-count">${e(S.applicableObjectLabel(data,s))}</td><td><div class="flex gap-sm"><a class="btn-text" href="standard-detail.html?id=${e(s.id)}">编辑</a><a class="btn-text" href="standard-detail.html?id=${encodeURIComponent(s.id)}#plan">学习方案</a>${button('复制',`data-copy="${e(s.id)}"`,'btn-text')}${button('删除',`data-delete="${e(s.id)}"`,'btn-text danger')}</div></td></tr>`).join('')||'<tr><td colspan="3"><div class="empty-state">没有符合条件的标准</div></td></tr>';
+      $('#std-rows').innerHTML=rows.slice((page-1)*10,page*10).map(s=>{
+        const dims = S.dimensionsOf(s), isCustomTpl = dims.length < S.allDimensions.length;
+        const tplBadge = isCustomTpl ? `<span class="std-tpl-badge">${e(s.templateName || dims.map(k => window.TalentSettings?.dimensions?.[k] || k).join('·'))}</span>` : '';
+        const planAction = S.hasDimension(s,'cap') ? `<a class="btn-text" href="standard-detail.html?id=${encodeURIComponent(s.id)}#plan">学习方案</a>` : '';
+        return `<tr><td><a class="std-table-name" href="standard-detail.html?id=${e(s.id)}">${e(s.name)}</a>${tplBadge}</td><td class="std-object-count">${e(S.applicableObjectLabel(data,s))}</td><td><div class="flex gap-sm"><a class="btn-text" href="standard-detail.html?id=${e(s.id)}">编辑</a>${planAction}${button('复制',`data-copy="${e(s.id)}"`,'btn-text')}${button('删除',`data-delete="${e(s.id)}"`,'btn-text danger')}</div></td></tr>`;
+      }).join('')||'<tr><td colspan="3"><div class="empty-state">没有符合条件的标准</div></td></tr>';
       $('#std-count').textContent=`共 ${rows.length} 条 · 每页 10 条`;$('#std-page').textContent=`${page} / ${Math.max(1,Math.ceil(rows.length/10))}`;
       $('#std-prev').disabled=page===1;$('#std-next').disabled=page*10>=rows.length;
       if(focusTarget){

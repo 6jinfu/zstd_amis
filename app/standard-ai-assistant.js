@@ -20,8 +20,8 @@
   ];
   const T=window.TalentSettings,defaultSections=Object.keys(T.dimensions),sectionLabels=T.dimensions;
   let confirmedBrief=null;
-  let sourceId='',detail='concise',descriptionStructure='behavior',feedbackResponses=[];
-  let stage='welcome',result=null,originalRequest='',brief=null,uploadedFile='',generationTimer=0,thinkingTarget='review',generatedSections=T.enabled(),scope='position',scopeFeedback='',feedbackHistory=[],reviewFeedbackHistory=[];
+  let sourceId='',selectedTemplateId=T.defaultTemplate().id,detail='concise',descriptionStructure='behavior',feedbackResponses=[];
+  let stage='welcome',result=null,originalRequest='',brief=null,uploadedFile='',generationTimer=0,thinkingTarget='review',generatedSections=[...T.defaultTemplate().dimensions],scope='position',scopeFeedback='',feedbackHistory=[],reviewFeedbackHistory=[];
 
   let priorityItems=[],rankedCapabilities=[],capabilityScores=Object.create(null),comparisonConfirmed=false,priorityPhase='',priorityStep=0,draggedCapability=null;
 
@@ -32,7 +32,7 @@
     stage=next;chat.classList.toggle('conversation-mode',next!=='welcome');chat.classList.toggle('thinking-mode',next==='thinking'&&thinkingTarget!=='rank');chat.classList.toggle('preview-mode',next==='scope');drawer.classList.toggle('flow-active',next!=='welcome');positionSelect.disabled=next!=='welcome';
     const hidden=['review','outline','scope','rank','compare','priority-thinking'].includes(next)||(next==='thinking'&&thinkingTarget==='rank'),promptText=next==='welcome'?'请描述建模的岗位要求':'有问题或者需要调整的，可以直接告诉我';composer.setAttribute('aria-hidden',String(hidden));prompt.placeholder=promptText;promptLabel.textContent=promptText;send.disabled=hidden||!prompt.value.trim();
   }
-  function reset(){clearTimeout(generationTimer);resetPriority();confirmedBrief=null;result=null;originalRequest='';brief=null;uploadedFile='';files.value='';thinkingTarget='review';generatedSections=T.enabled();sourceId='';detail='concise';descriptionStructure='behavior';feedbackResponses=[];scope='position';scopeFeedback='';feedbackHistory=[];reviewFeedbackHistory=[];setStage('welcome');positionSelect.value='';prompt.value='';send.disabled=true;messages.innerHTML=welcomeMarkup();prompt.focus();}
+  function reset(){clearTimeout(generationTimer);resetPriority();confirmedBrief=null;result=null;originalRequest='';brief=null;uploadedFile='';files.value='';thinkingTarget='review';const defTpl=T.defaultTemplate();selectedTemplateId=defTpl.id;generatedSections=[...defTpl.dimensions];sourceId='';detail='concise';descriptionStructure='behavior';feedbackResponses=[];scope='position';scopeFeedback='';feedbackHistory=[];reviewFeedbackHistory=[];setStage('welcome');positionSelect.value='';prompt.value='';send.disabled=true;messages.innerHTML=welcomeMarkup();prompt.focus();}
   function selectedPosition(){return S.positions.find(item=>item.id===positionSelect.value);}
   function inferPosition(text){return S.positions.find(item=>text.includes(item.name));}
   function inferBrief(text){
@@ -121,7 +121,10 @@
   }
   function reviewSummary(){
     const position=selectedPosition();
-    return `<div class="std-ai-review-summary"><div class="std-ai-review-fields"><label class="std-ai-review-field full"><span>本次操作</span><select id="std-ai-source"><option value="">新建人才标准</option>${S.read().standards.map(item=>`<option value="${e(item.id)}" ${item.id===sourceId?'selected':''}>更新：${e(item.name)}</option>`).join('')}</select></label><div class="std-ai-review-field full"><span>目标岗位</span><strong>${e(position?.name||'未指定')}</strong></div><div class="std-ai-review-field full"><span>业务场景</span><p>${e(brief.scenario)}</p></div>${uploadedFile?`<div class="std-ai-review-field full"><span>参考资料</span><p>${e(uploadedFile)}</p></div>`:''}</div><fieldset class="std-ai-dimension-picker"><legend>本次生成内容</legend><div>${T.enabled().map(key=>`<label><input type="checkbox" value="${key}" data-ai-dimension ${generatedSections.includes(key)?'checked':''}><span>${sectionLabels[key]}</span></label>`).join('')}</div></fieldset></div>`;
+    const enabledTpls=T.templates(undefined,{onlyEnabled:true});
+    const tplRow=!sourceId?`<label class="std-ai-review-field full"><span>标准模板</span><select id="std-ai-template">${enabledTpls.map(t=>`<option value="${e(t.id)}" ${t.id===selectedTemplateId?'selected':''}>${e(t.name)}（${t.dimensions.map(k=>sectionLabels[k]).join('、')}）</option>`).join('')}</select></label>`:'';
+    const allowedDims=sourceId?S.dimensionsOf(sourceStandard()):defaultSections;
+    return `<div class="std-ai-review-summary"><div class="std-ai-review-fields"><label class="std-ai-review-field full"><span>本次操作</span><select id="std-ai-source"><option value="">新建人才标准</option>${S.read().standards.map(item=>`<option value="${e(item.id)}" ${item.id===sourceId?'selected':''}>更新：${e(item.name)}</option>`).join('')}</select></label>${tplRow}<div class="std-ai-review-field full"><span>目标岗位</span><strong>${e(position?.name||'未指定')}</strong></div><div class="std-ai-review-field full"><span>业务场景</span><p>${e(brief.scenario)}</p></div>${uploadedFile?`<div class="std-ai-review-field full"><span>参考资料</span><p>${e(uploadedFile)}</p></div>`:''}</div><fieldset class="std-ai-dimension-picker"><legend>本次生成内容</legend><div>${allowedDims.map(key=>`<label><input type="checkbox" value="${key}" data-ai-dimension ${generatedSections.includes(key)?'checked':''}><span>${sectionLabels[key]}</span></label>`).join('')}</div></fieldset></div>`;
   }
   function reviewDecision(){return `<footer class="std-ai-confirm-dock"><div class="std-ai-confirm-card"><label class="sr-only" for="std-ai-review-feedback">补充建模信息</label><textarea id="std-ai-review-feedback" rows="1" maxlength="1200" data-ai-review-feedback placeholder="可以继续补充实际工作、需要做的事，或希望达成的变化"></textarea><p class="std-ai-flow-error" data-ai-review-error aria-live="polite"></p><div class="std-ai-confirm-footer"><span data-ai-dimension-count>已选择 ${generatedSections.length} 类内容</span><button type="button" class="std-ai-flow-primary" data-ai-review-submit>确认，继续</button></div></div></footer>`;}
   function preferenceMarkup(name,title,levels,value){
@@ -184,7 +187,7 @@
   }
   function priorityCard(kind){
     const ranking=kind==='rank',title=ranking?'排一排 · 能力优先级':'比一比 · 岗位重要性评分';
-    const rows=priorityItems.map(([name,level],index)=>ranking?`<li class="std-ai-priority-row" data-ai-priority-item="${e(name)}"><button type="button" class="std-ai-drag-handle" data-ai-drag="${e(name)}" aria-label="拖动${e(name)}，也可用上下方向键排序"><svg viewBox="0 0 16 20" aria-hidden="true" fill="currentColor"><circle cx="5" cy="5" r="1.5"/><circle cx="11" cy="5" r="1.5"/><circle cx="5" cy="10" r="1.5"/><circle cx="11" cy="10" r="1.5"/><circle cx="5" cy="15" r="1.5"/><circle cx="11" cy="15" r="1.5"/></svg></button><span class="std-ai-priority-index">${index+1}</span><span class="std-ai-priority-name">${e(name)}</span><span class="std-ai-priority-level">${e(level)}</span><span class="std-ai-priority-moves"><button type="button" data-ai-move="-1" aria-label="上移${e(name)}" ${index===0?'disabled':''}>↑</button><button type="button" data-ai-move="1" aria-label="下移${e(name)}" ${index===priorityItems.length-1?'disabled':''}>↓</button></span></li>`:`<fieldset class="std-ai-score-row"><legend>${e(name)}</legend><div class="std-ai-score-options">${[1,2,3,4,5].map(score=>`<label><input type="radio" name="cap-score-${index}" value="${score}" data-ai-score="${e(name)}" ${capabilityScores[name]===score?'checked':''}><span>${score}</span></label>`).join('')}</div></fieldset>`).join('');
+    const rows=priorityItems.map(([name,level],index)=>ranking?`<li class="std-ai-priority-row" data-ai-priority-item="${e(name)}"><button type="button" class="std-ai-drag-handle" data-ai-drag="${e(name)}" aria-label="拖动${e(name)}，也可用上下方向键排序"><svg viewBox="0 0 16 20" aria-hidden="true" fill="currentColor"><circle cx="5" cy="5" r="1.5"/><circle cx="11" cy="5" r="1.5"/><circle cx="5" cy="10" r="1.5"/><circle cx="11" cy="10" r="1.5"/><circle cx="5" cy="15" r="1.5"/><circle cx="11" cy="15" r="1.5"/></svg></button><span class="std-ai-priority-index">${index+1}</span><span class="std-ai-priority-name">${e(name)}</span><span class="std-ai-priority-level">${e(level||'不分级')}</span><span class="std-ai-priority-moves"><button type="button" data-ai-move="-1" aria-label="上移${e(name)}" ${index===0?'disabled':''}>↑</button><button type="button" data-ai-move="1" aria-label="下移${e(name)}" ${index===priorityItems.length-1?'disabled':''}>↓</button></span></li>`:`<fieldset class="std-ai-score-row"><legend>${e(name)}</legend><div class="std-ai-score-options">${[1,2,3,4,5].map(score=>`<label><input type="radio" name="cap-score-${index}" value="${score}" data-ai-score="${e(name)}" ${capabilityScores[name]===score?'checked':''}><span>${score}</span></label>`).join('')}</div></fieldset>`).join('');
     return `<div class="std-ai-thread-component std-ai-priority-card"><header><strong tabindex="-1" data-ai-stage-heading>${title}</strong><span class="std-ai-component-state">${ranking?'待排序':'待评分'}</span></header><div class="std-ai-priority-body"><p>${ranking?'拖动能力项，越靠上优先级越高。也可点击上下箭头调整。':'按岗位重要性逐项打分：1 分较低，5 分最重要。分数用于排序，不改变要求等级。'}</p>${ranking?`<ol class="std-ai-priority-canvas" aria-label="能力排序画布">${rows}</ol>`:`<div class="std-ai-score-canvas">${rows}</div>`}<p class="std-ai-priority-feedback" data-ai-priority-feedback aria-live="polite">${ranking?'':`已评分 ${Object.keys(capabilityScores).length} / ${priorityItems.length} 项`}</p><p class="std-ai-flow-error" data-ai-priority-error role="alert"></p><div class="std-ai-priority-actions"><button type="button" class="std-ai-flow-primary" data-ai-priority-confirm>${ranking?'确定排序':'确定评分'}</button></div></div></div>`;
   }
   function renderPriority(kind){
@@ -259,7 +262,7 @@
     }});
     function render(){
       form.querySelector('[data-ai-indicator-count]').textContent=`已选 ${items.length} 项${label}`;
-      form.querySelector('[data-ai-indicator-list]').innerHTML=items.map((item,index)=>{const name=capability?item[0]:item;return `<span class="std-chip">${e(name)}${capability?`<select class="select" aria-label="${e(name)}要求等级" data-ai-cap-level="${index}">${[1,2,3,4,5].map(n=>`<option ${item[1]==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>`:''}<button class="btn-text" type="button" data-ai-indicator-remove="${index}" aria-label="移除${e(name)}">×</button></span>`;}).join('')||`<p>尚未配置${sectionLabels[key]}</p>`;
+      form.querySelector('[data-ai-indicator-list]').innerHTML=items.map((item,index)=>{const name=capability?item[0]:item;const graded=capability&&item[1]!==''&&(window.IndicatorDemo?.isGraded?window.IndicatorDemo.isGraded(name):true);return `<span class="std-chip">${e(name)}${capability?(graded?`<select class="select" aria-label="${e(name)}要求等级" data-ai-cap-level="${index}">${Array.from({length:10},(_,n)=>n+1).map(n=>`<option ${item[1]==='L'+n?'selected':''}>L${n}</option>`).join('')}</select>`:'<span class="std-cap-ungraded">不分级</span>'):''}<button class="btn-text" type="button" data-ai-indicator-remove="${index}" aria-label="移除${e(name)}">×</button></span>`;}).join('')||`<p>尚未配置${sectionLabels[key]}</p>`;
     }
     form.addEventListener('change',ev=>{if(ev.target.dataset.aiCapLevel!==undefined)items[+ev.target.dataset.aiCapLevel][1]=ev.target.value;});
     form.addEventListener('click',ev=>{
@@ -268,11 +271,11 @@
       if(button.hasAttribute('data-ai-indicator-pick')){
         const categories=capability?(window.IndicatorDemo?.categories||[]):(window.IndicatorDemo?.traitCategories[key]||[]);
         const fallback=capability?Object.values(window.STANDARD_POSITION_SEEDS||{}).flatMap(seed=>seed.abilityOptions.map(item=>item[0])):key==='pow'?['成就导向','技术钻研','创新探索','影响他人','稳定归属','自主独立','掌控权力','协作共赢']:['战略思维','变革推动','学习敏锐','复杂决策','跨界整合','坚韧抗压'];
-        const library=new Map((window.IndicatorDemo?.items[key]||[]).map(item=>[item.name,{id:item.name,name:item.name,note:item.description,categoryId:item.categoryId}]));
+        const library=new Map((window.IndicatorDemo?.items[key]||[]).map(item=>[item.name,{id:item.name,name:item.name,note:(capability&&item.graded===false?'无等级 · ':'')+(item.description||''),categoryId:item.categoryId}]));
         const names=[...fallback,...S.read().standards.flatMap(item=>item.content[key].map(value=>capability?value[0]:value)),...items.map(item=>capability?item[0]:item)];
         names.forEach(name=>{if(!library.has(name))library.set(name,{id:name,name,categoryId:capability?'general':categories[0]?.id||''});});
         StandardUI.pickIndicators(capability?'选择关联指标':`选择${label}指标`,[...library.values()],items.map(item=>capability?item[0]:item),selected=>{
-          items=selected.map(name=>capability?(items.find(item=>item[0]===name)||[name,'L3']):name);render();
+          items=selected.map(name=>{if(!capability)return name;const existing=items.find(item=>item[0]===name);if(existing)return existing;return [name,window.IndicatorDemo?.isGraded&&!window.IndicatorDemo.isGraded(name)?'':'L3'];});render();
         },capability?20:Infinity,{categories,treeTitle:label+'指标',nameLabel:label+'名称',keepParent:true});
       }
     });
@@ -399,8 +402,12 @@
   function transferDraft(strategy){
     const existing=sourceStandard(),position=selectedPosition();
     if(existing){result.targetId=existing.id;result.updateStrategy=strategy;result.generatedSections=[...generatedSections];result.mode=existing.mode;result.positions=S.clone(existing.positions);result.groups=S.clone(existing.groups);}
-    else if(scope==='none'||!position){result.mode='none';result.positions=[];}
-    else{result.mode='positions';result.positions=scope==='category'?S.positions.filter(item=>item.category===position.category).map(item=>item.id):[position.id];}
+    else{
+      const chosenTpl=T.templates(undefined,{onlyEnabled:true}).find(t=>t.id===selectedTemplateId)||T.defaultTemplate();
+      result.templateId=chosenTpl.id;result.templateName=chosenTpl.name;result.enabledDimensions=[...generatedSections];
+      if(scope==='none'||!position){result.mode='none';result.positions=[];}
+      else{result.mode='positions';result.positions=scope==='category'?S.positions.filter(item=>item.category===position.category).map(item=>item.id):[position.id];}
+    }
     sessionStorage.setItem(pendingKey,JSON.stringify(result));location.href='standard-detail.html?ai=1'+(existing?'&id='+encodeURIComponent(existing.id):'');
   }
   function confirmScope(){
@@ -436,7 +443,8 @@
   messages.addEventListener('input',event=>{if(event.target.matches('[data-ai-preference] input[type=range]'))updatePreference(event.target.closest('[data-ai-preference]'),Number(event.target.value));if(event.target.hasAttribute('data-ai-review-feedback')){messages.querySelector('[data-ai-review-error]').textContent='';messages.querySelector('[data-ai-review-submit]').textContent=event.target.value.trim()?'提交补充':'确认，继续';}if(event.target.id==='std-ai-followup')messages.querySelector('[data-ai-followup-error]').textContent='';});
   messages.addEventListener('change',event=>{const target=event.target;
     if(target.hasAttribute('data-ai-dimension')){generatedSections=[...messages.querySelectorAll('[data-ai-dimension]:checked')].map(input=>input.value);messages.querySelector('[data-ai-dimension-count]').textContent=`已选择 ${generatedSections.length} 类内容`;messages.querySelector('[data-ai-review-error]').textContent='';}
-    if(target.id==='std-ai-source'){sourceId=target.value;scope=sourceId?'original':selectedPosition()?'position':'none';const source=sourceStandard();if(source?.positions.length===1)positionSelect.value=source.positions[0];}
+    if(target.id==='std-ai-template'){selectedTemplateId=target.value;const tpl=T.templates(undefined,{onlyEnabled:true}).find(t=>t.id===selectedTemplateId);if(tpl){generatedSections=[...tpl.dimensions];renderReview();return;}}
+    if(target.id==='std-ai-source'){sourceId=target.value;scope=sourceId?'original':selectedPosition()?'position':'none';const source=sourceStandard();if(source){generatedSections=S.dimensionsOf(source);if(source.positions.length===1)positionSelect.value=source.positions[0];}else{const tpl=T.templates(undefined,{onlyEnabled:true}).find(t=>t.id===selectedTemplateId)||T.defaultTemplate();generatedSections=[...tpl.dimensions];}renderReview();return;}
     if(target.hasAttribute('data-ai-scope')){scope=target.value;scopeFeedback='';updateScopeUI();}});
   messages.addEventListener('keydown',event=>{if(event.target.id==='std-ai-outline-feedback'&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();messages.querySelector('[data-ai-generate]').click();return;}if(event.target.hasAttribute('data-ai-review-feedback')&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();submitReviewDecision();}if(event.target.id==='std-ai-followup'&&(event.metaKey||event.ctrlKey)&&event.key==='Enter'){event.preventDefault();confirmScope();}});
   drawer.addEventListener('click',event=>{

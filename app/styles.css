@@ -494,7 +494,7 @@ textarea.input { height: auto; padding: 8px 10px; line-height: 22px; resize: ver
 .sel-card { border: 1px solid var(--neutral-200); border-radius: var(--radius-md); padding: var(--space-md); display: flex; align-items: center; justify-content: space-between; }
 
 /* ---------- 18. 象限气泡图 / 结论横幅（F02 结果页）---------- */
-.conclusion { display:flex; gap:var(--space-md); align-items:flex-start; background:linear-gradient(90deg,var(--primary-50),#fff); border:1px solid var(--primary-400); border-left:3px solid var(--primary-600); border-radius:var(--radius-md); padding:var(--space-md) var(--space-lg); margin-bottom:var(--space-md); }
+.conclusion { display:flex; gap:var(--space-md); align-items:flex-start; background:var(--primary-50); border:1px solid var(--primary-200); border-radius:var(--radius-md); padding:var(--space-md) var(--space-lg); margin-bottom:var(--space-md); }
 .conclusion .ci { width:34px;height:34px;border-radius:var(--radius-full); background:var(--primary-600); color:#fff; display:grid; place-items:center; flex:0 0 34px; }
 .conclusion .ct { font-size:15px; font-weight:600; color:var(--neutral-900); }
 .conclusion .cd { font-size:13px; color:var(--neutral-600); margin-top:3px; }

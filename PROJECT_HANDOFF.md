@@ -1,5 +1,12 @@
 # 人才发展原型项目交接
 
+2026-11-26 下一期五大功能与自检优化落地（优先于下方旧边界）：
+1. **无等级能力指标**：`app/indicator-data.js`、`app/indicator-import.js`、`app/vocabulary.html` 支持为能力指标配置“分级指标（1–10 级）”或“无等级指标”（导入 1–10 级列全空自动识别为无等级）；补齐管理端标准编辑器与 AI 草稿 L1–L10 等级下拉；无等级能力在人才标准展示“不分级”、不计入雷达轴，360 评估按指标定义出题，人才库能力导入要求留空等级＋必填得分（0–999），档案/对比展示原始分且不计算等级差距。同时修复指标库类别管理与删除持久化、LAN HTTP `UI.uid` 兼容、`localStorage` 安全解析及 `.conclusion` 禁令单边色条清理。
+2. **人才标准模板**：`app/settings.html#templates`、`app/settings-editor.js`、`app/talent-settings-data.js` 支持维护多套标准模板（自由勾选五类维度，至少 1 项，允许不含能力要求）；新建标准与标准 AI 帮建选择模板后生成 `enabledDimensions` 快照，修改模板不影响存量标准；无能力维度的标准在 360 评估与学习方案中自动拦截，下游详情/档案/对比/学员端按快照裁剪未启用维度。
+3. **学习方案合一与四步 AI 帮建学习资源**：`app/learning-plan.html` 合并原设计页成为唯一正式页（`app/learning-plan-design.html` 重定向），统一按 `[positionId, standardId]` 保存在 `talent-learning-plan-design-v1`，移除旧单岗位扁平表与前后测入口；保留自定义阶段分组并将 `capabilities`（1..N）绑定到每条课程/项目/实践活动，支持四步 AI 配课抽屉（含无匹配现成课程时的实践承接显式说明与卡片级能力编辑）。
+4. **人才中心深化**：`app/talent-dashboard.html` 升级为“组织视角（合并关键岗位储备）/ 群体视角 / 个人视角”三视图；人才档案新增只读“用户履历”分区，按 UC 真实截图字段展示工作经历、参与记录、授课记录与培训协议；`app/talent-list.html` 新增 `app/talent-ai-finder.js` 一步式“AI 帮找人才”抽屉，按“满足 X/Y 项”结合评鉴证据、盘点分类与 UC 履历推荐候选人并跳转人才对比。
+5. **学员端 Web + H5 适配（`student-client/`）**：“人才画像”原样保留未动；`student.html` 与 `mobile/` 岗位详情同步适配标准模板裁剪、Web 双栏/H5 单列自适应 L1–L5/L1–L10 雷达与无等级能力展开、动力/潜力特质释义卡，以及阶段分组、能力胶囊筛选与资源级关联能力标签展示的学习方案。当前 AI 帮建/寻访、UC 履历及跨端数据仍为本地确定性规则与静态演示，未调用收费模型，未接通正式后端。
+
 2026-11-19：按用户反馈“AI帮建能力要求均为L1”，仅优化1127版Dify工作流生成提示词：综合管理员排序、重要性评分、岗位职责以及能力实际配置的等级和指标描述判断各项要求等级，不默认首级，不将重要性分机械映射为等级；保留原输出协议及校验。新版DSL及说明见 `deliverables/20261119-standard-ai-levels/`。尚未在目标Dify导入或测试真实模型，不能保证提示词调整已解决实际全为L1问题；原型下拉仍限L1–L5，本轮未修改页面、后端，未调用收费模型。
 
 2026-11-18 原型适配：系统设置隐藏“人才标准维度”入口，原型固定开放五类人才标准内容；保留“能力指标维度自定义”Tab，本地保存仍为演示，胜任力管理参考功能及新接口尚未接入。人才标准、能力指标、人才库能力、盘点绩效／外部测评及图谱逐项能力导入移除数据预览和额外确认；本地校验通过即更新相应演示数据，失败可下载报错Excel。正式接口、后端写入及正式报错文件尚未接通，盘点和图谱结果仍非真实计算。浏览器验证设置页、人才标准错误及人才库能力错误／成功；28项相关Node测试通过；飞书原型状态说明同步并回读至 revision 198。
@@ -14,7 +21,7 @@
 
 更早的阶段性记录已移至 [历史交接记录](newprd/_archive/PROJECT_HANDOFF_2026-11-25_history.md)，仅供追溯。
 
-最后核对：2026-11-25（本地当前 PRD 与交接说明核对；飞书文档未在本次重新核验）。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
+最后核对：2026-11-26（本地当前 PRD V1.128 与交接说明同步更新；飞书文档未在本次重新核验）。先读 [AGENTS.md](AGENTS.md) 和本文，再按任务阅读[当前 PRD](newprd/11_人才发展系统_当前版本PRD.md) 对应小节。用户最新明确结论优先；设计目标与已实现功能必须区分。
 
 ## 1. 接手先确认
 
@@ -60,14 +67,16 @@ python3 student-client/serve.py --port 4182
 | 标准列表/编辑/范围/雷达 | `app/standards.html`、`standard-detail.html`；`standards-data.js`、`standard-seeds.js`、`standard-list.js`、`standard-editor.js`、`standard-ui.js`、`standard-radar.css` | §6.5 |
 | 标准AI、360 AI | `app/standard-ai-assistant.js`、`standard-ai-flow.css`；`assessment-ai-assistant.js/css`、`assessment-builder.js/css`、`assessment-data.js` | §6.5、§7.1、§13 |
 | 宫格/人才分层/图谱 | `app/review-detail.html`、`review-layering.js/css`；`review-map-*.html`、`review-map-charts.js` | §7.3 |
-| 人才库/档案/对比/池/看板 | `app/talent-*.html`、`talent-center.js/css`、`talent-data.js`、`talent-pools.js` | §9，池重点读§9.4 |
-| 管理端岗位地图/学习方案 | `app/position-map.js/html/css`、`learning-plan.html`、`standard-references.js` | §8.1–8.2 |
-| 职级/维度/功能设置 | `app/settings.html`、`settings-editor.js/css`、`talent-settings-data.js` | §10 |
+| 人才库/档案/对比/池/看板/AI找人 | `app/talent-*.html`、`talent-center.js/css`、`talent-data.js`、`talent-pools.js`、`talent-ai-finder.js` | §9，池重点读§9.4 |
+| 管理端岗位地图/学习方案/AI配课 | `app/position-map.js/html/css`、`learning-plan.html`、`learning-plan-design.js/css`、`learning-plan-ai.js/css`、`standard-references.js` | §8.1–8.2 |
+| 职级/标准模板/维度/功能设置 | `app/settings.html`、`settings-editor.js/css`、`talent-settings-data.js` | §10 |
 | 学员岗位要求/整套标准/方案 | `student-client/requirements-data.js`、`requirements.js/css`；Web接入 `student.html`，H5接入 `mobile/app.js` | §8；另读 `student-client/README.md`、`QA.md` |
 
 ## 4. 不要误判的当前状态
 
-- **标准与方案**：岗位和标准多对多，各套标准独立；学员顶层选择整套标准，同时切换五类要求和对应方案。已确认设计为每个“岗位＋标准”独立配置，但**管理端仍在 `standard-references.js` 用 `data.plans[positionId]` 保存岗位单份资源**。学员本地有独立示例方案，管理端组合持久化及跨端实时同步尚未实现；PRD §8.2明确为待实现设计。
+- **标准模板与无等级能力**：模板在 `settings.html#templates` 维护，新建标准时写入 `enabledDimensions` 快照，修改模板不回溯改动旧标准；能力指标支持 1–10 级分级或无等级，无等级项不参与雷达图和等级差距计算。
+- **标准与方案**：岗位和标准多对多，各套标准独立；管理端 `learning-plan.html` 已合并为唯一正式页并按 `[positionId, standardId]` 保存在当前浏览器 `talent-learning-plan-design-v1`（`learning-plan-design.html` 仅做跳转兼容），每条学习资源绑定 `capabilities`。学员本地有同步结构的独立演示方案，管理端与学员端之间的后端实时同步仍未接通。
+- **UC 用户履历与 AI 帮找人才**：人才档案“用户履历”为只读同步展示（工作经历、参与记录、授课记录、培训协议），不在 TD 内提供编辑维护；AI 帮找人才为本地确定性拆解与证据匹配演示，尚未对接真实 UC 接口或大模型服务。
 - **人才池**：两入口复用 `TalentPools.form/build` 和同一池/成员记录。项目内新建绑定本项目；人才中心新建需选择一个来源项目。再从该来源项目按姓名、能力/绩效/宫格落位与分层选人，确认后新增去重，不覆盖已有成员。字段为创建人；组建无状态列；池内培养/复评暂缓。旧无来源池保留记录，不猜来源。详见§9.4。
 - **示例分母**：人才中心基础人物5名；来源项目代表名单为年度4人、销售10人，不能把结果页35/42人汇总当作全量花名册。组织5×5也是具名原型示例，不是客户实测。
 - **学员内容**：`requirements-data.js`为本地业务演示，不能冒充管理端接口。11月2日已删除无真实来源的14套标准简介和重复方案目标，不为UI补造。能力解释、课程和项目仍有演示数据，不能宣称所有说明字段均被删除。

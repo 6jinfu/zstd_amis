@@ -4,14 +4,14 @@
   const welcome=host.innerHTML;
   let standard=null,selected=[],counts=A.defaults(),questions=[],turns=[],phase='welcome',purpose='',scenario='',sourceContent=null,scope=null,scopeLabel='',title='',generatedCounts=null;
   let generation=null,generationTimer=0;
-  select.innerHTML+=S.read().standards.map(s=>`<option value="${e(s.id)}">${e(s.name)}</option>`).join('');
+  select.innerHTML+=S.read().standards.map(s=>{const hasCap=!S.hasDimension||S.hasDimension(s,'cap');return `<option value="${e(s.id)}" ${hasCap?'':'disabled'}>${e(s.name)}${hasCap?'':'（模板不含能力要求）'}</option>`;}).join('');
   const error=message=>$('#eva-ai-error').textContent=message;
   function renderCounts(){
     $('#eva-ai-question-types').innerHTML=Object.entries(A.types).map(([type,label])=>`<label><span class="sr-only">每项能力${label}数量</span><select data-eva-count="${type}" aria-label="每项能力${label}数量">${[0,1,2,3,4,5].map(n=>`<option value="${n}" ${counts[type]===n?'selected':''}>${label}${n}题</option>`).join('')}</select></label>`).join('');
   }
   function sync(){const busy=phase==='generating';select.disabled=phase!=='welcome';send.disabled=busy||!prompt.value.trim();$('#eva-ai-question-types').querySelectorAll('select').forEach(input=>input.disabled=busy);prompt.placeholder=phase==='welcome'?'请描述你需要的评估主题':busy?'正在生成，可先输入后续调整':'Enter发送，Shift+Enter换行';}
   function review(){
-    return `<section class="eva-ai-confirm"><h3>确认评估内容</h3><dl><div><dt>人才标准</dt><dd>${e(standard.name)}</dd></div><div><dt>应用范围</dt><dd>${e(A.resolve(standard).label)}</dd></div><div><dt>评估场景</dt><dd>${e(scenario||purpose)}</dd></div></dl><fieldset><legend>本次评估能力</legend>${standard.content.cap.map(([name,level])=>`<label><input type="checkbox" data-eva-ability value="${e(name)}" ${selected.includes(name)?'checked':''}><span>${e(name)}</span><span>${e(level)}</span></label>`).join('')}</fieldset></section>`;
+    return `<section class="eva-ai-confirm"><h3>确认评估内容</h3><dl><div><dt>人才标准</dt><dd>${e(standard.name)}</dd></div><div><dt>应用范围</dt><dd>${e(A.resolve(standard).label)}</dd></div><div><dt>评估场景</dt><dd>${e(scenario||purpose)}</dd></div></dl><fieldset><legend>本次评估能力</legend>${standard.content.cap.map(([name,level])=>`<label><input type="checkbox" data-eva-ability value="${e(name)}" ${selected.includes(name)?'checked':''}><span>${e(name)}</span><span>${e(level||'不分级')}</span></label>`).join('')}</fieldset></section>`;
   }
   function documentMarkup(){
     let index=0;

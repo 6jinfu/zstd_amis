@@ -5,15 +5,16 @@
   const select=$('#assessment-standard'),documentHost=$('#assessment-document'),selection=$('#assessment-selection');
   let standard=null,questions=[],title='',dirty=false,id=params.get('id'),sourceContent=null,sourceScope=null,sourceRangeLabel='',purpose='',scenario='',counts={single:0,multi:0,score:2,essay:0},turns=[];
   const standards=S.read().standards;
-  select.innerHTML+=standards.map(s=>`<option value="${e(s.id)}">${e(s.name)}</option>`).join('');
+  select.innerHTML+=standards.map(s=>{const hasCap=!S.hasDimension||S.hasDimension(s,'cap');return `<option value="${e(s.id)}" ${hasCap?'':'disabled'}>${e(s.name)}${hasCap?'':'（模板不含能力要求）'}</option>`;}).join('');
   const error=message=>$('#assessment-error').textContent=message;
   function changed(){dirty=true;$('#assessment-save-state').textContent='有未保存的修改';}
   function sync(){const available=!!questions.length;$('#assessment-save').disabled=!available;$('#assessment-preview').disabled=!available;$('#assessment-question-count').textContent=available?`${new Set(questions.map(q=>q.ability)).size} 项能力 · ${questions.length} 道题`:'';}
   function renderScope(){
     const scope=standard?A.resolve(standard):null;
-    $('#assessment-scope').innerHTML=scope?`<strong>应用范围</strong><p>${e(scope.label)}</p><p>${scope.people.length?scope.people.map(p=>e(p.name)).join('、'):'当前可用人员中暂无匹配人员'}${scope.unknown.length?`；${scope.unknown.length} 人待确认`:''}</p>${!scope.valid?`<p class="assessment-input-error">该标准尚无应用范围，请先在<a href="standard-detail.html?id=${encodeURIComponent(standard.id)}#scope">标准详情</a>配置。</p>`:''}`:'';
+    const hasCap=standard?(!S.hasDimension||S.hasDimension(standard,'cap')):true;
+    $('#assessment-scope').innerHTML=scope?`<strong>应用范围</strong><p>${e(scope.label)}</p><p>${scope.people.length?scope.people.map(p=>e(p.name)).join('、'):'当前可用人员中暂无匹配人员'}${scope.unknown.length?`；${scope.unknown.length} 人待确认`:''}</p>${!hasCap?'<p class="assessment-input-error">该人才标准模板未包含“能力要求”维度，无法用于 360 能力评估。</p>':!scope.valid?`<p class="assessment-input-error">该标准尚无应用范围，请先在<a href="standard-detail.html?id=${encodeURIComponent(standard.id)}#scope">标准详情</a>配置。</p>`:''}`:'';
     const selected=new Set(questions.map(q=>q.ability));
-    selection.innerHTML=standard?`<fieldset><legend>评估能力</legend>${standard.content.cap.map(([name,level])=>`<label><input type="checkbox" data-ability value="${e(name)}" ${!questions.length||selected.has(name)?'checked':''}><span>${e(name)}</span><span>${e(level)}</span></label>`).join('')}</fieldset><button type="button" class="btn btn-secondary" id="assessment-generate" ${!scope.valid||!standard.content.cap.length?'disabled':''}>${questions.length?'按所选能力重新生成':'生成初始问卷'}</button>`:'';
+    selection.innerHTML=standard&&hasCap?`<fieldset><legend>评估能力</legend>${standard.content.cap.map(([name,level])=>`<label><input type="checkbox" data-ability value="${e(name)}" ${!questions.length||selected.has(name)?'checked':''}><span>${e(name)}</span><span>${e(level||'不分级')}</span></label>`).join('')}</fieldset><button type="button" class="btn btn-secondary" id="assessment-generate" ${!scope.valid||!standard.content.cap.length?'disabled':''}>${questions.length?'按所选能力重新生成':'生成初始问卷'}</button>`:'';
   }
   function renderDocument(){
     if(!questions.length){documentHost.innerHTML='<div class="assessment-document-empty"><h3>从人才标准开始</h3><a class="btn btn-secondary" href="assess-projects.html?ai=1">使用 AI 帮建</a></div>';sync();return;}

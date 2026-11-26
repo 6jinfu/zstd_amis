@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # 人才发展系统原型 · 开发服务器
 # 用法：python3 serve.py   （默认 8766 端口；本地预览不缓存）
+import contextlib
 from functools import partial
 import http.server
 from pathlib import Path
@@ -19,7 +20,13 @@ class PrototypeHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Expires', '0')
         super().end_headers()
 
-HOST = '0.0.0.0'
+class DualStackServer(http.server.ThreadingHTTPServer):
+    def server_bind(self):
+        with contextlib.suppress(Exception):
+            self.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+        return super().server_bind()
+
+HOST = '::' if socket.has_ipv6 else '0.0.0.0'
 
 def get_lan_ip():
     try:
@@ -46,5 +53,5 @@ if __name__ == '__main__':
     app_dir = Path(__file__).resolve().parent / 'app'
     references, pages = sync_assets(app_dir, write=True)
     print(f'assets: {references} references checked; {pages} pages updated', flush=True)
-    print(f'serving {app_dir} at http://{get_lan_ip()}:{port} (LAN enabled; cache disabled)', flush=True)
-    http.server.test(HandlerClass=partial(PrototypeHandler, directory=str(app_dir)), port=port, bind=HOST)
+    print(f'local: http://localhost:{port}/ | lan: http://{get_lan_ip()}:{port}/ (cache disabled)', flush=True)
+    http.server.test(HandlerClass=partial(PrototypeHandler, directory=str(app_dir)), ServerClass=DualStackServer, port=port, bind=HOST)

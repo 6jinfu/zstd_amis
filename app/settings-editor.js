@@ -2,10 +2,10 @@
   const T = window.TalentSettings, e = UI.escape;
   const tree = document.querySelector('#level-tree'), query = document.querySelector('#level-search');
   let data = T.read(), selected = '', expanded = new Set(data.sequences.map(s => s.id));
-  const uid = () => 'node-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6);
+  const uid = prefix => UI.uid ? UI.uid(prefix) : prefix + '-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6);
   const icon = leaf => leaf ? '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5z"/><path d="M12 2v5h4"/></svg>' : '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h6l2 2h8l-2 10H2z"/><path d="M2 5V3h6l2 2h7v2"/></svg>';
   function save(message) {
-    try { T.write(data); showToast(message); return true; }
+    try { T.write(data); if (message) showToast(message); return true; }
     catch (error) { data = T.read(); showToast('保存失败，请检查浏览器存储空间'); return false; }
   }
   function actions(s, level) {
@@ -28,7 +28,7 @@
       if (!name) { d.showError('请输入序列名称'); return false; }
       if (data.sequences.some(s=>s!==sequence&&s.name===name)) { d.showError('序列名称已存在'); return false; }
       if (sequence) sequence.name=name;
-      else { sequence={id:uid(),name,levels:[]};data.sequences.push(sequence); }
+      else { sequence={id:uid('node'),name,levels:[]};data.sequences.push(sequence); }
       selected=sequence.id;expanded.add(sequence.id);
       if (!save('序列已保存')) return false;
       renderTree();
@@ -42,7 +42,7 @@
       const name=d.querySelector('#level-name').value.trim(),code=d.querySelector('#level-code').value.trim(),rank=Number(d.querySelector('#level-rank').value);
       if(!name||!code||!Number.isInteger(rank)||rank<1||rank>99){d.showError('请填写名称、编码及 1–99 的整数等级序');return false;}
       if(target.levels.some(l=>l!==level&&(l.code.toLowerCase()===code.toLowerCase()||l.rank===rank))){d.showError('同一序列内，职级编码和等级序不能重复');return false;}
-      const next={...level,id:level?.id||uid(),name,code,rank};
+      const next={...level,id:level?.id||uid('node'),name,code,rank};
       if(level)sequence.levels=sequence.levels.filter(l=>l.id!==level.id);
       target.levels.push(next);selected=next.id;expanded.add(target.id);
       if(!save('职级已保存'))return false;
@@ -71,30 +71,135 @@
       }});
     }
   };
-  const dimensionForm=document.querySelector('#dimension-settings');
-  const abilityForm=document.querySelector('#ability-dimensions-form'),abilityFields=document.querySelector('#ability-dimensions-fields');
-  function renderAbilityDimensions(){
-    abilityFields.innerHTML=data.abilityDimensions.map((name,index)=>`<div class="field"><label for="ability-dimension-${index}">维度 ${index+1}</label><input class="input" id="ability-dimension-${index}" value="${e(name)}" maxlength="20" required></div>`).join('');
+
+  /* 人才标准模板管理 */
+  const templateList = document.querySelector('#template-list');
+  function renderTemplates() {
+    if (!templateList) return;
+    templateList.innerHTML = data.templates.map(tpl => {
+      const dims = tpl.dimensions.map(k => `<span class="settings-dim-chip">${e(T.dimensions[k] || k)}</span>`).join('');
+      const isDefault = !!tpl.isDefault;
+      const active = tpl.enabled !== false;
+      return `<tr>
+        <td><div class="settings-tpl-name"><strong>${e(tpl.name)}</strong>${isDefault ? '<span class="tag tag-primary">默认</span>' : ''}</div></td>
+        <td><div class="settings-dim-chips">${dims}</div></td>
+        <td class="muted">${e(tpl.description || '—')}</td>
+        <td><span class="tag ${active ? 'tag-success' : ''}">${active ? '已启用' : '已停用'}</span></td>
+        <td class="ops" style="justify-content:flex-end">
+          ${!isDefault && active ? `<button type="button" class="btn-text" data-tpl-default="${e(tpl.id)}">设为默认</button>` : ''}
+          <button type="button" class="btn-text" data-tpl-edit="${e(tpl.id)}">编辑</button>
+          ${!isDefault ? `<button type="button" class="btn-text" data-tpl-toggle="${e(tpl.id)}">${active ? '停用' : '启用'}</button>` : ''}
+          ${!isDefault ? `<button type="button" class="btn-text danger" data-tpl-delete="${e(tpl.id)}">删除</button>` : ''}
+        </td>
+      </tr>`;
+    }).join('');
+  }
+  function editTemplate(tpl) {
+    const selectedDims = new Set(tpl ? tpl.dimensions : Object.keys(T.dimensions));
+    const dialog = UI.openDialog({
+      title: tpl ? '编辑人才标准模板' : '新增人才标准模板',
+      confirmLabel: tpl ? '保存模板' : '创建模板',
+      body: `<div class="settings-tpl-form">
+        <div class="field"><label for="tpl-name">模板名称 <span class="danger">*</span></label><input class="input" id="tpl-name" maxlength="20" placeholder="例如：高潜盘点标准" value="${e(tpl?.name || '')}"></div>
+        <div class="field"><label for="tpl-desc">适用说明</label><input class="input" id="tpl-desc" maxlength="100" placeholder="选填，说明适用场景" value="${e(tpl?.description || '')}"></div>
+        <fieldset class="settings-tpl-dims">
+          <legend>包含维度 <span class="danger">*</span>（至少勾选 1 项，自由组合）</legend>
+          <div class="settings-tpl-dim-grid">
+            ${Object.entries(T.dimensions).map(([k, label]) => `<label class="settings-tpl-dim-option"><input type="checkbox" name="tpl-dim" value="${k}" ${selectedDims.has(k) ? 'checked' : ''}><span>${e(label)}</span></label>`).join('')}
+          </div>
+        </fieldset>
+        ${tpl?.isDefault ? '' : `<label class="settings-tpl-default-check"><input type="checkbox" id="tpl-default"><span>设为新建人才标准时的默认模板</span></label>`}
+        <p class="text-sm muted">保存后仅对后续新建的人才标准生效，已有标准保持原维度与数据不变。</p>
+      </div>`,
+      onConfirm(d) {
+        const name = d.querySelector('#tpl-name').value.trim();
+        const description = d.querySelector('#tpl-desc').value.trim();
+        const dims = [...d.querySelectorAll('input[name="tpl-dim"]:checked')].map(i => i.value);
+        const makeDefault = !!d.querySelector('#tpl-default')?.checked;
+        if (!name || name.length > 20) { d.showError('请输入模板名称（最多 20 个字符）'); return false; }
+        if (data.templates.some(item => item !== tpl && item.name === name)) { d.showError('模板名称已存在'); return false; }
+        if (!dims.length) { d.showError('请至少勾选 1 个包含维度'); return false; }
+        if (makeDefault) data.templates.forEach(item => { item.isDefault = false; });
+        if (tpl) {
+          tpl.name = name; tpl.description = description; tpl.dimensions = dims;
+          if (makeDefault) { tpl.isDefault = true; tpl.enabled = true; }
+        } else {
+          data.templates.push({ id: uid('tpl'), name, description, dimensions: dims, isDefault: makeDefault, enabled: true });
+        }
+        if (!save('人才标准模板已保存')) return false;
+        renderTemplates();
+      }
+    });
+    dialog.querySelector('#tpl-name').focus();
+  }
+  document.querySelector('#add-template')?.addEventListener('click', () => editTemplate());
+  templateList?.addEventListener('click', event => {
+    const btn = event.target.closest('button'); if (!btn) return;
+    const id = btn.dataset.tplDefault || btn.dataset.tplEdit || btn.dataset.tplToggle || btn.dataset.tplDelete;
+    const tpl = data.templates.find(item => item.id === id); if (!tpl) return;
+    if (btn.dataset.tplDefault) {
+      data.templates.forEach(item => { item.isDefault = item.id === tpl.id; });
+      tpl.enabled = true;
+      if (save(`已将“${tpl.name}”设为默认模板`)) renderTemplates();
+      return;
+    }
+    if (btn.dataset.tplEdit) { editTemplate(tpl); return; }
+    if (btn.dataset.tplToggle) {
+      if (tpl.isDefault) { showToast('默认模板不能停用'); return; }
+      tpl.enabled = tpl.enabled === false;
+      if (save(tpl.enabled ? '模板已启用' : '模板已停用')) renderTemplates();
+      return;
+    }
+    if (btn.dataset.tplDelete) {
+      if (tpl.isDefault) { showToast('默认模板不能删除'); return; }
+      UI.openDialog({
+        title: '删除人才标准模板',
+        body: `<p>确认删除模板“${e(tpl.name)}”？已使用该模板创建的人才标准不受影响。</p>`,
+        confirmLabel: '删除',
+        onConfirm() {
+          data.templates = data.templates.filter(item => item.id !== tpl.id);
+          if (!save('模板已删除')) return false;
+          renderTemplates();
+        }
+      });
+    }
+  });
+  renderTemplates();
+
+  /* 能力指标维度自定义 */
+  const abilityForm = document.querySelector('#ability-dimensions-form'), abilityFields = document.querySelector('#ability-dimensions-fields');
+  function renderAbilityDimensions() {
+    abilityFields.innerHTML = data.abilityDimensions.map((name, index) => `<div class="field"><label for="ability-dimension-${index}">维度 ${index+1}</label><input class="input" id="ability-dimension-${index}" value="${e(name)}" maxlength="20" required></div>`).join('');
   }
   renderAbilityDimensions();
-  abilityForm.onsubmit=event=>{
+  abilityForm.onsubmit = event => {
     event.preventDefault();
-    const names=[...abilityFields.querySelectorAll('input')].map(input=>input.value.trim()),error=document.querySelector('#ability-dimensions-error');
-    if(names.some(name=>!name||name.length>20)){error.textContent='每个维度名称必填，最多 20 个字符';return;}
-    if(new Set(names).size!==3){error.textContent='维度名称不能重复';return;}
-    data.abilityDimensions=names;
-    if(save('能力指标维度自定义已保存')){error.textContent='';document.querySelector('#ability-dimensions-state').textContent='已保存';}
+    const names = [...abilityFields.querySelectorAll('input')].map(input => input.value.trim()), error = document.querySelector('#ability-dimensions-error');
+    if (names.some(name => !name || name.length > 20)) { error.textContent = '每个维度名称必填，最多 20 个字符'; return; }
+    if (new Set(names).size !== 3) { error.textContent = '维度名称不能重复'; return; }
+    data.abilityDimensions = names;
+    if (save('能力指标维度自定义已保存')) { error.textContent = ''; document.querySelector('#ability-dimensions-state').textContent = '已保存'; }
   };
-  abilityForm.onreset=()=>{setTimeout(()=>{data=T.read();renderAbilityDimensions();document.querySelector('#ability-dimensions-error').textContent='';document.querySelector('#ability-dimensions-state').textContent='';});};
-  abilityForm.oninput=()=>{document.querySelector('#ability-dimensions-error').textContent='';document.querySelector('#ability-dimensions-state').textContent='有未保存的修改';};
-  dimensionForm.innerHTML=Object.entries(T.dimensions).map(([id,label])=>`<label class="dimension-setting-row"><span>${label}</span><input type="checkbox" name="dimension" value="${id}" ${data.dimensions.includes(id)?'checked':''}><span class="dimension-setting-state">${data.dimensions.includes(id)?'已启用':'未启用'}</span></label>`).join('');
-  document.querySelector('#save-dimensions').onclick=()=>{
-    const dimensions=[...dimensionForm.querySelectorAll('input:checked')].map(input=>input.value);
-    const error=document.querySelector('#dimension-error');
-    if(!dimensions.length){error.textContent='请至少启用一个人才标准维度';return;}
-    data.dimensions=dimensions;
-    if(save('人才标准维度已保存')){error.textContent='';document.querySelector('#dimension-save-state').textContent='已保存';dimensionForm.querySelectorAll('input').forEach(input=>input.nextElementSibling.textContent=input.checked?'已启用':'未启用');}
-  };
-  dimensionForm.onchange=event=>{event.target.nextElementSibling.textContent=event.target.checked?'将启用':'将停用';document.querySelector('#dimension-error').textContent='';document.querySelector('#dimension-save-state').textContent='有未保存的修改';};
+  abilityForm.onreset = () => { setTimeout(() => { data = T.read(); renderAbilityDimensions(); document.querySelector('#ability-dimensions-error').textContent = ''; document.querySelector('#ability-dimensions-state').textContent = ''; }); };
+  abilityForm.oninput = () => { document.querySelector('#ability-dimensions-error').textContent = ''; document.querySelector('#ability-dimensions-state').textContent = '有未保存的修改'; };
+
+  /* 学员端功能设置持久化 */
+  const learnerState = document.getElementById('learner-save-state');
+  let learnerTimer = 0;
+  document.querySelectorAll('[data-learner-feature]').forEach(input => {
+    const featureKey = input.dataset.learnerFeature;
+    input.checked = data.learnerFeatures?.[featureKey] !== false;
+    input.addEventListener('change', () => {
+      data.learnerFeatures = data.learnerFeatures || {};
+      data.learnerFeatures[featureKey] = input.checked;
+      if (!save('')) return;
+      learnerState.textContent = '已保存';
+      learnerState.classList.add('is-saved');
+      showToast(input.parentElement.textContent.trim() + (input.checked ? '已显示' : '已隐藏'));
+      clearTimeout(learnerTimer);
+      learnerTimer = window.setTimeout(() => { learnerState.textContent = '修改后自动保存'; learnerState.classList.remove('is-saved'); }, 1600);
+    });
+  });
+
   renderTree();
 })();

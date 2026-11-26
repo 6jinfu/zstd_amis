@@ -7,25 +7,50 @@
     '动力要求':['标准编号','标准名称','标准类别','动力名称'],
     '潜力要求':['标准编号','标准名称','标准类别','潜力名称']
   };
+  const sheetDimension = {'职责任务':'duty','经历经验':'exp','能力要求':'cap','动力要求':'pow','潜力要求':'pot'};
+  const makeId = () => window.UI?.uid ? window.UI.uid('std') : 'std-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+  function resolveTemplate(templateCell) {
+    const T = window.TalentSettings;
+    if (!T) return {id:'tpl-full', name:'完整人才标准', dimensions:['duty','exp','cap','pow','pot']};
+    const enabled = T.templates(undefined, {onlyEnabled:true});
+    if (!templateCell) return T.defaultTemplate();
+    return enabled.find(t => t.name === templateCell) || null;
+  }
   function validate(sheets, data, library = IndicatorDemo.items) {
     const records=[], errors=[], groups=new Map(), seen=new Set();
     const error=(sheet,row,message)=>errors.push(`${sheet}第 ${row.number} 行：${message}`);
     const clean=row=>row.cells.map(value=>String(value??'').trim());
     let tables;
-    try { tables=Object.fromEntries(Object.entries(schema).map(([name,headers])=>[name,ReviewScoreImport.dataRows(sheets[name],{headers,sampleRows:3}).filter(row=>row.formula||row.cells.some(value=>String(value??'').trim()))])); }
+    try {
+      const basicSheet = sheets['基本信息和岗位'];
+      const hasTplCol = basicSheet?.some(r => r.cells?.map(v => String(v??'').replace(/\*/g,'').trim()).includes('标准模板'));
+      const basicHeaders = hasTplCol ? ['标准编号','标准名称','标准类别','标准模板','标准说明','应用方式','岗位编号','岗位类别','岗位名称'] : schema['基本信息和岗位'];
+      tables = {'基本信息和岗位': ReviewScoreImport.dataRows(basicSheet, {headers:basicHeaders, sampleRows:3}).filter(row=>row.formula||row.cells.some(value=>String(value??'').trim()))};
+      tables._hasTplCol = hasTplCol;
+      Object.entries(schema).filter(([name]) => name !== '基本信息和岗位').forEach(([name, headers]) => {
+        tables[name] = ReviewScoreImport.dataRows(sheets[name], {headers, sampleRows:3}).filter(row=>row.formula||row.cells.some(value=>String(value??'').trim()));
+      });
+    }
     catch(err){return {records,errors:[err.message+'（须包含六张工作表）']};}
-    if(Object.values(tables).reduce((total,rows)=>total+rows.length,0)>2000)return {records,errors:['每次最多导入 2000 行，请拆分文件']};
+    const dataTables = Object.entries(tables).filter(([k]) => !k.startsWith('_'));
+    if(dataTables.reduce((total,[,rows])=>total+rows.length,0)>2000)return {records,errors:['每次最多导入 2000 行，请拆分文件']};
     tables['基本信息和岗位'].forEach(row=>{
-      const [code,name,category,description,mode,positionId,positionCategory,positionName]=clean(row), sheet='基本信息和岗位';
+      const vals = clean(row), sheet='基本信息和岗位';
+      const [code,name,category,tplName,description,mode,positionId,positionCategory,positionName] = tables._hasTplCol
+        ? vals
+        : [vals[0],vals[1],vals[2],'',vals[3],vals[4],vals[5],vals[6],vals[7]];
       if(row.formula)error(sheet,row,'请填写实际值，不使用公式');
       if(!code||code.length>20)error(sheet,row,'标准编号必填，最多 20 个字符');
       if(!name||name.length>80)error(sheet,row,'标准名称必填，最多 80 个字符');
       if(!data.categories.includes(category))error(sheet,row,'标准类别不存在');
+      const tpl = resolveTemplate(tplName);
+      if(!tpl)error(sheet,row,'标准模板不存在或未启用');
       if(description?.length>2000)error(sheet,row,'标准说明最多 2000 个字符');
       if(!['指定岗位','暂不关联'].includes(mode))error(sheet,row,'应用方式须为指定岗位或暂不关联');
       if(data.standards.some(item=>item.code===code))error(sheet,row,'标准编号已存在，请使用新编号');
       let standard=groups.get(code);
-      if(!standard){standard={code,name,category,description:description||'',mode:mode==='指定岗位'?'positions':'none',positions:[],groups:[],content:Standards.emptyContent()};groups.set(code,standard);}
+      const dims = tpl ? [...tpl.dimensions] : ['duty','exp','cap','pow','pot'];
+      if(!standard){standard={code,name,category,templateId:tpl?.id||'tpl-full',templateName:tpl?.name||'完整人才标准',enabledDimensions:dims,description:description||'',mode:mode==='指定岗位'?'positions':'none',positions:[],groups:[],content:Standards.emptyContent()};groups.set(code,standard);}
       else if([name,category,description||'',mode==='指定岗位'?'positions':'none'].some((value,i)=>value!==[standard.name,standard.category,standard.description,standard.mode][i]))error(sheet,row,'同一标准编号的基本信息不一致');
       if(mode==='指定岗位'){
         const position=Standards.positions.find(item=>item.id===positionId);
@@ -34,10 +59,12 @@
         else standard.positions.push(positionId);
       }else if(positionId||positionCategory||positionName)error(sheet,row,'暂不关联时请留空岗位信息');
     });
-    Object.entries(tables).filter(([name])=>name!=='基本信息和岗位').forEach(([sheet,rows])=>rows.forEach(row=>{
+    dataTables.filter(([name])=>name!=='基本信息和岗位').forEach(([sheet,rows])=>rows.forEach(row=>{
       const [code,name,category,...values]=clean(row), standard=groups.get(code);
       if(row.formula)error(sheet,row,'请填写实际值，不使用公式');
       if(!standard||standard.name!==name||standard.category!==category){error(sheet,row,'标准编号、名称和类别与基本信息表不一致');return;}
+      const dimKey = sheetDimension[sheet];
+      if (dimKey && !standard.enabledDimensions.includes(dimKey)) { error(sheet, row, `所选标准模板未启用“${sheet}”维度`); return; }
       const key=JSON.stringify([code,sheet,sheet==='能力要求'?values[1]:values]);
       if(seen.has(key)){error(sheet,row,'内容重复');return;}seen.add(key);
       if(sheet==='职责任务'){
@@ -52,8 +79,14 @@
         if(matches.length!==1){error(sheet,row,'指标不存在或名称匹配不唯一');return;}
         if(kind==='cap'){
           if(!values[0])error(sheet,row,'请填写能力组名称');
-          if(!/^L(?:10|[1-9])$/.test(values[2]))error(sheet,row,'要求等级须为 L1–L10');
-          standard.content.cap.push([term,values[2],values[0]]);
+          const ungraded = matches[0].graded === false;
+          if(ungraded){
+            if(values[2])error(sheet,row,'该能力为无等级指标，要求等级请留空');
+            standard.content.cap.push([term,'',values[0]]);
+          }else{
+            if(!/^L(?:10|[1-9])$/.test(values[2]))error(sheet,row,'要求等级须为 L1–L10');
+            standard.content.cap.push([term,values[2],values[0]]);
+          }
         }else standard.content[kind].push(term);
       }
     }));
@@ -68,7 +101,7 @@
     if(!event.target.closest('[data-standard-import]'))return;
     ImportDialog.open({title:'导入人才标准',template:'talent-standard-import.xlsx',headers:['标准编号','标准名称','标准类别','关联岗位'],read:ReviewScoreImport.readWorkbook,validate:sheets=>validate(sheets,Standards.read()),save(records){
       const data=Standards.read();
-      records.forEach(record=>{if(data.standards.some(item=>item.code===record.code))throw new Error('标准编号已存在，请重新校验');const {preview,...standard}=record;standard.id='std-'+crypto.randomUUID();standard.updated=new Date().toLocaleDateString('sv-SE');Standards.setStandard(data,standard);});
+      records.forEach(record=>{if(data.standards.some(item=>item.code===record.code))throw new Error('标准编号已存在，请重新校验');const {preview,...standard}=record;standard.id=makeId();standard.updated=new Date().toLocaleDateString('sv-SE');Standards.setStandard(data,standard);});
       Standards.write(data);
     }});
   });

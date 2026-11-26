@@ -1,4 +1,20 @@
 (function () {
+  const traitDefinitions = {
+  "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+  "协作共赢": "主动共享信息与资源，兼顾跨团队利益，推动共同目标达成。",
+  "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+  "价值认同": "认同组织使命与客户价值理念，在压力与取舍面前坚守长期价值准则。",
+  "持续成长": "保持好奇心与自我反思习惯，主动寻求反馈并迭代个人专业方法。",
+  "挑战难度": "愿意承担边界不清、资源受限或高复杂度课题，主动突破现状瓶颈。",
+  "掌控权力": "具备组织统筹与资源调配意愿，敢于为关键经营决策与团队结果担责。",
+  "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+  "变革推动": "敏锐识别机制与流程痛点，带动团队适应变化并落地新工作模式。",
+  "跨界整合": "快速理解不同专业域的逻辑，连接产品、技术、运营与商业资源形成合力。",
+  "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。",
+  "情绪感知": "准确觉察他人情绪与潜在诉求，在高压沟通中保持建设性互动。",
+  "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。",
+  "坚韧抗压": "在挫折、周期波动或高强度目标下保持稳定投入，持续推进问题闭环。"
+};
   const positions = {
   "10": [
     {
@@ -89,7 +105,11 @@
             "hours": 2,
             "teacher": "杨元彦",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMDkyRjY2REM1QTVGNDM4N0JCRURBRTJCQkRBQkE1REEtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false",
+            "capabilities": [
+              "数据分析",
+              "用户增长"
+            ]
           },
           {
             "id": "9142bf19cdd07379fefa8746c6a95fa4",
@@ -98,7 +118,11 @@
             "hours": 1.5,
             "teacher": "王振韬",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOTgzMDRDODk5RjMzNENDRDhBM0JBMkQwNjU5OEI3OTQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9142bf19cdd07379fefa8746c6a95fa4?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9142bf19cdd07379fefa8746c6a95fa4?type=h5_new&showPalette=false",
+            "capabilities": [
+              "产品运营",
+              "商业判断"
+            ]
           },
           {
             "id": "c4ac08690aeabd49512caaffaecd587f",
@@ -107,7 +131,10 @@
             "hours": 2.5,
             "teacher": "马涛",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS85ZTY0MzU4OGU3N2Q2MmZkNDU0NzM5ZDhkMWM0MmRiMi1OXzE1MjMzMzMzMzMzMzMvNWJmMjc2YmU2NjcwYWE1NDdiOTQ4YT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           },
           {
             "id": "c19a8f2ca23c1652649ca9e6a696b236",
@@ -116,7 +143,11 @@
             "hours": 1,
             "teacher": "王琦",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMjMwMEY5QUM2NkMwNEJGQjhEQjE1ODU0RjYxNENERjQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/c19a8f2ca23c1652649ca9e6a696b236?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/c19a8f2ca23c1652649ca9e6a696b236?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理",
+              "产品运营"
+            ]
           }
         ],
         "projects": [],
@@ -127,9 +158,56 @@
               "围绕用户生命周期制定激活、留存和转化策略",
               "建立运营指标体系，评估重点活动与策略的投入产出"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "产品运营",
+              "用户增长",
+              "数据分析"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-operations-acting-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "aff800c3781b4b82a2572cf5df3e0ecf",
+              "9142bf19cdd07379fefa8746c6a95fa4"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-operations-acting-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "c4ac08690aeabd49512caaffaecd587f",
+              "c19a8f2ca23c1652649ca9e6a696b236"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-operations-acting-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "制定产品运营策略实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "协作共赢": "主动共享信息与资源，兼顾跨团队利益，推动共同目标达成。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "变革推动": "敏锐识别机制与流程痛点，带动团队适应变化并落地新工作模式。"
       }
     }
   ],
@@ -222,7 +300,11 @@
             "hours": 1.5,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOURBNEY5RDkxMTU5NDdCQTg0QTBCMzZEOTQwQTREQ0EtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e4e9282be5f6ac6ddef827de10870448?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e4e9282be5f6ac6ddef827de10870448?type=h5_new&showPalette=false",
+            "capabilities": [
+              "战略规划",
+              "产品运营"
+            ]
           },
           {
             "id": "aff800c3781b4b82a2572cf5df3e0ecf",
@@ -231,7 +313,10 @@
             "hours": 2,
             "teacher": "杨元彦",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMDkyRjY2REM1QTVGNDM4N0JCRURBRTJCQkRBQkE1REEtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false",
+            "capabilities": [
+              "用户增长"
+            ]
           },
           {
             "id": "3ea6a3c585bd875268e941a55322c550",
@@ -240,7 +325,10 @@
             "hours": 2,
             "teacher": "郝卯花",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRTEyRjQ4QjExRTFDNEU0ODg0RDc3OTdBN0Y2OEFFM0UtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/3ea6a3c585bd875268e941a55322c550?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/3ea6a3c585bd875268e941a55322c550?type=h5_new&showPalette=false",
+            "capabilities": [
+              "财务分析"
+            ]
           },
           {
             "id": "2389c3662bcee3ee061ae13af97f2434",
@@ -249,7 +337,10 @@
             "hours": 3,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMTY0NUFENjg3MjRGNDUyREJGOTkwNzJBQUUwOEFEMzQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           }
         ],
         "projects": [],
@@ -260,9 +351,56 @@
               "明确产品运营的分层策略、关键指标和年度资源计划",
               "建立增长实验与运营复盘机制，推动有效策略规模化复制"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "产品运营",
+              "用户增长",
+              "战略规划"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-operations-director-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "e4e9282be5f6ac6ddef827de10870448",
+              "aff800c3781b4b82a2572cf5df3e0ecf"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-operations-director-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "3ea6a3c585bd875268e941a55322c550",
+              "2389c3662bcee3ee061ae13af97f2434"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-operations-director-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "构建运营体系与增长机制实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "变革推动": "敏锐识别机制与流程痛点，带动团队适应变化并落地新工作模式。"
       }
     }
   ],
@@ -355,7 +493,11 @@
             "hours": 0.02,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false",
+            "capabilities": [
+              "设计管理",
+              "产品运营"
+            ]
           },
           {
             "id": "e4e9282be5f6ac6ddef827de10870448",
@@ -364,7 +506,11 @@
             "hours": 1.5,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOURBNEY5RDkxMTU5NDdCQTg0QTBCMzZEOTQwQTREQ0EtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e4e9282be5f6ac6ddef827de10870448?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e4e9282be5f6ac6ddef827de10870448?type=h5_new&showPalette=false",
+            "capabilities": [
+              "产品规划",
+              "商业判断"
+            ]
           },
           {
             "id": "c19a8f2ca23c1652649ca9e6a696b236",
@@ -373,7 +519,10 @@
             "hours": 1,
             "teacher": "王琦",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMjMwMEY5QUM2NkMwNEJGQjhEQjE1ODU0RjYxNENERjQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/c19a8f2ca23c1652649ca9e6a696b236?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/c19a8f2ca23c1652649ca9e6a696b236?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           },
           {
             "id": "de82a4d77edafe0f9b448ab308efb84d",
@@ -382,7 +531,11 @@
             "hours": 4.5,
             "teacher": "高虎",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMUMyRkI4MUREMjA5NDA3M0IyM0VEQTgzMUU1OTNDQzAtNi0yLnBuZw.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/de82a4d77edafe0f9b448ab308efb84d?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/de82a4d77edafe0f9b448ab308efb84d?type=h5_new&showPalette=false",
+            "capabilities": [
+              "产品规划",
+              "设计管理"
+            ]
           }
         ],
         "projects": [],
@@ -393,9 +546,56 @@
               "建立核心用户旅程与体验目标，协调设计和运营优先级",
               "制定产品设计规范与运营策略，提升跨渠道体验一致性"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "设计管理",
+              "产品规划",
+              "产品运营"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-design-director-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "9b878572f49146fb96f37e3a2c24f420",
+              "e4e9282be5f6ac6ddef827de10870448"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-design-director-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "c19a8f2ca23c1652649ca9e6a696b236",
+              "de82a4d77edafe0f9b448ab308efb84d"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-design-director-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "统筹产品体验与运营规划实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "价值认同": "认同组织使命与客户价值理念，在压力与取舍面前坚守长期价值准则。",
+        "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+        "跨界整合": "快速理解不同专业域的逻辑，连接产品、技术、运营与商业资源形成合力。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。"
       }
     }
   ],
@@ -488,7 +688,11 @@
             "hours": 1.5,
             "teacher": "丁兴良",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcjFfMS5wbmc.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户洞察",
+              "商机管理"
+            ]
           },
           {
             "id": "13a965f5a8dc4b8f80e211f843a60964",
@@ -497,7 +701,11 @@
             "hours": 1.96,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/13a965f5a8dc4b8f80e211f843a60964?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/13a965f5a8dc4b8f80e211f843a60964?type=h5_new&showPalette=false",
+            "capabilities": [
+              "解决方案设计",
+              "客户洞察"
+            ]
           },
           {
             "id": "1ee9c5ce89026ad97f55df237d9d8089",
@@ -506,7 +714,10 @@
             "hours": 3.5,
             "teacher": "张春梅",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRjAwNzdBMTM0MjMxNERBN0IwN0Y1QjA2NzI5QUY4QjQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商务谈判"
+            ]
           },
           {
             "id": "5ac9edc464e76d43f25917b901f4beb1",
@@ -515,7 +726,10 @@
             "hours": 1.5,
             "teacher": "刘志翔",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOTZBRjJGRkQ0RDQ0NDU0QkE0ODZDRjVCMzczODY3OTMtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           }
         ],
         "projects": [],
@@ -526,9 +740,55 @@
               "分析区域客户结构与业务机会，形成季度目标客户清单",
               "跟踪重点商机，按周复盘进展、风险与下一步行动"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "客户洞察",
+              "商机管理"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "business-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "fb06a0021f5bb0af0baedf24e00f320f",
+              "13a965f5a8dc4b8f80e211f843a60964"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "business-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "1ee9c5ce89026ad97f55df237d9d8089",
+              "5ac9edc464e76d43f25917b901f4beb1"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "business-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "制定行业客户拓展计划实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。"
       }
     }
   ],
@@ -621,7 +881,11 @@
             "hours": 1,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy8vbGl2ZS9pbWFnZXMvY2hvb3NlTGl2ZS90eXBlX2JnX2ZpcnN0X25ld0AyeC5wbmc.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/92b0943b56ce4363b39128609dee8c89?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/92b0943b56ce4363b39128609dee8c89?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户经营",
+              "商务谈判"
+            ]
           },
           {
             "id": "5dc46ac1526e826503b555f890e72dff",
@@ -630,7 +894,11 @@
             "hours": 2.5,
             "teacher": "王振韬",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQ0MxQjQ0ODc1RkY5NDg5RUI5ODk3NDdCMDFDRkIzOTMtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5dc46ac1526e826503b555f890e72dff?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5dc46ac1526e826503b555f890e72dff?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户洞察",
+              "需求分析"
+            ]
           },
           {
             "id": "33454ab3e898a5d6d27d3495301e3efb",
@@ -639,7 +907,10 @@
             "hours": 1,
             "teacher": "徐莉",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRjQ1QTM2OUZDMDQyNDg4RTk2NEI0NTQ1Q0JDODNCRjYtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/33454ab3e898a5d6d27d3495301e3efb?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/33454ab3e898a5d6d27d3495301e3efb?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           },
           {
             "id": "1ee9c5ce89026ad97f55df237d9d8089",
@@ -648,7 +919,10 @@
             "hours": 3.5,
             "teacher": "张春梅",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRjAwNzdBMTM0MjMxNERBN0IwN0Y1QjA2NzI5QUY4QjQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商务谈判"
+            ]
           }
         ],
         "projects": [],
@@ -659,9 +933,55 @@
               "识别客户关键干系人，维护客户经营档案",
               "定期开展使用回访，跟进问题处理与业务价值验证"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "客户经营",
+              "需求分析"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "account-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "92b0943b56ce4363b39128609dee8c89",
+              "5dc46ac1526e826503b555f890e72dff"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "account-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "33454ab3e898a5d6d27d3495301e3efb",
+              "1ee9c5ce89026ad97f55df237d9d8089"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "account-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "建立客户经营与服务节奏实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "协作共赢": "主动共享信息与资源，兼顾跨团队利益，推动共同目标达成。",
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "情绪感知": "准确觉察他人情绪与潜在诉求，在高压沟通中保持建设性互动。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。"
       }
     }
   ],
@@ -761,7 +1081,11 @@
             "hours": 2.5,
             "teacher": "马涛",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS85ZTY0MzU4OGU3N2Q2MmZkNDU0NzM5ZDhkMWM0MmRiMi1OXzE1MjMzMzMzMzMzMzMvNWJmMjc2YmU2NjcwYWE1NDdiOTQ4YT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "销售预测",
+              "团队管理"
+            ]
           },
           {
             "id": "2389c3662bcee3ee061ae13af97f2434",
@@ -770,7 +1094,10 @@
             "hours": 3,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMTY0NUFENjg3MjRGNDUyREJGOTkwNzJBQUUwOEFEMzQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           },
           {
             "id": "13a965f5a8dc4b8f80e211f843a60964",
@@ -779,7 +1106,11 @@
             "hours": 1.96,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/13a965f5a8dc4b8f80e211f843a60964?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/13a965f5a8dc4b8f80e211f843a60964?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户经营",
+              "商务谈判"
+            ]
           },
           {
             "id": "0337ebbea5608eb92054d2b2e1697a9b",
@@ -788,7 +1119,11 @@
             "hours": 0.5,
             "teacher": "邓波",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQ0RGMkU1MzQzRDJFNDQwMUEyOUYxQzczODI2QjEwQzUtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/0337ebbea5608eb92054d2b2e1697a9b?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/0337ebbea5608eb92054d2b2e1697a9b?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商机管理",
+              "商务谈判"
+            ]
           }
         ],
         "projects": [],
@@ -799,9 +1134,56 @@
               "分解季度销售目标，明确区域、行业和人员责任",
               "建立商机分级与预测机制，及时识别目标缺口"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "销售预测",
+              "商机管理",
+              "客户经营"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "sales-manager-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "c4ac08690aeabd49512caaffaecd587f",
+              "2389c3662bcee3ee061ae13af97f2434"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-manager-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "13a965f5a8dc4b8f80e211f843a60964",
+              "0337ebbea5608eb92054d2b2e1697a9b"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-manager-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "制定并执行团队销售计划实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "坚韧抗压": "在挫折、周期波动或高强度目标下保持稳定投入，持续推进问题闭环。"
       }
     },
     {
@@ -844,6 +1226,10 @@
           [
             "跨部门协作",
             "L4"
+          ],
+          [
+            "招投标合规审查",
+            "不分级"
           ]
         ],
         "pow": [
@@ -871,6 +1257,11 @@
         "跨部门协作": {
           "definition": "协调不同角色的目标、职责与依赖，推动共同交付并及时处理分歧。",
           "description": "能够在目标和资源冲突下形成共同方案，协调关键依赖，并建立稳定的跨团队协作机制。"
+        },
+        "招投标合规审查": {
+          "graded": false,
+          "definition": "熟悉政企招投标法规、资质文件核验与合规红线要求，确保投标全流程零违规隐患。",
+          "description": ""
         }
       },
       "learningPlan": {
@@ -883,7 +1274,11 @@
             "hours": 0.5,
             "teacher": "鲁百年",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS8wOTBiMmJlMzFjMmRkMzRkNjE2MTJkMjBmZjEwYzI4Zi1OXzE1MjMzMzMzMzMzMzMvNGY2YTlhZmQ0OThlNTQzOTEwZjcwNj",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/MAM070404_tbc.com?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/MAM070404_tbc.com?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户洞察",
+              "解决方案设计"
+            ]
           },
           {
             "id": "fb06a0021f5bb0af0baedf24e00f320f",
@@ -892,7 +1287,10 @@
             "hours": 1.5,
             "teacher": "丁兴良",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcjFfMS5wbmc.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户洞察"
+            ]
           },
           {
             "id": "b833f38551a502ac242482920141d64f",
@@ -901,7 +1299,11 @@
             "hours": 1.5,
             "teacher": "张春梅",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvNDFCOTlEN0JERkU0NEMxRThFODY3NjA2NzZBRkNGMzAtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/b833f38551a502ac242482920141d64f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/b833f38551a502ac242482920141d64f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "招投标合规审查",
+              "商务谈判"
+            ]
           },
           {
             "id": "1ee9c5ce89026ad97f55df237d9d8089",
@@ -910,7 +1312,11 @@
             "hours": 3.5,
             "teacher": "张春梅",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRjAwNzdBMTM0MjMxNERBN0IwN0Y1QjA2NzI5QUY4QjQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/1ee9c5ce89026ad97f55df237d9d8089?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商务谈判",
+              "招投标合规审查"
+            ]
           }
         ],
         "projects": [],
@@ -921,9 +1327,63 @@
               "绘制客户业务、组织与采购决策地图",
               "识别客户关键业务议题，制定年度合作路线"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "客户洞察",
+              "解决方案设计",
+              "跨部门协作"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "sales-key-account-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "MAM070404_tbc.com",
+              "fb06a0021f5bb0af0baedf24e00f320f"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-key-account-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "b833f38551a502ac242482920141d64f",
+              "1ee9c5ce89026ad97f55df237d9d8089"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-key-account-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "制定战略客户发展策略实践"
+            ]
           }
         ]
+      },
+      "templateName": "经历与胜任素质模板",
+      "enabledDimensions": [
+        "exp",
+        "cap",
+        "pow",
+        "pot"
+      ],
+      "traits": {
+        "价值认同": "认同组织使命与客户价值理念，在压力与取舍面前坚守长期价值准则。",
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。",
+        "跨界整合": "快速理解不同专业域的逻辑，连接产品、技术、运营与商业资源形成合力。"
       }
     }
   ],
@@ -1008,7 +1468,11 @@
             "hours": 1,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy8vbGl2ZS9pbWFnZXMvY2hvb3NlTGl2ZS90eXBlX2JnX2ZpcnN0X25ld0AyeC5wbmc.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/efeb9924d54249c284318f7b650217a4?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/efeb9924d54249c284318f7b650217a4?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户经营",
+              "商机管理"
+            ]
           },
           {
             "id": "fb06a0021f5bb0af0baedf24e00f320f",
@@ -1017,7 +1481,10 @@
             "hours": 1.5,
             "teacher": "丁兴良",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcjFfMS5wbmc.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/THREESCREEN/fb06a0021f5bb0af0baedf24e00f320f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "需求分析"
+            ]
           },
           {
             "id": "9142bf19cdd07379fefa8746c6a95fa4",
@@ -1026,7 +1493,11 @@
             "hours": 1.5,
             "teacher": "王振韬",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOTgzMDRDODk5RjMzNENDRDhBM0JBMkQwNjU5OEI3OTQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9142bf19cdd07379fefa8746c6a95fa4?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9142bf19cdd07379fefa8746c6a95fa4?type=h5_new&showPalette=false",
+            "capabilities": [
+              "需求分析",
+              "商务谈判"
+            ]
           },
           {
             "id": "6fe61fb7992c0cfecbe03d2c977be22a",
@@ -1035,7 +1506,11 @@
             "hours": 1.5,
             "teacher": "杨洪波",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQ0EyNjM1QUYzRjAwNDMxQjhDQjNFMTdEOEJEODg4QzAtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/6fe61fb7992c0cfecbe03d2c977be22a?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/6fe61fb7992c0cfecbe03d2c977be22a?type=h5_new&showPalette=false",
+            "capabilities": [
+              "客户经营",
+              "商机管理"
+            ]
           }
         ],
         "projects": [],
@@ -1046,9 +1521,55 @@
               "通过访谈明确客户使用场景、预算和采购周期",
               "结合产品能力完成演示，准确说明价值与适用边界"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "需求分析",
+              "客户经营"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "sales-advisor-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "efeb9924d54249c284318f7b650217a4",
+              "fb06a0021f5bb0af0baedf24e00f320f"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-advisor-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "9142bf19cdd07379fefa8746c6a95fa4",
+              "6fe61fb7992c0cfecbe03d2c977be22a"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "sales-advisor-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "识别客户需求并提供建议实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "持续成长": "保持好奇心与自我反思习惯，主动寻求反馈并迭代个人专业方法。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。",
+        "坚韧抗压": "在挫折、周期波动或高强度目标下保持稳定投入，持续推进问题闭环。"
       }
     }
   ],
@@ -1141,7 +1662,11 @@
             "hours": 5.5,
             "teacher": "秦杨勇",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvNzEzMEEzNDA4ODA4NDFBQzkxQUZEMTAwRDZCMzFENzktNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9053dae0074bbcf839949f899fa5bf90?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/9053dae0074bbcf839949f899fa5bf90?type=h5_new&showPalette=false",
+            "capabilities": [
+              "战略规划",
+              "区域经营"
+            ]
           },
           {
             "id": "c4ac08690aeabd49512caaffaecd587f",
@@ -1150,7 +1675,11 @@
             "hours": 2.5,
             "teacher": "马涛",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS85ZTY0MzU4OGU3N2Q2MmZkNDU0NzM5ZDhkMWM0MmRiMi1OXzE1MjMzMzMzMzMzMzMvNWJmMjc2YmU2NjcwYWE1NDdiOTQ4YT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/TWOSCREEN/c4ac08690aeabd49512caaffaecd587f?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理",
+              "区域经营"
+            ]
           },
           {
             "id": "3ea6a3c585bd875268e941a55322c550",
@@ -1159,7 +1688,10 @@
             "hours": 2,
             "teacher": "郝卯花",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRTEyRjQ4QjExRTFDNEU0ODg0RDc3OTdBN0Y2OEFFM0UtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/3ea6a3c585bd875268e941a55322c550?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/3ea6a3c585bd875268e941a55322c550?type=h5_new&showPalette=false",
+            "capabilities": [
+              "财务分析"
+            ]
           },
           {
             "id": "2389c3662bcee3ee061ae13af97f2434",
@@ -1168,7 +1700,10 @@
             "hours": 3,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMTY0NUFENjg3MjRGNDUyREJGOTkwNzJBQUUwOEFEMzQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           }
         ],
         "projects": [],
@@ -1179,9 +1714,56 @@
               "分析区域市场与客户结构，明确重点行业和增长路径",
               "统筹收入、毛利与回款目标，建立月度经营复盘机制"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "区域经营",
+              "战略规划",
+              "客户洞察"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "regional-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "9053dae0074bbcf839949f899fa5bf90",
+              "c4ac08690aeabd49512caaffaecd587f"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "regional-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "3ea6a3c585bd875268e941a55322c550",
+              "2389c3662bcee3ee061ae13af97f2434"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "regional-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "制定区域经营策略实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "掌控权力": "具备组织统筹与资源调配意愿，敢于为关键经营决策与团队结果担责。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。"
       }
     }
   ],
@@ -1266,7 +1848,11 @@
             "hours": 0.02,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false",
+            "capabilities": [
+              "交互设计",
+              "需求分析"
+            ]
           },
           {
             "id": "b7aff34b77959f8feef56e04d511e9f3",
@@ -1275,7 +1861,11 @@
             "hours": 1,
             "teacher": "高虎",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvRDQ0MkE1N0VGOTg2NDBDQjgxRTdBRjM1MkEyQTgzRkEtNi0yLnBuZw.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/b7aff34b77959f8feef56e04d511e9f3?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/b7aff34b77959f8feef56e04d511e9f3?type=h5_new&showPalette=false",
+            "capabilities": [
+              "需求分析",
+              "跨部门协作"
+            ]
           },
           {
             "id": "0bd2528eba3eb7a626fdc5a1c935b955",
@@ -1284,7 +1874,10 @@
             "hours": 1,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS8zMWNlNzZjMGU1YmYwZjhjYjk3NjY3YTkyMWEwNzAxOC1OXzE1MjMzMzMzMzMzMzMvNWVlMDgxZjQ2NjcwOTQ2ZmJmYWY0MT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/0bd2528eba3eb7a626fdc5a1c935b955?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/0bd2528eba3eb7a626fdc5a1c935b955?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           }
         ],
         "projects": [],
@@ -1295,9 +1888,54 @@
               "整理访谈纪要和用户反馈，标注问题与使用场景",
               "检索竞品资料，形成结构清晰的对比记录"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "用户研究",
+              "需求分析"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-intern-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "9b878572f49146fb96f37e3a2c24f420",
+              "b7aff34b77959f8feef56e04d511e9f3"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-intern-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "0bd2528eba3eb7a626fdc5a1c935b955"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-intern-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "协助开展用户研究实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "持续成长": "保持好奇心与自我反思习惯，主动寻求反馈并迭代个人专业方法。",
+        "协作共赢": "主动共享信息与资源，兼顾跨团队利益，推动共同目标达成。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。",
+        "坚韧抗压": "在挫折、周期波动或高强度目标下保持稳定投入，持续推进问题闭环。"
       }
     }
   ],
@@ -1390,7 +2028,11 @@
             "hours": 0.02,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false",
+            "capabilities": [
+              "交互设计",
+              "需求分析"
+            ]
           },
           {
             "id": "fbe8f1f3ab2ed9327c639edfbce7ae35",
@@ -1399,7 +2041,11 @@
             "hours": 1,
             "teacher": "李骐",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS9hOTQ1NzY4MWEwYTI2ZTU1M2Q5MzZhNmFiYzY0YmY3YS1OXzE1MjMzMzMzMzMzMzMvNWU0NGY1MGE2NjcwMzJlYzgwYWNjZT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/fbe8f1f3ab2ed9327c639edfbce7ae35?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/fbe8f1f3ab2ed9327c639edfbce7ae35?type=h5_new&showPalette=false",
+            "capabilities": [
+              "需求分析",
+              "数据分析"
+            ]
           },
           {
             "id": "ec4412188552989eeb918994458b125d",
@@ -1408,7 +2054,10 @@
             "hours": 1.5,
             "teacher": "徐莉",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvREYxMjEzODVDNzJBNDMwOUE3MENEQUM2OEQwQTE5QTctNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/ec4412188552989eeb918994458b125d?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/ec4412188552989eeb918994458b125d?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           },
           {
             "id": "d768acfa122f6340284ea2b1c285104e",
@@ -1417,7 +2066,10 @@
             "hours": 1.5,
             "teacher": "娄萌",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS9jOWUxOWUxYmVjZWMzZmMwYjY4ZmY5MTA3NGJlYTU3Ni1OXzE1MjMzMzMzMzMzMzMvNWVkMDlkZDc2NjcwYjlmZjczNzczYm",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/d768acfa122f6340284ea2b1c285104e?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/d768acfa122f6340284ea2b1c285104e?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           }
         ],
         "projects": [
@@ -1426,7 +2078,12 @@
             "name": "项目经理学习项目",
             "description": "通过计划编排、协作交付与项目复盘，提升跨团队项目推动能力。",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9taW5hRmFjZS9pbWFnZXMvYmdfcGljXzEuanBn.jpg",
-            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2"
+            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2",
+            "required": true,
+            "capabilities": [
+              "跨部门协作",
+              "需求分析"
+            ]
           }
         ],
         "tasks": [
@@ -1436,9 +2093,58 @@
               "梳理用户反馈和业务流程，明确问题与验收标准",
               "输出交互原型和需求文档，识别异常与边界场景"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "需求分析",
+              "交互设计",
+              "用户研究"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-specialist-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "9b878572f49146fb96f37e3a2c24f420",
+              "fbe8f1f3ab2ed9327c639edfbce7ae35"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-specialist-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "ec4412188552989eeb918994458b125d",
+              "d768acfa122f6340284ea2b1c285104e"
+            ],
+            "projectIds": [
+              "b697ef2dc3b14a6094b2aa5c71f8bc0a"
+            ],
+            "taskNames": []
+          },
+          {
+            "id": "product-specialist-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "分析并设计产品需求实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "持续成长": "保持好奇心与自我反思习惯，主动寻求反馈并迭代个人专业方法。",
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。",
+        "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。"
       }
     }
   ],
@@ -1499,6 +2205,10 @@
           [
             "商业判断",
             "L3"
+          ],
+          [
+            "项目立项规范",
+            "不分级"
           ]
         ],
         "pow": [
@@ -1536,6 +2246,11 @@
         "商业判断": {
           "definition": "综合客户价值、收入、成本与风险，对业务机会和产品投入做出合理取舍。",
           "description": "能够独立处理常见业务场景，形成清晰方案，并结合结果持续改进。"
+        },
+        "项目立项规范": {
+          "graded": false,
+          "definition": "掌握立项申请、跨部门投入测算、里程碑评审及文档归档红线，保障立项流程合规闭环。",
+          "description": ""
         }
       },
       "learningPlan": {
@@ -1548,7 +2263,11 @@
             "hours": 0.02,
             "teacher": "专家团",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9jb3Vyc2VWMi9jb3ZlckltZy9jb3ZlcmJvb2s4XzgucG5n.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/OLINEURL/9b878572f49146fb96f37e3a2c24f420?type=h5_new&showPalette=false",
+            "capabilities": [
+              "交互设计",
+              "需求分析"
+            ]
           },
           {
             "id": "fbe8f1f3ab2ed9327c639edfbce7ae35",
@@ -1557,7 +2276,11 @@
             "hours": 1,
             "teacher": "李骐",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLWZpbGU0LjIxdGIuY29tL3NmLXNlcnZlci9maWxlL2Rvd25sb2FkRmlsZS9hOTQ1NzY4MWEwYTI2ZTU1M2Q5MzZhNmFiYzY0YmY3YS1OXzE1MjMzMzMzMzMzMzMvNWU0NGY1MGE2NjcwMzJlYzgwYWNjZT",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/fbe8f1f3ab2ed9327c639edfbce7ae35?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/fbe8f1f3ab2ed9327c639edfbce7ae35?type=h5_new&showPalette=false",
+            "capabilities": [
+              "产品规划",
+              "项目立项规范"
+            ]
           },
           {
             "id": "5ac9edc464e76d43f25917b901f4beb1",
@@ -1566,7 +2289,10 @@
             "hours": 1.5,
             "teacher": "刘志翔",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOTZBRjJGRkQ0RDQ0NDU0QkE0ODZDRjVCMzczODY3OTMtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           },
           {
             "id": "2925f322e50a93475f609be5588ad3d2",
@@ -1575,7 +2301,11 @@
             "hours": 1.5,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMDFCRjg3ODQxOTYxNEVBOTlGNzI4Q0JBOTA5NENBQ0MtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2925f322e50a93475f609be5588ad3d2?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2925f322e50a93475f609be5588ad3d2?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商业判断",
+              "数据分析"
+            ]
           }
         ],
         "projects": [
@@ -1584,7 +2314,12 @@
             "name": "项目经理学习项目",
             "description": "通过计划编排、协作交付与项目复盘，提升跨团队项目推动能力。",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9taW5hRmFjZS9pbWFnZXMvYmdfcGljXzEuanBn.jpg",
-            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2"
+            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2",
+            "required": true,
+            "capabilities": [
+              "产品规划",
+              "跨部门协作"
+            ]
           }
         ],
         "tasks": [
@@ -1594,9 +2329,75 @@
               "访谈5位目标用户，梳理关键任务与使用障碍",
               "形成需求优先级，完成改进方案与核心流程原型"
             ],
-            "criteria": "提交访谈纪要、问题清单和方案原型，经产品负责人评审通过。"
+            "criteria": "提交访谈纪要、问题清单和方案原型，经产品负责人评审通过。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "需求分析",
+              "交互设计",
+              "数据分析"
+            ]
+          },
+          {
+            "name": "完成版本立项材料合规自检与同行评审",
+            "type": "案例研读",
+            "required": true,
+            "actions": [
+              "对照项目立项规范核验立项背景、收益测算与风险预案完整性",
+              "参与跨团队立项评审会并完成评审纪要归档"
+            ],
+            "criteria": "立项文档一次通过评审且关键合规项零遗漏。",
+            "capabilities": [
+              "项目立项规范",
+              "产品规划"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-manager-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "9b878572f49146fb96f37e3a2c24f420",
+              "fbe8f1f3ab2ed9327c639edfbce7ae35"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-manager-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "5ac9edc464e76d43f25917b901f4beb1",
+              "2925f322e50a93475f609be5588ad3d2"
+            ],
+            "projectIds": [
+              "b697ef2dc3b14a6094b2aa5c71f8bc0a"
+            ],
+            "taskNames": []
+          },
+          {
+            "id": "product-manager-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "完成用户访谈与需求改进提案",
+              "完成版本立项材料合规自检与同行评审"
+            ]
           }
         ]
+      },
+      "traits": {
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "价值认同": "认同组织使命与客户价值理念，在压力与取舍面前坚守长期价值准则。",
+        "持续成长": "保持好奇心与自我反思习惯，主动寻求反馈并迭代个人专业方法。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "跨界整合": "快速理解不同专业域的逻辑，连接产品、技术、运营与商业资源形成合力。"
       }
     },
     {
@@ -1687,7 +2488,11 @@
             "hours": 2,
             "teacher": "杨元彦",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMDkyRjY2REM1QTVGNDM4N0JCRURBRTJCQkRBQkE1REEtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/aff800c3781b4b82a2572cf5df3e0ecf?type=h5_new&showPalette=false",
+            "capabilities": [
+              "数据分析",
+              "增长实验"
+            ]
           },
           {
             "id": "5dc46ac1526e826503b555f890e72dff",
@@ -1696,7 +2501,11 @@
             "hours": 2.5,
             "teacher": "王振韬",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQ0MxQjQ0ODc1RkY5NDg5RUI5ODk3NDdCMDFDRkIzOTMtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5dc46ac1526e826503b555f890e72dff?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5dc46ac1526e826503b555f890e72dff?type=h5_new&showPalette=false",
+            "capabilities": [
+              "用户研究",
+              "增长实验"
+            ]
           },
           {
             "id": "e35ed6177da672e70ef08d1bdcfb77fe",
@@ -1705,7 +2514,10 @@
             "hours": 2.5,
             "teacher": "李中生",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQzIzQTBBRTVBQTBFNEY5ODk5OTQ1NjUzRUY3MTBGOUEtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e35ed6177da672e70ef08d1bdcfb77fe?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/e35ed6177da672e70ef08d1bdcfb77fe?type=h5_new&showPalette=false",
+            "capabilities": [
+              "商业判断"
+            ]
           },
           {
             "id": "6acbf7bc9f938ed113b806ee5ea03542",
@@ -1714,7 +2526,11 @@
             "hours": 2.5,
             "teacher": "郑宗滨",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvNzlBNjNEOEY2QjI1NDEyREI4REU1MUMyNTlFRjY5QzktNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/6acbf7bc9f938ed113b806ee5ea03542?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/6acbf7bc9f938ed113b806ee5ea03542?type=h5_new&showPalette=false",
+            "capabilities": [
+              "增长实验",
+              "跨部门协作"
+            ]
           }
         ],
         "projects": [],
@@ -1725,9 +2541,62 @@
               "选择一个转化环节，完成用户分层与流失原因分析",
               "提出增长假设，设计实验方案并复盘观测结果"
             ],
-            "criteria": "提交漏斗分析、实验方案及结果报告，说明增益、风险与适用边界。"
+            "criteria": "提交漏斗分析、实验方案及结果报告，说明增益、风险与适用边界。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "数据分析",
+              "增长实验",
+              "用户研究"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-growth-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "aff800c3781b4b82a2572cf5df3e0ecf",
+              "5dc46ac1526e826503b555f890e72dff"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-growth-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "e35ed6177da672e70ef08d1bdcfb77fe",
+              "6acbf7bc9f938ed113b806ee5ea03542"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-growth-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "完成转化漏斗分析与增长实验"
+            ]
           }
         ]
+      },
+      "templateName": "能力-动力-潜力精简模板",
+      "enabledDimensions": [
+        "cap",
+        "pow",
+        "pot"
+      ],
+      "traits": {
+        "挑战难度": "愿意承担边界不清、资源受限或高复杂度课题，主动突破现状瓶颈。",
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "复杂决策": "在信息不完备或多目标冲突场景下抓住主要矛盾，做出权衡清晰的判断。",
+        "学习敏锐": "面对陌生领域能快速抽取底层规律，举一反三并转化为实践成果。"
       }
     }
   ],
@@ -1820,7 +2689,11 @@
             "hours": 2.5,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvQTc0OTRGMTA4NTQ2NDI4QTgzQjlFNzA5MkZGRENBMTYtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/d15eaf9830bcc1cdd8efc5ff94ec3a57?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/d15eaf9830bcc1cdd8efc5ff94ec3a57?type=h5_new&showPalette=false",
+            "capabilities": [
+              "产品规划",
+              "商业判断"
+            ]
           },
           {
             "id": "2389c3662bcee3ee061ae13af97f2434",
@@ -1829,7 +2702,10 @@
             "hours": 3,
             "teacher": "史玉杰",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMTY0NUFENjg3MjRGNDUyREJGOTkwNzJBQUUwOEFEMzQtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/2389c3662bcee3ee061ae13af97f2434?type=h5_new&showPalette=false",
+            "capabilities": [
+              "团队管理"
+            ]
           },
           {
             "id": "de82a4d77edafe0f9b448ab308efb84d",
@@ -1838,7 +2714,11 @@
             "hours": 4.5,
             "teacher": "高虎",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvMUMyRkI4MUREMjA5NDA3M0IyM0VEQTgzMUU1OTNDQzAtNi0yLnBuZw.png",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/de82a4d77edafe0f9b448ab308efb84d?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/de82a4d77edafe0f9b448ab308efb84d?type=h5_new&showPalette=false",
+            "capabilities": [
+              "项目管理",
+              "跨部门协作"
+            ]
           },
           {
             "id": "5ac9edc464e76d43f25917b901f4beb1",
@@ -1847,7 +2727,10 @@
             "hours": 1.5,
             "teacher": "刘志翔",
             "cover": "mobile/assets/aHR0cHM6Ly90ZXN0dm9kLjIxdGIuY29tL2ltYWdlL2RlZmF1bHQvOTZBRjJGRkQ0RDQ0NDU0QkE0ODZDRjVCMzczODY3OTMtNi0yLmpwZw.jpg",
-            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false"
+            "url": "https://v4.21tb.com/courseCenter/#/course/detail/ONLINEVIDEOCOURSE/5ac9edc464e76d43f25917b901f4beb1?type=h5_new&showPalette=false",
+            "capabilities": [
+              "跨部门协作"
+            ]
           }
         ],
         "projects": [
@@ -1856,7 +2739,12 @@
             "name": "项目经理学习项目",
             "description": "通过计划编排、协作交付与项目复盘，提升跨团队项目推动能力。",
             "cover": "mobile/assets/aHR0cHM6Ly8yMXRiLXN0YXRpYy4yMXRiLmNvbS93ZWItc3RhdGljL2Fzc2V0cy9taW5hRmFjZS9pbWFnZXMvYmdfcGljXzEuanBn.jpg",
-            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2"
+            "url": "https://v4.21tb.com/mix-h5/#/studentDetail?id=b697ef2dc3b14a6094b2aa5c71f8bc0a&projectType=MIX_MAP&showMode=2",
+            "required": true,
+            "capabilities": [
+              "项目管理",
+              "跨部门协作"
+            ]
           }
         ],
         "tasks": [
@@ -1866,9 +2754,58 @@
               "将业务目标转化为产品路线图，协调跨产品依赖",
               "定期评估产品投入产出，明确资源取舍与版本优先级"
             ],
-            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。"
+            "criteria": "提交实施方案、过程记录与结果复盘，由业务负责人确认成果。",
+            "type": "在岗实践",
+            "required": true,
+            "capabilities": [
+              "产品规划",
+              "商业判断",
+              "团队管理"
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": "product-lead-core-stage-1",
+            "title": "阶段一：核心专业方法筑基",
+            "goal": "掌握岗位关键专业框架与核心方法论，建立统一作业标准。",
+            "courseIds": [
+              "d15eaf9830bcc1cdd8efc5ff94ec3a57",
+              "2389c3662bcee3ee061ae13af97f2434"
+            ],
+            "projectIds": [],
+            "taskNames": []
+          },
+          {
+            "id": "product-lead-core-stage-2",
+            "title": "阶段二：组织协同与进阶拓展",
+            "goal": "强化跨部门沟通协作、管理进阶与复杂业务场景应对能力。",
+            "courseIds": [
+              "de82a4d77edafe0f9b448ab308efb84d",
+              "5ac9edc464e76d43f25917b901f4beb1"
+            ],
+            "projectIds": [
+              "b697ef2dc3b14a6094b2aa5c71f8bc0a"
+            ],
+            "taskNames": []
+          },
+          {
+            "id": "product-lead-core-stage-3",
+            "title": "阶段三：在岗训战与成果转化",
+            "goal": "结合真实业务课题开展在岗实践与复盘，输出可验证交付物。",
+            "courseIds": [],
+            "projectIds": [],
+            "taskNames": [
+              "管理产品组合与资源投入实践"
+            ]
           }
         ]
+      },
+      "traits": {
+        "影响他人": "通过清晰逻辑、利益共识与示范行动赢得认同，推动关键干系人协同。",
+        "成就导向": "设定高标准目标，关注结果质量与投入产出，持续追求卓越表现。",
+        "战略思维": "从行业趋势、客户演变与全局视角审视当下工作，识别长期关键抓手。",
+        "跨界整合": "快速理解不同专业域的逻辑，连接产品、技术、运营与商业资源形成合力。"
       }
     }
   ]
@@ -1887,5 +2824,5 @@
   "fda397b1aa974647aa9c8004c94ca784": "11",
   "dcadd4346f67469c8ed4a348eda72bae": "12"
 };
-  window.LearnerRequirementsData = {forPosition:id => positions[positionIds[id] || id] || null};
+  window.LearnerRequirementsData = {forPosition:id => positions[positionIds[id] || id] || null, traitDefinitions};
 })();

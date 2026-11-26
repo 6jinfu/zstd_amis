@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>系统设置 · 人才发展</title>
-<link rel="stylesheet" href="styles.css?v=sha256-e95d77aa90e6">
+<link rel="stylesheet" href="styles.css?v=sha256-3f5de2ce266f">
 <link rel="stylesheet" href="ui/components.css?v=sha256-ef5c84348116">
-<link rel="stylesheet" href="settings-editor.css?v=sha256-870f46c866b6">
+<link rel="stylesheet" href="settings-editor.css?v=sha256-7ec8fd9bc8f8">
 <link rel="stylesheet" href="production-ui.css?v=sha256-4392e752e16c">
 </head>
 <body data-module="settings" data-page="settings">
 <div class="app shell-v2">
-<script src="navigation.js?v=sha256-1101210ed928"></script>
+<script src="navigation.js?v=sha256-aab58ca981b1"></script>
   <div class="body">
     <main class="content settings-scope-page">
       <div class="detail-main">
@@ -19,6 +19,30 @@
           <div class="settings-editor-toolbar"><label class="settings-editor-search"><input class="input" id="level-search" type="search" aria-label="搜索序列或职级" placeholder="搜索序列、职级名称或编码"></label><button class="btn btn-primary" id="add-sequence" type="button">新增序列</button></div>
           <div class="level-tree" id="level-tree" aria-label="序列与职级"></div>
         </section>
+
+        <section class="d-section" data-section="templates">
+          <div class="settings-editor-toolbar">
+            <p class="settings-template-note">配置不同业务场景的人才标准维度组合。修改模板仅对后续新建的人才标准生效，已创建的标准保留原有维度与已填内容。</p>
+            <button class="btn btn-primary" id="add-template" type="button">新增模板</button>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table class="t" aria-label="人才标准模板列表">
+                <thead>
+                  <tr>
+                    <th>模板名称</th>
+                    <th>包含维度</th>
+                    <th>适用说明</th>
+                    <th>状态</th>
+                    <th style="text-align:right">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="template-list"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
         <section class="d-section" data-section="ability-dimensions">
           <form id="ability-dimensions-form" class="dimension-settings-panel">
             <p>可修改技能、素养、知识三个能力指标维度的名称，每个名称最多 20 个字符。保存后用于能力编辑和能力指标导入。</p>
@@ -27,15 +51,12 @@
             <div class="dimension-settings-footer"><button class="btn btn-secondary" type="reset">取消</button><button class="btn btn-primary" type="submit">保存</button><span id="ability-dimensions-state" role="status"></span></div>
           </form>
         </section>
-        <section class="d-section" data-section="dimensions">
-          <div class="dimension-settings-panel"><p>选择启用的人才标准维度。新建标准和 AI 帮建使用已启用的维度；已有标准内容保留，更新方式在帮建结束时确认。</p><div id="dimension-settings" aria-label="人才标准维度"></div><p id="dimension-error" role="alert"></p><div class="dimension-settings-footer"><button class="btn btn-primary" id="save-dimensions" type="button">保存</button><span id="dimension-save-state" role="status"></span></div></div>
-        </section>
 
         <section class="d-section" data-section="learner">
           <div class="section-toolbar compact"><span class="setting-save-state" id="learner-save-state">修改后自动保存</span></div>
           <div class="learner-feature-grid" aria-label="学员端功能">
-            <label class="learner-feature-option"><input type="checkbox" checked><span>人才画像</span></label>
-            <label class="learner-feature-option"><input type="checkbox" checked><span>岗位发展通道</span></label>
+            <label class="learner-feature-option"><input type="checkbox" data-learner-feature="portrait" checked><span>人才画像</span></label>
+            <label class="learner-feature-option"><input type="checkbox" data-learner-feature="channel" checked><span>岗位发展通道</span></label>
           </div>
         </section>
       </div>
@@ -43,22 +64,9 @@
   </div>
 </div>
 
-<script src="ui/components.js?v=sha256-4b68ac070758"></script>
+<script src="ui/components.js?v=sha256-5ad06c0ffb2e"></script>
 <script src="app.js?v=sha256-90aacf1fa158"></script>
-<script src="talent-settings-data.js?v=sha256-81ba786c2996"></script>
-<script src="settings-editor.js?v=sha256-1de45a02be49"></script>
-<script>
-(function () {
-  var state = document.getElementById('learner-save-state');
-  document.querySelectorAll('.learner-feature-option input').forEach(function (input) {
-    input.addEventListener('change', function () {
-      state.textContent = '已保存';
-      state.classList.add('is-saved');
-      showToast(input.parentElement.textContent.trim() + (input.checked ? '已显示' : '已隐藏'));
-      window.setTimeout(function () { state.textContent = '修改后自动保存'; state.classList.remove('is-saved'); }, 1600);
-    });
-  });
-})();
-</script>
+<script src="talent-settings-data.js?v=sha256-e0c0eae5af82"></script>
+<script src="settings-editor.js?v=sha256-b4acb2e15496"></script>
 </body>
 </html>

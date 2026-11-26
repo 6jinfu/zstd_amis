@@ -18,14 +18,23 @@
       if (!person) problems.push('工号不存在');
       else if (name !== person.name) problems.push('姓名与工号不一致');
       if (matched.length !== 1) problems.push('能力类别与名称不匹配，请核对指标库中的能力类别与名称');
-      if (!/^(?:10|[1-9])$/.test(level)) problems.push('能力等级须为 1–10 的整数');
-      if (score && !ReviewScoreImport.validScore(score)) problems.push('能力得分须为 0–999，最多两位小数');
+      const ungraded = matched.length === 1 && matched[0].graded === false;
+      if (ungraded) {
+        if (level) problems.push('无等级能力请留空能力等级');
+        if (!score || !ReviewScoreImport.validScore(score)) problems.push('无等级能力须填写 0–999 的能力得分，最多两位小数');
+      } else {
+        if (!/^(?:10|[1-9])$/.test(level)) problems.push('能力等级须为 1–10 的整数');
+        if (score && !ReviewScoreImport.validScore(score)) problems.push('能力得分须为 0–999，最多两位小数');
+      }
       if (row.formula) problems.push('请填写实际值，不使用公式');
       const key = employeeId + '\u0000' + matched[0]?.id;
       if (seen.has(key)) problems.push('同一人员、同一能力在文件中重复');
       seen.add(key);
       if (problems.length) errors.push({ row: row.number, message: problems.join('；') });
-      else records.push({ person: person.id, employeeId, name, category, indicatorId: matched[0].id, ability, level: Number(level), score: score === '' ? null : Number(score), source: '人才库导入' });
+      else records.push({
+        person: person.id, employeeId, name, category, indicatorId: matched[0].id, ability,
+        ungraded, level: ungraded ? null : Number(level), score: score === '' ? null : Number(score), source: '人才库导入'
+      });
     });
     if (!filled.length) errors.push({ row: '文件', message: '没有填写能力数据，请从第 4 行开始填写' });
     return { records, errors };
@@ -34,14 +43,14 @@
     records.forEach(record => data.evidence.push({
       id: Talent.uid('ability-import'), person: record.person, name: '人员能力数据 · ' + record.ability,
       type: '线下导入', date: Talent.today(), validUntil: '', importedAt: timestamp,
-      values: [[record.ability, record.level]], abilityImport: { ...record }
+      values: [[record.ability, record.ungraded ? record.score : record.level]], abilityImport: { ...record }
     }));
     return data;
   }
   function open(onSaved) {
     let busy = false;
     const dialog = UI.openDialog({ title: '导入人员能力数据', confirmLabel: '关闭', cancelLabel: '', body: `
-      <section class="tai-step"><h4>第一步：下载模板并填写</h4><p>按人员、能力逐行填写工号、姓名、能力类别、能力名称和能力等级；能力得分选填。</p><a class="btn btn-secondary" href="templates/talent-person-ability.xlsx" download="人员能力数据导入模板.xlsx">下载导入模板</a></section>
+      <section class="tai-step"><h4>第一步：下载模板并填写</h4><p>分级能力填写 1–10 能力等级（得分选填）；无等级能力留空能力等级并填写能力得分。</p><a class="btn btn-secondary" href="templates/talent-person-ability.xlsx" download="人员能力数据导入模板.xlsx">下载导入模板</a></section>
       <section class="tai-step"><h4>第二步：上传能力数据</h4><p>支持 .xlsx，文件不超过 5 MB，每次最多 2000 条。上传后自动校验，存在问题可下载报错 Excel。</p><button type="button" class="btn btn-primary" data-tai-upload>上传能力数据</button><input type="file" accept=".xlsx" data-tai-file hidden><p data-tai-status role="status">尚未选择文件</p></section>
       <section data-tai-result hidden></section>` });
     dialog.classList.add('talent-ability-import');

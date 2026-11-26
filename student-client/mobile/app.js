@@ -73,7 +73,7 @@
         abilities:abilities.map(item => ({name:item.qualityName, level:item.needLevel})),
         radars:(snapshot.positionSkillsRadarData || []).map(group => ({items:group.skillsRadarList.map(item => ({name:item.skillName, required:item.skillRequiredLevel}))}))
       }, definitions)];
-      return {positionId:id, title, standards, selected:requirementSelections.get(id) || standards[0]?.id || '', tab:0, filter:'all'};
+      return {positionId:id, title, standards, selected:requirementSelections.get(id) || standards[0]?.id || '', tab:0, filter:'all', capFilter:''};
     },
     render(h) {
       const standard = this.standards.find(item => item.id === this.selected) || this.standards[0];
@@ -85,6 +85,7 @@
             if (!event.target.matches('[data-requirement-standard]')) return;
             this.selected = event.target.value;
             this.filter = 'all';
+            this.capFilter = '';
             requirementSelections.set(this.positionId,this.selected);
             this.$nextTick(() => this.$el.querySelector('select').focus());
           }}
@@ -95,8 +96,12 @@
         }, label))),
         h('div', {
           class:this.tab === 0 ? 'learner-requirements' : 'standard-learning-plan',
-          domProps:{innerHTML:standard ? (this.tab === 0 ? LearnerRequirements.render(standard) : LearnerRequirements.renderPlan(standard,this.filter,'../')) : '<p>暂无可用内容</p>'},
+          domProps:{innerHTML:standard ? (this.tab === 0 ? LearnerRequirements.render(standard) : LearnerRequirements.renderPlan(standard,{type:this.filter,capability:this.capFilter},'../')) : '<p>暂无可用内容</p>'},
           on:{click:event => {
+            const cap = event.target.closest('[data-plan-cap]');
+            if (cap) { this.capFilter = cap.dataset.planCap === '' ? '' : (this.capFilter === cap.dataset.planCap ? '' : cap.dataset.planCap); return; }
+            const reset = event.target.closest('[data-plan-reset]');
+            if (reset) { this.filter = 'all'; this.capFilter = ''; return; }
             const filter = event.target.closest('[data-plan-filter]');
             if (filter) this.filter = filter.dataset.planFilter;
           }}

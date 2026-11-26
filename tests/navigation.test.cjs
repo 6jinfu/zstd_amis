@@ -27,10 +27,12 @@ test('五个中心均直接生成新版导航，活动菜单正确且没有旧�
   }
 });
 
-test('设置页保留分区切换契约，首次直达功能设置正确选中',()=>{
+test('设置页保留分区切换契约，首次直达功能设置或标准模板正确选中',()=>{
   const {html}=render('settings','settings','#learner');
   assert.ok(html.includes('data-anchor-tabs data-default="level"'));
   assert.match(html,/class="business-item active" data-tab="learner" href="#learner"/);
+  const tpl=render('settings','settings','#templates');
+  assert.match(tpl.html,/class="business-item active" data-tab="templates" href="#templates"/);
 });
 
 test('导航路径从脚本位置解析，嵌套原型及文件预览不拼错目录',()=>{
@@ -44,10 +46,10 @@ test('导航折叠状态与按钮语义一起更新',()=>{
   result.click();assert.equal(result.attributes['aria-expanded'],'true');assert.equal(result.label.textContent,'收起导航');
 });
 
-test('全部33个入口在主内容前同步加载唯一新版导航，旧转换代码和隐藏补丁已删除',()=>{
+test('全部32个主壳入口在主内容前同步加载唯一新版导航，旧转换代码和隐藏补丁已删除',()=>{
   const files=fs.readdirSync(root,{recursive:true}).filter(file=>file.endsWith('.html'));
   const pages=files.map(file=>fs.readFileSync(path.join(root,file),'utf8')).filter(html=>/src="[^"]*navigation\.js/.test(html));
-  assert.equal(pages.length,33);
+  assert.equal(pages.length,32);
   for(const html of pages) {
     assert.ok(html.includes('class="app shell-v2"'));
     assert.ok(!html.includes('nav-main'));

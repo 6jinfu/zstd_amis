@@ -457,6 +457,8 @@
 .std-cap-row:last-child { border-bottom:0; }
 .std-cap-row label { margin:0;color:var(--neutral-800);font-size:14px;overflow-wrap:anywhere; }
 .std-cap-row .select { width:72px; }
+.std-cap-ungraded { display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 8px;border:1px solid var(--border-subtle);border-radius:6px;background:var(--neutral-100);color:var(--neutral-600);font-size:13px;white-space:nowrap; }
+.std-tpl-badge { display:inline-flex;align-items:center;margin-left:8px;padding:1px 8px;border:1px solid var(--border-subtle);border-radius:4px;background:var(--neutral-50,#f8fafc);color:var(--neutral-600);font-size:12px;line-height:20px;vertical-align:middle; }
 .std-cap-row .btn-text { min-width:32px;min-height:32px; }
 .std-cap-empty { display:grid;place-items:center;min-height:180px;padding:24px;color:var(--neutral-500);background:var(--surface-subtle);border-radius:8px;font-size:14px;line-height:1.7;text-align:center; }
 @media(max-width:1100px) { .std-cap-layout { grid-template-columns:1fr;gap:20px; }.std-cap-items { max-height:none; } }

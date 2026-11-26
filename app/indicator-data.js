@@ -68,8 +68,10 @@
     ['cap-organizational-collaboration','组织协同','collaboration','在组织内建立有效协作关系'],
     ['cap-customer-orientation','客户导向','customer-orientation','持续从客户价值出发做出判断'],
     ['cap-product-launch','新品导入','product-planning','推动新品从规划到市场验证'],
-    ['cap-pilot-promotion','试点推进','pilot-launch','组织试点、验证并沉淀推广经验']
-  ].map(([id, name, categoryId, description]) => ({id, name, categoryId, description}));
+    ['cap-pilot-promotion','试点推进','pilot-launch','组织试点、验证并沉淀推广经验'],
+    ['cap-sql-query','SQL 数据查询','technology','能够编写结构化查询语句完成业务数据提取、关联与日常核对',false],
+    ['cap-project-spec','项目立项规范','administration','掌握公司项目立项评审、里程碑同步与结项归档标准要求',false]
+  ].map(([id, name, categoryId, description, graded = true]) => ({id, name, categoryId, description, graded}));
 
   const traitCategories = {
     pow: [
@@ -112,12 +114,38 @@
     traitItems[key] = traitItems[key].map(([id, name, categoryId, description]) => ({id, name, categoryId, description}));
   });
 
-  const stored = JSON.parse(localStorage.getItem('talent-indicators-v1') || 'null');
-  const dimensionNames=JSON.parse(localStorage.getItem('talent-settings-v1')||'null')?.abilityDimensions||['技能','素养','知识'];
-  const items=(stored?.items||capabilityItems).map(item=>({...item,dimension:dimensionNames[item.dimensionIndex]||item.dimension||dimensionNames[0]}));
+  let stored = null, settings = null;
+  try { stored = JSON.parse(localStorage.getItem('talent-indicators-v1') || 'null'); } catch {}
+  try { settings = JSON.parse(localStorage.getItem('talent-settings-v1') || 'null'); } catch {}
+  const dimensionNames = settings?.abilityDimensions || ['技能','素养','知识'];
+  const normalizeCap = item => ({
+    ...item,
+    graded: item.graded !== false,
+    levels: item.graded === false ? [] : (item.levels || []),
+    dimension: dimensionNames[item.dimensionIndex] || item.dimension || dimensionNames[0]
+  });
+  const items = (stored?.items || capabilityItems).map(normalizeCap);
+  const categories = stored?.categories || capabilityCategories;
+  function isGraded(nameOrId) {
+    const found = window.IndicatorDemo.items.cap.find(item => item.name === nameOrId || item.id === nameOrId);
+    return found ? found.graded !== false : true;
+  }
+  function definitionOf(name, kind = 'cap') {
+    return (window.IndicatorDemo.items[kind] || []).find(item => item.name === name)?.description || '';
+  }
+  function save(next) {
+    const nextCategories = next.categories || window.IndicatorDemo.categories;
+    const nextItems = (next.items || window.IndicatorDemo.items.cap).map(normalizeCap);
+    localStorage.setItem('talent-indicators-v1', JSON.stringify({categories: nextCategories, items: nextItems}));
+    window.IndicatorDemo.categories = nextCategories;
+    window.IndicatorDemo.items.cap = nextItems;
+  }
   window.IndicatorDemo = {
-    categories: stored?.categories || capabilityCategories,
+    categories,
     items: {cap: items, pow: traitItems.pow, pot: traitItems.pot},
-    traitCategories
+    traitCategories,
+    isGraded,
+    definitionOf,
+    save
   };
 })();

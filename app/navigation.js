@@ -17,7 +17,7 @@
     assess:[['assess-projects','assess-projects.html','评鉴工具'],['review-projects','review-projects.html','人才盘点']],
     develop:[['position-map','position-map.html','岗位地图']],
     talent:[['talent-list','talent-list.html','人才库'],['talent-pool','talent-pool.html','人才池'],['talent-dashboard','talent-dashboard.html','人才看板']],
-    settings:[['level','#level','职级管理'],['ability-dimensions','#ability-dimensions','能力指标维度自定义'],['learner','#learner','功能设置']]
+    settings:[['level','#level','职级管理'],['templates','#templates','人才标准模板'],['ability-dimensions','#ability-dimensions','能力指标维度自定义'],['learner','#learner','功能设置']]
   };
   const href=value=>value.startsWith('#')?value:new URL(value,base).href;
   const primaryLinks=primary.map(([id,url,label])=>`<a class="primary-item${id===module?' active':''}" data-module="${id}" href="${href(url)}" aria-label="${label}" title="${label}" ${id===module?'aria-current="page"':''}>${icons[id]}<span>${label}</span></a>`).join('');
@@ -26,13 +26,19 @@
     return `<a class="business-item${active?' active':''}" ${module==='settings'?'data-tab':'data-page'}="${id}" href="${href(url)}" ${active?'aria-current="page"':''}>${label}</a>`;
   }).join('');
   const brand=`<div class="brand"><span class="logo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18l5-11 4 7 7-4"/></svg></span><span class="name">人才发展</span></div>`;
-  app.insertAdjacentHTML('afterbegin',`<header class="topbar">${brand.replace('class="brand"','class="brand mobile-brand"')}<nav class="mobile-primary-nav" aria-label="一级导航">${primaryLinks}</nav><nav class="business-nav" aria-label="业务菜单" ${module==='settings'?'data-anchor-tabs data-default="level"':''}>${businessLinks}</nav><div class="right"><button class="icon-btn" type="button" aria-label="查看通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div></header><aside class="sidenav">${brand}<nav class="primary-nav" id="primary-navigation" aria-label="一级导航">${primaryLinks}</nav><button type="button" class="nav-collapse-toggle" aria-controls="primary-navigation" aria-expanded="true" aria-label="收起导航" title="收起导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span>收起导航</span></button></aside>`);
+  app.insertAdjacentHTML('afterbegin',`<header class="topbar">${brand.replace('class="brand"','class="brand mobile-brand"')}<nav class="mobile-primary-nav" aria-label="一级导航">${primaryLinks}</nav><nav class="business-nav" aria-label="业务菜单" ${module==='settings'?'data-anchor-tabs data-default="level"':''}>${businessLinks}</nav><div class="right"><button class="icon-btn" type="button" data-nav-notice aria-label="查看通知"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 16v-5a6 6 0 1 0-12 0v5l-2 2h16l-2-2z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button><div class="user"><span class="avatar">李</span><span class="uname">李文静</span></div></div></header><aside class="sidenav">${brand}<nav class="primary-nav" id="primary-navigation" aria-label="一级导航">${primaryLinks}</nav><button type="button" class="nav-collapse-toggle" aria-controls="primary-navigation" aria-expanded="true" aria-label="收起导航" title="收起导航"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span>收起导航</span></button></aside>`);
   const toggle=app.querySelector('.nav-collapse-toggle');
-  toggle.addEventListener('click',()=>{
-    const collapsed=app.classList.toggle('nav-collapsed');
+  function syncToggle(collapsed){
     const label=collapsed?'展开导航':'收起导航';
     toggle.setAttribute('aria-expanded',String(!collapsed));
     toggle.setAttribute('aria-label',label);
     toggle.title=label;toggle.querySelector('span').textContent=label;
+  }
+  try{if(typeof sessionStorage!=='undefined'&&sessionStorage.getItem('td-nav-collapsed')==='1'&&app.classList?.add){app.classList.add('nav-collapsed');syncToggle(true);}}catch{}
+  toggle.addEventListener('click',()=>{
+    const collapsed=app.classList.toggle('nav-collapsed');
+    syncToggle(collapsed);
+    try{if(typeof sessionStorage!=='undefined')sessionStorage.setItem('td-nav-collapsed',collapsed?'1':'0');}catch{}
   });
+  app.addEventListener?.('click',event=>{if(event.target?.closest?.('[data-nav-notice]')&&typeof showToast==='function')showToast('暂无新通知');});
 })();

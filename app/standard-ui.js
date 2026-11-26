@@ -19,21 +19,24 @@
     });
   }
   function capabilityRadar(items,name){
-    if(items.length<3)return `<ul>${items.map(([name,level])=>`<li>${e(name)}<span class="std-radar-level-value">${e(level)}</span></li>`).join('')||'<li>暂无内容</li>'}</ul>`;
-    const maxLevel=Math.max(5,...items.map(([,level])=>Number(level.slice(1))))>5?10:5;
-    const dense=items.length>8||items.some(([name])=>name.length>12),cx=160,cy=142,radius=82;
-    const point=(index,r)=>{const angle=-Math.PI/2+index*2*Math.PI/items.length;return [cx+Math.cos(angle)*r,cy+Math.sin(angle)*r];};
-    const polygon=r=>items.map((_,index)=>point(index,r).join(',')).join(' ');
+    const graded=items.filter(([,level])=>/^L(?:10|[1-9])$/.test(level||''));
+    const ungraded=items.filter(([,level])=>!/^L(?:10|[1-9])$/.test(level||''));
+    if(graded.length<3)return `<ul>${items.map(([term,level])=>`<li>${e(term)}<span class="std-radar-level-value">${e(level||'不分级')}</span></li>`).join('')||'<li>暂无内容</li>'}</ul>`;
+    const maxLevel=Math.max(5,...graded.map(([,level])=>Number(level.slice(1))))>5?10:5;
+    const dense=graded.length>8||graded.some(([term])=>term.length>12),cx=160,cy=142,radius=82;
+    const point=(index,r)=>{const angle=-Math.PI/2+index*2*Math.PI/graded.length;return [cx+Math.cos(angle)*r,cy+Math.sin(angle)*r];};
+    const polygon=r=>graded.map((_,index)=>point(index,r).join(',')).join(' ');
     const grid=Array.from({length:5},(_,index)=>`<polygon class="std-radar-ring" points="${polygon(radius*(index+1)/5)}"/>`).reverse().join('');
-    const axes=items.map((_,index)=>{const [x,y]=point(index,radius);return `<line class="std-radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;}).join('');
-    const values=items.map(([,level],index)=>point(index,radius*Number(level.slice(1))/maxLevel));
-    const labels=items.map(([name,level],index)=>{
-      const [x,y]=point(index,116),lines=dense?[String(index+1)]:(name.match(/.{1,6}/gu)||[]);
+    const axes=graded.map((_,index)=>{const [x,y]=point(index,radius);return `<line class="std-radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;}).join('');
+    const values=graded.map(([,level],index)=>point(index,radius*Number(level.slice(1))/maxLevel));
+    const labels=graded.map(([term,level],index)=>{
+      const [x,y]=point(index,116),lines=dense?[String(index+1)]:(term.match(/.{1,6}/gu)||[]);
       return `<text class="std-radar-label" x="${x}" y="${y-(lines.length-1)*8}" text-anchor="middle">${lines.map((line,i)=>`<tspan x="${x}" dy="${i?17:0}">${e(line)}</tspan>`).join('')}${dense?'':`<tspan class="std-radar-level" x="${x}" dy="19">${e(level)}</tspan>`}</text>`;
     }).join('');
     const scale=Array.from({length:5},(_,index)=>`<text class="std-radar-scale" x="${cx+7}" y="${cy-radius*(index+1)/5+4}">${maxLevel*(index+1)/5}</text>`).join('');
-    const description=items.map(([term,level],index)=>`${dense?index+1+'、':''}${term} ${level}`).join('；');
-    return `<figure class="std-radar"><figcaption>${e(name)}</figcaption><svg viewBox="0 0 320 284" role="img" aria-label="${e(name+'，等级范围 L1 至 L'+maxLevel+'；'+description)}"><g aria-hidden="true">${grid}${axes}<polygon class="std-radar-area" points="${values.map(p=>p.join(',')).join(' ')}"/>${values.map(([x,y])=>`<circle class="std-radar-point" cx="${x}" cy="${y}" r="4"/>`).join('')}${scale}${labels}</g></svg>${dense?`<ol class="std-radar-legend">${items.map(([term,level])=>`<li><span>${e(term)}</span><span class="std-radar-level-value">${e(level)}</span></li>`).join('')}</ol>`:''}</figure>`;
+    const description=graded.map(([term,level],index)=>`${dense?index+1+'、':''}${term} ${level}`).join('；');
+    const ungradedHtml=ungraded.length?`<ul class="std-radar-ungraded">${ungraded.map(([term,level])=>`<li><span>${e(term)}</span><span class="std-radar-level-value">${e(level||'不分级')}</span></li>`).join('')}</ul>`:'';
+    return `<figure class="std-radar"><figcaption>${e(name)}</figcaption><svg viewBox="0 0 320 284" role="img" aria-label="${e(name+'，等级范围 L1 至 L'+maxLevel+'；'+description)}"><g aria-hidden="true">${grid}${axes}<polygon class="std-radar-area" points="${values.map(p=>p.join(',')).join(' ')}"/>${values.map(([x,y])=>`<circle class="std-radar-point" cx="${x}" cy="${y}" r="4"/>`).join('')}${scale}${labels}</g></svg>${dense?`<ol class="std-radar-legend">${graded.map(([term,level])=>`<li><span>${e(term)}</span><span class="std-radar-level-value">${e(level)}</span></li>`).join('')}</ol>`:''}${ungradedHtml}</figure>`;
   }
   function capabilityRadarGroups(items){
     const config=window.IndicatorDemo||{}, names=new Map((config.items?.cap||[]).map(item=>[item.name,item.categoryId]));
@@ -41,9 +44,11 @@
     function visit(nodes,path=[]){(nodes||[]).forEach(node=>{const next=[...path,node.name];categories.set(node.id,next.join(' / '));visit(node.children,next);});}
     visit(config.categories);
     const groups=new Map();
+    const isGradedLevel=([,level])=>/^L(?:10|[1-9])$/.test(level||'');
     items.forEach(item=>{const name=item[2]||categories.get(names.get(item[0]))||'待分类';if(!groups.has(name))groups.set(name,[]);groups.get(name).push(item);});
-    const overview=items.length>=3&&![...groups].some(([name,group])=>name!=='待分类'&&group.length>=3)?capabilityRadar(items,'能力总览') : '';
-    return overview+([...groups].map(([name,group])=>`<div class="std-radar-group"><h4>${e(name)}</h4>${name!=='待分类'&&group.length>=3?capabilityRadar(group,name+'能力雷达图'):`<ul>${group.map(([term,level])=>`<li>${e(term)}<span class="std-radar-level-value">${e(level)}</span></li>`).join('')}</ul>`}</div>`).join('')||'<p>暂无能力要求</p>');
+    const gradedTotal=items.filter(isGradedLevel);
+    const overview=gradedTotal.length>=3&&![...groups].some(([name,group])=>name!=='待分类'&&group.filter(isGradedLevel).length>=3)?capabilityRadar(gradedTotal,'能力总览') : '';
+    return overview+([...groups].map(([name,group])=>`<div class="std-radar-group"><h4>${e(name)}</h4>${name!=='待分类'&&group.filter(isGradedLevel).length>=3?capabilityRadar(group,name+'能力雷达图'):`<ul>${group.map(([term,level])=>`<li>${e(term)}<span class="std-radar-level-value">${e(level||'不分级')}</span></li>`).join('')}</ul>`}</div>`).join('')||'<p>暂无能力要求</p>');
   }
   function preview(s) {
     const matched=S.people.filter(p=>S.match(s,p)===true), unknown=S.people.filter(p=>S.match(s,p)===null);
