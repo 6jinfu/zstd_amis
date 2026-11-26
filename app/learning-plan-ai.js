@@ -135,148 +135,291 @@
   const editor = window.LearningPlanEditor;
   if (!editor) return;
   const e = UI.escape, $ = selector => document.querySelector(selector);
-  const drawer = $('#lp-ai-drawer'), chat = drawer.querySelector('.std-ai-chat'), host = $('#lp-ai-messages'), prompt = $('#lp-ai-prompt'), send = $('#lp-ai-send');
+  const drawer = $('#lp-ai-drawer'), bodyHost = $('#lp-ai-body');
+  if (!drawer || !bodyHost) return;
 
   const examples = [
-    '优先补齐尚未配资源的能力，侧重在岗实战与案例拆解',
+    '优先补齐待配能力，侧重在岗实战与案例拆解',
     '面向新晋升人员，分为基础输入、实战演练两个阶段并配齐资源',
-    '针对重点能力匹配平台课程，并生成可验收的在岗实践任务'
+    '针对核心能力匹配平台课程，并生成可验收的在岗实践任务'
   ];
 
-  let phase = 'setup', selectedCaps = [], targetGroupId = '', targetGroupTitle = '', appeal = '', planResult = null, turns = [];
+  const sparkleSvg = '<svg aria-hidden="true" viewBox="0 0 14 14"><path d="M8.719 5.497c.02.067.071.118.137.138l3.952 1.17c.194.057.194.333 0 .39l-3.952 1.17a.204.204 0 0 0-.137.138l-1.17 3.951c-.058.195-.333.195-.39 0l-1.17-3.951a.204.204 0 0 0-.138-.138l-3.952-1.17c-.194-.057-.194-.333 0-.39l3.952-1.17a.204.204 0 0 0 .137-.138l1.17-3.95c.058-.196.333-.196.391 0l1.17 3.95Z"/><path d="M3.515 3.148a.07.07 0 0 0 .047.047l1.359.402c.067.02.067.115 0 .135l-1.359.402a.07.07 0 0 0-.047.047l-.402 1.358c-.02.067-.114.067-.134 0l-.402-1.358a.07.07 0 0 0-.048-.047l-1.358-.402c-.067-.02-.067-.115 0-.135l1.358-.402a.07.07 0 0 0 .048-.047l.402-1.358c.02-.067.114-.067.134 0l.402 1.358Z" opacity=".55"/></svg>';
+  const sendSvg = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="currentColor"/><path d="M16 9.6 10.8 15a.75.75 0 1 0 1.08 1.04l3.37-3.5V22a.75.75 0 0 0 1.5 0v-9.46l3.37 3.5A.75.75 0 1 0 21.2 15L16 9.6Z" fill="#fff"/></svg>';
+  const aiAvatar = '<span class="lp-ai-avatar" aria-hidden="true"><img src="vendor/ai-assistant/ai-mark-a.859a3c0a.svg" alt=""><img src="vendor/ai-assistant/ai-mark-b.adf436fe.svg" alt=""></span>';
+
+  let phase = 'setup', selectedCaps = [], targetGroupId = '', targetGroupTitle = '', appeal = '', draftInput = '', errorMsg = '', planResult = null, turns = [], sessionKey = '';
 
   const getCtx = () => editor.context();
   const say = (role, text) => turns.push({role, text});
-  const setError = text => { $('#lp-ai-error').textContent = text || ''; };
+  const currentKey = ctx => `${ctx.position?.id || ''}:${ctx.standard?.id || ''}`;
 
   function initSession(options = {}) {
     const ctx = getCtx();
+    sessionKey = currentKey(ctx);
     const allCapNames = (ctx.standard.content.cap || []).map(([n]) => n);
     turns = [];
     appeal = '';
+    draftInput = '';
+    errorMsg = '';
     planResult = null;
     targetGroupId = options.groupId || '';
     targetGroupTitle = options.groupTitle || '';
     if (options.capability && allCapNames.includes(options.capability)) {
       selectedCaps = [options.capability];
+    } else if (options.uncoveredOnly && ctx.uncoveredCapabilities?.length) {
+      selectedCaps = [...ctx.uncoveredCapabilities];
     } else if (ctx.uncoveredCapabilities?.length) {
       selectedCaps = [...ctx.uncoveredCapabilities];
     } else {
       selectedCaps = [...allCapNames];
     }
     phase = 'setup';
-    prompt.value = '';
-    setError('');
     render();
   }
 
   function open(options = {}) {
-    initSession(options);
-    if (typeof openOverlay === 'function') openOverlay('lp-ai-drawer');
-    setTimeout(() => prompt.focus(), 60);
-  }
-
-  function syncComposer() {
-    prompt.disabled = phase === 'applied';
-    send.disabled = !prompt.value.trim() || phase === 'applied';
-    prompt.placeholder = phase === 'setup'
-      ? '选填培养对象、阶段安排或侧重方式，也可直接点击上方“开始匹配与生成”'
-      : phase === 'ready'
-        ? '可继续输入调整要求，例如“给商务谈判再增加一项复盘辅导”'
-        : '本次生成资源已应用，可点击左上角新建会话';
-  }
-
-  function setupCardHTML() {
     const ctx = getCtx();
+    const hasSpecificTarget = Boolean(options.capability || options.groupId || options.uncoveredOnly);
+    if (hasSpecificTarget || sessionKey !== currentKey(ctx) || (!planResult && phase !== 'setup')) {
+      initSession(options);
+    } else {
+      render(true);
+    }
+    if (typeof openOverlay === 'function') openOverlay('lp-ai-drawer');
+    setTimeout(() => drawer.querySelector('#lp-ai-prompt')?.focus(), 60);
+  }
+
+  function kindClass(kind) {
+    if (kind === '课程') return 'is-course';
+    if (kind === '项目') return 'is-project';
+    return 'is-practice';
+  }
+
+  function setupViewHTML(ctx) {
     const caps = ctx.standard.content.cap || [];
     const existingGroups = ctx.groups || [];
-    return `<section class="lp-ai-card">
-      <div class="lp-ai-step-head"><h3>第一步：确认目标能力与归入方式</h3><div class="lp-ai-step-links"><button type="button" class="btn-text" data-plan-ai="select-uncovered">仅选未配课能力</button><button type="button" class="btn-text" data-plan-ai="select-all">全选</button></div></div>
-      <fieldset class="lp-ai-capabilities">
-        <legend>选择本次需要配资源的能力项（已选 ${selectedCaps.length} / ${caps.length} 项）</legend>
-        ${caps.map(([name, level]) => `<label><input type="checkbox" data-ai-cap value="${e(name)}" ${selectedCaps.includes(name) ? 'checked' : ''}><span>${e(name)}</span><span>${e(level || '不分级')}</span></label>`).join('') || '<p>当前标准暂无能力项</p>'}
-      </fieldset>
-      <div class="lp-ai-placement">
-        <label for="lp-ai-target-group">落入阶段方式</label>
-        <select class="select" id="lp-ai-target-group">
-          <option value="" ${!targetGroupId ? 'selected' : ''}>自动按培养阶段组织分组</option>
-          ${existingGroups.map(g => `<option value="${e(g.id)}" ${g.id === targetGroupId ? 'selected' : ''}>归入已有阶段：${e(g.title)}</option>`).join('')}
-        </select>
+    const counts = ctx.capabilityCounts || {};
+    const uncoveredCount = ctx.uncoveredCapabilities?.length || 0;
+    const chosenGroup = existingGroups.find(g => g.id === targetGroupId);
+    return `<div class="lp-ai-setup-scroll">
+      <div class="lp-ai-setup-container">
+        <div class="lp-ai-hero">
+          <h2>围绕岗位标准能力，匹配课程并生成培养活动</h2>
+          <p>自动检索培训平台课程与训练项目；暂无现成匹配课程的能力项，将按能力等级要求自动生成在岗实践或案例研读任务，并逐项绑定关联能力。</p>
+        </div>
+
+        <section class="lp-ai-config-card" aria-label="配课范围设置">
+          <div class="lp-ai-config-head">
+            <div>
+              <strong>选择本次配课的能力项</strong>
+              <span class="lp-ai-count-pill">已选 ${selectedCaps.length} / ${caps.length}</span>
+            </div>
+            <div class="lp-ai-quick-selects">
+              ${uncoveredCount ? `<button type="button" class="btn-text" data-plan-ai="select-uncovered">仅选待配能力（${uncoveredCount}）</button>` : ''}
+              <button type="button" class="btn-text" data-plan-ai="select-all">全选</button>
+              <button type="button" class="btn-text" data-plan-ai="select-none">清空</button>
+            </div>
+          </div>
+
+          <div class="lp-ai-cap-grid" role="group" aria-label="标准能力项">
+            ${caps.map(([name, level]) => {
+              const checked = selectedCaps.includes(name);
+              const resCount = counts[name] || 0;
+              return `<label class="lp-ai-cap-item ${checked ? 'is-checked' : ''}">
+                <input type="checkbox" data-ai-cap value="${e(name)}" ${checked ? 'checked' : ''}>
+                <span class="lp-ai-cap-name">${e(name)}</span>
+                <span class="lp-ai-cap-badges">
+                  <em>${e(level || '不分级')}</em>
+                  <i class="${resCount ? 'is-covered' : 'is-gap'}">${resCount ? `已配 ${resCount}` : '待配'}</i>
+                </span>
+              </label>`;
+            }).join('') || '<p class="muted">当前标准暂无能力项</p>'}
+          </div>
+
+          <div class="lp-ai-stage-row">
+            <label for="lp-ai-target-group">阶段归入方式</label>
+            <select class="select lp-ai-stage-select" id="lp-ai-target-group">
+              <option value="" ${!targetGroupId ? 'selected' : ''}>自动按培养阶段组织（理论输入 ＋ 实战转化）</option>
+              ${existingGroups.map(g => `<option value="${e(g.id)}" ${g.id === targetGroupId ? 'selected' : ''}>归入已有阶段：${e(g.title)}</option>`).join('')}
+            </select>
+          </div>
+        </section>
+
+        <section class="lp-ai-composer-section" aria-label="补充诉求与生成">
+          <div class="lp-ai-example-bar">
+            <span>常用诉求：</span>
+            ${examples.map(text => `<button type="button" class="lp-ai-example-chip" data-plan-ai="example" data-prompt="${e(text)}">${e(text)}</button>`).join('')}
+          </div>
+          <div class="lp-ai-input-shell">
+            <label class="sr-only" for="lp-ai-prompt">补充培养诉求或阶段安排</label>
+            <textarea id="lp-ai-prompt" rows="2" maxlength="3000" placeholder="选填：输入培养对象、自定义阶段名称（如“分为基础认知、项目实战”）或活动侧重；留空也可直接开始生成">${e(draftInput)}</textarea>
+            <div class="lp-ai-input-footer">
+              <span class="lp-ai-selection-hint">已勾选 <b>${selectedCaps.length}</b> 项能力${chosenGroup ? ` · 归入「${e(chosenGroup.title)}」` : ''}</span>
+              <button type="button" class="btn btn-primary lp-ai-generate-btn" data-plan-ai="generate" ${!caps.length ? 'disabled' : ''}>${sparkleSvg}<span>开始匹配并生成资源</span></button>
+            </div>
+          </div>
+          <p class="lp-ai-error" id="lp-ai-error" role="alert">${e(errorMsg)}</p>
+        </section>
       </div>
-      <div class="lp-ai-quick-examples">
-        <span>快捷诉求：</span>
-        ${examples.map(text => `<button type="button" class="lp-ai-example-chip" data-plan-ai="example" data-prompt="${e(text)}">${e(text)}</button>`).join('')}
-      </div>
-      <div class="lp-ai-card-actions">
-        <button type="button" class="btn btn-primary" data-plan-ai="generate" ${!caps.length ? 'disabled' : ''}>开始匹配平台资源并生成活动</button>
-      </div>
-    </section>`;
+    </div>`;
   }
 
-  function readyCardHTML() {
-    if (!planResult) return '';
-    const {groups, unmatchedCourseCaps} = planResult;
-    const totalEnabled = groups.reduce((s, g) => s + g.activities.filter(a => a.enabled !== false).length, 0);
-    return `<section class="lp-ai-card">
-      <div class="lp-ai-step-head">
-        <h3>${phase === 'applied' ? '已应用到学习方案' : '第二步：核对匹配资源与能力关联'}</h3>
-        <span class="muted text-sm">已选 ${totalEnabled} 项资源</span>
-      </div>
-      ${unmatchedCourseCaps.length ? `<div class="lp-ai-notice" role="status">平台暂无与“${e(unmatchedCourseCaps.join('、'))}”直接匹配的现成课程，已自动生成在岗实践/研读活动承接。</div>` : ''}
-      ${groups.map((group, gi) => `<section class="lp-ai-ready-group">
-        <header><h4>阶段 ${gi + 1} · ${e(group.title)}</h4></header>
-        <div class="lp-ai-res-cards">
-          ${group.activities.map((act, ai) => `<article class="lp-ai-res-card ${act.enabled === false ? 'is-muted' : ''}">
-            <div class="lp-ai-res-top">
-              <label class="lp-ai-res-check">
-                <input type="checkbox" data-ai-res-toggle="${gi},${ai}" ${act.enabled !== false ? 'checked' : ''} ${phase === 'applied' ? 'disabled' : ''}>
-                <span class="lp-ai-res-kind ${['课程','项目'].includes(act.kind) ? 'is-platform' : 'is-ai'}">${e(act.kind)}</span>
-                <strong>${e(act.title)}</strong>
-              </label>
-              ${phase === 'ready' ? `<button type="button" class="lp-ai-req-btn" data-plan-ai="toggle-req" data-pos="${gi},${ai}">${act.required !== false ? '必修' : '选修'}</button>` : `<span class="lp-ai-req-static">${act.required !== false ? '必修' : '选修'}</span>`}
-            </div>
-            ${act.note ? `<p class="lp-ai-res-note">${e(act.note)}</p>` : ''}
-            <div class="lp-ai-cap-chips" aria-label="${e(act.title)}的关联能力">
-              ${(act.capabilities || []).map(cap => phase === 'ready'
-                ? `<button type="button" data-plan-ai="remove-res-cap" data-pos="${gi},${ai}" data-cap="${e(cap)}" aria-label="移除${e(cap)}">${e(cap)}<span aria-hidden="true">×</span></button>`
-                : `<span>${e(cap)}</span>`).join('') || '<span class="lp-ai-unmatched">未绑定能力</span>'}
-              ${phase === 'ready' ? `<button type="button" class="lp-ai-add-cap" data-plan-ai="pick-res-cap" data-pos="${gi},${ai}">＋ 关联能力</button>` : ''}
-            </div>
-          </article>`).join('')}
+  function workbenchViewHTML(ctx) {
+    const {groups, unmatchedCourseCaps} = planResult || {groups:[], unmatchedCourseCaps:[]};
+    const allActs = groups.flatMap(g => g.activities);
+    const enabledActs = allActs.filter(a => a.enabled !== false);
+    const platformCount = enabledActs.filter(a => ['课程','项目'].includes(a.kind)).length;
+    const practiceCount = enabledActs.filter(a => !['课程','项目'].includes(a.kind)).length;
+    const capSummary = new Map();
+    enabledActs.forEach(a => (a.capabilities || []).forEach(c => capSummary.set(c, (capSummary.get(c) || 0) + 1)));
+    const coveredSelected = selectedCaps.filter(c => (capSummary.get(c) || 0) > 0).length;
+
+    return `<div class="lp-ai-workbench">
+      <section class="lp-ai-thread-col" aria-label="生成记录与对话微调">
+        <header class="lp-ai-pane-head">
+          <strong>生成说明与对话微调</strong>
+          ${phase === 'ready' ? '<button type="button" class="btn-text" data-plan-ai="back-setup">重选能力范围</button>' : ''}
+        </header>
+        <div class="lp-ai-thread-scroll" id="lp-ai-thread-scroll">
+          <div class="lp-ai-turns">
+            ${turns.map(turn => turn.role === 'user'
+              ? `<div class="lp-ai-turn is-user"><div class="lp-ai-user-bubble">${e(turn.text)}</div></div>`
+              : `<div class="lp-ai-turn is-ai">${aiAvatar}<div class="lp-ai-ai-bubble">${e(turn.text)}</div></div>`).join('')}
+          </div>
+
+          ${unmatchedCourseCaps.length ? `<div class="lp-ai-fallback-notice" role="status">
+            <strong>无现成课程自动承接说明</strong>
+            <p>培训平台暂无与「${e(unmatchedCourseCaps.join('、'))}」直接匹配的现成课程，已结合能力等级与指标定义自动生成在岗实践/案例研读活动承接。</p>
+          </div>` : ''}
+
+          <section class="lp-ai-cov-card" aria-label="本次能力覆盖核对">
+            <header><strong>目标能力覆盖核对</strong><span>${coveredSelected} / ${selectedCaps.length} 已覆盖</span></header>
+            <ul>
+              ${selectedCaps.map(name => {
+                const count = capSummary.get(name) || 0;
+                return `<li class="${count ? 'is-ok' : 'is-warn'}"><span>${e(name)}</span><b>${count ? `${count} 项资源` : '未勾选资源'}</b></li>`;
+              }).join('')}
+            </ul>
+          </section>
         </div>
-      </section>`).join('')}
-      <div class="lp-ai-card-actions">
-        ${phase === 'ready' ? `<button type="button" class="btn btn-secondary" data-plan-ai="back-setup">返回调整能力范围</button>` : ''}
-        <button type="button" class="btn btn-primary" data-plan-ai="apply" ${phase === 'applied' || !totalEnabled ? 'disabled' : ''}>${phase === 'applied' ? '已添加到方案草稿' : '应用到学习方案'}</button>
-      </div>
-    </section>`;
+
+        <div class="lp-ai-followup-dock">
+          ${phase === 'ready' ? `<div class="lp-ai-followup-chips">
+            <button type="button" data-plan-ai="quick-followup" data-prompt="给${e(selectedCaps[0] || '核心能力')}再增加一项复盘辅导">＋ 补充复盘辅导</button>
+            <button type="button" data-plan-ai="quick-followup" data-prompt="给${e(selectedCaps[0] || '核心能力')}再增加一项案例研读">＋ 补充案例研读</button>
+          </div>` : ''}
+          <div class="lp-ai-followup-box">
+            <label class="sr-only" for="lp-ai-prompt">输入微调要求</label>
+            <textarea id="lp-ai-prompt" rows="2" maxlength="3000" ${phase === 'applied' ? 'disabled' : ''} placeholder="${phase === 'applied' ? '当前草稿已应用到学习方案，可点击“继续配课”开启新一轮' : '继续输入调整要求，如“给系统架构增加一项案例研读”'}">${e(draftInput)}</textarea>
+            <button type="button" class="std-ai-send" id="lp-ai-send" aria-label="发送" title="发送" ${!draftInput.trim() || phase === 'applied' ? 'disabled' : ''}>${sendSvg}</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-ai-canvas-col" aria-label="方案资源草稿画布">
+        <header class="lp-ai-pane-head lp-ai-canvas-head">
+          <div class="lp-ai-canvas-title">
+            <strong>方案资源草稿</strong>
+            <span class="lp-ai-state-pill ${phase === 'applied' ? 'is-done' : ''}">${phase === 'applied' ? '已写入学习方案' : '可勾选保留项并微调能力标签'}</span>
+          </div>
+          <span class="lp-ai-canvas-count">已选 <b>${enabledActs.length}</b> / ${allActs.length} 项资源</span>
+        </header>
+
+        <div class="lp-ai-canvas-scroll" id="lp-ai-canvas-scroll">
+          <div class="lp-ai-metrics">
+            <div><b>${groups.length}</b><span>培养阶段</span></div>
+            <div><b>${platformCount}</b><span>平台课程 / 项目</span></div>
+            <div><b>${practiceCount}</b><span>AI 训战活动</span></div>
+            <div><b>${coveredSelected} / ${selectedCaps.length}</b><span>覆盖目标能力</span></div>
+          </div>
+
+          <div class="lp-ai-stage-list">
+            ${groups.map((group, gi) => `<section class="lp-ai-stage-card">
+              <header class="lp-ai-stage-head">
+                <div>
+                  <span class="lp-ai-stage-badge">阶段 ${gi + 1}</span>
+                  <h4>${e(group.title)}</h4>
+                </div>
+                <span>${group.activities.filter(a => a.enabled !== false).length} 项已选</span>
+              </header>
+              ${group.output ? `<p class="lp-ai-stage-desc">${e(group.output)}</p>` : ''}
+              <div class="lp-ai-res-cards">
+                ${group.activities.map((act, ai) => `<article class="lp-ai-res-card ${act.enabled === false ? 'is-muted' : ''}">
+                  <div class="lp-ai-res-top">
+                    <label class="lp-ai-res-check">
+                      <input type="checkbox" data-ai-res-toggle="${gi},${ai}" ${act.enabled !== false ? 'checked' : ''} ${phase === 'applied' ? 'disabled' : ''}>
+                      <span class="lp-kind ${kindClass(act.kind)}">${e(act.kind)}</span>
+                      <span class="lp-ai-source-tag">${e(act.source || (['课程','项目'].includes(act.kind) ? '平台资源' : 'AI生成'))}</span>
+                      <strong>${e(act.title)}</strong>
+                    </label>
+                    ${phase === 'ready'
+                      ? `<button type="button" class="lp-ai-req-btn ${act.required !== false ? 'is-req' : ''}" data-plan-ai="toggle-req" data-pos="${gi},${ai}" title="点击切换必修/选修">${act.required !== false ? '必修' : '选修'}</button>`
+                      : `<span class="lp-ai-req-static ${act.required !== false ? 'is-req' : ''}">${act.required !== false ? '必修' : '选修'}</span>`}
+                  </div>
+                  ${act.note ? `<p class="lp-ai-res-note">${e(act.note)}</p>` : ''}
+                  <div class="lp-ai-cap-chips" aria-label="${e(act.title)}的关联能力">
+                    <small>关联能力</small>
+                    ${(act.capabilities || []).map(cap => phase === 'ready'
+                      ? `<button type="button" data-plan-ai="remove-res-cap" data-pos="${gi},${ai}" data-cap="${e(cap)}" aria-label="移除${e(cap)}">${e(cap)}<span aria-hidden="true">×</span></button>`
+                      : `<span>${e(cap)}</span>`).join('') || '<span class="lp-ai-unmatched">请至少保留 1 项关联能力</span>'}
+                    ${phase === 'ready' ? `<button type="button" class="lp-ai-add-cap" data-plan-ai="pick-res-cap" data-pos="${gi},${ai}">＋ 关联能力</button>` : ''}
+                  </div>
+                </article>`).join('')}
+              </div>
+            </section>`).join('')}
+          </div>
+        </div>
+
+        <footer class="lp-ai-canvas-foot">
+          <div class="lp-ai-foot-left">
+            ${errorMsg
+              ? `<p class="lp-ai-error" id="lp-ai-error" role="alert">${e(errorMsg)}</p>`
+              : `<span class="lp-ai-foot-note">${phase === 'applied' ? '已并入当前页面草稿，关闭抽屉后点击右上角“保存方案”即可持久化。' : '确认勾选与能力绑定无误后，一键并入当前学习方案草稿。'}</span>`}
+          </div>
+          <div class="lp-ai-foot-actions">
+            ${phase === 'ready'
+              ? `<button type="button" class="btn btn-secondary" data-plan-ai="regenerate">重新生成</button>
+                 <button type="button" class="btn btn-primary" data-plan-ai="apply" ${!enabledActs.length ? 'disabled' : ''}>应用到学习方案（${enabledActs.length} 项）</button>`
+              : `<button type="button" class="btn btn-secondary" data-plan-ai="new-session">继续配课</button>
+                 <button type="button" class="btn btn-primary" data-close>完成并查看方案</button>`}
+          </div>
+        </footer>
+      </section>
+    </div>`;
   }
 
   function render(keepScroll = false) {
-    const scrollTop = host.scrollTop;
-    chat.classList.add('conversation-mode');
-    const hasPreview = !!planResult?.groups?.length;
-    drawer.classList.toggle('has-preview', hasPreview);
-    const bodyCard = phase === 'setup' ? setupCardHTML() : readyCardHTML();
-    host.innerHTML = `<div class="lp-ai-thread">${turns.map(turn => `<p class="lp-ai-message ${turn.role}">${e(turn.text)}</p>`).join('')}${bodyCard}</div>`;
-    const preview = $('#lp-ai-preview');
-    preview.hidden = !hasPreview;
-    if (hasPreview) {
-      const capSummary = new Map();
-      planResult.groups.forEach(g => g.activities.filter(a => a.enabled !== false).forEach(a => (a.capabilities || []).forEach(c => capSummary.set(c, (capSummary.get(c) || 0) + 1))));
-      preview.innerHTML = `<h3>本次能力覆盖预览</h3>${selectedCaps.map(name => `<section><h4>${e(name)}</h4><p>${capSummary.get(name) ? `已配 ${capSummary.get(name)} 项资源` : '未勾选资源'}</p></section>`).join('')}`;
+    const prevCanvasScroll = $('#lp-ai-canvas-scroll')?.scrollTop || 0;
+    const prevThreadScroll = $('#lp-ai-thread-scroll')?.scrollTop || 0;
+    const prevSetupScroll = bodyHost.querySelector('.lp-ai-setup-scroll')?.scrollTop || 0;
+    const ctx = getCtx();
+    const aiCtx = $('#lp-ai-context');
+    if (aiCtx) aiCtx.textContent = ctx.position?.name && ctx.standard?.name ? `${ctx.position.name} · ${ctx.standard.name}` : '';
+
+    bodyHost.innerHTML = phase === 'setup' ? setupViewHTML(ctx) : workbenchViewHTML(ctx);
+
+    if (phase === 'setup' && keepScroll) {
+      const sc = bodyHost.querySelector('.lp-ai-setup-scroll');
+      if (sc) sc.scrollTop = prevSetupScroll;
+    } else if (phase !== 'setup') {
+      const cs = $('#lp-ai-canvas-scroll'), ts = $('#lp-ai-thread-scroll');
+      if (cs && keepScroll) cs.scrollTop = prevCanvasScroll;
+      if (ts) ts.scrollTop = keepScroll ? prevThreadScroll : ts.scrollHeight;
     }
-    syncComposer();
-    host.scrollTop = keepScroll ? scrollTop : host.scrollHeight;
   }
 
   function runGeneration(customAppeal = '') {
-    if (!selectedCaps.length) { setError('请至少勾选一项需要配资源的能力'); return; }
+    if (!selectedCaps.length) {
+      errorMsg = '请至少勾选一项需要配资源的能力项';
+      render(true);
+      return;
+    }
     const ctx = getCtx();
     if (customAppeal) appeal = customAppeal;
     const chosenGroup = (ctx.groups || []).find(g => g.id === targetGroupId);
     targetGroupTitle = chosenGroup ? chosenGroup.title : '';
-    say('user', `目标能力：${selectedCaps.join('、')}${targetGroupTitle ? `；归入阶段：${targetGroupTitle}` : ''}${appeal ? `；诉求：${appeal}` : ''}`);
+    say('user', `目标能力：${selectedCaps.join('、')}${targetGroupTitle ? `；归入阶段：${targetGroupTitle}` : ''}${appeal ? `；补充诉求：${appeal}` : ''}`);
     planResult = generateResourcePlan({
       targetCaps: selectedCaps,
       allCaps: ctx.standard.content.cap || [],
@@ -286,9 +429,10 @@
     });
     const matchedCount = planResult.groups.reduce((s, g) => s + g.activities.filter(a => ['课程','项目'].includes(a.kind)).length, 0);
     const genCount = planResult.groups.reduce((s, g) => s + g.activities.filter(a => !['课程','项目'].includes(a.kind)).length, 0);
-    say('assistant', `已围绕 ${selectedCaps.length} 项能力匹配 ${matchedCount} 项平台课程/项目，并生成 ${genCount} 项训战实践活动，每条资源均已绑定对应能力项。你可以微调能力标签或勾选保留项后应用到方案。`);
+    say('assistant', `已围绕 ${selectedCaps.length} 项能力检索匹配 ${matchedCount} 项平台课程/培训项目，并生成 ${genCount} 项训战实践活动。右侧画布可直接勾选条目、切换必修/选修或增删关联能力。`);
     phase = 'ready';
-    setError('');
+    draftInput = '';
+    errorMsg = '';
     render();
   }
 
@@ -312,54 +456,96 @@
           enabled: true
         });
         if (!selectedCaps.includes(targetCap)) selectedCaps.push(targetCap);
-        say('assistant', `已为“${targetCap}”新增 1 项${kind}活动并自动绑定能力标签。`);
+        say('assistant', `已在「${targetGrp.title}」中新增 1 项${kind}活动并自动绑定「${(mentionedCaps.length ? mentionedCaps : [targetCap]).join('、')}」。`);
+        draftInput = '';
+        errorMsg = '';
         render();
         return;
       }
     }
-    appeal = text;
     if (mentionedCaps.length) selectedCaps = mentionedCaps;
+    draftInput = '';
     runGeneration(text);
   }
 
-  function submit() {
-    const text = prompt.value.trim();
-    if (!text || phase === 'applied') return;
-    prompt.value = '';
-    setError('');
-    if (phase === 'setup') runGeneration(text);
-    else handleFollowup(text);
+  function submitPrompt() {
+    const promptEl = drawer.querySelector('#lp-ai-prompt');
+    const text = (promptEl ? promptEl.value : draftInput).trim();
+    if (phase === 'applied') return;
+    if (phase === 'setup') {
+      runGeneration(text);
+    } else if (text) {
+      handleFollowup(text);
+    }
   }
 
-  host.addEventListener('change', event => {
+  bodyHost.addEventListener('change', event => {
     const target = event.target;
     if (target.hasAttribute('data-ai-cap')) {
-      selectedCaps = [...host.querySelectorAll('[data-ai-cap]:checked')].map(i => i.value);
-      setError('');
+      selectedCaps = [...bodyHost.querySelectorAll('[data-ai-cap]:checked')].map(i => i.value);
+      errorMsg = '';
       render(true);
     } else if (target.id === 'lp-ai-target-group') {
       targetGroupId = target.value;
+      const ctx = getCtx();
+      targetGroupTitle = (ctx.groups || []).find(g => g.id === targetGroupId)?.title || '';
+      render(true);
     } else if (target.hasAttribute('data-ai-res-toggle')) {
       const [gi, ai] = target.dataset.aiResToggle.split(',').map(Number);
       if (planResult?.groups[gi]?.activities[ai]) {
         planResult.groups[gi].activities[ai].enabled = target.checked;
+        errorMsg = '';
         render(true);
       }
     }
   });
 
+  bodyHost.addEventListener('input', event => {
+    if (event.target.id === 'lp-ai-prompt') {
+      draftInput = event.target.value;
+      errorMsg = '';
+      const sendBtn = drawer.querySelector('#lp-ai-send');
+      if (sendBtn) sendBtn.disabled = !draftInput.trim() || phase === 'applied';
+    }
+  });
+
+  bodyHost.addEventListener('keydown', event => {
+    if (event.target.id === 'lp-ai-prompt' && event.key === 'Enter' && !event.shiftKey && !event.isComposing) {
+      event.preventDefault();
+      submitPrompt();
+    }
+  });
+
   drawer.addEventListener('click', event => {
+    if (event.target.closest('#lp-ai-send')) {
+      submitPrompt();
+      return;
+    }
     const control = event.target.closest('[data-plan-ai]');
     if (!control) return;
-    setError('');
+    errorMsg = '';
     const ctx = getCtx();
     const allCapNames = (ctx.standard.content.cap || []).map(([n]) => n);
     switch (control.dataset.planAi) {
       case 'select-all': selectedCaps = [...allCapNames]; render(true); break;
+      case 'select-none': selectedCaps = []; render(true); break;
       case 'select-uncovered': selectedCaps = ctx.uncoveredCapabilities?.length ? [...ctx.uncoveredCapabilities] : [...allCapNames]; render(true); break;
-      case 'example': prompt.value = control.dataset.prompt; syncComposer(); prompt.focus(); break;
-      case 'generate': runGeneration(prompt.value.trim()); prompt.value = ''; break;
+      case 'example': {
+        draftInput = control.dataset.prompt || '';
+        render(true);
+        const p = drawer.querySelector('#lp-ai-prompt');
+        if (p) { p.focus(); p.setSelectionRange(p.value.length, p.value.length); }
+        break;
+      }
+      case 'quick-followup': {
+        const text = control.dataset.prompt || '';
+        if (text && phase === 'ready') handleFollowup(text);
+        break;
+      }
+      case 'generate': submitPrompt(); break;
+      case 'regenerate': runGeneration(appeal); break;
       case 'back-setup': phase = 'setup'; render(); break;
+      case 'new-session': initSession({}); break;
       case 'toggle-req': {
         const [gi, ai] = control.dataset.pos.split(',').map(Number);
         const act = planResult?.groups[gi]?.activities[ai];
@@ -393,13 +579,13 @@
           output: g.output || '',
           activities: g.activities.filter(a => a.enabled !== false)
         })).filter(g => g.activities.length);
-        if (!filteredGroups.length) { setError('请至少勾选保留一项学习资源'); return; }
+        if (!filteredGroups.length) { errorMsg = '请至少勾选保留一项学习资源'; render(true); return; }
         const missingCap = filteredGroups.some(g => g.activities.some(a => !(a.capabilities || []).length));
-        if (missingCap) { setError('每项应用的学习资源请至少保留 1 个关联能力标签'); return; }
+        if (missingCap) { errorMsg = '每项应用的学习资源请至少保留 1 个关联能力标签'; render(true); return; }
         if (editor.applyGenerated(filteredGroups, targetGroupId)) {
           phase = 'applied';
-          say('assistant', '已将所选学习资源与能力关联关系写入学习方案草稿，核对无误后请点击页面右上角“保存”。');
-          render();
+          say('assistant', '已将所选学习资源与能力绑定关系写入当前学习方案草稿。关闭抽屉核对无误后，请点击页面右上角“保存方案”。');
+          render(true);
           showToast('已添加到学习方案草稿');
         }
         break;
@@ -407,12 +593,15 @@
     }
   });
 
-  prompt.addEventListener('input', () => { setError(''); syncComposer(); });
-  prompt.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); submit(); } });
-  send.onclick = submit;
   $('#lp-ai-new-chat').onclick = () => initSession({});
 
   window.LearningPlanAI.open = open;
   window.LearningPlanAI.refreshContext = () => initSession({});
   initSession({});
+
+  const launch = editor.initialLaunch?.();
+  if (launch?.ai && editor.hasStandard?.()) {
+    editor.clearInitialAiUrl?.();
+    setTimeout(() => open(launch.capability ? {capability: launch.capability} : {}), 40);
+  }
 })();

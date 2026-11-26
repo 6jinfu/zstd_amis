@@ -73,7 +73,8 @@
         const count=savedPlanCount(p.id, saved.id);
         const selected=data.selected['plan-'+p.id]===saved.id;
         const note=(count?`已配置 ${count} 项学习资源`:'待配置学习方案')+(selected?' · 当前采用本标准':'');
-        return `<div class="std-link-row"><div><b>${e(p.name)}</b><p>${e(p.category)} · ${e(p.id)} · ${note}</p></div><div class="flex gap-sm"><a class="btn btn-secondary" href="learning-plan.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}">配置学习方案</a></div></div>`;
+        const basePlanUrl = `learning-plan.html?position=${encodeURIComponent(p.id)}&amp;standard=${encodeURIComponent(saved.id)}&amp;from=standard`;
+        return `<div class="std-link-row"><div><b>${e(p.name)}</b><p>${e(p.category)} · ${e(p.id)} · ${note}</p></div><div class="flex gap-sm"><a class="btn btn-primary" href="${basePlanUrl}&amp;ai=1">AI 帮建学习资源</a><a class="btn btn-secondary" href="${basePlanUrl}">配置学习方案</a></div></div>`;
       }).join('');
     }
     let availableSections = S.dimensionsOf(draft);

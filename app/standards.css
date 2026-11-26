@@ -84,7 +84,7 @@
  .std-link-row { flex-wrap:wrap; }
 }
 
-.standards-workbench table[data-native-sticky] th:last-child,.standards-workbench table[data-native-sticky] td:last-child { width:174px; }
+.standards-workbench table[data-native-sticky] th:last-child,.standards-workbench table[data-native-sticky] td:last-child { width:248px; }
 .standards-workbench table[data-native-sticky] td { overflow:hidden;text-overflow:ellipsis; }
 
 /* AI 帮建：沿用已采集生产页的结构、图标与视觉参数。 */

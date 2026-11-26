@@ -31,13 +31,16 @@
         const url='standard-detail.html?id='+encodeURIComponent(s.id)+'&position='+encodeURIComponent(positionId);
         const hasCap=!S.hasDimension||S.hasDimension(s,'cap');
         const planUrl=`learning-plan.html?position=${encodeURIComponent(positionId)}&standard=${encodeURIComponent(s.id)}&from=position`;
-        return `<div class="std-link-row"><div><a class="std-table-name" href="${url}">${e(s.name)}</a><p>${e(S.applicableObjectLabel(data,s))}</p></div><a class="btn-text" href="${url}">编辑标准</a>${hasCap?`<a class="btn-text" href="${planUrl}">学习方案</a>`:''}<button class="btn-text danger" data-unlink="${e(s.id)}">解除关联</button></div>`;
+        return `<div class="std-link-row"><div><a class="std-table-name" href="${url}">${e(s.name)}</a><p>${e(S.applicableObjectLabel(data,s))}</p></div><a class="btn-text" href="${url}">编辑标准</a>${hasCap?`<a class="btn-text" href="${planUrl}">学习方案</a><a class="btn-text" href="${planUrl}&amp;ai=1">AI配课</a>`:''}<button class="btn-text danger" data-unlink="${e(s.id)}">解除关联</button></div>`;
       }).join('')||'<div class="empty-state">尚未关联标准</div>';
       const planHost = $('#position-plan-standards');
       if (planHost) {
         const capStandards = linked.filter(s => !S.hasDimension || S.hasDimension(s, 'cap'));
         planHost.innerHTML = capStandards.length
-          ? capStandards.map(s => `<div class="std-link-row"><div><b>${e(s.name)}</b><p>${e(planSummary(positionId, s))}</p></div><a class="btn btn-secondary" href="learning-plan.html?position=${encodeURIComponent(positionId)}&amp;standard=${encodeURIComponent(s.id)}&amp;from=position">配置学习方案</a></div>`).join('')
+          ? capStandards.map(s => {
+              const pUrl = `learning-plan.html?position=${encodeURIComponent(positionId)}&amp;standard=${encodeURIComponent(s.id)}&amp;from=position`;
+              return `<div class="std-link-row"><div><b>${e(s.name)}</b><p>${e(planSummary(positionId, s))}</p></div><div class="flex gap-sm"><a class="btn btn-primary" href="${pUrl}&amp;ai=1">AI 帮建学习资源</a><a class="btn btn-secondary" href="${pUrl}">配置学习方案</a></div></div>`;
+            }).join('')
           : '<div class="empty-state">当前岗位尚未关联包含“能力要求”的人才标准，请先在“适用标准”中添加或新建标准。</div>';
       }
     }

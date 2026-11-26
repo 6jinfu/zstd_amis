@@ -16,7 +16,7 @@ function render(module,page,hash='',base='http://172.21.1.14:8766/navigation.js?
 }
 
 test('五个中心均直接生成新版导航，活动菜单正确且没有旧结构',()=>{
-  const cases=[['standard','positions','人才标准'],['assess','review-projects','人才盘点'],['develop','position-map','岗位地图'],['talent','talent-pool','人才池'],['settings','settings','职级管理']];
+  const cases=[['standard','positions','人才标准'],['assess','review-projects','人才盘点'],['develop','position-map','岗位地图'],['develop','learning-plan','学习方案'],['talent','talent-pool','人才池'],['settings','settings','职级管理']];
   for(const [module,page,title] of cases) {
     const {html}=render(module,page);
     assert.ok(!/nav-main|nav-item/.test(html));

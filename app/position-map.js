@@ -83,9 +83,15 @@
     const drawer = $('#drawer-node');
     drawer.querySelector('h3').textContent = cell.name;
     drawer.querySelector('.m-head .text-sm').textContent = `${sequence.name} · ${levels[row]}级 · ${sequence.channels[column].name}`;
-    const link = drawer.querySelector('a.action-item');
+    const link = $('#pm-node-plan') || drawer.querySelector('a.action-item');
+    const aiLink = $('#pm-node-ai-plan');
     link.hidden = !cell.id;
-    if (cell.id) link.href = 'learning-plan.html?position=' + encodeURIComponent(cell.id);
+    if (aiLink) aiLink.hidden = !cell.id;
+    if (cell.id) {
+      const encoded = encodeURIComponent(cell.id);
+      link.href = 'learning-plan.html?position=' + encoded + '&from=map';
+      if (aiLink) aiLink.href = 'learning-plan.html?position=' + encoded + '&from=map&ai=1';
+    }
     openOverlay('drawer-node');
   }
 

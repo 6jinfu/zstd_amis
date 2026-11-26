@@ -15,7 +15,7 @@
   const menus={
     standard:[['org-structure','org-structure.html','组织结构'],['key-position','key-position.html','关键岗位分析'],['standards','standards.html','人才标准'],['vocabulary','vocabulary.html','指标库']],
     assess:[['assess-projects','assess-projects.html','评鉴工具'],['review-projects','review-projects.html','人才盘点']],
-    develop:[['position-map','position-map.html','岗位地图']],
+    develop:[['position-map','position-map.html','岗位地图'],['learning-plan','learning-plan.html','学习方案']],
     talent:[['talent-list','talent-list.html','人才库'],['talent-pool','talent-pool.html','人才池'],['talent-dashboard','talent-dashboard.html','人才看板']],
     settings:[['level','#level','职级管理'],['templates','#templates','人才标准模板'],['ability-dimensions','#ability-dimensions','能力指标维度自定义'],['learner','#learner','功能设置']]
   };
